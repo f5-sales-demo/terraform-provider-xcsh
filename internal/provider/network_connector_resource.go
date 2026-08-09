@@ -759,6 +759,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 					if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 						var HashAlgorithmsItems []string
 						diags := data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							EnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 						}
@@ -856,6 +857,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 		if !data.EnableForwardProxy.WhiteListedPorts.IsNull() && !data.EnableForwardProxy.WhiteListedPorts.IsUnknown() {
 			var WhiteListedPortsItems []int64
 			diags := data.EnableForwardProxy.WhiteListedPorts.ElementsAs(ctx, &WhiteListedPortsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				EnableForwardProxyMap["white_listed_ports"] = WhiteListedPortsItems
 			}
@@ -863,6 +865,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 		if !data.EnableForwardProxy.WhiteListedPrefixes.IsNull() && !data.EnableForwardProxy.WhiteListedPrefixes.IsUnknown() {
 			var WhiteListedPrefixesItems []string
 			diags := data.EnableForwardProxy.WhiteListedPrefixes.ElementsAs(ctx, &WhiteListedPrefixesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				EnableForwardProxyMap["white_listed_prefixes"] = WhiteListedPrefixesItems
 			}
@@ -999,7 +1002,8 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -1216,7 +1220,8 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -1229,7 +1234,8 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1501,7 +1507,8 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -1718,7 +1725,8 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -1731,7 +1739,8 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1923,6 +1932,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 					if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 						var HashAlgorithmsItems []string
 						diags := data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							EnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 						}
@@ -2020,6 +2030,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 		if !data.EnableForwardProxy.WhiteListedPorts.IsNull() && !data.EnableForwardProxy.WhiteListedPorts.IsUnknown() {
 			var WhiteListedPortsItems []int64
 			diags := data.EnableForwardProxy.WhiteListedPorts.ElementsAs(ctx, &WhiteListedPortsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				EnableForwardProxyMap["white_listed_ports"] = WhiteListedPortsItems
 			}
@@ -2027,6 +2038,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 		if !data.EnableForwardProxy.WhiteListedPrefixes.IsNull() && !data.EnableForwardProxy.WhiteListedPrefixes.IsUnknown() {
 			var WhiteListedPrefixesItems []string
 			diags := data.EnableForwardProxy.WhiteListedPrefixes.ElementsAs(ctx, &WhiteListedPrefixesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				EnableForwardProxyMap["white_listed_prefixes"] = WhiteListedPrefixesItems
 			}
@@ -2183,7 +2195,8 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -2400,7 +2413,8 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -2413,7 +2427,8 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

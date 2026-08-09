@@ -283,6 +283,7 @@ func (r *VirtualSiteResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.SiteSelector.Expressions.IsNull() && !data.SiteSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.SiteSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				SiteSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -324,7 +325,8 @@ func (r *VirtualSiteResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -467,7 +469,8 @@ func (r *VirtualSiteResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -563,6 +566,7 @@ func (r *VirtualSiteResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.SiteSelector.Expressions.IsNull() && !data.SiteSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.SiteSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				SiteSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -624,7 +628,8 @@ func (r *VirtualSiteResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

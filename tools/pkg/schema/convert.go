@@ -147,6 +147,75 @@ func ResolveRef(ref string, spec *openapi.Spec) openapi.Schema {
 	return openapi.Schema{Type: "string"}
 }
 
+// hasMapRules returns true if the schema has any ves.io.schema.rules.map.* validation rules
+func hasMapRules(schema openapi.Schema) bool {
+	for k := range schema.XVesValidationRules {
+		if strings.HasPrefix(k, "ves.io.schema.rules.map.") {
+			return true
+		}
+	}
+	for k := range schema.XValidationRules {
+		if strings.HasPrefix(k, "ves.io.schema.rules.map.") {
+			return true
+		}
+	}
+	return false
+}
+
+// ResolveRefStrict resolves a ref string strictly. It returns false as the second value if the ref is unresolved.
+func ResolveRefStrict(ref string, spec *openapi.Spec) (openapi.Schema, bool) {
+	parts := strings.Split(ref, "/")
+	schemaName := parts[len(parts)-1]
+
+	if schema, ok := spec.Components.Schemas[schemaName]; ok {
+		return schema, true
+	}
+	if schema, ok := SchemaCache[schemaName]; ok {
+		return schema, true
+	}
+	return openapi.Schema{}, false
+}
+
+// isStrictStringMap checks if a schema property strictly represents a string-valued map.
+func isStrictStringMap(schema openapi.Schema, spec *openapi.Spec, fieldPath string) bool {
+	if schema.Type != "" && schema.Type != "object" {
+		return false
+	}
+
+	if schema.AdditionalProperties == nil {
+		return false
+	}
+
+	apMap, ok := schema.AdditionalProperties.(map[string]interface{})
+	if !ok {
+		return false
+	}
+
+	if len(apMap) == 0 {
+		return false
+	}
+
+	if t, ok := apMap["type"].(string); ok {
+		if t == "string" {
+			return true
+		}
+		panic(fmt.Sprintf("unsupported map element type %q for attribute %s, only string maps are supported", t, fieldPath))
+	}
+
+	if ref, ok := apMap["$ref"].(string); ok {
+		resolved, resolvedOk := ResolveRefStrict(ref, spec)
+		if !resolvedOk {
+			return false
+		}
+		if resolved.Type == "string" {
+			return true
+		}
+		panic(fmt.Sprintf("unsupported map element type %q (resolved from %s) for attribute %s, only string maps are supported", resolved.Type, ref, fieldPath))
+	}
+
+	return false
+}
+
 // ConvertToTerraformAttribute converts an OpenAPI schema property to a TerraformAttribute.
 // This is the top-level entry point that delegates to ConvertToTerraformAttributeWithDepth.
 func ConvertToTerraformAttribute(name string, schema openapi.Schema, required bool, oneOfGroup string, spec *openapi.Spec) openapi.TerraformAttribute {
@@ -441,10 +510,11 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 			if depth < MaxNestedDepth {
 				attr.NestedAttributes = ExtractNestedAttributes(schema, spec, depth+1, fieldPath)
 			}
-		} else if schema.AdditionalProperties != nil {
+		} else if isStrictStringMap(schema, spec, fieldPath) {
 			attr.Type = "map"
 			attr.ElementType = "string"
 			attr.GoType = "map[string]string"
+			attr.IsBlock = false
 		} else {
 			attr.Type = "object"
 			attr.IsBlock = true

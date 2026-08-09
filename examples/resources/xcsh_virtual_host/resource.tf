@@ -17,6 +17,9 @@ resource "xcsh_virtual_host" "example" {
   name      = "example-virtual-host"
   namespace = "staging"
 
+  custom_errors = {
+    example = "value"
+  }
   domains                     = ["example-value"]
   request_cookies_to_remove   = ["example-value"]
   request_headers_to_remove   = ["example-value"]

@@ -376,23 +376,23 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListModelAttrTypes = map[string]at
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesModel represents interfaces block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesModel struct {
 	DescriptionSpec                             types.String                                                                               `tfsdk:"description_spec"`
+	Labels                                      types.Map                                                                                  `tfsdk:"labels"`
 	DcClusterGroupConnectivityInterfaceDisabled *SecuremeshSiteEmptyModel                                                                  `tfsdk:"dc_cluster_group_connectivity_interface_disabled"`
 	DcClusterGroupConnectivityInterfaceEnabled  *SecuremeshSiteEmptyModel                                                                  `tfsdk:"dc_cluster_group_connectivity_interface_enabled"`
 	DedicatedInterface                          *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesDedicatedInterfaceModel           `tfsdk:"dedicated_interface"`
 	DedicatedManagementInterface                *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesDedicatedManagementInterfaceModel `tfsdk:"dedicated_management_interface"`
 	EthernetInterface                           *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceModel            `tfsdk:"ethernet_interface"`
-	Labels                                      *SecuremeshSiteEmptyModel                                                                  `tfsdk:"labels"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesModelAttrTypes = map[string]attr.Type{
 	"description_spec": types.StringType,
+	"labels":           types.MapType{ElemType: types.StringType},
 	"dc_cluster_group_connectivity_interface_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dc_cluster_group_connectivity_interface_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dedicated_interface":                              types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesDedicatedInterfaceModelAttrTypes},
 	"dedicated_management_interface":                   types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesDedicatedManagementInterfaceModelAttrTypes},
 	"ethernet_interface":                               types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceModelAttrTypes},
-	"labels":                                           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesDedicatedInterfaceModel represents dedicated_interface block
@@ -487,19 +487,19 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceMod
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel represents dhcp_server block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel struct {
+	FixedIPMap         types.Map                                                                                               `tfsdk:"fixed_ip_map"`
 	AutomaticFromEnd   *SecuremeshSiteEmptyModel                                                                               `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteEmptyModel                                                                               `tfsdk:"automatic_from_start"`
 	DHCPNetworks       types.List                                                                                              `tfsdk:"dhcp_networks"`
-	FixedIPMap         *SecuremeshSiteEmptyModel                                                                               `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModelAttrTypes = map[string]attr.Type{
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
 	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes}},
-	"fixed_ip_map":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModelAttrTypes},
 }
 
@@ -541,12 +541,12 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHC
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel represents interface_ip_map block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel struct {
-	InterfaceIPMap *SecuremeshSiteEmptyModel `tfsdk:"interface_ip_map"`
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigModel represents ipv6_auto_config block
@@ -613,19 +613,19 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel represents stateful block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel struct {
+	FixedIPMap         types.Map                                                                                                                 `tfsdk:"fixed_ip_map"`
 	AutomaticFromEnd   *SecuremeshSiteEmptyModel                                                                                                 `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *SecuremeshSiteEmptyModel                                                                                                 `tfsdk:"automatic_from_start"`
 	DHCPNetworks       types.List                                                                                                                `tfsdk:"dhcp_networks"`
-	FixedIPMap         *SecuremeshSiteEmptyModel                                                                                                 `tfsdk:"fixed_ip_map"`
 	InterfaceIPMap     *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel `tfsdk:"interface_ip_map"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulModelAttrTypes = map[string]attr.Type{
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
 	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes}},
-	"fixed_ip_map":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModelAttrTypes},
 }
 
@@ -657,12 +657,12 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel represents interface_ip_map block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel struct {
-	InterfaceIPMap *SecuremeshSiteEmptyModel `tfsdk:"interface_ip_map"`
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPModel represents static_ip block
@@ -679,12 +679,12 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceSta
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel represents cluster_static_ip block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel struct {
-	InterfaceIPMap *SecuremeshSiteEmptyModel `tfsdk:"interface_ip_map"`
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
@@ -713,12 +713,12 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceSta
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel represents cluster_static_ip block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel struct {
-	InterfaceIPMap *SecuremeshSiteEmptyModel `tfsdk:"interface_ip_map"`
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
@@ -735,10 +735,10 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceSta
 
 // SecuremeshSiteCustomNetworkConfigSLIConfigModel represents sli_config block
 type SecuremeshSiteCustomNetworkConfigSLIConfigModel struct {
+	Labels           types.Map                                                      `tfsdk:"labels"`
 	Nameserver       types.String                                                   `tfsdk:"nameserver"`
 	VIP              types.String                                                   `tfsdk:"vip"`
 	DcClusterGroup   *SecuremeshSiteCustomNetworkConfigSLIConfigDcClusterGroupModel `tfsdk:"dc_cluster_group"`
-	Labels           *SecuremeshSiteEmptyModel                                      `tfsdk:"labels"`
 	NoDcClusterGroup *SecuremeshSiteEmptyModel                                      `tfsdk:"no_dc_cluster_group"`
 	NoStaticRoutes   *SecuremeshSiteEmptyModel                                      `tfsdk:"no_static_routes"`
 	NoV6StaticRoutes *SecuremeshSiteEmptyModel                                      `tfsdk:"no_v6_static_routes"`
@@ -748,10 +748,10 @@ type SecuremeshSiteCustomNetworkConfigSLIConfigModel struct {
 
 // SecuremeshSiteCustomNetworkConfigSLIConfigModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigSLIConfigModel
 var SecuremeshSiteCustomNetworkConfigSLIConfigModelAttrTypes = map[string]attr.Type{
+	"labels":              types.MapType{ElemType: types.StringType},
 	"nameserver":          types.StringType,
 	"vip":                 types.StringType,
 	"dc_cluster_group":    types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSLIConfigDcClusterGroupModelAttrTypes},
-	"labels":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_dc_cluster_group": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_static_routes":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_v6_static_routes": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -911,10 +911,10 @@ var SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInte
 
 // SecuremeshSiteCustomNetworkConfigSloConfigModel represents slo_config block
 type SecuremeshSiteCustomNetworkConfigSloConfigModel struct {
+	Labels           types.Map                                                      `tfsdk:"labels"`
 	Nameserver       types.String                                                   `tfsdk:"nameserver"`
 	VIP              types.String                                                   `tfsdk:"vip"`
 	DcClusterGroup   *SecuremeshSiteCustomNetworkConfigSloConfigDcClusterGroupModel `tfsdk:"dc_cluster_group"`
-	Labels           *SecuremeshSiteEmptyModel                                      `tfsdk:"labels"`
 	NoDcClusterGroup *SecuremeshSiteEmptyModel                                      `tfsdk:"no_dc_cluster_group"`
 	NoStaticRoutes   *SecuremeshSiteEmptyModel                                      `tfsdk:"no_static_routes"`
 	NoV6StaticRoutes *SecuremeshSiteEmptyModel                                      `tfsdk:"no_v6_static_routes"`
@@ -924,10 +924,10 @@ type SecuremeshSiteCustomNetworkConfigSloConfigModel struct {
 
 // SecuremeshSiteCustomNetworkConfigSloConfigModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigSloConfigModel
 var SecuremeshSiteCustomNetworkConfigSloConfigModelAttrTypes = map[string]attr.Type{
+	"labels":              types.MapType{ElemType: types.StringType},
 	"nameserver":          types.StringType,
 	"vip":                 types.StringType,
 	"dc_cluster_group":    types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSloConfigDcClusterGroupModelAttrTypes},
-	"labels":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_dc_cluster_group": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_static_routes":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_v6_static_routes": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1677,6 +1677,11 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												stringvalidator.LengthAtMost(256),
 											},
 										},
+										"labels": schema.MapAttribute{
+											MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
+											Optional:            true,
+											ElementType:         types.StringType,
+										},
 									},
 									Blocks: map[string]schema.Block{
 										"dc_cluster_group_connectivity_interface_disabled": schema.SingleNestedBlock{
@@ -1814,7 +1819,13 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												},
 												"dhcp_server": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for dhcp server.",
-													Attributes:          map[string]schema.Attribute{},
+													Attributes: map[string]schema.Attribute{
+														"fixed_ip_map": schema.MapAttribute{
+															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+															Optional:            true,
+															ElementType:         types.StringType,
+														},
+													},
 													Blocks: map[string]schema.Block{
 														"automatic_from_end": schema.SingleNestedBlock{
 															MarkdownDescription: "Configuration parameter for automatic from end.",
@@ -1890,15 +1901,13 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																},
 															},
 														},
-														"fixed_ip_map": schema.SingleNestedBlock{
-															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
-														},
 														"interface_ip_map": schema.SingleNestedBlock{
 															MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
-															Attributes:          map[string]schema.Attribute{},
-															Blocks: map[string]schema.Block{
-																"interface_ip_map": schema.SingleNestedBlock{
+															Attributes: map[string]schema.Attribute{
+																"interface_ip_map": schema.MapAttribute{
 																	MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																	Optional:            true,
+																	ElementType:         types.StringType,
 																},
 															},
 														},
@@ -1965,7 +1974,13 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																},
 																"stateful": schema.SingleNestedBlock{
 																	MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																	Attributes:          map[string]schema.Attribute{},
+																	Attributes: map[string]schema.Attribute{
+																		"fixed_ip_map": schema.MapAttribute{
+																			MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
+																			Optional:            true,
+																			ElementType:         types.StringType,
+																		},
+																	},
 																	Blocks: map[string]schema.Block{
 																		"automatic_from_end": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for automatic from end.",
@@ -2016,15 +2031,13 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																				},
 																			},
 																		},
-																		"fixed_ip_map": schema.SingleNestedBlock{
-																			MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
-																		},
 																		"interface_ip_map": schema.SingleNestedBlock{
 																			MarkdownDescription: "Map of Interface IPv6 assignments per node.",
-																			Attributes:          map[string]schema.Attribute{},
-																			Blocks: map[string]schema.Block{
-																				"interface_ip_map": schema.SingleNestedBlock{
+																			Attributes: map[string]schema.Attribute{
+																				"interface_ip_map": schema.MapAttribute{
 																					MarkdownDescription: "Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.",
+																					Optional:            true,
+																					ElementType:         types.StringType,
 																				},
 																			},
 																		},
@@ -2061,10 +2074,11 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for cluster.",
-															Attributes:          map[string]schema.Attribute{},
-															Blocks: map[string]schema.Block{
-																"interface_ip_map": schema.SingleNestedBlock{
+															Attributes: map[string]schema.Attribute{
+																"interface_ip_map": schema.MapAttribute{
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
+																	Optional:            true,
+																	ElementType:         types.StringType,
 																},
 															},
 														},
@@ -2097,10 +2111,11 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for cluster.",
-															Attributes:          map[string]schema.Attribute{},
-															Blocks: map[string]schema.Block{
-																"interface_ip_map": schema.SingleNestedBlock{
+															Attributes: map[string]schema.Attribute{
+																"interface_ip_map": schema.MapAttribute{
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
+																	Optional:            true,
+																	ElementType:         types.StringType,
 																},
 															},
 														},
@@ -2135,9 +2150,6 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												},
 											},
 										},
-										"labels": schema.SingleNestedBlock{
-											MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
-										},
 									},
 								},
 							},
@@ -2155,6 +2167,11 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 					"sli_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Site Local Network Configuration. Site local network configuration.",
 						Attributes: map[string]schema.Attribute{
+							"labels": schema.MapAttribute{
+								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
+								Optional:            true,
+								ElementType:         types.StringType,
+							},
 							"nameserver": schema.StringAttribute{
 								MarkdownDescription: "Optional DNS V4 server IP to be used for name resolution.",
 								Optional:            true,
@@ -2202,9 +2219,6 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 										},
 									},
 								},
-							},
-							"labels": schema.SingleNestedBlock{
-								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
 							},
 							"no_dc_cluster_group": schema.SingleNestedBlock{
 								MarkdownDescription: "Enable this option",
@@ -2412,6 +2426,11 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 					"slo_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Site Local Network Configuration. Site local network configuration.",
 						Attributes: map[string]schema.Attribute{
+							"labels": schema.MapAttribute{
+								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
+								Optional:            true,
+								ElementType:         types.StringType,
+							},
 							"nameserver": schema.StringAttribute{
 								MarkdownDescription: "Optional DNS V4 server IP to be used for name resolution.",
 								Optional:            true,
@@ -2459,9 +2478,6 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 										},
 									},
 								},
-							},
-							"labels": schema.SingleNestedBlock{
-								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
 							},
 							"no_dc_cluster_group": schema.SingleNestedBlock{
 								MarkdownDescription: "Enable this option",
@@ -3052,6 +3068,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
 						var DevicesItems []string
 						diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							BondDevicesItemMap["devices"] = DevicesItems
 						}
@@ -3370,13 +3387,23 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 									}
 								}
-								if InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap != nil {
-									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["fixed_ip_map"] = map[string]interface{}{}
+								if !InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
+									var FixedIPMapMap map[string]string
+									diags := InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+									resp.Diagnostics.Append(diags...)
+									if !diags.HasError() {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+									}
 								}
 								if InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapMap := make(map[string]interface{})
-									if InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap != nil {
-										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+									if !InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+										var InterfaceIPMapMap map[string]string
+										diags := InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+										}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["interface_ip_map"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapMap
 								}
@@ -3396,6 +3423,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 											if !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
 												var DNSListItems []string
 												diags := InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListMap["dns_list"] = DNSListItems
 												}
@@ -3466,13 +3494,23 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulMap["dhcp_networks"] = DHCPNetworksList
 											}
 										}
-										if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulMap["fixed_ip_map"] = map[string]interface{}{}
+										if !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsNull() && !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulMap["fixed_ip_map"] = FixedIPMapMap
+											}
 										}
 										if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap := make(map[string]interface{})
-											if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+											if !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
 											}
 											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulMap["interface_ip_map"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap
 										}
@@ -3516,8 +3554,13 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 								CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPMap := make(map[string]interface{})
 								if InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-									if InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+									if !InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+										var InterfaceIPMapMap map[string]string
+										diags := InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+										}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap
 								}
@@ -3537,8 +3580,13 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 								CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 								if InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
-									if InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+									if !InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+										var InterfaceIPMapMap map[string]string
+										diags := InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+										}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap
 								}
@@ -3565,8 +3613,13 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							}
 							InterfacesItemMap["ethernet_interface"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceMap
 						}
-						if InterfacesItem.Labels != nil {
-							InterfacesItemMap["labels"] = map[string]interface{}{}
+						if !InterfacesItem.Labels.IsNull() && !InterfacesItem.Labels.IsUnknown() {
+							var LabelsMap map[string]string
+							diags := InterfacesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+							resp.Diagnostics.Append(diags...)
+							if !diags.HasError() {
+								InterfacesItemMap["labels"] = LabelsMap
+							}
 						}
 						InterfacesList = append(InterfacesList, InterfacesItemMap)
 					}
@@ -3599,8 +3652,13 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				}
 				CustomNetworkConfigSLIConfigMap["dc_cluster_group"] = CustomNetworkConfigSLIConfigDcClusterGroupMap
 			}
-			if data.CustomNetworkConfig.SLIConfig.Labels != nil {
-				CustomNetworkConfigSLIConfigMap["labels"] = map[string]interface{}{}
+			if !data.CustomNetworkConfig.SLIConfig.Labels.IsNull() && !data.CustomNetworkConfig.SLIConfig.Labels.IsUnknown() {
+				var LabelsMap map[string]string
+				diags := data.CustomNetworkConfig.SLIConfig.Labels.ElementsAs(ctx, &LabelsMap, false)
+				resp.Diagnostics.Append(diags...)
+				if !diags.HasError() {
+					CustomNetworkConfigSLIConfigMap["labels"] = LabelsMap
+				}
 			}
 			if !data.CustomNetworkConfig.SLIConfig.Nameserver.IsNull() && !data.CustomNetworkConfig.SLIConfig.Nameserver.IsUnknown() {
 				CustomNetworkConfigSLIConfigMap["nameserver"] = data.CustomNetworkConfig.SLIConfig.Nameserver.ValueString()
@@ -3627,6 +3685,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["attrs"] = AttrsItems
 								}
@@ -3640,6 +3699,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -3712,6 +3772,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["attrs"] = AttrsItems
 								}
@@ -3725,6 +3786,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -3804,8 +3866,13 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				}
 				CustomNetworkConfigSloConfigMap["dc_cluster_group"] = CustomNetworkConfigSloConfigDcClusterGroupMap
 			}
-			if data.CustomNetworkConfig.SloConfig.Labels != nil {
-				CustomNetworkConfigSloConfigMap["labels"] = map[string]interface{}{}
+			if !data.CustomNetworkConfig.SloConfig.Labels.IsNull() && !data.CustomNetworkConfig.SloConfig.Labels.IsUnknown() {
+				var LabelsMap map[string]string
+				diags := data.CustomNetworkConfig.SloConfig.Labels.ElementsAs(ctx, &LabelsMap, false)
+				resp.Diagnostics.Append(diags...)
+				if !diags.HasError() {
+					CustomNetworkConfigSloConfigMap["labels"] = LabelsMap
+				}
 			}
 			if !data.CustomNetworkConfig.SloConfig.Nameserver.IsNull() && !data.CustomNetworkConfig.SloConfig.Nameserver.IsUnknown() {
 				CustomNetworkConfigSloConfigMap["nameserver"] = data.CustomNetworkConfig.SloConfig.Nameserver.ValueString()
@@ -3832,6 +3899,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["attrs"] = AttrsItems
 								}
@@ -3845,6 +3913,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -3917,6 +3986,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["attrs"] = AttrsItems
 								}
@@ -3930,6 +4000,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -4089,6 +4160,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	if !data.WorkerNodes.IsNull() && !data.WorkerNodes.IsUnknown() {
 		var WorkerNodesItems []string
 		diags := data.WorkerNodes.ElementsAs(ctx, &WorkerNodesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["worker_nodes"] = WorkerNodesItems
 		}
@@ -4310,7 +4382,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4974,14 +5047,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
-																	FixedIPMap: func() *SecuremeshSiteEmptyModel {
-																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																	FixedIPMap: func() types.Map {
+																		if v, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
+																			items := make(map[string]string)
+																			for mk, mv := range v {
+																				if mvs, ok := mv.(string); ok {
+																					items[mk] = mvs
+																				} else {
+																					resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field fixed_ip_map, got %T", mk, mv))
+																				}
+																			}
+																			mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
+																			return mapVal
+																		}
+																		if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
 																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap
 																		}
-																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
-																			return &SecuremeshSiteEmptyModel{}
-																		}
-																		return nil
+																		return types.MapNull(types.StringType)
 																	}(),
 																	InterfaceIPMap: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel {
 																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
@@ -4989,14 +5072,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
 																					}
-																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -5047,7 +5140,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -5192,14 +5286,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																								}
 																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
-																							FixedIPMap: func() *SecuremeshSiteEmptyModel {
-																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																							FixedIPMap: func() types.Map {
+																								if v, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
+																									items := make(map[string]string)
+																									for mk, mv := range v {
+																										if mvs, ok := mv.(string); ok {
+																											items[mk] = mvs
+																										} else {
+																											resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field fixed_ip_map, got %T", mk, mv))
+																										}
+																									}
+																									mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																									resp.Diagnostics.Append(diags...)
+																									return mapVal
+																								}
+																								if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsUnknown() {
 																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																								}
-																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
-																									return &SecuremeshSiteEmptyModel{}
-																								}
-																								return nil
+																								return types.MapNull(types.StringType)
 																							}(),
 																							InterfaceIPMap: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
@@ -5207,14 +5311,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																										InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																										InterfaceIPMap: func() types.Map {
+																											if v, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																												items := make(map[string]string)
+																												for mk, mv := range v {
+																													if mvs, ok := mv.(string); ok {
+																														items[mk] = mvs
+																													} else {
+																														resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																													}
+																												}
+																												mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
+																												return mapVal
+																											}
+																											if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
 																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																											}
-																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
-																												return &SecuremeshSiteEmptyModel{}
-																											}
-																											return nil
+																											return types.MapNull(types.StringType)
 																										}(),
 																									}
 																								}
@@ -5331,14 +5445,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -5382,14 +5506,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -5452,14 +5586,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 												}
 												return nil
 											}(),
-											Labels: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+											Labels: func() types.Map {
+												if v, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
+													items := make(map[string]string)
+													for mk, mv := range v {
+														if mvs, ok := mv.(string); ok {
+															items[mk] = mvs
+														} else {
+															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+														}
+													}
+													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return mapVal
+												}
+												if len(InterfacesExisting) > InterfacesIdx && !InterfacesExisting[InterfacesIdx].Labels.IsNull() && !InterfacesExisting[InterfacesIdx].Labels.IsUnknown() {
 													return InterfacesExisting[InterfacesIdx].Labels
 												}
-												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
-													return &SecuremeshSiteEmptyModel{}
-												}
-												return nil
+												return types.MapNull(types.StringType)
 											}(),
 										})
 									}
@@ -5528,14 +5672,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							}
 							return nil
 						}(),
-						Labels: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+						Labels: func() types.Map {
+							if v, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && !data.CustomNetworkConfig.SLIConfig.Labels.IsNull() && !data.CustomNetworkConfig.SLIConfig.Labels.IsUnknown() {
 								return data.CustomNetworkConfig.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						Nameserver: func() types.String {
 							if v, ok := SLIConfigData["nameserver"].(string); ok && v != "" {
@@ -5595,7 +5749,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5623,7 +5778,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5752,7 +5908,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5780,7 +5937,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5922,14 +6080,24 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							}
 							return nil
 						}(),
-						Labels: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+						Labels: func() types.Map {
+							if v, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && !data.CustomNetworkConfig.SloConfig.Labels.IsNull() && !data.CustomNetworkConfig.SloConfig.Labels.IsUnknown() {
 								return data.CustomNetworkConfig.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						Nameserver: func() types.String {
 							if v, ok := SloConfigData["nameserver"].(string); ok && v != "" {
@@ -5989,7 +6157,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6017,7 +6186,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6146,7 +6316,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6174,7 +6345,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6809,7 +6981,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7473,14 +7646,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
-																	FixedIPMap: func() *SecuremeshSiteEmptyModel {
-																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																	FixedIPMap: func() types.Map {
+																		if v, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
+																			items := make(map[string]string)
+																			for mk, mv := range v {
+																				if mvs, ok := mv.(string); ok {
+																					items[mk] = mvs
+																				} else {
+																					resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field fixed_ip_map, got %T", mk, mv))
+																				}
+																			}
+																			mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
+																			return mapVal
+																		}
+																		if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
 																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap
 																		}
-																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
-																			return &SecuremeshSiteEmptyModel{}
-																		}
-																		return nil
+																		return types.MapNull(types.StringType)
 																	}(),
 																	InterfaceIPMap: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel {
 																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
@@ -7488,14 +7671,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
 																					}
-																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -7546,7 +7739,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -7691,14 +7885,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																								}
 																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
-																							FixedIPMap: func() *SecuremeshSiteEmptyModel {
-																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																							FixedIPMap: func() types.Map {
+																								if v, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
+																									items := make(map[string]string)
+																									for mk, mv := range v {
+																										if mvs, ok := mv.(string); ok {
+																											items[mk] = mvs
+																										} else {
+																											resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field fixed_ip_map, got %T", mk, mv))
+																										}
+																									}
+																									mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																									resp.Diagnostics.Append(diags...)
+																									return mapVal
+																								}
+																								if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsUnknown() {
 																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																								}
-																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
-																									return &SecuremeshSiteEmptyModel{}
-																								}
-																								return nil
+																								return types.MapNull(types.StringType)
 																							}(),
 																							InterfaceIPMap: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
@@ -7706,14 +7910,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																										InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																										InterfaceIPMap: func() types.Map {
+																											if v, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																												items := make(map[string]string)
+																												for mk, mv := range v {
+																													if mvs, ok := mv.(string); ok {
+																														items[mk] = mvs
+																													} else {
+																														resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																													}
+																												}
+																												mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
+																												return mapVal
+																											}
+																											if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
 																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																											}
-																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
-																												return &SecuremeshSiteEmptyModel{}
-																											}
-																											return nil
+																											return types.MapNull(types.StringType)
 																										}(),
 																									}
 																								}
@@ -7830,14 +8044,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -7881,14 +8105,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -7951,14 +8185,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 												}
 												return nil
 											}(),
-											Labels: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+											Labels: func() types.Map {
+												if v, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
+													items := make(map[string]string)
+													for mk, mv := range v {
+														if mvs, ok := mv.(string); ok {
+															items[mk] = mvs
+														} else {
+															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+														}
+													}
+													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return mapVal
+												}
+												if len(InterfacesExisting) > InterfacesIdx && !InterfacesExisting[InterfacesIdx].Labels.IsNull() && !InterfacesExisting[InterfacesIdx].Labels.IsUnknown() {
 													return InterfacesExisting[InterfacesIdx].Labels
 												}
-												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
-													return &SecuremeshSiteEmptyModel{}
-												}
-												return nil
+												return types.MapNull(types.StringType)
 											}(),
 										})
 									}
@@ -8027,14 +8271,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							return nil
 						}(),
-						Labels: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+						Labels: func() types.Map {
+							if v, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && !data.CustomNetworkConfig.SLIConfig.Labels.IsNull() && !data.CustomNetworkConfig.SLIConfig.Labels.IsUnknown() {
 								return data.CustomNetworkConfig.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						Nameserver: func() types.String {
 							if v, ok := SLIConfigData["nameserver"].(string); ok && v != "" {
@@ -8094,7 +8348,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8122,7 +8377,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8251,7 +8507,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8279,7 +8536,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8421,14 +8679,24 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							return nil
 						}(),
-						Labels: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+						Labels: func() types.Map {
+							if v, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && !data.CustomNetworkConfig.SloConfig.Labels.IsNull() && !data.CustomNetworkConfig.SloConfig.Labels.IsUnknown() {
 								return data.CustomNetworkConfig.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						Nameserver: func() types.String {
 							if v, ok := SloConfigData["nameserver"].(string); ok && v != "" {
@@ -8488,7 +8756,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8516,7 +8785,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8645,7 +8915,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8673,7 +8944,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -9202,6 +9474,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
 						var DevicesItems []string
 						diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							BondDevicesItemMap["devices"] = DevicesItems
 						}
@@ -9520,13 +9793,23 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 									}
 								}
-								if InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap != nil {
-									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["fixed_ip_map"] = map[string]interface{}{}
+								if !InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
+									var FixedIPMapMap map[string]string
+									diags := InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+									resp.Diagnostics.Append(diags...)
+									if !diags.HasError() {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+									}
 								}
 								if InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapMap := make(map[string]interface{})
-									if InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap != nil {
-										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+									if !InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+										var InterfaceIPMapMap map[string]string
+										diags := InterfacesItem.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+										}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["interface_ip_map"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapMap
 								}
@@ -9546,6 +9829,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 											if !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
 												var DNSListItems []string
 												diags := InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListMap["dns_list"] = DNSListItems
 												}
@@ -9616,13 +9900,23 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulMap["dhcp_networks"] = DHCPNetworksList
 											}
 										}
-										if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulMap["fixed_ip_map"] = map[string]interface{}{}
+										if !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsNull() && !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulMap["fixed_ip_map"] = FixedIPMapMap
+											}
 										}
 										if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap := make(map[string]interface{})
-											if InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+											if !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfacesItem.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
 											}
 											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulMap["interface_ip_map"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap
 										}
@@ -9666,8 +9960,13 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 								CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPMap := make(map[string]interface{})
 								if InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-									if InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+									if !InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+										var InterfaceIPMapMap map[string]string
+										diags := InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+										}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap
 								}
@@ -9687,8 +9986,13 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 								CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 								if InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
-									if InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+									if !InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+										var InterfaceIPMapMap map[string]string
+										diags := InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+										}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap
 								}
@@ -9715,8 +10019,13 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							}
 							InterfacesItemMap["ethernet_interface"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceMap
 						}
-						if InterfacesItem.Labels != nil {
-							InterfacesItemMap["labels"] = map[string]interface{}{}
+						if !InterfacesItem.Labels.IsNull() && !InterfacesItem.Labels.IsUnknown() {
+							var LabelsMap map[string]string
+							diags := InterfacesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+							resp.Diagnostics.Append(diags...)
+							if !diags.HasError() {
+								InterfacesItemMap["labels"] = LabelsMap
+							}
 						}
 						InterfacesList = append(InterfacesList, InterfacesItemMap)
 					}
@@ -9749,8 +10058,13 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				}
 				CustomNetworkConfigSLIConfigMap["dc_cluster_group"] = CustomNetworkConfigSLIConfigDcClusterGroupMap
 			}
-			if data.CustomNetworkConfig.SLIConfig.Labels != nil {
-				CustomNetworkConfigSLIConfigMap["labels"] = map[string]interface{}{}
+			if !data.CustomNetworkConfig.SLIConfig.Labels.IsNull() && !data.CustomNetworkConfig.SLIConfig.Labels.IsUnknown() {
+				var LabelsMap map[string]string
+				diags := data.CustomNetworkConfig.SLIConfig.Labels.ElementsAs(ctx, &LabelsMap, false)
+				resp.Diagnostics.Append(diags...)
+				if !diags.HasError() {
+					CustomNetworkConfigSLIConfigMap["labels"] = LabelsMap
+				}
 			}
 			if !data.CustomNetworkConfig.SLIConfig.Nameserver.IsNull() && !data.CustomNetworkConfig.SLIConfig.Nameserver.IsUnknown() {
 				CustomNetworkConfigSLIConfigMap["nameserver"] = data.CustomNetworkConfig.SLIConfig.Nameserver.ValueString()
@@ -9777,6 +10091,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["attrs"] = AttrsItems
 								}
@@ -9790,6 +10105,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -9862,6 +10178,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["attrs"] = AttrsItems
 								}
@@ -9875,6 +10192,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -9954,8 +10272,13 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				}
 				CustomNetworkConfigSloConfigMap["dc_cluster_group"] = CustomNetworkConfigSloConfigDcClusterGroupMap
 			}
-			if data.CustomNetworkConfig.SloConfig.Labels != nil {
-				CustomNetworkConfigSloConfigMap["labels"] = map[string]interface{}{}
+			if !data.CustomNetworkConfig.SloConfig.Labels.IsNull() && !data.CustomNetworkConfig.SloConfig.Labels.IsUnknown() {
+				var LabelsMap map[string]string
+				diags := data.CustomNetworkConfig.SloConfig.Labels.ElementsAs(ctx, &LabelsMap, false)
+				resp.Diagnostics.Append(diags...)
+				if !diags.HasError() {
+					CustomNetworkConfigSloConfigMap["labels"] = LabelsMap
+				}
 			}
 			if !data.CustomNetworkConfig.SloConfig.Nameserver.IsNull() && !data.CustomNetworkConfig.SloConfig.Nameserver.IsUnknown() {
 				CustomNetworkConfigSloConfigMap["nameserver"] = data.CustomNetworkConfig.SloConfig.Nameserver.ValueString()
@@ -9982,6 +10305,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["attrs"] = AttrsItems
 								}
@@ -9995,6 +10319,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -10067,6 +10392,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["attrs"] = AttrsItems
 								}
@@ -10080,6 +10406,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -10239,6 +10566,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	if !data.WorkerNodes.IsNull() && !data.WorkerNodes.IsUnknown() {
 		var WorkerNodesItems []string
 		diags := data.WorkerNodes.ElementsAs(ctx, &WorkerNodesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["worker_nodes"] = WorkerNodesItems
 		}
@@ -10480,7 +10808,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -11144,14 +11473,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 																	}(),
-																	FixedIPMap: func() *SecuremeshSiteEmptyModel {
-																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																	FixedIPMap: func() types.Map {
+																		if v, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
+																			items := make(map[string]string)
+																			for mk, mv := range v {
+																				if mvs, ok := mv.(string); ok {
+																					items[mk] = mvs
+																				} else {
+																					resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field fixed_ip_map, got %T", mk, mv))
+																				}
+																			}
+																			mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
+																			return mapVal
+																		}
+																		if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
 																			return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.FixedIPMap
 																		}
-																		if _, ok := DHCPServerData["fixed_ip_map"].(map[string]interface{}); ok {
-																			return &SecuremeshSiteEmptyModel{}
-																		}
-																		return nil
+																		return types.MapNull(types.StringType)
 																	}(),
 																	InterfaceIPMap: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel {
 																		if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
@@ -11159,14 +11498,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		}
 																		if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerInterfaceIPMapModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
 																					}
-																					if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -11217,7 +11566,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -11362,14 +11712,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																								}
 																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																							}(),
-																							FixedIPMap: func() *SecuremeshSiteEmptyModel {
-																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
+																							FixedIPMap: func() types.Map {
+																								if v, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
+																									items := make(map[string]string)
+																									for mk, mv := range v {
+																										if mvs, ok := mv.(string); ok {
+																											items[mk] = mvs
+																										} else {
+																											resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field fixed_ip_map, got %T", mk, mv))
+																										}
+																									}
+																									mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																									resp.Diagnostics.Append(diags...)
+																									return mapVal
+																								}
+																								if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap.IsUnknown() {
 																									return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																								}
-																								if _, ok := StatefulData["fixed_ip_map"].(map[string]interface{}); ok {
-																									return &SecuremeshSiteEmptyModel{}
-																								}
-																								return nil
+																								return types.MapNull(types.StringType)
 																							}(),
 																							InterfaceIPMap: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																								if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
@@ -11377,14 +11737,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																								}
 																								if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																									return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																										InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																											if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
+																										InterfaceIPMap: func() types.Map {
+																											if v, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
+																												items := make(map[string]string)
+																												for mk, mv := range v {
+																													if mvs, ok := mv.(string); ok {
+																														items[mk] = mvs
+																													} else {
+																														resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																													}
+																												}
+																												mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
+																												return mapVal
+																											}
+																											if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
 																												return InterfacesExisting[InterfacesIdx].EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																											}
-																											if _, ok := InterfaceIPMapData["interface_ip_map"].(map[string]interface{}); ok {
-																												return &SecuremeshSiteEmptyModel{}
-																											}
-																											return nil
+																											return types.MapNull(types.StringType)
 																										}(),
 																									}
 																								}
@@ -11501,14 +11871,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -11552,14 +11932,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: func() *SecuremeshSiteEmptyModel {
-																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() types.Map {
+																					if v, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						items := make(map[string]string)
+																						for mk, mv := range v {
+																							if mvs, ok := mv.(string); ok {
+																								items[mk] = mvs
+																							} else {
+																								resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field interface_ip_map, got %T", mk, mv))
+																							}
+																						}
+																						mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return mapVal
+																					}
+																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-																						return &SecuremeshSiteEmptyModel{}
-																					}
-																					return nil
+																					return types.MapNull(types.StringType)
 																				}(),
 																			}
 																		}
@@ -11622,14 +12012,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 												}
 												return nil
 											}(),
-											Labels: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+											Labels: func() types.Map {
+												if v, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
+													items := make(map[string]string)
+													for mk, mv := range v {
+														if mvs, ok := mv.(string); ok {
+															items[mk] = mvs
+														} else {
+															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+														}
+													}
+													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return mapVal
+												}
+												if len(InterfacesExisting) > InterfacesIdx && !InterfacesExisting[InterfacesIdx].Labels.IsNull() && !InterfacesExisting[InterfacesIdx].Labels.IsUnknown() {
 													return InterfacesExisting[InterfacesIdx].Labels
 												}
-												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
-													return &SecuremeshSiteEmptyModel{}
-												}
-												return nil
+												return types.MapNull(types.StringType)
 											}(),
 										})
 									}
@@ -11698,14 +12098,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							}
 							return nil
 						}(),
-						Labels: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil {
+						Labels: func() types.Map {
+							if v, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SLIConfig != nil && !data.CustomNetworkConfig.SLIConfig.Labels.IsNull() && !data.CustomNetworkConfig.SLIConfig.Labels.IsUnknown() {
 								return data.CustomNetworkConfig.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						Nameserver: func() types.String {
 							if v, ok := SLIConfigData["nameserver"].(string); ok && v != "" {
@@ -11765,7 +12175,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -11793,7 +12204,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -11922,7 +12334,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -11950,7 +12363,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12092,14 +12506,24 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							}
 							return nil
 						}(),
-						Labels: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+						Labels: func() types.Map {
+							if v, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil && !data.CustomNetworkConfig.SloConfig.Labels.IsNull() && !data.CustomNetworkConfig.SloConfig.Labels.IsUnknown() {
 								return data.CustomNetworkConfig.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						Nameserver: func() types.String {
 							if v, ok := SloConfigData["nameserver"].(string); ok && v != "" {
@@ -12159,7 +12583,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12187,7 +12612,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12316,7 +12742,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12344,7 +12771,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)

@@ -235,9 +235,9 @@ func TestFormatEnum(t *testing.T) {
 		contains []string // substrings the result must contain
 	}{
 		{
-			name:  "empty enums",
-			desc:  "A description",
-			enums: nil,
+			name:     "empty enums",
+			desc:     "A description",
+			enums:    nil,
 			contains: []string{"A description"},
 		},
 		{

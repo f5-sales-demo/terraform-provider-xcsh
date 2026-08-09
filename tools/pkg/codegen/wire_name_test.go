@@ -140,11 +140,23 @@ func wireProbeRenders(tmpl *openapi.ResourceTemplate) string {
 	sb.WriteString("// ---- struct fields ----\n")
 	sb.WriteString(RenderSpecStructFields(tmpl.Attributes, "\t"))
 	sb.WriteString("// ---- marshal (create) ----\n")
-	sb.WriteString(RenderSpecMarshalCodeForCreate(tmpl.Attributes, "\t", tmpl.TitleCase))
+	mc, err := RenderSpecMarshalCodeForCreate(tmpl.Attributes, "\t", tmpl.TitleCase)
+	if err != nil {
+		panic(err)
+	}
+	sb.WriteString(mc)
 	sb.WriteString("// ---- marshal (update) ----\n")
-	sb.WriteString(RenderSpecMarshalCode(tmpl.Attributes, "\t", tmpl.TitleCase))
+	mu, err := RenderSpecMarshalCode(tmpl.Attributes, "\t", tmpl.TitleCase)
+	if err != nil {
+		panic(err)
+	}
+	sb.WriteString(mu)
 	sb.WriteString("// ---- unmarshal ----\n")
-	sb.WriteString(RenderSpecUnmarshalCode(tmpl.Attributes, "\t", tmpl.TitleCase))
+	un, err := RenderSpecUnmarshalCode(tmpl.Attributes, "\t", tmpl.TitleCase)
+	if err != nil {
+		panic(err)
+	}
+	sb.WriteString(un)
 	sb.WriteString("// ---- computed read-back ----\n")
 	sb.WriteString(RenderCreateComputedFieldsCode(tmpl.Attributes, "\t"))
 	return sb.String()
@@ -160,8 +172,14 @@ func TestWireNameRoundTripsInBothDirections(t *testing.T) {
 	tmpl := wireProbeTemplate(t, true)
 
 	structFields := RenderSpecStructFields(tmpl.Attributes, "\t")
-	marshal := RenderSpecMarshalCodeForCreate(tmpl.Attributes, "\t", tmpl.TitleCase)
-	unmarshal := RenderSpecUnmarshalCode(tmpl.Attributes, "\t", tmpl.TitleCase)
+	marshal, err := RenderSpecMarshalCodeForCreate(tmpl.Attributes, "\t", tmpl.TitleCase)
+	if err != nil {
+		t.Fatalf("unexpected marshal error: %v", err)
+	}
+	unmarshal, err := RenderSpecUnmarshalCode(tmpl.Attributes, "\t", tmpl.TitleCase)
+	if err != nil {
+		t.Fatalf("unexpected unmarshal error: %v", err)
+	}
 	tfSchema := RenderNestedAttributes(tmpl.Attributes, "\t") +
 		RenderNestedBlocks(tmpl.Attributes, "\t") +
 		RenderNestedModelTypes(tmpl.TitleCase, tmpl.Attributes) +

@@ -20,6 +20,9 @@ resource "xcsh_gcp_vpc_site" "example" {
   gcp_region    = "example-value"
   instance_type = "example-value"
   ssh_key       = "example-value"
-  address       = "example-value"
-  disk_size     = 1
+  gcp_labels = {
+    example = "value"
+  }
+  address   = "example-value"
+  disk_size = 1
 }

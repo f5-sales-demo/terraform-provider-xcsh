@@ -33,6 +33,9 @@ resource "xcsh_virtual_host" "example" {
   name      = "example-virtual-host"
   namespace = "staging"
 
+  custom_errors = {
+    example = "value"
+  }
   domains                     = ["example-value"]
   request_cookies_to_remove   = ["example-value"]
   request_headers_to_remove   = ["example-value"]
@@ -106,7 +109,7 @@ Policy](#cors-policy) below for details.
 <a id="csrf-policy"></a>&#x2022; [`csrf_policy`](#csrf-policy) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent<br>See [CSRF
 Policy](#csrf-policy) below for details.
 
-<a id="custom-errors"></a>&#x2022; [`custom_errors`](#custom-errors) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
+<a id="custom-errors"></a>&#x2022; [`custom_errors`](#custom-errors) - Required Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
 
 -> **One of the following:**
 &#x2022; <a id="default-loadbalancer"></a>[`default_loadbalancer`](#default-loadbalancer) - Optional Block<br>Configuration parameter for default loadbalancer

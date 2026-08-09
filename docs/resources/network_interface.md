@@ -64,9 +64,9 @@ resource "xcsh_network_interface" "example" {
 <br><br>&#x2022; <a id="dedicated-management-interface"></a>[`dedicated_management_interface`](#dedicated-management-interface) - Optional Block<br>Configuration parameter for dedicated management interface<br>See [Dedicated Management Interface](#dedicated-management-interface) below for details.
 <br><br>&#x2022; <a id="ethernet-interface"></a>[`ethernet_interface`](#ethernet-interface) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#ethernet-interface) below for details.
 <br><br>&#x2022; <a id="layer2-interface"></a>[`layer2_interface`](#layer2-interface) - Optional Block<br>Configuration parameter for layer2 interface<br>See [Layer2 Interface](#layer2-interface) below for details.
-<br><br>&#x2022; <a id="tunnel-interface"></a>[`tunnel_interface`](#tunnel-interface) - Optional Block<br>Configuration parameter for tunnel interface
+<br><br>&#x2022; <a id="tunnel-interface"></a>[`tunnel_interface`](#tunnel-interface) - Optional Block<br>Configuration parameter for tunnel interface<br>See [Tunnel Interface](#tunnel-interface) below for details.
 
-<a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
+<a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
 ### Attributes Reference
 
@@ -164,7 +164,7 @@ A [`dhcp_server`](#ethernet-interface-dhcp-server) block (within [`ethernet_inte
 
 <a id="networks-684a1f"></a>&#x2022; [`dhcp_networks`](#networks-684a1f) - Optional Block<br>List of networks from which DHCP Server can allocate IPv4 Addresses<br>See [DHCP Networks](#networks-684a1f) below.
 
-<a id="map-a0e2c7"></a>&#x2022; [`fixed_ip_map`](#map-a0e2c7) - Optional Block<br>Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client
+<a id="map-a0e2c7"></a>&#x2022; [`fixed_ip_map`](#map-a0e2c7) - Optional Map<br>Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client
 
 <a id="map-2f2804"></a>&#x2022; [`interface_ip_map`](#map-2f2804) - Optional Block<br>Interface IPv4 Assignments. Specify static IPv4 addresses per node<br>See [Interface IP Map](#map-2f2804) below.
 
@@ -201,7 +201,7 @@ A [`pools`](#pools-09599a) block (within [`ethernet_interface.dhcp_server.dhcp_n
 
 An [`interface_ip_map`](#map-2f2804) block (within [`ethernet_interface.dhcp_server`](#ethernet-interface-dhcp-server)) supports the following:
 
-<a id="map-9bc838"></a>&#x2022; [`interface_ip_map`](#map-9bc838) - Optional Block<br>Specify static IPv4 addresses per site:node
+<a id="map-9bc838"></a>&#x2022; [`interface_ip_map`](#map-9bc838) - Optional Map<br>Specify static IPv4 addresses per site:node
 
 #### Ethernet Interface IPv6 Auto Config
 
@@ -243,7 +243,7 @@ A [`stateful`](#stateful-79d901) block (within [`ethernet_interface.ipv6_auto_co
 
 <a id="networks-d6f901"></a>&#x2022; [`dhcp_networks`](#networks-d6f901) - Optional Block<br>List of networks from which DHCP server can allocate IP addresses<br>See [DHCP Networks](#networks-d6f901) below.
 
-<a id="map-d04c19"></a>&#x2022; [`fixed_ip_map`](#map-d04c19) - Optional Block<br>Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client
+<a id="map-d04c19"></a>&#x2022; [`fixed_ip_map`](#map-d04c19) - Optional Map<br>Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client
 
 <a id="map-f0bf9b"></a>&#x2022; [`interface_ip_map`](#map-f0bf9b) - Optional Block<br>Map of Interface IPv6 assignments per node<br>See [Interface IP Map](#map-f0bf9b) below.
 
@@ -271,7 +271,7 @@ A [`static_ip`](#ethernet-interface-static-ip) block (within [`ethernet_interfac
 
 A [`cluster_static_ip`](#static-ip-066f4c) block (within [`ethernet_interface.static_ip`](#ethernet-interface-static-ip)) supports the following:
 
-<a id="map-d7fd08"></a>&#x2022; [`interface_ip_map`](#map-d7fd08) - Optional Block<br>Map of Node to Static IP configuration value, Key:Node, Value:IP Address
+<a id="map-d7fd08"></a>&#x2022; [`interface_ip_map`](#map-d7fd08) - Optional Map<br>Map of Node to Static IP configuration value, Key:Node, Value:IP Address
 
 #### Ethernet Interface Static IP Node Static IP
 
@@ -373,7 +373,7 @@ A [`static_ip`](#tunnel-interface-static-ip) block (within [`tunnel_interface`](
 
 A [`cluster_static_ip`](#static-ip-b2c112) block (within [`tunnel_interface.static_ip`](#tunnel-interface-static-ip)) supports the following:
 
-<a id="map-024d15"></a>&#x2022; [`interface_ip_map`](#map-024d15) - Optional Block<br>Map of Node to Static IP configuration value, Key:Node, Value:IP Address
+<a id="map-024d15"></a>&#x2022; [`interface_ip_map`](#map-024d15) - Optional Map<br>Map of Node to Static IP configuration value, Key:Node, Value:IP Address
 
 #### Tunnel Interface Static IP Node Static IP
 

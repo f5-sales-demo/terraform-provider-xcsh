@@ -28,14 +28,14 @@ import (
 
 // TestResult represents a single test result
 type TestResult struct {
-	Name           string `json:"name"`
-	Package        string `json:"package"`
-	Category       string `json:"category"`
-	Status         string `json:"status"` // pass, fail, skip
+	Name           string  `json:"name"`
+	Package        string  `json:"package"`
+	Category       string  `json:"category"`
+	Status         string  `json:"status"` // pass, fail, skip
 	Duration       float64 `json:"duration_seconds"`
-	SkipReason     string `json:"skip_reason,omitempty"`
-	TransientError string `json:"transient_error,omitempty"`
-	FailureOutput  string `json:"failure_output,omitempty"`
+	SkipReason     string  `json:"skip_reason,omitempty"`
+	TransientError string  `json:"transient_error,omitempty"`
+	FailureOutput  string  `json:"failure_output,omitempty"`
 }
 
 // Report represents a test report from test-report tool
@@ -82,22 +82,22 @@ type ComparisonResult struct {
 
 // ComparisonReport is the full comparison output
 type ComparisonReport struct {
-	Timestamp          time.Time                          `json:"timestamp"`
-	Summary            ComparisonSummary                  `json:"summary"`
+	Timestamp          time.Time                                 `json:"timestamp"`
+	Summary            ComparisonSummary                         `json:"summary"`
 	ByCategory         map[ComparisonCategory][]ComparisonResult `json:"by_category"`
-	ConsistencyPercent float64                            `json:"consistency_percent"`
+	ConsistencyPercent float64                                   `json:"consistency_percent"`
 }
 
 // ComparisonSummary holds aggregate statistics
 type ComparisonSummary struct {
-	TotalCompared     int `json:"total_compared"`
-	Consistent        int `json:"consistent"`
-	MockNeedsFix      int `json:"mock_needs_fix"`
-	TestNeedsFix      int `json:"test_needs_fix"`
-	MockIncorrect     int `json:"mock_incorrect"`
-	MockOnlyPass      int `json:"mock_only_pass"`
-	RealOnlyPass      int `json:"real_only_pass"`
-	BothSkipped       int `json:"both_skipped"`
+	TotalCompared int `json:"total_compared"`
+	Consistent    int `json:"consistent"`
+	MockNeedsFix  int `json:"mock_needs_fix"`
+	TestNeedsFix  int `json:"test_needs_fix"`
+	MockIncorrect int `json:"mock_incorrect"`
+	MockOnlyPass  int `json:"mock_only_pass"`
+	RealOnlyPass  int `json:"real_only_pass"`
+	BothSkipped   int `json:"both_skipped"`
 }
 
 func main() {

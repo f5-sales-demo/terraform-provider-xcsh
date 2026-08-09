@@ -143,4 +143,3 @@ func IsShared(name string) bool {
 func IsApplication(name string) bool {
 	return !IsSystem(name) && !IsShared(name)
 }
-

@@ -145,7 +145,7 @@ List of Alert Names Customer tunnel interface down Physical Interface down Tunne
 
 A [`custom`](#routes-custom) block (within [`routes`](#routes)) supports the following:
 
-<a id="routes-custom-alertlabel"></a>&#x2022; [`alertlabel`](#routes-custom-alertlabel) - Optional Block<br>AlertLabel to configure the alert policy rule
+<a id="routes-custom-alertlabel"></a>&#x2022; [`alertlabel`](#routes-custom-alertlabel) - Optional Map<br>AlertLabel to configure the alert policy rule
 
 <a id="routes-custom-alertname"></a>&#x2022; [`alertname`](#routes-custom-alertname) - Optional Block<br>Label Matcher<br>See [Alertname](#routes-custom-alertname) below.
 

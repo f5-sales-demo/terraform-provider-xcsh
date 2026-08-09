@@ -468,6 +468,7 @@ var RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModelAttrTypes = ma
 // RouteRoutesRouteDestinationModel represents route_destination block
 type RouteRoutesRouteDestinationModel struct {
 	AutoHostRewrite     types.Bool                                       `tfsdk:"auto_host_rewrite"`
+	EndpointSubsets     types.Map                                        `tfsdk:"endpoint_subsets"`
 	HostRewrite         types.String                                     `tfsdk:"host_rewrite"`
 	PrefixRewrite       types.String                                     `tfsdk:"prefix_rewrite"`
 	Priority            types.String                                     `tfsdk:"priority"`
@@ -477,7 +478,6 @@ type RouteRoutesRouteDestinationModel struct {
 	CSRFPolicy          *RouteRoutesRouteDestinationCSRFPolicyModel      `tfsdk:"csrf_policy"`
 	Destinations        types.List                                       `tfsdk:"destinations"`
 	DoNotRetractCluster *RouteEmptyModel                                 `tfsdk:"do_not_retract_cluster"`
-	EndpointSubsets     *RouteEmptyModel                                 `tfsdk:"endpoint_subsets"`
 	HashPolicy          types.List                                       `tfsdk:"hash_policy"`
 	MirrorPolicy        *RouteRoutesRouteDestinationMirrorPolicyModel    `tfsdk:"mirror_policy"`
 	QueryParams         *RouteRoutesRouteDestinationQueryParamsModel     `tfsdk:"query_params"`
@@ -491,6 +491,7 @@ type RouteRoutesRouteDestinationModel struct {
 // RouteRoutesRouteDestinationModelAttrTypes defines the attribute types for RouteRoutesRouteDestinationModel
 var RouteRoutesRouteDestinationModelAttrTypes = map[string]attr.Type{
 	"auto_host_rewrite":      types.BoolType,
+	"endpoint_subsets":       types.MapType{ElemType: types.StringType},
 	"host_rewrite":           types.StringType,
 	"prefix_rewrite":         types.StringType,
 	"priority":               types.StringType,
@@ -500,7 +501,6 @@ var RouteRoutesRouteDestinationModelAttrTypes = map[string]attr.Type{
 	"csrf_policy":            types.ObjectType{AttrTypes: RouteRoutesRouteDestinationCSRFPolicyModelAttrTypes},
 	"destinations":           types.ListType{ElemType: types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes}},
 	"do_not_retract_cluster": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"endpoint_subsets":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"hash_policy":            types.ListType{ElemType: types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes}},
 	"mirror_policy":          types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyModelAttrTypes},
 	"query_params":           types.ObjectType{AttrTypes: RouteRoutesRouteDestinationQueryParamsModelAttrTypes},
@@ -573,18 +573,18 @@ var RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModelAttrTypes = map[st
 
 // RouteRoutesRouteDestinationDestinationsModel represents destinations block
 type RouteRoutesRouteDestinationDestinationsModel struct {
-	Priority        types.Int64      `tfsdk:"priority"`
-	Weight          types.Int64      `tfsdk:"weight"`
-	Cluster         types.List       `tfsdk:"cluster"`
-	EndpointSubsets *RouteEmptyModel `tfsdk:"endpoint_subsets"`
+	EndpointSubsets types.Map   `tfsdk:"endpoint_subsets"`
+	Priority        types.Int64 `tfsdk:"priority"`
+	Weight          types.Int64 `tfsdk:"weight"`
+	Cluster         types.List  `tfsdk:"cluster"`
 }
 
 // RouteRoutesRouteDestinationDestinationsModelAttrTypes defines the attribute types for RouteRoutesRouteDestinationDestinationsModel
 var RouteRoutesRouteDestinationDestinationsModelAttrTypes = map[string]attr.Type{
+	"endpoint_subsets": types.MapType{ElemType: types.StringType},
 	"priority":         types.Int64Type,
 	"weight":           types.Int64Type,
 	"cluster":          types.ListType{ElemType: types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes}},
-	"endpoint_subsets": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // RouteRoutesRouteDestinationDestinationsClusterModel represents cluster block
@@ -1526,6 +1526,11 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									MarkdownDescription: "Exclusive with [host_rewrite] Indicates that during forwarding, the host header will be swapped with the hostname of the upstream host chosen by the cluster.",
 									Optional:            true,
 								},
+								"endpoint_subsets": schema.MapAttribute{
+									MarkdownDescription: "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset..",
+									Optional:            true,
+									ElementType:         types.StringType,
+								},
 								"host_rewrite": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [auto_host_rewrite] Indicates that during forwarding, the host header will be swapped with this value.",
 									Optional:            true,
@@ -1649,6 +1654,11 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									MarkdownDescription: "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured.",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
+											"endpoint_subsets": schema.MapAttribute{
+												MarkdownDescription: "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset..",
+												Optional:            true,
+												ElementType:         types.StringType,
+											},
 											"priority": schema.Int64Attribute{
 												MarkdownDescription: "Priority of this cluster, valid only with multiple destinations are configured. Value of 0 will make the cluster as lowest priority upstream cluster Priority of 1 means highest priority and is considered active. When active cluster is not available, lower priority clusters are made active as per..",
 												Optional:            true,
@@ -1700,17 +1710,11 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 												},
 											},
-											"endpoint_subsets": schema.SingleNestedBlock{
-												MarkdownDescription: "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset..",
-											},
 										},
 									},
 								},
 								"do_not_retract_cluster": schema.SingleNestedBlock{
 									MarkdownDescription: "Enable this option",
-								},
-								"endpoint_subsets": schema.SingleNestedBlock{
-									MarkdownDescription: "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset..",
 								},
 								"hash_policy": schema.ListNestedBlock{
 									MarkdownDescription: "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request.",
@@ -2446,6 +2450,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.RequestCookiesToRemove.IsNull() && !RoutesItem.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
 					diags := RoutesItem.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
@@ -2502,6 +2507,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.RequestHeadersToRemove.IsNull() && !RoutesItem.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
 					diags := RoutesItem.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
@@ -2615,6 +2621,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.ResponseCookiesToRemove.IsNull() && !RoutesItem.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
 					diags := RoutesItem.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
@@ -2671,6 +2678,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.ResponseHeadersToRemove.IsNull() && !RoutesItem.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
 					diags := RoutesItem.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 					}
@@ -2704,6 +2712,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsUnknown() {
 							var AllowOriginItems []string
 							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationCORSPolicyMap["allow_origin"] = AllowOriginItems
 							}
@@ -2711,6 +2720,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsUnknown() {
 							var AllowOriginRegexItems []string
 							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationCORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 							}
@@ -2736,6 +2746,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 								var DomainsItems []string
 								diags := RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesRouteDestinationCSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 								}
@@ -2783,8 +2794,13 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 										DestinationsItemMap["cluster"] = ClusterList
 									}
 								}
-								if DestinationsItem.EndpointSubsets != nil {
-									DestinationsItemMap["endpoint_subsets"] = map[string]interface{}{}
+								if !DestinationsItem.EndpointSubsets.IsNull() && !DestinationsItem.EndpointSubsets.IsUnknown() {
+									var EndpointSubsetsMap map[string]string
+									diags := DestinationsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+									resp.Diagnostics.Append(diags...)
+									if !diags.HasError() {
+										DestinationsItemMap["endpoint_subsets"] = EndpointSubsetsMap
+									}
 								}
 								if !DestinationsItem.Priority.IsNull() && !DestinationsItem.Priority.IsUnknown() {
 									DestinationsItemMap["priority"] = DestinationsItem.Priority.ValueInt64()
@@ -2800,8 +2816,13 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if RoutesItem.RouteDestination.DoNotRetractCluster != nil {
 						RoutesRouteDestinationMap["do_not_retract_cluster"] = map[string]interface{}{}
 					}
-					if RoutesItem.RouteDestination.EndpointSubsets != nil {
-						RoutesRouteDestinationMap["endpoint_subsets"] = map[string]interface{}{}
+					if !RoutesItem.RouteDestination.EndpointSubsets.IsNull() && !RoutesItem.RouteDestination.EndpointSubsets.IsUnknown() {
+						var EndpointSubsetsMap map[string]string
+						diags := RoutesItem.RouteDestination.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							RoutesRouteDestinationMap["endpoint_subsets"] = EndpointSubsetsMap
+						}
 					}
 					if !RoutesItem.RouteDestination.HashPolicy.IsNull() && !RoutesItem.RouteDestination.HashPolicy.IsUnknown() {
 						var HashPolicyElems []RouteRoutesRouteDestinationHashPolicyModel
@@ -2960,6 +2981,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsUnknown() {
 							var RetriableStatusCodesItems []int64
 							diags := RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationRetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
 							}
@@ -2967,6 +2989,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsUnknown() {
 							var RetryConditionItems []string
 							diags := RoutesItem.RouteDestination.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationRetryPolicyMap["retry_condition"] = RetryConditionItems
 							}
@@ -3511,7 +3534,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -3621,7 +3645,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -3890,7 +3915,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -4000,7 +4026,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -4080,7 +4107,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4093,7 +4121,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4155,7 +4184,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -4243,14 +4273,24 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														}
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
-													EndpointSubsets: func() *RouteEmptyModel {
-														if !isImport && len(DestinationsExisting) > DestinationsIdx {
+													EndpointSubsets: func() types.Map {
+														if v, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															items := make(map[string]string)
+															for mk, mv := range v {
+																if mvs, ok := mv.(string); ok {
+																	items[mk] = mvs
+																} else {
+																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+																}
+															}
+															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
+															return mapVal
+														}
+														if len(DestinationsExisting) > DestinationsIdx && !DestinationsExisting[DestinationsIdx].EndpointSubsets.IsNull() && !DestinationsExisting[DestinationsIdx].EndpointSubsets.IsUnknown() {
 															return DestinationsExisting[DestinationsIdx].EndpointSubsets
 														}
-														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-															return &RouteEmptyModel{}
-														}
-														return nil
+														return types.MapNull(types.StringType)
 													}(),
 													Priority: func() types.Int64 {
 														if v, ok := DestinationsItemMap["priority"].(float64); ok && v != 0 {
@@ -4281,14 +4321,24 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								EndpointSubsets: func() types.Map {
+									if v, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].RouteDestination.EndpointSubsets.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.EndpointSubsets
 									}
-									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								HashPolicy: func() types.List {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.HashPolicy.Elements()) == 0) {
@@ -4657,7 +4707,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -4670,7 +4721,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -5465,7 +5517,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -5575,7 +5628,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -5844,7 +5898,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -5954,7 +6009,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -6034,7 +6090,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -6047,7 +6104,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -6109,7 +6167,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6197,14 +6256,24 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														}
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
-													EndpointSubsets: func() *RouteEmptyModel {
-														if !isImport && len(DestinationsExisting) > DestinationsIdx {
+													EndpointSubsets: func() types.Map {
+														if v, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															items := make(map[string]string)
+															for mk, mv := range v {
+																if mvs, ok := mv.(string); ok {
+																	items[mk] = mvs
+																} else {
+																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+																}
+															}
+															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
+															return mapVal
+														}
+														if len(DestinationsExisting) > DestinationsIdx && !DestinationsExisting[DestinationsIdx].EndpointSubsets.IsNull() && !DestinationsExisting[DestinationsIdx].EndpointSubsets.IsUnknown() {
 															return DestinationsExisting[DestinationsIdx].EndpointSubsets
 														}
-														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-															return &RouteEmptyModel{}
-														}
-														return nil
+														return types.MapNull(types.StringType)
 													}(),
 													Priority: func() types.Int64 {
 														if v, ok := DestinationsItemMap["priority"].(float64); ok && v != 0 {
@@ -6235,14 +6304,24 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								EndpointSubsets: func() types.Map {
+									if v, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].RouteDestination.EndpointSubsets.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.EndpointSubsets
 									}
-									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								HashPolicy: func() types.List {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.HashPolicy.Elements()) == 0) {
@@ -6611,7 +6690,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -6624,7 +6704,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -7188,6 +7269,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.RequestCookiesToRemove.IsNull() && !RoutesItem.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
 					diags := RoutesItem.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
@@ -7244,6 +7326,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.RequestHeadersToRemove.IsNull() && !RoutesItem.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
 					diags := RoutesItem.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
@@ -7357,6 +7440,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.ResponseCookiesToRemove.IsNull() && !RoutesItem.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
 					diags := RoutesItem.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
@@ -7413,6 +7497,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.ResponseHeadersToRemove.IsNull() && !RoutesItem.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
 					diags := RoutesItem.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 					}
@@ -7446,6 +7531,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsUnknown() {
 							var AllowOriginItems []string
 							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationCORSPolicyMap["allow_origin"] = AllowOriginItems
 							}
@@ -7453,6 +7539,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsUnknown() {
 							var AllowOriginRegexItems []string
 							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationCORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 							}
@@ -7478,6 +7565,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 								var DomainsItems []string
 								diags := RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesRouteDestinationCSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 								}
@@ -7525,8 +7613,13 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										DestinationsItemMap["cluster"] = ClusterList
 									}
 								}
-								if DestinationsItem.EndpointSubsets != nil {
-									DestinationsItemMap["endpoint_subsets"] = map[string]interface{}{}
+								if !DestinationsItem.EndpointSubsets.IsNull() && !DestinationsItem.EndpointSubsets.IsUnknown() {
+									var EndpointSubsetsMap map[string]string
+									diags := DestinationsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+									resp.Diagnostics.Append(diags...)
+									if !diags.HasError() {
+										DestinationsItemMap["endpoint_subsets"] = EndpointSubsetsMap
+									}
 								}
 								if !DestinationsItem.Priority.IsNull() && !DestinationsItem.Priority.IsUnknown() {
 									DestinationsItemMap["priority"] = DestinationsItem.Priority.ValueInt64()
@@ -7542,8 +7635,13 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if RoutesItem.RouteDestination.DoNotRetractCluster != nil {
 						RoutesRouteDestinationMap["do_not_retract_cluster"] = map[string]interface{}{}
 					}
-					if RoutesItem.RouteDestination.EndpointSubsets != nil {
-						RoutesRouteDestinationMap["endpoint_subsets"] = map[string]interface{}{}
+					if !RoutesItem.RouteDestination.EndpointSubsets.IsNull() && !RoutesItem.RouteDestination.EndpointSubsets.IsUnknown() {
+						var EndpointSubsetsMap map[string]string
+						diags := RoutesItem.RouteDestination.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							RoutesRouteDestinationMap["endpoint_subsets"] = EndpointSubsetsMap
+						}
 					}
 					if !RoutesItem.RouteDestination.HashPolicy.IsNull() && !RoutesItem.RouteDestination.HashPolicy.IsUnknown() {
 						var HashPolicyElems []RouteRoutesRouteDestinationHashPolicyModel
@@ -7702,6 +7800,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsUnknown() {
 							var RetriableStatusCodesItems []int64
 							diags := RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationRetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
 							}
@@ -7709,6 +7808,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsUnknown() {
 							var RetryConditionItems []string
 							diags := RoutesItem.RouteDestination.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationRetryPolicyMap["retry_condition"] = RetryConditionItems
 							}
@@ -8273,7 +8373,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -8383,7 +8484,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -8652,7 +8754,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -8762,7 +8865,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -8842,7 +8946,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -8855,7 +8960,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -8917,7 +9023,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -9005,14 +9112,24 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														}
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
-													EndpointSubsets: func() *RouteEmptyModel {
-														if !isImport && len(DestinationsExisting) > DestinationsIdx {
+													EndpointSubsets: func() types.Map {
+														if v, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															items := make(map[string]string)
+															for mk, mv := range v {
+																if mvs, ok := mv.(string); ok {
+																	items[mk] = mvs
+																} else {
+																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+																}
+															}
+															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
+															return mapVal
+														}
+														if len(DestinationsExisting) > DestinationsIdx && !DestinationsExisting[DestinationsIdx].EndpointSubsets.IsNull() && !DestinationsExisting[DestinationsIdx].EndpointSubsets.IsUnknown() {
 															return DestinationsExisting[DestinationsIdx].EndpointSubsets
 														}
-														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-															return &RouteEmptyModel{}
-														}
-														return nil
+														return types.MapNull(types.StringType)
 													}(),
 													Priority: func() types.Int64 {
 														if v, ok := DestinationsItemMap["priority"].(float64); ok && v != 0 {
@@ -9043,14 +9160,24 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								EndpointSubsets: func() types.Map {
+									if v, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].RouteDestination.EndpointSubsets.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.EndpointSubsets
 									}
-									if _, ok := RouteDestinationData["endpoint_subsets"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								HashPolicy: func() types.List {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && (existingRoutesItems[listIdx].RouteDestination.HashPolicy.IsNull() || len(existingRoutesItems[listIdx].RouteDestination.HashPolicy.Elements()) == 0) {
@@ -9419,7 +9546,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -9432,7 +9560,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

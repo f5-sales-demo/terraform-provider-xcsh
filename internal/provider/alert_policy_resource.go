@@ -96,7 +96,7 @@ var AlertPolicyRoutesModelAttrTypes = map[string]attr.Type{
 
 // AlertPolicyRoutesCustomModel represents custom block
 type AlertPolicyRoutesCustomModel struct {
-	Alertlabel *AlertPolicyEmptyModel                 `tfsdk:"alertlabel"`
+	Alertlabel types.Map                              `tfsdk:"alertlabel"`
 	Alertname  *AlertPolicyRoutesCustomAlertnameModel `tfsdk:"alertname"`
 	Group      *AlertPolicyRoutesCustomGroupModel     `tfsdk:"group"`
 	Severity   *AlertPolicyRoutesCustomSeverityModel  `tfsdk:"severity"`
@@ -104,7 +104,7 @@ type AlertPolicyRoutesCustomModel struct {
 
 // AlertPolicyRoutesCustomModelAttrTypes defines the attribute types for AlertPolicyRoutesCustomModel
 var AlertPolicyRoutesCustomModelAttrTypes = map[string]attr.Type{
-	"alertlabel": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"alertlabel": types.MapType{ElemType: types.StringType},
 	"alertname":  types.ObjectType{AttrTypes: AlertPolicyRoutesCustomAlertnameModelAttrTypes},
 	"group":      types.ObjectType{AttrTypes: AlertPolicyRoutesCustomGroupModelAttrTypes},
 	"severity":   types.ObjectType{AttrTypes: AlertPolicyRoutesCustomSeverityModelAttrTypes},
@@ -362,11 +362,14 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 						"custom": schema.SingleNestedBlock{
 							MarkdownDescription: "Set of matchers an alert has to fulfill to match the route.",
-							Attributes:          map[string]schema.Attribute{},
-							Blocks: map[string]schema.Block{
-								"alertlabel": schema.SingleNestedBlock{
+							Attributes: map[string]schema.Attribute{
+								"alertlabel": schema.MapAttribute{
 									MarkdownDescription: "AlertLabel to configure the alert policy rule.",
+									Optional:            true,
+									ElementType:         types.StringType,
 								},
+							},
+							Blocks: map[string]schema.Block{
 								"alertname": schema.SingleNestedBlock{
 									MarkdownDescription: "Label Matcher.",
 									Attributes: map[string]schema.Attribute{
@@ -692,8 +695,13 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				if RoutesItem.Custom != nil {
 					RoutesCustomMap := make(map[string]interface{})
-					if RoutesItem.Custom.Alertlabel != nil {
-						RoutesCustomMap["alertlabel"] = map[string]interface{}{}
+					if !RoutesItem.Custom.Alertlabel.IsNull() && !RoutesItem.Custom.Alertlabel.IsUnknown() {
+						var AlertlabelMap map[string]string
+						diags := RoutesItem.Custom.Alertlabel.ElementsAs(ctx, &AlertlabelMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							RoutesCustomMap["alertlabel"] = AlertlabelMap
+						}
 					}
 					if RoutesItem.Custom.Alertname != nil {
 						RoutesCustomAlertnameMap := make(map[string]interface{})
@@ -735,6 +743,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					if !RoutesItem.Group.Groups.IsNull() && !RoutesItem.Group.Groups.IsUnknown() {
 						var GroupsItems []string
 						diags := RoutesItem.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RoutesGroupMap["groups"] = GroupsItems
 						}
@@ -748,6 +757,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						if !RoutesItem.NotificationParameters.Custom.Labels.IsNull() && !RoutesItem.NotificationParameters.Custom.Labels.IsUnknown() {
 							var LabelsItems []string
 							diags := RoutesItem.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesNotificationParametersCustomMap["labels"] = LabelsItems
 							}
@@ -782,6 +792,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					if !RoutesItem.Severity.Severities.IsNull() && !RoutesItem.Severity.Severities.IsUnknown() {
 						var SeveritiesItems []string
 						diags := RoutesItem.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RoutesSeverityMap["severities"] = SeveritiesItems
 						}
@@ -800,6 +811,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.NotificationParameters.Custom.Labels.IsNull() && !data.NotificationParameters.Custom.Labels.IsUnknown() {
 				var LabelsItems []string
 				diags := data.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					NotificationParametersCustomMap["labels"] = LabelsItems
 				}
@@ -937,14 +949,24 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
-								Alertlabel: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
+								Alertlabel: func() types.Map {
+									if v, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field alertlabel, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && !existingRoutesItems[listIdx].Custom.Alertlabel.IsNull() && !existingRoutesItems[listIdx].Custom.Alertlabel.IsUnknown() {
 										return existingRoutesItems[listIdx].Custom.Alertlabel
 									}
-									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {
@@ -1036,7 +1058,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1062,7 +1085,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1140,7 +1164,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1176,7 +1201,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1442,14 +1468,24 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
-								Alertlabel: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
+								Alertlabel: func() types.Map {
+									if v, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field alertlabel, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && !existingRoutesItems[listIdx].Custom.Alertlabel.IsNull() && !existingRoutesItems[listIdx].Custom.Alertlabel.IsUnknown() {
 										return existingRoutesItems[listIdx].Custom.Alertlabel
 									}
-									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {
@@ -1541,7 +1577,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1567,7 +1604,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1645,7 +1683,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1681,7 +1720,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1863,8 +1903,13 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				if RoutesItem.Custom != nil {
 					RoutesCustomMap := make(map[string]interface{})
-					if RoutesItem.Custom.Alertlabel != nil {
-						RoutesCustomMap["alertlabel"] = map[string]interface{}{}
+					if !RoutesItem.Custom.Alertlabel.IsNull() && !RoutesItem.Custom.Alertlabel.IsUnknown() {
+						var AlertlabelMap map[string]string
+						diags := RoutesItem.Custom.Alertlabel.ElementsAs(ctx, &AlertlabelMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							RoutesCustomMap["alertlabel"] = AlertlabelMap
+						}
 					}
 					if RoutesItem.Custom.Alertname != nil {
 						RoutesCustomAlertnameMap := make(map[string]interface{})
@@ -1906,6 +1951,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					if !RoutesItem.Group.Groups.IsNull() && !RoutesItem.Group.Groups.IsUnknown() {
 						var GroupsItems []string
 						diags := RoutesItem.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RoutesGroupMap["groups"] = GroupsItems
 						}
@@ -1919,6 +1965,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						if !RoutesItem.NotificationParameters.Custom.Labels.IsNull() && !RoutesItem.NotificationParameters.Custom.Labels.IsUnknown() {
 							var LabelsItems []string
 							diags := RoutesItem.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesNotificationParametersCustomMap["labels"] = LabelsItems
 							}
@@ -1953,6 +2000,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					if !RoutesItem.Severity.Severities.IsNull() && !RoutesItem.Severity.Severities.IsUnknown() {
 						var SeveritiesItems []string
 						diags := RoutesItem.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RoutesSeverityMap["severities"] = SeveritiesItems
 						}
@@ -1971,6 +2019,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.NotificationParameters.Custom.Labels.IsNull() && !data.NotificationParameters.Custom.Labels.IsUnknown() {
 				var LabelsItems []string
 				diags := data.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					NotificationParametersCustomMap["labels"] = LabelsItems
 				}
@@ -2128,14 +2177,24 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
-								Alertlabel: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
+								Alertlabel: func() types.Map {
+									if v, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field alertlabel, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && !existingRoutesItems[listIdx].Custom.Alertlabel.IsNull() && !existingRoutesItems[listIdx].Custom.Alertlabel.IsUnknown() {
 										return existingRoutesItems[listIdx].Custom.Alertlabel
 									}
-									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {
@@ -2227,7 +2286,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2253,7 +2313,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2331,7 +2392,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2367,7 +2429,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)

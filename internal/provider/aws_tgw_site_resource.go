@@ -1184,6 +1184,7 @@ type AWSTGWSiteResourceModel struct {
 	Description                types.String                               `tfsdk:"description"`
 	Disable                    types.Bool                                 `tfsdk:"disable"`
 	Labels                     types.Map                                  `tfsdk:"labels"`
+	Tags                       types.Map                                  `tfsdk:"tags"`
 	ID                         types.String                               `tfsdk:"id"`
 	Timeouts                   timeouts.Value                             `tfsdk:"timeouts"`
 	PerformanceEnhancementMode *AWSTGWSitePerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
@@ -1202,7 +1203,6 @@ type AWSTGWSiteResourceModel struct {
 	OS                         *AWSTGWSiteOSModel                         `tfsdk:"os"`
 	PrivateConnectivity        *AWSTGWSitePrivateConnectivityModel        `tfsdk:"private_connectivity"`
 	Sw                         *AWSTGWSiteSwModel                         `tfsdk:"sw"`
-	Tags                       *AWSTGWSiteEmptyModel                      `tfsdk:"tags"`
 	TGWSecurity                *AWSTGWSiteTGWSecurityModel                `tfsdk:"tgw_security"`
 	VnConfig                   *AWSTGWSiteVnConfigModel                   `tfsdk:"vn_config"`
 	VPCAttachments             *AWSTGWSiteVPCAttachmentsModel             `tfsdk:"vpc_attachments"`
@@ -1252,6 +1252,11 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
+				ElementType:         types.StringType,
+			},
+			"tags": schema.MapAttribute{
+				MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
+				Required:            true,
 				ElementType:         types.StringType,
 			},
 			"id": schema.StringAttribute{
@@ -1936,9 +1941,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Enable this option",
 					},
 				},
-			},
-			"tags": schema.SingleNestedBlock{
-				MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
 			},
 			"tgw_security": schema.SingleNestedBlock{
 				MarkdownDescription: "Security Configuration for transit gateway.",
@@ -3297,8 +3299,13 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["sw"] = SwMap
 	}
-	if data.Tags != nil {
-		createReq.Spec["tags"] = map[string]interface{}{}
+	if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+		var TagsMap map[string]string
+		diags := data.Tags.ElementsAs(ctx, &TagsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			createReq.Spec["tags"] = TagsMap
+		}
 	}
 	if data.TGWSecurity != nil {
 		TGWSecurityMap := make(map[string]interface{})
@@ -3563,6 +3570,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -3695,6 +3703,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -4803,8 +4812,26 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AWSTGWSiteEmptyModel{}
+	if v, ok := apiResource.Spec["tags"].(map[string]interface{}); ok {
+		tagsMap := make(map[string]string)
+		for mk, mv := range v {
+			if mvs, ok := mv.(string); ok {
+				tagsMap[mk] = mvs
+			} else {
+				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+			}
+		}
+		mapVal, diags := types.MapValueFrom(ctx, types.StringType, tagsMap)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Tags = mapVal
+		}
+	} else {
+		if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+			// Preserve configured map to prevent drift on omission
+		} else {
+			data.Tags = types.MapNull(types.StringType)
+		}
 	}
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
@@ -5340,7 +5367,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5613,7 +5641,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6954,8 +6983,26 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AWSTGWSiteEmptyModel{}
+	if v, ok := apiResource.Spec["tags"].(map[string]interface{}); ok {
+		tagsMap := make(map[string]string)
+		for mk, mv := range v {
+			if mvs, ok := mv.(string); ok {
+				tagsMap[mk] = mvs
+			} else {
+				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+			}
+		}
+		mapVal, diags := types.MapValueFrom(ctx, types.StringType, tagsMap)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Tags = mapVal
+		}
+	} else {
+		if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+			// Preserve configured map to prevent drift on omission
+		} else {
+			data.Tags = types.MapNull(types.StringType)
+		}
 	}
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
@@ -7491,7 +7538,8 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7764,7 +7812,8 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8584,8 +8633,13 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["sw"] = SwMap
 	}
-	if data.Tags != nil {
-		apiResource.Spec["tags"] = map[string]interface{}{}
+	if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+		var TagsMap map[string]string
+		diags := data.Tags.ElementsAs(ctx, &TagsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			apiResource.Spec["tags"] = TagsMap
+		}
 	}
 	if data.TGWSecurity != nil {
 		TGWSecurityMap := make(map[string]interface{})
@@ -8850,6 +8904,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -8982,6 +9037,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -10110,8 +10166,26 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AWSTGWSiteEmptyModel{}
+	if v, ok := apiResource.Spec["tags"].(map[string]interface{}); ok {
+		tagsMap := make(map[string]string)
+		for mk, mv := range v {
+			if mvs, ok := mv.(string); ok {
+				tagsMap[mk] = mvs
+			} else {
+				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+			}
+		}
+		mapVal, diags := types.MapValueFrom(ctx, types.StringType, tagsMap)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Tags = mapVal
+		}
+	} else {
+		if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+			// Preserve configured map to prevent drift on omission
+		} else {
+			data.Tags = types.MapNull(types.StringType)
+		}
 	}
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
@@ -10647,7 +10721,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -10920,7 +10995,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)

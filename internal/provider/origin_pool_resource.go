@@ -634,12 +634,12 @@ var OriginPoolAdvancedOptionsEnableSubsetsModelAttrTypes = map[string]attr.Type{
 
 // OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel represents default_subset block
 type OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel struct {
-	DefaultSubset *OriginPoolEmptyModel `tfsdk:"default_subset"`
+	DefaultSubset types.Map `tfsdk:"default_subset"`
 }
 
 // OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes defines the attribute types for OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel
 var OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes = map[string]attr.Type{
-	"default_subset": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_subset": types.MapType{ElemType: types.StringType},
 }
 
 // OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel represents endpoint_subsets block
@@ -1840,10 +1840,11 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"default_subset": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for default subset.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"default_subset": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"default_subset": schema.MapAttribute{
 										MarkdownDescription: "List of key-value pairs that define default subset. Which gets used when route specifies no metadata or no subset matching the metadata exists.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 								},
 							},
@@ -2444,6 +2445,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersConsulServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -2525,6 +2527,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -2605,6 +2608,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -2682,6 +2686,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersPrivateNameSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -2809,8 +2814,13 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 				AdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
-				if data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
-					AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
+				if !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+					var DefaultSubsetMap map[string]string
+					diags := data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.ElementsAs(ctx, &DefaultSubsetMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = DefaultSubsetMap
+					}
 				}
 				AdvancedOptionsEnableSubsetsMap["default_subset"] = AdvancedOptionsEnableSubsetsDefaultSubsetMap
 			}
@@ -2825,6 +2835,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								EndpointSubsetsItemMap["keys"] = KeysItems
 							}
@@ -2954,6 +2965,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						UseTLSTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -2998,6 +3010,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -3285,7 +3298,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3453,7 +3467,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3628,7 +3643,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3792,7 +3808,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -4095,14 +4112,24 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-									DefaultSubset: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
+									DefaultSubset: func() types.Map {
+										if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
 											return data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 										}
-										if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 								}
 							}
@@ -4130,7 +4157,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4465,7 +4493,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -4563,7 +4592,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5065,7 +5095,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5233,7 +5264,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5408,7 +5440,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5572,7 +5605,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5875,14 +5909,24 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-									DefaultSubset: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
+									DefaultSubset: func() types.Map {
+										if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
 											return data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 										}
-										if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 								}
 							}
@@ -5910,7 +5954,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -6245,7 +6290,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6343,7 +6389,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6731,6 +6778,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersConsulServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -6812,6 +6860,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -6892,6 +6941,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -6969,6 +7019,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersPrivateNameSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -7096,8 +7147,13 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 				AdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
-				if data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
-					AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
+				if !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+					var DefaultSubsetMap map[string]string
+					diags := data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.ElementsAs(ctx, &DefaultSubsetMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = DefaultSubsetMap
+					}
 				}
 				AdvancedOptionsEnableSubsetsMap["default_subset"] = AdvancedOptionsEnableSubsetsDefaultSubsetMap
 			}
@@ -7112,6 +7168,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								EndpointSubsetsItemMap["keys"] = KeysItems
 							}
@@ -7241,6 +7298,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						UseTLSTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -7285,6 +7343,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -7620,7 +7679,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7788,7 +7848,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7963,7 +8024,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8127,7 +8189,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8430,14 +8493,24 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-									DefaultSubset: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
+									DefaultSubset: func() types.Map {
+										if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
 											return data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 										}
-										if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 								}
 							}
@@ -8465,7 +8538,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -8800,7 +8874,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -8898,7 +8973,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)

@@ -1309,6 +1309,7 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
 							var PrefixItems []string
 							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								REACLFastACLRulesPrefixMap["prefix"] = PrefixItems
 							}
@@ -1504,6 +1505,7 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
 							var PrefixItems []string
 							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								SiteACLFastACLRulesPrefixMap["prefix"] = PrefixItems
 							}
@@ -1873,7 +1875,8 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2239,7 +2242,8 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2737,7 +2741,8 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3103,7 +3108,8 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3406,6 +3412,7 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
 							var PrefixItems []string
 							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								REACLFastACLRulesPrefixMap["prefix"] = PrefixItems
 							}
@@ -3601,6 +3608,7 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
 							var PrefixItems []string
 							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								SiteACLFastACLRulesPrefixMap["prefix"] = PrefixItems
 							}
@@ -3990,7 +3998,8 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4356,7 +4365,8 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

@@ -83,24 +83,24 @@ var NfvServiceEnabledSSHAccessNodeSSHPortsModelAttrTypes = map[string]attr.Type{
 type NfvServiceF5BigIPAWSServiceModel struct {
 	AdminUsername    types.String                                      `tfsdk:"admin_username"`
 	SSHKey           types.String                                      `tfsdk:"ssh_key"`
+	Tags             types.Map                                         `tfsdk:"tags"`
 	AdminPassword    *NfvServiceF5BigIPAWSServiceAdminPasswordModel    `tfsdk:"admin_password"`
 	AWSTGWSiteParams *NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsModel `tfsdk:"aws_tgw_site_params"`
 	EndpointService  *NfvServiceF5BigIPAWSServiceEndpointServiceModel  `tfsdk:"endpoint_service"`
 	MarketPlaceImage *NfvServiceF5BigIPAWSServiceMarketPlaceImageModel `tfsdk:"market_place_image"`
 	Nodes            types.List                                        `tfsdk:"nodes"`
-	Tags             *NfvServiceEmptyModel                             `tfsdk:"tags"`
 }
 
 // NfvServiceF5BigIPAWSServiceModelAttrTypes defines the attribute types for NfvServiceF5BigIPAWSServiceModel
 var NfvServiceF5BigIPAWSServiceModelAttrTypes = map[string]attr.Type{
 	"admin_username":      types.StringType,
 	"ssh_key":             types.StringType,
+	"tags":                types.MapType{ElemType: types.StringType},
 	"admin_password":      types.ObjectType{AttrTypes: NfvServiceF5BigIPAWSServiceAdminPasswordModelAttrTypes},
 	"aws_tgw_site_params": types.ObjectType{AttrTypes: NfvServiceF5BigIPAWSServiceAWSTGWSiteParamsModelAttrTypes},
 	"endpoint_service":    types.ObjectType{AttrTypes: NfvServiceF5BigIPAWSServiceEndpointServiceModelAttrTypes},
 	"market_place_image":  types.ObjectType{AttrTypes: NfvServiceF5BigIPAWSServiceMarketPlaceImageModelAttrTypes},
 	"nodes":               types.ListType{ElemType: types.ObjectType{AttrTypes: NfvServiceF5BigIPAWSServiceNodesModelAttrTypes}},
-	"tags":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // NfvServiceF5BigIPAWSServiceAdminPasswordModel represents admin_password block
@@ -1021,6 +1021,7 @@ var NfvServiceHTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsModelAttrTypes =
 type NfvServicePaloAltoFwServiceModel struct {
 	InstanceType    types.String                                    `tfsdk:"instance_type"`
 	SSHKey          types.String                                    `tfsdk:"ssh_key"`
+	Tags            types.Map                                       `tfsdk:"tags"`
 	Version         types.String                                    `tfsdk:"version"`
 	AutoSetup       *NfvServicePaloAltoFwServiceAutoSetupModel      `tfsdk:"auto_setup"`
 	AWSTGWSite      *NfvServicePaloAltoFwServiceAWSTGWSiteModel     `tfsdk:"aws_tgw_site"`
@@ -1029,13 +1030,13 @@ type NfvServicePaloAltoFwServiceModel struct {
 	PanAmiBundle2   *NfvServiceEmptyModel                           `tfsdk:"pan_ami_bundle2"`
 	PanoramaServer  *NfvServicePaloAltoFwServicePanoramaServerModel `tfsdk:"panorama_server"`
 	ServiceNodes    *NfvServicePaloAltoFwServiceServiceNodesModel   `tfsdk:"service_nodes"`
-	Tags            *NfvServiceEmptyModel                           `tfsdk:"tags"`
 }
 
 // NfvServicePaloAltoFwServiceModelAttrTypes defines the attribute types for NfvServicePaloAltoFwServiceModel
 var NfvServicePaloAltoFwServiceModelAttrTypes = map[string]attr.Type{
 	"instance_type":    types.StringType,
 	"ssh_key":          types.StringType,
+	"tags":             types.MapType{ElemType: types.StringType},
 	"version":          types.StringType,
 	"auto_setup":       types.ObjectType{AttrTypes: NfvServicePaloAltoFwServiceAutoSetupModelAttrTypes},
 	"aws_tgw_site":     types.ObjectType{AttrTypes: NfvServicePaloAltoFwServiceAWSTGWSiteModelAttrTypes},
@@ -1044,7 +1045,6 @@ var NfvServicePaloAltoFwServiceModelAttrTypes = map[string]attr.Type{
 	"pan_ami_bundle2":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"panorama_server":  types.ObjectType{AttrTypes: NfvServicePaloAltoFwServicePanoramaServerModelAttrTypes},
 	"service_nodes":    types.ObjectType{AttrTypes: NfvServicePaloAltoFwServiceServiceNodesModelAttrTypes},
-	"tags":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // NfvServicePaloAltoFwServiceAutoSetupModel represents auto_setup block
@@ -1410,6 +1410,11 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							stringvalidator.LengthBetween(1, 8192),
 						},
 					},
+					"tags": schema.MapAttribute{
+						MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
+						Optional:            true,
+						ElementType:         types.StringType,
+					},
 				},
 				Blocks: map[string]schema.Block{
 					"admin_password": schema.SingleNestedBlock{
@@ -1625,9 +1630,6 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 						},
-					},
-					"tags": schema.SingleNestedBlock{
-						MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
 					},
 				},
 			},
@@ -2603,6 +2605,11 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							stringvalidator.LengthBetween(1, 8192),
 						},
 					},
+					"tags": schema.MapAttribute{
+						MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
+						Optional:            true,
+						ElementType:         types.StringType,
+					},
 					"version": schema.StringAttribute{
 						MarkdownDescription: "[Enum: 11.0.0] PAN VM-Series version. PAN-OS version. The only possible value is `11.0.0`.",
 						Optional:            true,
@@ -2889,9 +2896,6 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"tags": schema.SingleNestedBlock{
-						MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
-					},
 				},
 			},
 		},
@@ -3129,6 +3133,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if !data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.IsNull() && !data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.IsUnknown() {
 					var PortsItems []string
 					diags := data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						F5BigIPAWSServiceEndpointServiceCustomTCPPortsMap["ports"] = PortsItems
 					}
@@ -3140,6 +3145,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if !data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.IsNull() && !data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.IsUnknown() {
 					var PortsItems []string
 					diags := data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						F5BigIPAWSServiceEndpointServiceCustomUDPPortsMap["ports"] = PortsItems
 					}
@@ -3221,8 +3227,13 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.F5BigIPAWSService.SSHKey.IsNull() && !data.F5BigIPAWSService.SSHKey.IsUnknown() {
 			F5BigIPAWSServiceMap["ssh_key"] = data.F5BigIPAWSService.SSHKey.ValueString()
 		}
-		if data.F5BigIPAWSService.Tags != nil {
-			F5BigIPAWSServiceMap["tags"] = map[string]interface{}{}
+		if !data.F5BigIPAWSService.Tags.IsNull() && !data.F5BigIPAWSService.Tags.IsUnknown() {
+			var TagsMap map[string]string
+			diags := data.F5BigIPAWSService.Tags.ElementsAs(ctx, &TagsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				F5BigIPAWSServiceMap["tags"] = TagsMap
+			}
 		}
 		createReq.Spec["f5_big_ip_aws_service"] = F5BigIPAWSServiceMap
 	}
@@ -3269,6 +3280,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -3323,6 +3335,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -3391,6 +3404,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -3422,6 +3436,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -3476,6 +3491,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -3544,6 +3560,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -3575,6 +3592,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -3629,6 +3647,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -3697,6 +3716,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -3728,6 +3748,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -3782,6 +3803,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -3850,6 +3872,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -4049,8 +4072,13 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.PaloAltoFwService.SSHKey.IsNull() && !data.PaloAltoFwService.SSHKey.IsUnknown() {
 			PaloAltoFwServiceMap["ssh_key"] = data.PaloAltoFwService.SSHKey.ValueString()
 		}
-		if data.PaloAltoFwService.Tags != nil {
-			PaloAltoFwServiceMap["tags"] = map[string]interface{}{}
+		if !data.PaloAltoFwService.Tags.IsNull() && !data.PaloAltoFwService.Tags.IsUnknown() {
+			var TagsMap map[string]string
+			diags := data.PaloAltoFwService.Tags.ElementsAs(ctx, &TagsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				PaloAltoFwServiceMap["tags"] = TagsMap
+			}
 		}
 		if !data.PaloAltoFwService.Version.IsNull() && !data.PaloAltoFwService.Version.IsUnknown() {
 			PaloAltoFwServiceMap["version"] = data.PaloAltoFwService.Version.ValueString()
@@ -4309,7 +4337,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -4332,7 +4361,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -4520,14 +4550,24 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() *NfvServiceEmptyModel {
-				if !isImport && data.F5BigIPAWSService != nil {
+			Tags: func() types.Map {
+				if v, ok := blockData["tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Tags.IsNull() && !data.F5BigIPAWSService.Tags.IsUnknown() {
 					return data.F5BigIPAWSService.Tags
 				}
-				if _, ok := blockData["tags"].(map[string]interface{}); ok {
-					return &NfvServiceEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
@@ -4617,7 +4657,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -4735,7 +4776,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -4887,7 +4929,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -4947,7 +4990,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5065,7 +5109,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5217,7 +5262,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5277,7 +5323,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5395,7 +5442,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5547,7 +5595,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5607,7 +5656,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5725,7 +5775,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5877,7 +5928,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -6308,14 +6360,24 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() *NfvServiceEmptyModel {
-				if !isImport && data.PaloAltoFwService != nil {
+			Tags: func() types.Map {
+				if v, ok := blockData["tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.PaloAltoFwService != nil && !data.PaloAltoFwService.Tags.IsNull() && !data.PaloAltoFwService.Tags.IsUnknown() {
 					return data.PaloAltoFwService.Tags
 				}
-				if _, ok := blockData["tags"].(map[string]interface{}); ok {
-					return &NfvServiceEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {
@@ -6676,7 +6738,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6699,7 +6762,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6887,14 +6951,24 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() *NfvServiceEmptyModel {
-				if !isImport && data.F5BigIPAWSService != nil {
+			Tags: func() types.Map {
+				if v, ok := blockData["tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Tags.IsNull() && !data.F5BigIPAWSService.Tags.IsUnknown() {
 					return data.F5BigIPAWSService.Tags
 				}
-				if _, ok := blockData["tags"].(map[string]interface{}); ok {
-					return &NfvServiceEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
@@ -6984,7 +7058,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7102,7 +7177,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7254,7 +7330,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7314,7 +7391,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7432,7 +7510,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7584,7 +7663,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7644,7 +7724,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7762,7 +7843,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7914,7 +7996,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7974,7 +8057,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8092,7 +8176,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -8244,7 +8329,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -8675,14 +8761,24 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() *NfvServiceEmptyModel {
-				if !isImport && data.PaloAltoFwService != nil {
+			Tags: func() types.Map {
+				if v, ok := blockData["tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.PaloAltoFwService != nil && !data.PaloAltoFwService.Tags.IsNull() && !data.PaloAltoFwService.Tags.IsUnknown() {
 					return data.PaloAltoFwService.Tags
 				}
-				if _, ok := blockData["tags"].(map[string]interface{}); ok {
-					return &NfvServiceEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {
@@ -8880,6 +8976,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.IsNull() && !data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.IsUnknown() {
 					var PortsItems []string
 					diags := data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						F5BigIPAWSServiceEndpointServiceCustomTCPPortsMap["ports"] = PortsItems
 					}
@@ -8891,6 +8988,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.IsNull() && !data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.IsUnknown() {
 					var PortsItems []string
 					diags := data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						F5BigIPAWSServiceEndpointServiceCustomUDPPortsMap["ports"] = PortsItems
 					}
@@ -8972,8 +9070,13 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.F5BigIPAWSService.SSHKey.IsNull() && !data.F5BigIPAWSService.SSHKey.IsUnknown() {
 			F5BigIPAWSServiceMap["ssh_key"] = data.F5BigIPAWSService.SSHKey.ValueString()
 		}
-		if data.F5BigIPAWSService.Tags != nil {
-			F5BigIPAWSServiceMap["tags"] = map[string]interface{}{}
+		if !data.F5BigIPAWSService.Tags.IsNull() && !data.F5BigIPAWSService.Tags.IsUnknown() {
+			var TagsMap map[string]string
+			diags := data.F5BigIPAWSService.Tags.ElementsAs(ctx, &TagsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				F5BigIPAWSServiceMap["tags"] = TagsMap
+			}
 		}
 		apiResource.Spec["f5_big_ip_aws_service"] = F5BigIPAWSServiceMap
 	}
@@ -9020,6 +9123,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -9074,6 +9178,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -9142,6 +9247,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -9173,6 +9279,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -9227,6 +9334,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -9295,6 +9403,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -9326,6 +9435,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -9380,6 +9490,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -9448,6 +9559,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -9479,6 +9591,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -9533,6 +9646,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -9601,6 +9715,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -9800,8 +9915,13 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.PaloAltoFwService.SSHKey.IsNull() && !data.PaloAltoFwService.SSHKey.IsUnknown() {
 			PaloAltoFwServiceMap["ssh_key"] = data.PaloAltoFwService.SSHKey.ValueString()
 		}
-		if data.PaloAltoFwService.Tags != nil {
-			PaloAltoFwServiceMap["tags"] = map[string]interface{}{}
+		if !data.PaloAltoFwService.Tags.IsNull() && !data.PaloAltoFwService.Tags.IsUnknown() {
+			var TagsMap map[string]string
+			diags := data.PaloAltoFwService.Tags.ElementsAs(ctx, &TagsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				PaloAltoFwServiceMap["tags"] = TagsMap
+			}
 		}
 		if !data.PaloAltoFwService.Version.IsNull() && !data.PaloAltoFwService.Version.IsUnknown() {
 			PaloAltoFwServiceMap["version"] = data.PaloAltoFwService.Version.ValueString()
@@ -10080,7 +10200,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -10103,7 +10224,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -10291,14 +10413,24 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() *NfvServiceEmptyModel {
-				if !isImport && data.F5BigIPAWSService != nil {
+			Tags: func() types.Map {
+				if v, ok := blockData["tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Tags.IsNull() && !data.F5BigIPAWSService.Tags.IsUnknown() {
 					return data.F5BigIPAWSService.Tags
 				}
-				if _, ok := blockData["tags"].(map[string]interface{}); ok {
-					return &NfvServiceEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
@@ -10388,7 +10520,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -10506,7 +10639,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -10658,7 +10792,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -10718,7 +10853,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -10836,7 +10972,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -10988,7 +11125,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -11048,7 +11186,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -11166,7 +11305,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -11318,7 +11458,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -11378,7 +11519,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -11496,7 +11638,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -11648,7 +11791,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -12079,14 +12223,24 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() *NfvServiceEmptyModel {
-				if !isImport && data.PaloAltoFwService != nil {
+			Tags: func() types.Map {
+				if v, ok := blockData["tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.PaloAltoFwService != nil && !data.PaloAltoFwService.Tags.IsNull() && !data.PaloAltoFwService.Tags.IsUnknown() {
 					return data.PaloAltoFwService.Tags
 				}
-				if _, ok := blockData["tags"].(map[string]interface{}); ok {
-					return &NfvServiceEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {

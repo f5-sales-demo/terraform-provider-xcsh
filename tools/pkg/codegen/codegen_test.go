@@ -760,7 +760,10 @@ func TestUnmarshal_PreservesUnconfiguredList(t *testing.T) {
 			},
 		},
 	}
-	got := RenderSpecUnmarshalCode(attrs, "\t", "Test")
+	got, err := RenderSpecUnmarshalCode(attrs, "\t", "Test")
+	if err != nil {
+		t.Fatalf("unexpected unmarshal error: %v", err)
+	}
 	// grp has a Computed descendant -> types.List, and must preserve null/empty prior state.
 	if !strings.Contains(got, "data.Primary.Grp.IsNull() || len(data.Primary.Grp.Elements()) == 0") {
 		t.Errorf("expected unconfigured-list preservation guard for grp, got:\n%s", got)
@@ -881,12 +884,18 @@ func TestResourceTemplate_StringDefaultAndNamespaceOneOf(t *testing.T) {
 func TestRecursiveEmitters_DeepListConversion(t *testing.T) {
 	attrs := []openapi.TerraformAttribute{deepComputedTree()}
 
-	marshal := RenderSpecMarshalCode(attrs, "\t", "Test")
+	marshal, err := RenderSpecMarshalCode(attrs, "\t", "Test")
+	if err != nil {
+		t.Fatalf("unexpected marshal error: %v", err)
+	}
 	if !strings.Contains(marshal, "RrSet.ElementsAs(ctx,") {
 		t.Errorf("expected marshal to ElementsAs the deep rr_set types.List, got:\n%s", marshal)
 	}
 
-	unmarshal := RenderSpecUnmarshalCode(attrs, "\t", "Test")
+	unmarshal, err := RenderSpecUnmarshalCode(attrs, "\t", "Test")
+	if err != nil {
+		t.Fatalf("unexpected unmarshal error: %v", err)
+	}
 	if !strings.Contains(unmarshal, "types.ListValueFrom(ctx, types.ObjectType{AttrTypes: TestRrSetGroupRrSetModelAttrTypes}") {
 		t.Errorf("expected unmarshal to ListValueFrom the deep rr_set with its AttrTypes, got:\n%s", unmarshal)
 	}

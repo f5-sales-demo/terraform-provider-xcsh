@@ -791,6 +791,7 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.AllowedResponseCodes.ResponseCode.IsNull() && !data.AllowedResponseCodes.ResponseCode.IsUnknown() {
 			var ResponseCodeItems []int64
 			diags := data.AllowedResponseCodes.ResponseCode.ElementsAs(ctx, &ResponseCodeItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				AllowedResponseCodesMap["response_code"] = ResponseCodeItems
 			}
@@ -904,6 +905,7 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				if !data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.IsUnknown() {
 					var DisabledAttackTypesItems []string
 					diags := data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.ElementsAs(ctx, &DisabledAttackTypesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap["disabled_attack_types"] = DisabledAttackTypesItems
 					}
@@ -943,6 +945,7 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.DetectionSettings.ViolationSettings.DisabledViolationTypes.IsNull() && !data.DetectionSettings.ViolationSettings.DisabledViolationTypes.IsUnknown() {
 				var DisabledViolationTypesItems []string
 				diags := data.DetectionSettings.ViolationSettings.DisabledViolationTypes.ElementsAs(ctx, &DisabledViolationTypesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					DetectionSettingsViolationSettingsMap["disabled_violation_types"] = DisabledViolationTypesItems
 				}
@@ -1045,7 +1048,8 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -1273,7 +1277,8 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -1374,7 +1379,8 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1602,7 +1608,8 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -1830,7 +1837,8 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -1931,7 +1939,8 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2112,6 +2121,7 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.AllowedResponseCodes.ResponseCode.IsNull() && !data.AllowedResponseCodes.ResponseCode.IsUnknown() {
 			var ResponseCodeItems []int64
 			diags := data.AllowedResponseCodes.ResponseCode.ElementsAs(ctx, &ResponseCodeItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				AllowedResponseCodesMap["response_code"] = ResponseCodeItems
 			}
@@ -2225,6 +2235,7 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				if !data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.IsUnknown() {
 					var DisabledAttackTypesItems []string
 					diags := data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.ElementsAs(ctx, &DisabledAttackTypesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap["disabled_attack_types"] = DisabledAttackTypesItems
 					}
@@ -2264,6 +2275,7 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.DetectionSettings.ViolationSettings.DisabledViolationTypes.IsNull() && !data.DetectionSettings.ViolationSettings.DisabledViolationTypes.IsUnknown() {
 				var DisabledViolationTypesItems []string
 				diags := data.DetectionSettings.ViolationSettings.DisabledViolationTypes.ElementsAs(ctx, &DisabledViolationTypesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					DetectionSettingsViolationSettingsMap["disabled_violation_types"] = DisabledViolationTypesItems
 				}
@@ -2386,7 +2398,8 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -2614,7 +2627,8 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -2715,7 +2729,8 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)

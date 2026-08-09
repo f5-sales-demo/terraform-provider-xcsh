@@ -325,6 +325,7 @@ func (r *Ike2Resource) Create(ctx context.Context, req resource.CreateRequest, r
 		if !data.DhGroupSet.DhGroups.IsNull() && !data.DhGroupSet.DhGroups.IsUnknown() {
 			var DhGroupsItems []string
 			diags := data.DhGroupSet.DhGroups.ElementsAs(ctx, &DhGroupsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DhGroupSetMap["dh_groups"] = DhGroupsItems
 			}
@@ -383,7 +384,8 @@ func (r *Ike2Resource) Create(ctx context.Context, req resource.CreateRequest, r
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -553,7 +555,8 @@ func (r *Ike2Resource) Read(ctx context.Context, req resource.ReadRequest, resp 
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -676,6 +679,7 @@ func (r *Ike2Resource) Update(ctx context.Context, req resource.UpdateRequest, r
 		if !data.DhGroupSet.DhGroups.IsNull() && !data.DhGroupSet.DhGroups.IsUnknown() {
 			var DhGroupsItems []string
 			diags := data.DhGroupSet.DhGroups.ElementsAs(ctx, &DhGroupsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DhGroupSetMap["dh_groups"] = DhGroupsItems
 			}
@@ -754,7 +758,8 @@ func (r *Ike2Resource) Update(ctx context.Context, req resource.UpdateRequest, r
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

@@ -152,20 +152,20 @@ func RenderSpecStructFields(attrs []openapi.TerraformAttribute, indent string) s
 }
 
 // RenderSpecMarshalCodeForCreate generates Go code for Create (uses "createReq" variable)
-func RenderSpecMarshalCodeForCreate(attrs []openapi.TerraformAttribute, indent string, resourceTitleCase string) string {
+func RenderSpecMarshalCodeForCreate(attrs []openapi.TerraformAttribute, indent string, resourceTitleCase string) (string, error) {
 	return RenderSpecMarshalCodeWithVar(attrs, indent, "createReq", resourceTitleCase)
 }
 
 // RenderSpecMarshalCode generates Go code to marshal spec fields from Terraform state to API struct (uses "apiResource" variable)
-func RenderSpecMarshalCode(attrs []openapi.TerraformAttribute, indent string, resourceTitleCase string) string {
+func RenderSpecMarshalCode(attrs []openapi.TerraformAttribute, indent string, resourceTitleCase string) (string, error) {
 	return RenderSpecMarshalCodeWithVar(attrs, indent, "apiResource", resourceTitleCase)
 }
 
 // RenderSpecMarshalCodeWithVar generates Go code to marshal spec fields with configurable variable name
-func RenderSpecMarshalCodeWithVar(attrs []openapi.TerraformAttribute, indent string, varName string, resourceTitleCase string) string {
+func RenderSpecMarshalCodeWithVar(attrs []openapi.TerraformAttribute, indent string, varName string, resourceTitleCase string) (string, error) {
 	specFields := schema.FilterSpecFields(attrs)
 	if len(specFields) == 0 {
-		return ""
+		return "", nil
 	}
 
 	var sb strings.Builder
@@ -173,18 +173,22 @@ func RenderSpecMarshalCodeWithVar(attrs []openapi.TerraformAttribute, indent str
 		if attr.IsBlock {
 			// Top-level list blocks are always modeled as types.List (RenderBlockFields);
 			// single blocks as pointers.
-			renderMarshalBlock(&sb, resourceTitleCase, "", attr, "data."+attr.GoName, varName+".Spec", indent, attr.NestedBlockType == "list")
+			if err := renderMarshalBlock(&sb, resourceTitleCase, "", attr, "data."+attr.GoName, varName+".Spec", indent, attr.NestedBlockType == "list"); err != nil {
+				return "", fmt.Errorf("marshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
+			}
 		} else {
-			renderMarshalScalar(&sb, attr, "data."+attr.GoName, varName+".Spec", indent)
+			if err := renderMarshalScalar(&sb, attr, "data."+attr.GoName, varName+".Spec", indent); err != nil {
+				return "", fmt.Errorf("marshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
+			}
 		}
 	}
-	return sb.String()
+	return sb.String(), nil
 }
 
 // renderMarshalScalar emits code marshaling a primitive or primitive-list attribute from its
 // Terraform value (src) into dstMap[jsonName]. dstMap is a Go expression for a
 // map[string]interface{} (e.g. "apiResource.Spec" or a local item map).
-func renderMarshalScalar(sb *strings.Builder, attr openapi.TerraformAttribute, src, dstMap, indent string) {
+func renderMarshalScalar(sb *strings.Builder, attr openapi.TerraformAttribute, src, dstMap, indent string) error {
 	jsonName := attr.JsonName
 	if jsonName == "" {
 		jsonName = attr.TfsdkTag
@@ -209,19 +213,35 @@ func renderMarshalScalar(sb *strings.Builder, attr openapi.TerraformAttribute, s
 			elemGo = "string"
 		case "int64":
 			elemGo = "int64"
-		}
-		if elemGo == "" {
-			return
+		default:
+			return fmt.Errorf("unsupported list element type %q at field %s", attr.ElementType, attr.Name)
 		}
 		itemsVar := attr.GoName + "Items"
 		sb.WriteString(fmt.Sprintf("%sif !%s.IsNull() && !%s.IsUnknown() {\n", indent, src, src))
 		sb.WriteString(fmt.Sprintf("%s\tvar %s []%s\n", indent, itemsVar, elemGo))
 		sb.WriteString(fmt.Sprintf("%s\tdiags := %s.ElementsAs(ctx, &%s, false)\n", indent, src, itemsVar))
+		sb.WriteString(fmt.Sprintf("%s\tresp.Diagnostics.Append(diags...)\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\tif !diags.HasError() {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\t%s[\"%s\"] = %s\n", indent, dstMap, jsonName, itemsVar))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	case "map":
+		if attr.ElementType != "string" {
+			return fmt.Errorf("unsupported map element type %q at field %s", attr.ElementType, attr.Name)
+		}
+		itemsVar := attr.GoName + "Map"
+		sb.WriteString(fmt.Sprintf("%sif !%s.IsNull() && !%s.IsUnknown() {\n", indent, src, src))
+		sb.WriteString(fmt.Sprintf("%s\tvar %s map[string]string\n", indent, itemsVar))
+		sb.WriteString(fmt.Sprintf("%s\tdiags := %s.ElementsAs(ctx, &%s, false)\n", indent, src, itemsVar))
+		sb.WriteString(fmt.Sprintf("%s\tresp.Diagnostics.Append(diags...)\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\tif !diags.HasError() {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\t%s[\"%s\"] = %s\n", indent, dstMap, jsonName, itemsVar))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	default:
+		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}
+	return nil
 }
 
 // renderMarshalBlock emits code marshaling a nested block (attr) from its Terraform model value
@@ -229,7 +249,7 @@ func renderMarshalScalar(sb *strings.Builder, attr openapi.TerraformAttribute, s
 // (matching CollectNestedModelTypes). fieldIsTypesList reports whether the Go model represents
 // this list block as types.List (top-level lists, or nested lists with a Computed descendant)
 // rather than a native slice. It recurses to arbitrary depth.
-func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath string, attr openapi.TerraformAttribute, src, dstMap, indent string, fieldIsTypesList bool) {
+func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath string, attr openapi.TerraformAttribute, src, dstMap, indent string, fieldIsTypesList bool) error {
 	jsonName := attr.JsonName
 	if jsonName == "" {
 		jsonName = attr.TfsdkTag
@@ -242,7 +262,7 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 		mapVar := base + "ItemMap"
 		listVar := base + "List"
 
-		emitLoop := func(bodyIndent, rangeExpr string) {
+		emitLoop := func(bodyIndent, rangeExpr string) error {
 			sb.WriteString(fmt.Sprintf("%svar %s []map[string]interface{}\n", bodyIndent, listVar))
 			if len(attr.NestedAttributes) == 0 {
 				sb.WriteString(fmt.Sprintf("%sfor range %s {\n", bodyIndent, rangeExpr))
@@ -253,14 +273,19 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 			for _, child := range attr.NestedAttributes {
 				childSrc := loopVar + "." + child.GoName
 				if child.IsBlock {
-					renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, mapVar, bodyIndent+"\t", nestedListUsesTypesList(child))
+					if err := renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, mapVar, bodyIndent+"\t", nestedListUsesTypesList(child)); err != nil {
+						return fmt.Errorf("field %q: %w", child.Name, err)
+					}
 				} else {
-					renderMarshalScalar(sb, child, childSrc, mapVar, bodyIndent+"\t")
+					if err := renderMarshalScalar(sb, child, childSrc, mapVar, bodyIndent+"\t"); err != nil {
+						return fmt.Errorf("field %q: %w", child.Name, err)
+					}
 				}
 			}
 			sb.WriteString(fmt.Sprintf("%s\t%s = append(%s, %s)\n", bodyIndent, listVar, listVar, mapVar))
 			sb.WriteString(fmt.Sprintf("%s}\n", bodyIndent))
 			sb.WriteString(fmt.Sprintf("%s%s[\"%s\"] = %s\n", bodyIndent, dstMap, jsonName, listVar))
+			return nil
 		}
 
 		if fieldIsTypesList {
@@ -274,15 +299,19 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 			sb.WriteString(fmt.Sprintf("%s\tdiags := %s.ElementsAs(ctx, &%s, false)\n", indent, src, elemsVar))
 			sb.WriteString(fmt.Sprintf("%s\tresp.Diagnostics.Append(diags...)\n", indent))
 			sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() && len(%s) > 0 {\n", indent, elemsVar))
-			emitLoop(indent+"\t\t", elemsVar)
+			if err := emitLoop(indent+"\t\t", elemsVar); err != nil {
+				return err
+			}
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 			sb.WriteString(fmt.Sprintf("%s}\n", indent))
 		} else {
 			sb.WriteString(fmt.Sprintf("%sif len(%s) > 0 {\n", indent, src))
-			emitLoop(indent+"\t", src)
+			if err := emitLoop(indent+"\t", src); err != nil {
+				return err
+			}
 			sb.WriteString(fmt.Sprintf("%s}\n", indent))
 		}
-		return
+		return nil
 	}
 
 	// Single nested block.
@@ -290,7 +319,7 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 		sb.WriteString(fmt.Sprintf("%sif %s != nil {\n", indent, src))
 		sb.WriteString(fmt.Sprintf("%s\t%s[\"%s\"] = map[string]interface{}{}\n", indent, dstMap, jsonName))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
-		return
+		return nil
 	}
 	// Name the map var by the full nested path (childPath), not just the leaf GoName:
 	// a single nested block whose child is another single block with the SAME GoName
@@ -303,13 +332,18 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 	for _, child := range attr.NestedAttributes {
 		childSrc := src + "." + child.GoName
 		if child.IsBlock {
-			renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, subVar, indent+"\t", nestedListUsesTypesList(child))
+			if err := renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, subVar, indent+"\t", nestedListUsesTypesList(child)); err != nil {
+				return fmt.Errorf("field %q: %w", child.Name, err)
+			}
 		} else {
-			renderMarshalScalar(sb, child, childSrc, subVar, indent+"\t")
+			if err := renderMarshalScalar(sb, child, childSrc, subVar, indent+"\t"); err != nil {
+				return fmt.Errorf("field %q: %w", child.Name, err)
+			}
 		}
 	}
 	sb.WriteString(fmt.Sprintf("%s\t%s[\"%s\"] = %s\n", indent, dstMap, jsonName, subVar))
 	sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	return nil
 }
 
 // RenderComputedFieldsCode generates Go code to set Computed+Optional fields from API response
@@ -389,25 +423,31 @@ func RenderFetchedComputedFieldsCode(attrs []openapi.TerraformAttribute, indent 
 }
 
 // RenderSpecUnmarshalCode generates Go code to unmarshal spec fields from API response to Terraform state
-func RenderSpecUnmarshalCode(attrs []openapi.TerraformAttribute, indent string, resourceTitleCase string) string {
+func RenderSpecUnmarshalCode(attrs []openapi.TerraformAttribute, indent string, resourceTitleCase string) (string, error) {
 	specFields := schema.FilterSpecFields(attrs)
 	if len(specFields) == 0 {
-		return ""
+		return "", nil
 	}
 
 	var sb strings.Builder
 	for _, attr := range specFields {
 		if attr.IsBlock {
 			if attr.NestedBlockType == "list" {
-				renderUnmarshalTopLevelList(&sb, resourceTitleCase, attr, indent)
+				if err := renderUnmarshalTopLevelList(&sb, resourceTitleCase, attr, indent); err != nil {
+					return "", fmt.Errorf("unmarshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
+				}
 			} else {
-				renderUnmarshalTopLevelSingle(&sb, resourceTitleCase, attr, indent)
+				if err := renderUnmarshalTopLevelSingle(&sb, resourceTitleCase, attr, indent); err != nil {
+					return "", fmt.Errorf("unmarshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
+				}
 			}
 			continue
 		}
-		renderUnmarshalTopLevelScalar(&sb, attr, indent)
+		if err := renderUnmarshalTopLevelScalar(&sb, attr, indent); err != nil {
+			return "", fmt.Errorf("unmarshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
+		}
 	}
-	return sb.String()
+	return sb.String(), nil
 }
 
 // nestedElemModel returns the Go model type name for elements of a nested block.
@@ -428,7 +468,7 @@ func nestedObjectTypeExpr(resourceTitleCase, childPath string, attr openapi.Terr
 }
 
 // renderUnmarshalTopLevelScalar assigns a primitive/list spec field directly to data.<Field>.
-func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAttribute, indent string) {
+func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAttribute, indent string) error {
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -474,7 +514,7 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 		case "int64":
 			elemType, goElem, cast, conv = "types.Int64Type", "int64", "float64", "int64(s)"
 		default:
-			return
+			return fmt.Errorf("unsupported list element type %q at field %s", attr.ElementType, attr.Name)
 		}
 		listVar := attr.TfsdkTag + "List"
 		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok && len(v) > 0 {\n", indent, jsonName))
@@ -492,12 +532,41 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, elemType))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	case "map":
+		if attr.ElementType != "string" {
+			return fmt.Errorf("unsupported map element type %q at field %s", attr.ElementType, attr.Name)
+		}
+		mapVar := attr.TfsdkTag + "Map"
+		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok {\n", indent, jsonName))
+		sb.WriteString(fmt.Sprintf("%s\t%s := make(map[string]string)\n", indent, mapVar))
+		sb.WriteString(fmt.Sprintf("%s\tfor mk, mv := range v {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\tif mvs, ok := mv.(string); ok {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\t\t%s[mk] = mvs\n", indent, mapVar))
+		sb.WriteString(fmt.Sprintf("%s\t\t} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\t\tresp.Diagnostics.AddError(\"Unexpected type in map\", fmt.Sprintf(\"Expected string for key %%s in field %s, got %%T\", mk, mv))\n", indent, attr.Name))
+		sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\tmapVal, diags := types.MapValueFrom(ctx, types.StringType, %s)\n", indent, mapVar))
+		sb.WriteString(fmt.Sprintf("%s\tresp.Diagnostics.Append(diags...)\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = mapVal\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\tif !data.%s.IsNull() && !data.%s.IsUnknown() {\n", indent, fieldName, fieldName))
+		sb.WriteString(fmt.Sprintf("%s\t\t// Preserve configured map to prevent drift on omission\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = types.MapNull(types.StringType)\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	default:
+		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}
+	return nil
 }
 
 // renderUnmarshalTopLevelList rebuilds a top-level list block (always types.List) from the API
 // response, converting to types.List via ListValueFrom.
-func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string) {
+func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string) error {
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -530,7 +599,9 @@ func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.Te
 		sb.WriteString(fmt.Sprintf("%s\t\tif itemMap, ok := item.(map[string]interface{}); ok {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t%s = append(%s, %s{\n", indent, listVar, listVar, elemModel))
 		for _, child := range attr.NestedAttributes {
-			renderUnmarshalChild(sb, rc, childPath, child, "itemMap", existingVar+"[listIdx]", fmt.Sprintf("len(%s) > listIdx", existingVar), "list", indent+"\t\t\t\t")
+			if err := renderUnmarshalChild(sb, rc, childPath, child, "itemMap", existingVar+"[listIdx]", fmt.Sprintf("len(%s) > listIdx", existingVar), "list", indent+"\t\t\t\t"); err != nil {
+				return err
+			}
 		}
 		sb.WriteString(fmt.Sprintf("%s\t\t\t})\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
@@ -544,10 +615,11 @@ func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.Te
 	sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, objType))
 	sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	return nil
 }
 
 // renderUnmarshalTopLevelSingle rebuilds a top-level single block (pointer) from the API response.
-func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string) {
+func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string) error {
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -566,7 +638,7 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 			sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%sEmptyModel{}\n", indent, fieldName, rc))
 			sb.WriteString(fmt.Sprintf("%s}\n", indent))
 		}
-		return
+		return nil
 	}
 
 	model := rc + childPath + "Model"
@@ -581,10 +653,13 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 	sb.WriteString(fmt.Sprintf("%sif blockData, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && %s {\n", indent, jsonName, buildGuard))
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%s{\n", indent, fieldName, model))
 	for _, child := range attr.NestedAttributes {
-		renderUnmarshalChild(sb, rc, childPath, child, "blockData", "data."+fieldName, "data."+fieldName+" != nil", "single", indent+"\t\t")
+		if err := renderUnmarshalChild(sb, rc, childPath, child, "blockData", "data."+fieldName, "data."+fieldName+" != nil", "single", indent+"\t\t"); err != nil {
+			return err
+		}
 	}
 	sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 	sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	return nil
 }
 
 // renderUnmarshalChild writes a "Field: <closure>," entry for a child attribute inside a model
@@ -592,22 +667,29 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 // "single" or "list" (the block kind this child lives in). stateBase is the Go expr for the
 // existing-state model value at this level (for drift-preserving reads), or "" when unavailable;
 // stateGuard is a boolean Go expr true when stateBase is safe to read. It recurses to any depth.
-func renderUnmarshalChild(sb *strings.Builder, rc, prefixPath string, child openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
+func renderUnmarshalChild(sb *strings.Builder, rc, prefixPath string, child openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
 	if !child.IsBlock {
-		renderUnmarshalScalarChild(sb, rc, child, srcMap, stateBase, stateGuard, container, indent)
-		return
+		if err := renderUnmarshalScalarChild(sb, rc, child, srcMap, stateBase, stateGuard, container, indent); err != nil {
+			return fmt.Errorf("field %q: %w", child.Name, err)
+		}
+		return nil
 	}
 	childPath := prefixPath + naming.ToResourceTypeName(child.TfsdkTag)
 	if child.NestedBlockType == "list" {
-		renderUnmarshalListChild(sb, rc, childPath, child, srcMap, stateBase, stateGuard, container, indent)
-		return
+		if err := renderUnmarshalListChild(sb, rc, childPath, child, srcMap, stateBase, stateGuard, container, indent); err != nil {
+			return fmt.Errorf("field %q: %w", child.Name, err)
+		}
+		return nil
 	}
-	renderUnmarshalSingleChild(sb, rc, childPath, child, srcMap, stateBase, stateGuard, container, indent)
+	if err := renderUnmarshalSingleChild(sb, rc, childPath, child, srcMap, stateBase, stateGuard, container, indent); err != nil {
+		return fmt.Errorf("field %q: %w", child.Name, err)
+	}
+	return nil
 }
 
 // renderUnmarshalScalarChild emits the closure entry for a primitive/list child.
 // rc is the resource title-case prefix, used for import-default suppression lookups.
-func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
+func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -680,7 +762,7 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		case "int64":
 			elemType, goElem, cast, conv = "types.Int64Type", "int64", "float64", "int64(s)"
 		default:
-			return
+			return fmt.Errorf("unsupported list element type %q at field %s", attr.ElementType, attr.Name)
 		}
 		sb.WriteString(fmt.Sprintf("%s%s: func() types.List {\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].([]interface{}); ok && len(v) > 0 {\n", indent, srcMap, jsonName))
@@ -690,12 +772,41 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		sb.WriteString(fmt.Sprintf("%s\t\t\t\titems = append(items, %s)\n", indent, conv))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t}\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\tlistVal, _ := types.ListValueFrom(ctx, %s, items)\n", indent, elemType))
+		sb.WriteString(fmt.Sprintf("%s\t\tlistVal, diags := types.ListValueFrom(ctx, %s, items)\n", indent, elemType))
+		sb.WriteString(fmt.Sprintf("%s\t\tresp.Diagnostics.Append(diags...)\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\treturn listVal\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\treturn types.ListNull(%s)\n", indent, elemType))
 		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
+	case "map":
+		if attr.ElementType != "string" {
+			return fmt.Errorf("unsupported map element type %q at field %s", attr.ElementType, attr.Name)
+		}
+		sb.WriteString(fmt.Sprintf("%s%s: func() types.Map {\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", indent, srcMap, jsonName))
+		sb.WriteString(fmt.Sprintf("%s\t\titems := make(map[string]string)\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\tfor mk, mv := range v {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\t\tif mvs, ok := mv.(string); ok {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\t\t\titems[mk] = mvs\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\t\t} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\t\t\tresp.Diagnostics.AddError(\"Unexpected type in map\", fmt.Sprintf(\"Expected string for key %%s in field %s, got %%T\", mk, mv))\n", indent, attr.Name))
+		sb.WriteString(fmt.Sprintf("%s\t\t\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\tmapVal, diags := types.MapValueFrom(ctx, types.StringType, items)\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\tresp.Diagnostics.Append(diags...)\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t\treturn mapVal\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		if stateBase != "" {
+			sb.WriteString(fmt.Sprintf("%s\tif %s && !%s.%s.IsNull() && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
+		sb.WriteString(fmt.Sprintf("%s\treturn types.MapNull(types.StringType)\n", indent))
+		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
+	default:
+		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}
+	return nil
 }
 
 // isObjectReferenceBlock reports whether a nested block is an F5 XC object reference
@@ -737,7 +848,7 @@ func hasObjectReferenceDescendant(attr openapi.TerraformAttribute) bool {
 }
 
 // renderUnmarshalSingleChild emits the closure entry for a single nested block child.
-func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
+func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -784,7 +895,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 		}
 		sb.WriteString(fmt.Sprintf("%s\treturn nil\n", indent))
 		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
-		return
+		return nil
 	}
 
 	model := rc + childPath + "Model"
@@ -818,17 +929,20 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	sb.WriteString(fmt.Sprintf("%s\tif %s, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", indent, dataVar, srcMap, jsonName))
 	sb.WriteString(fmt.Sprintf("%s\t\treturn &%s{\n", indent, model))
 	for _, child := range attr.NestedAttributes {
-		renderUnmarshalChild(sb, rc, childPath, child, dataVar, childStateBase, childStateGuard, "single", indent+"\t\t\t")
+		if err := renderUnmarshalChild(sb, rc, childPath, child, dataVar, childStateBase, childStateGuard, "single", indent+"\t\t\t"); err != nil {
+			return err
+		}
 	}
 	sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
 	sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 	sb.WriteString(fmt.Sprintf("%s\treturn nil\n", indent))
 	sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
+	return nil
 }
 
 // renderUnmarshalListChild emits the closure entry for a list nested block child. It always
 // returns types.List, matching the Go model (a native slice cannot hold unknown values).
-func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) {
+func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -920,7 +1034,9 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 		sb.WriteString(fmt.Sprintf("%s\t\t\tif %s, ok := %s.(map[string]interface{}); ok {\n", indent, mapVar, loopVar))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t\t%s = append(%s, %s{\n", indent, resultVar, resultVar, elemModel))
 		for _, child := range attr.NestedAttributes {
-			renderUnmarshalChild(sb, rc, childPath, child, mapVar, childStateBase, childStateGuard, "list", indent+"\t\t\t\t\t")
+			if err := renderUnmarshalChild(sb, rc, childPath, child, mapVar, childStateBase, childStateGuard, "list", indent+"\t\t\t\t\t"); err != nil {
+				return err
+			}
 		}
 		sb.WriteString(fmt.Sprintf("%s\t\t\t\t})\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t}\n", indent))
@@ -937,6 +1053,7 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 		sb.WriteString(fmt.Sprintf("%s\treturn nil\n", indent))
 	}
 	sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
+	return nil
 }
 
 // RenderNestedAttributes generates the Attributes map for nested blocks

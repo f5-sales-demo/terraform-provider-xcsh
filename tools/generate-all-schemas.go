@@ -38,6 +38,7 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/registration"
+	resourcePkg "github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
 
@@ -282,6 +283,12 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 
 		// Process each resource in the domain
 		for _, resource := range domainInfo.Resources {
+			// Skip explicitly skipped resources
+			if resourcePkg.IsResourceSkipped(resource.Name, verbose) {
+				skipCount++
+				continue
+			}
+
 			// Skip duplicate resources that appear in multiple domain specs
 			if processedResources[resource.Name] {
 				if verbose {
@@ -316,6 +323,10 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 				continue
 			}
 			for _, act := range actions {
+				if resourcePkg.IsResourceSkipped(act.ResourceName, verbose) {
+					skipCount++
+					continue
+				}
 				if processedResources[act.ResourceName] {
 					if verbose {
 						fmt.Printf("      ⏭️  Skipping duplicate action: %s (already processed)\n", act.ResourceName)

@@ -241,17 +241,17 @@ var WorkloadJobContainersLivenessCheckExecHealthCheckModelAttrTypes = map[string
 
 // WorkloadJobContainersLivenessCheckHTTPHealthCheckModel represents http_health_check block
 type WorkloadJobContainersLivenessCheckHTTPHealthCheckModel struct {
+	Headers    types.Map                                                   `tfsdk:"headers"`
 	HostHeader types.String                                                `tfsdk:"host_header"`
 	Path       types.String                                                `tfsdk:"path"`
-	Headers    *WorkloadEmptyModel                                         `tfsdk:"headers"`
 	Port       *WorkloadJobContainersLivenessCheckHTTPHealthCheckPortModel `tfsdk:"port"`
 }
 
 // WorkloadJobContainersLivenessCheckHTTPHealthCheckModelAttrTypes defines the attribute types for WorkloadJobContainersLivenessCheckHTTPHealthCheckModel
 var WorkloadJobContainersLivenessCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"headers":     types.MapType{ElemType: types.StringType},
 	"host_header": types.StringType,
 	"path":        types.StringType,
-	"headers":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":        types.ObjectType{AttrTypes: WorkloadJobContainersLivenessCheckHTTPHealthCheckPortModelAttrTypes},
 }
 
@@ -325,17 +325,17 @@ var WorkloadJobContainersReadinessCheckExecHealthCheckModelAttrTypes = map[strin
 
 // WorkloadJobContainersReadinessCheckHTTPHealthCheckModel represents http_health_check block
 type WorkloadJobContainersReadinessCheckHTTPHealthCheckModel struct {
+	Headers    types.Map                                                    `tfsdk:"headers"`
 	HostHeader types.String                                                 `tfsdk:"host_header"`
 	Path       types.String                                                 `tfsdk:"path"`
-	Headers    *WorkloadEmptyModel                                          `tfsdk:"headers"`
 	Port       *WorkloadJobContainersReadinessCheckHTTPHealthCheckPortModel `tfsdk:"port"`
 }
 
 // WorkloadJobContainersReadinessCheckHTTPHealthCheckModelAttrTypes defines the attribute types for WorkloadJobContainersReadinessCheckHTTPHealthCheckModel
 var WorkloadJobContainersReadinessCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"headers":     types.MapType{ElemType: types.StringType},
 	"host_header": types.StringType,
 	"path":        types.StringType,
-	"headers":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":        types.ObjectType{AttrTypes: WorkloadJobContainersReadinessCheckHTTPHealthCheckPortModelAttrTypes},
 }
 
@@ -3803,17 +3803,17 @@ var WorkloadServiceContainersLivenessCheckExecHealthCheckModelAttrTypes = map[st
 
 // WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel represents http_health_check block
 type WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel struct {
+	Headers    types.Map                                                       `tfsdk:"headers"`
 	HostHeader types.String                                                    `tfsdk:"host_header"`
 	Path       types.String                                                    `tfsdk:"path"`
-	Headers    *WorkloadEmptyModel                                             `tfsdk:"headers"`
 	Port       *WorkloadServiceContainersLivenessCheckHTTPHealthCheckPortModel `tfsdk:"port"`
 }
 
 // WorkloadServiceContainersLivenessCheckHTTPHealthCheckModelAttrTypes defines the attribute types for WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel
 var WorkloadServiceContainersLivenessCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"headers":     types.MapType{ElemType: types.StringType},
 	"host_header": types.StringType,
 	"path":        types.StringType,
-	"headers":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":        types.ObjectType{AttrTypes: WorkloadServiceContainersLivenessCheckHTTPHealthCheckPortModelAttrTypes},
 }
 
@@ -3887,17 +3887,17 @@ var WorkloadServiceContainersReadinessCheckExecHealthCheckModelAttrTypes = map[s
 
 // WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel represents http_health_check block
 type WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel struct {
+	Headers    types.Map                                                        `tfsdk:"headers"`
 	HostHeader types.String                                                     `tfsdk:"host_header"`
 	Path       types.String                                                     `tfsdk:"path"`
-	Headers    *WorkloadEmptyModel                                              `tfsdk:"headers"`
 	Port       *WorkloadServiceContainersReadinessCheckHTTPHealthCheckPortModel `tfsdk:"port"`
 }
 
 // WorkloadServiceContainersReadinessCheckHTTPHealthCheckModelAttrTypes defines the attribute types for WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel
 var WorkloadServiceContainersReadinessCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"headers":     types.MapType{ElemType: types.StringType},
 	"host_header": types.StringType,
 	"path":        types.StringType,
-	"headers":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":        types.ObjectType{AttrTypes: WorkloadServiceContainersReadinessCheckHTTPHealthCheckPortModelAttrTypes},
 }
 
@@ -4355,17 +4355,17 @@ var WorkloadSimpleServiceContainerLivenessCheckExecHealthCheckModelAttrTypes = m
 
 // WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel represents http_health_check block
 type WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel struct {
+	Headers    types.Map                                                            `tfsdk:"headers"`
 	HostHeader types.String                                                         `tfsdk:"host_header"`
 	Path       types.String                                                         `tfsdk:"path"`
-	Headers    *WorkloadEmptyModel                                                  `tfsdk:"headers"`
 	Port       *WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckPortModel `tfsdk:"port"`
 }
 
 // WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModelAttrTypes defines the attribute types for WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel
 var WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"headers":     types.MapType{ElemType: types.StringType},
 	"host_header": types.StringType,
 	"path":        types.StringType,
-	"headers":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":        types.ObjectType{AttrTypes: WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckPortModelAttrTypes},
 }
 
@@ -4439,17 +4439,17 @@ var WorkloadSimpleServiceContainerReadinessCheckExecHealthCheckModelAttrTypes = 
 
 // WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel represents http_health_check block
 type WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel struct {
+	Headers    types.Map                                                             `tfsdk:"headers"`
 	HostHeader types.String                                                          `tfsdk:"host_header"`
 	Path       types.String                                                          `tfsdk:"path"`
-	Headers    *WorkloadEmptyModel                                                   `tfsdk:"headers"`
 	Port       *WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckPortModel `tfsdk:"port"`
 }
 
 // WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModelAttrTypes defines the attribute types for WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel
 var WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"headers":     types.MapType{ElemType: types.StringType},
 	"host_header": types.StringType,
 	"path":        types.StringType,
-	"headers":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":        types.ObjectType{AttrTypes: WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckPortModelAttrTypes},
 }
 
@@ -7759,17 +7759,17 @@ var WorkloadStatefulServiceContainersLivenessCheckExecHealthCheckModelAttrTypes 
 
 // WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel represents http_health_check block
 type WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel struct {
+	Headers    types.Map                                                               `tfsdk:"headers"`
 	HostHeader types.String                                                            `tfsdk:"host_header"`
 	Path       types.String                                                            `tfsdk:"path"`
-	Headers    *WorkloadEmptyModel                                                     `tfsdk:"headers"`
 	Port       *WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckPortModel `tfsdk:"port"`
 }
 
 // WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModelAttrTypes defines the attribute types for WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel
 var WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"headers":     types.MapType{ElemType: types.StringType},
 	"host_header": types.StringType,
 	"path":        types.StringType,
-	"headers":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":        types.ObjectType{AttrTypes: WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckPortModelAttrTypes},
 }
 
@@ -7843,17 +7843,17 @@ var WorkloadStatefulServiceContainersReadinessCheckExecHealthCheckModelAttrTypes
 
 // WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel represents http_health_check block
 type WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel struct {
+	Headers    types.Map                                                                `tfsdk:"headers"`
 	HostHeader types.String                                                             `tfsdk:"host_header"`
 	Path       types.String                                                             `tfsdk:"path"`
-	Headers    *WorkloadEmptyModel                                                      `tfsdk:"headers"`
 	Port       *WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckPortModel `tfsdk:"port"`
 }
 
 // WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModelAttrTypes defines the attribute types for WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel
 var WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"headers":     types.MapType{ElemType: types.StringType},
 	"host_header": types.StringType,
 	"path":        types.StringType,
-	"headers":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":        types.ObjectType{AttrTypes: WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckPortModelAttrTypes},
 }
 
@@ -8485,6 +8485,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
 											Attributes: map[string]schema.Attribute{
+												"headers": schema.MapAttribute{
+													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
 													Optional:            true,
@@ -8501,9 +8506,6 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"headers": schema.SingleNestedBlock{
-													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
-												},
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
 													Attributes: map[string]schema.Attribute{
@@ -8610,6 +8612,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
 											Attributes: map[string]schema.Attribute{
+												"headers": schema.MapAttribute{
+													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
 													Optional:            true,
@@ -8626,9 +8633,6 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"headers": schema.SingleNestedBlock{
-													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
-												},
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
 													Attributes: map[string]schema.Attribute{
@@ -13388,6 +13392,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
 											Attributes: map[string]schema.Attribute{
+												"headers": schema.MapAttribute{
+													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
 													Optional:            true,
@@ -13404,9 +13413,6 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"headers": schema.SingleNestedBlock{
-													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
-												},
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
 													Attributes: map[string]schema.Attribute{
@@ -13513,6 +13519,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
 											Attributes: map[string]schema.Attribute{
+												"headers": schema.MapAttribute{
+													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
 													Optional:            true,
@@ -13529,9 +13540,6 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"headers": schema.SingleNestedBlock{
-													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
-												},
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
 													Attributes: map[string]schema.Attribute{
@@ -14185,6 +14193,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									"http_health_check": schema.SingleNestedBlock{
 										MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
 										Attributes: map[string]schema.Attribute{
+											"headers": schema.MapAttribute{
+												MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
+												Optional:            true,
+												ElementType:         types.StringType,
+											},
 											"host_header": schema.StringAttribute{
 												MarkdownDescription: "The value of the host header in the HTTP health check request.",
 												Optional:            true,
@@ -14201,9 +14214,6 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											},
 										},
 										Blocks: map[string]schema.Block{
-											"headers": schema.SingleNestedBlock{
-												MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
-											},
 											"port": schema.SingleNestedBlock{
 												MarkdownDescription: "Port. Port",
 												Attributes: map[string]schema.Attribute{
@@ -14310,6 +14320,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									"http_health_check": schema.SingleNestedBlock{
 										MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
 										Attributes: map[string]schema.Attribute{
+											"headers": schema.MapAttribute{
+												MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
+												Optional:            true,
+												ElementType:         types.StringType,
+											},
 											"host_header": schema.StringAttribute{
 												MarkdownDescription: "The value of the host header in the HTTP health check request.",
 												Optional:            true,
@@ -14326,9 +14341,6 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											},
 										},
 										Blocks: map[string]schema.Block{
-											"headers": schema.SingleNestedBlock{
-												MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
-											},
 											"port": schema.SingleNestedBlock{
 												MarkdownDescription: "Port. Port",
 												Attributes: map[string]schema.Attribute{
@@ -18870,6 +18882,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
 											Attributes: map[string]schema.Attribute{
+												"headers": schema.MapAttribute{
+													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
 													Optional:            true,
@@ -18886,9 +18903,6 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"headers": schema.SingleNestedBlock{
-													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
-												},
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
 													Attributes: map[string]schema.Attribute{
@@ -18995,6 +19009,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
 											Attributes: map[string]schema.Attribute{
+												"headers": schema.MapAttribute{
+													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
 													Optional:            true,
@@ -19011,9 +19030,6 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"headers": schema.SingleNestedBlock{
-													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
-												},
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
 													Attributes: map[string]schema.Attribute{
@@ -19597,6 +19613,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					if !ContainersItem.Args.IsNull() && !ContainersItem.Args.IsUnknown() {
 						var ArgsItems []string
 						diags := ContainersItem.Args.ElementsAs(ctx, &ArgsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["args"] = ArgsItems
 						}
@@ -19604,6 +19621,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					if !ContainersItem.Command.IsNull() && !ContainersItem.Command.IsUnknown() {
 						var CommandItems []string
 						diags := ContainersItem.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["command"] = CommandItems
 						}
@@ -19663,6 +19681,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.LivenessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									JobContainersLivenessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -19674,8 +19693,13 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						if ContainersItem.LivenessCheck.HTTPHealthCheck != nil {
 							JobContainersLivenessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.LivenessCheck.HTTPHealthCheck.Headers != nil {
-								JobContainersLivenessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									JobContainersLivenessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								JobContainersLivenessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -19733,6 +19757,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.ReadinessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									JobContainersReadinessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -19744,8 +19769,13 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						if ContainersItem.ReadinessCheck.HTTPHealthCheck != nil {
 							JobContainersReadinessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers != nil {
-								JobContainersReadinessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									JobContainersReadinessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								JobContainersReadinessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -20124,6 +20154,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 								if !PortsItem.HTTPLoadBalancer.Domains.IsNull() && !PortsItem.HTTPLoadBalancer.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := PortsItem.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerMap["domains"] = DomainsItems
 									}
@@ -20256,6 +20287,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -20324,6 +20356,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -20355,6 +20388,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 														if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 															var HashAlgorithmsItems []string
 															diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+															resp.Diagnostics.Append(diags...)
 															if !diags.HasError() {
 																ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 															}
@@ -20409,6 +20443,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -20477,6 +20512,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -20580,6 +20616,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 												var CipherSuitesItems []string
 												diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 												}
@@ -20648,6 +20685,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 												var XfccHeaderElementsItems []string
 												diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 												}
@@ -20917,6 +20955,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 								if !PortsItem.TCPLoadBalancer.Domains.IsNull() && !PortsItem.TCPLoadBalancer.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := PortsItem.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										ServiceAdvertiseOptionsAdvertiseCustomPortsTCPLoadBalancerMap["domains"] = DomainsItems
 									}
@@ -21023,6 +21062,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !PortsItem.HTTPLoadBalancer.Domains.IsNull() && !PortsItem.HTTPLoadBalancer.Domains.IsUnknown() {
 										var DomainsItems []string
 										diags := PortsItem.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerMap["domains"] = DomainsItems
 										}
@@ -21155,6 +21195,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 														var CipherSuitesItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 														}
@@ -21223,6 +21264,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 														var XfccHeaderElementsItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 														}
@@ -21254,6 +21296,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 															if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 																var HashAlgorithmsItems []string
 																diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+																resp.Diagnostics.Append(diags...)
 																if !diags.HasError() {
 																	ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 																}
@@ -21308,6 +21351,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 														var CipherSuitesItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 														}
@@ -21376,6 +21420,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 														var XfccHeaderElementsItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 														}
@@ -21479,6 +21524,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -21547,6 +21593,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -21816,6 +21863,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !PortsItem.TCPLoadBalancer.Domains.IsNull() && !PortsItem.TCPLoadBalancer.Domains.IsUnknown() {
 										var DomainsItems []string
 										diags := PortsItem.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsTCPLoadBalancerMap["domains"] = DomainsItems
 										}
@@ -21852,6 +21900,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.IsUnknown() {
 							var DomainsItems []string
 							diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerMap["domains"] = DomainsItems
 							}
@@ -21984,6 +22033,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 											var CipherSuitesItems []string
 											diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 											}
@@ -22052,6 +22102,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 											var XfccHeaderElementsItems []string
 											diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 											}
@@ -22083,6 +22134,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 													var HashAlgorithmsItems []string
 													diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 													}
@@ -22137,6 +22189,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 											var CipherSuitesItems []string
 											diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 											}
@@ -22205,6 +22258,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 											var XfccHeaderElementsItems []string
 											diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 											}
@@ -22308,6 +22362,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 										var CipherSuitesItems []string
 										diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 										}
@@ -22376,6 +22431,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 										var XfccHeaderElementsItems []string
 										diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 										}
@@ -22642,6 +22698,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.IsUnknown() {
 							var DomainsItems []string
 							diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ServiceAdvertiseOptionsAdvertiseOnPublicPortTCPLoadBalancerMap["domains"] = DomainsItems
 							}
@@ -22724,6 +22781,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					if !ContainersItem.Args.IsNull() && !ContainersItem.Args.IsUnknown() {
 						var ArgsItems []string
 						diags := ContainersItem.Args.ElementsAs(ctx, &ArgsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["args"] = ArgsItems
 						}
@@ -22731,6 +22789,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					if !ContainersItem.Command.IsNull() && !ContainersItem.Command.IsUnknown() {
 						var CommandItems []string
 						diags := ContainersItem.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["command"] = CommandItems
 						}
@@ -22790,6 +22849,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.LivenessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									ServiceContainersLivenessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -22801,8 +22861,13 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						if ContainersItem.LivenessCheck.HTTPHealthCheck != nil {
 							ServiceContainersLivenessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.LivenessCheck.HTTPHealthCheck.Headers != nil {
-								ServiceContainersLivenessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									ServiceContainersLivenessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								ServiceContainersLivenessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -22860,6 +22925,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.ReadinessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									ServiceContainersReadinessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -22871,8 +22937,13 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						if ContainersItem.ReadinessCheck.HTTPHealthCheck != nil {
 							ServiceContainersReadinessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers != nil {
-								ServiceContainersReadinessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									ServiceContainersReadinessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								ServiceContainersReadinessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -23196,6 +23267,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 			if !data.SimpleService.Container.Args.IsNull() && !data.SimpleService.Container.Args.IsUnknown() {
 				var ArgsItems []string
 				diags := data.SimpleService.Container.Args.ElementsAs(ctx, &ArgsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					SimpleServiceContainerMap["args"] = ArgsItems
 				}
@@ -23203,6 +23275,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 			if !data.SimpleService.Container.Command.IsNull() && !data.SimpleService.Container.Command.IsUnknown() {
 				var CommandItems []string
 				diags := data.SimpleService.Container.Command.ElementsAs(ctx, &CommandItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					SimpleServiceContainerMap["command"] = CommandItems
 				}
@@ -23262,6 +23335,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					if !data.SimpleService.Container.LivenessCheck.ExecHealthCheck.Command.IsNull() && !data.SimpleService.Container.LivenessCheck.ExecHealthCheck.Command.IsUnknown() {
 						var CommandItems []string
 						diags := data.SimpleService.Container.LivenessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							SimpleServiceContainerLivenessCheckExecHealthCheckMap["command"] = CommandItems
 						}
@@ -23273,8 +23347,13 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				if data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil {
 					SimpleServiceContainerLivenessCheckHTTPHealthCheckMap := make(map[string]interface{})
-					if data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers != nil {
-						SimpleServiceContainerLivenessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+					if !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+						var HeadersMap map[string]string
+						diags := data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							SimpleServiceContainerLivenessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+						}
 					}
 					if !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.HostHeader.IsNull() && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 						SimpleServiceContainerLivenessCheckHTTPHealthCheckMap["host_header"] = data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -23332,6 +23411,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					if !data.SimpleService.Container.ReadinessCheck.ExecHealthCheck.Command.IsNull() && !data.SimpleService.Container.ReadinessCheck.ExecHealthCheck.Command.IsUnknown() {
 						var CommandItems []string
 						diags := data.SimpleService.Container.ReadinessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							SimpleServiceContainerReadinessCheckExecHealthCheckMap["command"] = CommandItems
 						}
@@ -23343,8 +23423,13 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				if data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil {
 					SimpleServiceContainerReadinessCheckHTTPHealthCheckMap := make(map[string]interface{})
-					if data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers != nil {
-						SimpleServiceContainerReadinessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+					if !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+						var HeadersMap map[string]string
+						diags := data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							SimpleServiceContainerReadinessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+						}
 					}
 					if !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.HostHeader.IsNull() && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 						SimpleServiceContainerReadinessCheckHTTPHealthCheckMap["host_header"] = data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -23448,6 +23533,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 			if !data.SimpleService.SimpleAdvertise.Domains.IsNull() && !data.SimpleService.SimpleAdvertise.Domains.IsUnknown() {
 				var DomainsItems []string
 				diags := data.SimpleService.SimpleAdvertise.Domains.ElementsAs(ctx, &DomainsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					SimpleServiceSimpleAdvertiseMap["domains"] = DomainsItems
 				}
@@ -23577,6 +23663,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 								if !PortsItem.HTTPLoadBalancer.Domains.IsNull() && !PortsItem.HTTPLoadBalancer.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := PortsItem.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerMap["domains"] = DomainsItems
 									}
@@ -23709,6 +23796,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -23777,6 +23865,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -23808,6 +23897,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 														if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 															var HashAlgorithmsItems []string
 															diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+															resp.Diagnostics.Append(diags...)
 															if !diags.HasError() {
 																StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 															}
@@ -23862,6 +23952,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -23930,6 +24021,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -24033,6 +24125,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 												var CipherSuitesItems []string
 												diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 												}
@@ -24101,6 +24194,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 												var XfccHeaderElementsItems []string
 												diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 												}
@@ -24370,6 +24464,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 								if !PortsItem.TCPLoadBalancer.Domains.IsNull() && !PortsItem.TCPLoadBalancer.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := PortsItem.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomPortsTCPLoadBalancerMap["domains"] = DomainsItems
 									}
@@ -24476,6 +24571,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !PortsItem.HTTPLoadBalancer.Domains.IsNull() && !PortsItem.HTTPLoadBalancer.Domains.IsUnknown() {
 										var DomainsItems []string
 										diags := PortsItem.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerMap["domains"] = DomainsItems
 										}
@@ -24608,6 +24704,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 														var CipherSuitesItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 														}
@@ -24676,6 +24773,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 														var XfccHeaderElementsItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 														}
@@ -24707,6 +24805,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 															if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 																var HashAlgorithmsItems []string
 																diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+																resp.Diagnostics.Append(diags...)
 																if !diags.HasError() {
 																	StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 																}
@@ -24761,6 +24860,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 														var CipherSuitesItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 														}
@@ -24829,6 +24929,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 														var XfccHeaderElementsItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 														}
@@ -24932,6 +25033,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -25000,6 +25102,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -25269,6 +25372,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !PortsItem.TCPLoadBalancer.Domains.IsNull() && !PortsItem.TCPLoadBalancer.Domains.IsUnknown() {
 										var DomainsItems []string
 										diags := PortsItem.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsTCPLoadBalancerMap["domains"] = DomainsItems
 										}
@@ -25305,6 +25409,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.IsUnknown() {
 							var DomainsItems []string
 							diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerMap["domains"] = DomainsItems
 							}
@@ -25437,6 +25542,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 											var CipherSuitesItems []string
 											diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 											}
@@ -25505,6 +25611,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 											var XfccHeaderElementsItems []string
 											diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 											}
@@ -25536,6 +25643,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 													var HashAlgorithmsItems []string
 													diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 													}
@@ -25590,6 +25698,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 											var CipherSuitesItems []string
 											diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 											}
@@ -25658,6 +25767,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 											var XfccHeaderElementsItems []string
 											diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 											}
@@ -25761,6 +25871,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 										var CipherSuitesItems []string
 										diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 										}
@@ -25829,6 +25940,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 										var XfccHeaderElementsItems []string
 										diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 										}
@@ -26095,6 +26207,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.IsUnknown() {
 							var DomainsItems []string
 							diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortTCPLoadBalancerMap["domains"] = DomainsItems
 							}
@@ -26177,6 +26290,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					if !ContainersItem.Args.IsNull() && !ContainersItem.Args.IsUnknown() {
 						var ArgsItems []string
 						diags := ContainersItem.Args.ElementsAs(ctx, &ArgsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["args"] = ArgsItems
 						}
@@ -26184,6 +26298,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					if !ContainersItem.Command.IsNull() && !ContainersItem.Command.IsUnknown() {
 						var CommandItems []string
 						diags := ContainersItem.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["command"] = CommandItems
 						}
@@ -26243,6 +26358,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.LivenessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StatefulServiceContainersLivenessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -26254,8 +26370,13 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						if ContainersItem.LivenessCheck.HTTPHealthCheck != nil {
 							StatefulServiceContainersLivenessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.LivenessCheck.HTTPHealthCheck.Headers != nil {
-								StatefulServiceContainersLivenessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									StatefulServiceContainersLivenessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								StatefulServiceContainersLivenessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -26313,6 +26434,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.ReadinessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StatefulServiceContainersReadinessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -26324,8 +26446,13 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						if ContainersItem.ReadinessCheck.HTTPHealthCheck != nil {
 							StatefulServiceContainersReadinessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers != nil {
-								StatefulServiceContainersReadinessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									StatefulServiceContainersReadinessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								StatefulServiceContainersReadinessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -26755,7 +26882,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -26768,7 +26896,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -26889,7 +27018,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -26913,14 +27043,24 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -27061,7 +27201,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -27085,14 +27226,24 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -27858,7 +28009,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -28192,7 +28344,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -28344,7 +28497,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -28404,7 +28558,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																			items = append(items, s)
 																																		}
 																																	}
-																																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																	resp.Diagnostics.Append(diags...)
 																																	return listVal
 																																}
 																																return types.ListNull(types.StringType)
@@ -28522,7 +28677,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -28674,7 +28830,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -28947,7 +29104,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -29099,7 +29257,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -29677,7 +29836,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -29913,7 +30073,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -30247,7 +30408,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -30399,7 +30561,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -30459,7 +30622,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																						items = append(items, s)
 																																					}
 																																				}
-																																				listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																				listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																				resp.Diagnostics.Append(diags...)
 																																				return listVal
 																																			}
 																																			return types.ListNull(types.StringType)
@@ -30577,7 +30741,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -30729,7 +30894,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -31002,7 +31168,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -31154,7 +31321,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -31732,7 +31900,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -31810,7 +31979,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -32144,7 +32314,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -32296,7 +32467,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -32356,7 +32528,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -32474,7 +32647,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -32626,7 +32800,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -32899,7 +33074,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -33051,7 +33227,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -33629,7 +33806,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -33794,7 +33972,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -33807,7 +33986,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -33928,7 +34108,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -33952,14 +34133,24 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -34100,7 +34291,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34124,14 +34316,24 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -34795,7 +34997,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -34808,7 +35011,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -34935,7 +35139,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -34959,14 +35164,24 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										}
 										if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel{
-												Headers: func() *WorkloadEmptyModel {
-													if !isImport && data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil {
+												Headers: func() types.Map {
+													if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 														return data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers
 													}
-													if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-														return &WorkloadEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -35110,7 +35325,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -35134,14 +35350,24 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										}
 										if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel{
-												Headers: func() *WorkloadEmptyModel {
-													if !isImport && data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil {
+												Headers: func() types.Map {
+													if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 														return data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers
 													}
-													if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-														return &WorkloadEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -35398,7 +35624,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -35646,7 +35873,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -35980,7 +36208,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -36132,7 +36361,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -36192,7 +36422,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																			items = append(items, s)
 																																		}
 																																	}
-																																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																	resp.Diagnostics.Append(diags...)
 																																	return listVal
 																																}
 																																return types.ListNull(types.StringType)
@@ -36310,7 +36541,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -36462,7 +36694,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -36735,7 +36968,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -36887,7 +37121,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -37465,7 +37700,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -37701,7 +37937,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -38035,7 +38272,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -38187,7 +38425,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -38247,7 +38486,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																						items = append(items, s)
 																																					}
 																																				}
-																																				listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																				listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																				resp.Diagnostics.Append(diags...)
 																																				return listVal
 																																			}
 																																			return types.ListNull(types.StringType)
@@ -38365,7 +38605,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -38517,7 +38758,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -38790,7 +39032,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -38942,7 +39185,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -39520,7 +39764,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -39598,7 +39843,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -39932,7 +40178,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -40084,7 +40331,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -40144,7 +40392,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -40262,7 +40511,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -40414,7 +40664,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -40687,7 +40938,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -40839,7 +41091,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -41417,7 +41670,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -41582,7 +41836,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -41595,7 +41850,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -41716,7 +41972,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -41740,14 +41997,24 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -41888,7 +42155,8 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -41912,14 +42180,24 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -42743,7 +43021,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -42756,7 +43035,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -42877,7 +43157,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -42901,14 +43182,24 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -43049,7 +43340,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -43073,14 +43365,24 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -43846,7 +44148,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -44180,7 +44483,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -44332,7 +44636,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -44392,7 +44697,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																			items = append(items, s)
 																																		}
 																																	}
-																																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																	resp.Diagnostics.Append(diags...)
 																																	return listVal
 																																}
 																																return types.ListNull(types.StringType)
@@ -44510,7 +44816,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -44662,7 +44969,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -44935,7 +45243,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -45087,7 +45396,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -45665,7 +45975,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -45901,7 +46212,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -46235,7 +46547,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -46387,7 +46700,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -46447,7 +46761,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																						items = append(items, s)
 																																					}
 																																				}
-																																				listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																				listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																				resp.Diagnostics.Append(diags...)
 																																				return listVal
 																																			}
 																																			return types.ListNull(types.StringType)
@@ -46565,7 +46880,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -46717,7 +47033,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -46990,7 +47307,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -47142,7 +47460,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -47720,7 +48039,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -47798,7 +48118,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -48132,7 +48453,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -48284,7 +48606,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -48344,7 +48667,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -48462,7 +48786,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -48614,7 +48939,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -48887,7 +49213,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -49039,7 +49366,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -49617,7 +49945,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -49782,7 +50111,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -49795,7 +50125,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -49916,7 +50247,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -49940,14 +50272,24 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -50088,7 +50430,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -50112,14 +50455,24 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -50783,7 +51136,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -50796,7 +51150,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -50923,7 +51278,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -50947,14 +51303,24 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 										}
 										if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel{
-												Headers: func() *WorkloadEmptyModel {
-													if !isImport && data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil {
+												Headers: func() types.Map {
+													if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 														return data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers
 													}
-													if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-														return &WorkloadEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -51098,7 +51464,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -51122,14 +51489,24 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 										}
 										if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel{
-												Headers: func() *WorkloadEmptyModel {
-													if !isImport && data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil {
+												Headers: func() types.Map {
+													if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 														return data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers
 													}
-													if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-														return &WorkloadEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -51386,7 +51763,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -51634,7 +52012,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -51968,7 +52347,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -52120,7 +52500,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -52180,7 +52561,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																			items = append(items, s)
 																																		}
 																																	}
-																																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																	resp.Diagnostics.Append(diags...)
 																																	return listVal
 																																}
 																																return types.ListNull(types.StringType)
@@ -52298,7 +52680,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -52450,7 +52833,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -52723,7 +53107,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -52875,7 +53260,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -53453,7 +53839,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -53689,7 +54076,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -54023,7 +54411,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -54175,7 +54564,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -54235,7 +54625,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																						items = append(items, s)
 																																					}
 																																				}
-																																				listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																				listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																				resp.Diagnostics.Append(diags...)
 																																				return listVal
 																																			}
 																																			return types.ListNull(types.StringType)
@@ -54353,7 +54744,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -54505,7 +54897,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -54778,7 +55171,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -54930,7 +55324,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -55508,7 +55903,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -55586,7 +55982,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -55920,7 +56317,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -56072,7 +56470,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -56132,7 +56531,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -56250,7 +56650,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -56402,7 +56803,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -56675,7 +57077,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -56827,7 +57230,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -57405,7 +57809,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -57570,7 +57975,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -57583,7 +57989,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -57704,7 +58111,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -57728,14 +58136,24 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -57876,7 +58294,8 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -57900,14 +58319,24 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -58627,6 +59056,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					if !ContainersItem.Args.IsNull() && !ContainersItem.Args.IsUnknown() {
 						var ArgsItems []string
 						diags := ContainersItem.Args.ElementsAs(ctx, &ArgsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["args"] = ArgsItems
 						}
@@ -58634,6 +59064,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					if !ContainersItem.Command.IsNull() && !ContainersItem.Command.IsUnknown() {
 						var CommandItems []string
 						diags := ContainersItem.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["command"] = CommandItems
 						}
@@ -58693,6 +59124,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.LivenessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									JobContainersLivenessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -58704,8 +59136,13 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						if ContainersItem.LivenessCheck.HTTPHealthCheck != nil {
 							JobContainersLivenessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.LivenessCheck.HTTPHealthCheck.Headers != nil {
-								JobContainersLivenessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									JobContainersLivenessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								JobContainersLivenessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -58763,6 +59200,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.ReadinessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									JobContainersReadinessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -58774,8 +59212,13 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						if ContainersItem.ReadinessCheck.HTTPHealthCheck != nil {
 							JobContainersReadinessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers != nil {
-								JobContainersReadinessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									JobContainersReadinessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								JobContainersReadinessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -59154,6 +59597,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 								if !PortsItem.HTTPLoadBalancer.Domains.IsNull() && !PortsItem.HTTPLoadBalancer.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := PortsItem.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerMap["domains"] = DomainsItems
 									}
@@ -59286,6 +59730,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -59354,6 +59799,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -59385,6 +59831,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 														if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 															var HashAlgorithmsItems []string
 															diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+															resp.Diagnostics.Append(diags...)
 															if !diags.HasError() {
 																ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 															}
@@ -59439,6 +59886,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -59507,6 +59955,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -59610,6 +60059,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 												var CipherSuitesItems []string
 												diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 												}
@@ -59678,6 +60128,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 												var XfccHeaderElementsItems []string
 												diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 												}
@@ -59947,6 +60398,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 								if !PortsItem.TCPLoadBalancer.Domains.IsNull() && !PortsItem.TCPLoadBalancer.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := PortsItem.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										ServiceAdvertiseOptionsAdvertiseCustomPortsTCPLoadBalancerMap["domains"] = DomainsItems
 									}
@@ -60053,6 +60505,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !PortsItem.HTTPLoadBalancer.Domains.IsNull() && !PortsItem.HTTPLoadBalancer.Domains.IsUnknown() {
 										var DomainsItems []string
 										diags := PortsItem.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerMap["domains"] = DomainsItems
 										}
@@ -60185,6 +60638,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 														var CipherSuitesItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 														}
@@ -60253,6 +60707,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 														var XfccHeaderElementsItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 														}
@@ -60284,6 +60739,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 															if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 																var HashAlgorithmsItems []string
 																diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+																resp.Diagnostics.Append(diags...)
 																if !diags.HasError() {
 																	ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 																}
@@ -60338,6 +60794,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 														var CipherSuitesItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 														}
@@ -60406,6 +60863,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 														var XfccHeaderElementsItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 														}
@@ -60509,6 +60967,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -60577,6 +61036,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -60846,6 +61306,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !PortsItem.TCPLoadBalancer.Domains.IsNull() && !PortsItem.TCPLoadBalancer.Domains.IsUnknown() {
 										var DomainsItems []string
 										diags := PortsItem.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsTCPLoadBalancerMap["domains"] = DomainsItems
 										}
@@ -60882,6 +61343,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.IsUnknown() {
 							var DomainsItems []string
 							diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerMap["domains"] = DomainsItems
 							}
@@ -61014,6 +61476,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 											var CipherSuitesItems []string
 											diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 											}
@@ -61082,6 +61545,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 											var XfccHeaderElementsItems []string
 											diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 											}
@@ -61113,6 +61577,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 													var HashAlgorithmsItems []string
 													diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 													}
@@ -61167,6 +61632,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 											var CipherSuitesItems []string
 											diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 											}
@@ -61235,6 +61701,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 											var XfccHeaderElementsItems []string
 											diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 											}
@@ -61338,6 +61805,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 										var CipherSuitesItems []string
 										diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 										}
@@ -61406,6 +61874,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 										var XfccHeaderElementsItems []string
 										diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 										}
@@ -61672,6 +62141,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.IsUnknown() {
 							var DomainsItems []string
 							diags := data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ServiceAdvertiseOptionsAdvertiseOnPublicPortTCPLoadBalancerMap["domains"] = DomainsItems
 							}
@@ -61754,6 +62224,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					if !ContainersItem.Args.IsNull() && !ContainersItem.Args.IsUnknown() {
 						var ArgsItems []string
 						diags := ContainersItem.Args.ElementsAs(ctx, &ArgsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["args"] = ArgsItems
 						}
@@ -61761,6 +62232,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					if !ContainersItem.Command.IsNull() && !ContainersItem.Command.IsUnknown() {
 						var CommandItems []string
 						diags := ContainersItem.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["command"] = CommandItems
 						}
@@ -61820,6 +62292,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.LivenessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									ServiceContainersLivenessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -61831,8 +62304,13 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						if ContainersItem.LivenessCheck.HTTPHealthCheck != nil {
 							ServiceContainersLivenessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.LivenessCheck.HTTPHealthCheck.Headers != nil {
-								ServiceContainersLivenessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									ServiceContainersLivenessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								ServiceContainersLivenessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -61890,6 +62368,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.ReadinessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									ServiceContainersReadinessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -61901,8 +62380,13 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						if ContainersItem.ReadinessCheck.HTTPHealthCheck != nil {
 							ServiceContainersReadinessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers != nil {
-								ServiceContainersReadinessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									ServiceContainersReadinessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								ServiceContainersReadinessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -62226,6 +62710,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 			if !data.SimpleService.Container.Args.IsNull() && !data.SimpleService.Container.Args.IsUnknown() {
 				var ArgsItems []string
 				diags := data.SimpleService.Container.Args.ElementsAs(ctx, &ArgsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					SimpleServiceContainerMap["args"] = ArgsItems
 				}
@@ -62233,6 +62718,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 			if !data.SimpleService.Container.Command.IsNull() && !data.SimpleService.Container.Command.IsUnknown() {
 				var CommandItems []string
 				diags := data.SimpleService.Container.Command.ElementsAs(ctx, &CommandItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					SimpleServiceContainerMap["command"] = CommandItems
 				}
@@ -62292,6 +62778,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					if !data.SimpleService.Container.LivenessCheck.ExecHealthCheck.Command.IsNull() && !data.SimpleService.Container.LivenessCheck.ExecHealthCheck.Command.IsUnknown() {
 						var CommandItems []string
 						diags := data.SimpleService.Container.LivenessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							SimpleServiceContainerLivenessCheckExecHealthCheckMap["command"] = CommandItems
 						}
@@ -62303,8 +62790,13 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				if data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil {
 					SimpleServiceContainerLivenessCheckHTTPHealthCheckMap := make(map[string]interface{})
-					if data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers != nil {
-						SimpleServiceContainerLivenessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+					if !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+						var HeadersMap map[string]string
+						diags := data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							SimpleServiceContainerLivenessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+						}
 					}
 					if !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.HostHeader.IsNull() && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 						SimpleServiceContainerLivenessCheckHTTPHealthCheckMap["host_header"] = data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -62362,6 +62854,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					if !data.SimpleService.Container.ReadinessCheck.ExecHealthCheck.Command.IsNull() && !data.SimpleService.Container.ReadinessCheck.ExecHealthCheck.Command.IsUnknown() {
 						var CommandItems []string
 						diags := data.SimpleService.Container.ReadinessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							SimpleServiceContainerReadinessCheckExecHealthCheckMap["command"] = CommandItems
 						}
@@ -62373,8 +62866,13 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				if data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil {
 					SimpleServiceContainerReadinessCheckHTTPHealthCheckMap := make(map[string]interface{})
-					if data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers != nil {
-						SimpleServiceContainerReadinessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+					if !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+						var HeadersMap map[string]string
+						diags := data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							SimpleServiceContainerReadinessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+						}
 					}
 					if !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.HostHeader.IsNull() && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 						SimpleServiceContainerReadinessCheckHTTPHealthCheckMap["host_header"] = data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -62478,6 +62976,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 			if !data.SimpleService.SimpleAdvertise.Domains.IsNull() && !data.SimpleService.SimpleAdvertise.Domains.IsUnknown() {
 				var DomainsItems []string
 				diags := data.SimpleService.SimpleAdvertise.Domains.ElementsAs(ctx, &DomainsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					SimpleServiceSimpleAdvertiseMap["domains"] = DomainsItems
 				}
@@ -62607,6 +63106,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 								if !PortsItem.HTTPLoadBalancer.Domains.IsNull() && !PortsItem.HTTPLoadBalancer.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := PortsItem.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerMap["domains"] = DomainsItems
 									}
@@ -62739,6 +63239,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -62807,6 +63308,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -62838,6 +63340,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 														if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 															var HashAlgorithmsItems []string
 															diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+															resp.Diagnostics.Append(diags...)
 															if !diags.HasError() {
 																StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 															}
@@ -62892,6 +63395,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -62960,6 +63464,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -63063,6 +63568,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 												var CipherSuitesItems []string
 												diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 												}
@@ -63131,6 +63637,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 												var XfccHeaderElementsItems []string
 												diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 												}
@@ -63400,6 +63907,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 								if !PortsItem.TCPLoadBalancer.Domains.IsNull() && !PortsItem.TCPLoadBalancer.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := PortsItem.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomPortsTCPLoadBalancerMap["domains"] = DomainsItems
 									}
@@ -63506,6 +64014,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !PortsItem.HTTPLoadBalancer.Domains.IsNull() && !PortsItem.HTTPLoadBalancer.Domains.IsUnknown() {
 										var DomainsItems []string
 										diags := PortsItem.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerMap["domains"] = DomainsItems
 										}
@@ -63638,6 +64147,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 														var CipherSuitesItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 														}
@@ -63706,6 +64216,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 														var XfccHeaderElementsItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 														}
@@ -63737,6 +64248,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 															if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 																var HashAlgorithmsItems []string
 																diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+																resp.Diagnostics.Append(diags...)
 																if !diags.HasError() {
 																	StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 																}
@@ -63791,6 +64303,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 														var CipherSuitesItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 														}
@@ -63859,6 +64372,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 														var XfccHeaderElementsItems []string
 														diags := PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 														}
@@ -63962,6 +64476,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 													var CipherSuitesItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 													}
@@ -64030,6 +64545,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 													var XfccHeaderElementsItems []string
 													diags := PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 													}
@@ -64299,6 +64815,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !PortsItem.TCPLoadBalancer.Domains.IsNull() && !PortsItem.TCPLoadBalancer.Domains.IsUnknown() {
 										var DomainsItems []string
 										diags := PortsItem.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsTCPLoadBalancerMap["domains"] = DomainsItems
 										}
@@ -64335,6 +64852,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.IsUnknown() {
 							var DomainsItems []string
 							diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerMap["domains"] = DomainsItems
 							}
@@ -64467,6 +64985,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 											var CipherSuitesItems []string
 											diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 											}
@@ -64535,6 +65054,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 											var XfccHeaderElementsItems []string
 											diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 											}
@@ -64566,6 +65086,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 													var HashAlgorithmsItems []string
 													diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 													}
@@ -64620,6 +65141,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 											var CipherSuitesItems []string
 											diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 											}
@@ -64688,6 +65210,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 											var XfccHeaderElementsItems []string
 											diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 											}
@@ -64791,6 +65314,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 										var CipherSuitesItems []string
 										diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 										}
@@ -64859,6 +65383,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 										var XfccHeaderElementsItems []string
 										diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 										}
@@ -65125,6 +65650,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.IsUnknown() {
 							var DomainsItems []string
 							diags := data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.TCPLoadBalancer.Domains.ElementsAs(ctx, &DomainsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortTCPLoadBalancerMap["domains"] = DomainsItems
 							}
@@ -65207,6 +65733,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					if !ContainersItem.Args.IsNull() && !ContainersItem.Args.IsUnknown() {
 						var ArgsItems []string
 						diags := ContainersItem.Args.ElementsAs(ctx, &ArgsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["args"] = ArgsItems
 						}
@@ -65214,6 +65741,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					if !ContainersItem.Command.IsNull() && !ContainersItem.Command.IsUnknown() {
 						var CommandItems []string
 						diags := ContainersItem.Command.ElementsAs(ctx, &CommandItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ContainersItemMap["command"] = CommandItems
 						}
@@ -65273,6 +65801,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.LivenessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.LivenessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StatefulServiceContainersLivenessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -65284,8 +65813,13 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						if ContainersItem.LivenessCheck.HTTPHealthCheck != nil {
 							StatefulServiceContainersLivenessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.LivenessCheck.HTTPHealthCheck.Headers != nil {
-								StatefulServiceContainersLivenessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.LivenessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									StatefulServiceContainersLivenessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								StatefulServiceContainersLivenessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.LivenessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -65343,6 +65877,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsNull() && !ContainersItem.ReadinessCheck.ExecHealthCheck.Command.IsUnknown() {
 								var CommandItems []string
 								diags := ContainersItem.ReadinessCheck.ExecHealthCheck.Command.ElementsAs(ctx, &CommandItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									StatefulServiceContainersReadinessCheckExecHealthCheckMap["command"] = CommandItems
 								}
@@ -65354,8 +65889,13 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						if ContainersItem.ReadinessCheck.HTTPHealthCheck != nil {
 							StatefulServiceContainersReadinessCheckHTTPHealthCheckMap := make(map[string]interface{})
-							if ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers != nil {
-								StatefulServiceContainersReadinessCheckHTTPHealthCheckMap["headers"] = map[string]interface{}{}
+							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
+								var HeadersMap map[string]string
+								diags := ContainersItem.ReadinessCheck.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									StatefulServiceContainersReadinessCheckHTTPHealthCheckMap["headers"] = HeadersMap
+								}
 							}
 							if !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsNull() && !ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.IsUnknown() {
 								StatefulServiceContainersReadinessCheckHTTPHealthCheckMap["host_header"] = ContainersItem.ReadinessCheck.HTTPHealthCheck.HostHeader.ValueString()
@@ -65805,7 +66345,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -65818,7 +66359,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -65939,7 +66481,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -65963,14 +66506,24 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -66111,7 +66664,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -66135,14 +66689,24 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -66908,7 +67472,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -67242,7 +67807,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -67394,7 +67960,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -67454,7 +68021,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																			items = append(items, s)
 																																		}
 																																	}
-																																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																	resp.Diagnostics.Append(diags...)
 																																	return listVal
 																																}
 																																return types.ListNull(types.StringType)
@@ -67572,7 +68140,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -67724,7 +68293,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -67997,7 +68567,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -68149,7 +68720,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -68727,7 +69299,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -68963,7 +69536,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -69297,7 +69871,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -69449,7 +70024,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -69509,7 +70085,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																						items = append(items, s)
 																																					}
 																																				}
-																																				listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																				listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																				resp.Diagnostics.Append(diags...)
 																																				return listVal
 																																			}
 																																			return types.ListNull(types.StringType)
@@ -69627,7 +70204,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -69779,7 +70357,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -70052,7 +70631,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -70204,7 +70784,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -70782,7 +71363,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -70860,7 +71442,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -71194,7 +71777,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -71346,7 +71930,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -71406,7 +71991,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -71524,7 +72110,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -71676,7 +72263,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -71949,7 +72537,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -72101,7 +72690,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -72679,7 +73269,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -72844,7 +73435,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -72857,7 +73449,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -72978,7 +73571,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -73002,14 +73596,24 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -73150,7 +73754,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -73174,14 +73779,24 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -73845,7 +74460,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -73858,7 +74474,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -73985,7 +74602,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -74009,14 +74627,24 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										}
 										if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel{
-												Headers: func() *WorkloadEmptyModel {
-													if !isImport && data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil {
+												Headers: func() types.Map {
+													if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 														return data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers
 													}
-													if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-														return &WorkloadEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -74160,7 +74788,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -74184,14 +74813,24 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										}
 										if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel{
-												Headers: func() *WorkloadEmptyModel {
-													if !isImport && data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil {
+												Headers: func() types.Map {
+													if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 														return data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers
 													}
-													if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-														return &WorkloadEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -74448,7 +75087,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -74696,7 +75336,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -75030,7 +75671,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -75182,7 +75824,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -75242,7 +75885,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																			items = append(items, s)
 																																		}
 																																	}
-																																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																	resp.Diagnostics.Append(diags...)
 																																	return listVal
 																																}
 																																return types.ListNull(types.StringType)
@@ -75360,7 +76004,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -75512,7 +76157,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -75785,7 +76431,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -75937,7 +76584,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																														items = append(items, s)
 																													}
 																												}
-																												listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																												listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																												resp.Diagnostics.Append(diags...)
 																												return listVal
 																											}
 																											return types.ListNull(types.StringType)
@@ -76515,7 +77163,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -76751,7 +77400,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -77085,7 +77735,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -77237,7 +77888,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -77297,7 +77949,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																						items = append(items, s)
 																																					}
 																																				}
-																																				listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																				listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																				resp.Diagnostics.Append(diags...)
 																																				return listVal
 																																			}
 																																			return types.ListNull(types.StringType)
@@ -77415,7 +78068,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -77567,7 +78221,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																				items = append(items, s)
 																																			}
 																																		}
-																																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																																		resp.Diagnostics.Append(diags...)
 																																		return listVal
 																																	}
 																																	return types.ListNull(types.StringType)
@@ -77840,7 +78495,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -77992,7 +78648,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -78570,7 +79227,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -78648,7 +79306,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -78982,7 +79641,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -79134,7 +79794,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -79194,7 +79855,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	items = append(items, s)
 																																}
 																															}
-																															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																															resp.Diagnostics.Append(diags...)
 																															return listVal
 																														}
 																														return types.ListNull(types.StringType)
@@ -79312,7 +79974,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -79464,7 +80127,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															items = append(items, s)
 																														}
 																													}
-																													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																													resp.Diagnostics.Append(diags...)
 																													return listVal
 																												}
 																												return types.ListNull(types.StringType)
@@ -79737,7 +80401,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -79889,7 +80554,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																												items = append(items, s)
 																											}
 																										}
-																										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																										resp.Diagnostics.Append(diags...)
 																										return listVal
 																									}
 																									return types.ListNull(types.StringType)
@@ -80467,7 +81133,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -80632,7 +81299,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -80645,7 +81313,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -80766,7 +81435,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -80790,14 +81460,24 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
@@ -80938,7 +81618,8 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -80962,14 +81643,24 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: func() *WorkloadEmptyModel {
-															if !isImport && len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
+														Headers: func() types.Map {
+															if v, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
+																items := make(map[string]string)
+																for mk, mv := range v {
+																	if mvs, ok := mv.(string); ok {
+																		items[mk] = mvs
+																	} else {
+																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
+																	}
+																}
+																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return mapVal
+															}
+															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsNull() && !ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers.IsUnknown() {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
-															if _, ok := HTTPHealthCheckData["headers"].(map[string]interface{}); ok {
-																return &WorkloadEmptyModel{}
-															}
-															return nil
+															return types.MapNull(types.StringType)
 														}(),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {

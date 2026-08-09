@@ -541,6 +541,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 						if !RulesItem.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesKeyPatternExactValuesMap["exact_values"] = ExactValuesItems
 							}
@@ -564,6 +565,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 							if !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RulesKeyValuePatternKeyPatternExactValuesMap["exact_values"] = ExactValuesItems
 								}
@@ -585,6 +587,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 							if !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RulesKeyValuePatternValuePatternExactValuesMap["exact_values"] = ExactValuesItems
 								}
@@ -608,6 +611,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 						if !RulesItem.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesValuePatternExactValuesMap["exact_values"] = ExactValuesItems
 							}
@@ -630,6 +634,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 	if !data.Compliances.IsNull() && !data.Compliances.IsUnknown() {
 		var CompliancesItems []string
 		diags := data.Compliances.ElementsAs(ctx, &CompliancesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["compliances"] = CompliancesItems
 		}
@@ -691,7 +696,8 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -739,7 +745,8 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -784,7 +791,8 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -830,7 +838,8 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1041,7 +1050,8 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1089,7 +1099,8 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -1134,7 +1145,8 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -1180,7 +1192,8 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1335,6 +1348,7 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 						if !RulesItem.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesKeyPatternExactValuesMap["exact_values"] = ExactValuesItems
 							}
@@ -1358,6 +1372,7 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 							if !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RulesKeyValuePatternKeyPatternExactValuesMap["exact_values"] = ExactValuesItems
 								}
@@ -1379,6 +1394,7 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 							if !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RulesKeyValuePatternValuePatternExactValuesMap["exact_values"] = ExactValuesItems
 								}
@@ -1402,6 +1418,7 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 						if !RulesItem.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesValuePatternExactValuesMap["exact_values"] = ExactValuesItems
 							}
@@ -1424,6 +1441,7 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 	if !data.Compliances.IsNull() && !data.Compliances.IsUnknown() {
 		var CompliancesItems []string
 		diags := data.Compliances.ElementsAs(ctx, &CompliancesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["compliances"] = CompliancesItems
 		}
@@ -1505,7 +1523,8 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1553,7 +1572,8 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -1598,7 +1618,8 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -1644,7 +1665,8 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

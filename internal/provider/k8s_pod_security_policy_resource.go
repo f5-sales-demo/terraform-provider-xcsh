@@ -789,6 +789,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 			if !data.PspSpec.AllowedCapabilities.Capabilities.IsNull() && !data.PspSpec.AllowedCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.AllowedCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					PspSpecAllowedCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
@@ -798,6 +799,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 		if !data.PspSpec.AllowedCsiDrivers.IsNull() && !data.PspSpec.AllowedCsiDrivers.IsUnknown() {
 			var AllowedCsiDriversItems []string
 			diags := data.PspSpec.AllowedCsiDrivers.ElementsAs(ctx, &AllowedCsiDriversItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["allowed_csi_drivers"] = AllowedCsiDriversItems
 			}
@@ -805,6 +807,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 		if !data.PspSpec.AllowedFlexVolumes.IsNull() && !data.PspSpec.AllowedFlexVolumes.IsUnknown() {
 			var AllowedFlexVolumesItems []string
 			diags := data.PspSpec.AllowedFlexVolumes.ElementsAs(ctx, &AllowedFlexVolumesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["allowed_flex_volumes"] = AllowedFlexVolumesItems
 			}
@@ -831,6 +834,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 		if !data.PspSpec.AllowedProcMounts.IsNull() && !data.PspSpec.AllowedProcMounts.IsUnknown() {
 			var AllowedProcMountsItems []string
 			diags := data.PspSpec.AllowedProcMounts.ElementsAs(ctx, &AllowedProcMountsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["allowed_proc_mounts"] = AllowedProcMountsItems
 			}
@@ -838,6 +842,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 		if !data.PspSpec.AllowedUnsafeSysctls.IsNull() && !data.PspSpec.AllowedUnsafeSysctls.IsUnknown() {
 			var AllowedUnsafeSysctlsItems []string
 			diags := data.PspSpec.AllowedUnsafeSysctls.ElementsAs(ctx, &AllowedUnsafeSysctlsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["allowed_unsafe_sysctls"] = AllowedUnsafeSysctlsItems
 			}
@@ -850,6 +855,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 			if !data.PspSpec.DefaultCapabilities.Capabilities.IsNull() && !data.PspSpec.DefaultCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.DefaultCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					PspSpecDefaultCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
@@ -861,6 +867,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 			if !data.PspSpec.DropCapabilities.Capabilities.IsNull() && !data.PspSpec.DropCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.DropCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					PspSpecDropCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
@@ -870,6 +877,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 		if !data.PspSpec.ForbiddenSysctls.IsNull() && !data.PspSpec.ForbiddenSysctls.IsUnknown() {
 			var ForbiddenSysctlsItems []string
 			diags := data.PspSpec.ForbiddenSysctls.ElementsAs(ctx, &ForbiddenSysctlsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["forbidden_sysctls"] = ForbiddenSysctlsItems
 			}
@@ -1026,6 +1034,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 		if !data.PspSpec.Volumes.IsNull() && !data.PspSpec.Volumes.IsUnknown() {
 			var VolumesItems []string
 			diags := data.PspSpec.Volumes.ElementsAs(ctx, &VolumesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["volumes"] = VolumesItems
 			}
@@ -1082,7 +1091,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1099,7 +1109,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1112,7 +1123,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1159,7 +1171,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1172,7 +1185,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1200,7 +1214,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1223,7 +1238,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1240,7 +1256,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1585,7 +1602,8 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1743,7 +1761,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1760,7 +1779,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1773,7 +1793,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1820,7 +1841,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1833,7 +1855,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1861,7 +1884,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1884,7 +1908,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1901,7 +1926,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2246,7 +2272,8 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2347,6 +2374,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 			if !data.PspSpec.AllowedCapabilities.Capabilities.IsNull() && !data.PspSpec.AllowedCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.AllowedCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					PspSpecAllowedCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
@@ -2356,6 +2384,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 		if !data.PspSpec.AllowedCsiDrivers.IsNull() && !data.PspSpec.AllowedCsiDrivers.IsUnknown() {
 			var AllowedCsiDriversItems []string
 			diags := data.PspSpec.AllowedCsiDrivers.ElementsAs(ctx, &AllowedCsiDriversItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["allowed_csi_drivers"] = AllowedCsiDriversItems
 			}
@@ -2363,6 +2392,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 		if !data.PspSpec.AllowedFlexVolumes.IsNull() && !data.PspSpec.AllowedFlexVolumes.IsUnknown() {
 			var AllowedFlexVolumesItems []string
 			diags := data.PspSpec.AllowedFlexVolumes.ElementsAs(ctx, &AllowedFlexVolumesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["allowed_flex_volumes"] = AllowedFlexVolumesItems
 			}
@@ -2389,6 +2419,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 		if !data.PspSpec.AllowedProcMounts.IsNull() && !data.PspSpec.AllowedProcMounts.IsUnknown() {
 			var AllowedProcMountsItems []string
 			diags := data.PspSpec.AllowedProcMounts.ElementsAs(ctx, &AllowedProcMountsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["allowed_proc_mounts"] = AllowedProcMountsItems
 			}
@@ -2396,6 +2427,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 		if !data.PspSpec.AllowedUnsafeSysctls.IsNull() && !data.PspSpec.AllowedUnsafeSysctls.IsUnknown() {
 			var AllowedUnsafeSysctlsItems []string
 			diags := data.PspSpec.AllowedUnsafeSysctls.ElementsAs(ctx, &AllowedUnsafeSysctlsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["allowed_unsafe_sysctls"] = AllowedUnsafeSysctlsItems
 			}
@@ -2408,6 +2440,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 			if !data.PspSpec.DefaultCapabilities.Capabilities.IsNull() && !data.PspSpec.DefaultCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.DefaultCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					PspSpecDefaultCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
@@ -2419,6 +2452,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 			if !data.PspSpec.DropCapabilities.Capabilities.IsNull() && !data.PspSpec.DropCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.DropCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					PspSpecDropCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
@@ -2428,6 +2462,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 		if !data.PspSpec.ForbiddenSysctls.IsNull() && !data.PspSpec.ForbiddenSysctls.IsUnknown() {
 			var ForbiddenSysctlsItems []string
 			diags := data.PspSpec.ForbiddenSysctls.ElementsAs(ctx, &ForbiddenSysctlsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["forbidden_sysctls"] = ForbiddenSysctlsItems
 			}
@@ -2584,6 +2619,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 		if !data.PspSpec.Volumes.IsNull() && !data.PspSpec.Volumes.IsUnknown() {
 			var VolumesItems []string
 			diags := data.PspSpec.Volumes.ElementsAs(ctx, &VolumesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PspSpecMap["volumes"] = VolumesItems
 			}
@@ -2667,7 +2703,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2684,7 +2721,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2697,7 +2735,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2744,7 +2783,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2757,7 +2797,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2785,7 +2826,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2808,7 +2850,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2825,7 +2868,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3170,7 +3214,8 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

@@ -54,9 +54,9 @@ type CloudCredentialsAWSAssumeRoleModel struct {
 	DurationSeconds      types.Int64                 `tfsdk:"duration_seconds"`
 	RoleArn              types.String                `tfsdk:"role_arn"`
 	SessionName          types.String                `tfsdk:"session_name"`
+	SessionTags          types.Map                   `tfsdk:"session_tags"`
 	ExternalIDIsOptional *CloudCredentialsEmptyModel `tfsdk:"external_id_is_optional"`
 	ExternalIDIsTenantID *CloudCredentialsEmptyModel `tfsdk:"external_id_is_tenant_id"`
-	SessionTags          *CloudCredentialsEmptyModel `tfsdk:"session_tags"`
 }
 
 // CloudCredentialsAWSAssumeRoleModelAttrTypes defines the attribute types for CloudCredentialsAWSAssumeRoleModel
@@ -65,9 +65,9 @@ var CloudCredentialsAWSAssumeRoleModelAttrTypes = map[string]attr.Type{
 	"duration_seconds":         types.Int64Type,
 	"role_arn":                 types.StringType,
 	"session_name":             types.StringType,
+	"session_tags":             types.MapType{ElemType: types.StringType},
 	"external_id_is_optional":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"external_id_is_tenant_id": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"session_tags":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // CloudCredentialsAWSSecretKeyModel represents aws_secret_key block
@@ -386,6 +386,11 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 							stringvalidator.LengthBetween(2, 64),
 						},
 					},
+					"session_tags": schema.MapAttribute{
+						MarkdownDescription: "Session tags are key-value pair attributes that you pass when you assume an IAM role.",
+						Optional:            true,
+						ElementType:         types.StringType,
+					},
 				},
 				Blocks: map[string]schema.Block{
 					"external_id_is_optional": schema.SingleNestedBlock{
@@ -393,9 +398,6 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"external_id_is_tenant_id": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
-					},
-					"session_tags": schema.SingleNestedBlock{
-						MarkdownDescription: "Session tags are key-value pair attributes that you pass when you assume an IAM role.",
 					},
 				},
 			},
@@ -796,8 +798,13 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 		if !data.AWSAssumeRole.SessionName.IsNull() && !data.AWSAssumeRole.SessionName.IsUnknown() {
 			AWSAssumeRoleMap["session_name"] = data.AWSAssumeRole.SessionName.ValueString()
 		}
-		if data.AWSAssumeRole.SessionTags != nil {
-			AWSAssumeRoleMap["session_tags"] = map[string]interface{}{}
+		if !data.AWSAssumeRole.SessionTags.IsNull() && !data.AWSAssumeRole.SessionTags.IsUnknown() {
+			var SessionTagsMap map[string]string
+			diags := data.AWSAssumeRole.SessionTags.ElementsAs(ctx, &SessionTagsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				AWSAssumeRoleMap["session_tags"] = SessionTagsMap
+			}
 		}
 		createReq.Spec["aws_assume_role"] = AWSAssumeRoleMap
 	}
@@ -1018,14 +1025,24 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			SessionTags: func() types.Map {
+				if v, ok := blockData["session_tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field session_tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.AWSAssumeRole != nil && !data.AWSAssumeRole.SessionTags.IsNull() && !data.AWSAssumeRole.SessionTags.IsUnknown() {
 					return data.AWSAssumeRole.SessionTags
 				}
-				if _, ok := blockData["session_tags"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
@@ -1501,14 +1518,24 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			SessionTags: func() types.Map {
+				if v, ok := blockData["session_tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field session_tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.AWSAssumeRole != nil && !data.AWSAssumeRole.SessionTags.IsNull() && !data.AWSAssumeRole.SessionTags.IsUnknown() {
 					return data.AWSAssumeRole.SessionTags
 				}
-				if _, ok := blockData["session_tags"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
@@ -1915,8 +1942,13 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 		if !data.AWSAssumeRole.SessionName.IsNull() && !data.AWSAssumeRole.SessionName.IsUnknown() {
 			AWSAssumeRoleMap["session_name"] = data.AWSAssumeRole.SessionName.ValueString()
 		}
-		if data.AWSAssumeRole.SessionTags != nil {
-			AWSAssumeRoleMap["session_tags"] = map[string]interface{}{}
+		if !data.AWSAssumeRole.SessionTags.IsNull() && !data.AWSAssumeRole.SessionTags.IsUnknown() {
+			var SessionTagsMap map[string]string
+			diags := data.AWSAssumeRole.SessionTags.ElementsAs(ctx, &SessionTagsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				AWSAssumeRoleMap["session_tags"] = SessionTagsMap
+			}
 		}
 		apiResource.Spec["aws_assume_role"] = AWSAssumeRoleMap
 	}
@@ -2157,14 +2189,24 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			SessionTags: func() types.Map {
+				if v, ok := blockData["session_tags"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field session_tags, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.AWSAssumeRole != nil && !data.AWSAssumeRole.SessionTags.IsNull() && !data.AWSAssumeRole.SessionTags.IsUnknown() {
 					return data.AWSAssumeRole.SessionTags
 				}
-				if _, ok := blockData["session_tags"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}

@@ -329,6 +329,7 @@ func (r *BotInfrastructureResource) Create(ctx context.Context, req resource.Cre
 		if !data.CreateCloudHosted.IPAddresses.IsNull() && !data.CreateCloudHosted.IPAddresses.IsUnknown() {
 			var IPAddressesItems []string
 			diags := data.CreateCloudHosted.IPAddresses.ElementsAs(ctx, &IPAddressesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CreateCloudHostedMap["ip_addresses"] = IPAddressesItems
 			}
@@ -387,7 +388,8 @@ func (r *BotInfrastructureResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -568,7 +570,8 @@ func (r *BotInfrastructureResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -702,6 +705,7 @@ func (r *BotInfrastructureResource) Update(ctx context.Context, req resource.Upd
 		if !data.CreateCloudHosted.IPAddresses.IsNull() && !data.CreateCloudHosted.IPAddresses.IsUnknown() {
 			var IPAddressesItems []string
 			diags := data.CreateCloudHosted.IPAddresses.ElementsAs(ctx, &IPAddressesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CreateCloudHostedMap["ip_addresses"] = IPAddressesItems
 			}
@@ -780,7 +784,8 @@ func (r *BotInfrastructureResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

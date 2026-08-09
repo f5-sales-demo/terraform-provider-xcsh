@@ -252,6 +252,7 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 	if !data.AsNumbers.IsNull() && !data.AsNumbers.IsUnknown() {
 		var AsNumbersItems []int64
 		diags := data.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["as_numbers"] = AsNumbersItems
 		}
@@ -511,6 +512,7 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 	if !data.AsNumbers.IsNull() && !data.AsNumbers.IsUnknown() {
 		var AsNumbersItems []int64
 		diags := data.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["as_numbers"] = AsNumbersItems
 		}

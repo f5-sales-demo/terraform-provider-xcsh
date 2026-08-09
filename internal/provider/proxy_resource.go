@@ -105,6 +105,7 @@ var ProxyDynamicProxyHTTPProxyModelAttrTypes = map[string]attr.Type{
 
 // ProxyDynamicProxyHTTPProxyMoreOptionModel represents more_option block
 type ProxyDynamicProxyHTTPProxyMoreOptionModel struct {
+	CustomErrors                types.Map                                                   `tfsdk:"custom_errors"`
 	DisableDefaultErrorPages    types.Bool                                                  `tfsdk:"disable_default_error_pages"`
 	IdleTimeout                 types.Int64                                                 `tfsdk:"idle_timeout"`
 	MaxRequestHeaderSize        types.Int64                                                 `tfsdk:"max_request_header_size"`
@@ -115,7 +116,6 @@ type ProxyDynamicProxyHTTPProxyMoreOptionModel struct {
 	ResponseHeadersToRemove     types.List                                                  `tfsdk:"response_headers_to_remove"`
 	BufferPolicy                *ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel      `tfsdk:"buffer_policy"`
 	CompressionParams           *ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel `tfsdk:"compression_params"`
-	CustomErrors                *ProxyEmptyModel                                            `tfsdk:"custom_errors"`
 	DisablePathNormalize        *ProxyEmptyModel                                            `tfsdk:"disable_path_normalize"`
 	EnablePathNormalize         *ProxyEmptyModel                                            `tfsdk:"enable_path_normalize"`
 	NoRequestLimitPerConnection *ProxyEmptyModel                                            `tfsdk:"no_request_limit_per_connection"`
@@ -127,6 +127,7 @@ type ProxyDynamicProxyHTTPProxyMoreOptionModel struct {
 
 // ProxyDynamicProxyHTTPProxyMoreOptionModelAttrTypes defines the attribute types for ProxyDynamicProxyHTTPProxyMoreOptionModel
 var ProxyDynamicProxyHTTPProxyMoreOptionModelAttrTypes = map[string]attr.Type{
+	"custom_errors":                   types.MapType{ElemType: types.StringType},
 	"disable_default_error_pages":     types.BoolType,
 	"idle_timeout":                    types.Int64Type,
 	"max_request_header_size":         types.Int64Type,
@@ -137,7 +138,6 @@ var ProxyDynamicProxyHTTPProxyMoreOptionModelAttrTypes = map[string]attr.Type{
 	"response_headers_to_remove":      types.ListType{ElemType: types.StringType},
 	"buffer_policy":                   types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModelAttrTypes},
 	"compression_params":              types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModelAttrTypes},
-	"custom_errors":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -443,6 +443,7 @@ var ProxyDynamicProxyHTTPSProxyModelAttrTypes = map[string]attr.Type{
 
 // ProxyDynamicProxyHTTPSProxyMoreOptionModel represents more_option block
 type ProxyDynamicProxyHTTPSProxyMoreOptionModel struct {
+	CustomErrors                types.Map                                                    `tfsdk:"custom_errors"`
 	DisableDefaultErrorPages    types.Bool                                                   `tfsdk:"disable_default_error_pages"`
 	IdleTimeout                 types.Int64                                                  `tfsdk:"idle_timeout"`
 	MaxRequestHeaderSize        types.Int64                                                  `tfsdk:"max_request_header_size"`
@@ -453,7 +454,6 @@ type ProxyDynamicProxyHTTPSProxyMoreOptionModel struct {
 	ResponseHeadersToRemove     types.List                                                   `tfsdk:"response_headers_to_remove"`
 	BufferPolicy                *ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel      `tfsdk:"buffer_policy"`
 	CompressionParams           *ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel `tfsdk:"compression_params"`
-	CustomErrors                *ProxyEmptyModel                                             `tfsdk:"custom_errors"`
 	DisablePathNormalize        *ProxyEmptyModel                                             `tfsdk:"disable_path_normalize"`
 	EnablePathNormalize         *ProxyEmptyModel                                             `tfsdk:"enable_path_normalize"`
 	NoRequestLimitPerConnection *ProxyEmptyModel                                             `tfsdk:"no_request_limit_per_connection"`
@@ -465,6 +465,7 @@ type ProxyDynamicProxyHTTPSProxyMoreOptionModel struct {
 
 // ProxyDynamicProxyHTTPSProxyMoreOptionModelAttrTypes defines the attribute types for ProxyDynamicProxyHTTPSProxyMoreOptionModel
 var ProxyDynamicProxyHTTPSProxyMoreOptionModelAttrTypes = map[string]attr.Type{
+	"custom_errors":                   types.MapType{ElemType: types.StringType},
 	"disable_default_error_pages":     types.BoolType,
 	"idle_timeout":                    types.Int64Type,
 	"max_request_header_size":         types.Int64Type,
@@ -475,7 +476,6 @@ var ProxyDynamicProxyHTTPSProxyMoreOptionModelAttrTypes = map[string]attr.Type{
 	"response_headers_to_remove":      types.ListType{ElemType: types.StringType},
 	"buffer_policy":                   types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModelAttrTypes},
 	"compression_params":              types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModelAttrTypes},
-	"custom_errors":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -965,6 +965,7 @@ var ProxyHTTPProxyModelAttrTypes = map[string]attr.Type{
 
 // ProxyHTTPProxyMoreOptionModel represents more_option block
 type ProxyHTTPProxyMoreOptionModel struct {
+	CustomErrors                types.Map                                       `tfsdk:"custom_errors"`
 	DisableDefaultErrorPages    types.Bool                                      `tfsdk:"disable_default_error_pages"`
 	IdleTimeout                 types.Int64                                     `tfsdk:"idle_timeout"`
 	MaxRequestHeaderSize        types.Int64                                     `tfsdk:"max_request_header_size"`
@@ -975,7 +976,6 @@ type ProxyHTTPProxyMoreOptionModel struct {
 	ResponseHeadersToRemove     types.List                                      `tfsdk:"response_headers_to_remove"`
 	BufferPolicy                *ProxyHTTPProxyMoreOptionBufferPolicyModel      `tfsdk:"buffer_policy"`
 	CompressionParams           *ProxyHTTPProxyMoreOptionCompressionParamsModel `tfsdk:"compression_params"`
-	CustomErrors                *ProxyEmptyModel                                `tfsdk:"custom_errors"`
 	DisablePathNormalize        *ProxyEmptyModel                                `tfsdk:"disable_path_normalize"`
 	EnablePathNormalize         *ProxyEmptyModel                                `tfsdk:"enable_path_normalize"`
 	NoRequestLimitPerConnection *ProxyEmptyModel                                `tfsdk:"no_request_limit_per_connection"`
@@ -987,6 +987,7 @@ type ProxyHTTPProxyMoreOptionModel struct {
 
 // ProxyHTTPProxyMoreOptionModelAttrTypes defines the attribute types for ProxyHTTPProxyMoreOptionModel
 var ProxyHTTPProxyMoreOptionModelAttrTypes = map[string]attr.Type{
+	"custom_errors":                   types.MapType{ElemType: types.StringType},
 	"disable_default_error_pages":     types.BoolType,
 	"idle_timeout":                    types.Int64Type,
 	"max_request_header_size":         types.Int64Type,
@@ -997,7 +998,6 @@ var ProxyHTTPProxyMoreOptionModelAttrTypes = map[string]attr.Type{
 	"response_headers_to_remove":      types.ListType{ElemType: types.StringType},
 	"buffer_policy":                   types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionBufferPolicyModelAttrTypes},
 	"compression_params":              types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionCompressionParamsModelAttrTypes},
-	"custom_errors":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1652,6 +1652,11 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							"more_option": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to define a route.",
 								Attributes: map[string]schema.Attribute{
+									"custom_errors": schema.MapAttribute{
+										MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
+										Optional:            true,
+										ElementType:         types.StringType,
+									},
 									"disable_default_error_pages": schema.BoolAttribute{
 										MarkdownDescription: "Disable the use of default F5XC error pages.",
 										Optional:            true,
@@ -1754,9 +1759,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												Optional:            true,
 											},
 										},
-									},
-									"custom_errors": schema.SingleNestedBlock{
-										MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
 									},
 									"disable_path_normalize": schema.SingleNestedBlock{
 										MarkdownDescription: "Enable this option",
@@ -2127,6 +2129,11 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							"more_option": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to define a route.",
 								Attributes: map[string]schema.Attribute{
+									"custom_errors": schema.MapAttribute{
+										MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
+										Optional:            true,
+										ElementType:         types.StringType,
+									},
 									"disable_default_error_pages": schema.BoolAttribute{
 										MarkdownDescription: "Disable the use of default F5XC error pages.",
 										Optional:            true,
@@ -2229,9 +2236,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												Optional:            true,
 											},
 										},
-									},
-									"custom_errors": schema.SingleNestedBlock{
-										MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
 									},
 									"disable_path_normalize": schema.SingleNestedBlock{
 										MarkdownDescription: "Enable this option",
@@ -2842,6 +2846,11 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					"more_option": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines various OPTIONS to define a route.",
 						Attributes: map[string]schema.Attribute{
+							"custom_errors": schema.MapAttribute{
+								MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
+								Optional:            true,
+								ElementType:         types.StringType,
+							},
 							"disable_default_error_pages": schema.BoolAttribute{
 								MarkdownDescription: "Disable the use of default F5XC error pages.",
 								Optional:            true,
@@ -2944,9 +2953,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Optional:            true,
 									},
 								},
-							},
-							"custom_errors": schema.SingleNestedBlock{
-								MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
 							},
 							"disable_path_normalize": schema.SingleNestedBlock{
 								MarkdownDescription: "Enable this option",
@@ -3754,6 +3760,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !data.DynamicProxy.Domains.IsNull() && !data.DynamicProxy.Domains.IsUnknown() {
 			var DomainsItems []string
 			diags := data.DynamicProxy.Domains.ElementsAs(ctx, &DomainsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DynamicProxyMap["domains"] = DomainsItems
 			}
@@ -3783,6 +3790,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
 						var ContentTypeItems []string
 						diags := data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DynamicProxyHTTPProxyMoreOptionCompressionParamsMap["content_type"] = ContentTypeItems
 						}
@@ -3795,8 +3803,13 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 					}
 					DynamicProxyHTTPProxyMoreOptionMap["compression_params"] = DynamicProxyHTTPProxyMoreOptionCompressionParamsMap
 				}
-				if data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors != nil {
-					DynamicProxyHTTPProxyMoreOptionMap["custom_errors"] = map[string]interface{}{}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+					var CustomErrorsMap map[string]string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						DynamicProxyHTTPProxyMoreOptionMap["custom_errors"] = CustomErrorsMap
+					}
 				}
 				if !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
@@ -3871,6 +3884,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
 					diags := data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPProxyMoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
@@ -3927,6 +3941,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
 					diags := data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPProxyMoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
@@ -4040,6 +4055,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
 					diags := data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPProxyMoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
@@ -4096,6 +4112,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
 					diags := data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPProxyMoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 					}
@@ -4126,6 +4143,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
 						var ContentTypeItems []string
 						diags := data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DynamicProxyHTTPSProxyMoreOptionCompressionParamsMap["content_type"] = ContentTypeItems
 						}
@@ -4138,8 +4156,13 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 					}
 					DynamicProxyHTTPSProxyMoreOptionMap["compression_params"] = DynamicProxyHTTPSProxyMoreOptionCompressionParamsMap
 				}
-				if data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors != nil {
-					DynamicProxyHTTPSProxyMoreOptionMap["custom_errors"] = map[string]interface{}{}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsUnknown() {
+					var CustomErrorsMap map[string]string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						DynamicProxyHTTPSProxyMoreOptionMap["custom_errors"] = CustomErrorsMap
+					}
 				}
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
@@ -4214,6 +4237,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
 					diags := data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPSProxyMoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
@@ -4270,6 +4294,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
 					diags := data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPSProxyMoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
@@ -4383,6 +4408,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
 					diags := data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPSProxyMoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
@@ -4439,6 +4465,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
 					diags := data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPSProxyMoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 					}
@@ -4466,6 +4493,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
@@ -4520,6 +4548,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
@@ -4588,6 +4617,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
@@ -4634,6 +4664,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.HTTPProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
 					var ContentTypeItems []string
 					diags := data.HTTPProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						HTTPProxyMoreOptionCompressionParamsMap["content_type"] = ContentTypeItems
 					}
@@ -4646,8 +4677,13 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				}
 				HTTPProxyMoreOptionMap["compression_params"] = HTTPProxyMoreOptionCompressionParamsMap
 			}
-			if data.HTTPProxy.MoreOption.CustomErrors != nil {
-				HTTPProxyMoreOptionMap["custom_errors"] = map[string]interface{}{}
+			if !data.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+				var CustomErrorsMap map[string]string
+				diags := data.HTTPProxy.MoreOption.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+				resp.Diagnostics.Append(diags...)
+				if !diags.HasError() {
+					HTTPProxyMoreOptionMap["custom_errors"] = CustomErrorsMap
+				}
 			}
 			if !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 				HTTPProxyMoreOptionMap["disable_default_error_pages"] = data.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
@@ -4722,6 +4758,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			if !data.HTTPProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
 				var RequestCookiesToRemoveItems []string
 				diags := data.HTTPProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					HTTPProxyMoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 				}
@@ -4778,6 +4815,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			if !data.HTTPProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.HTTPProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
 				var RequestHeadersToRemoveItems []string
 				diags := data.HTTPProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					HTTPProxyMoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 				}
@@ -4891,6 +4929,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			if !data.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
 				var ResponseCookiesToRemoveItems []string
 				diags := data.HTTPProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					HTTPProxyMoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 				}
@@ -4947,6 +4986,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			if !data.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
 				var ResponseHeadersToRemoveItems []string
 				diags := data.HTTPProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					HTTPProxyMoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 				}
@@ -5045,6 +5085,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 					var HashAlgorithmsItems []string
 					diags := data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSInterceptCustomCertificateCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 					}
@@ -5230,7 +5271,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5307,7 +5349,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5334,14 +5377,24 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									CustomErrors: func() types.Map {
+										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
-										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -5511,7 +5564,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -5621,7 +5675,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -5890,7 +5945,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6000,7 +6056,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6073,7 +6130,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -6100,14 +6158,24 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									CustomErrors: func() types.Map {
+										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
-										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -6277,7 +6345,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6387,7 +6456,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6656,7 +6726,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6766,7 +6837,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6818,7 +6890,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -6936,7 +7009,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -7088,7 +7162,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -7198,7 +7273,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -7225,14 +7301,24 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							return nil
 						}(),
-						CustomErrors: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						CustomErrors: func() types.Map {
+							if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
-							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -7402,7 +7488,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -7512,7 +7599,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -7781,7 +7869,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -7891,7 +7980,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -8065,7 +8155,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -8464,7 +8555,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8541,7 +8633,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -8568,14 +8661,24 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return nil
 									}(),
-									CustomErrors: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									CustomErrors: func() types.Map {
+										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
-										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -8745,7 +8848,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -8855,7 +8959,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -9124,7 +9229,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -9234,7 +9340,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -9307,7 +9414,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -9334,14 +9442,24 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return nil
 									}(),
-									CustomErrors: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									CustomErrors: func() types.Map {
+										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
-										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -9511,7 +9629,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -9621,7 +9740,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -9890,7 +10010,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -10000,7 +10121,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -10052,7 +10174,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -10170,7 +10293,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -10322,7 +10446,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -10432,7 +10557,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -10459,14 +10585,24 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							}
 							return nil
 						}(),
-						CustomErrors: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						CustomErrors: func() types.Map {
+							if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
-							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -10636,7 +10772,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -10746,7 +10883,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -11015,7 +11153,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -11125,7 +11264,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -11299,7 +11439,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -11627,6 +11768,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !data.DynamicProxy.Domains.IsNull() && !data.DynamicProxy.Domains.IsUnknown() {
 			var DomainsItems []string
 			diags := data.DynamicProxy.Domains.ElementsAs(ctx, &DomainsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DynamicProxyMap["domains"] = DomainsItems
 			}
@@ -11656,6 +11798,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
 						var ContentTypeItems []string
 						diags := data.DynamicProxy.HTTPProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DynamicProxyHTTPProxyMoreOptionCompressionParamsMap["content_type"] = ContentTypeItems
 						}
@@ -11668,8 +11811,13 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					}
 					DynamicProxyHTTPProxyMoreOptionMap["compression_params"] = DynamicProxyHTTPProxyMoreOptionCompressionParamsMap
 				}
-				if data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors != nil {
-					DynamicProxyHTTPProxyMoreOptionMap["custom_errors"] = map[string]interface{}{}
+				if !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+					var CustomErrorsMap map[string]string
+					diags := data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						DynamicProxyHTTPProxyMoreOptionMap["custom_errors"] = CustomErrorsMap
+					}
 				}
 				if !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
@@ -11744,6 +11892,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
 					diags := data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPProxyMoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
@@ -11800,6 +11949,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
 					diags := data.DynamicProxy.HTTPProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPProxyMoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
@@ -11913,6 +12063,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
 					diags := data.DynamicProxy.HTTPProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPProxyMoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
@@ -11969,6 +12120,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
 					diags := data.DynamicProxy.HTTPProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPProxyMoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 					}
@@ -11999,6 +12151,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
 						var ContentTypeItems []string
 						diags := data.DynamicProxy.HTTPSProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DynamicProxyHTTPSProxyMoreOptionCompressionParamsMap["content_type"] = ContentTypeItems
 						}
@@ -12011,8 +12164,13 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					}
 					DynamicProxyHTTPSProxyMoreOptionMap["compression_params"] = DynamicProxyHTTPSProxyMoreOptionCompressionParamsMap
 				}
-				if data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors != nil {
-					DynamicProxyHTTPSProxyMoreOptionMap["custom_errors"] = map[string]interface{}{}
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsUnknown() {
+					var CustomErrorsMap map[string]string
+					diags := data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						DynamicProxyHTTPSProxyMoreOptionMap["custom_errors"] = CustomErrorsMap
+					}
 				}
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
@@ -12087,6 +12245,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
 					diags := data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPSProxyMoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
@@ -12143,6 +12302,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
 					diags := data.DynamicProxy.HTTPSProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPSProxyMoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
@@ -12256,6 +12416,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
 					diags := data.DynamicProxy.HTTPSProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPSProxyMoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
@@ -12312,6 +12473,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
 					diags := data.DynamicProxy.HTTPSProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						DynamicProxyHTTPSProxyMoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 					}
@@ -12339,6 +12501,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
@@ -12393,6 +12556,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
@@ -12461,6 +12625,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
@@ -12507,6 +12672,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.HTTPProxy.MoreOption.CompressionParams.ContentType.IsNull() && !data.HTTPProxy.MoreOption.CompressionParams.ContentType.IsUnknown() {
 					var ContentTypeItems []string
 					diags := data.HTTPProxy.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						HTTPProxyMoreOptionCompressionParamsMap["content_type"] = ContentTypeItems
 					}
@@ -12519,8 +12685,13 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				}
 				HTTPProxyMoreOptionMap["compression_params"] = HTTPProxyMoreOptionCompressionParamsMap
 			}
-			if data.HTTPProxy.MoreOption.CustomErrors != nil {
-				HTTPProxyMoreOptionMap["custom_errors"] = map[string]interface{}{}
+			if !data.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+				var CustomErrorsMap map[string]string
+				diags := data.HTTPProxy.MoreOption.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+				resp.Diagnostics.Append(diags...)
+				if !diags.HasError() {
+					HTTPProxyMoreOptionMap["custom_errors"] = CustomErrorsMap
+				}
 			}
 			if !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 				HTTPProxyMoreOptionMap["disable_default_error_pages"] = data.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
@@ -12595,6 +12766,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			if !data.HTTPProxy.MoreOption.RequestCookiesToRemove.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToRemove.IsUnknown() {
 				var RequestCookiesToRemoveItems []string
 				diags := data.HTTPProxy.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					HTTPProxyMoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 				}
@@ -12651,6 +12823,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			if !data.HTTPProxy.MoreOption.RequestHeadersToRemove.IsNull() && !data.HTTPProxy.MoreOption.RequestHeadersToRemove.IsUnknown() {
 				var RequestHeadersToRemoveItems []string
 				diags := data.HTTPProxy.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					HTTPProxyMoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 				}
@@ -12764,6 +12937,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			if !data.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsNull() && !data.HTTPProxy.MoreOption.ResponseCookiesToRemove.IsUnknown() {
 				var ResponseCookiesToRemoveItems []string
 				diags := data.HTTPProxy.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					HTTPProxyMoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 				}
@@ -12820,6 +12994,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			if !data.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsNull() && !data.HTTPProxy.MoreOption.ResponseHeadersToRemove.IsUnknown() {
 				var ResponseHeadersToRemoveItems []string
 				diags := data.HTTPProxy.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					HTTPProxyMoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 				}
@@ -12918,6 +13093,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 					var HashAlgorithmsItems []string
 					diags := data.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSInterceptCustomCertificateCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 					}
@@ -13123,7 +13299,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -13200,7 +13377,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -13227,14 +13405,24 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									CustomErrors: func() types.Map {
+										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
-										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -13404,7 +13592,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -13514,7 +13703,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -13783,7 +13973,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -13893,7 +14084,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -13966,7 +14158,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -13993,14 +14186,24 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									CustomErrors: func() types.Map {
+										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+											items := make(map[string]string)
+											for mk, mv := range v {
+												if mvs, ok := mv.(string); ok {
+													items[mk] = mvs
+												} else {
+													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+												}
+											}
+											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return mapVal
+										}
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
-										if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
-										}
-										return nil
+										return types.MapNull(types.StringType)
 									}(),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -14170,7 +14373,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -14280,7 +14484,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -14549,7 +14754,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -14659,7 +14865,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -14711,7 +14918,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -14829,7 +15037,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -14981,7 +15190,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -15091,7 +15301,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -15118,14 +15329,24 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							return nil
 						}(),
-						CustomErrors: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						CustomErrors: func() types.Map {
+							if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
-							if _, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -15295,7 +15516,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -15405,7 +15627,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -15674,7 +15897,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -15784,7 +16008,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -15958,7 +16183,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)

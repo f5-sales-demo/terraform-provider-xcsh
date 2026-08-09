@@ -3,6 +3,8 @@
 package resource
 
 import (
+	"bytes"
+	"io"
 	"os"
 	"testing"
 )
@@ -338,5 +340,79 @@ func TestNoStaleSubcategoryOverrides(t *testing.T) {
 		if os.IsNotExist(errRes) && os.IsNotExist(errData) {
 			t.Errorf("SubcategoryOverride key %q has no corresponding resource or data source file", key)
 		}
+	}
+}
+
+func TestGeneratorHonorsExclusion(t *testing.T) {
+	// Exercise both CRUD and action logic, verifying that:
+	// - "dns_domain" is excluded;
+	// - non-skipped controls remain;
+	// - the exclusion reason is retained.
+
+	tests := []struct {
+		name         string
+		resourceName string
+		verbose      bool
+		wantSkipped  bool
+		wantOutput   string
+		wantReason   string
+	}{
+		{
+			name:         "dns_domain skipped with verbose",
+			resourceName: "dns_domain",
+			verbose:      true,
+			wantSkipped:  true,
+			wantOutput:   "      ⏭️  Skipping excluded resource dns_domain: delegated domain creation is disabled\n",
+			wantReason:   "delegated domain creation is disabled",
+		},
+		{
+			name:         "dns_domain skipped without verbose",
+			resourceName: "dns_domain",
+			verbose:      false,
+			wantSkipped:  true,
+			wantOutput:   "",
+			wantReason:   "delegated domain creation is disabled",
+		},
+		{
+			name:         "control resource (http_loadbalancer) is not skipped",
+			resourceName: "http_loadbalancer",
+			verbose:      true,
+			wantSkipped:  false,
+			wantOutput:   "",
+			wantReason:   "",
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			// Redirect stdout to capture verbose output
+			old := os.Stdout
+			r, w, _ := os.Pipe()
+			os.Stdout = w
+
+			gotSkipped := IsResourceSkipped(tc.resourceName, tc.verbose)
+
+			w.Close()
+			os.Stdout = old
+
+			var buf bytes.Buffer
+			io.Copy(&buf, r)
+			gotOutput := buf.String()
+
+			if gotSkipped != tc.wantSkipped {
+				t.Errorf("IsResourceSkipped(%q) = %v, want %v", tc.resourceName, gotSkipped, tc.wantSkipped)
+			}
+
+			if gotOutput != tc.wantOutput {
+				t.Errorf("IsResourceSkipped verbose output = %q, want %q", gotOutput, tc.wantOutput)
+			}
+
+			if tc.wantSkipped {
+				reason := GetSkipReason(tc.resourceName)
+				if reason != tc.wantReason {
+					t.Errorf("GetSkipReason(%q) = %q, want %q", tc.resourceName, reason, tc.wantReason)
+				}
+			}
+		})
 	}
 }

@@ -33,6 +33,9 @@ resource "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
 
+  default_subset = {
+    example = "value"
+  }
   connection_timeout     = 1
   endpoint_selection     = "DISTRIBUTED"
   fallback_policy        = "NO_FALLBACK"
@@ -74,7 +77,7 @@ resource "xcsh_cluster" "example" {
 
 <a id="connection-timeout"></a>&#x2022; [`connection_timeout`](#connection-timeout) - Required Number  Defaults to `2`  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The seconds
 
-<a id="default-subset"></a>&#x2022; [`default_subset`](#default-subset) - Optional Block<br>List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists
+<a id="default-subset"></a>&#x2022; [`default_subset`](#default-subset) - Required Map<br>List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists
 
 -> **One of the following:**
 &#x2022; <a id="disable-proxy-protocol"></a>[`disable_proxy_protocol`](#disable-proxy-protocol) - Optional Block<br>Configuration parameter for disable proxy protocol

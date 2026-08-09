@@ -490,6 +490,7 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.LabelMatcher.Keys.IsNull() && !data.LabelMatcher.Keys.IsUnknown() {
 			var KeysItems []string
 			diags := data.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				LabelMatcherMap["keys"] = KeysItems
 			}
@@ -499,6 +500,7 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	if !data.Ports.IsNull() && !data.Ports.IsUnknown() {
 		var PortsItems []string
 		diags := data.Ports.ElementsAs(ctx, &PortsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["ports"] = PortsItems
 		}
@@ -508,6 +510,7 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.Prefix.Prefix.IsNull() && !data.Prefix.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PrefixMap["prefix"] = PrefixItems
 			}
@@ -519,6 +522,7 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.PrefixSelector.Expressions.IsNull() && !data.PrefixSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.PrefixSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PrefixSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -629,7 +633,8 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -661,7 +666,8 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -678,7 +684,8 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -892,7 +899,8 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -924,7 +932,8 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -941,7 +950,8 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1081,6 +1091,7 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.LabelMatcher.Keys.IsNull() && !data.LabelMatcher.Keys.IsUnknown() {
 			var KeysItems []string
 			diags := data.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				LabelMatcherMap["keys"] = KeysItems
 			}
@@ -1090,6 +1101,7 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	if !data.Ports.IsNull() && !data.Ports.IsUnknown() {
 		var PortsItems []string
 		diags := data.Ports.ElementsAs(ctx, &PortsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["ports"] = PortsItems
 		}
@@ -1099,6 +1111,7 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.Prefix.Prefix.IsNull() && !data.Prefix.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PrefixMap["prefix"] = PrefixItems
 			}
@@ -1110,6 +1123,7 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.PrefixSelector.Expressions.IsNull() && !data.PrefixSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.PrefixSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PrefixSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -1254,7 +1268,8 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1286,7 +1301,8 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1303,7 +1319,8 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

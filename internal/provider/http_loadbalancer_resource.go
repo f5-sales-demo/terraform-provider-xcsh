@@ -4481,12 +4481,12 @@ var HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsModelAttrTypes = map[
 
 // HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel represents default_subset block
 type HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel struct {
-	DefaultSubset *HTTPLoadBalancerEmptyModel `tfsdk:"default_subset"`
+	DefaultSubset types.Map `tfsdk:"default_subset"`
 }
 
 // HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel
 var HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes = map[string]attr.Type{
-	"default_subset": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_subset": types.MapType{ElemType: types.StringType},
 }
 
 // HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel represents endpoint_subsets block
@@ -5283,19 +5283,19 @@ var HTTPLoadBalancerDefaultPoolListModelAttrTypes = map[string]attr.Type{
 
 // HTTPLoadBalancerDefaultPoolListPoolsModel represents pools block
 type HTTPLoadBalancerDefaultPoolListPoolsModel struct {
+	EndpointSubsets types.Map                                         `tfsdk:"endpoint_subsets"`
 	Priority        types.Int64                                       `tfsdk:"priority"`
 	Weight          types.Int64                                       `tfsdk:"weight"`
 	Cluster         *HTTPLoadBalancerDefaultPoolListPoolsClusterModel `tfsdk:"cluster"`
-	EndpointSubsets *HTTPLoadBalancerEmptyModel                       `tfsdk:"endpoint_subsets"`
 	Pool            *HTTPLoadBalancerDefaultPoolListPoolsPoolModel    `tfsdk:"pool"`
 }
 
 // HTTPLoadBalancerDefaultPoolListPoolsModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultPoolListPoolsModel
 var HTTPLoadBalancerDefaultPoolListPoolsModelAttrTypes = map[string]attr.Type{
+	"endpoint_subsets": types.MapType{ElemType: types.StringType},
 	"priority":         types.Int64Type,
 	"weight":           types.Int64Type,
 	"cluster":          types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolListPoolsClusterModelAttrTypes},
-	"endpoint_subsets": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pool":             types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolListPoolsPoolModelAttrTypes},
 }
 
@@ -5329,19 +5329,19 @@ var HTTPLoadBalancerDefaultPoolListPoolsPoolModelAttrTypes = map[string]attr.Typ
 
 // HTTPLoadBalancerDefaultRoutePoolsModel represents default_route_pools block
 type HTTPLoadBalancerDefaultRoutePoolsModel struct {
+	EndpointSubsets types.Map                                      `tfsdk:"endpoint_subsets"`
 	Priority        types.Int64                                    `tfsdk:"priority"`
 	Weight          types.Int64                                    `tfsdk:"weight"`
 	Cluster         *HTTPLoadBalancerDefaultRoutePoolsClusterModel `tfsdk:"cluster"`
-	EndpointSubsets *HTTPLoadBalancerEmptyModel                    `tfsdk:"endpoint_subsets"`
 	Pool            *HTTPLoadBalancerDefaultRoutePoolsPoolModel    `tfsdk:"pool"`
 }
 
 // HTTPLoadBalancerDefaultRoutePoolsModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultRoutePoolsModel
 var HTTPLoadBalancerDefaultRoutePoolsModelAttrTypes = map[string]attr.Type{
+	"endpoint_subsets": types.MapType{ElemType: types.StringType},
 	"priority":         types.Int64Type,
 	"weight":           types.Int64Type,
 	"cluster":          types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultRoutePoolsClusterModelAttrTypes},
-	"endpoint_subsets": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pool":             types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultRoutePoolsPoolModelAttrTypes},
 }
 
@@ -6557,6 +6557,7 @@ var HTTPLoadBalancerMalwareProtectionSettingsMalwareProtectionRulesPathModelAttr
 
 // HTTPLoadBalancerMoreOptionModel represents more_option block
 type HTTPLoadBalancerMoreOptionModel struct {
+	CustomErrors                types.Map                                         `tfsdk:"custom_errors"`
 	DisableDefaultErrorPages    types.Bool                                        `tfsdk:"disable_default_error_pages"`
 	IdleTimeout                 types.Int64                                       `tfsdk:"idle_timeout"`
 	MaxRequestHeaderSize        types.Int64                                       `tfsdk:"max_request_header_size"`
@@ -6567,7 +6568,6 @@ type HTTPLoadBalancerMoreOptionModel struct {
 	ResponseHeadersToRemove     types.List                                        `tfsdk:"response_headers_to_remove"`
 	BufferPolicy                *HTTPLoadBalancerMoreOptionBufferPolicyModel      `tfsdk:"buffer_policy"`
 	CompressionParams           *HTTPLoadBalancerMoreOptionCompressionParamsModel `tfsdk:"compression_params"`
-	CustomErrors                *HTTPLoadBalancerEmptyModel                       `tfsdk:"custom_errors"`
 	DisablePathNormalize        *HTTPLoadBalancerEmptyModel                       `tfsdk:"disable_path_normalize"`
 	EnablePathNormalize         *HTTPLoadBalancerEmptyModel                       `tfsdk:"enable_path_normalize"`
 	NoRequestLimitPerConnection *HTTPLoadBalancerEmptyModel                       `tfsdk:"no_request_limit_per_connection"`
@@ -6579,6 +6579,7 @@ type HTTPLoadBalancerMoreOptionModel struct {
 
 // HTTPLoadBalancerMoreOptionModelAttrTypes defines the attribute types for HTTPLoadBalancerMoreOptionModel
 var HTTPLoadBalancerMoreOptionModelAttrTypes = map[string]attr.Type{
+	"custom_errors":                   types.MapType{ElemType: types.StringType},
 	"disable_default_error_pages":     types.BoolType,
 	"idle_timeout":                    types.Int64Type,
 	"max_request_header_size":         types.Int64Type,
@@ -6589,7 +6590,6 @@ var HTTPLoadBalancerMoreOptionModelAttrTypes = map[string]attr.Type{
 	"response_headers_to_remove":      types.ListType{ElemType: types.StringType},
 	"buffer_policy":                   types.ObjectType{AttrTypes: HTTPLoadBalancerMoreOptionBufferPolicyModelAttrTypes},
 	"compression_params":              types.ObjectType{AttrTypes: HTTPLoadBalancerMoreOptionCompressionParamsModelAttrTypes},
-	"custom_errors":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -6894,6 +6894,7 @@ var HTTPLoadBalancerOriginServerSubsetRuleListModelAttrTypes = map[string]attr.T
 // HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesModel represents origin_server_subset_rules block
 type HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesModel struct {
 	CountryCodes              types.List                                                                            `tfsdk:"country_codes"`
+	OriginServerSubsetsAction types.Map                                                                             `tfsdk:"origin_server_subsets_action"`
 	RENameList                types.List                                                                            `tfsdk:"re_name_list"`
 	AnyAsn                    *HTTPLoadBalancerEmptyModel                                                           `tfsdk:"any_asn"`
 	AnyIP                     *HTTPLoadBalancerEmptyModel                                                           `tfsdk:"any_ip"`
@@ -6904,12 +6905,12 @@ type HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesModel stru
 	IPPrefixList              *HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesIPPrefixListModel   `tfsdk:"ip_prefix_list"`
 	Metadata                  *HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesMetadataModel       `tfsdk:"metadata"`
 	None                      *HTTPLoadBalancerEmptyModel                                                           `tfsdk:"none"`
-	OriginServerSubsetsAction *HTTPLoadBalancerEmptyModel                                                           `tfsdk:"origin_server_subsets_action"`
 }
 
 // HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesModel
 var HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesModelAttrTypes = map[string]attr.Type{
 	"country_codes":                types.ListType{ElemType: types.StringType},
+	"origin_server_subsets_action": types.MapType{ElemType: types.StringType},
 	"re_name_list":                 types.ListType{ElemType: types.StringType},
 	"any_asn":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"any_ip":                       types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -6920,7 +6921,6 @@ var HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesModelAttrTy
 	"ip_prefix_list":               types.ObjectType{AttrTypes: HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesIPPrefixListModelAttrTypes},
 	"metadata":                     types.ObjectType{AttrTypes: HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesMetadataModelAttrTypes},
 	"none":                         types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"origin_server_subsets_action": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // HTTPLoadBalancerOriginServerSubsetRuleListOriginServerSubsetRulesAsnListModel represents asn_list block
@@ -7966,6 +7966,7 @@ var HTTPLoadBalancerRoutesSimpleRouteModelAttrTypes = map[string]attr.Type{
 // HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel represents advanced_options block
 type HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel struct {
 	DisableLocationAdd                     types.Bool                                                                          `tfsdk:"disable_location_add"`
+	EndpointSubsets                        types.Map                                                                           `tfsdk:"endpoint_subsets"`
 	PrefixRewrite                          types.String                                                                        `tfsdk:"prefix_rewrite"`
 	Priority                               types.String                                                                        `tfsdk:"priority"`
 	RequestCookiesToRemove                 types.List                                                                          `tfsdk:"request_cookies_to_remove"`
@@ -7988,7 +7989,6 @@ type HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel struct {
 	DisableWebSocketConfig                 *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"disable_web_socket_config"`
 	DoNotRetractCluster                    *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"do_not_retract_cluster"`
 	EnableSpdy                             *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"enable_spdy"`
-	EndpointSubsets                        *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"endpoint_subsets"`
 	InheritedBotDefenseJavascriptInjection *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"inherited_bot_defense_javascript_injection"`
 	InheritedWAF                           *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"inherited_waf"`
 	InheritedWAFExclusion                  *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"inherited_waf_exclusion"`
@@ -8009,6 +8009,7 @@ type HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel struct {
 // HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModelAttrTypes defines the attribute types for HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel
 var HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModelAttrTypes = map[string]attr.Type{
 	"disable_location_add":                       types.BoolType,
+	"endpoint_subsets":                           types.MapType{ElemType: types.StringType},
 	"prefix_rewrite":                             types.StringType,
 	"priority":                                   types.StringType,
 	"request_cookies_to_remove":                  types.ListType{ElemType: types.StringType},
@@ -8031,7 +8032,6 @@ var HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModelAttrTypes = map[string]
 	"disable_web_socket_config":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"do_not_retract_cluster":                     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_spdy":                                types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"endpoint_subsets":                           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inherited_bot_defense_javascript_injection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inherited_waf":                              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inherited_waf_exclusion":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -8607,19 +8607,19 @@ var HTTPLoadBalancerRoutesSimpleRouteIncomingPortModelAttrTypes = map[string]att
 
 // HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModel represents origin_pools block
 type HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModel struct {
+	EndpointSubsets types.Map                                                 `tfsdk:"endpoint_subsets"`
 	Priority        types.Int64                                               `tfsdk:"priority"`
 	Weight          types.Int64                                               `tfsdk:"weight"`
 	Cluster         *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsClusterModel `tfsdk:"cluster"`
-	EndpointSubsets *HTTPLoadBalancerEmptyModel                               `tfsdk:"endpoint_subsets"`
 	Pool            *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModel    `tfsdk:"pool"`
 }
 
 // HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModelAttrTypes defines the attribute types for HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModel
 var HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModelAttrTypes = map[string]attr.Type{
+	"endpoint_subsets": types.MapType{ElemType: types.StringType},
 	"priority":         types.Int64Type,
 	"weight":           types.Int64Type,
 	"cluster":          types.ObjectType{AttrTypes: HTTPLoadBalancerRoutesSimpleRouteOriginPoolsClusterModelAttrTypes},
-	"endpoint_subsets": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pool":             types.ObjectType{AttrTypes: HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModelAttrTypes},
 }
 
@@ -15503,10 +15503,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 									"default_subset": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for default subset.",
-										Attributes:          map[string]schema.Attribute{},
-										Blocks: map[string]schema.Block{
-											"default_subset": schema.SingleNestedBlock{
+										Attributes: map[string]schema.Attribute{
+											"default_subset": schema.MapAttribute{
 												MarkdownDescription: "List of key-value pairs that define default subset. Which gets used when route specifies no metadata or no subset matching the metadata exists.",
+												Optional:            true,
+												ElementType:         types.StringType,
 											},
 										},
 									},
@@ -16638,6 +16639,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Origin Pools. List of Origin Pools.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"endpoint_subsets": schema.MapAttribute{
+									MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
+									Optional:            true,
+									ElementType:         types.StringType,
+								},
 								"priority": schema.Int64Attribute{
 									MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
 									Optional:            true,
@@ -16681,9 +16687,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 									},
 								},
-								"endpoint_subsets": schema.SingleNestedBlock{
-									MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
-								},
 								"pool": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 									Attributes: map[string]schema.Attribute{
@@ -16723,6 +16726,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "Origin Pools used when no route is specified (default route).",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
+						"endpoint_subsets": schema.MapAttribute{
+							MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
+							Optional:            true,
+							ElementType:         types.StringType,
+						},
 						"priority": schema.Int64Attribute{
 							MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
 							Optional:            true,
@@ -16765,9 +16773,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 							},
-						},
-						"endpoint_subsets": schema.SingleNestedBlock{
-							MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
 						},
 						"pool": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -18366,6 +18371,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 			"more_option": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines various OPTIONS to define a route.",
 				Attributes: map[string]schema.Attribute{
+					"custom_errors": schema.MapAttribute{
+						MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
+						Optional:            true,
+						ElementType:         types.StringType,
+					},
 					"disable_default_error_pages": schema.BoolAttribute{
 						MarkdownDescription: "Disable the use of default F5XC error pages.",
 						Optional:            true,
@@ -18468,9 +18478,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								Optional:            true,
 							},
 						},
-					},
-					"custom_errors": schema.SingleNestedBlock{
-						MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
 					},
 					"disable_path_normalize": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -18854,6 +18861,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										listvalidator.SizeAtMost(64),
 									},
 								},
+								"origin_server_subsets_action": schema.MapAttribute{
+									MarkdownDescription: "Add labels to select one or more origin servers.",
+									Optional:            true,
+									ElementType:         types.StringType,
+								},
 								"re_name_list": schema.ListAttribute{
 									MarkdownDescription: "RE Names. List of RE names for match.",
 									Optional:            true,
@@ -19021,9 +19033,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								},
 								"none": schema.SingleNestedBlock{
 									MarkdownDescription: "Enable this option",
-								},
-								"origin_server_subsets_action": schema.SingleNestedBlock{
-									MarkdownDescription: "Add labels to select one or more origin servers.",
 								},
 							},
 						},
@@ -20381,6 +20390,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "Disables append of x-F5 Distributed Cloud-location = <RE-site-name> at route level, if it is configured at virtual-host level. This configuration is ignored on CE sites.",
 											Optional:            true,
 										},
+										"endpoint_subsets": schema.MapAttribute{
+											MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
+											Optional:            true,
+											ElementType:         types.StringType,
+										},
 										"prefix_rewrite": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [disable_prefix_rewrite regex_rewrite] prefix_rewrite indicates that during forwarding, the matched prefix (or path) should be swapped with its value. When using regex path matching, the entire path (not including the query string) will be swapped with this value.",
 											Optional:            true,
@@ -20635,9 +20649,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 										"enable_spdy": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for enable spdy.",
-										},
-										"endpoint_subsets": schema.SingleNestedBlock{
-											MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
 										},
 										"inherited_bot_defense_javascript_injection": schema.SingleNestedBlock{
 											MarkdownDescription: "Enable this option",
@@ -21317,6 +21328,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									MarkdownDescription: "Origin Pools for this route .",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
+											"endpoint_subsets": schema.MapAttribute{
+												MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
+												Optional:            true,
+												ElementType:         types.StringType,
+											},
 											"priority": schema.Int64Attribute{
 												MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
 												Optional:            true,
@@ -21359,9 +21375,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 												},
-											},
-											"endpoint_subsets": schema.SingleNestedBlock{
-												MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
 											},
 											"pool": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -22534,6 +22547,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["domains"] = DomainsItems
 		}
@@ -22783,6 +22797,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !APIEndpointRulesItem.APIEndpointMethod.Methods.IsNull() && !APIEndpointRulesItem.APIEndpointMethod.Methods.IsUnknown() {
 							var MethodsItems []string
 							diags := APIEndpointRulesItem.APIEndpointMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								APIProtectionRulesAPIEndpointRulesAPIEndpointMethodMap["methods"] = MethodsItems
 							}
@@ -22805,6 +22820,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 								var AsNumbersItems []int64
 								diags := APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 								}
@@ -22848,6 +22864,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 								var ExpressionsItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 								}
@@ -22897,6 +22914,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -22908,6 +22926,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 								var IPThreatCategoriesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 								}
@@ -22919,6 +22938,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 								var ClassesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 								}
@@ -22926,6 +22946,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 								}
@@ -22933,6 +22954,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 								var ExcludedValuesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 								}
@@ -22975,6 +22997,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -22982,6 +23005,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -22989,6 +23013,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 											}
@@ -23025,6 +23050,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23032,6 +23058,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23039,6 +23066,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -23075,6 +23103,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23082,6 +23111,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23089,6 +23119,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 											}
@@ -23125,6 +23156,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23132,6 +23164,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23139,6 +23172,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -23203,6 +23237,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIGroupsRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !APIGroupsRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 								var AsNumbersItems []int64
 								diags := APIGroupsRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 								}
@@ -23246,6 +23281,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIGroupsRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !APIGroupsRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 								var ExpressionsItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 								}
@@ -23295,6 +23331,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIGroupsRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !APIGroupsRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -23306,6 +23343,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIGroupsRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !APIGroupsRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 								var IPThreatCategoriesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 								}
@@ -23317,6 +23355,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 								var ClassesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 								}
@@ -23324,6 +23363,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 								}
@@ -23331,6 +23371,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 								var ExcludedValuesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 								}
@@ -23373,6 +23414,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23380,6 +23422,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23387,6 +23430,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 											}
@@ -23423,6 +23467,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23430,6 +23475,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23437,6 +23483,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -23473,6 +23520,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23480,6 +23528,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23487,6 +23536,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 											}
@@ -23523,6 +23573,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23530,6 +23581,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23537,6 +23589,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -23584,6 +23637,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !APIEndpointRulesItem.APIEndpointMethod.Methods.IsNull() && !APIEndpointRulesItem.APIEndpointMethod.Methods.IsUnknown() {
 							var MethodsItems []string
 							diags := APIEndpointRulesItem.APIEndpointMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								APIRateLimitAPIEndpointRulesAPIEndpointMethodMap["methods"] = MethodsItems
 							}
@@ -23606,6 +23660,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 								var AsNumbersItems []int64
 								diags := APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 								}
@@ -23649,6 +23704,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 								var ExpressionsItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 								}
@@ -23698,6 +23754,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -23709,6 +23766,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 								var IPThreatCategoriesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 								}
@@ -23720,6 +23778,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 								var ClassesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 								}
@@ -23727,6 +23786,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 								}
@@ -23734,6 +23794,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 								var ExcludedValuesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 								}
@@ -23805,6 +23866,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23812,6 +23874,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23819,6 +23882,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 											}
@@ -23855,6 +23919,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23862,6 +23927,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23869,6 +23935,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -23905,6 +23972,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23912,6 +23980,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23919,6 +23988,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 											}
@@ -23955,6 +24025,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -23962,6 +24033,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -23969,6 +24041,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -24014,6 +24087,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !BypassRateLimitingRulesItem.APIEndpoint.Methods.IsNull() && !BypassRateLimitingRulesItem.APIEndpoint.Methods.IsUnknown() {
 								var MethodsItems []string
 								diags := BypassRateLimitingRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesAPIEndpointMap["methods"] = MethodsItems
 								}
@@ -24028,6 +24102,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !BypassRateLimitingRulesItem.APIGroups.APIGroups.IsNull() && !BypassRateLimitingRulesItem.APIGroups.APIGroups.IsUnknown() {
 								var APIGroupsItems []string
 								diags := BypassRateLimitingRulesItem.APIGroups.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesAPIGroupsMap["api_groups"] = APIGroupsItems
 								}
@@ -24050,6 +24125,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !BypassRateLimitingRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 									var AsNumbersItems []int64
 									diags := BypassRateLimitingRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 									}
@@ -24093,6 +24169,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !BypassRateLimitingRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 									var ExpressionsItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 									}
@@ -24142,6 +24219,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !BypassRateLimitingRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 									var IPPrefixesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 									}
@@ -24153,6 +24231,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !BypassRateLimitingRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 									var IPThreatCategoriesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 									}
@@ -24164,6 +24243,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 									var ClassesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 									}
@@ -24171,6 +24251,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 									}
@@ -24178,6 +24259,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 									var ExcludedValuesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 									}
@@ -24210,6 +24292,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -24217,6 +24300,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -24224,6 +24308,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 												}
@@ -24260,6 +24345,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -24267,6 +24353,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -24274,6 +24361,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 												}
@@ -24310,6 +24398,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 												}
@@ -24317,6 +24406,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 												}
@@ -24324,6 +24414,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 												}
@@ -24360,6 +24451,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 												}
@@ -24367,6 +24459,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 												}
@@ -24374,6 +24467,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 												}
@@ -24431,6 +24525,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.APIRateLimit.IPAllowedList.Prefixes.IsNull() && !data.APIRateLimit.IPAllowedList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.APIRateLimit.IPAllowedList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					APIRateLimitIPAllowedListMap["prefixes"] = PrefixesItems
 				}
@@ -24470,6 +24565,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !ServerURLRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !ServerURLRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 								var AsNumbersItems []int64
 								diags := ServerURLRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 								}
@@ -24513,6 +24609,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !ServerURLRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !ServerURLRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 								var ExpressionsItems []string
 								diags := ServerURLRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 								}
@@ -24562,6 +24659,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !ServerURLRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !ServerURLRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -24573,6 +24671,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !ServerURLRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !ServerURLRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 								var IPThreatCategoriesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 								}
@@ -24584,6 +24683,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 								var ClassesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 								}
@@ -24591,6 +24691,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 								}
@@ -24598,6 +24699,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 								var ExcludedValuesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 								}
@@ -24669,6 +24771,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -24676,6 +24779,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -24683,6 +24787,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 											}
@@ -24719,6 +24824,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -24726,6 +24832,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -24733,6 +24840,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -24769,6 +24877,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -24776,6 +24885,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -24783,6 +24893,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 											}
@@ -24819,6 +24930,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -24826,6 +24938,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -24833,6 +24946,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -24905,6 +25019,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
 										var MethodsItems []string
 										diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											APISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointMap["methods"] = MethodsItems
 										}
@@ -24979,6 +25094,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsUnknown() {
 						var ResponseValidationPropertiesItems []string
 						diags := data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.ElementsAs(ctx, &ResponseValidationPropertiesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							APISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveMap["response_validation_properties"] = ResponseValidationPropertiesItems
 						}
@@ -25002,6 +25118,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.RequestValidationProperties.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.RequestValidationProperties.IsUnknown() {
 						var RequestValidationPropertiesItems []string
 						diags := data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.RequestValidationProperties.ElementsAs(ctx, &RequestValidationPropertiesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							APISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveMap["request_validation_properties"] = RequestValidationPropertiesItems
 						}
@@ -25043,6 +25160,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
 										var MethodsItems []string
 										diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											APISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointMap["methods"] = MethodsItems
 										}
@@ -25093,6 +25211,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
 								var MethodsItems []string
 								diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointMap["methods"] = MethodsItems
 								}
@@ -25134,6 +25253,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsUnknown() {
 									var ResponseValidationPropertiesItems []string
 									diags := OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.ElementsAs(ctx, &ResponseValidationPropertiesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveMap["response_validation_properties"] = ResponseValidationPropertiesItems
 									}
@@ -25157,6 +25277,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsUnknown() {
 									var RequestValidationPropertiesItems []string
 									diags := OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.ElementsAs(ctx, &RequestValidationPropertiesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveMap["request_validation_properties"] = RequestValidationPropertiesItems
 									}
@@ -25424,6 +25545,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !BlockedClientsItem.Actions.IsNull() && !BlockedClientsItem.Actions.IsUnknown() {
 					var ActionsItems []string
 					diags := BlockedClientsItem.Actions.ElementsAs(ctx, &ActionsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						BlockedClientsItemMap["actions"] = ActionsItems
 					}
@@ -25721,6 +25843,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 										var ExactValuesItems []string
 										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											BotDefensePolicyMobileSdkConfigMobileIdentifierHeadersItemMap["exact_values"] = ExactValuesItems
 										}
@@ -25728,6 +25851,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 										var RegexValuesItems []string
 										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											BotDefensePolicyMobileSdkConfigMobileIdentifierHeadersItemMap["regex_values"] = RegexValuesItems
 										}
@@ -25735,6 +25859,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 										var TransformersItems []string
 										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											BotDefensePolicyMobileSdkConfigMobileIdentifierHeadersItemMap["transformers"] = TransformersItems
 										}
@@ -25815,6 +25940,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
 														var RegexValuesItems []string
 														diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															FailureConditionsItemMap["regex_values"] = RegexValuesItems
 														}
@@ -25841,6 +25967,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
 														var RegexValuesItems []string
 														diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															SuccessConditionsItemMap["regex_values"] = RegexValuesItems
 														}
@@ -25981,6 +26108,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -25988,6 +26116,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -25995,6 +26124,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -26012,6 +26142,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !ProtectedAppEndpointsItem.HTTPMethods.IsNull() && !ProtectedAppEndpointsItem.HTTPMethods.IsUnknown() {
 							var HTTPMethodsItems []string
 							diags := ProtectedAppEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProtectedAppEndpointsItemMap["http_methods"] = HTTPMethodsItems
 							}
@@ -26108,6 +26239,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -26115,6 +26247,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -26122,6 +26255,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -26385,6 +26519,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["exact_values"] = ExactValuesItems
 									}
@@ -26392,6 +26527,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 									var RegexValuesItems []string
 									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["regex_values"] = RegexValuesItems
 									}
@@ -26399,6 +26535,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 									var TransformersItems []string
 									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["transformers"] = TransformersItems
 									}
@@ -26671,6 +26808,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !data.CORSPolicy.AllowOrigin.IsNull() && !data.CORSPolicy.AllowOrigin.IsUnknown() {
 			var AllowOriginItems []string
 			diags := data.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CORSPolicyMap["allow_origin"] = AllowOriginItems
 			}
@@ -26678,6 +26816,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !data.CORSPolicy.AllowOriginRegex.IsNull() && !data.CORSPolicy.AllowOriginRegex.IsUnknown() {
 			var AllowOriginRegexItems []string
 			diags := data.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 			}
@@ -26703,6 +26842,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.CSRFPolicy.CustomDomainList.Domains.IsNull() && !data.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 				var DomainsItems []string
 				diags := data.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					CSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 				}
@@ -26783,6 +26923,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !DDOSMitigationRulesItem.DDOSClientSource.AsnList.AsNumbers.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.AsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := DDOSMitigationRulesItem.DDOSClientSource.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceAsnListMap["as_numbers"] = AsNumbersItems
 							}
@@ -26792,6 +26933,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !DDOSMitigationRulesItem.DDOSClientSource.CountryList.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.CountryList.IsUnknown() {
 						var CountryListItems []string
 						diags := DDOSMitigationRulesItem.DDOSClientSource.CountryList.ElementsAs(ctx, &CountryListItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DDOSMitigationRulesDDOSClientSourceMap["country_list"] = CountryListItems
 						}
@@ -26801,6 +26943,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !DDOSMitigationRulesItem.DDOSClientSource.Ja4TLSFingerprintMatcher.ExactValues.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.Ja4TLSFingerprintMatcher.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := DDOSMitigationRulesItem.DDOSClientSource.Ja4TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceJa4TLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 							}
@@ -26812,6 +26955,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.Classes.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.Classes.IsUnknown() {
 							var ClassesItems []string
 							diags := DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherMap["classes"] = ClassesItems
 							}
@@ -26819,6 +26963,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExactValues.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 							}
@@ -26826,6 +26971,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExcludedValues.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 							var ExcludedValuesItems []string
 							diags := DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 							}
@@ -26845,6 +26991,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !DDOSMitigationRulesItem.IPPrefixList.IPPrefixes.IsNull() && !DDOSMitigationRulesItem.IPPrefixList.IPPrefixes.IsUnknown() {
 						var IPPrefixesItems []string
 						diags := DDOSMitigationRulesItem.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DDOSMitigationRulesIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 						}
@@ -26923,8 +27070,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				}
 				if data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 					DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
-					if data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
-						DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
+					if !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+						var DefaultSubsetMap map[string]string
+						diags := data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.ElementsAs(ctx, &DefaultSubsetMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = DefaultSubsetMap
+						}
 					}
 					DefaultPoolAdvancedOptionsEnableSubsetsMap["default_subset"] = DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap
 				}
@@ -26939,6 +27091,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
 								var KeysItems []string
 								diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									EndpointSubsetsItemMap["keys"] = KeysItems
 								}
@@ -27128,6 +27281,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolOriginServersConsulServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -27209,6 +27363,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -27289,6 +27444,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolOriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -27366,6 +27522,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolOriginServersPrivateNameSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -27484,6 +27641,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.DefaultPool.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.DefaultPool.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.DefaultPool.UseTLS.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DefaultPoolUseTLSTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -27528,6 +27686,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolUseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
@@ -27653,8 +27812,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						PoolsItemMap["cluster"] = DefaultPoolListPoolsClusterMap
 					}
-					if PoolsItem.EndpointSubsets != nil {
-						PoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
+					if !PoolsItem.EndpointSubsets.IsNull() && !PoolsItem.EndpointSubsets.IsUnknown() {
+						var EndpointSubsetsMap map[string]string
+						diags := PoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							PoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
+						}
 					}
 					if PoolsItem.Pool != nil {
 						DefaultPoolListPoolsPoolMap := make(map[string]interface{})
@@ -27703,8 +27867,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					DefaultRoutePoolsItemMap["cluster"] = DefaultRoutePoolsClusterMap
 				}
-				if DefaultRoutePoolsItem.EndpointSubsets != nil {
-					DefaultRoutePoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
+				if !DefaultRoutePoolsItem.EndpointSubsets.IsNull() && !DefaultRoutePoolsItem.EndpointSubsets.IsUnknown() {
+					var EndpointSubsetsMap map[string]string
+					diags := DefaultRoutePoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						DefaultRoutePoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
+					}
 				}
 				if DefaultRoutePoolsItem.Pool != nil {
 					DefaultRoutePoolsPoolMap := make(map[string]interface{})
@@ -27833,6 +28002,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.IsNull() && !CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.IsUnknown() {
 								var APICodeRepoItems []string
 								diags := CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.ElementsAs(ctx, &APICodeRepoItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposMap["api_code_repo"] = APICodeRepoItems
 								}
@@ -27935,6 +28105,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !data.EnableIPReputation.IPThreatCategories.IsNull() && !data.EnableIPReputation.IPThreatCategories.IsUnknown() {
 			var IPThreatCategoriesItems []string
 			diags := data.EnableIPReputation.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				EnableIPReputationMap["ip_threat_categories"] = IPThreatCategoriesItems
 			}
@@ -27952,6 +28123,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !data.EnableTrustClientIPHeaders.ClientIPHeaders.IsNull() && !data.EnableTrustClientIPHeaders.ClientIPHeaders.IsUnknown() {
 			var ClientIPHeadersItems []string
 			diags := data.EnableTrustClientIPHeaders.ClientIPHeaders.ElementsAs(ctx, &ClientIPHeadersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				EnableTrustClientIPHeadersMap["client_ip_headers"] = ClientIPHeadersItems
 			}
@@ -28146,6 +28318,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -28214,6 +28387,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -28245,6 +28419,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -28299,6 +28474,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -28367,6 +28543,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -28470,6 +28647,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !data.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						HTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -28538,6 +28716,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !data.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 					var XfccHeaderElementsItems []string
 					diags := data.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						HTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 					}
@@ -28611,6 +28790,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.JWTValidation.MandatoryClaims.ClaimNames.IsNull() && !data.JWTValidation.MandatoryClaims.ClaimNames.IsUnknown() {
 				var ClaimNamesItems []string
 				diags := data.JWTValidation.MandatoryClaims.ClaimNames.ElementsAs(ctx, &ClaimNamesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					JWTValidationMandatoryClaimsMap["claim_names"] = ClaimNamesItems
 				}
@@ -28624,6 +28804,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !data.JWTValidation.ReservedClaims.Audience.Audiences.IsNull() && !data.JWTValidation.ReservedClaims.Audience.Audiences.IsUnknown() {
 					var AudiencesItems []string
 					diags := data.JWTValidation.ReservedClaims.Audience.Audiences.ElementsAs(ctx, &AudiencesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						JWTValidationReservedClaimsAudienceMap["audiences"] = AudiencesItems
 					}
@@ -28657,6 +28838,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !data.JWTValidation.Target.APIGroups.APIGroups.IsNull() && !data.JWTValidation.Target.APIGroups.APIGroups.IsUnknown() {
 					var APIGroupsItems []string
 					diags := data.JWTValidation.Target.APIGroups.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						JWTValidationTargetAPIGroupsMap["api_groups"] = APIGroupsItems
 					}
@@ -28668,6 +28850,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !data.JWTValidation.Target.BasePaths.BasePaths.IsNull() && !data.JWTValidation.Target.BasePaths.BasePaths.IsUnknown() {
 					var BasePathsItems []string
 					diags := data.JWTValidation.Target.BasePaths.BasePaths.ElementsAs(ctx, &BasePathsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						JWTValidationTargetBasePathsMap["base_paths"] = BasePathsItems
 					}
@@ -28750,6 +28933,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !MalwareProtectionRulesItem.HTTPMethods.IsNull() && !MalwareProtectionRulesItem.HTTPMethods.IsUnknown() {
 						var HTTPMethodsItems []string
 						diags := MalwareProtectionRulesItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							MalwareProtectionRulesItemMap["http_methods"] = HTTPMethodsItems
 						}
@@ -28804,6 +28988,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.MoreOption.CompressionParams.ContentType.IsNull() && !data.MoreOption.CompressionParams.ContentType.IsUnknown() {
 				var ContentTypeItems []string
 				diags := data.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					MoreOptionCompressionParamsMap["content_type"] = ContentTypeItems
 				}
@@ -28816,8 +29001,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			}
 			MoreOptionMap["compression_params"] = MoreOptionCompressionParamsMap
 		}
-		if data.MoreOption.CustomErrors != nil {
-			MoreOptionMap["custom_errors"] = map[string]interface{}{}
+		if !data.MoreOption.CustomErrors.IsNull() && !data.MoreOption.CustomErrors.IsUnknown() {
+			var CustomErrorsMap map[string]string
+			diags := data.MoreOption.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				MoreOptionMap["custom_errors"] = CustomErrorsMap
+			}
 		}
 		if !data.MoreOption.DisableDefaultErrorPages.IsNull() && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 			MoreOptionMap["disable_default_error_pages"] = data.MoreOption.DisableDefaultErrorPages.ValueBool()
@@ -28892,6 +29082,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !data.MoreOption.RequestCookiesToRemove.IsNull() && !data.MoreOption.RequestCookiesToRemove.IsUnknown() {
 			var RequestCookiesToRemoveItems []string
 			diags := data.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				MoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 			}
@@ -28948,6 +29139,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !data.MoreOption.RequestHeadersToRemove.IsNull() && !data.MoreOption.RequestHeadersToRemove.IsUnknown() {
 			var RequestHeadersToRemoveItems []string
 			diags := data.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				MoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 			}
@@ -29061,6 +29253,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !data.MoreOption.ResponseCookiesToRemove.IsNull() && !data.MoreOption.ResponseCookiesToRemove.IsUnknown() {
 			var ResponseCookiesToRemoveItems []string
 			diags := data.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				MoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 			}
@@ -29117,6 +29310,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !data.MoreOption.ResponseHeadersToRemove.IsNull() && !data.MoreOption.ResponseHeadersToRemove.IsUnknown() {
 			var ResponseHeadersToRemoveItems []string
 			diags := data.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				MoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 			}
@@ -29150,6 +29344,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !OriginServerSubsetRulesItem.AsnList.AsNumbers.IsNull() && !OriginServerSubsetRulesItem.AsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := OriginServerSubsetRulesItem.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								OriginServerSubsetRuleListOriginServerSubsetRulesAsnListMap["as_numbers"] = AsNumbersItems
 							}
@@ -29193,6 +29388,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !OriginServerSubsetRulesItem.ClientSelector.Expressions.IsNull() && !OriginServerSubsetRulesItem.ClientSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := OriginServerSubsetRulesItem.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								OriginServerSubsetRuleListOriginServerSubsetRulesClientSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -29202,6 +29398,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !OriginServerSubsetRulesItem.CountryCodes.IsNull() && !OriginServerSubsetRulesItem.CountryCodes.IsUnknown() {
 						var CountryCodesItems []string
 						diags := OriginServerSubsetRulesItem.CountryCodes.ElementsAs(ctx, &CountryCodesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							OriginServerSubsetRulesItemMap["country_codes"] = CountryCodesItems
 						}
@@ -29249,6 +29446,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !OriginServerSubsetRulesItem.IPPrefixList.IPPrefixes.IsNull() && !OriginServerSubsetRulesItem.IPPrefixList.IPPrefixes.IsUnknown() {
 							var IPPrefixesItems []string
 							diags := OriginServerSubsetRulesItem.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								OriginServerSubsetRuleListOriginServerSubsetRulesIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 							}
@@ -29268,12 +29466,18 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if OriginServerSubsetRulesItem.None != nil {
 						OriginServerSubsetRulesItemMap["none"] = map[string]interface{}{}
 					}
-					if OriginServerSubsetRulesItem.OriginServerSubsetsAction != nil {
-						OriginServerSubsetRulesItemMap["origin_server_subsets_action"] = map[string]interface{}{}
+					if !OriginServerSubsetRulesItem.OriginServerSubsetsAction.IsNull() && !OriginServerSubsetRulesItem.OriginServerSubsetsAction.IsUnknown() {
+						var OriginServerSubsetsActionMap map[string]string
+						diags := OriginServerSubsetRulesItem.OriginServerSubsetsAction.ElementsAs(ctx, &OriginServerSubsetsActionMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							OriginServerSubsetRulesItemMap["origin_server_subsets_action"] = OriginServerSubsetsActionMap
+						}
 					}
 					if !OriginServerSubsetRulesItem.RENameList.IsNull() && !OriginServerSubsetRulesItem.RENameList.IsUnknown() {
 						var RENameListItems []string
 						diags := OriginServerSubsetRulesItem.RENameList.ElementsAs(ctx, &RENameListItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							OriginServerSubsetRulesItemMap["re_name_list"] = RENameListItems
 						}
@@ -29397,6 +29601,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecArgMatchersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -29404,6 +29609,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecArgMatchersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -29411,6 +29617,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecArgMatchersItemMap["transformers"] = TransformersItems
 												}
@@ -29430,6 +29637,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.AsnList.AsNumbers.IsNull() && !RulesItem.Spec.AsnList.AsNumbers.IsUnknown() {
 									var AsNumbersItems []int64
 									diags := RulesItem.Spec.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecAsnListMap["as_numbers"] = AsNumbersItems
 									}
@@ -29473,6 +29681,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.BodyMatcher.ExactValues.IsNull() && !RulesItem.Spec.BodyMatcher.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.BodyMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecBodyMatcherMap["exact_values"] = ExactValuesItems
 									}
@@ -29480,6 +29689,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.BodyMatcher.RegexValues.IsNull() && !RulesItem.Spec.BodyMatcher.RegexValues.IsUnknown() {
 									var RegexValuesItems []string
 									diags := RulesItem.Spec.BodyMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecBodyMatcherMap["regex_values"] = RegexValuesItems
 									}
@@ -29487,6 +29697,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.BodyMatcher.Transformers.IsNull() && !RulesItem.Spec.BodyMatcher.Transformers.IsUnknown() {
 									var TransformersItems []string
 									diags := RulesItem.Spec.BodyMatcher.Transformers.ElementsAs(ctx, &TransformersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecBodyMatcherMap["transformers"] = TransformersItems
 									}
@@ -29498,6 +29709,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.ClientSelector.Expressions.IsNull() && !RulesItem.Spec.ClientSelector.Expressions.IsUnknown() {
 									var ExpressionsItems []string
 									diags := RulesItem.Spec.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecClientSelectorMap["expressions"] = ExpressionsItems
 									}
@@ -29526,6 +29738,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecCookieMatchersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -29533,6 +29746,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecCookieMatchersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -29540,6 +29754,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecCookieMatchersItemMap["transformers"] = TransformersItems
 												}
@@ -29562,6 +29777,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.DomainMatcher.ExactValues.IsNull() && !RulesItem.Spec.DomainMatcher.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.DomainMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecDomainMatcherMap["exact_values"] = ExactValuesItems
 									}
@@ -29569,6 +29785,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.DomainMatcher.RegexValues.IsNull() && !RulesItem.Spec.DomainMatcher.RegexValues.IsUnknown() {
 									var RegexValuesItems []string
 									diags := RulesItem.Spec.DomainMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecDomainMatcherMap["regex_values"] = RegexValuesItems
 									}
@@ -29606,6 +29823,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecHeadersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -29613,6 +29831,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecHeadersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -29620,6 +29839,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecHeadersItemMap["transformers"] = TransformersItems
 												}
@@ -29642,6 +29862,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.HTTPMethod.Methods.IsNull() && !RulesItem.Spec.HTTPMethod.Methods.IsUnknown() {
 									var MethodsItems []string
 									diags := RulesItem.Spec.HTTPMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecHTTPMethodMap["methods"] = MethodsItems
 									}
@@ -29691,6 +29912,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.IPPrefixList.IPPrefixes.IsNull() && !RulesItem.Spec.IPPrefixList.IPPrefixes.IsUnknown() {
 									var IPPrefixesItems []string
 									diags := RulesItem.Spec.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 									}
@@ -29705,6 +29927,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["exact_values"] = ExactValuesItems
 									}
@@ -29715,6 +29938,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.Path.PrefixValues.IsNull() && !RulesItem.Spec.Path.PrefixValues.IsUnknown() {
 									var PrefixValuesItems []string
 									diags := RulesItem.Spec.Path.PrefixValues.ElementsAs(ctx, &PrefixValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["prefix_values"] = PrefixValuesItems
 									}
@@ -29722,6 +29946,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.Path.RegexValues.IsNull() && !RulesItem.Spec.Path.RegexValues.IsUnknown() {
 									var RegexValuesItems []string
 									diags := RulesItem.Spec.Path.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["regex_values"] = RegexValuesItems
 									}
@@ -29729,6 +29954,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.Path.SuffixValues.IsNull() && !RulesItem.Spec.Path.SuffixValues.IsUnknown() {
 									var SuffixValuesItems []string
 									diags := RulesItem.Spec.Path.SuffixValues.ElementsAs(ctx, &SuffixValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["suffix_values"] = SuffixValuesItems
 									}
@@ -29736,6 +29962,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.Path.Transformers.IsNull() && !RulesItem.Spec.Path.Transformers.IsUnknown() {
 									var TransformersItems []string
 									diags := RulesItem.Spec.Path.Transformers.ElementsAs(ctx, &TransformersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["transformers"] = TransformersItems
 									}
@@ -29764,6 +29991,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecQueryParamsItemMap["exact_values"] = ExactValuesItems
 												}
@@ -29771,6 +29999,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecQueryParamsItemMap["regex_values"] = RegexValuesItems
 												}
@@ -29778,6 +30007,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecQueryParamsItemMap["transformers"] = TransformersItems
 												}
@@ -29797,6 +30027,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.TLSFingerprintMatcher.Classes.IsNull() && !RulesItem.Spec.TLSFingerprintMatcher.Classes.IsUnknown() {
 									var ClassesItems []string
 									diags := RulesItem.Spec.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherMap["classes"] = ClassesItems
 									}
@@ -29804,6 +30035,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.TLSFingerprintMatcher.ExactValues.IsNull() && !RulesItem.Spec.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 									}
@@ -29811,6 +30043,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RulesItem.Spec.TLSFingerprintMatcher.ExcludedValues.IsNull() && !RulesItem.Spec.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 									var ExcludedValuesItems []string
 									diags := RulesItem.Spec.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 									}
@@ -29923,6 +30156,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.RateLimit.IPAllowedList.Prefixes.IsNull() && !data.RateLimit.IPAllowedList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.RateLimit.IPAllowedList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					RateLimitIPAllowedListMap["prefixes"] = PrefixesItems
 				}
@@ -30362,6 +30596,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOrigin.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOrigin.IsUnknown() {
 								var AllowOriginItems []string
 								diags := RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesSimpleRouteAdvancedOptionsCORSPolicyMap["allow_origin"] = AllowOriginItems
 								}
@@ -30369,6 +30604,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOriginRegex.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOriginRegex.IsUnknown() {
 								var AllowOriginRegexItems []string
 								diags := RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesSimpleRouteAdvancedOptionsCORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 								}
@@ -30394,6 +30630,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !RoutesItem.SimpleRoute.AdvancedOptions.CSRFPolicy.CustomDomainList.Domains.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := RoutesItem.SimpleRoute.AdvancedOptions.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										RoutesSimpleRouteAdvancedOptionsCSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 									}
@@ -30432,8 +30669,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if RoutesItem.SimpleRoute.AdvancedOptions.EnableSpdy != nil {
 							RoutesSimpleRouteAdvancedOptionsMap["enable_spdy"] = map[string]interface{}{}
 						}
-						if RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets != nil {
-							RoutesSimpleRouteAdvancedOptionsMap["endpoint_subsets"] = map[string]interface{}{}
+						if !RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
+							var EndpointSubsetsMap map[string]string
+							diags := RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+							resp.Diagnostics.Append(diags...)
+							if !diags.HasError() {
+								RoutesSimpleRouteAdvancedOptionsMap["endpoint_subsets"] = EndpointSubsetsMap
+							}
 						}
 						if RoutesItem.SimpleRoute.AdvancedOptions.InheritedBotDefenseJavascriptInjection != nil {
 							RoutesSimpleRouteAdvancedOptionsMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
@@ -30542,6 +30784,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !RoutesItem.SimpleRoute.AdvancedOptions.RequestCookiesToRemove.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.RequestCookiesToRemove.IsUnknown() {
 							var RequestCookiesToRemoveItems []string
 							diags := RoutesItem.SimpleRoute.AdvancedOptions.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesSimpleRouteAdvancedOptionsMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 							}
@@ -30598,6 +30841,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !RoutesItem.SimpleRoute.AdvancedOptions.RequestHeadersToRemove.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.RequestHeadersToRemove.IsUnknown() {
 							var RequestHeadersToRemoveItems []string
 							diags := RoutesItem.SimpleRoute.AdvancedOptions.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesSimpleRouteAdvancedOptionsMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 							}
@@ -30711,6 +30955,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !RoutesItem.SimpleRoute.AdvancedOptions.ResponseCookiesToRemove.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.ResponseCookiesToRemove.IsUnknown() {
 							var ResponseCookiesToRemoveItems []string
 							diags := RoutesItem.SimpleRoute.AdvancedOptions.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesSimpleRouteAdvancedOptionsMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 							}
@@ -30767,6 +31012,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !RoutesItem.SimpleRoute.AdvancedOptions.ResponseHeadersToRemove.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.ResponseHeadersToRemove.IsUnknown() {
 							var ResponseHeadersToRemoveItems []string
 							diags := RoutesItem.SimpleRoute.AdvancedOptions.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesSimpleRouteAdvancedOptionsMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 							}
@@ -30795,6 +31041,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetriableStatusCodes.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetriableStatusCodes.IsUnknown() {
 								var RetriableStatusCodesItems []int64
 								diags := RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesSimpleRouteAdvancedOptionsRetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
 								}
@@ -30802,6 +31049,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetryCondition.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetryCondition.IsUnknown() {
 								var RetryConditionItems []string
 								diags := RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesSimpleRouteAdvancedOptionsRetryPolicyMap["retry_condition"] = RetryConditionItems
 								}
@@ -30976,8 +31224,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									OriginPoolsItemMap["cluster"] = RoutesSimpleRouteOriginPoolsClusterMap
 								}
-								if OriginPoolsItem.EndpointSubsets != nil {
-									OriginPoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
+								if !OriginPoolsItem.EndpointSubsets.IsNull() && !OriginPoolsItem.EndpointSubsets.IsUnknown() {
+									var EndpointSubsetsMap map[string]string
+									diags := OriginPoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+									resp.Diagnostics.Append(diags...)
+									if !diags.HasError() {
+										OriginPoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
+									}
 								}
 								if OriginPoolsItem.Pool != nil {
 									RoutesSimpleRouteOriginPoolsPoolMap := make(map[string]interface{})
@@ -31051,6 +31304,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !SensitiveDataTypesInResponseItem.APIEndpoint.Methods.IsNull() && !SensitiveDataTypesInResponseItem.APIEndpoint.Methods.IsUnknown() {
 							var MethodsItems []string
 							diags := SensitiveDataTypesInResponseItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								SensitiveDataDisclosureRulesSensitiveDataTypesInResponseAPIEndpointMap["methods"] = MethodsItems
 							}
@@ -31065,6 +31319,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !SensitiveDataTypesInResponseItem.Body.Fields.IsNull() && !SensitiveDataTypesInResponseItem.Body.Fields.IsUnknown() {
 							var FieldsItems []string
 							diags := SensitiveDataTypesInResponseItem.Body.Fields.ElementsAs(ctx, &FieldsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								SensitiveDataDisclosureRulesSensitiveDataTypesInResponseBodyMap["fields"] = FieldsItems
 							}
@@ -31203,6 +31458,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.IsNull() && !CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.IsUnknown() {
 									var APICodeRepoItems []string
 									diags := CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.ElementsAs(ctx, &APICodeRepoItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										SingleLBAppEnableDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposMap["api_code_repo"] = APICodeRepoItems
 									}
@@ -31286,6 +31542,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !TrustedClientsItem.Actions.IsNull() && !TrustedClientsItem.Actions.IsUnknown() {
 					var ActionsItems []string
 					diags := TrustedClientsItem.Actions.ElementsAs(ctx, &ActionsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TrustedClientsItemMap["actions"] = ActionsItems
 					}
@@ -31497,6 +31754,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !RulesItem.Methods.IsNull() && !RulesItem.Methods.IsUnknown() {
 							var MethodsItems []string
 							diags := RulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesItemMap["methods"] = MethodsItems
 							}
@@ -32253,7 +32511,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -32307,7 +32566,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -32389,7 +32649,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -32489,7 +32750,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -32512,7 +32774,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -32535,7 +32798,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -32548,7 +32812,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -32561,7 +32826,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -32645,7 +32911,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32658,7 +32925,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32671,7 +32939,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32743,7 +33012,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32756,7 +33026,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32769,7 +33040,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32841,7 +33113,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32854,7 +33127,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32867,7 +33141,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32939,7 +33214,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32952,7 +33228,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -32965,7 +33242,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33105,7 +33383,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -33187,7 +33466,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -33287,7 +33567,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -33310,7 +33591,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -33333,7 +33615,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -33346,7 +33629,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -33359,7 +33643,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -33443,7 +33728,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33456,7 +33742,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33469,7 +33756,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33541,7 +33829,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33554,7 +33843,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33567,7 +33857,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33639,7 +33930,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33652,7 +33944,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33665,7 +33958,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33737,7 +34031,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33750,7 +34045,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33763,7 +34059,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -33851,7 +34148,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -33905,7 +34203,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -33987,7 +34286,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34087,7 +34387,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34110,7 +34411,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34133,7 +34435,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34146,7 +34449,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34159,7 +34463,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34305,7 +34610,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34318,7 +34624,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34331,7 +34638,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34403,7 +34711,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34416,7 +34725,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34429,7 +34739,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34501,7 +34812,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34514,7 +34826,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34527,7 +34840,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34599,7 +34913,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34612,7 +34927,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34625,7 +34941,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -34712,7 +35029,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34738,7 +35056,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -34792,7 +35111,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, int64(s))
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.Int64Type)
@@ -34874,7 +35194,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -34974,7 +35295,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -34997,7 +35319,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -35020,7 +35343,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -35033,7 +35357,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -35046,7 +35371,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -35111,7 +35437,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35124,7 +35451,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35137,7 +35465,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35209,7 +35538,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35222,7 +35552,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35235,7 +35566,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35307,7 +35639,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35320,7 +35653,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35333,7 +35667,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35405,7 +35740,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35418,7 +35754,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35431,7 +35768,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -35537,7 +35875,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -35629,7 +35968,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -35711,7 +36051,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -35811,7 +36152,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -35834,7 +36176,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -35857,7 +36200,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -35870,7 +36214,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -35883,7 +36228,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -36029,7 +36375,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36042,7 +36389,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36055,7 +36403,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36127,7 +36476,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36140,7 +36490,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36153,7 +36504,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36225,7 +36577,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36238,7 +36591,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36251,7 +36605,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36323,7 +36678,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36336,7 +36692,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36349,7 +36706,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -36498,7 +36856,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -36673,7 +37032,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -36734,7 +37094,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -36830,7 +37191,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -36926,7 +37288,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -37013,7 +37376,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -37074,7 +37438,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -37644,7 +38009,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -38254,7 +38620,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -38267,7 +38634,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -38280,7 +38648,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -38454,7 +38823,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																																items = append(items, s)
 																															}
 																														}
-																														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																														resp.Diagnostics.Append(diags...)
 																														return listVal
 																													}
 																													return types.ListNull(types.StringType)
@@ -38501,7 +38871,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																																items = append(items, s)
 																															}
 																														}
-																														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																														resp.Diagnostics.Append(diags...)
 																														return listVal
 																													}
 																													return types.ListNull(types.StringType)
@@ -38869,7 +39240,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -38882,7 +39254,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -38895,7 +39268,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -38926,7 +39300,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -39134,7 +39509,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -39147,7 +39523,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -39160,7 +39537,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -39691,7 +40069,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -39704,7 +40083,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -39717,7 +40097,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -40274,7 +40655,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -40287,7 +40669,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -40343,7 +40726,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -40507,7 +40891,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -40524,7 +40909,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -40543,7 +40929,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -40566,7 +40953,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -40579,7 +40967,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -40592,7 +40981,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -40631,7 +41021,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -40832,14 +41223,24 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										}
 										if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 											return &HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-												DefaultSubset: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
+												DefaultSubset: func() types.Map {
+													if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
 														return data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 													}
-													if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 											}
 										}
@@ -40870,7 +41271,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -41323,7 +41725,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -41491,7 +41894,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -41664,7 +42068,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -41828,7 +42233,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -42093,7 +42499,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -42191,7 +42598,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -42437,16 +42845,24 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(PoolsExisting) > PoolsIdx {
+								EndpointSubsets: func() types.Map {
+									if v, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(PoolsExisting) > PoolsIdx && !PoolsExisting[PoolsIdx].EndpointSubsets.IsNull() && !PoolsExisting[PoolsIdx].EndpointSubsets.IsUnknown() {
 										return PoolsExisting[PoolsIdx].EndpointSubsets
 									}
-									if !isImport {
-										if _, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-											return &HTTPLoadBalancerEmptyModel{}
-										}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								Pool: func() *HTTPLoadBalancerDefaultPoolListPoolsPoolModel {
 									if PoolData, ok := PoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -42532,16 +42948,24 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-						if !isImport && len(existingDefaultRoutePoolsItems) > listIdx {
+					EndpointSubsets: func() types.Map {
+						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							items := make(map[string]string)
+							for mk, mv := range v {
+								if mvs, ok := mv.(string); ok {
+									items[mk] = mvs
+								} else {
+									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+								}
+							}
+							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return mapVal
+						}
+						if len(existingDefaultRoutePoolsItems) > listIdx && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsNull() && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsUnknown() {
 							return existingDefaultRoutePoolsItems[listIdx].EndpointSubsets
 						}
-						if !isImport {
-							if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerEmptyModel{}
-							}
-						}
-						return nil
+						return types.MapNull(types.StringType)
 					}(),
 					Pool: func() *HTTPLoadBalancerDefaultRoutePoolsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
@@ -42791,7 +43215,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -43021,7 +43446,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -43044,7 +43470,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -43517,7 +43944,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -43669,7 +44097,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -43729,7 +44158,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -43847,7 +44277,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -43999,7 +44430,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -44269,7 +44701,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -44421,7 +44854,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -44571,7 +45005,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -44600,7 +45035,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -44684,7 +45120,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -44707,7 +45144,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -44871,7 +45309,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -44983,7 +45422,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -45010,16 +45450,24 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				}
 				return nil
 			}(),
-			CustomErrors: func() *HTTPLoadBalancerEmptyModel {
-				if !isImport && data.MoreOption != nil {
+			CustomErrors: func() types.Map {
+				if v, ok := blockData["custom_errors"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.MoreOption != nil && !data.MoreOption.CustomErrors.IsNull() && !data.MoreOption.CustomErrors.IsUnknown() {
 					return data.MoreOption.CustomErrors
 				}
-				if !isImport {
-					if _, ok := blockData["custom_errors"].(map[string]interface{}); ok {
-						return &HTTPLoadBalancerEmptyModel{}
-					}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -45191,7 +45639,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -45301,7 +45750,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -45570,7 +46020,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -45680,7 +46131,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -45740,7 +46192,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -45819,7 +46272,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -45836,7 +46290,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -45929,7 +46384,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -45966,14 +46422,24 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
+								OriginServerSubsetsAction: func() types.Map {
+									if v, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field origin_server_subsets_action, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsNull() && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsUnknown() {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
-									if _, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
@@ -45983,7 +46449,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -46268,7 +46735,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46281,7 +46749,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46294,7 +46763,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46331,7 +46801,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, int64(s))
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.Int64Type)
@@ -46413,7 +46884,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46426,7 +46898,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46439,7 +46912,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46462,7 +46936,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46520,7 +46995,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46533,7 +47009,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46546,7 +47023,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46592,7 +47070,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46605,7 +47084,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46687,7 +47167,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46700,7 +47181,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46713,7 +47195,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -46759,7 +47242,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46859,7 +47343,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46891,7 +47376,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46913,7 +47399,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46926,7 +47413,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46939,7 +47427,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -46952,7 +47441,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -47010,7 +47500,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -47023,7 +47514,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -47036,7 +47528,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -47073,7 +47566,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -47086,7 +47580,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -47099,7 +47594,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -47342,7 +47838,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -48321,7 +48818,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -48334,7 +48832,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -48396,7 +48895,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -48509,16 +49009,24 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												}
 												return nil
 											}(),
-											EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
+											EndpointSubsets: func() types.Map {
+												if v, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
+													items := make(map[string]string)
+													for mk, mv := range v {
+														if mvs, ok := mv.(string); ok {
+															items[mk] = mvs
+														} else {
+															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+														}
+													}
+													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return mapVal
+												}
+												if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
 													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets
 												}
-												if !isImport {
-													if _, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-												}
-												return nil
+												return types.MapNull(types.StringType)
 											}(),
 											InheritedBotDefenseJavascriptInjection: func() *HTTPLoadBalancerEmptyModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
@@ -48752,7 +49260,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -48862,7 +49371,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -49131,7 +49641,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -49241,7 +49752,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -49317,7 +49829,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -49330,7 +49843,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -49721,16 +50235,24 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 														}
 														return nil
 													}(),
-													EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-														if !isImport && len(OriginPoolsExisting) > OriginPoolsIdx {
+													EndpointSubsets: func() types.Map {
+														if v, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															items := make(map[string]string)
+															for mk, mv := range v {
+																if mvs, ok := mv.(string); ok {
+																	items[mk] = mvs
+																} else {
+																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+																}
+															}
+															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
+															return mapVal
+														}
+														if len(OriginPoolsExisting) > OriginPoolsIdx && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsNull() && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsUnknown() {
 															return OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets
 														}
-														if !isImport {
-															if _, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerEmptyModel{}
-															}
-														}
-														return nil
+														return types.MapNull(types.StringType)
 													}(),
 													Pool: func() *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModel {
 														if PoolData, ok := OriginPoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -49881,7 +50403,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -49907,7 +50430,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -50190,7 +50714,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -50365,7 +50890,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -50772,7 +51298,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -51747,7 +52274,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -51801,7 +52329,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -51883,7 +52412,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -51983,7 +52513,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52006,7 +52537,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52029,7 +52561,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52042,7 +52575,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52055,7 +52589,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52139,7 +52674,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52152,7 +52688,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52165,7 +52702,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52237,7 +52775,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52250,7 +52789,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52263,7 +52803,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52335,7 +52876,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52348,7 +52890,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52361,7 +52904,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52433,7 +52977,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52446,7 +52991,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52459,7 +53005,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52599,7 +53146,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -52681,7 +53229,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52781,7 +53330,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52804,7 +53354,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52827,7 +53378,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52840,7 +53392,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52853,7 +53406,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -52937,7 +53491,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52950,7 +53505,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -52963,7 +53519,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53035,7 +53592,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53048,7 +53606,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53061,7 +53620,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53133,7 +53693,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53146,7 +53707,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53159,7 +53721,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53231,7 +53794,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53244,7 +53808,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53257,7 +53822,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53345,7 +53911,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -53399,7 +53966,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -53481,7 +54049,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -53581,7 +54150,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -53604,7 +54174,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -53627,7 +54198,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -53640,7 +54212,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -53653,7 +54226,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -53799,7 +54373,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53812,7 +54387,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53825,7 +54401,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53897,7 +54474,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53910,7 +54488,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53923,7 +54502,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -53995,7 +54575,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -54008,7 +54589,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -54021,7 +54603,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -54093,7 +54676,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -54106,7 +54690,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -54119,7 +54704,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -54206,7 +54792,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -54232,7 +54819,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -54286,7 +54874,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, int64(s))
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.Int64Type)
@@ -54368,7 +54957,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -54468,7 +55058,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -54491,7 +55082,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -54514,7 +55106,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -54527,7 +55120,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -54540,7 +55134,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -54605,7 +55200,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54618,7 +55214,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54631,7 +55228,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54703,7 +55301,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54716,7 +55315,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54729,7 +55329,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54801,7 +55402,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54814,7 +55416,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54827,7 +55430,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54899,7 +55503,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54912,7 +55517,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -54925,7 +55531,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -55031,7 +55638,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -55123,7 +55731,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -55205,7 +55814,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -55305,7 +55915,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -55328,7 +55939,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -55351,7 +55963,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -55364,7 +55977,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -55377,7 +55991,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -55523,7 +56138,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55536,7 +56152,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55549,7 +56166,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55621,7 +56239,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55634,7 +56253,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55647,7 +56267,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55719,7 +56340,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55732,7 +56354,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55745,7 +56368,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55817,7 +56441,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55830,7 +56455,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55843,7 +56469,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -55992,7 +56619,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -56167,7 +56795,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -56228,7 +56857,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -56324,7 +56954,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -56420,7 +57051,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -56507,7 +57139,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -56568,7 +57201,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -57138,7 +57772,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -57748,7 +58383,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -57761,7 +58397,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -57774,7 +58411,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -57948,7 +58586,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																																items = append(items, s)
 																															}
 																														}
-																														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																														resp.Diagnostics.Append(diags...)
 																														return listVal
 																													}
 																													return types.ListNull(types.StringType)
@@ -57995,7 +58634,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																																items = append(items, s)
 																															}
 																														}
-																														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																														resp.Diagnostics.Append(diags...)
 																														return listVal
 																													}
 																													return types.ListNull(types.StringType)
@@ -58363,7 +59003,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -58376,7 +59017,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -58389,7 +59031,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -58420,7 +59063,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -58628,7 +59272,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -58641,7 +59286,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -58654,7 +59300,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -59185,7 +59832,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -59198,7 +59846,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -59211,7 +59860,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -59768,7 +60418,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -59781,7 +60432,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -59837,7 +60489,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -60001,7 +60654,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -60018,7 +60672,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -60037,7 +60692,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -60060,7 +60716,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -60073,7 +60730,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -60086,7 +60744,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -60125,7 +60784,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -60326,14 +60986,24 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 										}
 										if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 											return &HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-												DefaultSubset: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
+												DefaultSubset: func() types.Map {
+													if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
 														return data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 													}
-													if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 											}
 										}
@@ -60364,7 +61034,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -60817,7 +61488,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -60985,7 +61657,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -61158,7 +61831,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -61322,7 +61996,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -61587,7 +62262,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -61685,7 +62361,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -61931,16 +62608,24 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(PoolsExisting) > PoolsIdx {
+								EndpointSubsets: func() types.Map {
+									if v, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(PoolsExisting) > PoolsIdx && !PoolsExisting[PoolsIdx].EndpointSubsets.IsNull() && !PoolsExisting[PoolsIdx].EndpointSubsets.IsUnknown() {
 										return PoolsExisting[PoolsIdx].EndpointSubsets
 									}
-									if !isImport {
-										if _, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-											return &HTTPLoadBalancerEmptyModel{}
-										}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								Pool: func() *HTTPLoadBalancerDefaultPoolListPoolsPoolModel {
 									if PoolData, ok := PoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -62026,16 +62711,24 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-						if !isImport && len(existingDefaultRoutePoolsItems) > listIdx {
+					EndpointSubsets: func() types.Map {
+						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							items := make(map[string]string)
+							for mk, mv := range v {
+								if mvs, ok := mv.(string); ok {
+									items[mk] = mvs
+								} else {
+									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+								}
+							}
+							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return mapVal
+						}
+						if len(existingDefaultRoutePoolsItems) > listIdx && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsNull() && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsUnknown() {
 							return existingDefaultRoutePoolsItems[listIdx].EndpointSubsets
 						}
-						if !isImport {
-							if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerEmptyModel{}
-							}
-						}
-						return nil
+						return types.MapNull(types.StringType)
 					}(),
 					Pool: func() *HTTPLoadBalancerDefaultRoutePoolsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
@@ -62285,7 +62978,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -62515,7 +63209,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -62538,7 +63233,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -63011,7 +63707,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -63163,7 +63860,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -63223,7 +63921,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -63341,7 +64040,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -63493,7 +64193,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -63763,7 +64464,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -63915,7 +64617,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -64065,7 +64768,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -64094,7 +64798,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -64178,7 +64883,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -64201,7 +64907,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -64365,7 +65072,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -64477,7 +65185,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -64504,16 +65213,24 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return nil
 			}(),
-			CustomErrors: func() *HTTPLoadBalancerEmptyModel {
-				if !isImport && data.MoreOption != nil {
+			CustomErrors: func() types.Map {
+				if v, ok := blockData["custom_errors"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.MoreOption != nil && !data.MoreOption.CustomErrors.IsNull() && !data.MoreOption.CustomErrors.IsUnknown() {
 					return data.MoreOption.CustomErrors
 				}
-				if !isImport {
-					if _, ok := blockData["custom_errors"].(map[string]interface{}); ok {
-						return &HTTPLoadBalancerEmptyModel{}
-					}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -64685,7 +65402,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -64795,7 +65513,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -65064,7 +65783,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -65174,7 +65894,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -65234,7 +65955,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -65313,7 +66035,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -65330,7 +66053,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -65423,7 +66147,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -65460,14 +66185,24 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
+								OriginServerSubsetsAction: func() types.Map {
+									if v, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field origin_server_subsets_action, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsNull() && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsUnknown() {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
-									if _, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
@@ -65477,7 +66212,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -65762,7 +66498,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -65775,7 +66512,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -65788,7 +66526,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -65825,7 +66564,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, int64(s))
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.Int64Type)
@@ -65907,7 +66647,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -65920,7 +66661,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -65933,7 +66675,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -65956,7 +66699,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66014,7 +66758,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66027,7 +66772,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66040,7 +66786,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66086,7 +66833,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66099,7 +66847,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66181,7 +66930,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66194,7 +66944,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66207,7 +66958,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66253,7 +67005,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66353,7 +67106,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66385,7 +67139,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66407,7 +67162,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66420,7 +67176,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66433,7 +67190,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66446,7 +67204,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66504,7 +67263,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66517,7 +67277,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66530,7 +67291,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -66567,7 +67329,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66580,7 +67343,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66593,7 +67357,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -66836,7 +67601,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -67815,7 +68581,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -67828,7 +68595,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -67890,7 +68658,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -68003,16 +68772,24 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return nil
 											}(),
-											EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
+											EndpointSubsets: func() types.Map {
+												if v, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
+													items := make(map[string]string)
+													for mk, mv := range v {
+														if mvs, ok := mv.(string); ok {
+															items[mk] = mvs
+														} else {
+															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+														}
+													}
+													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return mapVal
+												}
+												if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
 													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets
 												}
-												if !isImport {
-													if _, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-												}
-												return nil
+												return types.MapNull(types.StringType)
 											}(),
 											InheritedBotDefenseJavascriptInjection: func() *HTTPLoadBalancerEmptyModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
@@ -68246,7 +69023,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -68356,7 +69134,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -68625,7 +69404,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -68735,7 +69515,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -68811,7 +69592,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -68824,7 +69606,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -69215,16 +69998,24 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 														}
 														return nil
 													}(),
-													EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-														if !isImport && len(OriginPoolsExisting) > OriginPoolsIdx {
+													EndpointSubsets: func() types.Map {
+														if v, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															items := make(map[string]string)
+															for mk, mv := range v {
+																if mvs, ok := mv.(string); ok {
+																	items[mk] = mvs
+																} else {
+																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+																}
+															}
+															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
+															return mapVal
+														}
+														if len(OriginPoolsExisting) > OriginPoolsIdx && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsNull() && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsUnknown() {
 															return OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets
 														}
-														if !isImport {
-															if _, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerEmptyModel{}
-															}
-														}
-														return nil
+														return types.MapNull(types.StringType)
 													}(),
 													Pool: func() *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModel {
 														if PoolData, ok := OriginPoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -69375,7 +70166,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -69401,7 +70193,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -69684,7 +70477,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -69859,7 +70653,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -70266,7 +71061,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -70695,6 +71491,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["domains"] = DomainsItems
 		}
@@ -70944,6 +71741,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !APIEndpointRulesItem.APIEndpointMethod.Methods.IsNull() && !APIEndpointRulesItem.APIEndpointMethod.Methods.IsUnknown() {
 							var MethodsItems []string
 							diags := APIEndpointRulesItem.APIEndpointMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								APIProtectionRulesAPIEndpointRulesAPIEndpointMethodMap["methods"] = MethodsItems
 							}
@@ -70966,6 +71764,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 								var AsNumbersItems []int64
 								diags := APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 								}
@@ -71009,6 +71808,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 								var ExpressionsItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 								}
@@ -71058,6 +71858,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -71069,6 +71870,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 								var IPThreatCategoriesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 								}
@@ -71080,6 +71882,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 								var ClassesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 								}
@@ -71087,6 +71890,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 								}
@@ -71094,6 +71898,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 								var ExcludedValuesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 								}
@@ -71136,6 +71941,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71143,6 +71949,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71150,6 +71957,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 											}
@@ -71186,6 +71994,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71193,6 +72002,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71200,6 +72010,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -71236,6 +72047,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71243,6 +72055,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71250,6 +72063,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 											}
@@ -71286,6 +72100,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71293,6 +72108,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71300,6 +72116,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIEndpointRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -71364,6 +72181,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIGroupsRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !APIGroupsRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 								var AsNumbersItems []int64
 								diags := APIGroupsRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 								}
@@ -71407,6 +72225,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIGroupsRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !APIGroupsRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 								var ExpressionsItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 								}
@@ -71456,6 +72275,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIGroupsRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !APIGroupsRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -71467,6 +72287,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIGroupsRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !APIGroupsRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 								var IPThreatCategoriesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 								}
@@ -71478,6 +72299,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 								var ClassesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 								}
@@ -71485,6 +72307,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 								}
@@ -71492,6 +72315,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 								var ExcludedValuesItems []string
 								diags := APIGroupsRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIProtectionRulesAPIGroupsRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 								}
@@ -71534,6 +72358,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71541,6 +72366,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71548,6 +72374,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 											}
@@ -71584,6 +72411,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71591,6 +72419,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71598,6 +72427,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -71634,6 +72464,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71641,6 +72472,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71648,6 +72480,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 											}
@@ -71684,6 +72517,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71691,6 +72525,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71698,6 +72533,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIProtectionRulesAPIGroupsRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -71745,6 +72581,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !APIEndpointRulesItem.APIEndpointMethod.Methods.IsNull() && !APIEndpointRulesItem.APIEndpointMethod.Methods.IsUnknown() {
 							var MethodsItems []string
 							diags := APIEndpointRulesItem.APIEndpointMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								APIRateLimitAPIEndpointRulesAPIEndpointMethodMap["methods"] = MethodsItems
 							}
@@ -71767,6 +72604,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 								var AsNumbersItems []int64
 								diags := APIEndpointRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 								}
@@ -71810,6 +72648,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 								var ExpressionsItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 								}
@@ -71859,6 +72698,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -71870,6 +72710,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 								var IPThreatCategoriesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 								}
@@ -71881,6 +72722,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 								var ClassesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 								}
@@ -71888,6 +72730,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 								}
@@ -71895,6 +72738,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 								var ExcludedValuesItems []string
 								diags := APIEndpointRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitAPIEndpointRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 								}
@@ -71966,6 +72810,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -71973,6 +72818,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -71980,6 +72826,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 											}
@@ -72016,6 +72863,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -72023,6 +72871,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -72030,6 +72879,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -72066,6 +72916,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -72073,6 +72924,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -72080,6 +72932,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 											}
@@ -72116,6 +72969,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -72123,6 +72977,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -72130,6 +72985,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitAPIEndpointRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -72175,6 +73031,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !BypassRateLimitingRulesItem.APIEndpoint.Methods.IsNull() && !BypassRateLimitingRulesItem.APIEndpoint.Methods.IsUnknown() {
 								var MethodsItems []string
 								diags := BypassRateLimitingRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesAPIEndpointMap["methods"] = MethodsItems
 								}
@@ -72189,6 +73046,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !BypassRateLimitingRulesItem.APIGroups.APIGroups.IsNull() && !BypassRateLimitingRulesItem.APIGroups.APIGroups.IsUnknown() {
 								var APIGroupsItems []string
 								diags := BypassRateLimitingRulesItem.APIGroups.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesAPIGroupsMap["api_groups"] = APIGroupsItems
 								}
@@ -72211,6 +73069,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !BypassRateLimitingRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 									var AsNumbersItems []int64
 									diags := BypassRateLimitingRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 									}
@@ -72254,6 +73113,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !BypassRateLimitingRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 									var ExpressionsItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 									}
@@ -72303,6 +73163,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !BypassRateLimitingRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 									var IPPrefixesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 									}
@@ -72314,6 +73175,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !BypassRateLimitingRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 									var IPThreatCategoriesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 									}
@@ -72325,6 +73187,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 									var ClassesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 									}
@@ -72332,6 +73195,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 									}
@@ -72339,6 +73203,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 									var ExcludedValuesItems []string
 									diags := BypassRateLimitingRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 									}
@@ -72371,6 +73236,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -72378,6 +73244,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -72385,6 +73252,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 												}
@@ -72421,6 +73289,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -72428,6 +73297,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -72435,6 +73305,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 												}
@@ -72471,6 +73342,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 												}
@@ -72478,6 +73350,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 												}
@@ -72485,6 +73358,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 												}
@@ -72521,6 +73395,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 												}
@@ -72528,6 +73403,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 												}
@@ -72535,6 +73411,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													APIRateLimitBypassRateLimitingRulesBypassRateLimitingRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 												}
@@ -72592,6 +73469,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.APIRateLimit.IPAllowedList.Prefixes.IsNull() && !data.APIRateLimit.IPAllowedList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.APIRateLimit.IPAllowedList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					APIRateLimitIPAllowedListMap["prefixes"] = PrefixesItems
 				}
@@ -72631,6 +73509,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !ServerURLRulesItem.ClientMatcher.AsnList.AsNumbers.IsNull() && !ServerURLRulesItem.ClientMatcher.AsnList.AsNumbers.IsUnknown() {
 								var AsNumbersItems []int64
 								diags := ServerURLRulesItem.ClientMatcher.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherAsnListMap["as_numbers"] = AsNumbersItems
 								}
@@ -72674,6 +73553,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !ServerURLRulesItem.ClientMatcher.ClientSelector.Expressions.IsNull() && !ServerURLRulesItem.ClientMatcher.ClientSelector.Expressions.IsUnknown() {
 								var ExpressionsItems []string
 								diags := ServerURLRulesItem.ClientMatcher.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherClientSelectorMap["expressions"] = ExpressionsItems
 								}
@@ -72723,6 +73603,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !ServerURLRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsNull() && !ServerURLRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.IsUnknown() {
 								var IPPrefixesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 								}
@@ -72734,6 +73615,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !ServerURLRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsNull() && !ServerURLRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 								var IPThreatCategoriesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherIPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 								}
@@ -72745,6 +73627,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsNull() && !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.IsUnknown() {
 								var ClassesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherMap["classes"] = ClassesItems
 								}
@@ -72752,6 +73635,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsNull() && !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 								}
@@ -72759,6 +73643,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsNull() && !ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 								var ExcludedValuesItems []string
 								diags := ServerURLRulesItem.ClientMatcher.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APIRateLimitServerURLRulesClientMatcherTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 								}
@@ -72830,6 +73715,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherCookieMatchersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -72837,6 +73723,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherCookieMatchersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -72844,6 +73731,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherCookieMatchersItemMap["transformers"] = TransformersItems
 											}
@@ -72880,6 +73768,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -72887,6 +73776,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -72894,6 +73784,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -72930,6 +73821,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherJWTClaimsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -72937,6 +73829,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherJWTClaimsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -72944,6 +73837,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherJWTClaimsItemMap["transformers"] = TransformersItems
 											}
@@ -72980,6 +73874,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -72987,6 +73882,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -72994,6 +73890,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												APIRateLimitServerURLRulesRequestMatcherQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -73066,6 +73963,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
 										var MethodsItems []string
 										diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											APISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointMap["methods"] = MethodsItems
 										}
@@ -73140,6 +74038,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsUnknown() {
 						var ResponseValidationPropertiesItems []string
 						diags := data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.ElementsAs(ctx, &ResponseValidationPropertiesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							APISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveMap["response_validation_properties"] = ResponseValidationPropertiesItems
 						}
@@ -73163,6 +74062,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.RequestValidationProperties.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.RequestValidationProperties.IsUnknown() {
 						var RequestValidationPropertiesItems []string
 						diags := data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.RequestValidationProperties.ElementsAs(ctx, &RequestValidationPropertiesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							APISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveMap["request_validation_properties"] = RequestValidationPropertiesItems
 						}
@@ -73204,6 +74104,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
 										var MethodsItems []string
 										diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											APISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointMap["methods"] = MethodsItems
 										}
@@ -73254,6 +74155,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsNull() && !OpenAPIValidationRulesItem.APIEndpoint.Methods.IsUnknown() {
 								var MethodsItems []string
 								diags := OpenAPIValidationRulesItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									APISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointMap["methods"] = MethodsItems
 								}
@@ -73295,6 +74197,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.IsUnknown() {
 									var ResponseValidationPropertiesItems []string
 									diags := OpenAPIValidationRulesItem.ValidationMode.ResponseValidationModeActive.ResponseValidationProperties.ElementsAs(ctx, &ResponseValidationPropertiesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveMap["response_validation_properties"] = ResponseValidationPropertiesItems
 									}
@@ -73318,6 +74221,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsNull() && !OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.IsUnknown() {
 									var RequestValidationPropertiesItems []string
 									diags := OpenAPIValidationRulesItem.ValidationMode.ValidationModeActive.RequestValidationProperties.ElementsAs(ctx, &RequestValidationPropertiesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										APISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveMap["request_validation_properties"] = RequestValidationPropertiesItems
 									}
@@ -73585,6 +74489,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !BlockedClientsItem.Actions.IsNull() && !BlockedClientsItem.Actions.IsUnknown() {
 					var ActionsItems []string
 					diags := BlockedClientsItem.Actions.ElementsAs(ctx, &ActionsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						BlockedClientsItemMap["actions"] = ActionsItems
 					}
@@ -73882,6 +74787,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 										var ExactValuesItems []string
 										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											BotDefensePolicyMobileSdkConfigMobileIdentifierHeadersItemMap["exact_values"] = ExactValuesItems
 										}
@@ -73889,6 +74795,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 										var RegexValuesItems []string
 										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											BotDefensePolicyMobileSdkConfigMobileIdentifierHeadersItemMap["regex_values"] = RegexValuesItems
 										}
@@ -73896,6 +74803,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 										var TransformersItems []string
 										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											BotDefensePolicyMobileSdkConfigMobileIdentifierHeadersItemMap["transformers"] = TransformersItems
 										}
@@ -73976,6 +74884,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
 														var RegexValuesItems []string
 														diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															FailureConditionsItemMap["regex_values"] = RegexValuesItems
 														}
@@ -74002,6 +74911,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
 														var RegexValuesItems []string
 														diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+														resp.Diagnostics.Append(diags...)
 														if !diags.HasError() {
 															SuccessConditionsItemMap["regex_values"] = RegexValuesItems
 														}
@@ -74142,6 +75052,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsHeadersItemMap["exact_values"] = ExactValuesItems
 											}
@@ -74149,6 +75060,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsHeadersItemMap["regex_values"] = RegexValuesItems
 											}
@@ -74156,6 +75068,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsHeadersItemMap["transformers"] = TransformersItems
 											}
@@ -74173,6 +75086,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !ProtectedAppEndpointsItem.HTTPMethods.IsNull() && !ProtectedAppEndpointsItem.HTTPMethods.IsUnknown() {
 							var HTTPMethodsItems []string
 							diags := ProtectedAppEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProtectedAppEndpointsItemMap["http_methods"] = HTTPMethodsItems
 							}
@@ -74269,6 +75183,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 											var ExactValuesItems []string
 											diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsQueryParamsItemMap["exact_values"] = ExactValuesItems
 											}
@@ -74276,6 +75191,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 											var RegexValuesItems []string
 											diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsQueryParamsItemMap["regex_values"] = RegexValuesItems
 											}
@@ -74283,6 +75199,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 											var TransformersItems []string
 											diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												BotDefensePolicyProtectedAppEndpointsQueryParamsItemMap["transformers"] = TransformersItems
 											}
@@ -74546,6 +75463,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["exact_values"] = ExactValuesItems
 									}
@@ -74553,6 +75471,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 									var RegexValuesItems []string
 									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["regex_values"] = RegexValuesItems
 									}
@@ -74560,6 +75479,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 									var TransformersItems []string
 									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["transformers"] = TransformersItems
 									}
@@ -74832,6 +75752,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !data.CORSPolicy.AllowOrigin.IsNull() && !data.CORSPolicy.AllowOrigin.IsUnknown() {
 			var AllowOriginItems []string
 			diags := data.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CORSPolicyMap["allow_origin"] = AllowOriginItems
 			}
@@ -74839,6 +75760,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !data.CORSPolicy.AllowOriginRegex.IsNull() && !data.CORSPolicy.AllowOriginRegex.IsUnknown() {
 			var AllowOriginRegexItems []string
 			diags := data.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 			}
@@ -74864,6 +75786,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.CSRFPolicy.CustomDomainList.Domains.IsNull() && !data.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 				var DomainsItems []string
 				diags := data.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					CSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 				}
@@ -74944,6 +75867,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !DDOSMitigationRulesItem.DDOSClientSource.AsnList.AsNumbers.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.AsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := DDOSMitigationRulesItem.DDOSClientSource.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceAsnListMap["as_numbers"] = AsNumbersItems
 							}
@@ -74953,6 +75877,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !DDOSMitigationRulesItem.DDOSClientSource.CountryList.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.CountryList.IsUnknown() {
 						var CountryListItems []string
 						diags := DDOSMitigationRulesItem.DDOSClientSource.CountryList.ElementsAs(ctx, &CountryListItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DDOSMitigationRulesDDOSClientSourceMap["country_list"] = CountryListItems
 						}
@@ -74962,6 +75887,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !DDOSMitigationRulesItem.DDOSClientSource.Ja4TLSFingerprintMatcher.ExactValues.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.Ja4TLSFingerprintMatcher.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := DDOSMitigationRulesItem.DDOSClientSource.Ja4TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceJa4TLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 							}
@@ -74973,6 +75899,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.Classes.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.Classes.IsUnknown() {
 							var ClassesItems []string
 							diags := DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherMap["classes"] = ClassesItems
 							}
@@ -74980,6 +75907,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExactValues.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 							}
@@ -74987,6 +75915,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExcludedValues.IsNull() && !DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 							var ExcludedValuesItems []string
 							diags := DDOSMitigationRulesItem.DDOSClientSource.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								DDOSMitigationRulesDDOSClientSourceTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 							}
@@ -75006,6 +75935,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !DDOSMitigationRulesItem.IPPrefixList.IPPrefixes.IsNull() && !DDOSMitigationRulesItem.IPPrefixList.IPPrefixes.IsUnknown() {
 						var IPPrefixesItems []string
 						diags := DDOSMitigationRulesItem.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DDOSMitigationRulesIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 						}
@@ -75084,8 +76014,13 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				}
 				if data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 					DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
-					if data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
-						DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
+					if !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+						var DefaultSubsetMap map[string]string
+						diags := data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.ElementsAs(ctx, &DefaultSubsetMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = DefaultSubsetMap
+						}
 					}
 					DefaultPoolAdvancedOptionsEnableSubsetsMap["default_subset"] = DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap
 				}
@@ -75100,6 +76035,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
 								var KeysItems []string
 								diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									EndpointSubsetsItemMap["keys"] = KeysItems
 								}
@@ -75289,6 +76225,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolOriginServersConsulServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -75370,6 +76307,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -75450,6 +76388,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolOriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -75527,6 +76466,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolOriginServersPrivateNameSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -75645,6 +76585,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.DefaultPool.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.DefaultPool.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.DefaultPool.UseTLS.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DefaultPoolUseTLSTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -75689,6 +76630,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										DefaultPoolUseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
@@ -75814,8 +76756,13 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						PoolsItemMap["cluster"] = DefaultPoolListPoolsClusterMap
 					}
-					if PoolsItem.EndpointSubsets != nil {
-						PoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
+					if !PoolsItem.EndpointSubsets.IsNull() && !PoolsItem.EndpointSubsets.IsUnknown() {
+						var EndpointSubsetsMap map[string]string
+						diags := PoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							PoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
+						}
 					}
 					if PoolsItem.Pool != nil {
 						DefaultPoolListPoolsPoolMap := make(map[string]interface{})
@@ -75864,8 +76811,13 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					DefaultRoutePoolsItemMap["cluster"] = DefaultRoutePoolsClusterMap
 				}
-				if DefaultRoutePoolsItem.EndpointSubsets != nil {
-					DefaultRoutePoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
+				if !DefaultRoutePoolsItem.EndpointSubsets.IsNull() && !DefaultRoutePoolsItem.EndpointSubsets.IsUnknown() {
+					var EndpointSubsetsMap map[string]string
+					diags := DefaultRoutePoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						DefaultRoutePoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
+					}
 				}
 				if DefaultRoutePoolsItem.Pool != nil {
 					DefaultRoutePoolsPoolMap := make(map[string]interface{})
@@ -75994,6 +76946,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.IsNull() && !CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.IsUnknown() {
 								var APICodeRepoItems []string
 								diags := CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.ElementsAs(ctx, &APICodeRepoItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposMap["api_code_repo"] = APICodeRepoItems
 								}
@@ -76096,6 +77049,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !data.EnableIPReputation.IPThreatCategories.IsNull() && !data.EnableIPReputation.IPThreatCategories.IsUnknown() {
 			var IPThreatCategoriesItems []string
 			diags := data.EnableIPReputation.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				EnableIPReputationMap["ip_threat_categories"] = IPThreatCategoriesItems
 			}
@@ -76113,6 +77067,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !data.EnableTrustClientIPHeaders.ClientIPHeaders.IsNull() && !data.EnableTrustClientIPHeaders.ClientIPHeaders.IsUnknown() {
 			var ClientIPHeadersItems []string
 			diags := data.EnableTrustClientIPHeaders.ClientIPHeaders.ElementsAs(ctx, &ClientIPHeadersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				EnableTrustClientIPHeadersMap["client_ip_headers"] = ClientIPHeadersItems
 			}
@@ -76307,6 +77262,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -76375,6 +77331,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -76406,6 +77363,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									HTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -76460,6 +77418,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -76528,6 +77487,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -76631,6 +77591,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !data.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						HTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -76699,6 +77660,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !data.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 					var XfccHeaderElementsItems []string
 					diags := data.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						HTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 					}
@@ -76772,6 +77734,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.JWTValidation.MandatoryClaims.ClaimNames.IsNull() && !data.JWTValidation.MandatoryClaims.ClaimNames.IsUnknown() {
 				var ClaimNamesItems []string
 				diags := data.JWTValidation.MandatoryClaims.ClaimNames.ElementsAs(ctx, &ClaimNamesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					JWTValidationMandatoryClaimsMap["claim_names"] = ClaimNamesItems
 				}
@@ -76785,6 +77748,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !data.JWTValidation.ReservedClaims.Audience.Audiences.IsNull() && !data.JWTValidation.ReservedClaims.Audience.Audiences.IsUnknown() {
 					var AudiencesItems []string
 					diags := data.JWTValidation.ReservedClaims.Audience.Audiences.ElementsAs(ctx, &AudiencesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						JWTValidationReservedClaimsAudienceMap["audiences"] = AudiencesItems
 					}
@@ -76818,6 +77782,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !data.JWTValidation.Target.APIGroups.APIGroups.IsNull() && !data.JWTValidation.Target.APIGroups.APIGroups.IsUnknown() {
 					var APIGroupsItems []string
 					diags := data.JWTValidation.Target.APIGroups.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						JWTValidationTargetAPIGroupsMap["api_groups"] = APIGroupsItems
 					}
@@ -76829,6 +77794,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !data.JWTValidation.Target.BasePaths.BasePaths.IsNull() && !data.JWTValidation.Target.BasePaths.BasePaths.IsUnknown() {
 					var BasePathsItems []string
 					diags := data.JWTValidation.Target.BasePaths.BasePaths.ElementsAs(ctx, &BasePathsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						JWTValidationTargetBasePathsMap["base_paths"] = BasePathsItems
 					}
@@ -76911,6 +77877,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !MalwareProtectionRulesItem.HTTPMethods.IsNull() && !MalwareProtectionRulesItem.HTTPMethods.IsUnknown() {
 						var HTTPMethodsItems []string
 						diags := MalwareProtectionRulesItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							MalwareProtectionRulesItemMap["http_methods"] = HTTPMethodsItems
 						}
@@ -76965,6 +77932,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.MoreOption.CompressionParams.ContentType.IsNull() && !data.MoreOption.CompressionParams.ContentType.IsUnknown() {
 				var ContentTypeItems []string
 				diags := data.MoreOption.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					MoreOptionCompressionParamsMap["content_type"] = ContentTypeItems
 				}
@@ -76977,8 +77945,13 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			}
 			MoreOptionMap["compression_params"] = MoreOptionCompressionParamsMap
 		}
-		if data.MoreOption.CustomErrors != nil {
-			MoreOptionMap["custom_errors"] = map[string]interface{}{}
+		if !data.MoreOption.CustomErrors.IsNull() && !data.MoreOption.CustomErrors.IsUnknown() {
+			var CustomErrorsMap map[string]string
+			diags := data.MoreOption.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				MoreOptionMap["custom_errors"] = CustomErrorsMap
+			}
 		}
 		if !data.MoreOption.DisableDefaultErrorPages.IsNull() && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 			MoreOptionMap["disable_default_error_pages"] = data.MoreOption.DisableDefaultErrorPages.ValueBool()
@@ -77053,6 +78026,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !data.MoreOption.RequestCookiesToRemove.IsNull() && !data.MoreOption.RequestCookiesToRemove.IsUnknown() {
 			var RequestCookiesToRemoveItems []string
 			diags := data.MoreOption.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				MoreOptionMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 			}
@@ -77109,6 +78083,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !data.MoreOption.RequestHeadersToRemove.IsNull() && !data.MoreOption.RequestHeadersToRemove.IsUnknown() {
 			var RequestHeadersToRemoveItems []string
 			diags := data.MoreOption.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				MoreOptionMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 			}
@@ -77222,6 +78197,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !data.MoreOption.ResponseCookiesToRemove.IsNull() && !data.MoreOption.ResponseCookiesToRemove.IsUnknown() {
 			var ResponseCookiesToRemoveItems []string
 			diags := data.MoreOption.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				MoreOptionMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 			}
@@ -77278,6 +78254,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !data.MoreOption.ResponseHeadersToRemove.IsNull() && !data.MoreOption.ResponseHeadersToRemove.IsUnknown() {
 			var ResponseHeadersToRemoveItems []string
 			diags := data.MoreOption.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				MoreOptionMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 			}
@@ -77311,6 +78288,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !OriginServerSubsetRulesItem.AsnList.AsNumbers.IsNull() && !OriginServerSubsetRulesItem.AsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := OriginServerSubsetRulesItem.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								OriginServerSubsetRuleListOriginServerSubsetRulesAsnListMap["as_numbers"] = AsNumbersItems
 							}
@@ -77354,6 +78332,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !OriginServerSubsetRulesItem.ClientSelector.Expressions.IsNull() && !OriginServerSubsetRulesItem.ClientSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := OriginServerSubsetRulesItem.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								OriginServerSubsetRuleListOriginServerSubsetRulesClientSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -77363,6 +78342,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !OriginServerSubsetRulesItem.CountryCodes.IsNull() && !OriginServerSubsetRulesItem.CountryCodes.IsUnknown() {
 						var CountryCodesItems []string
 						diags := OriginServerSubsetRulesItem.CountryCodes.ElementsAs(ctx, &CountryCodesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							OriginServerSubsetRulesItemMap["country_codes"] = CountryCodesItems
 						}
@@ -77410,6 +78390,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !OriginServerSubsetRulesItem.IPPrefixList.IPPrefixes.IsNull() && !OriginServerSubsetRulesItem.IPPrefixList.IPPrefixes.IsUnknown() {
 							var IPPrefixesItems []string
 							diags := OriginServerSubsetRulesItem.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								OriginServerSubsetRuleListOriginServerSubsetRulesIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 							}
@@ -77429,12 +78410,18 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if OriginServerSubsetRulesItem.None != nil {
 						OriginServerSubsetRulesItemMap["none"] = map[string]interface{}{}
 					}
-					if OriginServerSubsetRulesItem.OriginServerSubsetsAction != nil {
-						OriginServerSubsetRulesItemMap["origin_server_subsets_action"] = map[string]interface{}{}
+					if !OriginServerSubsetRulesItem.OriginServerSubsetsAction.IsNull() && !OriginServerSubsetRulesItem.OriginServerSubsetsAction.IsUnknown() {
+						var OriginServerSubsetsActionMap map[string]string
+						diags := OriginServerSubsetRulesItem.OriginServerSubsetsAction.ElementsAs(ctx, &OriginServerSubsetsActionMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							OriginServerSubsetRulesItemMap["origin_server_subsets_action"] = OriginServerSubsetsActionMap
+						}
 					}
 					if !OriginServerSubsetRulesItem.RENameList.IsNull() && !OriginServerSubsetRulesItem.RENameList.IsUnknown() {
 						var RENameListItems []string
 						diags := OriginServerSubsetRulesItem.RENameList.ElementsAs(ctx, &RENameListItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							OriginServerSubsetRulesItemMap["re_name_list"] = RENameListItems
 						}
@@ -77558,6 +78545,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecArgMatchersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -77565,6 +78553,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecArgMatchersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -77572,6 +78561,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecArgMatchersItemMap["transformers"] = TransformersItems
 												}
@@ -77591,6 +78581,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.AsnList.AsNumbers.IsNull() && !RulesItem.Spec.AsnList.AsNumbers.IsUnknown() {
 									var AsNumbersItems []int64
 									diags := RulesItem.Spec.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecAsnListMap["as_numbers"] = AsNumbersItems
 									}
@@ -77634,6 +78625,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.BodyMatcher.ExactValues.IsNull() && !RulesItem.Spec.BodyMatcher.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.BodyMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecBodyMatcherMap["exact_values"] = ExactValuesItems
 									}
@@ -77641,6 +78633,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.BodyMatcher.RegexValues.IsNull() && !RulesItem.Spec.BodyMatcher.RegexValues.IsUnknown() {
 									var RegexValuesItems []string
 									diags := RulesItem.Spec.BodyMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecBodyMatcherMap["regex_values"] = RegexValuesItems
 									}
@@ -77648,6 +78641,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.BodyMatcher.Transformers.IsNull() && !RulesItem.Spec.BodyMatcher.Transformers.IsUnknown() {
 									var TransformersItems []string
 									diags := RulesItem.Spec.BodyMatcher.Transformers.ElementsAs(ctx, &TransformersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecBodyMatcherMap["transformers"] = TransformersItems
 									}
@@ -77659,6 +78653,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.ClientSelector.Expressions.IsNull() && !RulesItem.Spec.ClientSelector.Expressions.IsUnknown() {
 									var ExpressionsItems []string
 									diags := RulesItem.Spec.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecClientSelectorMap["expressions"] = ExpressionsItems
 									}
@@ -77687,6 +78682,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecCookieMatchersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -77694,6 +78690,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecCookieMatchersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -77701,6 +78698,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecCookieMatchersItemMap["transformers"] = TransformersItems
 												}
@@ -77723,6 +78721,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.DomainMatcher.ExactValues.IsNull() && !RulesItem.Spec.DomainMatcher.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.DomainMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecDomainMatcherMap["exact_values"] = ExactValuesItems
 									}
@@ -77730,6 +78729,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.DomainMatcher.RegexValues.IsNull() && !RulesItem.Spec.DomainMatcher.RegexValues.IsUnknown() {
 									var RegexValuesItems []string
 									diags := RulesItem.Spec.DomainMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecDomainMatcherMap["regex_values"] = RegexValuesItems
 									}
@@ -77767,6 +78767,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecHeadersItemMap["exact_values"] = ExactValuesItems
 												}
@@ -77774,6 +78775,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecHeadersItemMap["regex_values"] = RegexValuesItems
 												}
@@ -77781,6 +78783,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecHeadersItemMap["transformers"] = TransformersItems
 												}
@@ -77803,6 +78806,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.HTTPMethod.Methods.IsNull() && !RulesItem.Spec.HTTPMethod.Methods.IsUnknown() {
 									var MethodsItems []string
 									diags := RulesItem.Spec.HTTPMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecHTTPMethodMap["methods"] = MethodsItems
 									}
@@ -77852,6 +78856,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.IPPrefixList.IPPrefixes.IsNull() && !RulesItem.Spec.IPPrefixList.IPPrefixes.IsUnknown() {
 									var IPPrefixesItems []string
 									diags := RulesItem.Spec.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 									}
@@ -77866,6 +78871,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["exact_values"] = ExactValuesItems
 									}
@@ -77876,6 +78882,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.Path.PrefixValues.IsNull() && !RulesItem.Spec.Path.PrefixValues.IsUnknown() {
 									var PrefixValuesItems []string
 									diags := RulesItem.Spec.Path.PrefixValues.ElementsAs(ctx, &PrefixValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["prefix_values"] = PrefixValuesItems
 									}
@@ -77883,6 +78890,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.Path.RegexValues.IsNull() && !RulesItem.Spec.Path.RegexValues.IsUnknown() {
 									var RegexValuesItems []string
 									diags := RulesItem.Spec.Path.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["regex_values"] = RegexValuesItems
 									}
@@ -77890,6 +78898,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.Path.SuffixValues.IsNull() && !RulesItem.Spec.Path.SuffixValues.IsUnknown() {
 									var SuffixValuesItems []string
 									diags := RulesItem.Spec.Path.SuffixValues.ElementsAs(ctx, &SuffixValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["suffix_values"] = SuffixValuesItems
 									}
@@ -77897,6 +78906,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.Path.Transformers.IsNull() && !RulesItem.Spec.Path.Transformers.IsUnknown() {
 									var TransformersItems []string
 									diags := RulesItem.Spec.Path.Transformers.ElementsAs(ctx, &TransformersItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecPathMap["transformers"] = TransformersItems
 									}
@@ -77925,6 +78935,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 												var ExactValuesItems []string
 												diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecQueryParamsItemMap["exact_values"] = ExactValuesItems
 												}
@@ -77932,6 +78943,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 												var RegexValuesItems []string
 												diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecQueryParamsItemMap["regex_values"] = RegexValuesItems
 												}
@@ -77939,6 +78951,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 												var TransformersItems []string
 												diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													PolicyBasedChallengeRuleListRulesSpecQueryParamsItemMap["transformers"] = TransformersItems
 												}
@@ -77958,6 +78971,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.TLSFingerprintMatcher.Classes.IsNull() && !RulesItem.Spec.TLSFingerprintMatcher.Classes.IsUnknown() {
 									var ClassesItems []string
 									diags := RulesItem.Spec.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherMap["classes"] = ClassesItems
 									}
@@ -77965,6 +78979,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.TLSFingerprintMatcher.ExactValues.IsNull() && !RulesItem.Spec.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 									}
@@ -77972,6 +78987,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RulesItem.Spec.TLSFingerprintMatcher.ExcludedValues.IsNull() && !RulesItem.Spec.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 									var ExcludedValuesItems []string
 									diags := RulesItem.Spec.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										PolicyBasedChallengeRuleListRulesSpecTLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 									}
@@ -78084,6 +79100,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.RateLimit.IPAllowedList.Prefixes.IsNull() && !data.RateLimit.IPAllowedList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.RateLimit.IPAllowedList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					RateLimitIPAllowedListMap["prefixes"] = PrefixesItems
 				}
@@ -78523,6 +79540,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOrigin.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOrigin.IsUnknown() {
 								var AllowOriginItems []string
 								diags := RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesSimpleRouteAdvancedOptionsCORSPolicyMap["allow_origin"] = AllowOriginItems
 								}
@@ -78530,6 +79548,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOriginRegex.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOriginRegex.IsUnknown() {
 								var AllowOriginRegexItems []string
 								diags := RoutesItem.SimpleRoute.AdvancedOptions.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesSimpleRouteAdvancedOptionsCORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 								}
@@ -78555,6 +79574,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !RoutesItem.SimpleRoute.AdvancedOptions.CSRFPolicy.CustomDomainList.Domains.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 									var DomainsItems []string
 									diags := RoutesItem.SimpleRoute.AdvancedOptions.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										RoutesSimpleRouteAdvancedOptionsCSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 									}
@@ -78593,8 +79613,13 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if RoutesItem.SimpleRoute.AdvancedOptions.EnableSpdy != nil {
 							RoutesSimpleRouteAdvancedOptionsMap["enable_spdy"] = map[string]interface{}{}
 						}
-						if RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets != nil {
-							RoutesSimpleRouteAdvancedOptionsMap["endpoint_subsets"] = map[string]interface{}{}
+						if !RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
+							var EndpointSubsetsMap map[string]string
+							diags := RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+							resp.Diagnostics.Append(diags...)
+							if !diags.HasError() {
+								RoutesSimpleRouteAdvancedOptionsMap["endpoint_subsets"] = EndpointSubsetsMap
+							}
 						}
 						if RoutesItem.SimpleRoute.AdvancedOptions.InheritedBotDefenseJavascriptInjection != nil {
 							RoutesSimpleRouteAdvancedOptionsMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
@@ -78703,6 +79728,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !RoutesItem.SimpleRoute.AdvancedOptions.RequestCookiesToRemove.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.RequestCookiesToRemove.IsUnknown() {
 							var RequestCookiesToRemoveItems []string
 							diags := RoutesItem.SimpleRoute.AdvancedOptions.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesSimpleRouteAdvancedOptionsMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 							}
@@ -78759,6 +79785,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !RoutesItem.SimpleRoute.AdvancedOptions.RequestHeadersToRemove.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.RequestHeadersToRemove.IsUnknown() {
 							var RequestHeadersToRemoveItems []string
 							diags := RoutesItem.SimpleRoute.AdvancedOptions.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesSimpleRouteAdvancedOptionsMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 							}
@@ -78872,6 +79899,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !RoutesItem.SimpleRoute.AdvancedOptions.ResponseCookiesToRemove.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.ResponseCookiesToRemove.IsUnknown() {
 							var ResponseCookiesToRemoveItems []string
 							diags := RoutesItem.SimpleRoute.AdvancedOptions.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesSimpleRouteAdvancedOptionsMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 							}
@@ -78928,6 +79956,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !RoutesItem.SimpleRoute.AdvancedOptions.ResponseHeadersToRemove.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.ResponseHeadersToRemove.IsUnknown() {
 							var ResponseHeadersToRemoveItems []string
 							diags := RoutesItem.SimpleRoute.AdvancedOptions.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesSimpleRouteAdvancedOptionsMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 							}
@@ -78956,6 +79985,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetriableStatusCodes.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetriableStatusCodes.IsUnknown() {
 								var RetriableStatusCodesItems []int64
 								diags := RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesSimpleRouteAdvancedOptionsRetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
 								}
@@ -78963,6 +79993,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetryCondition.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetryCondition.IsUnknown() {
 								var RetryConditionItems []string
 								diags := RoutesItem.SimpleRoute.AdvancedOptions.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesSimpleRouteAdvancedOptionsRetryPolicyMap["retry_condition"] = RetryConditionItems
 								}
@@ -79137,8 +80168,13 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									OriginPoolsItemMap["cluster"] = RoutesSimpleRouteOriginPoolsClusterMap
 								}
-								if OriginPoolsItem.EndpointSubsets != nil {
-									OriginPoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
+								if !OriginPoolsItem.EndpointSubsets.IsNull() && !OriginPoolsItem.EndpointSubsets.IsUnknown() {
+									var EndpointSubsetsMap map[string]string
+									diags := OriginPoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
+									resp.Diagnostics.Append(diags...)
+									if !diags.HasError() {
+										OriginPoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
+									}
 								}
 								if OriginPoolsItem.Pool != nil {
 									RoutesSimpleRouteOriginPoolsPoolMap := make(map[string]interface{})
@@ -79212,6 +80248,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !SensitiveDataTypesInResponseItem.APIEndpoint.Methods.IsNull() && !SensitiveDataTypesInResponseItem.APIEndpoint.Methods.IsUnknown() {
 							var MethodsItems []string
 							diags := SensitiveDataTypesInResponseItem.APIEndpoint.Methods.ElementsAs(ctx, &MethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								SensitiveDataDisclosureRulesSensitiveDataTypesInResponseAPIEndpointMap["methods"] = MethodsItems
 							}
@@ -79226,6 +80263,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !SensitiveDataTypesInResponseItem.Body.Fields.IsNull() && !SensitiveDataTypesInResponseItem.Body.Fields.IsUnknown() {
 							var FieldsItems []string
 							diags := SensitiveDataTypesInResponseItem.Body.Fields.ElementsAs(ctx, &FieldsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								SensitiveDataDisclosureRulesSensitiveDataTypesInResponseBodyMap["fields"] = FieldsItems
 							}
@@ -79364,6 +80402,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.IsNull() && !CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.IsUnknown() {
 									var APICodeRepoItems []string
 									diags := CodeBaseIntegrationsItem.SelectedRepos.APICodeRepo.ElementsAs(ctx, &APICodeRepoItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										SingleLBAppEnableDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposMap["api_code_repo"] = APICodeRepoItems
 									}
@@ -79447,6 +80486,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !TrustedClientsItem.Actions.IsNull() && !TrustedClientsItem.Actions.IsUnknown() {
 					var ActionsItems []string
 					diags := TrustedClientsItem.Actions.ElementsAs(ctx, &ActionsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TrustedClientsItemMap["actions"] = ActionsItems
 					}
@@ -79658,6 +80698,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !RulesItem.Methods.IsNull() && !RulesItem.Methods.IsUnknown() {
 							var MethodsItems []string
 							diags := RulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesItemMap["methods"] = MethodsItems
 							}
@@ -80441,7 +81482,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -80495,7 +81537,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -80577,7 +81620,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -80677,7 +81721,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -80700,7 +81745,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -80723,7 +81769,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -80736,7 +81783,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -80749,7 +81797,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -80833,7 +81882,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -80846,7 +81896,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -80859,7 +81910,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -80931,7 +81983,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -80944,7 +81997,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -80957,7 +82011,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81029,7 +82084,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81042,7 +82098,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81055,7 +82112,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81127,7 +82185,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81140,7 +82199,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81153,7 +82213,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81293,7 +82354,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -81375,7 +82437,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -81475,7 +82538,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -81498,7 +82562,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -81521,7 +82586,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -81534,7 +82600,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -81547,7 +82614,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -81631,7 +82699,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81644,7 +82713,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81657,7 +82727,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81729,7 +82800,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81742,7 +82814,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81755,7 +82828,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81827,7 +82901,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81840,7 +82915,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81853,7 +82929,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81925,7 +83002,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81938,7 +83016,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -81951,7 +83030,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82039,7 +83119,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -82093,7 +83174,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -82175,7 +83257,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -82275,7 +83358,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -82298,7 +83382,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -82321,7 +83406,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -82334,7 +83420,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -82347,7 +83434,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -82493,7 +83581,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82506,7 +83595,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82519,7 +83609,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82591,7 +83682,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82604,7 +83696,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82617,7 +83710,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82689,7 +83783,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82702,7 +83797,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82715,7 +83811,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82787,7 +83884,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82800,7 +83898,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82813,7 +83912,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -82900,7 +84000,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -82926,7 +84027,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -82980,7 +84082,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, int64(s))
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.Int64Type)
@@ -83062,7 +84165,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -83162,7 +84266,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -83185,7 +84290,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -83208,7 +84314,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -83221,7 +84328,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -83234,7 +84342,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -83299,7 +84408,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83312,7 +84422,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83325,7 +84436,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83397,7 +84509,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83410,7 +84523,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83423,7 +84537,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83495,7 +84610,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83508,7 +84624,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83521,7 +84638,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83593,7 +84711,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83606,7 +84725,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83619,7 +84739,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -83725,7 +84846,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -83817,7 +84939,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -83899,7 +85022,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -83999,7 +85123,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -84022,7 +85147,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -84045,7 +85171,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -84058,7 +85185,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -84071,7 +85199,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -84217,7 +85346,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84230,7 +85360,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84243,7 +85374,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84315,7 +85447,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84328,7 +85461,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84341,7 +85475,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84413,7 +85548,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84426,7 +85562,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84439,7 +85576,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84511,7 +85649,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84524,7 +85663,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84537,7 +85677,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -84686,7 +85827,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -84861,7 +86003,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -84922,7 +86065,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -85018,7 +86162,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -85114,7 +86259,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -85201,7 +86347,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -85262,7 +86409,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -85832,7 +86980,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -86442,7 +87591,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -86455,7 +87605,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -86468,7 +87619,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -86642,7 +87794,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																																items = append(items, s)
 																															}
 																														}
-																														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																														resp.Diagnostics.Append(diags...)
 																														return listVal
 																													}
 																													return types.ListNull(types.StringType)
@@ -86689,7 +87842,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																																items = append(items, s)
 																															}
 																														}
-																														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																														resp.Diagnostics.Append(diags...)
 																														return listVal
 																													}
 																													return types.ListNull(types.StringType)
@@ -87057,7 +88211,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -87070,7 +88225,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -87083,7 +88239,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -87114,7 +88271,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -87322,7 +88480,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -87335,7 +88494,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -87348,7 +88508,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -87879,7 +89040,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -87892,7 +89054,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -87905,7 +89068,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -88462,7 +89626,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -88475,7 +89640,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -88531,7 +89697,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -88695,7 +89862,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -88712,7 +89880,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -88731,7 +89900,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -88754,7 +89924,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -88767,7 +89938,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -88780,7 +89952,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -88819,7 +89992,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -89020,14 +90194,24 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										}
 										if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 											return &HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-												DefaultSubset: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
+												DefaultSubset: func() types.Map {
+													if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+														items := make(map[string]string)
+														for mk, mv := range v {
+															if mvs, ok := mv.(string); ok {
+																items[mk] = mvs
+															} else {
+																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
+															}
+														}
+														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return mapVal
+													}
+													if data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
 														return data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 													}
-													if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
+													return types.MapNull(types.StringType)
 												}(),
 											}
 										}
@@ -89058,7 +90242,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -89511,7 +90696,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -89679,7 +90865,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -89852,7 +91039,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -90016,7 +91204,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -90281,7 +91470,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -90379,7 +91569,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -90625,16 +91816,24 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(PoolsExisting) > PoolsIdx {
+								EndpointSubsets: func() types.Map {
+									if v, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(PoolsExisting) > PoolsIdx && !PoolsExisting[PoolsIdx].EndpointSubsets.IsNull() && !PoolsExisting[PoolsIdx].EndpointSubsets.IsUnknown() {
 										return PoolsExisting[PoolsIdx].EndpointSubsets
 									}
-									if !isImport {
-										if _, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-											return &HTTPLoadBalancerEmptyModel{}
-										}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								Pool: func() *HTTPLoadBalancerDefaultPoolListPoolsPoolModel {
 									if PoolData, ok := PoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -90720,16 +91919,24 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-						if !isImport && len(existingDefaultRoutePoolsItems) > listIdx {
+					EndpointSubsets: func() types.Map {
+						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							items := make(map[string]string)
+							for mk, mv := range v {
+								if mvs, ok := mv.(string); ok {
+									items[mk] = mvs
+								} else {
+									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+								}
+							}
+							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return mapVal
+						}
+						if len(existingDefaultRoutePoolsItems) > listIdx && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsNull() && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsUnknown() {
 							return existingDefaultRoutePoolsItems[listIdx].EndpointSubsets
 						}
-						if !isImport {
-							if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerEmptyModel{}
-							}
-						}
-						return nil
+						return types.MapNull(types.StringType)
 					}(),
 					Pool: func() *HTTPLoadBalancerDefaultRoutePoolsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
@@ -90979,7 +92186,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -91209,7 +92417,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -91232,7 +92441,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -91705,7 +92915,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -91857,7 +93068,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -91917,7 +93129,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -92035,7 +93248,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -92187,7 +93401,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -92457,7 +93672,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -92609,7 +93825,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -92759,7 +93976,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -92788,7 +94006,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -92872,7 +94091,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -92895,7 +94115,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -93059,7 +94280,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -93171,7 +94393,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -93198,16 +94421,24 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				}
 				return nil
 			}(),
-			CustomErrors: func() *HTTPLoadBalancerEmptyModel {
-				if !isImport && data.MoreOption != nil {
+			CustomErrors: func() types.Map {
+				if v, ok := blockData["custom_errors"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.MoreOption != nil && !data.MoreOption.CustomErrors.IsNull() && !data.MoreOption.CustomErrors.IsUnknown() {
 					return data.MoreOption.CustomErrors
 				}
-				if !isImport {
-					if _, ok := blockData["custom_errors"].(map[string]interface{}); ok {
-						return &HTTPLoadBalancerEmptyModel{}
-					}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
@@ -93379,7 +94610,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -93489,7 +94721,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -93758,7 +94991,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -93868,7 +95102,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -93928,7 +95163,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -94007,7 +95243,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -94024,7 +95261,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -94117,7 +95355,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -94154,14 +95393,24 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
+								OriginServerSubsetsAction: func() types.Map {
+									if v, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
+										items := make(map[string]string)
+										for mk, mv := range v {
+											if mvs, ok := mv.(string); ok {
+												items[mk] = mvs
+											} else {
+												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field origin_server_subsets_action, got %T", mk, mv))
+											}
+										}
+										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return mapVal
+									}
+									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsNull() && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsUnknown() {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
-									if _, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
+									return types.MapNull(types.StringType)
 								}(),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
@@ -94171,7 +95420,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -94456,7 +95706,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94469,7 +95720,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94482,7 +95734,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94519,7 +95772,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, int64(s))
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.Int64Type)
@@ -94601,7 +95855,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -94614,7 +95869,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -94627,7 +95883,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -94650,7 +95907,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -94708,7 +95966,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94721,7 +95980,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94734,7 +95994,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94780,7 +96041,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -94793,7 +96055,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -94875,7 +96138,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94888,7 +96152,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94901,7 +96166,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -94947,7 +96213,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95047,7 +96314,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95079,7 +96347,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95101,7 +96370,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95114,7 +96384,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95127,7 +96398,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95140,7 +96412,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95198,7 +96471,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -95211,7 +96485,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -95224,7 +96499,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -95261,7 +96537,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95274,7 +96551,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95287,7 +96565,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -95530,7 +96809,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -96509,7 +97789,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -96522,7 +97803,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -96584,7 +97866,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -96697,16 +97980,24 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												}
 												return nil
 											}(),
-											EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
+											EndpointSubsets: func() types.Map {
+												if v, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
+													items := make(map[string]string)
+													for mk, mv := range v {
+														if mvs, ok := mv.(string); ok {
+															items[mk] = mvs
+														} else {
+															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+														}
+													}
+													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return mapVal
+												}
+												if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
 													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets
 												}
-												if !isImport {
-													if _, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-												}
-												return nil
+												return types.MapNull(types.StringType)
 											}(),
 											InheritedBotDefenseJavascriptInjection: func() *HTTPLoadBalancerEmptyModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
@@ -96940,7 +98231,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -97050,7 +98342,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -97319,7 +98612,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -97429,7 +98723,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -97505,7 +98800,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, int64(s))
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.Int64Type)
@@ -97518,7 +98814,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -97909,16 +99206,24 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 														}
 														return nil
 													}(),
-													EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
-														if !isImport && len(OriginPoolsExisting) > OriginPoolsIdx {
+													EndpointSubsets: func() types.Map {
+														if v, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+															items := make(map[string]string)
+															for mk, mv := range v {
+																if mvs, ok := mv.(string); ok {
+																	items[mk] = mvs
+																} else {
+																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
+																}
+															}
+															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
+															return mapVal
+														}
+														if len(OriginPoolsExisting) > OriginPoolsIdx && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsNull() && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsUnknown() {
 															return OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets
 														}
-														if !isImport {
-															if _, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerEmptyModel{}
-															}
-														}
-														return nil
+														return types.MapNull(types.StringType)
 													}(),
 													Pool: func() *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModel {
 														if PoolData, ok := OriginPoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -98069,7 +99374,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -98095,7 +99401,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -98378,7 +99685,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -98553,7 +99861,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -98960,7 +100269,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

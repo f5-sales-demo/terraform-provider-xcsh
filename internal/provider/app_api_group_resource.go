@@ -475,6 +475,7 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 				if !ElementsItem.Methods.IsNull() && !ElementsItem.Methods.IsUnknown() {
 					var MethodsItems []string
 					diags := ElementsItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						ElementsItemMap["methods"] = MethodsItems
 					}
@@ -580,7 +581,8 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -830,7 +832,8 @@ func (r *AppAPIGroupResource) Read(ctx context.Context, req resource.ReadRequest
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -1029,6 +1032,7 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 				if !ElementsItem.Methods.IsNull() && !ElementsItem.Methods.IsUnknown() {
 					var MethodsItems []string
 					diags := ElementsItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						ElementsItemMap["methods"] = MethodsItems
 					}
@@ -1154,7 +1158,8 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)

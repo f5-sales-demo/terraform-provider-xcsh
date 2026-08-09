@@ -420,7 +420,7 @@ An [`enable_subsets`](#advanced-options-enable-subsets) block (within [`advanced
 
 A [`default_subset`](#subset-276c69) block (within [`advanced_options.enable_subsets`](#advanced-options-enable-subsets)) supports the following:
 
-<a id="subset-4951d9"></a>&#x2022; [`default_subset`](#subset-4951d9) - Optional Block<br>List of key-value pairs that define default subset. Which gets used when route specifies no metadata or no subset matching the metadata exists
+<a id="subset-4951d9"></a>&#x2022; [`default_subset`](#subset-4951d9) - Optional Map<br>List of key-value pairs that define default subset. Which gets used when route specifies no metadata or no subset matching the metadata exists
 
 #### Advanced Options Enable Subsets Endpoint Subsets
 

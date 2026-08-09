@@ -16,4 +16,8 @@ terraform {
 resource "xcsh_aws_tgw_site" "example" {
   name      = "example-aws-tgw-site"
   namespace = "staging"
+
+  tags = {
+    example = "value"
+  }
 }

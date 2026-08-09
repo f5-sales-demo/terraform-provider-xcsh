@@ -1783,6 +1783,7 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										OriginServersOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -2457,7 +2458,8 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -3488,7 +3490,8 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -4279,6 +4282,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										OriginServersOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
@@ -4973,7 +4977,8 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)

@@ -1136,6 +1136,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 						if !ForwardProxyPbrRulesItem.LabelSelector.Expressions.IsNull() && !ForwardProxyPbrRulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := ForwardProxyPbrRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ForwardProxyPbrForwardProxyPbrRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -1157,6 +1158,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 						if !ForwardProxyPbrRulesItem.PrefixList.Prefixes.IsNull() && !ForwardProxyPbrRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := ForwardProxyPbrRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ForwardProxyPbrForwardProxyPbrRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -1206,6 +1208,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 			if !data.NetworkPbr.LabelSelector.Expressions.IsNull() && !data.NetworkPbr.LabelSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.NetworkPbr.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					NetworkPbrLabelSelectorMap["expressions"] = ExpressionsItems
 				}
@@ -1237,6 +1240,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 						if !NetworkPbrRulesItem.Applications.Applications.IsNull() && !NetworkPbrRulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := NetworkPbrRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								NetworkPbrNetworkPbrRulesApplicationsMap["applications"] = ApplicationsItems
 							}
@@ -1315,6 +1319,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 						if !NetworkPbrRulesItem.PrefixList.Prefixes.IsNull() && !NetworkPbrRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := NetworkPbrRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								NetworkPbrNetworkPbrRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -1326,6 +1331,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 						if !NetworkPbrRulesItem.ProtocolPortRange.PortRanges.IsNull() && !NetworkPbrRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := NetworkPbrRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								NetworkPbrNetworkPbrRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
@@ -1345,6 +1351,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 			if !data.NetworkPbr.PrefixList.Prefixes.IsNull() && !data.NetworkPbr.PrefixList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.NetworkPbr.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					NetworkPbrPrefixListMap["prefixes"] = PrefixesItems
 				}
@@ -1600,7 +1607,8 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1639,7 +1647,8 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1730,7 +1739,8 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1800,7 +1810,8 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1944,7 +1955,8 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1964,7 +1976,8 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2001,7 +2014,8 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2358,7 +2372,8 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2397,7 +2412,8 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2488,7 +2504,8 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2558,7 +2575,8 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2702,7 +2720,8 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2722,7 +2741,8 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2759,7 +2779,8 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2965,6 +2986,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 						if !ForwardProxyPbrRulesItem.LabelSelector.Expressions.IsNull() && !ForwardProxyPbrRulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := ForwardProxyPbrRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ForwardProxyPbrForwardProxyPbrRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -2986,6 +3008,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 						if !ForwardProxyPbrRulesItem.PrefixList.Prefixes.IsNull() && !ForwardProxyPbrRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := ForwardProxyPbrRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ForwardProxyPbrForwardProxyPbrRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -3035,6 +3058,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 			if !data.NetworkPbr.LabelSelector.Expressions.IsNull() && !data.NetworkPbr.LabelSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.NetworkPbr.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					NetworkPbrLabelSelectorMap["expressions"] = ExpressionsItems
 				}
@@ -3066,6 +3090,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 						if !NetworkPbrRulesItem.Applications.Applications.IsNull() && !NetworkPbrRulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := NetworkPbrRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								NetworkPbrNetworkPbrRulesApplicationsMap["applications"] = ApplicationsItems
 							}
@@ -3144,6 +3169,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 						if !NetworkPbrRulesItem.PrefixList.Prefixes.IsNull() && !NetworkPbrRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := NetworkPbrRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								NetworkPbrNetworkPbrRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -3155,6 +3181,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 						if !NetworkPbrRulesItem.ProtocolPortRange.PortRanges.IsNull() && !NetworkPbrRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := NetworkPbrRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								NetworkPbrNetworkPbrRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
@@ -3174,6 +3201,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 			if !data.NetworkPbr.PrefixList.Prefixes.IsNull() && !data.NetworkPbr.PrefixList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.NetworkPbr.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					NetworkPbrPrefixListMap["prefixes"] = PrefixesItems
 				}
@@ -3449,7 +3477,8 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3488,7 +3517,8 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3579,7 +3609,8 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -3649,7 +3680,8 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3793,7 +3825,8 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3813,7 +3846,8 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3850,7 +3884,8 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)

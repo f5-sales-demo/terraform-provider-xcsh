@@ -1982,6 +1982,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.APIGroupMatcher.Match.IsNull() && !data.APIGroupMatcher.Match.IsUnknown() {
 			var MatchItems []string
 			diags := data.APIGroupMatcher.Match.ElementsAs(ctx, &MatchItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				APIGroupMatcherMap["match"] = MatchItems
 			}
@@ -2010,6 +2011,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ArgMatchersItemMap["exact_values"] = ExactValuesItems
 						}
@@ -2017,6 +2019,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ArgMatchersItemMap["regex_values"] = RegexValuesItems
 						}
@@ -2024,6 +2027,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ArgMatchersItemMap["transformers"] = TransformersItems
 						}
@@ -2043,6 +2047,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.AsnList.AsNumbers.IsNull() && !data.AsnList.AsNumbers.IsUnknown() {
 			var AsNumbersItems []int64
 			diags := data.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				AsnListMap["as_numbers"] = AsNumbersItems
 			}
@@ -2086,6 +2091,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.BodyMatcher.ExactValues.IsNull() && !data.BodyMatcher.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.BodyMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				BodyMatcherMap["exact_values"] = ExactValuesItems
 			}
@@ -2093,6 +2099,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.BodyMatcher.RegexValues.IsNull() && !data.BodyMatcher.RegexValues.IsUnknown() {
 			var RegexValuesItems []string
 			diags := data.BodyMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				BodyMatcherMap["regex_values"] = RegexValuesItems
 			}
@@ -2100,6 +2107,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.BodyMatcher.Transformers.IsNull() && !data.BodyMatcher.Transformers.IsUnknown() {
 			var TransformersItems []string
 			diags := data.BodyMatcher.Transformers.ElementsAs(ctx, &TransformersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				BodyMatcherMap["transformers"] = TransformersItems
 			}
@@ -2121,6 +2129,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.ClientNameMatcher.ExactValues.IsNull() && !data.ClientNameMatcher.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.ClientNameMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ClientNameMatcherMap["exact_values"] = ExactValuesItems
 			}
@@ -2128,6 +2137,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.ClientNameMatcher.RegexValues.IsNull() && !data.ClientNameMatcher.RegexValues.IsUnknown() {
 			var RegexValuesItems []string
 			diags := data.ClientNameMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ClientNameMatcherMap["regex_values"] = RegexValuesItems
 			}
@@ -2139,6 +2149,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.ClientSelector.Expressions.IsNull() && !data.ClientSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ClientSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -2167,6 +2178,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							CookieMatchersItemMap["exact_values"] = ExactValuesItems
 						}
@@ -2174,6 +2186,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							CookieMatchersItemMap["regex_values"] = RegexValuesItems
 						}
@@ -2181,6 +2194,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							CookieMatchersItemMap["transformers"] = TransformersItems
 						}
@@ -2200,6 +2214,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.DomainMatcher.ExactValues.IsNull() && !data.DomainMatcher.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.DomainMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DomainMatcherMap["exact_values"] = ExactValuesItems
 			}
@@ -2207,6 +2222,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.DomainMatcher.RegexValues.IsNull() && !data.DomainMatcher.RegexValues.IsUnknown() {
 			var RegexValuesItems []string
 			diags := data.DomainMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DomainMatcherMap["regex_values"] = RegexValuesItems
 			}
@@ -2235,6 +2251,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HeadersItemMap["exact_values"] = ExactValuesItems
 						}
@@ -2242,6 +2259,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HeadersItemMap["regex_values"] = RegexValuesItems
 						}
@@ -2249,6 +2267,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HeadersItemMap["transformers"] = TransformersItems
 						}
@@ -2271,6 +2290,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.HTTPMethod.Methods.IsNull() && !data.HTTPMethod.Methods.IsUnknown() {
 			var MethodsItems []string
 			diags := data.HTTPMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				HTTPMethodMap["methods"] = MethodsItems
 			}
@@ -2320,6 +2340,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.IPPrefixList.IPPrefixes.IsNull() && !data.IPPrefixList.IPPrefixes.IsUnknown() {
 			var IPPrefixesItems []string
 			diags := data.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				IPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 			}
@@ -2331,6 +2352,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.IPThreatCategoryList.IPThreatCategories.IsNull() && !data.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 			var IPThreatCategoriesItems []string
 			diags := data.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				IPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 			}
@@ -2342,6 +2364,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.Ja4TLSFingerprint.ExactValues.IsNull() && !data.Ja4TLSFingerprint.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.Ja4TLSFingerprint.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				Ja4TLSFingerprintMap["exact_values"] = ExactValuesItems
 			}
@@ -2370,6 +2393,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							JWTClaimsItemMap["exact_values"] = ExactValuesItems
 						}
@@ -2377,6 +2401,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							JWTClaimsItemMap["regex_values"] = RegexValuesItems
 						}
@@ -2384,6 +2409,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							JWTClaimsItemMap["transformers"] = TransformersItems
 						}
@@ -2403,6 +2429,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.LabelMatcher.Keys.IsNull() && !data.LabelMatcher.Keys.IsUnknown() {
 			var KeysItems []string
 			diags := data.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				LabelMatcherMap["keys"] = KeysItems
 			}
@@ -2427,6 +2454,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.Path.ExactValues.IsNull() && !data.Path.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["exact_values"] = ExactValuesItems
 			}
@@ -2437,6 +2465,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.Path.PrefixValues.IsNull() && !data.Path.PrefixValues.IsUnknown() {
 			var PrefixValuesItems []string
 			diags := data.Path.PrefixValues.ElementsAs(ctx, &PrefixValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["prefix_values"] = PrefixValuesItems
 			}
@@ -2444,6 +2473,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.Path.RegexValues.IsNull() && !data.Path.RegexValues.IsUnknown() {
 			var RegexValuesItems []string
 			diags := data.Path.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["regex_values"] = RegexValuesItems
 			}
@@ -2451,6 +2481,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.Path.SuffixValues.IsNull() && !data.Path.SuffixValues.IsUnknown() {
 			var SuffixValuesItems []string
 			diags := data.Path.SuffixValues.ElementsAs(ctx, &SuffixValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["suffix_values"] = SuffixValuesItems
 			}
@@ -2458,6 +2489,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.Path.Transformers.IsNull() && !data.Path.Transformers.IsUnknown() {
 			var TransformersItems []string
 			diags := data.Path.Transformers.ElementsAs(ctx, &TransformersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["transformers"] = TransformersItems
 			}
@@ -2486,6 +2518,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							QueryParamsItemMap["exact_values"] = ExactValuesItems
 						}
@@ -2493,6 +2526,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							QueryParamsItemMap["regex_values"] = RegexValuesItems
 						}
@@ -2500,6 +2534,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 					if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							QueryParamsItemMap["transformers"] = TransformersItems
 						}
@@ -2666,6 +2701,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.TLSFingerprintMatcher.Classes.IsNull() && !data.TLSFingerprintMatcher.Classes.IsUnknown() {
 			var ClassesItems []string
 			diags := data.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSFingerprintMatcherMap["classes"] = ClassesItems
 			}
@@ -2673,6 +2709,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.TLSFingerprintMatcher.ExactValues.IsNull() && !data.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 			}
@@ -2680,6 +2717,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.TLSFingerprintMatcher.ExcludedValues.IsNull() && !data.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 			var ExcludedValuesItems []string
 			diags := data.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 			}
@@ -2802,6 +2840,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !data.PortMatcher.Ports.IsNull() && !data.PortMatcher.Ports.IsUnknown() {
 			var PortsItems []string
 			diags := data.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PortMatcherMap["ports"] = PortsItems
 			}
@@ -2849,7 +2888,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2903,7 +2943,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2916,7 +2957,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2929,7 +2971,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2965,7 +3008,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -3038,7 +3082,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3051,7 +3096,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3064,7 +3110,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3103,7 +3150,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3116,7 +3164,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3133,7 +3182,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3187,7 +3237,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3200,7 +3251,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3213,7 +3265,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3249,7 +3302,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3262,7 +3316,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3316,7 +3371,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3329,7 +3385,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3342,7 +3399,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3387,7 +3445,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3478,7 +3537,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3495,7 +3555,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3512,7 +3573,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3566,7 +3628,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3579,7 +3642,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3592,7 +3656,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3628,7 +3693,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3676,7 +3742,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3698,7 +3765,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3711,7 +3779,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3724,7 +3793,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3737,7 +3807,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3791,7 +3862,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3804,7 +3876,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3817,7 +3890,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4216,7 +4290,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4229,7 +4304,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4242,7 +4318,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4473,7 +4550,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4620,7 +4698,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4674,7 +4753,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4687,7 +4767,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4700,7 +4781,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4736,7 +4818,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -4809,7 +4892,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4822,7 +4906,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4835,7 +4920,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4874,7 +4960,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4887,7 +4974,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4904,7 +4992,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4958,7 +5047,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4971,7 +5061,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4984,7 +5075,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5020,7 +5112,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5033,7 +5126,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5087,7 +5181,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5100,7 +5195,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5113,7 +5209,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5158,7 +5255,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5249,7 +5347,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5266,7 +5365,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5283,7 +5383,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5337,7 +5438,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5350,7 +5452,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5363,7 +5466,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5399,7 +5503,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5447,7 +5552,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5469,7 +5575,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5482,7 +5589,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5495,7 +5603,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5508,7 +5617,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5562,7 +5672,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5575,7 +5686,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5588,7 +5700,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -5987,7 +6100,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -6000,7 +6114,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -6013,7 +6128,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -6244,7 +6360,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -6347,6 +6464,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.APIGroupMatcher.Match.IsNull() && !data.APIGroupMatcher.Match.IsUnknown() {
 			var MatchItems []string
 			diags := data.APIGroupMatcher.Match.ElementsAs(ctx, &MatchItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				APIGroupMatcherMap["match"] = MatchItems
 			}
@@ -6375,6 +6493,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !ArgMatchersItem.Item.ExactValues.IsNull() && !ArgMatchersItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := ArgMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ArgMatchersItemMap["exact_values"] = ExactValuesItems
 						}
@@ -6382,6 +6501,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !ArgMatchersItem.Item.RegexValues.IsNull() && !ArgMatchersItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := ArgMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ArgMatchersItemMap["regex_values"] = RegexValuesItems
 						}
@@ -6389,6 +6509,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !ArgMatchersItem.Item.Transformers.IsNull() && !ArgMatchersItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := ArgMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ArgMatchersItemMap["transformers"] = TransformersItems
 						}
@@ -6408,6 +6529,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.AsnList.AsNumbers.IsNull() && !data.AsnList.AsNumbers.IsUnknown() {
 			var AsNumbersItems []int64
 			diags := data.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				AsnListMap["as_numbers"] = AsNumbersItems
 			}
@@ -6451,6 +6573,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.BodyMatcher.ExactValues.IsNull() && !data.BodyMatcher.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.BodyMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				BodyMatcherMap["exact_values"] = ExactValuesItems
 			}
@@ -6458,6 +6581,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.BodyMatcher.RegexValues.IsNull() && !data.BodyMatcher.RegexValues.IsUnknown() {
 			var RegexValuesItems []string
 			diags := data.BodyMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				BodyMatcherMap["regex_values"] = RegexValuesItems
 			}
@@ -6465,6 +6589,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.BodyMatcher.Transformers.IsNull() && !data.BodyMatcher.Transformers.IsUnknown() {
 			var TransformersItems []string
 			diags := data.BodyMatcher.Transformers.ElementsAs(ctx, &TransformersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				BodyMatcherMap["transformers"] = TransformersItems
 			}
@@ -6486,6 +6611,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.ClientNameMatcher.ExactValues.IsNull() && !data.ClientNameMatcher.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.ClientNameMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ClientNameMatcherMap["exact_values"] = ExactValuesItems
 			}
@@ -6493,6 +6619,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.ClientNameMatcher.RegexValues.IsNull() && !data.ClientNameMatcher.RegexValues.IsUnknown() {
 			var RegexValuesItems []string
 			diags := data.ClientNameMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ClientNameMatcherMap["regex_values"] = RegexValuesItems
 			}
@@ -6504,6 +6631,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.ClientSelector.Expressions.IsNull() && !data.ClientSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.ClientSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ClientSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -6532,6 +6660,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !CookieMatchersItem.Item.ExactValues.IsNull() && !CookieMatchersItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := CookieMatchersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							CookieMatchersItemMap["exact_values"] = ExactValuesItems
 						}
@@ -6539,6 +6668,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !CookieMatchersItem.Item.RegexValues.IsNull() && !CookieMatchersItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := CookieMatchersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							CookieMatchersItemMap["regex_values"] = RegexValuesItems
 						}
@@ -6546,6 +6676,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !CookieMatchersItem.Item.Transformers.IsNull() && !CookieMatchersItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := CookieMatchersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							CookieMatchersItemMap["transformers"] = TransformersItems
 						}
@@ -6565,6 +6696,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.DomainMatcher.ExactValues.IsNull() && !data.DomainMatcher.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.DomainMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DomainMatcherMap["exact_values"] = ExactValuesItems
 			}
@@ -6572,6 +6704,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.DomainMatcher.RegexValues.IsNull() && !data.DomainMatcher.RegexValues.IsUnknown() {
 			var RegexValuesItems []string
 			diags := data.DomainMatcher.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DomainMatcherMap["regex_values"] = RegexValuesItems
 			}
@@ -6600,6 +6733,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HeadersItemMap["exact_values"] = ExactValuesItems
 						}
@@ -6607,6 +6741,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HeadersItemMap["regex_values"] = RegexValuesItems
 						}
@@ -6614,6 +6749,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							HeadersItemMap["transformers"] = TransformersItems
 						}
@@ -6636,6 +6772,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.HTTPMethod.Methods.IsNull() && !data.HTTPMethod.Methods.IsUnknown() {
 			var MethodsItems []string
 			diags := data.HTTPMethod.Methods.ElementsAs(ctx, &MethodsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				HTTPMethodMap["methods"] = MethodsItems
 			}
@@ -6685,6 +6822,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.IPPrefixList.IPPrefixes.IsNull() && !data.IPPrefixList.IPPrefixes.IsUnknown() {
 			var IPPrefixesItems []string
 			diags := data.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				IPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 			}
@@ -6696,6 +6834,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.IPThreatCategoryList.IPThreatCategories.IsNull() && !data.IPThreatCategoryList.IPThreatCategories.IsUnknown() {
 			var IPThreatCategoriesItems []string
 			diags := data.IPThreatCategoryList.IPThreatCategories.ElementsAs(ctx, &IPThreatCategoriesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				IPThreatCategoryListMap["ip_threat_categories"] = IPThreatCategoriesItems
 			}
@@ -6707,6 +6846,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.Ja4TLSFingerprint.ExactValues.IsNull() && !data.Ja4TLSFingerprint.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.Ja4TLSFingerprint.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				Ja4TLSFingerprintMap["exact_values"] = ExactValuesItems
 			}
@@ -6735,6 +6875,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !JWTClaimsItem.Item.ExactValues.IsNull() && !JWTClaimsItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := JWTClaimsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							JWTClaimsItemMap["exact_values"] = ExactValuesItems
 						}
@@ -6742,6 +6883,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !JWTClaimsItem.Item.RegexValues.IsNull() && !JWTClaimsItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := JWTClaimsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							JWTClaimsItemMap["regex_values"] = RegexValuesItems
 						}
@@ -6749,6 +6891,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !JWTClaimsItem.Item.Transformers.IsNull() && !JWTClaimsItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := JWTClaimsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							JWTClaimsItemMap["transformers"] = TransformersItems
 						}
@@ -6768,6 +6911,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.LabelMatcher.Keys.IsNull() && !data.LabelMatcher.Keys.IsUnknown() {
 			var KeysItems []string
 			diags := data.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				LabelMatcherMap["keys"] = KeysItems
 			}
@@ -6792,6 +6936,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.Path.ExactValues.IsNull() && !data.Path.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["exact_values"] = ExactValuesItems
 			}
@@ -6802,6 +6947,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.Path.PrefixValues.IsNull() && !data.Path.PrefixValues.IsUnknown() {
 			var PrefixValuesItems []string
 			diags := data.Path.PrefixValues.ElementsAs(ctx, &PrefixValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["prefix_values"] = PrefixValuesItems
 			}
@@ -6809,6 +6955,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.Path.RegexValues.IsNull() && !data.Path.RegexValues.IsUnknown() {
 			var RegexValuesItems []string
 			diags := data.Path.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["regex_values"] = RegexValuesItems
 			}
@@ -6816,6 +6963,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.Path.SuffixValues.IsNull() && !data.Path.SuffixValues.IsUnknown() {
 			var SuffixValuesItems []string
 			diags := data.Path.SuffixValues.ElementsAs(ctx, &SuffixValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["suffix_values"] = SuffixValuesItems
 			}
@@ -6823,6 +6971,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.Path.Transformers.IsNull() && !data.Path.Transformers.IsUnknown() {
 			var TransformersItems []string
 			diags := data.Path.Transformers.ElementsAs(ctx, &TransformersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PathMap["transformers"] = TransformersItems
 			}
@@ -6851,6 +7000,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !QueryParamsItem.Item.ExactValues.IsNull() && !QueryParamsItem.Item.ExactValues.IsUnknown() {
 						var ExactValuesItems []string
 						diags := QueryParamsItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							QueryParamsItemMap["exact_values"] = ExactValuesItems
 						}
@@ -6858,6 +7008,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !QueryParamsItem.Item.RegexValues.IsNull() && !QueryParamsItem.Item.RegexValues.IsUnknown() {
 						var RegexValuesItems []string
 						diags := QueryParamsItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							QueryParamsItemMap["regex_values"] = RegexValuesItems
 						}
@@ -6865,6 +7016,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 					if !QueryParamsItem.Item.Transformers.IsNull() && !QueryParamsItem.Item.Transformers.IsUnknown() {
 						var TransformersItems []string
 						diags := QueryParamsItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							QueryParamsItemMap["transformers"] = TransformersItems
 						}
@@ -7031,6 +7183,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.TLSFingerprintMatcher.Classes.IsNull() && !data.TLSFingerprintMatcher.Classes.IsUnknown() {
 			var ClassesItems []string
 			diags := data.TLSFingerprintMatcher.Classes.ElementsAs(ctx, &ClassesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSFingerprintMatcherMap["classes"] = ClassesItems
 			}
@@ -7038,6 +7191,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.TLSFingerprintMatcher.ExactValues.IsNull() && !data.TLSFingerprintMatcher.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.TLSFingerprintMatcher.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSFingerprintMatcherMap["exact_values"] = ExactValuesItems
 			}
@@ -7045,6 +7199,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.TLSFingerprintMatcher.ExcludedValues.IsNull() && !data.TLSFingerprintMatcher.ExcludedValues.IsUnknown() {
 			var ExcludedValuesItems []string
 			diags := data.TLSFingerprintMatcher.ExcludedValues.ElementsAs(ctx, &ExcludedValuesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSFingerprintMatcherMap["excluded_values"] = ExcludedValuesItems
 			}
@@ -7167,6 +7322,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !data.PortMatcher.Ports.IsNull() && !data.PortMatcher.Ports.IsUnknown() {
 			var PortsItems []string
 			diags := data.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				PortMatcherMap["ports"] = PortsItems
 			}
@@ -7262,7 +7418,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7316,7 +7473,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7329,7 +7487,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7342,7 +7501,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7378,7 +7538,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -7451,7 +7612,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7464,7 +7626,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7477,7 +7640,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7516,7 +7680,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7529,7 +7694,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7546,7 +7712,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7600,7 +7767,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7613,7 +7781,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7626,7 +7795,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7662,7 +7832,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7675,7 +7846,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7729,7 +7901,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7742,7 +7915,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7755,7 +7929,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7800,7 +7975,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7891,7 +8067,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7908,7 +8085,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7925,7 +8103,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7979,7 +8158,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7992,7 +8172,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -8005,7 +8186,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -8041,7 +8223,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8089,7 +8272,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8111,7 +8295,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8124,7 +8309,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8137,7 +8323,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8150,7 +8337,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8204,7 +8392,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -8217,7 +8406,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -8230,7 +8420,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -8629,7 +8820,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8642,7 +8834,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8655,7 +8848,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8886,7 +9080,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

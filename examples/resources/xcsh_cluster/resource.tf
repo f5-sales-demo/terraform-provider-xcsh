@@ -17,6 +17,9 @@ resource "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
 
+  default_subset = {
+    example = "value"
+  }
   connection_timeout     = 1
   endpoint_selection     = "DISTRIBUTED"
   fallback_policy        = "NO_FALLBACK"

@@ -1312,6 +1312,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 					if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
 						var Ipv6PrefixesItems []string
 						diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
 						}
@@ -1322,6 +1323,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 					if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
 						var PrefixesItems []string
 						diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DestListItemMap["prefixes"] = PrefixesItems
 						}
@@ -1414,6 +1416,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 					if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
 						var Ipv6PrefixesItems []string
 						diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
 						}
@@ -1424,6 +1427,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 					if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
 						var PrefixesItems []string
 						diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DestListItemMap["prefixes"] = PrefixesItems
 						}
@@ -1512,6 +1516,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 		if !data.ProxyLabelSelector.Expressions.IsNull() && !data.ProxyLabelSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.ProxyLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ProxyLabelSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -1542,6 +1547,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !RulesItem.DstAsnList.AsNumbers.IsNull() && !RulesItem.DstAsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := RulesItem.DstAsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDstAsnListMap["as_numbers"] = AsNumbersItems
 							}
@@ -1579,6 +1585,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !RulesItem.DstLabelSelector.Expressions.IsNull() && !RulesItem.DstLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.DstLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDstLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -1590,6 +1597,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !RulesItem.DstPrefixList.Prefixes.IsNull() && !RulesItem.DstPrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.DstPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDstPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -1652,6 +1660,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !RulesItem.LabelSelector.Expressions.IsNull() && !RulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -1679,6 +1688,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !RulesItem.PortMatcher.Ports.IsNull() && !RulesItem.PortMatcher.Ports.IsUnknown() {
 							var PortsItems []string
 							diags := RulesItem.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesPortMatcherMap["ports"] = PortsItems
 							}
@@ -1690,6 +1700,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !RulesItem.PrefixList.Prefixes.IsNull() && !RulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -1727,6 +1738,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !RulesItem.URLCategoryList.URLCategories.IsNull() && !RulesItem.URLCategoryList.URLCategories.IsUnknown() {
 							var URLCategoriesItems []string
 							diags := RulesItem.URLCategoryList.URLCategories.ElementsAs(ctx, &URLCategoriesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesURLCategoryListMap["url_categories"] = URLCategoriesItems
 							}
@@ -1816,7 +1828,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1835,7 +1848,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2011,7 +2025,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2030,7 +2045,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2187,7 +2203,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2245,7 +2262,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -2315,7 +2333,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2335,7 +2354,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2454,7 +2474,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2511,7 +2532,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2531,7 +2553,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2598,7 +2621,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2792,7 +2816,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2811,7 +2836,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2987,7 +3013,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3006,7 +3033,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3163,7 +3191,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3221,7 +3250,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -3291,7 +3321,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3311,7 +3342,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3430,7 +3462,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3487,7 +3520,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3507,7 +3541,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3574,7 +3609,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3697,6 +3733,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 					if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
 						var Ipv6PrefixesItems []string
 						diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
 						}
@@ -3707,6 +3744,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 					if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
 						var PrefixesItems []string
 						diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DestListItemMap["prefixes"] = PrefixesItems
 						}
@@ -3799,6 +3837,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 					if !DestListItem.Ipv6Prefixes.IsNull() && !DestListItem.Ipv6Prefixes.IsUnknown() {
 						var Ipv6PrefixesItems []string
 						diags := DestListItem.Ipv6Prefixes.ElementsAs(ctx, &Ipv6PrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DestListItemMap["ipv6_prefixes"] = Ipv6PrefixesItems
 						}
@@ -3809,6 +3848,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 					if !DestListItem.Prefixes.IsNull() && !DestListItem.Prefixes.IsUnknown() {
 						var PrefixesItems []string
 						diags := DestListItem.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							DestListItemMap["prefixes"] = PrefixesItems
 						}
@@ -3897,6 +3937,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 		if !data.ProxyLabelSelector.Expressions.IsNull() && !data.ProxyLabelSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.ProxyLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ProxyLabelSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -3927,6 +3968,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if !RulesItem.DstAsnList.AsNumbers.IsNull() && !RulesItem.DstAsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := RulesItem.DstAsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDstAsnListMap["as_numbers"] = AsNumbersItems
 							}
@@ -3964,6 +4006,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if !RulesItem.DstLabelSelector.Expressions.IsNull() && !RulesItem.DstLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.DstLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDstLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -3975,6 +4018,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if !RulesItem.DstPrefixList.Prefixes.IsNull() && !RulesItem.DstPrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.DstPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDstPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -4037,6 +4081,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if !RulesItem.LabelSelector.Expressions.IsNull() && !RulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -4064,6 +4109,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if !RulesItem.PortMatcher.Ports.IsNull() && !RulesItem.PortMatcher.Ports.IsUnknown() {
 							var PortsItems []string
 							diags := RulesItem.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesPortMatcherMap["ports"] = PortsItems
 							}
@@ -4075,6 +4121,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if !RulesItem.PrefixList.Prefixes.IsNull() && !RulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -4112,6 +4159,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if !RulesItem.URLCategoryList.URLCategories.IsNull() && !RulesItem.URLCategoryList.URLCategories.IsUnknown() {
 							var URLCategoriesItems []string
 							diags := RulesItem.URLCategoryList.URLCategories.ElementsAs(ctx, &URLCategoriesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesURLCategoryListMap["url_categories"] = URLCategoriesItems
 							}
@@ -4221,7 +4269,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4240,7 +4289,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4416,7 +4466,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4435,7 +4486,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4592,7 +4644,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4650,7 +4703,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -4720,7 +4774,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4740,7 +4795,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4859,7 +4915,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4916,7 +4973,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4936,7 +4994,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -5003,7 +5062,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

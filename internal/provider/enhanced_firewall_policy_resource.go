@@ -947,6 +947,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 		if !data.AllowedDestinations.Prefix.IsNull() && !data.AllowedDestinations.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.AllowedDestinations.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				AllowedDestinationsMap["prefix"] = PrefixItems
 			}
@@ -958,6 +959,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 		if !data.AllowedSources.Prefix.IsNull() && !data.AllowedSources.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.AllowedSources.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				AllowedSourcesMap["prefix"] = PrefixItems
 			}
@@ -969,6 +971,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 		if !data.DeniedDestinations.Prefix.IsNull() && !data.DeniedDestinations.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.DeniedDestinations.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DeniedDestinationsMap["prefix"] = PrefixItems
 			}
@@ -980,6 +983,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 		if !data.DeniedSources.Prefix.IsNull() && !data.DeniedSources.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.DeniedSources.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DeniedSourcesMap["prefix"] = PrefixItems
 			}
@@ -1035,6 +1039,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.Applications.Applications.IsNull() && !RulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := RulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesApplicationsMap["applications"] = ApplicationsItems
 							}
@@ -1049,6 +1054,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.DestinationAWSVPCIds.VPCID.IsNull() && !RulesItem.DestinationAWSVPCIds.VPCID.IsUnknown() {
 							var VPCIDItems []string
 							diags := RulesItem.DestinationAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDestinationAWSVPCIdsMap["vpc_id"] = VPCIDItems
 							}
@@ -1092,6 +1098,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.DestinationLabelSelector.Expressions.IsNull() && !RulesItem.DestinationLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.DestinationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDestinationLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -1103,6 +1110,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.DestinationPrefixList.Prefixes.IsNull() && !RulesItem.DestinationPrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.DestinationPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDestinationPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -1137,6 +1145,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.LabelMatcher.Keys.IsNull() && !RulesItem.LabelMatcher.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := RulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesLabelMatcherMap["keys"] = KeysItems
 							}
@@ -1164,6 +1173,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.ProtocolPortRange.PortRanges.IsNull() && !RulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := RulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
@@ -1178,6 +1188,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.SourceAWSVPCIds.VPCID.IsNull() && !RulesItem.SourceAWSVPCIds.VPCID.IsUnknown() {
 							var VPCIDItems []string
 							diags := RulesItem.SourceAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesSourceAWSVPCIdsMap["vpc_id"] = VPCIDItems
 							}
@@ -1221,6 +1232,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.SourceLabelSelector.Expressions.IsNull() && !RulesItem.SourceLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.SourceLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesSourceLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -1232,6 +1244,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						if !RulesItem.SourcePrefixList.Prefixes.IsNull() && !RulesItem.SourcePrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.SourcePrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesSourcePrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -1280,7 +1293,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1297,7 +1311,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1314,7 +1329,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1331,7 +1347,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1453,7 +1470,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1482,7 +1500,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1561,7 +1580,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1581,7 +1601,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1651,7 +1672,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1708,7 +1730,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1734,7 +1757,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1813,7 +1837,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1833,7 +1858,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1986,7 +2012,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2003,7 +2030,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2020,7 +2048,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2037,7 +2066,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2159,7 +2189,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2188,7 +2219,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2267,7 +2299,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2287,7 +2320,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2357,7 +2391,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2414,7 +2449,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2440,7 +2476,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2519,7 +2556,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2539,7 +2577,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2645,6 +2684,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 		if !data.AllowedDestinations.Prefix.IsNull() && !data.AllowedDestinations.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.AllowedDestinations.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				AllowedDestinationsMap["prefix"] = PrefixItems
 			}
@@ -2656,6 +2696,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 		if !data.AllowedSources.Prefix.IsNull() && !data.AllowedSources.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.AllowedSources.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				AllowedSourcesMap["prefix"] = PrefixItems
 			}
@@ -2667,6 +2708,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 		if !data.DeniedDestinations.Prefix.IsNull() && !data.DeniedDestinations.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.DeniedDestinations.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DeniedDestinationsMap["prefix"] = PrefixItems
 			}
@@ -2678,6 +2720,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 		if !data.DeniedSources.Prefix.IsNull() && !data.DeniedSources.Prefix.IsUnknown() {
 			var PrefixItems []string
 			diags := data.DeniedSources.Prefix.ElementsAs(ctx, &PrefixItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DeniedSourcesMap["prefix"] = PrefixItems
 			}
@@ -2733,6 +2776,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.Applications.Applications.IsNull() && !RulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := RulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesApplicationsMap["applications"] = ApplicationsItems
 							}
@@ -2747,6 +2791,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.DestinationAWSVPCIds.VPCID.IsNull() && !RulesItem.DestinationAWSVPCIds.VPCID.IsUnknown() {
 							var VPCIDItems []string
 							diags := RulesItem.DestinationAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDestinationAWSVPCIdsMap["vpc_id"] = VPCIDItems
 							}
@@ -2790,6 +2835,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.DestinationLabelSelector.Expressions.IsNull() && !RulesItem.DestinationLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.DestinationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDestinationLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -2801,6 +2847,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.DestinationPrefixList.Prefixes.IsNull() && !RulesItem.DestinationPrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.DestinationPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesDestinationPrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -2835,6 +2882,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.LabelMatcher.Keys.IsNull() && !RulesItem.LabelMatcher.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := RulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesLabelMatcherMap["keys"] = KeysItems
 							}
@@ -2862,6 +2910,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.ProtocolPortRange.PortRanges.IsNull() && !RulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := RulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
@@ -2876,6 +2925,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.SourceAWSVPCIds.VPCID.IsNull() && !RulesItem.SourceAWSVPCIds.VPCID.IsUnknown() {
 							var VPCIDItems []string
 							diags := RulesItem.SourceAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesSourceAWSVPCIdsMap["vpc_id"] = VPCIDItems
 							}
@@ -2919,6 +2969,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.SourceLabelSelector.Expressions.IsNull() && !RulesItem.SourceLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.SourceLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesSourceLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -2930,6 +2981,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						if !RulesItem.SourcePrefixList.Prefixes.IsNull() && !RulesItem.SourcePrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.SourcePrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesSourcePrefixListMap["prefixes"] = PrefixesItems
 							}
@@ -2998,7 +3050,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3015,7 +3068,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3032,7 +3086,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3049,7 +3104,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -3171,7 +3227,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3200,7 +3257,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3279,7 +3337,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3299,7 +3358,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3369,7 +3429,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3426,7 +3487,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3452,7 +3514,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3531,7 +3594,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3551,7 +3615,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

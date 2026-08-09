@@ -1532,6 +1532,7 @@ type GCPVPCSiteResourceModel struct {
 	Annotations              types.Map                                `tfsdk:"annotations"`
 	Description              types.String                             `tfsdk:"description"`
 	Disable                  types.Bool                               `tfsdk:"disable"`
+	GCPLabels                types.Map                                `tfsdk:"gcp_labels"`
 	Labels                   types.Map                                `tfsdk:"labels"`
 	ID                       types.String                             `tfsdk:"id"`
 	Address                  types.String                             `tfsdk:"address"`
@@ -1546,7 +1547,6 @@ type GCPVPCSiteResourceModel struct {
 	DefaultBlockedServices   *GCPVPCSiteEmptyModel                    `tfsdk:"default_blocked_services"`
 	DisableEncryption        *GCPVPCSiteEmptyModel                    `tfsdk:"disable_encryption"`
 	EnableEncryption         *GCPVPCSiteEnableEncryptionModel         `tfsdk:"enable_encryption"`
-	GCPLabels                *GCPVPCSiteEmptyModel                    `tfsdk:"gcp_labels"`
 	IngressEgressGw          *GCPVPCSiteIngressEgressGwModel          `tfsdk:"ingress_egress_gw"`
 	IngressGw                *GCPVPCSiteIngressGwModel                `tfsdk:"ingress_gw"`
 	KubernetesUpgradeDrain   *GCPVPCSiteKubernetesUpgradeDrainModel   `tfsdk:"kubernetes_upgrade_drain"`
@@ -1621,6 +1621,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true will administratively disable the object.",
 				Optional:            true,
+			},
+			"gcp_labels": schema.MapAttribute{
+				MarkdownDescription: "GCP Label is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in GCP console.",
+				Required:            true,
+				ElementType:         types.StringType,
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -1814,9 +1819,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 					},
 				},
-			},
-			"gcp_labels": schema.SingleNestedBlock{
-				MarkdownDescription: "GCP Label is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in GCP console.",
 			},
 			"ingress_egress_gw": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_gw, voltstack_cluster] Configuration parameter for ingress egress gw.",
@@ -3766,8 +3768,13 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["enable_encryption"] = EnableEncryptionMap
 	}
-	if data.GCPLabels != nil {
-		createReq.Spec["gcp_labels"] = map[string]interface{}{}
+	if !data.GCPLabels.IsNull() && !data.GCPLabels.IsUnknown() {
+		var GCPLabelsMap map[string]string
+		diags := data.GCPLabels.ElementsAs(ctx, &GCPLabelsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			createReq.Spec["gcp_labels"] = GCPLabelsMap
+		}
 	}
 	if data.IngressEgressGw != nil {
 		IngressEgressGwMap := make(map[string]interface{})
@@ -3884,6 +3891,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.IngressEgressGw.GCPZoneNames.IsNull() && !data.IngressEgressGw.GCPZoneNames.IsUnknown() {
 			var GCPZoneNamesItems []string
 			diags := data.IngressEgressGw.GCPZoneNames.ElementsAs(ctx, &GCPZoneNamesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				IngressEgressGwMap["gcp_zone_names"] = GCPZoneNamesItems
 			}
@@ -3975,6 +3983,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -4158,6 +4167,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -4324,6 +4334,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.IngressGw.GCPZoneNames.IsNull() && !data.IngressGw.GCPZoneNames.IsUnknown() {
 			var GCPZoneNamesItems []string
 			diags := data.IngressGw.GCPZoneNames.ElementsAs(ctx, &GCPZoneNamesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				IngressGwMap["gcp_zone_names"] = GCPZoneNamesItems
 			}
@@ -4599,6 +4610,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.VoltstackCluster.GCPZoneNames.IsNull() && !data.VoltstackCluster.GCPZoneNames.IsUnknown() {
 			var GCPZoneNamesItems []string
 			diags := data.VoltstackCluster.GCPZoneNames.ElementsAs(ctx, &GCPZoneNamesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				VoltstackClusterMap["gcp_zone_names"] = GCPZoneNamesItems
 			}
@@ -4703,6 +4715,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -5122,8 +5135,26 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp_labels"].(map[string]interface{}); ok && isImport && data.GCPLabels == nil {
-		data.GCPLabels = &GCPVPCSiteEmptyModel{}
+	if v, ok := apiResource.Spec["gcp_labels"].(map[string]interface{}); ok {
+		gcp_labelsMap := make(map[string]string)
+		for mk, mv := range v {
+			if mvs, ok := mv.(string); ok {
+				gcp_labelsMap[mk] = mvs
+			} else {
+				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field gcp_labels, got %T", mk, mv))
+			}
+		}
+		mapVal, diags := types.MapValueFrom(ctx, types.StringType, gcp_labelsMap)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.GCPLabels = mapVal
+		}
+	} else {
+		if !data.GCPLabels.IsNull() && !data.GCPLabels.IsUnknown() {
+			// Preserve configured map to prevent drift on omission
+		} else {
+			data.GCPLabels = types.MapNull(types.StringType)
+		}
 	}
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
@@ -5341,7 +5372,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5518,7 +5550,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5917,7 +5950,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6276,7 +6310,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -6851,7 +6886,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7065,7 +7101,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7781,8 +7818,26 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp_labels"].(map[string]interface{}); ok && isImport && data.GCPLabels == nil {
-		data.GCPLabels = &GCPVPCSiteEmptyModel{}
+	if v, ok := apiResource.Spec["gcp_labels"].(map[string]interface{}); ok {
+		gcp_labelsMap := make(map[string]string)
+		for mk, mv := range v {
+			if mvs, ok := mv.(string); ok {
+				gcp_labelsMap[mk] = mvs
+			} else {
+				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field gcp_labels, got %T", mk, mv))
+			}
+		}
+		mapVal, diags := types.MapValueFrom(ctx, types.StringType, gcp_labelsMap)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.GCPLabels = mapVal
+		}
+	} else {
+		if !data.GCPLabels.IsNull() && !data.GCPLabels.IsUnknown() {
+			// Preserve configured map to prevent drift on omission
+		} else {
+			data.GCPLabels = types.MapNull(types.StringType)
+		}
 	}
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
@@ -8000,7 +8055,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8177,7 +8233,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8576,7 +8633,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8935,7 +8993,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -9510,7 +9569,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -9724,7 +9784,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -10339,8 +10400,13 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["enable_encryption"] = EnableEncryptionMap
 	}
-	if data.GCPLabels != nil {
-		apiResource.Spec["gcp_labels"] = map[string]interface{}{}
+	if !data.GCPLabels.IsNull() && !data.GCPLabels.IsUnknown() {
+		var GCPLabelsMap map[string]string
+		diags := data.GCPLabels.ElementsAs(ctx, &GCPLabelsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			apiResource.Spec["gcp_labels"] = GCPLabelsMap
+		}
 	}
 	if data.IngressEgressGw != nil {
 		IngressEgressGwMap := make(map[string]interface{})
@@ -10457,6 +10523,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.IngressEgressGw.GCPZoneNames.IsNull() && !data.IngressEgressGw.GCPZoneNames.IsUnknown() {
 			var GCPZoneNamesItems []string
 			diags := data.IngressEgressGw.GCPZoneNames.ElementsAs(ctx, &GCPZoneNamesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				IngressEgressGwMap["gcp_zone_names"] = GCPZoneNamesItems
 			}
@@ -10548,6 +10615,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -10731,6 +10799,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -10897,6 +10966,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.IngressGw.GCPZoneNames.IsNull() && !data.IngressGw.GCPZoneNames.IsUnknown() {
 			var GCPZoneNamesItems []string
 			diags := data.IngressGw.GCPZoneNames.ElementsAs(ctx, &GCPZoneNamesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				IngressGwMap["gcp_zone_names"] = GCPZoneNamesItems
 			}
@@ -11172,6 +11242,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.VoltstackCluster.GCPZoneNames.IsNull() && !data.VoltstackCluster.GCPZoneNames.IsUnknown() {
 			var GCPZoneNamesItems []string
 			diags := data.VoltstackCluster.GCPZoneNames.ElementsAs(ctx, &GCPZoneNamesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				VoltstackClusterMap["gcp_zone_names"] = GCPZoneNamesItems
 			}
@@ -11276,6 +11347,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -11715,8 +11787,26 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["gcp_labels"].(map[string]interface{}); ok && isImport && data.GCPLabels == nil {
-		data.GCPLabels = &GCPVPCSiteEmptyModel{}
+	if v, ok := apiResource.Spec["gcp_labels"].(map[string]interface{}); ok {
+		gcp_labelsMap := make(map[string]string)
+		for mk, mv := range v {
+			if mvs, ok := mv.(string); ok {
+				gcp_labelsMap[mk] = mvs
+			} else {
+				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field gcp_labels, got %T", mk, mv))
+			}
+		}
+		mapVal, diags := types.MapValueFrom(ctx, types.StringType, gcp_labelsMap)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.GCPLabels = mapVal
+		}
+	} else {
+		if !data.GCPLabels.IsNull() && !data.GCPLabels.IsUnknown() {
+			// Preserve configured map to prevent drift on omission
+		} else {
+			data.GCPLabels = types.MapNull(types.StringType)
+		}
 	}
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
@@ -11934,7 +12024,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -12111,7 +12202,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12510,7 +12602,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12869,7 +12962,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -13444,7 +13538,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -13658,7 +13753,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)

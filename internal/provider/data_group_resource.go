@@ -48,32 +48,32 @@ type DataGroupEmptyModel struct {
 
 // DataGroupAddressRecordsModel represents address_records block
 type DataGroupAddressRecordsModel struct {
-	Records *DataGroupEmptyModel `tfsdk:"records"`
+	Records types.Map `tfsdk:"records"`
 }
 
 // DataGroupAddressRecordsModelAttrTypes defines the attribute types for DataGroupAddressRecordsModel
 var DataGroupAddressRecordsModelAttrTypes = map[string]attr.Type{
-	"records": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"records": types.MapType{ElemType: types.StringType},
 }
 
 // DataGroupIntegerRecordsModel represents integer_records block
 type DataGroupIntegerRecordsModel struct {
-	Records *DataGroupEmptyModel `tfsdk:"records"`
+	Records types.Map `tfsdk:"records"`
 }
 
 // DataGroupIntegerRecordsModelAttrTypes defines the attribute types for DataGroupIntegerRecordsModel
 var DataGroupIntegerRecordsModelAttrTypes = map[string]attr.Type{
-	"records": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"records": types.MapType{ElemType: types.StringType},
 }
 
 // DataGroupStringRecordsModel represents string_records block
 type DataGroupStringRecordsModel struct {
-	Records *DataGroupEmptyModel `tfsdk:"records"`
+	Records types.Map `tfsdk:"records"`
 }
 
 // DataGroupStringRecordsModelAttrTypes defines the attribute types for DataGroupStringRecordsModel
 var DataGroupStringRecordsModelAttrTypes = map[string]attr.Type{
-	"records": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"records": types.MapType{ElemType: types.StringType},
 }
 
 type DataGroupResourceModel struct {
@@ -153,28 +153,31 @@ func (r *DataGroupResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"address_records": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: address_records, integer_records, string_records] Address Record. Data group with address record List.",
-				Attributes:          map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"records": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"records": schema.MapAttribute{
 						MarkdownDescription: "Address records. Configuration parameter for records",
+						Optional:            true,
+						ElementType:         types.StringType,
 					},
 				},
 			},
 			"integer_records": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for integer records.",
-				Attributes:          map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"records": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"records": schema.MapAttribute{
 						MarkdownDescription: "Integer records. Configuration parameter for records",
+						Optional:            true,
+						ElementType:         types.StringType,
 					},
 				},
 			},
 			"string_records": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for string records.",
-				Attributes:          map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"records": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"records": schema.MapAttribute{
 						MarkdownDescription: "String records. Configuration parameter for records",
+						Optional:            true,
+						ElementType:         types.StringType,
 					},
 				},
 			},
@@ -306,22 +309,37 @@ func (r *DataGroupResource) Create(ctx context.Context, req resource.CreateReque
 	// Marshal spec fields from Terraform state to API struct
 	if data.AddressRecords != nil {
 		AddressRecordsMap := make(map[string]interface{})
-		if data.AddressRecords.Records != nil {
-			AddressRecordsMap["records"] = map[string]interface{}{}
+		if !data.AddressRecords.Records.IsNull() && !data.AddressRecords.Records.IsUnknown() {
+			var RecordsMap map[string]string
+			diags := data.AddressRecords.Records.ElementsAs(ctx, &RecordsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				AddressRecordsMap["records"] = RecordsMap
+			}
 		}
 		createReq.Spec["address_records"] = AddressRecordsMap
 	}
 	if data.IntegerRecords != nil {
 		IntegerRecordsMap := make(map[string]interface{})
-		if data.IntegerRecords.Records != nil {
-			IntegerRecordsMap["records"] = map[string]interface{}{}
+		if !data.IntegerRecords.Records.IsNull() && !data.IntegerRecords.Records.IsUnknown() {
+			var RecordsMap map[string]string
+			diags := data.IntegerRecords.Records.ElementsAs(ctx, &RecordsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				IntegerRecordsMap["records"] = RecordsMap
+			}
 		}
 		createReq.Spec["integer_records"] = IntegerRecordsMap
 	}
 	if data.StringRecords != nil {
 		StringRecordsMap := make(map[string]interface{})
-		if data.StringRecords.Records != nil {
-			StringRecordsMap["records"] = map[string]interface{}{}
+		if !data.StringRecords.Records.IsNull() && !data.StringRecords.Records.IsUnknown() {
+			var RecordsMap map[string]string
+			diags := data.StringRecords.Records.ElementsAs(ctx, &RecordsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				StringRecordsMap["records"] = RecordsMap
+			}
 		}
 		createReq.Spec["string_records"] = StringRecordsMap
 	}
@@ -349,40 +367,70 @@ func (r *DataGroupResource) Create(ctx context.Context, req resource.CreateReque
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
 		data.AddressRecords = &DataGroupAddressRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.AddressRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.AddressRecords != nil && !data.AddressRecords.Records.IsNull() && !data.AddressRecords.Records.IsUnknown() {
 					return data.AddressRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
 		data.IntegerRecords = &DataGroupIntegerRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.IntegerRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.IntegerRecords != nil && !data.IntegerRecords.Records.IsNull() && !data.IntegerRecords.Records.IsUnknown() {
 					return data.IntegerRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
 		data.StringRecords = &DataGroupStringRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.StringRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.StringRecords != nil && !data.StringRecords.Records.IsNull() && !data.StringRecords.Records.IsUnknown() {
 					return data.StringRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
@@ -509,40 +557,70 @@ func (r *DataGroupResource) Read(ctx context.Context, req resource.ReadRequest, 
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
 		data.AddressRecords = &DataGroupAddressRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.AddressRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.AddressRecords != nil && !data.AddressRecords.Records.IsNull() && !data.AddressRecords.Records.IsUnknown() {
 					return data.AddressRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
 		data.IntegerRecords = &DataGroupIntegerRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.IntegerRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.IntegerRecords != nil && !data.IntegerRecords.Records.IsNull() && !data.IntegerRecords.Records.IsUnknown() {
 					return data.IntegerRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
 		data.StringRecords = &DataGroupStringRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.StringRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.StringRecords != nil && !data.StringRecords.Records.IsNull() && !data.StringRecords.Records.IsUnknown() {
 					return data.StringRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
@@ -627,22 +705,37 @@ func (r *DataGroupResource) Update(ctx context.Context, req resource.UpdateReque
 	// Marshal spec fields from Terraform state to API struct
 	if data.AddressRecords != nil {
 		AddressRecordsMap := make(map[string]interface{})
-		if data.AddressRecords.Records != nil {
-			AddressRecordsMap["records"] = map[string]interface{}{}
+		if !data.AddressRecords.Records.IsNull() && !data.AddressRecords.Records.IsUnknown() {
+			var RecordsMap map[string]string
+			diags := data.AddressRecords.Records.ElementsAs(ctx, &RecordsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				AddressRecordsMap["records"] = RecordsMap
+			}
 		}
 		apiResource.Spec["address_records"] = AddressRecordsMap
 	}
 	if data.IntegerRecords != nil {
 		IntegerRecordsMap := make(map[string]interface{})
-		if data.IntegerRecords.Records != nil {
-			IntegerRecordsMap["records"] = map[string]interface{}{}
+		if !data.IntegerRecords.Records.IsNull() && !data.IntegerRecords.Records.IsUnknown() {
+			var RecordsMap map[string]string
+			diags := data.IntegerRecords.Records.ElementsAs(ctx, &RecordsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				IntegerRecordsMap["records"] = RecordsMap
+			}
 		}
 		apiResource.Spec["integer_records"] = IntegerRecordsMap
 	}
 	if data.StringRecords != nil {
 		StringRecordsMap := make(map[string]interface{})
-		if data.StringRecords.Records != nil {
-			StringRecordsMap["records"] = map[string]interface{}{}
+		if !data.StringRecords.Records.IsNull() && !data.StringRecords.Records.IsUnknown() {
+			var RecordsMap map[string]string
+			diags := data.StringRecords.Records.ElementsAs(ctx, &RecordsMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				StringRecordsMap["records"] = RecordsMap
+			}
 		}
 		apiResource.Spec["string_records"] = StringRecordsMap
 	}
@@ -690,40 +783,70 @@ func (r *DataGroupResource) Update(ctx context.Context, req resource.UpdateReque
 	_ = isImport          // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
 		data.AddressRecords = &DataGroupAddressRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.AddressRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.AddressRecords != nil && !data.AddressRecords.Records.IsNull() && !data.AddressRecords.Records.IsUnknown() {
 					return data.AddressRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
 		data.IntegerRecords = &DataGroupIntegerRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.IntegerRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.IntegerRecords != nil && !data.IntegerRecords.Records.IsNull() && !data.IntegerRecords.Records.IsUnknown() {
 					return data.IntegerRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
 		data.StringRecords = &DataGroupStringRecordsModel{
-			Records: func() *DataGroupEmptyModel {
-				if !isImport && data.StringRecords != nil {
+			Records: func() types.Map {
+				if v, ok := blockData["records"].(map[string]interface{}); ok {
+					items := make(map[string]string)
+					for mk, mv := range v {
+						if mvs, ok := mv.(string); ok {
+							items[mk] = mvs
+						} else {
+							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field records, got %T", mk, mv))
+						}
+					}
+					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return mapVal
+				}
+				if data.StringRecords != nil && !data.StringRecords.Records.IsNull() && !data.StringRecords.Records.IsUnknown() {
 					return data.StringRecords.Records
 				}
-				if _, ok := blockData["records"].(map[string]interface{}); ok {
-					return &DataGroupEmptyModel{}
-				}
-				return nil
+				return types.MapNull(types.StringType)
 			}(),
 		}
 	}

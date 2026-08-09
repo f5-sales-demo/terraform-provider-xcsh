@@ -459,7 +459,7 @@ An [`aws_configuration_id_selector`](#selector-de39c3) block (within [`cloudfron
 
 An [`aws_configuration_tag_selector`](#selector-4a72d4) block (within [`cloudfront`](#cloudfront)) supports the following:
 
-<a id="tags-841fd9"></a>&#x2022; [`tags`](#tags-841fd9) - Optional Block<br>List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match
+<a id="tags-841fd9"></a>&#x2022; [`tags`](#tags-841fd9) - Optional Map<br>List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match
 
 #### Cloudfront Js Insertion Rules
 

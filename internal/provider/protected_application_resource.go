@@ -573,12 +573,12 @@ var ProtectedApplicationCloudfrontAWSConfigurationIDSelectorModelAttrTypes = map
 
 // ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel represents aws_configuration_tag_selector block
 type ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel struct {
-	Tags *ProtectedApplicationEmptyModel `tfsdk:"tags"`
+	Tags types.Map `tfsdk:"tags"`
 }
 
 // ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel
 var ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModelAttrTypes = map[string]attr.Type{
-	"tags": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"tags": types.MapType{ElemType: types.StringType},
 }
 
 // ProtectedApplicationCloudfrontJsInsertionRulesModel represents js_insertion_rules block
@@ -1981,10 +1981,11 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"aws_configuration_tag_selector": schema.SingleNestedBlock{
 						MarkdownDescription: "Distribution Tag List. CloudFront distribution tag list.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"tags": schema.SingleNestedBlock{
+						Attributes: map[string]schema.Attribute{
+							"tags": schema.MapAttribute{
 								MarkdownDescription: "List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match .",
+								Optional:            true,
+								ElementType:         types.StringType,
 							},
 						},
 					},
@@ -3134,6 +3135,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 					if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
 						var HTTPMethodsItems []string
 						diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
 						}
@@ -3354,6 +3356,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 			if !data.Cloudfront.AWSConfigurationIDSelector.Ids.IsNull() && !data.Cloudfront.AWSConfigurationIDSelector.Ids.IsUnknown() {
 				var IdsItems []string
 				diags := data.Cloudfront.AWSConfigurationIDSelector.Ids.ElementsAs(ctx, &IdsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					CloudfrontAWSConfigurationIDSelectorMap["ids"] = IdsItems
 				}
@@ -3362,8 +3365,13 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 		}
 		if data.Cloudfront.AWSConfigurationTagSelector != nil {
 			CloudfrontAWSConfigurationTagSelectorMap := make(map[string]interface{})
-			if data.Cloudfront.AWSConfigurationTagSelector.Tags != nil {
-				CloudfrontAWSConfigurationTagSelectorMap["tags"] = map[string]interface{}{}
+			if !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsNull() && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsUnknown() {
+				var TagsMap map[string]string
+				diags := data.Cloudfront.AWSConfigurationTagSelector.Tags.ElementsAs(ctx, &TagsMap, false)
+				resp.Diagnostics.Append(diags...)
+				if !diags.HasError() {
+					CloudfrontAWSConfigurationTagSelectorMap["tags"] = TagsMap
+				}
 			}
 			CloudfrontMap["aws_configuration_tag_selector"] = CloudfrontAWSConfigurationTagSelectorMap
 		}
@@ -3597,6 +3605,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
 													var RegexValuesItems []string
 													diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														FailureConditionsItemMap["regex_values"] = RegexValuesItems
 													}
@@ -3623,6 +3632,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
 													var RegexValuesItems []string
 													diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														SuccessConditionsItemMap["regex_values"] = RegexValuesItems
 													}
@@ -3744,6 +3754,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 					if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
 						var HTTPMethodsItems []string
 						diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
 						}
@@ -4372,7 +4383,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -4842,7 +4854,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -4857,14 +4870,24 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: func() *ProtectedApplicationEmptyModel {
-							if !isImport && data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
+						Tags: func() types.Map {
+							if v, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsNull() && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsUnknown() {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
-							if _, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
-								return &ProtectedApplicationEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 					}
 				}
@@ -5355,7 +5378,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -5402,7 +5426,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -5729,7 +5754,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -6696,7 +6722,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -7166,7 +7193,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -7181,14 +7209,24 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: func() *ProtectedApplicationEmptyModel {
-							if !isImport && data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
+						Tags: func() types.Map {
+							if v, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsNull() && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsUnknown() {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
-							if _, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
-								return &ProtectedApplicationEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 					}
 				}
@@ -7679,7 +7717,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -7726,7 +7765,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -8053,7 +8093,8 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -8787,6 +8828,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 					if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
 						var HTTPMethodsItems []string
 						diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
 						}
@@ -9007,6 +9049,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 			if !data.Cloudfront.AWSConfigurationIDSelector.Ids.IsNull() && !data.Cloudfront.AWSConfigurationIDSelector.Ids.IsUnknown() {
 				var IdsItems []string
 				diags := data.Cloudfront.AWSConfigurationIDSelector.Ids.ElementsAs(ctx, &IdsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					CloudfrontAWSConfigurationIDSelectorMap["ids"] = IdsItems
 				}
@@ -9015,8 +9058,13 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 		}
 		if data.Cloudfront.AWSConfigurationTagSelector != nil {
 			CloudfrontAWSConfigurationTagSelectorMap := make(map[string]interface{})
-			if data.Cloudfront.AWSConfigurationTagSelector.Tags != nil {
-				CloudfrontAWSConfigurationTagSelectorMap["tags"] = map[string]interface{}{}
+			if !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsNull() && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsUnknown() {
+				var TagsMap map[string]string
+				diags := data.Cloudfront.AWSConfigurationTagSelector.Tags.ElementsAs(ctx, &TagsMap, false)
+				resp.Diagnostics.Append(diags...)
+				if !diags.HasError() {
+					CloudfrontAWSConfigurationTagSelectorMap["tags"] = TagsMap
+				}
 			}
 			CloudfrontMap["aws_configuration_tag_selector"] = CloudfrontAWSConfigurationTagSelectorMap
 		}
@@ -9250,6 +9298,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												if !FailureConditionsItem.RegexValues.IsNull() && !FailureConditionsItem.RegexValues.IsUnknown() {
 													var RegexValuesItems []string
 													diags := FailureConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														FailureConditionsItemMap["regex_values"] = RegexValuesItems
 													}
@@ -9276,6 +9325,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												if !SuccessConditionsItem.RegexValues.IsNull() && !SuccessConditionsItem.RegexValues.IsUnknown() {
 													var RegexValuesItems []string
 													diags := SuccessConditionsItem.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														SuccessConditionsItemMap["regex_values"] = RegexValuesItems
 													}
@@ -9397,6 +9447,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 					if !ProtectedEndpointsItem.HTTPMethods.IsNull() && !ProtectedEndpointsItem.HTTPMethods.IsUnknown() {
 						var HTTPMethodsItems []string
 						diags := ProtectedEndpointsItem.HTTPMethods.ElementsAs(ctx, &HTTPMethodsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ProtectedEndpointsItemMap["http_methods"] = HTTPMethodsItems
 						}
@@ -10045,7 +10096,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -10515,7 +10567,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -10530,14 +10583,24 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: func() *ProtectedApplicationEmptyModel {
-							if !isImport && data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
+						Tags: func() types.Map {
+							if v, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
+								items := make(map[string]string)
+								for mk, mv := range v {
+									if mvs, ok := mv.(string); ok {
+										items[mk] = mvs
+									} else {
+										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
+									}
+								}
+								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return mapVal
+							}
+							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsNull() && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsUnknown() {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
-							if _, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
-								return &ProtectedApplicationEmptyModel{}
-							}
-							return nil
+							return types.MapNull(types.StringType)
 						}(),
 					}
 				}
@@ -11028,7 +11091,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -11075,7 +11139,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -11402,7 +11467,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)

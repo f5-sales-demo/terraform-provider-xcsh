@@ -267,6 +267,7 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 	if !data.SidPrefixes.IsNull() && !data.SidPrefixes.IsUnknown() {
 		var SidPrefixesItems []string
 		diags := data.SidPrefixes.ElementsAs(ctx, &SidPrefixesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["sid_prefixes"] = SidPrefixesItems
 		}
@@ -565,6 +566,7 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 	if !data.SidPrefixes.IsNull() && !data.SidPrefixes.IsUnknown() {
 		var SidPrefixesItems []string
 		diags := data.SidPrefixes.ElementsAs(ctx, &SidPrefixesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["sid_prefixes"] = SidPrefixesItems
 		}

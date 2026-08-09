@@ -655,6 +655,7 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 				if !WAFExclusionRulesItem.Methods.IsNull() && !WAFExclusionRulesItem.Methods.IsUnknown() {
 					var MethodsItems []string
 					diags := WAFExclusionRulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						WAFExclusionRulesItemMap["methods"] = MethodsItems
 					}
@@ -922,7 +923,8 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -1310,7 +1312,8 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -1551,6 +1554,7 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 				if !WAFExclusionRulesItem.Methods.IsNull() && !WAFExclusionRulesItem.Methods.IsUnknown() {
 					var MethodsItems []string
 					diags := WAFExclusionRulesItem.Methods.ElementsAs(ctx, &MethodsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						WAFExclusionRulesItemMap["methods"] = MethodsItems
 					}
@@ -1838,7 +1842,8 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)

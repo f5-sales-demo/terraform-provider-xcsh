@@ -838,6 +838,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 											if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
 												var StaticRoutesItems []string
 												diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													RouteTablesItemMap["static_routes"] = StaticRoutesItems
 												}
@@ -859,6 +860,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 									if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 										var RouteTableIDItems []string
 										diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 										}
@@ -928,6 +930,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 										if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
 											var StaticRoutesItems []string
 											diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												RouteTablesItemMap["static_routes"] = StaticRoutesItems
 											}
@@ -949,6 +952,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 								if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 									var RouteTableIDItems []string
 									diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										AzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
@@ -1119,7 +1123,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -1162,7 +1167,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -1295,7 +1301,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -1338,7 +1345,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -1644,7 +1652,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -1687,7 +1696,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -1820,7 +1830,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -1863,7 +1874,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -2077,6 +2089,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 											if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
 												var StaticRoutesItems []string
 												diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+												resp.Diagnostics.Append(diags...)
 												if !diags.HasError() {
 													RouteTablesItemMap["static_routes"] = StaticRoutesItems
 												}
@@ -2098,6 +2111,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 									if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 										var RouteTableIDItems []string
 										diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 										}
@@ -2167,6 +2181,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 										if !RouteTablesItem.StaticRoutes.IsNull() && !RouteTablesItem.StaticRoutes.IsUnknown() {
 											var StaticRoutesItems []string
 											diags := RouteTablesItem.StaticRoutes.ElementsAs(ctx, &StaticRoutesItems, false)
+											resp.Diagnostics.Append(diags...)
 											if !diags.HasError() {
 												RouteTablesItemMap["static_routes"] = StaticRoutesItems
 											}
@@ -2188,6 +2203,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 								if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 									var RouteTableIDItems []string
 									diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										AzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
@@ -2378,7 +2394,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 																										items = append(items, s)
 																									}
 																								}
-																								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																								resp.Diagnostics.Append(diags...)
 																								return listVal
 																							}
 																							return types.ListNull(types.StringType)
@@ -2421,7 +2438,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 																								items = append(items, s)
 																							}
 																						}
-																						listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
 																						return listVal
 																					}
 																					return types.ListNull(types.StringType)
@@ -2554,7 +2572,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 																							items = append(items, s)
 																						}
 																					}
-																					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
 																					return listVal
 																				}
 																				return types.ListNull(types.StringType)
@@ -2597,7 +2616,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)

@@ -283,6 +283,7 @@ func (r *GeoLocationSetResource) Create(ctx context.Context, req resource.Create
 		if !data.CustomGeoLocationSelector.Expressions.IsNull() && !data.CustomGeoLocationSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.CustomGeoLocationSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CustomGeoLocationSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -324,7 +325,8 @@ func (r *GeoLocationSetResource) Create(ctx context.Context, req resource.Create
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -465,7 +467,8 @@ func (r *GeoLocationSetResource) Read(ctx context.Context, req resource.ReadRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -559,6 +562,7 @@ func (r *GeoLocationSetResource) Update(ctx context.Context, req resource.Update
 		if !data.CustomGeoLocationSelector.Expressions.IsNull() && !data.CustomGeoLocationSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.CustomGeoLocationSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CustomGeoLocationSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -620,7 +624,8 @@ func (r *GeoLocationSetResource) Update(ctx context.Context, req resource.Update
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
