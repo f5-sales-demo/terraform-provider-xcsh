@@ -452,7 +452,7 @@ var GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModelAttrTypes = m
 // GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                               `tfsdk:"attrs"`
-	Labels  types.Map                                                                                `tfsdk:"labels"`
+	Labels  *GCPVPCSiteEmptyModel                                                                    `tfsdk:"labels"`
 	Nexthop *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                               `tfsdk:"subnets"`
 }
@@ -460,7 +460,7 @@ type GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRoute
 // GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -658,7 +658,7 @@ var GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModelAttrTypes = 
 // GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                                `tfsdk:"attrs"`
-	Labels  types.Map                                                                                 `tfsdk:"labels"`
+	Labels  *GCPVPCSiteEmptyModel                                                                     `tfsdk:"labels"`
 	Nexthop *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                                `tfsdk:"subnets"`
 }
@@ -666,7 +666,7 @@ type GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRout
 // GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -1320,7 +1320,7 @@ var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModelAttrTypes =
 // GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                                 `tfsdk:"attrs"`
-	Labels  types.Map                                                                                  `tfsdk:"labels"`
+	Labels  *GCPVPCSiteEmptyModel                                                                      `tfsdk:"labels"`
 	Nexthop *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                                 `tfsdk:"subnets"`
 }
@@ -1328,7 +1328,7 @@ type GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRou
 // GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -2166,13 +2166,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -2419,13 +2417,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -3252,13 +3248,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -3994,13 +3988,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -4183,13 +4172,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -4736,13 +4720,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -5557,12 +5536,15 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -5954,12 +5936,15 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -7102,12 +7087,15 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -8211,12 +8199,15 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -8608,12 +8599,15 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -9756,12 +9750,15 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -10583,13 +10580,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -10772,13 +10764,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -11325,13 +11312,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -12166,12 +12148,15 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -12563,12 +12548,15 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -13711,12 +13699,15 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *GCPVPCSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &GCPVPCSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{

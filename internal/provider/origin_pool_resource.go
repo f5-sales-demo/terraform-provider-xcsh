@@ -54,11 +54,11 @@ type OriginPoolEmptyModel struct {
 
 // OriginPoolOriginServersModel represents origin_servers block
 type OriginPoolOriginServersModel struct {
-	Labels               types.Map                                         `tfsdk:"labels"`
 	CbipService          *OriginPoolOriginServersCbipServiceModel          `tfsdk:"cbip_service"`
 	ConsulService        *OriginPoolOriginServersConsulServiceModel        `tfsdk:"consul_service"`
 	CustomEndpointObject *OriginPoolOriginServersCustomEndpointObjectModel `tfsdk:"custom_endpoint_object"`
 	K8SService           *OriginPoolOriginServersK8SServiceModel           `tfsdk:"k8s_service"`
+	Labels               *OriginPoolEmptyModel                             `tfsdk:"labels"`
 	PrivateIP            *OriginPoolOriginServersPrivateIPModel            `tfsdk:"private_ip"`
 	PrivateName          *OriginPoolOriginServersPrivateNameModel          `tfsdk:"private_name"`
 	PublicIP             *OriginPoolOriginServersPublicIPModel             `tfsdk:"public_ip"`
@@ -69,11 +69,11 @@ type OriginPoolOriginServersModel struct {
 
 // OriginPoolOriginServersModelAttrTypes defines the attribute types for OriginPoolOriginServersModel
 var OriginPoolOriginServersModelAttrTypes = map[string]attr.Type{
-	"labels":                 types.MapType{ElemType: types.StringType},
 	"cbip_service":           types.ObjectType{AttrTypes: OriginPoolOriginServersCbipServiceModelAttrTypes},
 	"consul_service":         types.ObjectType{AttrTypes: OriginPoolOriginServersConsulServiceModelAttrTypes},
 	"custom_endpoint_object": types.ObjectType{AttrTypes: OriginPoolOriginServersCustomEndpointObjectModelAttrTypes},
 	"k8s_service":            types.ObjectType{AttrTypes: OriginPoolOriginServersK8SServiceModelAttrTypes},
+	"labels":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"private_ip":             types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateIPModelAttrTypes},
 	"private_name":           types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateNameModelAttrTypes},
 	"public_ip":              types.ObjectType{AttrTypes: OriginPoolOriginServersPublicIPModelAttrTypes},
@@ -1046,13 +1046,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"origin_servers": schema.ListNestedBlock{
 				MarkdownDescription: "List of origin servers in this pool .",
 				NestedObject: schema.NestedBlockObject{
-					Attributes: map[string]schema.Attribute{
-						"labels": schema.MapAttribute{
-							MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
-							Optional:            true,
-							ElementType:         types.StringType,
-						},
-					},
+					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
 						"cbip_service": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with Classic BIG-IP Service (Virtual Server).",
@@ -1318,6 +1312,9 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									MarkdownDescription: "Configuration parameter for vk8s networks.",
 								},
 							},
+						},
+						"labels": schema.SingleNestedBlock{
+							MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
 						},
 						"private_ip": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with private or public IP address and site information.",
@@ -2543,13 +2540,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
 				}
-				if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
-					var LabelsMap map[string]string
-					diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						OriginServersItemMap["labels"] = LabelsMap
-					}
+				if OriginServersItem.Labels != nil {
+					OriginServersItemMap["labels"] = map[string]interface{}{}
 				}
 				if OriginServersItem.PrivateIP != nil {
 					OriginServersPrivateIPMap := make(map[string]interface{})
@@ -3496,12 +3488,17 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						return nil
 					}(),
-					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
-						if len(existingOriginServersItems) > listIdx {
+					Labels: func() *OriginPoolEmptyModel {
+						if !isImport && len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						return types.MapNull(types.StringType)
-					}(), "labels", &resp.Diagnostics),
+						if !isImport {
+							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+								return &OriginPoolEmptyModel{}
+							}
+						}
+						return nil
+					}(),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -5278,12 +5275,17 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 						}
 						return nil
 					}(),
-					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
-						if len(existingOriginServersItems) > listIdx {
+					Labels: func() *OriginPoolEmptyModel {
+						if !isImport && len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						return types.MapNull(types.StringType)
-					}(), "labels", &resp.Diagnostics),
+						if !isImport {
+							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+								return &OriginPoolEmptyModel{}
+							}
+						}
+						return nil
+					}(),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -6846,13 +6848,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
 				}
-				if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
-					var LabelsMap map[string]string
-					diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						OriginServersItemMap["labels"] = LabelsMap
-					}
+				if OriginServersItem.Labels != nil {
+					OriginServersItemMap["labels"] = map[string]interface{}{}
 				}
 				if OriginServersItem.PrivateIP != nil {
 					OriginServersPrivateIPMap := make(map[string]interface{})
@@ -7847,12 +7844,17 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						return nil
 					}(),
-					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
-						if len(existingOriginServersItems) > listIdx {
+					Labels: func() *OriginPoolEmptyModel {
+						if !isImport && len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						return types.MapNull(types.StringType)
-					}(), "labels", &resp.Diagnostics),
+						if !isImport {
+							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+								return &OriginPoolEmptyModel{}
+							}
+						}
+						return nil
+					}(),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{

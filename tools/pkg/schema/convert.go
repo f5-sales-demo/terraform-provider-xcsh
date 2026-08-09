@@ -191,19 +191,6 @@ func hasStringMapRules(schema openapi.Schema) bool {
 	return false
 }
 
-// isMapFieldNameOverride returns true if the name matches a whitelisted string map attribute.
-func isMapFieldNameOverride(name string) bool {
-	name = strings.ToLower(name)
-	switch name {
-	case "labels", "annotations", "fixed_ip_map", "fixed_ipv6_map", "interface_ip_map", "dns_zone_ip_map", "labels_map", "metadata_labels":
-		return true
-	}
-	if strings.HasSuffix(name, "_map") || strings.HasSuffix(name, "_labels") {
-		return true
-	}
-	return false
-}
-
 // isStrictStringMap checks if a schema property strictly represents a string-valued map.
 // It returns (true, "") if it is a valid string map.
 // If it is a map but has an unsupported element type, it returns (false, "unsupported map element type ...").
@@ -214,7 +201,7 @@ func isStrictStringMap(schema openapi.Schema, spec *openapi.Spec, name string, f
 	}
 
 	if schema.AdditionalProperties == nil {
-		if hasStringMapRules(schema) || isMapFieldNameOverride(name) {
+		if hasStringMapRules(schema) {
 			return true, ""
 		}
 		return false, ""
@@ -225,7 +212,7 @@ func isStrictStringMap(schema openapi.Schema, spec *openapi.Spec, name string, f
 		if !apBool {
 			return false, ""
 		}
-		if hasStringMapRules(schema) || isMapFieldNameOverride(name) {
+		if hasStringMapRules(schema) {
 			return true, ""
 		}
 		return false, ""
@@ -239,7 +226,7 @@ func isStrictStringMap(schema openapi.Schema, spec *openapi.Spec, name string, f
 
 	// If additionalProperties is an empty map {}
 	if len(apMap) == 0 {
-		if hasStringMapRules(schema) || isMapFieldNameOverride(name) {
+		if hasStringMapRules(schema) {
 			return true, ""
 		}
 		return false, ""
@@ -263,7 +250,7 @@ func isStrictStringMap(schema openapi.Schema, spec *openapi.Spec, name string, f
 		return false, fmt.Sprintf("unsupported map element type %q (resolved from %s) for attribute %s, only string maps are supported", resolved.Type, ref, fieldPath)
 	}
 
-	if hasStringMapRules(schema) || isMapFieldNameOverride(name) {
+	if hasStringMapRules(schema) {
 		return true, ""
 	}
 

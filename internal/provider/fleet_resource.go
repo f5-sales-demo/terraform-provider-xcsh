@@ -1390,7 +1390,7 @@ var FleetStorageStaticRoutesModelAttrTypes = map[string]attr.Type{
 // FleetStorageStaticRoutesStorageRoutesModel represents storage_routes block
 type FleetStorageStaticRoutesStorageRoutesModel struct {
 	Attrs   types.List                                         `tfsdk:"attrs"`
-	Labels  types.Map                                          `tfsdk:"labels"`
+	Labels  *FleetEmptyModel                                   `tfsdk:"labels"`
 	Nexthop *FleetStorageStaticRoutesStorageRoutesNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                         `tfsdk:"subnets"`
 }
@@ -1398,7 +1398,7 @@ type FleetStorageStaticRoutesStorageRoutesModel struct {
 // FleetStorageStaticRoutesStorageRoutesModelAttrTypes defines the attribute types for FleetStorageStaticRoutesStorageRoutesModel
 var FleetStorageStaticRoutesStorageRoutesModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes}},
 }
@@ -3729,13 +3729,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										listvalidator.SizeAtMost(4),
 									},
 								},
-								"labels": schema.MapAttribute{
-									MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-									Optional:            true,
-									ElementType:         types.StringType,
-								},
 							},
 							Blocks: map[string]schema.Block{
+								"labels": schema.SingleNestedBlock{
+									MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+								},
 								"nexthop": schema.SingleNestedBlock{
 									MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 									Attributes: map[string]schema.Attribute{
@@ -5436,13 +5434,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							StorageRoutesItemMap["attrs"] = AttrsItems
 						}
 					}
-					if !StorageRoutesItem.Labels.IsNull() && !StorageRoutesItem.Labels.IsUnknown() {
-						var LabelsMap map[string]string
-						diags := StorageRoutesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							StorageRoutesItemMap["labels"] = LabelsMap
-						}
+					if StorageRoutesItem.Labels != nil {
+						StorageRoutesItemMap["labels"] = map[string]interface{}{}
 					}
 					if StorageRoutesItem.Nexthop != nil {
 						StorageStaticRoutesStorageRoutesNexthopMap := make(map[string]interface{})
@@ -8368,12 +8361,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								Labels: UnmarshalStringMap(ctx, StorageRoutesItemMap["labels"], func() types.Map {
-									if len(StorageRoutesExisting) > StorageRoutesIdx {
+								Labels: func() *FleetEmptyModel {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
 										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
-									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
+										return &FleetEmptyModel{}
+									}
+									return nil
+								}(),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
@@ -11502,12 +11498,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								Labels: UnmarshalStringMap(ctx, StorageRoutesItemMap["labels"], func() types.Map {
-									if len(StorageRoutesExisting) > StorageRoutesIdx {
+								Labels: func() *FleetEmptyModel {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
 										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
-									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
+										return &FleetEmptyModel{}
+									}
+									return nil
+								}(),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
@@ -13217,13 +13216,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							StorageRoutesItemMap["attrs"] = AttrsItems
 						}
 					}
-					if !StorageRoutesItem.Labels.IsNull() && !StorageRoutesItem.Labels.IsUnknown() {
-						var LabelsMap map[string]string
-						diags := StorageRoutesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							StorageRoutesItemMap["labels"] = LabelsMap
-						}
+					if StorageRoutesItem.Labels != nil {
+						StorageRoutesItemMap["labels"] = map[string]interface{}{}
 					}
 					if StorageRoutesItem.Nexthop != nil {
 						StorageStaticRoutesStorageRoutesNexthopMap := make(map[string]interface{})
@@ -16169,12 +16163,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								Labels: UnmarshalStringMap(ctx, StorageRoutesItemMap["labels"], func() types.Map {
-									if len(StorageRoutesExisting) > StorageRoutesIdx {
+								Labels: func() *FleetEmptyModel {
+									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
 										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
-									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
+										return &FleetEmptyModel{}
+									}
+									return nil
+								}(),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{

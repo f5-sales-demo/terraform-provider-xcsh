@@ -699,16 +699,16 @@ var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpres
 
 // AzureVNETSiteIngressEgressGwHubSpokeVnetsModel represents spoke_vnets block
 type AzureVNETSiteIngressEgressGwHubSpokeVnetsModel struct {
-	Labels types.Map                                           `tfsdk:"labels"`
 	Auto   *AzureVNETSiteEmptyModel                            `tfsdk:"auto"`
+	Labels *AzureVNETSiteEmptyModel                            `tfsdk:"labels"`
 	Manual *AzureVNETSiteEmptyModel                            `tfsdk:"manual"`
 	VNET   *AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel `tfsdk:"vnet"`
 }
 
 // AzureVNETSiteIngressEgressGwHubSpokeVnetsModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubSpokeVnetsModel
 var AzureVNETSiteIngressEgressGwHubSpokeVnetsModelAttrTypes = map[string]attr.Type{
-	"labels": types.MapType{ElemType: types.StringType},
 	"auto":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"labels": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"vnet":   types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModelAttrTypes},
 }
@@ -754,7 +754,7 @@ var AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListModelAttrTypes 
 // AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                                  `tfsdk:"attrs"`
-	Labels  types.Map                                                                                   `tfsdk:"labels"`
+	Labels  *AzureVNETSiteEmptyModel                                                                    `tfsdk:"labels"`
 	Nexthop *AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                                  `tfsdk:"subnets"`
 }
@@ -762,7 +762,7 @@ type AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRo
 // AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -892,7 +892,7 @@ var AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModelAttrTypes
 // AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                                   `tfsdk:"attrs"`
-	Labels  types.Map                                                                                    `tfsdk:"labels"`
+	Labels  *AzureVNETSiteEmptyModel                                                                     `tfsdk:"labels"`
 	Nexthop *AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                                   `tfsdk:"subnets"`
 }
@@ -900,7 +900,7 @@ type AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticR
 // AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -1487,16 +1487,16 @@ var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpr
 
 // AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel represents spoke_vnets block
 type AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel struct {
-	Labels types.Map                                             `tfsdk:"labels"`
 	Auto   *AzureVNETSiteEmptyModel                              `tfsdk:"auto"`
+	Labels *AzureVNETSiteEmptyModel                              `tfsdk:"labels"`
 	Manual *AzureVNETSiteEmptyModel                              `tfsdk:"manual"`
 	VNET   *AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel `tfsdk:"vnet"`
 }
 
 // AzureVNETSiteIngressEgressGwArHubSpokeVnetsModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel
 var AzureVNETSiteIngressEgressGwArHubSpokeVnetsModelAttrTypes = map[string]attr.Type{
-	"labels": types.MapType{ElemType: types.StringType},
 	"auto":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"labels": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"vnet":   types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModelAttrTypes},
 }
@@ -1542,7 +1542,7 @@ var AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListModelAttrType
 // AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                                    `tfsdk:"attrs"`
-	Labels  types.Map                                                                                     `tfsdk:"labels"`
+	Labels  *AzureVNETSiteEmptyModel                                                                      `tfsdk:"labels"`
 	Nexthop *AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                                    `tfsdk:"subnets"`
 }
@@ -1550,7 +1550,7 @@ type AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStatic
 // AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -1770,7 +1770,7 @@ var AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListModelAttrTyp
 // AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                                     `tfsdk:"attrs"`
-	Labels  types.Map                                                                                      `tfsdk:"labels"`
+	Labels  *AzureVNETSiteEmptyModel                                                                       `tfsdk:"labels"`
 	Nexthop *AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                                     `tfsdk:"subnets"`
 }
@@ -1778,7 +1778,7 @@ type AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStati
 // AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -2572,7 +2572,7 @@ var AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModelAttrType
 // AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                                    `tfsdk:"attrs"`
-	Labels  types.Map                                                                                     `tfsdk:"labels"`
+	Labels  *AzureVNETSiteEmptyModel                                                                      `tfsdk:"labels"`
 	Nexthop *AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                                    `tfsdk:"subnets"`
 }
@@ -2580,7 +2580,7 @@ type AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStatic
 // AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -3016,7 +3016,7 @@ var AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListModelAttrTy
 // AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                                      `tfsdk:"attrs"`
-	Labels  types.Map                                                                                       `tfsdk:"labels"`
+	Labels  *AzureVNETSiteEmptyModel                                                                        `tfsdk:"labels"`
 	Nexthop *AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                                      `tfsdk:"subnets"`
 }
@@ -3024,7 +3024,7 @@ type AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStat
 // AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -4118,16 +4118,13 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"spoke_vnets": schema.ListNestedBlock{
 								MarkdownDescription: "Spoke VNet Peering (Legacy). Spoke VNet Peering.",
 								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{
-										"labels": schema.MapAttribute{
-											MarkdownDescription: "Add Labels for each of the VNets peered with transit VNet, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace.",
-											Optional:            true,
-											ElementType:         types.StringType,
-										},
-									},
+									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"auto": schema.SingleNestedBlock{
 											MarkdownDescription: "Enable this option",
+										},
+										"labels": schema.SingleNestedBlock{
+											MarkdownDescription: "Add Labels for each of the VNets peered with transit VNet, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace.",
 										},
 										"manual": schema.SingleNestedBlock{
 											MarkdownDescription: "Enable this option",
@@ -4189,13 +4186,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -4378,13 +4373,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -5072,16 +5065,13 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"spoke_vnets": schema.ListNestedBlock{
 								MarkdownDescription: "Spoke VNet Peering (Legacy). Spoke VNet Peering.",
 								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{
-										"labels": schema.MapAttribute{
-											MarkdownDescription: "Add Labels for each of the VNets peered with transit VNet, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace.",
-											Optional:            true,
-											ElementType:         types.StringType,
-										},
-									},
+									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"auto": schema.SingleNestedBlock{
 											MarkdownDescription: "Enable this option",
+										},
+										"labels": schema.SingleNestedBlock{
+											MarkdownDescription: "Add Labels for each of the VNets peered with transit VNet, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace.",
 										},
 										"manual": schema.SingleNestedBlock{
 											MarkdownDescription: "Enable this option",
@@ -5143,13 +5133,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -5435,13 +5423,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -6404,13 +6390,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -6977,13 +6961,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -7854,13 +7836,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if SpokeVnetsItem.Auto != nil {
 							SpokeVnetsItemMap["auto"] = map[string]interface{}{}
 						}
-						if !SpokeVnetsItem.Labels.IsNull() && !SpokeVnetsItem.Labels.IsUnknown() {
-							var LabelsMap map[string]string
-							diags := SpokeVnetsItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								SpokeVnetsItemMap["labels"] = LabelsMap
-							}
+						if SpokeVnetsItem.Labels != nil {
+							SpokeVnetsItemMap["labels"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.Manual != nil {
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
@@ -7908,13 +7885,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -8055,13 +8027,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -8531,13 +8498,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if SpokeVnetsItem.Auto != nil {
 							SpokeVnetsItemMap["auto"] = map[string]interface{}{}
 						}
-						if !SpokeVnetsItem.Labels.IsNull() && !SpokeVnetsItem.Labels.IsUnknown() {
-							var LabelsMap map[string]string
-							diags := SpokeVnetsItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								SpokeVnetsItemMap["labels"] = LabelsMap
-							}
+						if SpokeVnetsItem.Labels != nil {
+							SpokeVnetsItemMap["labels"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.Manual != nil {
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
@@ -8585,13 +8547,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -8793,13 +8750,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -9443,13 +9395,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -9831,13 +9778,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -11091,12 +11033,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, SpokeVnetsItemMap["labels"], func() types.Map {
-												if len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Labels: func() *AzureVNETSiteEmptyModel {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
+													return &AzureVNETSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
@@ -11189,12 +11134,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -11487,12 +11435,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -12494,12 +12445,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, SpokeVnetsItemMap["labels"], func() types.Map {
-												if len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Labels: func() *AzureVNETSiteEmptyModel {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
+													return &AzureVNETSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
@@ -12592,12 +12546,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -13041,12 +12998,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -14436,12 +14396,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -15221,12 +15184,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -16713,12 +16679,15 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, SpokeVnetsItemMap["labels"], func() types.Map {
-												if len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Labels: func() *AzureVNETSiteEmptyModel {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
+													return &AzureVNETSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
@@ -16811,12 +16780,15 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -17109,12 +17081,15 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -18116,12 +18091,15 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, SpokeVnetsItemMap["labels"], func() types.Map {
-												if len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Labels: func() *AzureVNETSiteEmptyModel {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
+													return &AzureVNETSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
@@ -18214,12 +18192,15 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -18663,12 +18644,15 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -20058,12 +20042,15 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -20843,12 +20830,15 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -21780,13 +21770,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if SpokeVnetsItem.Auto != nil {
 							SpokeVnetsItemMap["auto"] = map[string]interface{}{}
 						}
-						if !SpokeVnetsItem.Labels.IsNull() && !SpokeVnetsItem.Labels.IsUnknown() {
-							var LabelsMap map[string]string
-							diags := SpokeVnetsItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								SpokeVnetsItemMap["labels"] = LabelsMap
-							}
+						if SpokeVnetsItem.Labels != nil {
+							SpokeVnetsItemMap["labels"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.Manual != nil {
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
@@ -21834,13 +21819,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -21981,13 +21961,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -22457,13 +22432,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if SpokeVnetsItem.Auto != nil {
 							SpokeVnetsItemMap["auto"] = map[string]interface{}{}
 						}
-						if !SpokeVnetsItem.Labels.IsNull() && !SpokeVnetsItem.Labels.IsUnknown() {
-							var LabelsMap map[string]string
-							diags := SpokeVnetsItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								SpokeVnetsItemMap["labels"] = LabelsMap
-							}
+						if SpokeVnetsItem.Labels != nil {
+							SpokeVnetsItemMap["labels"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.Manual != nil {
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
@@ -22511,13 +22481,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -22719,13 +22684,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -23369,13 +23329,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -23757,13 +23712,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -25079,12 +25029,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, SpokeVnetsItemMap["labels"], func() types.Map {
-												if len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Labels: func() *AzureVNETSiteEmptyModel {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
+													return &AzureVNETSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
@@ -25177,12 +25130,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -25475,12 +25431,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -26482,12 +26441,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, SpokeVnetsItemMap["labels"], func() types.Map {
-												if len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Labels: func() *AzureVNETSiteEmptyModel {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
+													return &AzureVNETSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
@@ -26580,12 +26542,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -27029,12 +26994,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -28424,12 +28392,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -29209,12 +29180,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AzureVNETSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AzureVNETSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{

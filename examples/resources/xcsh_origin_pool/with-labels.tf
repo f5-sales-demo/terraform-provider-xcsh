@@ -24,7 +24,6 @@ resource "xcsh_origin_pool" "test" {
   }
 
   origin_servers {
-    labels = {} # API returns this even if not set
     public_name {
       dns_name = "example.com"
     }

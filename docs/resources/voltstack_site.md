@@ -342,7 +342,7 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 
 <a id="interface-40e35f"></a>&#x2022; [`ethernet_interface`](#interface-40e35f) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-40e35f) below.
 
-<a id="labels-eb9e14"></a>&#x2022; [`labels`](#labels-eb9e14) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-eb9e14"></a>&#x2022; [`labels`](#labels-eb9e14) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="interface-b0b4f4"></a>&#x2022; [`tunnel_interface`](#interface-b0b4f4) - Optional Block<br>Configuration parameter for tunnel interface<br>See [Tunnel Interface](#interface-b0b4f4) below.
 
@@ -514,7 +514,7 @@ A [`slo_config`](#custom-network-config-slo-config) block (within [`custom_netwo
 
 <a id="group-4f2dd5"></a>&#x2022; [`dc_cluster_group`](#group-4f2dd5) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#group-4f2dd5) below.
 
-<a id="custom-network-config-slo-config-labels"></a>&#x2022; [`labels`](#custom-network-config-slo-config-labels) - Optional Map<br>Add Labels for this network, these labels can be used in firewall policy
+<a id="custom-network-config-slo-config-labels"></a>&#x2022; [`labels`](#custom-network-config-slo-config-labels) - Optional Block<br>Add Labels for this network, these labels can be used in firewall policy
 
 <a id="group-babd4e"></a>&#x2022; [`no_dc_cluster_group`](#group-babd4e) - Optional Block<br>Enable this option
 

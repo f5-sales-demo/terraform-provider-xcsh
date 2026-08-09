@@ -83,15 +83,13 @@ func TestConvertToTerraformAttribute_StrictMaps(t *testing.T) {
 		assertFallbackObjectShape(t, attr)
 	})
 
-	t.Run("Boolean AdditionalProperties True Whitelisted", func(t *testing.T) {
+	t.Run("Boolean AdditionalProperties True Whitelisted Fallback", func(t *testing.T) {
 		schema := openapi.Schema{
 			Type:                 "object",
 			AdditionalProperties: true,
 		}
 		attr := ConvertToTerraformAttribute("labels", schema, false, "", spec)
-		if attr.Type != "map" || attr.ElementType != "string" || attr.GoType != "map[string]string" {
-			t.Errorf("expected string map for whitelisted name, got Type=%q ElementType=%q GoType=%q", attr.Type, attr.ElementType, attr.GoType)
-		}
+		assertFallbackObjectShape(t, attr)
 	})
 
 	t.Run("Boolean AdditionalProperties True with Map Rules", func(t *testing.T) {
@@ -170,15 +168,13 @@ func TestConvertToTerraformAttribute_StrictMaps(t *testing.T) {
 		assertFallbackObjectShape(t, attr)
 	})
 
-	t.Run("Empty-Marker Object Whitelisted", func(t *testing.T) {
+	t.Run("Empty-Marker Object Whitelisted Fallback", func(t *testing.T) {
 		schema := openapi.Schema{
 			Type:                 "object",
 			AdditionalProperties: map[string]interface{}{},
 		}
 		attr := ConvertToTerraformAttribute("fixed_ip_map", schema, false, "", spec)
-		if attr.Type != "map" || attr.ElementType != "string" || attr.GoType != "map[string]string" {
-			t.Errorf("expected string map for empty-marker with whitelisted name, got Type=%q", attr.Type)
-		}
+		assertFallbackObjectShape(t, attr)
 	})
 
 	t.Run("Empty-Marker Object with Map Rules", func(t *testing.T) {
@@ -229,15 +225,13 @@ func TestConvertToTerraformAttribute_StrictMaps(t *testing.T) {
 		assertFallbackObjectShape(t, attr)
 	})
 
-	t.Run("Nil AdditionalProperties Whitelisted", func(t *testing.T) {
+	t.Run("Nil AdditionalProperties Whitelisted Fallback", func(t *testing.T) {
 		schema := openapi.Schema{
 			Type:                 "object",
 			AdditionalProperties: nil,
 		}
 		attr := ConvertToTerraformAttribute("fixed_ip_map", schema, false, "", spec)
-		if attr.Type != "map" || attr.ElementType != "string" || attr.GoType != "map[string]string" {
-			t.Errorf("expected string map for nil AdditionalProperties with whitelisted name, got Type=%q", attr.Type)
-		}
+		assertFallbackObjectShape(t, attr)
 	})
 
 	t.Run("Nil AdditionalProperties with Map Rules", func(t *testing.T) {

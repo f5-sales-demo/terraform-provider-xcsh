@@ -482,7 +482,7 @@ A [`spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets) block (within [`ingress_eg
 
 <a id="ingress-egress-gw-hub-spoke-vnets-auto"></a>&#x2022; [`auto`](#ingress-egress-gw-hub-spoke-vnets-auto) - Optional Block<br>Enable this option
 
-<a id="labels-9c843f"></a>&#x2022; [`labels`](#labels-9c843f) - Optional Map<br>Add Labels for each of the VNets peered with transit VNET, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace
+<a id="labels-9c843f"></a>&#x2022; [`labels`](#labels-9c843f) - Optional Block<br>Add Labels for each of the VNets peered with transit VNET, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace
 
 <a id="manual-6de395"></a>&#x2022; [`manual`](#manual-6de395) - Optional Block<br>Enable this option
 
@@ -798,7 +798,7 @@ A [`spoke_vnets`](#ingress-egress-gw-ar-hub-spoke-vnets) block (within [`ingress
 
 <a id="auto-6f9deb"></a>&#x2022; [`auto`](#auto-6f9deb) - Optional Block<br>Enable this option
 
-<a id="labels-06e528"></a>&#x2022; [`labels`](#labels-06e528) - Optional Map<br>Add Labels for each of the VNets peered with transit VNET, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace
+<a id="labels-06e528"></a>&#x2022; [`labels`](#labels-06e528) - Optional Block<br>Add Labels for each of the VNets peered with transit VNET, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace
 
 <a id="manual-f95716"></a>&#x2022; [`manual`](#manual-f95716) - Optional Block<br>Enable this option
 

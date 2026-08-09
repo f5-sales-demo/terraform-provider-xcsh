@@ -904,7 +904,7 @@ var AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListModelAttrTypes = map[stri
 // AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                        `tfsdk:"attrs"`
-	Labels  types.Map                                                                         `tfsdk:"labels"`
+	Labels  *AWSTGWSiteEmptyModel                                                             `tfsdk:"labels"`
 	Nexthop *AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                        `tfsdk:"subnets"`
 }
@@ -912,7 +912,7 @@ type AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteModel s
 // AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -1042,7 +1042,7 @@ var AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListModelAttrTypes = map[str
 // AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteModel represents custom_static_route block
 type AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteModel struct {
 	Attrs   types.List                                                                         `tfsdk:"attrs"`
-	Labels  types.Map                                                                          `tfsdk:"labels"`
+	Labels  *AWSTGWSiteEmptyModel                                                              `tfsdk:"labels"`
 	Nexthop *AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                                                         `tfsdk:"subnets"`
 }
@@ -1050,7 +1050,7 @@ type AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteModel 
 // AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes defines the attribute types for AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteModel
 var AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.MapType{ElemType: types.StringType},
+	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nexthop": types.ObjectType{AttrTypes: AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModelAttrTypes}},
 }
@@ -1167,14 +1167,14 @@ var AWSTGWSiteVPCAttachmentsModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteVPCAttachmentsVPCListModel represents vpc_list block
 type AWSTGWSiteVPCAttachmentsVPCListModel struct {
-	Labels types.Map    `tfsdk:"labels"`
-	VPCID  types.String `tfsdk:"vpc_id"`
+	VPCID  types.String          `tfsdk:"vpc_id"`
+	Labels *AWSTGWSiteEmptyModel `tfsdk:"labels"`
 }
 
 // AWSTGWSiteVPCAttachmentsVPCListModelAttrTypes defines the attribute types for AWSTGWSiteVPCAttachmentsVPCListModel
 var AWSTGWSiteVPCAttachmentsVPCListModelAttrTypes = map[string]attr.Type{
-	"labels": types.MapType{ElemType: types.StringType},
 	"vpc_id": types.StringType,
+	"labels": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 type AWSTGWSiteResourceModel struct {
@@ -2350,13 +2350,11 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -2530,13 +2528,11 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														listvalidator.SizeAtMost(4),
 													},
 												},
-												"labels": schema.MapAttribute{
-													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-													Optional:            true,
-													ElementType:         types.StringType,
-												},
 											},
 											Blocks: map[string]schema.Block{
+												"labels": schema.SingleNestedBlock{
+													MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+												},
 												"nexthop": schema.SingleNestedBlock{
 													MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 													Attributes: map[string]schema.Attribute{
@@ -2689,17 +2685,17 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "List of VPC attachments to transit gateway.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
-								"labels": schema.MapAttribute{
-									MarkdownDescription: "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
-									Optional:            true,
-									ElementType:         types.StringType,
-								},
 								"vpc_id": schema.StringAttribute{
 									MarkdownDescription: "VPC ID. Information about existing VPC.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
 									},
+								},
+							},
+							Blocks: map[string]schema.Block{
+								"labels": schema.SingleNestedBlock{
+									MarkdownDescription: "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
 								},
 							},
 						},
@@ -3579,13 +3575,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -3717,13 +3708,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -3841,13 +3827,8 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				var VPCListList []map[string]interface{}
 				for _, VPCListItem := range VPCListElems {
 					VPCListItemMap := make(map[string]interface{})
-					if !VPCListItem.Labels.IsNull() && !VPCListItem.Labels.IsUnknown() {
-						var LabelsMap map[string]string
-						diags := VPCListItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							VPCListItemMap["labels"] = LabelsMap
-						}
+					if VPCListItem.Labels != nil {
+						VPCListItemMap["labels"] = map[string]interface{}{}
 					}
 					if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
 						VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
@@ -5372,12 +5353,15 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AWSTGWSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AWSTGWSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -5643,12 +5627,15 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AWSTGWSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AWSTGWSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -5880,12 +5867,15 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						_ = VPCListIdx
 						if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
 							VPCListResult = append(VPCListResult, AWSTGWSiteVPCAttachmentsVPCListModel{
-								Labels: UnmarshalStringMap(ctx, VPCListItemMap["labels"], func() types.Map {
-									if len(VPCListExisting) > VPCListIdx {
+								Labels: func() *AWSTGWSiteEmptyModel {
+									if !isImport && len(VPCListExisting) > VPCListIdx {
 										return VPCListExisting[VPCListIdx].Labels
 									}
-									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+									if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+										return &AWSTGWSiteEmptyModel{}
+									}
+									return nil
+								}(),
 								VPCID: func() types.String {
 									if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
 										return types.StringValue(v)
@@ -7514,12 +7504,15 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AWSTGWSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AWSTGWSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -7785,12 +7778,15 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AWSTGWSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AWSTGWSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -8022,12 +8018,15 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						_ = VPCListIdx
 						if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
 							VPCListResult = append(VPCListResult, AWSTGWSiteVPCAttachmentsVPCListModel{
-								Labels: UnmarshalStringMap(ctx, VPCListItemMap["labels"], func() types.Map {
-									if len(VPCListExisting) > VPCListIdx {
+								Labels: func() *AWSTGWSiteEmptyModel {
+									if !isImport && len(VPCListExisting) > VPCListIdx {
 										return VPCListExisting[VPCListIdx].Labels
 									}
-									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+									if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+										return &AWSTGWSiteEmptyModel{}
+									}
+									return nil
+								}(),
 								VPCID: func() types.String {
 									if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
 										return types.StringValue(v)
@@ -8870,13 +8869,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -9008,13 +9002,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
-							if !StaticRouteListItem.CustomStaticRoute.Labels.IsNull() && !StaticRouteListItem.CustomStaticRoute.Labels.IsUnknown() {
-								var LabelsMap map[string]string
-								diags := StaticRouteListItem.CustomStaticRoute.Labels.ElementsAs(ctx, &LabelsMap, false)
-								resp.Diagnostics.Append(diags...)
-								if !diags.HasError() {
-									VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = LabelsMap
-								}
+							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
+								VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
 								VnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
@@ -9132,13 +9121,8 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				var VPCListList []map[string]interface{}
 				for _, VPCListItem := range VPCListElems {
 					VPCListItemMap := make(map[string]interface{})
-					if !VPCListItem.Labels.IsNull() && !VPCListItem.Labels.IsUnknown() {
-						var LabelsMap map[string]string
-						diags := VPCListItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							VPCListItemMap["labels"] = LabelsMap
-						}
+					if VPCListItem.Labels != nil {
+						VPCListItemMap["labels"] = map[string]interface{}{}
 					}
 					if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
 						VPCListItemMap["vpc_id"] = VPCListItem.VPCID.ValueString()
@@ -10683,12 +10667,15 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AWSTGWSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AWSTGWSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AWSTGWSiteVnConfigInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -10954,12 +10941,15 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 															}
 															return types.ListNull(types.StringType)
 														}(),
-														Labels: UnmarshalStringMap(ctx, CustomStaticRouteData["labels"], func() types.Map {
-															if len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
+														Labels: func() *AWSTGWSiteEmptyModel {
+															if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil {
 																return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Labels
 															}
-															return types.MapNull(types.StringType)
-														}(), "labels", &resp.Diagnostics),
+															if _, ok := CustomStaticRouteData["labels"].(map[string]interface{}); ok {
+																return &AWSTGWSiteEmptyModel{}
+															}
+															return nil
+														}(),
 														Nexthop: func() *AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel {
 															if NexthopData, ok := CustomStaticRouteData["nexthop"].(map[string]interface{}); ok {
 																return &AWSTGWSiteVnConfigOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopModel{
@@ -11191,12 +11181,15 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						_ = VPCListIdx
 						if VPCListItemMap, ok := VPCListItem.(map[string]interface{}); ok {
 							VPCListResult = append(VPCListResult, AWSTGWSiteVPCAttachmentsVPCListModel{
-								Labels: UnmarshalStringMap(ctx, VPCListItemMap["labels"], func() types.Map {
-									if len(VPCListExisting) > VPCListIdx {
+								Labels: func() *AWSTGWSiteEmptyModel {
+									if !isImport && len(VPCListExisting) > VPCListIdx {
 										return VPCListExisting[VPCListIdx].Labels
 									}
-									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+									if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
+										return &AWSTGWSiteEmptyModel{}
+									}
+									return nil
+								}(),
 								VPCID: func() types.String {
 									if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
 										return types.StringValue(v)

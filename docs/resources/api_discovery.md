@@ -129,7 +129,7 @@ An [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy) blo
 
 A [`discovery_rules`](#rules-dd76e5) block (within [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy)) supports the following:
 
-<a id="labels-ec3e6a"></a>&#x2022; [`labels`](#labels-ec3e6a) - Optional Map<br>Map of string keys and values that can be used to organize and categorize the rule
+<a id="labels-ec3e6a"></a>&#x2022; [`labels`](#labels-ec3e6a) - Optional Block<br>Map of string keys and values that can be used to organize and categorize the rule
 
 <a id="metadata-2771ad"></a>&#x2022; [`metadata`](#metadata-2771ad) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-2771ad) below.

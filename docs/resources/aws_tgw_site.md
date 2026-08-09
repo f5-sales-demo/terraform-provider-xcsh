@@ -771,7 +771,7 @@ A [`vpc_attachments`](#vpc-attachments) block supports the following:
 
 A [`vpc_list`](#vpc-attachments-vpc-list) block (within [`vpc_attachments`](#vpc-attachments)) supports the following:
 
-<a id="vpc-attachments-vpc-list-labels"></a>&#x2022; [`labels`](#vpc-attachments-vpc-list-labels) - Optional Map<br>Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall
+<a id="vpc-attachments-vpc-list-labels"></a>&#x2022; [`labels`](#vpc-attachments-vpc-list-labels) - Optional Block<br>Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall
 
 <a id="vpc-attachments-vpc-list-vpc-id"></a>&#x2022; [`vpc_id`](#vpc-attachments-vpc-list-vpc-id) - Optional String<br>VPC ID. Information about existing VPC
 

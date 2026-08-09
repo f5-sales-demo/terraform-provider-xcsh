@@ -362,24 +362,24 @@ var VoltstackSiteCustomNetworkConfigInterfaceListModelAttrTypes = map[string]att
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel represents interfaces block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel struct {
 	DescriptionSpec                             types.String                                                                              `tfsdk:"description_spec"`
-	Labels                                      types.Map                                                                                 `tfsdk:"labels"`
 	DcClusterGroupConnectivityInterfaceDisabled *VoltstackSiteEmptyModel                                                                  `tfsdk:"dc_cluster_group_connectivity_interface_disabled"`
 	DcClusterGroupConnectivityInterfaceEnabled  *VoltstackSiteEmptyModel                                                                  `tfsdk:"dc_cluster_group_connectivity_interface_enabled"`
 	DedicatedInterface                          *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedInterfaceModel           `tfsdk:"dedicated_interface"`
 	DedicatedManagementInterface                *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedManagementInterfaceModel `tfsdk:"dedicated_management_interface"`
 	EthernetInterface                           *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceModel            `tfsdk:"ethernet_interface"`
+	Labels                                      *VoltstackSiteEmptyModel                                                                  `tfsdk:"labels"`
 	TunnelInterface                             *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel              `tfsdk:"tunnel_interface"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesModelAttrTypes = map[string]attr.Type{
 	"description_spec": types.StringType,
-	"labels":           types.MapType{ElemType: types.StringType},
 	"dc_cluster_group_connectivity_interface_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dc_cluster_group_connectivity_interface_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dedicated_interface":                              types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedInterfaceModelAttrTypes},
 	"dedicated_management_interface":                   types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesDedicatedManagementInterfaceModelAttrTypes},
 	"ethernet_interface":                               types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceModelAttrTypes},
+	"labels":                                           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tunnel_interface":                                 types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModelAttrTypes},
 }
 
@@ -667,12 +667,12 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStat
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel represents cluster_static_ip block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel struct {
-	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+	InterfaceIPMap *VoltstackSiteEmptyModel `tfsdk:"interface_ip_map"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.MapType{ElemType: types.StringType},
+	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
@@ -701,12 +701,12 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStat
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel represents cluster_static_ip block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel struct {
-	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+	InterfaceIPMap *VoltstackSiteEmptyModel `tfsdk:"interface_ip_map"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.MapType{ElemType: types.StringType},
+	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
@@ -757,12 +757,12 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStatic
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel represents cluster_static_ip block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel struct {
-	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+	InterfaceIPMap *VoltstackSiteEmptyModel `tfsdk:"interface_ip_map"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.MapType{ElemType: types.StringType},
+	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
@@ -945,8 +945,8 @@ var VoltstackSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInter
 
 // VoltstackSiteCustomNetworkConfigSloConfigModel represents slo_config block
 type VoltstackSiteCustomNetworkConfigSloConfigModel struct {
-	Labels           types.Map                                                     `tfsdk:"labels"`
 	DcClusterGroup   *VoltstackSiteCustomNetworkConfigSloConfigDcClusterGroupModel `tfsdk:"dc_cluster_group"`
+	Labels           *VoltstackSiteEmptyModel                                      `tfsdk:"labels"`
 	NoDcClusterGroup *VoltstackSiteEmptyModel                                      `tfsdk:"no_dc_cluster_group"`
 	NoStaticRoutes   *VoltstackSiteEmptyModel                                      `tfsdk:"no_static_routes"`
 	NoStaticV6Routes *VoltstackSiteEmptyModel                                      `tfsdk:"no_static_v6_routes"`
@@ -956,8 +956,8 @@ type VoltstackSiteCustomNetworkConfigSloConfigModel struct {
 
 // VoltstackSiteCustomNetworkConfigSloConfigModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigSloConfigModel
 var VoltstackSiteCustomNetworkConfigSloConfigModelAttrTypes = map[string]attr.Type{
-	"labels":              types.MapType{ElemType: types.StringType},
 	"dc_cluster_group":    types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigSloConfigDcClusterGroupModelAttrTypes},
+	"labels":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_dc_cluster_group": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_static_routes":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_static_v6_routes": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -2172,14 +2172,14 @@ var VoltstackSiteCustomStorageConfigStorageInterfaceListModelAttrTypes = map[str
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel represents storage_interfaces block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel struct {
 	DescriptionSpec  types.String                                                                                `tfsdk:"description_spec"`
-	Labels           types.Map                                                                                   `tfsdk:"labels"`
+	Labels           *VoltstackSiteEmptyModel                                                                    `tfsdk:"labels"`
 	StorageInterface *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel `tfsdk:"storage_interface"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesModelAttrTypes = map[string]attr.Type{
 	"description_spec":  types.StringType,
-	"labels":            types.MapType{ElemType: types.StringType},
+	"labels":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"storage_interface": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModelAttrTypes},
 }
 
@@ -2425,12 +2425,12 @@ var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorage
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel represents cluster_static_ip block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel struct {
-	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+	InterfaceIPMap *VoltstackSiteEmptyModel `tfsdk:"interface_ip_map"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.MapType{ElemType: types.StringType},
+	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
@@ -2459,12 +2459,12 @@ var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorage
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel represents cluster_static_ip block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel struct {
-	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+	InterfaceIPMap *VoltstackSiteEmptyModel `tfsdk:"interface_ip_map"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.MapType{ElemType: types.StringType},
+	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
@@ -3451,11 +3451,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												stringvalidator.LengthAtMost(256),
 											},
 										},
-										"labels": schema.MapAttribute{
-											MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
-											Optional:            true,
-											ElementType:         types.StringType,
-										},
 									},
 									Blocks: map[string]schema.Block{
 										"dc_cluster_group_connectivity_interface_disabled": schema.SingleNestedBlock{
@@ -3848,11 +3843,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for cluster.",
-															Attributes: map[string]schema.Attribute{
-																"interface_ip_map": schema.MapAttribute{
+															Attributes:          map[string]schema.Attribute{},
+															Blocks: map[string]schema.Block{
+																"interface_ip_map": schema.SingleNestedBlock{
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
-																	Optional:            true,
-																	ElementType:         types.StringType,
 																},
 															},
 														},
@@ -3885,11 +3879,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for cluster.",
-															Attributes: map[string]schema.Attribute{
-																"interface_ip_map": schema.MapAttribute{
+															Attributes:          map[string]schema.Attribute{},
+															Blocks: map[string]schema.Block{
+																"interface_ip_map": schema.SingleNestedBlock{
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
-																	Optional:            true,
-																	ElementType:         types.StringType,
 																},
 															},
 														},
@@ -3923,6 +3916,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Enable this option",
 												},
 											},
+										},
+										"labels": schema.SingleNestedBlock{
+											MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 										},
 										"tunnel_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for tunnel interface.",
@@ -3962,11 +3958,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for cluster.",
-															Attributes: map[string]schema.Attribute{
-																"interface_ip_map": schema.MapAttribute{
+															Attributes:          map[string]schema.Attribute{},
+															Blocks: map[string]schema.Block{
+																"interface_ip_map": schema.SingleNestedBlock{
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
-																	Optional:            true,
-																	ElementType:         types.StringType,
 																},
 															},
 														},
@@ -4245,13 +4240,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"slo_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Site Local Network Configuration. Site local network configuration.",
-						Attributes: map[string]schema.Attribute{
-							"labels": schema.MapAttribute{
-								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
-								Optional:            true,
-								ElementType:         types.StringType,
-							},
-						},
+						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"dc_cluster_group": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -4282,6 +4271,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 									},
 								},
+							},
+							"labels": schema.SingleNestedBlock{
+								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
 							},
 							"no_dc_cluster_group": schema.SingleNestedBlock{
 								MarkdownDescription: "Enable this option",
@@ -6048,13 +6040,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												stringvalidator.LengthAtMost(256),
 											},
 										},
-										"labels": schema.MapAttribute{
-											MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
-											Optional:            true,
-											ElementType:         types.StringType,
-										},
 									},
 									Blocks: map[string]schema.Block{
+										"labels": schema.SingleNestedBlock{
+											MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
+										},
 										"storage_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for storage interface.",
 											Attributes: map[string]schema.Attribute{
@@ -6358,11 +6348,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for cluster.",
-															Attributes: map[string]schema.Attribute{
-																"interface_ip_map": schema.MapAttribute{
+															Attributes:          map[string]schema.Attribute{},
+															Blocks: map[string]schema.Block{
+																"interface_ip_map": schema.SingleNestedBlock{
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
-																	Optional:            true,
-																	ElementType:         types.StringType,
 																},
 															},
 														},
@@ -6395,11 +6384,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for cluster.",
-															Attributes: map[string]schema.Attribute{
-																"interface_ip_map": schema.MapAttribute{
+															Attributes:          map[string]schema.Attribute{},
+															Blocks: map[string]schema.Block{
+																"interface_ip_map": schema.SingleNestedBlock{
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
-																	Optional:            true,
-																	ElementType:         types.StringType,
 																},
 															},
 														},
@@ -7799,13 +7787,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPMap := make(map[string]interface{})
 								if InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-									if !InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap
 								}
@@ -7825,13 +7808,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 								if InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
-									if !InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap
 								}
@@ -7858,13 +7836,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							InterfacesItemMap["ethernet_interface"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceMap
 						}
-						if !InterfacesItem.Labels.IsNull() && !InterfacesItem.Labels.IsUnknown() {
-							var LabelsMap map[string]string
-							diags := InterfacesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								InterfacesItemMap["labels"] = LabelsMap
-							}
+						if InterfacesItem.Labels != nil {
+							InterfacesItemMap["labels"] = map[string]interface{}{}
 						}
 						if InterfacesItem.TunnelInterface != nil {
 							CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceMap := make(map[string]interface{})
@@ -7887,13 +7860,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPMap := make(map[string]interface{})
 								if InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-									if !InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPMap
 								}
@@ -8148,13 +8116,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				CustomNetworkConfigSloConfigMap["dc_cluster_group"] = CustomNetworkConfigSloConfigDcClusterGroupMap
 			}
-			if !data.CustomNetworkConfig.SloConfig.Labels.IsNull() && !data.CustomNetworkConfig.SloConfig.Labels.IsUnknown() {
-				var LabelsMap map[string]string
-				diags := data.CustomNetworkConfig.SloConfig.Labels.ElementsAs(ctx, &LabelsMap, false)
-				resp.Diagnostics.Append(diags...)
-				if !diags.HasError() {
-					CustomNetworkConfigSloConfigMap["labels"] = LabelsMap
-				}
+			if data.CustomNetworkConfig.SloConfig.Labels != nil {
+				CustomNetworkConfigSloConfigMap["labels"] = map[string]interface{}{}
 			}
 			if data.CustomNetworkConfig.SloConfig.NoDcClusterGroup != nil {
 				CustomNetworkConfigSloConfigMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -9391,13 +9354,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !StorageInterfacesItem.DescriptionSpec.IsNull() && !StorageInterfacesItem.DescriptionSpec.IsUnknown() {
 							StorageInterfacesItemMap["description"] = StorageInterfacesItem.DescriptionSpec.ValueString()
 						}
-						if !StorageInterfacesItem.Labels.IsNull() && !StorageInterfacesItem.Labels.IsUnknown() {
-							var LabelsMap map[string]string
-							diags := StorageInterfacesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								StorageInterfacesItemMap["labels"] = LabelsMap
-							}
+						if StorageInterfacesItem.Labels != nil {
+							StorageInterfacesItemMap["labels"] = map[string]interface{}{}
 						}
 						if StorageInterfacesItem.StorageInterface != nil {
 							CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceMap := make(map[string]interface{})
@@ -9638,13 +9596,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPMap := make(map[string]interface{})
 								if StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP != nil {
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-									if !StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPMap["cluster_static_ip"] = CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPMap
 								}
@@ -9664,13 +9617,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 								if StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
-									if !StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressMap["cluster_static_ip"] = CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPMap
 								}
@@ -11351,12 +11299,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -11399,12 +11350,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -11466,12 +11420,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, InterfacesItemMap["labels"], func() types.Map {
-												if len(InterfacesExisting) > InterfacesIdx {
+											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
 													return InterfacesExisting[InterfacesIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
+													return &VoltstackSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											TunnelInterface: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel {
 												if TunnelInterfaceData, ok := InterfacesItemMap["tunnel_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel{
@@ -11529,12 +11486,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -12022,12 +11982,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							return nil
 						}(),
-						Labels: UnmarshalStringMap(ctx, SloConfigData["labels"], func() types.Map {
-							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+						Labels: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
 								return data.CustomNetworkConfig.SloConfig.Labels
 							}
-							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+								return &VoltstackSiteEmptyModel{}
+							}
+							return nil
+						}(),
 						NoDcClusterGroup: func() *VoltstackSiteEmptyModel {
 							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
 								return data.CustomNetworkConfig.SloConfig.NoDcClusterGroup
@@ -14552,12 +14515,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return types.StringNull()
 											}(),
-											Labels: UnmarshalStringMap(ctx, StorageInterfacesItemMap["labels"], func() types.Map {
-												if len(StorageInterfacesExisting) > StorageInterfacesIdx {
+											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx {
 													return StorageInterfacesExisting[StorageInterfacesIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
+													return &VoltstackSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											StorageInterface: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel {
 												if StorageInterfaceData, ok := StorageInterfacesItemMap["storage_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel{
@@ -15062,12 +15028,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
 																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -15110,12 +15079,15 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
 																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -17391,12 +17363,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -17439,12 +17414,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -17506,12 +17484,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, InterfacesItemMap["labels"], func() types.Map {
-												if len(InterfacesExisting) > InterfacesIdx {
+											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
 													return InterfacesExisting[InterfacesIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
+													return &VoltstackSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											TunnelInterface: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel {
 												if TunnelInterfaceData, ok := InterfacesItemMap["tunnel_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel{
@@ -17569,12 +17550,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -18062,12 +18046,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							return nil
 						}(),
-						Labels: UnmarshalStringMap(ctx, SloConfigData["labels"], func() types.Map {
-							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+						Labels: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
 								return data.CustomNetworkConfig.SloConfig.Labels
 							}
-							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+								return &VoltstackSiteEmptyModel{}
+							}
+							return nil
+						}(),
 						NoDcClusterGroup: func() *VoltstackSiteEmptyModel {
 							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
 								return data.CustomNetworkConfig.SloConfig.NoDcClusterGroup
@@ -20592,12 +20579,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return types.StringNull()
 											}(),
-											Labels: UnmarshalStringMap(ctx, StorageInterfacesItemMap["labels"], func() types.Map {
-												if len(StorageInterfacesExisting) > StorageInterfacesIdx {
+											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx {
 													return StorageInterfacesExisting[StorageInterfacesIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
+													return &VoltstackSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											StorageInterface: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel {
 												if StorageInterfaceData, ok := StorageInterfacesItemMap["storage_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel{
@@ -21102,12 +21092,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
 																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -21150,12 +21143,15 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
 																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -22827,13 +22823,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPMap := make(map[string]interface{})
 								if InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-									if !InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if InterfacesItem.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPMap
 								}
@@ -22853,13 +22844,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 								if InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
-									if !InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if InterfacesItem.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPMap
 								}
@@ -22886,13 +22872,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							InterfacesItemMap["ethernet_interface"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceMap
 						}
-						if !InterfacesItem.Labels.IsNull() && !InterfacesItem.Labels.IsUnknown() {
-							var LabelsMap map[string]string
-							diags := InterfacesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								InterfacesItemMap["labels"] = LabelsMap
-							}
+						if InterfacesItem.Labels != nil {
+							InterfacesItemMap["labels"] = map[string]interface{}{}
 						}
 						if InterfacesItem.TunnelInterface != nil {
 							CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceMap := make(map[string]interface{})
@@ -22915,13 +22896,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPMap := make(map[string]interface{})
 								if InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-									if !InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if InterfacesItem.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPMap["cluster_static_ip"] = CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPMap
 								}
@@ -23176,13 +23152,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				CustomNetworkConfigSloConfigMap["dc_cluster_group"] = CustomNetworkConfigSloConfigDcClusterGroupMap
 			}
-			if !data.CustomNetworkConfig.SloConfig.Labels.IsNull() && !data.CustomNetworkConfig.SloConfig.Labels.IsUnknown() {
-				var LabelsMap map[string]string
-				diags := data.CustomNetworkConfig.SloConfig.Labels.ElementsAs(ctx, &LabelsMap, false)
-				resp.Diagnostics.Append(diags...)
-				if !diags.HasError() {
-					CustomNetworkConfigSloConfigMap["labels"] = LabelsMap
-				}
+			if data.CustomNetworkConfig.SloConfig.Labels != nil {
+				CustomNetworkConfigSloConfigMap["labels"] = map[string]interface{}{}
 			}
 			if data.CustomNetworkConfig.SloConfig.NoDcClusterGroup != nil {
 				CustomNetworkConfigSloConfigMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -24419,13 +24390,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !StorageInterfacesItem.DescriptionSpec.IsNull() && !StorageInterfacesItem.DescriptionSpec.IsUnknown() {
 							StorageInterfacesItemMap["description"] = StorageInterfacesItem.DescriptionSpec.ValueString()
 						}
-						if !StorageInterfacesItem.Labels.IsNull() && !StorageInterfacesItem.Labels.IsUnknown() {
-							var LabelsMap map[string]string
-							diags := StorageInterfacesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								StorageInterfacesItemMap["labels"] = LabelsMap
-							}
+						if StorageInterfacesItem.Labels != nil {
+							StorageInterfacesItemMap["labels"] = map[string]interface{}{}
 						}
 						if StorageInterfacesItem.StorageInterface != nil {
 							CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceMap := make(map[string]interface{})
@@ -24666,13 +24632,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPMap := make(map[string]interface{})
 								if StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP != nil {
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-									if !StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if StorageInterfacesItem.StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPMap["cluster_static_ip"] = CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPMap
 								}
@@ -24692,13 +24653,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 								if StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
-									if !StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
-										var InterfaceIPMapMap map[string]string
-										diags := StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
-										resp.Diagnostics.Append(diags...)
-										if !diags.HasError() {
-											CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
-										}
+									if StorageInterfacesItem.StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
+										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 									}
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressMap["cluster_static_ip"] = CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPMap
 								}
@@ -26399,12 +26355,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -26447,12 +26406,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -26514,12 +26476,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											Labels: UnmarshalStringMap(ctx, InterfacesItemMap["labels"], func() types.Map {
-												if len(InterfacesExisting) > InterfacesIdx {
+											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
 													return InterfacesExisting[InterfacesIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
+													return &VoltstackSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											TunnelInterface: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel {
 												if TunnelInterfaceData, ok := InterfacesItemMap["tunnel_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceModel{
@@ -26577,12 +26542,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].TunnelInterface != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP != nil && InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP != nil {
 																						return InterfacesExisting[InterfacesIdx].TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -27070,12 +27038,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							return nil
 						}(),
-						Labels: UnmarshalStringMap(ctx, SloConfigData["labels"], func() types.Map {
-							if data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
+						Labels: func() *VoltstackSiteEmptyModel {
+							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
 								return data.CustomNetworkConfig.SloConfig.Labels
 							}
-							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+								return &VoltstackSiteEmptyModel{}
+							}
+							return nil
+						}(),
 						NoDcClusterGroup: func() *VoltstackSiteEmptyModel {
 							if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.SloConfig != nil {
 								return data.CustomNetworkConfig.SloConfig.NoDcClusterGroup
@@ -29600,12 +29571,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return types.StringNull()
 											}(),
-											Labels: UnmarshalStringMap(ctx, StorageInterfacesItemMap["labels"], func() types.Map {
-												if len(StorageInterfacesExisting) > StorageInterfacesIdx {
+											Labels: func() *VoltstackSiteEmptyModel {
+												if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx {
 													return StorageInterfacesExisting[StorageInterfacesIdx].Labels
 												}
-												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+												if _, ok := StorageInterfacesItemMap["labels"].(map[string]interface{}); ok {
+													return &VoltstackSiteEmptyModel{}
+												}
+												return nil
+											}(),
 											StorageInterface: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel {
 												if StorageInterfaceData, ok := StorageInterfacesItemMap["storage_interface"].(map[string]interface{}); ok {
 													return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceModel{
@@ -30110,12 +30084,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP != nil {
 																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil
@@ -30158,12 +30135,15 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		}
 																		if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressClusterStaticIPModel{
-																				InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
-																					if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
+																				InterfaceIPMap: func() *VoltstackSiteEmptyModel {
+																					if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP != nil {
 																						return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																					}
-																					return types.MapNull(types.StringType)
-																				}(), "interface_ip_map", &resp.Diagnostics),
+																					if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
+																						return &VoltstackSiteEmptyModel{}
+																					}
+																					return nil
+																				}(),
 																			}
 																		}
 																		return nil

@@ -279,7 +279,6 @@ resource "xcsh_origin_pool" "test" {
   port      = 443
 
   origin_servers {
-    labels = {}
     public_name {
       dns_name = "example.com"
     }
@@ -486,7 +485,6 @@ resource "xcsh_origin_pool" "test" {
   port      = 443
 
   origin_servers {
-    labels = {}
     public_name {
       dns_name = "example.com"
     }
@@ -2824,7 +2822,7 @@ An [`origin_servers`](#default-pool-origin-servers) block (within [`default_pool
 
 <a id="default-pool-origin-servers-k8s-service"></a>&#x2022; [`k8s_service`](#default-pool-origin-servers-k8s-service) - Optional Block<br>Specify origin server with K8S service name and site information<br>See [K8S Service](#default-pool-origin-servers-k8s-service) below.
 
-<a id="default-pool-origin-servers-labels"></a>&#x2022; [`labels`](#default-pool-origin-servers-labels) - Optional Map<br>Add Labels for this origin server, these labels can be used to form subset
+<a id="default-pool-origin-servers-labels"></a>&#x2022; [`labels`](#default-pool-origin-servers-labels) - Optional Block<br>Add Labels for this origin server, these labels can be used to form subset
 
 <a id="default-pool-origin-servers-private-ip"></a>&#x2022; [`private_ip`](#default-pool-origin-servers-private-ip) - Optional Block<br>Specify origin server with private or public IP address and site information<br>See [Private IP](#default-pool-origin-servers-private-ip) below.
 
