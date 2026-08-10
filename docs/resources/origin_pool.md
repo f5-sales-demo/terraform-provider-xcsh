@@ -481,7 +481,7 @@ An [`origin_servers`](#origin-servers) block supports the following:
 
 <a id="origin-servers-k8s-service"></a>&#x2022; [`k8s_service`](#origin-servers-k8s-service) - Optional Block<br>Specify origin server with K8S service name and site information<br>See [K8S Service](#origin-servers-k8s-service) below.
 
-<a id="origin-servers-labels"></a>&#x2022; [`labels`](#origin-servers-labels) - Optional Block<br>Add Labels for this origin server, these labels can be used to form subset
+<a id="origin-servers-labels"></a>&#x2022; [`labels`](#origin-servers-labels) - Optional Map<br>Add Labels for this origin server, these labels can be used to form subset
 
 <a id="origin-servers-private-ip"></a>&#x2022; [`private_ip`](#origin-servers-private-ip) - Optional Block<br>Specify origin server with private or public IP address and site information<br>See [Private IP](#origin-servers-private-ip) below.
 

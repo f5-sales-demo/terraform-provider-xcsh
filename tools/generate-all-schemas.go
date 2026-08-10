@@ -212,6 +212,20 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	fmt.Printf("📋 Generated at: %s\n", index.Timestamp)
 	fmt.Printf("📄 Found %d domain specifications (v2 format)\n\n", len(index.Specifications))
 
+	// Fail-closed version validation check
+	expectedVersionBytes, err := os.ReadFile("tools/spec-version.txt")
+	if err != nil {
+		fmt.Printf("❌ Error reading tools/spec-version.txt: %v\n", err)
+		os.Exit(1)
+	}
+	expectedVersion := strings.TrimSpace(string(expectedVersionBytes))
+	cleanExpected := strings.TrimPrefix(expectedVersion, "v")
+	cleanIndex := strings.TrimPrefix(strings.TrimSpace(index.Version), "v")
+	if cleanIndex != cleanExpected {
+		fmt.Printf("❌ Spec version mismatch: expected %s (from tools/spec-version.txt), got %s (from index.json)\n", expectedVersion, index.Version)
+		os.Exit(1)
+	}
+
 	// Build global maps from index.json for metadata enrichment
 	resourceTierMap = openapi.BuildResourceTierMap(index)
 	resourceDependencyMap = openapi.BuildResourceDependencyMap(index)

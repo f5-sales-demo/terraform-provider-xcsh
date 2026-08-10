@@ -333,12 +333,12 @@ var NetworkInterfaceEthernetInterfaceStaticIPModelAttrTypes = map[string]attr.Ty
 
 // NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel represents cluster_static_ip block
 type NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel struct {
-	InterfaceIPMap *NetworkInterfaceEmptyModel `tfsdk:"interface_ip_map"`
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
 }
 
 // NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModelAttrTypes defines the attribute types for NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel
 var NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
@@ -367,12 +367,12 @@ var NetworkInterfaceEthernetInterfaceStaticIpv6AddressModelAttrTypes = map[strin
 
 // NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel represents cluster_static_ip block
 type NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel struct {
-	InterfaceIPMap *NetworkInterfaceEmptyModel `tfsdk:"interface_ip_map"`
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
 }
 
 // NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModelAttrTypes defines the attribute types for NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel
 var NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
@@ -473,12 +473,12 @@ var NetworkInterfaceTunnelInterfaceStaticIPModelAttrTypes = map[string]attr.Type
 
 // NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel represents cluster_static_ip block
 type NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel struct {
-	InterfaceIPMap *NetworkInterfaceEmptyModel `tfsdk:"interface_ip_map"`
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
 }
 
 // NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModelAttrTypes defines the attribute types for NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel
 var NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModelAttrTypes = map[string]attr.Type{
-	"interface_ip_map": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
@@ -968,10 +968,11 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						Blocks: map[string]schema.Block{
 							"cluster_static_ip": schema.SingleNestedBlock{
 								MarkdownDescription: "Configure Static IP parameters for cluster.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"interface_ip_map": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"interface_ip_map": schema.MapAttribute{
 										MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 								},
 							},
@@ -1004,10 +1005,11 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						Blocks: map[string]schema.Block{
 							"cluster_static_ip": schema.SingleNestedBlock{
 								MarkdownDescription: "Configure Static IP parameters for cluster.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"interface_ip_map": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"interface_ip_map": schema.MapAttribute{
 										MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 								},
 							},
@@ -1141,10 +1143,11 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						Blocks: map[string]schema.Block{
 							"cluster_static_ip": schema.SingleNestedBlock{
 								MarkdownDescription: "Configure Static IP parameters for cluster.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"interface_ip_map": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"interface_ip_map": schema.MapAttribute{
 										MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
+										Optional:            true,
+										ElementType:         types.StringType,
 									},
 								},
 							},
@@ -1615,8 +1618,13 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			EthernetInterfaceStaticIPMap := make(map[string]interface{})
 			if data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 				EthernetInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-				if data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-					EthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				if !data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+					var InterfaceIPMapMap map[string]string
+					diags := data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						EthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+					}
 				}
 				EthernetInterfaceStaticIPMap["cluster_static_ip"] = EthernetInterfaceStaticIPClusterStaticIPMap
 			}
@@ -1636,8 +1644,13 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			EthernetInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 			if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 				EthernetInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
-				if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-					EthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				if !data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+					var InterfaceIPMapMap map[string]string
+					diags := data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						EthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+					}
 				}
 				EthernetInterfaceStaticIpv6AddressMap["cluster_static_ip"] = EthernetInterfaceStaticIpv6AddressClusterStaticIPMap
 			}
@@ -1719,8 +1732,13 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			TunnelInterfaceStaticIPMap := make(map[string]interface{})
 			if data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 				TunnelInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-				if data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-					TunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				if !data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+					var InterfaceIPMapMap map[string]string
+					diags := data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						TunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+					}
 				}
 				TunnelInterfaceStaticIPMap["cluster_static_ip"] = TunnelInterfaceStaticIPClusterStaticIPMap
 			}
@@ -2389,15 +2407,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -2440,15 +2455,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -2646,15 +2658,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -3449,15 +3458,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -3500,15 +3506,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -3706,15 +3709,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -4137,8 +4137,13 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			EthernetInterfaceStaticIPMap := make(map[string]interface{})
 			if data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 				EthernetInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-				if data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-					EthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				if !data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+					var InterfaceIPMapMap map[string]string
+					diags := data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						EthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+					}
 				}
 				EthernetInterfaceStaticIPMap["cluster_static_ip"] = EthernetInterfaceStaticIPClusterStaticIPMap
 			}
@@ -4158,8 +4163,13 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			EthernetInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 			if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 				EthernetInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
-				if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-					EthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				if !data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsNull() && !data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+					var InterfaceIPMapMap map[string]string
+					diags := data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						EthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+					}
 				}
 				EthernetInterfaceStaticIpv6AddressMap["cluster_static_ip"] = EthernetInterfaceStaticIpv6AddressClusterStaticIPMap
 			}
@@ -4241,8 +4251,13 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			TunnelInterfaceStaticIPMap := make(map[string]interface{})
 			if data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 				TunnelInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
-				if data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-					TunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+				if !data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsNull() && !data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.IsUnknown() {
+					var InterfaceIPMapMap map[string]string
+					diags := data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						TunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = InterfaceIPMapMap
+					}
 				}
 				TunnelInterfaceStaticIPMap["cluster_static_ip"] = TunnelInterfaceStaticIPClusterStaticIPMap
 			}
@@ -4931,15 +4946,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -4982,15 +4994,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -5188,15 +5197,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: func() *NetworkInterfaceEmptyModel {
-										if !isImport && data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
+									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+										if data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
-										if _, ok := ClusterStaticIPData["interface_ip_map"].(map[string]interface{}); ok {
-											return &NetworkInterfaceEmptyModel{}
-										}
-										return nil
-									}(),
+										return types.MapNull(types.StringType)
+									}(), "interface_ip_map", &resp.Diagnostics),
 								}
 							}
 							return nil

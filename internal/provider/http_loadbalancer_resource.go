@@ -4569,11 +4569,11 @@ var HTTPLoadBalancerDefaultPoolHealthcheckModelAttrTypes = map[string]attr.Type{
 
 // HTTPLoadBalancerDefaultPoolOriginServersModel represents origin_servers block
 type HTTPLoadBalancerDefaultPoolOriginServersModel struct {
+	Labels               types.Map                                                          `tfsdk:"labels"`
 	CbipService          *HTTPLoadBalancerDefaultPoolOriginServersCbipServiceModel          `tfsdk:"cbip_service"`
 	ConsulService        *HTTPLoadBalancerDefaultPoolOriginServersConsulServiceModel        `tfsdk:"consul_service"`
 	CustomEndpointObject *HTTPLoadBalancerDefaultPoolOriginServersCustomEndpointObjectModel `tfsdk:"custom_endpoint_object"`
 	K8SService           *HTTPLoadBalancerDefaultPoolOriginServersK8SServiceModel           `tfsdk:"k8s_service"`
-	Labels               *HTTPLoadBalancerEmptyModel                                        `tfsdk:"labels"`
 	PrivateIP            *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel            `tfsdk:"private_ip"`
 	PrivateName          *HTTPLoadBalancerDefaultPoolOriginServersPrivateNameModel          `tfsdk:"private_name"`
 	PublicIP             *HTTPLoadBalancerDefaultPoolOriginServersPublicIPModel             `tfsdk:"public_ip"`
@@ -4584,11 +4584,11 @@ type HTTPLoadBalancerDefaultPoolOriginServersModel struct {
 
 // HTTPLoadBalancerDefaultPoolOriginServersModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultPoolOriginServersModel
 var HTTPLoadBalancerDefaultPoolOriginServersModelAttrTypes = map[string]attr.Type{
+	"labels":                 types.MapType{ElemType: types.StringType},
 	"cbip_service":           types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersCbipServiceModelAttrTypes},
 	"consul_service":         types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersConsulServiceModelAttrTypes},
 	"custom_endpoint_object": types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersCustomEndpointObjectModelAttrTypes},
 	"k8s_service":            types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersK8SServiceModelAttrTypes},
-	"labels":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"private_ip":             types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModelAttrTypes},
 	"private_name":           types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersPrivateNameModelAttrTypes},
 	"public_ip":              types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersPublicIPModelAttrTypes},
@@ -15661,7 +15661,13 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 					"origin_servers": schema.ListNestedBlock{
 						MarkdownDescription: "List of origin servers in this pool .",
 						NestedObject: schema.NestedBlockObject{
-							Attributes: map[string]schema.Attribute{},
+							Attributes: map[string]schema.Attribute{
+								"labels": schema.MapAttribute{
+									MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
+									Optional:            true,
+									ElementType:         types.StringType,
+								},
+							},
 							Blocks: map[string]schema.Block{
 								"cbip_service": schema.SingleNestedBlock{
 									MarkdownDescription: "Specify origin server with Classic BIG-IP Service (Virtual Server).",
@@ -15927,9 +15933,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "Configuration parameter for vk8s networks.",
 										},
 									},
-								},
-								"labels": schema.SingleNestedBlock{
-									MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
 								},
 								"private_ip": schema.SingleNestedBlock{
 									MarkdownDescription: "Specify origin server with private or public IP address and site information.",
@@ -27363,8 +27366,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						OriginServersItemMap["k8s_service"] = DefaultPoolOriginServersK8SServiceMap
 					}
-					if OriginServersItem.Labels != nil {
-						OriginServersItemMap["labels"] = map[string]interface{}{}
+					if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
+						var LabelsMap map[string]string
+						diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							OriginServersItemMap["labels"] = LabelsMap
+						}
 					}
 					if OriginServersItem.PrivateIP != nil {
 						DefaultPoolOriginServersPrivateIPMap := make(map[string]interface{})
@@ -41877,15 +41885,12 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									return nil
 								}(),
-								Labels: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
-									if _, ok := OriginServersItemMap["labels"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{
@@ -61572,15 +61577,12 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return nil
 								}(),
-								Labels: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
-									if _, ok := OriginServersItemMap["labels"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{
@@ -76146,8 +76148,13 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						OriginServersItemMap["k8s_service"] = DefaultPoolOriginServersK8SServiceMap
 					}
-					if OriginServersItem.Labels != nil {
-						OriginServersItemMap["labels"] = map[string]interface{}{}
+					if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
+						var LabelsMap map[string]string
+						diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							OriginServersItemMap["labels"] = LabelsMap
+						}
 					}
 					if OriginServersItem.PrivateIP != nil {
 						DefaultPoolOriginServersPrivateIPMap := make(map[string]interface{})
@@ -90687,15 +90694,12 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									return nil
 								}(),
-								Labels: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
-									if _, ok := OriginServersItemMap["labels"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{

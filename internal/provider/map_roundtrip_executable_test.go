@@ -171,4 +171,35 @@ func TestExecutableMapRoundTripBehavior(t *testing.T) {
 			t.Errorf("expected empty map, got: %d elements", len(result.Elements()))
 		}
 	})
+
+	// 7. Invalid map container type
+	t.Run("Invalid container type diagnostics", func(t *testing.T) {
+		var diags diag.Diagnostics
+
+		// Invalid API value (not a map[string]interface{})
+		var invalidApiVal interface{} = []string{"I am a list", "not a map"}
+
+		_ = UnmarshalStringMap(
+			ctx,
+			invalidApiVal,
+			types.MapNull(types.StringType),
+			"labels",
+			&diags,
+		)
+
+		if !diags.HasError() {
+			t.Fatal("expected diagnostic error for invalid container type, got none")
+		}
+
+		errFound := false
+		for _, d := range diags {
+			if d.Severity() == diag.SeverityError && d.Summary() == "Invalid map container type" {
+				errFound = true
+				break
+			}
+		}
+		if !errFound {
+			t.Fatalf("expected 'Invalid map container type' error, got: %v", diags)
+		}
+	})
 }
