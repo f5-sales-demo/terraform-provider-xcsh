@@ -5,11 +5,10 @@ package openapi
 import (
 	"fmt"
 	"os"
-	"regexp"
 	"strings"
-)
 
-var strictSemverRegex = regexp.MustCompile(`^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.]+)?$`)
+	"golang.org/x/mod/semver"
+)
 
 // ReadExpectedVersion reads the version string from a given file path.
 func ReadExpectedVersion(filePath string) (string, error) {
@@ -24,37 +23,43 @@ func ReadExpectedVersion(filePath string) (string, error) {
 	return v, nil
 }
 
+func isValidSemver(v string) bool {
+	clean := strings.TrimPrefix(strings.TrimPrefix(strings.TrimSpace(v), "v"), "V")
+	if clean == "" || !semver.IsValid("v"+clean) {
+		return false
+	}
+	mainPart := strings.Split(clean, "-")[0]
+	return strings.Count(mainPart, ".") >= 2
+}
+
 // ValidateSpecVersions asserts that the versions from tools/spec-version.txt,
 // index.json, and api-catalog.json match in a fail-closed, prefix-insensitive,
 // and strict semver manner.
 func ValidateSpecVersions(expectedVersion, indexVersion, catalogVersion string) error {
-	cleanExpected := strings.TrimPrefix(strings.TrimSpace(expectedVersion), "v")
-	cleanExpected = strings.TrimPrefix(cleanExpected, "V")
+	cleanExpected := strings.TrimPrefix(strings.TrimPrefix(strings.TrimSpace(expectedVersion), "v"), "V")
 	if cleanExpected == "" {
 		return fmt.Errorf("expected version is empty")
 	}
-	if !strictSemverRegex.MatchString(cleanExpected) {
+	if !isValidSemver(expectedVersion) {
 		return fmt.Errorf("expected version %q is not a valid semantic version", expectedVersion)
 	}
 
-	cleanIndex := strings.TrimPrefix(strings.TrimSpace(indexVersion), "v")
-	cleanIndex = strings.TrimPrefix(cleanIndex, "V")
+	cleanIndex := strings.TrimPrefix(strings.TrimPrefix(strings.TrimSpace(indexVersion), "v"), "V")
 	if cleanIndex == "" {
 		return fmt.Errorf("index version is empty")
 	}
-	if !strictSemverRegex.MatchString(cleanIndex) {
+	if !isValidSemver(indexVersion) {
 		return fmt.Errorf("index version %q is not a valid semantic version", indexVersion)
 	}
 	if cleanIndex != cleanExpected {
 		return fmt.Errorf("spec version mismatch: expected %s, got %s", expectedVersion, indexVersion)
 	}
 
-	cleanCatalog := strings.TrimPrefix(strings.TrimSpace(catalogVersion), "v")
-	cleanCatalog = strings.TrimPrefix(cleanCatalog, "V")
+	cleanCatalog := strings.TrimPrefix(strings.TrimPrefix(strings.TrimSpace(catalogVersion), "v"), "V")
 	if cleanCatalog == "" {
 		return fmt.Errorf("catalog version is empty")
 	}
-	if !strictSemverRegex.MatchString(cleanCatalog) {
+	if !isValidSemver(catalogVersion) {
 		return fmt.Errorf("catalog version %q is not a valid semantic version", catalogVersion)
 	}
 	if cleanCatalog != cleanExpected {

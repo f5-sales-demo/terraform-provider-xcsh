@@ -135,6 +135,22 @@ func TestValidateSpecVersions(t *testing.T) {
 			expectError:    true,
 			expectedErrSub: "is not a valid semantic version",
 		},
+		{
+			name:           "leading zero in minor version segment",
+			expected:       "2.01.0",
+			index:          "2.01.0",
+			catalog:        "2.01.0",
+			expectError:    true,
+			expectedErrSub: "is not a valid semantic version",
+		},
+		{
+			name:           "empty prerelease segment",
+			expected:       "2.1.218-",
+			index:          "2.1.218-",
+			catalog:        "2.1.218-",
+			expectError:    true,
+			expectedErrSub: "is not a valid semantic version",
+		},
 	}
 
 	for _, tt := range tests {
