@@ -4,6 +4,7 @@ package provider_test
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 
 	"regexp"
@@ -734,3 +735,80 @@ resource "xcsh_origin_pool" "test" {
 		},
 	})
 }
+
+// =============================================================================
+// TEST: Nested #1287 map field (origin_servers.labels) lifecycle
+// =============================================================================
+func TestAccOriginPoolResource_nestedOriginServerLabels(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "xcsh_origin_pool.test"
+	rName := acctest.RandomName("tf-acc-test-op-nested")
+
+	resource.Test(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		Steps: []resource.TestStep{
+			// Step 1: Create origin_pool with nested map in origin_servers.labels
+			{
+				Config: testAccOriginPoolConfig_nestedLabels(rName, "192.0.2.1", map[string]string{"env": "test", "app": "demo"}),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckOriginPoolExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "port", "8080"),
+					resource.TestCheckResourceAttr(resourceName, "origin_servers.0.labels.env", "test"),
+					resource.TestCheckResourceAttr(resourceName, "origin_servers.0.labels.app", "demo"),
+				),
+			},
+			// Step 2: Update origin_pool nested map in origin_servers.labels
+			{
+				Config: testAccOriginPoolConfig_nestedLabels(rName, "192.0.2.1", map[string]string{"env": "prod", "app": "demo_updated"}),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckOriginPoolExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "port", "8080"),
+					resource.TestCheckResourceAttr(resourceName, "origin_servers.0.labels.env", "prod"),
+					resource.TestCheckResourceAttr(resourceName, "origin_servers.0.labels.app", "demo_updated"),
+				),
+			},
+			// Step 3: Import state verification (confirms nested map is preserved on import)
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"timeouts"},
+				ImportStateIdFunc:       testAccOriginPoolImportStateIdFunc(resourceName),
+			},
+		},
+	})
+}
+
+func testAccOriginPoolConfig_nestedLabels(name, ip string, labels map[string]string) string {
+	var labelsStr strings.Builder
+	if len(labels) > 0 {
+		labelsStr.WriteString("    labels = {\n")
+		for k, v := range labels {
+			labelsStr.WriteString(fmt.Sprintf("      %q = %q\n", k, v))
+		}
+		labelsStr.WriteString("    }\n")
+	}
+
+	return fmt.Sprintf(`
+resource "xcsh_origin_pool" "test" {
+  name      = %[1]q
+  namespace = "system"
+
+  port = 8080
+
+  origin_servers {
+    public_ip {
+      ip = %[2]q
+    }
+%[3]s  }
+
+  no_tls {}
+  same_as_endpoint_port {}
+}
+`, name, ip, labelsStr.String())
+}
+
