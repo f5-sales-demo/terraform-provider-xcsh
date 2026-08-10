@@ -36,8 +36,11 @@ resource "xcsh_gcp_vpc_site" "example" {
   gcp_region    = "example-value"
   instance_type = "example-value"
   ssh_key       = "example-value"
-  address       = "example-value"
-  disk_size     = 1
+  gcp_labels = {
+    example = "value"
+  }
+  address   = "example-value"
+  disk_size = 1
 }
 ```
 
@@ -90,7 +93,7 @@ resource "xcsh_gcp_vpc_site" "example" {
 
 <a id="enable-encryption"></a>&#x2022; [`enable_encryption`](#enable-encryption) - Optional Block<br>Configuration parameter for enable encryption<br>See [Enable Encryption](#enable-encryption) below for details.
 
-<a id="gcp-labels"></a>&#x2022; [`gcp_labels`](#gcp-labels) - Optional Block<br>GCP Label is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in GCP console
+<a id="gcp-labels"></a>&#x2022; [`gcp_labels`](#gcp-labels) - Required Map<br>GCP Label is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in GCP console
 
 <a id="gcp-region"></a>&#x2022; [`gcp_region`](#gcp-region) - Required String<br>GCP Region. Name for GCP Region
 

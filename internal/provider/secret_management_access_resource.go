@@ -1588,6 +1588,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				if !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.AccessInfo.TLSConfig.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						AccessInfoTLSConfigCertParamsMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -1641,6 +1642,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 						var VerifySubjectAltNamesItems []string
 						diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							AccessInfoTLSConfigCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 						}
@@ -1654,6 +1656,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				if !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.AccessInfo.TLSConfig.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						AccessInfoTLSConfigCommonParamsMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -1680,6 +1683,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										AccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
@@ -1770,6 +1774,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 						var VerifySubjectAltNamesItems []string
 						diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							AccessInfoTLSConfigCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 						}
@@ -2214,7 +2219,8 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -2316,7 +2322,8 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -2340,7 +2347,8 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -2388,7 +2396,8 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -2571,7 +2580,8 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -3346,7 +3356,8 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -3448,7 +3459,8 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -3472,7 +3484,8 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -3520,7 +3533,8 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -3703,7 +3717,8 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -4325,6 +4340,7 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				if !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.AccessInfo.TLSConfig.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						AccessInfoTLSConfigCertParamsMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -4378,6 +4394,7 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 						var VerifySubjectAltNamesItems []string
 						diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							AccessInfoTLSConfigCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 						}
@@ -4391,6 +4408,7 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				if !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.AccessInfo.TLSConfig.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						AccessInfoTLSConfigCommonParamsMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -4417,6 +4435,7 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										AccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
@@ -4507,6 +4526,7 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 						var VerifySubjectAltNamesItems []string
 						diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							AccessInfoTLSConfigCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 						}
@@ -4971,7 +4991,8 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -5073,7 +5094,8 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5097,7 +5119,8 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -5145,7 +5168,8 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -5328,7 +5352,8 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)

@@ -144,6 +144,7 @@ type TerraformAttribute struct {
 	NestedAttributes   []TerraformAttribute
 	NestedBlockType    string
 	IsBlock            bool
+	ConversionError    string // Tracks controlled generator errors during conversion
 	OneOfGroup         string
 	PlanModifier       string
 	MaxDepth           int    // Track recursion depth to prevent infinite loops

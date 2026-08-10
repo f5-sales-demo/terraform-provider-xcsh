@@ -339,6 +339,7 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 	if !data.Compliances.IsNull() && !data.Compliances.IsUnknown() {
 		var CompliancesItems []string
 		diags := data.Compliances.ElementsAs(ctx, &CompliancesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["compliances"] = CompliancesItems
 		}
@@ -372,6 +373,7 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 	if !data.DisabledPredefinedDataTypes.IsNull() && !data.DisabledPredefinedDataTypes.IsUnknown() {
 		var DisabledPredefinedDataTypesItems []string
 		diags := data.DisabledPredefinedDataTypes.ElementsAs(ctx, &DisabledPredefinedDataTypesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["disabled_predefined_data_types"] = DisabledPredefinedDataTypesItems
 		}
@@ -757,6 +759,7 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 	if !data.Compliances.IsNull() && !data.Compliances.IsUnknown() {
 		var CompliancesItems []string
 		diags := data.Compliances.ElementsAs(ctx, &CompliancesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["compliances"] = CompliancesItems
 		}
@@ -790,6 +793,7 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 	if !data.DisabledPredefinedDataTypes.IsNull() && !data.DisabledPredefinedDataTypes.IsUnknown() {
 		var DisabledPredefinedDataTypesItems []string
 		diags := data.DisabledPredefinedDataTypes.ElementsAs(ctx, &DisabledPredefinedDataTypesItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["disabled_predefined_data_types"] = DisabledPredefinedDataTypesItems
 		}

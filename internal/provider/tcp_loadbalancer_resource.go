@@ -2360,6 +2360,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["domains"] = DomainsItems
 		}
@@ -2463,6 +2464,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							TLSTCPTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -2531,6 +2533,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							TLSTCPTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -2562,6 +2565,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									TLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -2616,6 +2620,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							TLSTCPTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -2684,6 +2689,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							TLSTCPTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -2708,6 +2714,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSTCPAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -2776,6 +2783,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 					var XfccHeaderElementsItems []string
 					diags := data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSTCPAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 					}
@@ -3442,7 +3450,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -3594,7 +3603,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -3654,7 +3664,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3772,7 +3783,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -3924,7 +3936,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -3974,7 +3987,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -4126,7 +4140,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -4900,7 +4915,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5052,7 +5068,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5112,7 +5129,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5230,7 +5248,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5382,7 +5401,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -5432,7 +5452,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -5584,7 +5605,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -5935,6 +5957,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["domains"] = DomainsItems
 		}
@@ -6038,6 +6061,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							TLSTCPTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -6106,6 +6130,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							TLSTCPTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -6137,6 +6162,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									TLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -6191,6 +6217,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							TLSTCPTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -6259,6 +6286,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							TLSTCPTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -6283,6 +6311,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSTCPAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -6351,6 +6380,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 					var XfccHeaderElementsItems []string
 					diags := data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSTCPAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 					}
@@ -7065,7 +7095,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7217,7 +7248,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7277,7 +7309,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7395,7 +7428,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7547,7 +7581,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -7597,7 +7632,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -7749,7 +7785,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)

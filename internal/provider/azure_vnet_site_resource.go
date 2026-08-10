@@ -20,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -3166,6 +3167,7 @@ type AzureVNETSiteResourceModel struct {
 	AzureRegion              types.String                                `tfsdk:"azure_region"`
 	DiskSize                 types.Int64                                 `tfsdk:"disk_size"`
 	NodesPerAz               types.Int64                                 `tfsdk:"nodes_per_az"`
+	Tags                     types.Map                                   `tfsdk:"tags"`
 	TotalNodes               types.Int64                                 `tfsdk:"total_nodes"`
 	Timeouts                 timeouts.Value                              `tfsdk:"timeouts"`
 	AdminPassword            *AzureVNETSiteAdminPasswordModel            `tfsdk:"admin_password"`
@@ -3191,7 +3193,6 @@ type AzureVNETSiteResourceModel struct {
 	BlockAllServices         *AzureVNETSiteEmptyModel                    `tfsdk:"block_all_services"`
 	LogsStreamingDisabled    *AzureVNETSiteEmptyModel                    `tfsdk:"logs_streaming_disabled"`
 	NoWorkerNodes            *AzureVNETSiteEmptyModel                    `tfsdk:"no_worker_nodes"`
-	Tags                     *AzureVNETSiteEmptyModel                    `tfsdk:"tags"`
 }
 
 func (r *AzureVNETSiteResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -3321,6 +3322,15 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 				Validators: []validator.Int64{
 					int64validator.Between(0, 21),
+				},
+			},
+			"tags": schema.MapAttribute{
+				MarkdownDescription: "Azure Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in Azure console. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"total_nodes": schema.Int64Attribute{
@@ -7133,9 +7143,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			"no_worker_nodes": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: no_worker_nodes, nodes_per_az, total_nodes; Default: no_worker_nodes] Configuration parameter for no worker nodes. Defaults to `map[]`. Server applies default when omitted.",
 			},
-			"tags": schema.SingleNestedBlock{
-				MarkdownDescription: "Azure Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in Azure console. Defaults to `map[]`. Server applies default when omitted.",
-			},
 		},
 	}
 }
@@ -7873,6 +7880,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -8014,6 +8022,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -8533,6 +8542,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -8735,6 +8745,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -9379,6 +9390,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -9761,6 +9773,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -9921,8 +9934,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	if !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() {
 		createReq.Spec["nodes_per_az"] = data.NodesPerAz.ValueInt64()
 	}
-	if data.Tags != nil {
-		createReq.Spec["tags"] = map[string]interface{}{}
+	if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+		var TagsMap map[string]string
+		diags := data.Tags.ElementsAs(ctx, &TagsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			createReq.Spec["tags"] = TagsMap
+		}
 	}
 	if !data.TotalNodes.IsNull() && !data.TotalNodes.IsUnknown() {
 		createReq.Spec["total_nodes"] = data.TotalNodes.ValueInt64()
@@ -11110,7 +11128,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -11410,7 +11429,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12520,7 +12540,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12971,7 +12992,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -14368,7 +14390,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -15155,7 +15178,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -15462,9 +15486,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	} else {
 		data.NodesPerAz = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AzureVNETSiteEmptyModel{}
-	}
+	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
 	if v, ok := apiResource.Spec["total_nodes"].(float64); ok {
 		data.TotalNodes = types.Int64Value(int64(v))
 	} else {
@@ -16752,7 +16774,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -17052,7 +17075,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -18162,7 +18186,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -18613,7 +18638,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -20010,7 +20036,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -20797,7 +20824,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -21104,9 +21132,7 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	} else {
 		data.NodesPerAz = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AzureVNETSiteEmptyModel{}
-	}
+	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
 	if v, ok := apiResource.Spec["total_nodes"].(float64); ok {
 		data.TotalNodes = types.Int64Value(int64(v))
 	} else {
@@ -21788,6 +21814,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -21929,6 +21956,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -22448,6 +22476,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -22650,6 +22679,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -23294,6 +23324,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -23676,6 +23707,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -23836,8 +23868,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() {
 		apiResource.Spec["nodes_per_az"] = data.NodesPerAz.ValueInt64()
 	}
-	if data.Tags != nil {
-		apiResource.Spec["tags"] = map[string]interface{}{}
+	if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+		var TagsMap map[string]string
+		diags := data.Tags.ElementsAs(ctx, &TagsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			apiResource.Spec["tags"] = TagsMap
+		}
 	}
 	if !data.TotalNodes.IsNull() && !data.TotalNodes.IsUnknown() {
 		apiResource.Spec["total_nodes"] = data.TotalNodes.ValueInt64()
@@ -25087,7 +25124,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -25387,7 +25425,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -26497,7 +26536,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -26948,7 +26988,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -28345,7 +28386,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -29132,7 +29174,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -29439,9 +29482,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	} else {
 		data.NodesPerAz = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AzureVNETSiteEmptyModel{}
-	}
+	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
 	if v, ok := apiResource.Spec["total_nodes"].(float64); ok {
 		data.TotalNodes = types.Int64Value(int64(v))
 	} else {

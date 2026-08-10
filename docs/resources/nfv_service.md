@@ -123,7 +123,7 @@ A [`f5_big_ip_aws_service`](#f5-big-ip-aws-service) block supports the following
 
 <a id="f5-big-ip-aws-service-ssh-key"></a>&#x2022; [`ssh_key`](#f5-big-ip-aws-service-ssh-key) - Optional String<br>Public SSH key for accessing the Big IP nodes
 
-<a id="f5-big-ip-aws-service-tags"></a>&#x2022; [`tags`](#f5-big-ip-aws-service-tags) - Optional Block<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
+<a id="f5-big-ip-aws-service-tags"></a>&#x2022; [`tags`](#f5-big-ip-aws-service-tags) - Optional Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
 
 #### F5 Big IP AWS Service Admin Password
 
@@ -504,7 +504,7 @@ PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_XLARGE|PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_2XLAR
 
 <a id="palo-alto-fw-service-ssh-key"></a>&#x2022; [`ssh_key`](#palo-alto-fw-service-ssh-key) - Optional String<br>Setup Authorized Public SSH key. User will be able to SSH to the vmseries nodes using its corresponding SSH private key
 
-<a id="palo-alto-fw-service-tags"></a>&#x2022; [`tags`](#palo-alto-fw-service-tags) - Optional Block<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
+<a id="palo-alto-fw-service-tags"></a>&#x2022; [`tags`](#palo-alto-fw-service-tags) - Optional Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
 
 <a id="palo-alto-fw-service-version"></a>&#x2022; [`version`](#palo-alto-fw-service-version) - Optional String<br>[Enum: 11.0.0] PAN VM-Series version. PAN-OS version. The only possible value is `11.0.0`
 

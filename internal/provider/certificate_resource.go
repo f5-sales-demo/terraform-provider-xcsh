@@ -433,6 +433,7 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 			var HashAlgorithmsItems []string
 			diags := data.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 			}
@@ -531,7 +532,8 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -756,7 +758,8 @@ func (r *CertificateResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -923,6 +926,7 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 			var HashAlgorithmsItems []string
 			diags := data.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 			}
@@ -1041,7 +1045,8 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

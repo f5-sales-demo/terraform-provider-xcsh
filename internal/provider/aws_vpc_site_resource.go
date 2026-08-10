@@ -1622,6 +1622,7 @@ type AWSVPCSiteResourceModel struct {
 	Description                 types.String                                `tfsdk:"description"`
 	Disable                     types.Bool                                  `tfsdk:"disable"`
 	Labels                      types.Map                                   `tfsdk:"labels"`
+	Tags                        types.Map                                   `tfsdk:"tags"`
 	ID                          types.String                                `tfsdk:"id"`
 	Address                     types.String                                `tfsdk:"address"`
 	DiskSize                    types.Int64                                 `tfsdk:"disk_size"`
@@ -1658,7 +1659,6 @@ type AWSVPCSiteResourceModel struct {
 	OS                          *AWSVPCSiteOSModel                          `tfsdk:"os"`
 	PrivateConnectivity         *AWSVPCSitePrivateConnectivityModel         `tfsdk:"private_connectivity"`
 	Sw                          *AWSVPCSiteSwModel                          `tfsdk:"sw"`
-	Tags                        *AWSVPCSiteEmptyModel                       `tfsdk:"tags"`
 	VoltstackCluster            *AWSVPCSiteVoltstackClusterModel            `tfsdk:"voltstack_cluster"`
 	VPC                         *AWSVPCSiteVPCModel                         `tfsdk:"vpc"`
 }
@@ -1725,6 +1725,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
+				ElementType:         types.StringType,
+			},
+			"tags": schema.MapAttribute{
+				MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
+				Required:            true,
 				ElementType:         types.StringType,
 			},
 			"id": schema.StringAttribute{
@@ -3144,9 +3149,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"tags": schema.SingleNestedBlock{
-				MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
-			},
 			"voltstack_cluster": schema.SingleNestedBlock{
 				MarkdownDescription: "App Stack cluster of single interface AWS nodes.",
 				Attributes: map[string]schema.Attribute{
@@ -4403,6 +4405,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -4541,6 +4544,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -4860,8 +4864,13 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["sw"] = SwMap
 	}
-	if data.Tags != nil {
-		createReq.Spec["tags"] = map[string]interface{}{}
+	if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+		var TagsMap map[string]string
+		diags := data.Tags.ElementsAs(ctx, &TagsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			createReq.Spec["tags"] = TagsMap
+		}
 	}
 	if data.VoltstackCluster != nil {
 		VoltstackClusterMap := make(map[string]interface{})
@@ -5115,6 +5124,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -6252,7 +6262,8 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6543,7 +6554,8 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7230,9 +7242,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AWSVPCSiteEmptyModel{}
-	}
+	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &AWSVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {
@@ -7744,7 +7754,8 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -9146,7 +9157,8 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -9437,7 +9449,8 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -10124,9 +10137,7 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AWSVPCSiteEmptyModel{}
-	}
+	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &AWSVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {
@@ -10638,7 +10649,8 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -11578,6 +11590,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -11716,6 +11729,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -12035,8 +12049,13 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["sw"] = SwMap
 	}
-	if data.Tags != nil {
-		apiResource.Spec["tags"] = map[string]interface{}{}
+	if !data.Tags.IsNull() && !data.Tags.IsUnknown() {
+		var TagsMap map[string]string
+		diags := data.Tags.ElementsAs(ctx, &TagsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			apiResource.Spec["tags"] = TagsMap
+		}
 	}
 	if data.VoltstackCluster != nil {
 		VoltstackClusterMap := make(map[string]interface{})
@@ -12290,6 +12309,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
@@ -13461,7 +13481,8 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -13752,7 +13773,8 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -14439,9 +14461,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["tags"].(map[string]interface{}); ok && isImport && data.Tags == nil {
-		data.Tags = &AWSVPCSiteEmptyModel{}
-	}
+	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &AWSVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {
@@ -14953,7 +14973,8 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)

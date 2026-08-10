@@ -430,7 +430,7 @@ A [`storage_class_list`](#storage-class-list) block supports the following:
 
 A [`storage_classes`](#storage-class-list-storage-classes) block (within [`storage_class_list`](#storage-class-list)) supports the following:
 
-<a id="parameters-747134"></a>&#x2022; [`advanced_storage_parameters`](#parameters-747134) - Optional Block<br>Advanced Parameters. Map of parameter name and string value
+<a id="parameters-747134"></a>&#x2022; [`advanced_storage_parameters`](#parameters-747134) - Optional Map<br>Advanced Parameters. Map of parameter name and string value
 
 <a id="expansion-10c9e1"></a>&#x2022; [`allow_volume_expansion`](#expansion-10c9e1) - Optional Bool<br>Allow Volume Expansion. Allow volume expansion
 
@@ -516,7 +516,7 @@ A [`storage_device_list`](#storage-device-list) block supports the following:
 
 A [`storage_devices`](#storage-device-list-storage-devices) block (within [`storage_device_list`](#storage-device-list)) supports the following:
 
-<a id="parameters-88bc5e"></a>&#x2022; [`advanced_advanced_parameters`](#parameters-88bc5e) - Optional Block<br>Advanced Parameters. Map of parameter name and string value
+<a id="parameters-88bc5e"></a>&#x2022; [`advanced_advanced_parameters`](#parameters-88bc5e) - Optional Map<br>Advanced Parameters. Map of parameter name and string value
 
 <a id="storage-06f9ba"></a>&#x2022; [`custom_storage`](#storage-06f9ba) - Optional Block<br>Configuration parameter for custom storage
 

@@ -279,7 +279,6 @@ resource "xcsh_origin_pool" "test" {
   port      = 443
 
   origin_servers {
-    labels {}
     public_name {
       dns_name = "example.com"
     }
@@ -486,7 +485,6 @@ resource "xcsh_origin_pool" "test" {
   port      = 443
 
   origin_servers {
-    labels {}
     public_name {
       dns_name = "example.com"
     }
@@ -2824,7 +2822,7 @@ An [`origin_servers`](#default-pool-origin-servers) block (within [`default_pool
 
 <a id="default-pool-origin-servers-k8s-service"></a>&#x2022; [`k8s_service`](#default-pool-origin-servers-k8s-service) - Optional Block<br>Specify origin server with K8S service name and site information<br>See [K8S Service](#default-pool-origin-servers-k8s-service) below.
 
-<a id="default-pool-origin-servers-labels"></a>&#x2022; [`labels`](#default-pool-origin-servers-labels) - Optional Block<br>Add Labels for this origin server, these labels can be used to form subset
+<a id="default-pool-origin-servers-labels"></a>&#x2022; [`labels`](#default-pool-origin-servers-labels) - Optional Map<br>Add Labels for this origin server, these labels can be used to form subset
 
 <a id="default-pool-origin-servers-private-ip"></a>&#x2022; [`private_ip`](#default-pool-origin-servers-private-ip) - Optional Block<br>Specify origin server with private or public IP address and site information<br>See [Private IP](#default-pool-origin-servers-private-ip) below.
 
@@ -4092,8 +4090,7 @@ below.
 <a id="more-option-compression-params"></a>&#x2022; [`compression_params`](#more-option-compression-params) - Optional Block<br>Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported<br>See [Compression
 Params](#more-option-compression-params) below.
 
-<a id="more-option-custom-errors"></a>&#x2022; [`custom_errors`](#more-option-custom-errors) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for
-4xx
+<a id="more-option-custom-errors"></a>&#x2022; [`custom_errors`](#more-option-custom-errors) - Optional Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
 
 <a id="more-option-disable-default-error-pages"></a>&#x2022; [`disable_default_error_pages`](#more-option-disable-default-error-pages) - Optional Bool<br>Disable the use of default F5XC error pages
 

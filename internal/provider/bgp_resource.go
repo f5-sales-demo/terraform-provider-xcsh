@@ -1271,6 +1271,7 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 									if !RoutePolicyItem.NodeName.Node.IsNull() && !RoutePolicyItem.NodeName.Node.IsUnknown() {
 										var NodeItems []string
 										diags := RoutePolicyItem.NodeName.Node.ElementsAs(ctx, &NodeItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PeersRoutingPoliciesRoutePolicyNodeNameMap["node"] = NodeItems
 										}
@@ -1908,7 +1909,8 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -2793,7 +2795,8 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -3376,6 +3379,7 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 									if !RoutePolicyItem.NodeName.Node.IsNull() && !RoutePolicyItem.NodeName.Node.IsUnknown() {
 										var NodeItems []string
 										diags := RoutePolicyItem.NodeName.Node.ElementsAs(ctx, &NodeItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PeersRoutingPoliciesRoutePolicyNodeNameMap["node"] = NodeItems
 										}
@@ -4033,7 +4037,8 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)

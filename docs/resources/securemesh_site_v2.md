@@ -267,7 +267,7 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 <a id="config-cd50c5"></a>&#x2022; [`ipv6_auto_config`](#config-cd50c5) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-cd50c5) below.
 
-<a id="labels-188d84"></a>&#x2022; [`labels`](#labels-188d84) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-188d84"></a>&#x2022; [`labels`](#labels-188d84) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-169def"></a>&#x2022; [`monitor`](#monitor-169def) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -406,7 +406,7 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 
 <a id="config-e67aff"></a>&#x2022; [`ipv6_auto_config`](#config-e67aff) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-e67aff) below.
 
-<a id="labels-eb7a23"></a>&#x2022; [`labels`](#labels-eb7a23) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-eb7a23"></a>&#x2022; [`labels`](#labels-eb7a23) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-533eb1"></a>&#x2022; [`monitor`](#monitor-533eb1) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -545,7 +545,7 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 
 <a id="config-88a239"></a>&#x2022; [`ipv6_auto_config`](#config-88a239) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-88a239) below.
 
-<a id="labels-816fbc"></a>&#x2022; [`labels`](#labels-816fbc) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-816fbc"></a>&#x2022; [`labels`](#labels-816fbc) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-1cb67f"></a>&#x2022; [`monitor`](#monitor-1cb67f) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -797,7 +797,7 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 
 <a id="config-96da89"></a>&#x2022; [`ipv6_auto_config`](#config-96da89) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-96da89) below.
 
-<a id="labels-718666"></a>&#x2022; [`labels`](#labels-718666) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-718666"></a>&#x2022; [`labels`](#labels-718666) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-15c36b"></a>&#x2022; [`monitor`](#monitor-15c36b) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -936,7 +936,7 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 
 <a id="config-881893"></a>&#x2022; [`ipv6_auto_config`](#config-881893) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-881893) below.
 
-<a id="labels-43ee17"></a>&#x2022; [`labels`](#labels-43ee17) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-43ee17"></a>&#x2022; [`labels`](#labels-43ee17) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-986ba9"></a>&#x2022; [`monitor`](#monitor-986ba9) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -1075,7 +1075,7 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 
 <a id="config-ab0775"></a>&#x2022; [`ipv6_auto_config`](#config-ab0775) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-ab0775) below.
 
-<a id="labels-36ae51"></a>&#x2022; [`labels`](#labels-36ae51) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-36ae51"></a>&#x2022; [`labels`](#labels-36ae51) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-1bfade"></a>&#x2022; [`monitor`](#monitor-1bfade) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -1198,7 +1198,7 @@ A [`local_vrf`](#local-vrf) block supports the following:
 
 A [`sli_config`](#local-vrf-sli-config) block (within [`local_vrf`](#local-vrf)) supports the following:
 
-<a id="local-vrf-sli-config-labels"></a>&#x2022; [`labels`](#local-vrf-sli-config-labels) - Optional Block<br>Add Labels for this network, these labels can be used in firewall policy
+<a id="local-vrf-sli-config-labels"></a>&#x2022; [`labels`](#local-vrf-sli-config-labels) - Optional Map<br>Add Labels for this network, these labels can be used in firewall policy
 
 <a id="local-vrf-sli-config-nameserver"></a>&#x2022; [`nameserver`](#local-vrf-sli-config-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution
 
@@ -1262,7 +1262,7 @@ A [`static_v6_routes`](#local-vrf-sli-config-static-v6-routes) block (within [`l
 
 A [`slo_config`](#local-vrf-slo-config) block (within [`local_vrf`](#local-vrf)) supports the following:
 
-<a id="local-vrf-slo-config-labels"></a>&#x2022; [`labels`](#local-vrf-slo-config-labels) - Optional Block<br>Add Labels for this network, these labels can be used in firewall policy
+<a id="local-vrf-slo-config-labels"></a>&#x2022; [`labels`](#local-vrf-slo-config-labels) - Optional Map<br>Add Labels for this network, these labels can be used in firewall policy
 
 <a id="local-vrf-slo-config-nameserver"></a>&#x2022; [`nameserver`](#local-vrf-slo-config-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution
 
@@ -1380,7 +1380,7 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 
 <a id="config-08cb50"></a>&#x2022; [`ipv6_auto_config`](#config-08cb50) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-08cb50) below.
 
-<a id="labels-c91cb8"></a>&#x2022; [`labels`](#labels-c91cb8) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-c91cb8"></a>&#x2022; [`labels`](#labels-c91cb8) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-824921"></a>&#x2022; [`monitor`](#monitor-824921) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -1519,7 +1519,7 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 
 <a id="config-5531bb"></a>&#x2022; [`ipv6_auto_config`](#config-5531bb) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-5531bb) below.
 
-<a id="labels-66a173"></a>&#x2022; [`labels`](#labels-66a173) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-66a173"></a>&#x2022; [`labels`](#labels-66a173) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-2b293c"></a>&#x2022; [`monitor`](#monitor-2b293c) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -1766,7 +1766,7 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 
 <a id="config-3546e4"></a>&#x2022; [`ipv6_auto_config`](#config-3546e4) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-3546e4) below.
 
-<a id="labels-f228d0"></a>&#x2022; [`labels`](#labels-f228d0) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-f228d0"></a>&#x2022; [`labels`](#labels-f228d0) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-430458"></a>&#x2022; [`monitor`](#monitor-430458) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 
@@ -2081,7 +2081,7 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 
 <a id="config-f79747"></a>&#x2022; [`ipv6_auto_config`](#config-f79747) - Optional Block<br>IPV6AutoConfigType<br>See [IPv6 Auto Config](#config-f79747) below.
 
-<a id="labels-2ed8c9"></a>&#x2022; [`labels`](#labels-2ed8c9) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-2ed8c9"></a>&#x2022; [`labels`](#labels-2ed8c9) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 <a id="monitor-ad3d04"></a>&#x2022; [`monitor`](#monitor-ad3d04) - Optional Block<br>Link Quality Monitoring configuration for a network interface
 

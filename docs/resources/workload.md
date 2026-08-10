@@ -225,7 +225,7 @@ An [`exec_health_check`](#check-738ef8) block (within [`job.containers.liveness_
 
 A [`http_health_check`](#check-052b16) block (within [`job.containers.liveness_check`](#job-containers-liveness-check)) supports the following:
 
-<a id="headers-202d31"></a>&#x2022; [`headers`](#headers-202d31) - Optional Block<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs
+<a id="headers-202d31"></a>&#x2022; [`headers`](#headers-202d31) - Optional Map<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs
 
 <a id="header-2aa0a5"></a>&#x2022; [`host_header`](#header-2aa0a5) - Optional String<br>The value of the host header in the HTTP health check request
 
@@ -277,7 +277,7 @@ An [`exec_health_check`](#check-ce28eb) block (within [`job.containers.readiness
 
 A [`http_health_check`](#check-c5bafc) block (within [`job.containers.readiness_check`](#job-containers-readiness-check)) supports the following:
 
-<a id="headers-16116f"></a>&#x2022; [`headers`](#headers-16116f) - Optional Block<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs
+<a id="headers-16116f"></a>&#x2022; [`headers`](#headers-16116f) - Optional Map<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs
 
 <a id="header-389f08"></a>&#x2022; [`host_header`](#header-389f08) - Optional String<br>The value of the host header in the HTTP health check request
 
@@ -1424,7 +1424,7 @@ An [`exec_health_check`](#check-f4a0a5) block (within [`service.containers.liven
 
 A [`http_health_check`](#check-d4d023) block (within [`service.containers.liveness_check`](#service-containers-liveness-check)) supports the following:
 
-<a id="headers-10e4cf"></a>&#x2022; [`headers`](#headers-10e4cf) - Optional Block<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs
+<a id="headers-10e4cf"></a>&#x2022; [`headers`](#headers-10e4cf) - Optional Map<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs
 
 <a id="header-d00d0a"></a>&#x2022; [`host_header`](#header-d00d0a) - Optional String<br>The value of the host header in the HTTP health check request
 
@@ -1476,7 +1476,7 @@ An [`exec_health_check`](#check-b467be) block (within [`service.containers.readi
 
 A [`http_health_check`](#check-2e8715) block (within [`service.containers.readiness_check`](#service-containers-readiness-check)) supports the following:
 
-<a id="headers-eb2094"></a>&#x2022; [`headers`](#headers-eb2094) - Optional Block<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs
+<a id="headers-eb2094"></a>&#x2022; [`headers`](#headers-eb2094) - Optional Map<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs
 
 <a id="header-62e026"></a>&#x2022; [`host_header`](#header-62e026) - Optional String<br>The value of the host header in the HTTP health check request
 

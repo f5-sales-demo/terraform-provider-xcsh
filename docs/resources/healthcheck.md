@@ -502,7 +502,7 @@ A [`http_health_check`](#http-health-check) block supports the following:
 <a id="http-health-check-expected-status-codes"></a>&#x2022; [`expected_status_codes`](#http-health-check-expected-status-codes) - Optional List  Defaults to `[]`<br>Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of which is single HTTP status code or
 a range with start and end values separated by '-'.  Server applies default when omitted
 
-<a id="http-health-check-headers"></a>&#x2022; [`headers`](#http-health-check-headers) - Optional Block  Defaults to `map[]`<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs.  Server applies default when omitted
+<a id="http-health-check-headers"></a>&#x2022; [`headers`](#http-health-check-headers) - Optional Map  Defaults to `map[]`<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs.  Server applies default when omitted
 
 <a id="http-health-check-host-header"></a>&#x2022; [`host_header`](#http-health-check-host-header) - Optional String<br>The value of the host header
 

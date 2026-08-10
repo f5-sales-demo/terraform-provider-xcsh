@@ -1097,6 +1097,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 							if !RulesItem.Action.Dynamic.Pools.Prefixes.IsNull() && !RulesItem.Action.Dynamic.Pools.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := RulesItem.Action.Dynamic.Pools.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RulesActionDynamicPoolsMap["prefixes"] = PrefixesItems
 								}
@@ -1150,6 +1151,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 					if !RulesItem.Criteria.DestinationCIDR.IsNull() && !RulesItem.Criteria.DestinationCIDR.IsUnknown() {
 						var DestinationCIDRItems []string
 						diags := RulesItem.Criteria.DestinationCIDR.ElementsAs(ctx, &DestinationCIDRItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RulesCriteriaMap["destination_cidr"] = DestinationCIDRItems
 						}
@@ -1166,6 +1168,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 					if !RulesItem.Criteria.SourceCIDR.IsNull() && !RulesItem.Criteria.SourceCIDR.IsUnknown() {
 						var SourceCIDRItems []string
 						diags := RulesItem.Criteria.SourceCIDR.ElementsAs(ctx, &SourceCIDRItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RulesCriteriaMap["source_cidr"] = SourceCIDRItems
 						}
@@ -1503,7 +1506,8 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -1605,7 +1609,8 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1645,7 +1650,8 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2318,7 +2324,8 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -2420,7 +2427,8 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2460,7 +2468,8 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3049,6 +3058,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 							if !RulesItem.Action.Dynamic.Pools.Prefixes.IsNull() && !RulesItem.Action.Dynamic.Pools.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := RulesItem.Action.Dynamic.Pools.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RulesActionDynamicPoolsMap["prefixes"] = PrefixesItems
 								}
@@ -3102,6 +3112,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 					if !RulesItem.Criteria.DestinationCIDR.IsNull() && !RulesItem.Criteria.DestinationCIDR.IsUnknown() {
 						var DestinationCIDRItems []string
 						diags := RulesItem.Criteria.DestinationCIDR.ElementsAs(ctx, &DestinationCIDRItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RulesCriteriaMap["destination_cidr"] = DestinationCIDRItems
 						}
@@ -3118,6 +3129,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 					if !RulesItem.Criteria.SourceCIDR.IsNull() && !RulesItem.Criteria.SourceCIDR.IsUnknown() {
 						var SourceCIDRItems []string
 						diags := RulesItem.Criteria.SourceCIDR.ElementsAs(ctx, &SourceCIDRItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RulesCriteriaMap["source_cidr"] = SourceCIDRItems
 						}
@@ -3475,7 +3487,8 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3577,7 +3590,8 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -3617,7 +3631,8 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)

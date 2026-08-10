@@ -141,7 +141,7 @@ A [`more_option`](#dynamic-proxy-http-proxy-more-option) block (within [`dynamic
 
 <a id="params-c9d1d2"></a>&#x2022; [`compression_params`](#params-c9d1d2) - Optional Block<br>Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported<br>See [Compression Params](#params-c9d1d2) below.
 
-<a id="errors-be4463"></a>&#x2022; [`custom_errors`](#errors-be4463) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
+<a id="errors-be4463"></a>&#x2022; [`custom_errors`](#errors-be4463) - Optional Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
 
 <a id="pages-241bd8"></a>&#x2022; [`disable_default_error_pages`](#pages-241bd8) - Optional Bool<br>Disable the use of default F5XC error pages
 
@@ -261,7 +261,7 @@ A [`more_option`](#dynamic-proxy-https-proxy-more-option) block (within [`dynami
 
 <a id="params-013546"></a>&#x2022; [`compression_params`](#params-013546) - Optional Block<br>Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported<br>See [Compression Params](#params-013546) below.
 
-<a id="errors-01c21a"></a>&#x2022; [`custom_errors`](#errors-01c21a) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
+<a id="errors-01c21a"></a>&#x2022; [`custom_errors`](#errors-01c21a) - Optional Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
 
 <a id="pages-9edd65"></a>&#x2022; [`disable_default_error_pages`](#pages-9edd65) - Optional Bool<br>Disable the use of default F5XC error pages
 
@@ -444,7 +444,7 @@ Policy](#http-proxy-more-option-buffer-policy) below.
 
 <a id="params-c32856"></a>&#x2022; [`compression_params`](#params-c32856) - Optional Block<br>Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported<br>See [Compression Params](#params-c32856) below.
 
-<a id="http-proxy-more-option-custom-errors"></a>&#x2022; [`custom_errors`](#http-proxy-more-option-custom-errors) - Optional Block<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response
+<a id="http-proxy-more-option-custom-errors"></a>&#x2022; [`custom_errors`](#http-proxy-more-option-custom-errors) - Optional Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response
 code class 4 -- for 4xx
 
 <a id="pages-159caf"></a>&#x2022; [`disable_default_error_pages`](#pages-159caf) - Optional Bool<br>Disable the use of default F5XC error pages

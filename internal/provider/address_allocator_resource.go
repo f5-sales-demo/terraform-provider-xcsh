@@ -308,6 +308,7 @@ func (r *AddressAllocatorResource) Create(ctx context.Context, req resource.Crea
 	if !data.AddressPool.IsNull() && !data.AddressPool.IsUnknown() {
 		var AddressPoolItems []string
 		diags := data.AddressPool.ElementsAs(ctx, &AddressPoolItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["address_pool"] = AddressPoolItems
 		}
@@ -649,6 +650,7 @@ func (r *AddressAllocatorResource) Update(ctx context.Context, req resource.Upda
 	if !data.AddressPool.IsNull() && !data.AddressPool.IsUnknown() {
 		var AddressPoolItems []string
 		diags := data.AddressPool.ElementsAs(ctx, &AddressPoolItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["address_pool"] = AddressPoolItems
 		}

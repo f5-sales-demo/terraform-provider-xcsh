@@ -1056,6 +1056,7 @@ type VirtualHostResourceModel struct {
 	Name                        types.String                         `tfsdk:"name"`
 	Namespace                   types.String                         `tfsdk:"namespace"`
 	Annotations                 types.Map                            `tfsdk:"annotations"`
+	CustomErrors                types.Map                            `tfsdk:"custom_errors"`
 	Description                 types.String                         `tfsdk:"description"`
 	Disable                     types.Bool                           `tfsdk:"disable"`
 	Domains                     types.List                           `tfsdk:"domains"`
@@ -1084,7 +1085,6 @@ type VirtualHostResourceModel struct {
 	CompressionParams           *VirtualHostCompressionParamsModel   `tfsdk:"compression_params"`
 	CORSPolicy                  *VirtualHostCORSPolicyModel          `tfsdk:"cors_policy"`
 	CSRFPolicy                  *VirtualHostCSRFPolicyModel          `tfsdk:"csrf_policy"`
-	CustomErrors                *VirtualHostEmptyModel               `tfsdk:"custom_errors"`
 	DefaultHeader               *VirtualHostEmptyModel               `tfsdk:"default_header"`
 	DefaultLoadBalancer         *VirtualHostEmptyModel               `tfsdk:"default_loadbalancer"`
 	DisablePathNormalize        *VirtualHostEmptyModel               `tfsdk:"disable_path_normalize"`
@@ -1143,6 +1143,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
+				ElementType:         types.StringType,
+			},
+			"custom_errors": schema.MapAttribute{
+				MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
+				Required:            true,
 				ElementType:         types.StringType,
 			},
 			"description": schema.StringAttribute{
@@ -1650,9 +1655,6 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						MarkdownDescription: "Enable this option",
 					},
 				},
-			},
-			"custom_errors": schema.SingleNestedBlock{
-				MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
 			},
 			"default_header": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for default header.",
@@ -3071,6 +3073,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.CompressionParams.ContentType.IsNull() && !data.CompressionParams.ContentType.IsUnknown() {
 			var ContentTypeItems []string
 			diags := data.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CompressionParamsMap["content_type"] = ContentTypeItems
 			}
@@ -3097,6 +3100,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.CORSPolicy.AllowOrigin.IsNull() && !data.CORSPolicy.AllowOrigin.IsUnknown() {
 			var AllowOriginItems []string
 			diags := data.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CORSPolicyMap["allow_origin"] = AllowOriginItems
 			}
@@ -3104,6 +3108,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.CORSPolicy.AllowOriginRegex.IsNull() && !data.CORSPolicy.AllowOriginRegex.IsUnknown() {
 			var AllowOriginRegexItems []string
 			diags := data.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 			}
@@ -3129,6 +3134,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.CSRFPolicy.CustomDomainList.Domains.IsNull() && !data.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 				var DomainsItems []string
 				diags := data.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					CSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 				}
@@ -3140,8 +3146,13 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		createReq.Spec["csrf_policy"] = CSRFPolicyMap
 	}
-	if data.CustomErrors != nil {
-		createReq.Spec["custom_errors"] = map[string]interface{}{}
+	if !data.CustomErrors.IsNull() && !data.CustomErrors.IsUnknown() {
+		var CustomErrorsMap map[string]string
+		diags := data.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			createReq.Spec["custom_errors"] = CustomErrorsMap
+		}
 	}
 	if data.DefaultHeader != nil {
 		createReq.Spec["default_header"] = map[string]interface{}{}
@@ -3155,6 +3166,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["domains"] = DomainsItems
 		}
@@ -3341,6 +3353,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if !data.RequestCookiesToRemove.IsNull() && !data.RequestCookiesToRemove.IsUnknown() {
 		var RequestCookiesToRemoveItems []string
 		diags := data.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 		}
@@ -3397,6 +3410,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if !data.RequestHeadersToRemove.IsNull() && !data.RequestHeadersToRemove.IsUnknown() {
 		var RequestHeadersToRemoveItems []string
 		diags := data.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["request_headers_to_remove"] = RequestHeadersToRemoveItems
 		}
@@ -3510,6 +3524,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if !data.ResponseCookiesToRemove.IsNull() && !data.ResponseCookiesToRemove.IsUnknown() {
 		var ResponseCookiesToRemoveItems []string
 		diags := data.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 		}
@@ -3566,6 +3581,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if !data.ResponseHeadersToRemove.IsNull() && !data.ResponseHeadersToRemove.IsUnknown() {
 		var ResponseHeadersToRemoveItems []string
 		diags := data.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 		}
@@ -3591,6 +3607,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.RetryPolicy.RetriableStatusCodes.IsNull() && !data.RetryPolicy.RetriableStatusCodes.IsUnknown() {
 			var RetriableStatusCodesItems []int64
 			diags := data.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				RetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
 			}
@@ -3598,6 +3615,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.RetryPolicy.RetryCondition.IsNull() && !data.RetryPolicy.RetryCondition.IsUnknown() {
 			var RetryConditionItems []string
 			diags := data.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				RetryPolicyMap["retry_condition"] = RetryConditionItems
 			}
@@ -3706,6 +3724,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.TLSCertParams.CipherSuites.IsNull() && !data.TLSCertParams.CipherSuites.IsUnknown() {
 			var CipherSuitesItems []string
 			diags := data.TLSCertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSCertParamsMap["cipher_suites"] = CipherSuitesItems
 			}
@@ -3768,6 +3787,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.TLSCertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSCertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 				var VerifySubjectAltNamesItems []string
 				diags := data.TLSCertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 				}
@@ -3777,6 +3797,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.TLSCertParams.XfccHeaderElements.IsNull() && !data.TLSCertParams.XfccHeaderElements.IsUnknown() {
 			var XfccHeaderElementsItems []string
 			diags := data.TLSCertParams.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSCertParamsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 			}
@@ -3796,6 +3817,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
@@ -3822,6 +3844,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -3912,6 +3935,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
@@ -3926,6 +3950,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
 			var XfccHeaderElementsItems []string
 			diags := data.TLSParameters.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSParametersMap["xfcc_header_elements"] = XfccHeaderElementsItems
 			}
@@ -4457,7 +4482,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4513,7 +4539,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4526,7 +4553,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -4582,7 +4610,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -4602,9 +4631,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["custom_errors"].(map[string]interface{}); ok && isImport && data.CustomErrors == nil {
-		data.CustomErrors = &VirtualHostEmptyModel{}
-	}
+	data.CustomErrors = UnmarshalStringMap(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", &resp.Diagnostics)
 	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
 		data.DefaultHeader = &VirtualHostEmptyModel{}
 	}
@@ -5553,7 +5580,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -5566,7 +5594,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5772,7 +5801,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5901,7 +5931,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -5918,7 +5949,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5956,7 +5988,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -6004,7 +6037,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6187,7 +6221,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6217,7 +6252,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -6932,7 +6968,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -6988,7 +7025,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7001,7 +7039,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7057,7 +7096,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -7077,9 +7117,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["custom_errors"].(map[string]interface{}); ok && isImport && data.CustomErrors == nil {
-		data.CustomErrors = &VirtualHostEmptyModel{}
-	}
+	data.CustomErrors = UnmarshalStringMap(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", &resp.Diagnostics)
 	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
 		data.DefaultHeader = &VirtualHostEmptyModel{}
 	}
@@ -8028,7 +8066,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -8041,7 +8080,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8247,7 +8287,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8376,7 +8417,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -8393,7 +8435,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8431,7 +8474,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -8479,7 +8523,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8662,7 +8707,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -8692,7 +8738,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -9149,6 +9196,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.CompressionParams.ContentType.IsNull() && !data.CompressionParams.ContentType.IsUnknown() {
 			var ContentTypeItems []string
 			diags := data.CompressionParams.ContentType.ElementsAs(ctx, &ContentTypeItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CompressionParamsMap["content_type"] = ContentTypeItems
 			}
@@ -9175,6 +9223,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.CORSPolicy.AllowOrigin.IsNull() && !data.CORSPolicy.AllowOrigin.IsUnknown() {
 			var AllowOriginItems []string
 			diags := data.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CORSPolicyMap["allow_origin"] = AllowOriginItems
 			}
@@ -9182,6 +9231,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.CORSPolicy.AllowOriginRegex.IsNull() && !data.CORSPolicy.AllowOriginRegex.IsUnknown() {
 			var AllowOriginRegexItems []string
 			diags := data.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				CORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 			}
@@ -9207,6 +9257,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.CSRFPolicy.CustomDomainList.Domains.IsNull() && !data.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 				var DomainsItems []string
 				diags := data.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					CSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 				}
@@ -9218,8 +9269,13 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		apiResource.Spec["csrf_policy"] = CSRFPolicyMap
 	}
-	if data.CustomErrors != nil {
-		apiResource.Spec["custom_errors"] = map[string]interface{}{}
+	if !data.CustomErrors.IsNull() && !data.CustomErrors.IsUnknown() {
+		var CustomErrorsMap map[string]string
+		diags := data.CustomErrors.ElementsAs(ctx, &CustomErrorsMap, false)
+		resp.Diagnostics.Append(diags...)
+		if !diags.HasError() {
+			apiResource.Spec["custom_errors"] = CustomErrorsMap
+		}
 	}
 	if data.DefaultHeader != nil {
 		apiResource.Spec["default_header"] = map[string]interface{}{}
@@ -9233,6 +9289,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["domains"] = DomainsItems
 		}
@@ -9419,6 +9476,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if !data.RequestCookiesToRemove.IsNull() && !data.RequestCookiesToRemove.IsUnknown() {
 		var RequestCookiesToRemoveItems []string
 		diags := data.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 		}
@@ -9475,6 +9533,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if !data.RequestHeadersToRemove.IsNull() && !data.RequestHeadersToRemove.IsUnknown() {
 		var RequestHeadersToRemoveItems []string
 		diags := data.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["request_headers_to_remove"] = RequestHeadersToRemoveItems
 		}
@@ -9588,6 +9647,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if !data.ResponseCookiesToRemove.IsNull() && !data.ResponseCookiesToRemove.IsUnknown() {
 		var ResponseCookiesToRemoveItems []string
 		diags := data.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 		}
@@ -9644,6 +9704,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if !data.ResponseHeadersToRemove.IsNull() && !data.ResponseHeadersToRemove.IsUnknown() {
 		var ResponseHeadersToRemoveItems []string
 		diags := data.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 		}
@@ -9669,6 +9730,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.RetryPolicy.RetriableStatusCodes.IsNull() && !data.RetryPolicy.RetriableStatusCodes.IsUnknown() {
 			var RetriableStatusCodesItems []int64
 			diags := data.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				RetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
 			}
@@ -9676,6 +9738,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.RetryPolicy.RetryCondition.IsNull() && !data.RetryPolicy.RetryCondition.IsUnknown() {
 			var RetryConditionItems []string
 			diags := data.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				RetryPolicyMap["retry_condition"] = RetryConditionItems
 			}
@@ -9784,6 +9847,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.TLSCertParams.CipherSuites.IsNull() && !data.TLSCertParams.CipherSuites.IsUnknown() {
 			var CipherSuitesItems []string
 			diags := data.TLSCertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSCertParamsMap["cipher_suites"] = CipherSuitesItems
 			}
@@ -9846,6 +9910,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.TLSCertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSCertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 				var VerifySubjectAltNamesItems []string
 				diags := data.TLSCertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 				}
@@ -9855,6 +9920,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.TLSCertParams.XfccHeaderElements.IsNull() && !data.TLSCertParams.XfccHeaderElements.IsUnknown() {
 			var XfccHeaderElementsItems []string
 			diags := data.TLSCertParams.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSCertParamsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 			}
@@ -9874,6 +9940,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
@@ -9900,6 +9967,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -9990,6 +10058,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
@@ -10004,6 +10073,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
 			var XfccHeaderElementsItems []string
 			diags := data.TLSParameters.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSParametersMap["xfcc_header_elements"] = XfccHeaderElementsItems
 			}
@@ -10576,7 +10646,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -10632,7 +10703,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -10645,7 +10717,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -10701,7 +10774,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -10721,9 +10795,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["custom_errors"].(map[string]interface{}); ok && isImport && data.CustomErrors == nil {
-		data.CustomErrors = &VirtualHostEmptyModel{}
-	}
+	data.CustomErrors = UnmarshalStringMap(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", &resp.Diagnostics)
 	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
 		data.DefaultHeader = &VirtualHostEmptyModel{}
 	}
@@ -11672,7 +11744,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, int64(s))
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+					listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.Int64Type)
@@ -11685,7 +11758,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -11891,7 +11965,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -12020,7 +12095,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -12037,7 +12113,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -12075,7 +12152,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -12123,7 +12201,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -12306,7 +12385,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -12336,7 +12416,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

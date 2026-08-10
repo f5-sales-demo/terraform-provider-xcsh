@@ -36,8 +36,11 @@ resource "xcsh_aws_vpc_site" "example" {
   aws_region    = "example-value"
   instance_type = "example-value"
   ssh_key       = "example-value"
-  address       = "example-value"
-  disk_size     = 1
+  tags = {
+    example = "value"
+  }
+  address   = "example-value"
+  disk_size = 1
 }
 ```
 
@@ -142,7 +145,7 @@ configuration for upto 7
 
 <a id="sw"></a>&#x2022; [`sw`](#sw) - Optional Block<br>Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions
 
-<a id="tags"></a>&#x2022; [`tags`](#tags) - Optional Block<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
+<a id="tags"></a>&#x2022; [`tags`](#tags) - Required Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 

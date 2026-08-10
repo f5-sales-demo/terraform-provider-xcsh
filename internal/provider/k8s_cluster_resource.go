@@ -867,6 +867,7 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.InsecureRegistryList.InsecureRegistries.IsNull() && !data.InsecureRegistryList.InsecureRegistries.IsUnknown() {
 			var InsecureRegistriesItems []string
 			diags := data.InsecureRegistryList.InsecureRegistries.ElementsAs(ctx, &InsecureRegistriesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				InsecureRegistryListMap["insecure_registries"] = InsecureRegistriesItems
 			}
@@ -1202,7 +1203,8 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1715,7 +1717,8 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2097,6 +2100,7 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.InsecureRegistryList.InsecureRegistries.IsNull() && !data.InsecureRegistryList.InsecureRegistries.IsUnknown() {
 			var InsecureRegistriesItems []string
 			diags := data.InsecureRegistryList.InsecureRegistries.ElementsAs(ctx, &InsecureRegistriesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				InsecureRegistryListMap["insecure_registries"] = InsecureRegistriesItems
 			}
@@ -2452,7 +2456,8 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

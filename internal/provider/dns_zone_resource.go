@@ -3416,6 +3416,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.ARecord.Values.IsNull() && !DefaultRrSetGroupItem.ARecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.ARecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupARecordMap["values"] = ValuesItems
 							}
@@ -3430,6 +3431,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.AaaaRecord.Values.IsNull() && !DefaultRrSetGroupItem.AaaaRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.AaaaRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupAaaaRecordMap["values"] = ValuesItems
 							}
@@ -3805,6 +3807,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.NsRecord.Values.IsNull() && !DefaultRrSetGroupItem.NsRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.NsRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupNsRecordMap["values"] = ValuesItems
 							}
@@ -3819,6 +3822,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.PtrRecord.Values.IsNull() && !DefaultRrSetGroupItem.PtrRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.PtrRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupPtrRecordMap["values"] = ValuesItems
 							}
@@ -3937,6 +3941,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 						if !DefaultRrSetGroupItem.TxtRecord.Values.IsNull() && !DefaultRrSetGroupItem.TxtRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.TxtRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupTxtRecordMap["values"] = ValuesItems
 							}
@@ -3995,6 +4000,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.ARecord.Values.IsNull() && !RrSetItem.ARecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.ARecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetARecordMap["values"] = ValuesItems
 										}
@@ -4009,6 +4015,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.AaaaRecord.Values.IsNull() && !RrSetItem.AaaaRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.AaaaRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetAaaaRecordMap["values"] = ValuesItems
 										}
@@ -4384,6 +4391,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.NsRecord.Values.IsNull() && !RrSetItem.NsRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.NsRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetNsRecordMap["values"] = ValuesItems
 										}
@@ -4398,6 +4406,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.PtrRecord.Values.IsNull() && !RrSetItem.PtrRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.PtrRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetPtrRecordMap["values"] = ValuesItems
 										}
@@ -4516,6 +4525,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									if !RrSetItem.TxtRecord.Values.IsNull() && !RrSetItem.TxtRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.TxtRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetTxtRecordMap["values"] = ValuesItems
 										}
@@ -4558,6 +4568,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 		if !data.Secondary.PrimaryServers.IsNull() && !data.Secondary.PrimaryServers.IsUnknown() {
 			var PrimaryServersItems []string
 			diags := data.Secondary.PrimaryServers.ElementsAs(ctx, &PrimaryServersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				SecondaryMap["primary_servers"] = PrimaryServersItems
 			}
@@ -4661,7 +4672,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4687,7 +4699,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -5383,7 +5396,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -5409,7 +5423,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -5626,7 +5641,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -5745,7 +5761,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -5771,7 +5788,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -6467,7 +6485,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -6493,7 +6512,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -6710,7 +6730,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -6802,7 +6823,8 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7044,7 +7066,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -7070,7 +7093,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -7766,7 +7790,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -7792,7 +7817,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -8009,7 +8035,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -8128,7 +8155,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -8154,7 +8182,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -8850,7 +8879,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -8876,7 +8906,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -9093,7 +9124,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -9185,7 +9217,8 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -9364,6 +9397,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.ARecord.Values.IsNull() && !DefaultRrSetGroupItem.ARecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.ARecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupARecordMap["values"] = ValuesItems
 							}
@@ -9378,6 +9412,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.AaaaRecord.Values.IsNull() && !DefaultRrSetGroupItem.AaaaRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.AaaaRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupAaaaRecordMap["values"] = ValuesItems
 							}
@@ -9753,6 +9788,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.NsRecord.Values.IsNull() && !DefaultRrSetGroupItem.NsRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.NsRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupNsRecordMap["values"] = ValuesItems
 							}
@@ -9767,6 +9803,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.PtrRecord.Values.IsNull() && !DefaultRrSetGroupItem.PtrRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.PtrRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupPtrRecordMap["values"] = ValuesItems
 							}
@@ -9885,6 +9922,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !DefaultRrSetGroupItem.TxtRecord.Values.IsNull() && !DefaultRrSetGroupItem.TxtRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.TxtRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PrimaryDefaultRrSetGroupTxtRecordMap["values"] = ValuesItems
 							}
@@ -9943,6 +9981,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.ARecord.Values.IsNull() && !RrSetItem.ARecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.ARecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetARecordMap["values"] = ValuesItems
 										}
@@ -9957,6 +9996,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.AaaaRecord.Values.IsNull() && !RrSetItem.AaaaRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.AaaaRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetAaaaRecordMap["values"] = ValuesItems
 										}
@@ -10332,6 +10372,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.NsRecord.Values.IsNull() && !RrSetItem.NsRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.NsRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetNsRecordMap["values"] = ValuesItems
 										}
@@ -10346,6 +10387,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.PtrRecord.Values.IsNull() && !RrSetItem.PtrRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.PtrRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetPtrRecordMap["values"] = ValuesItems
 										}
@@ -10464,6 +10506,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									if !RrSetItem.TxtRecord.Values.IsNull() && !RrSetItem.TxtRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.TxtRecord.Values.ElementsAs(ctx, &ValuesItems, false)
+										resp.Diagnostics.Append(diags...)
 										if !diags.HasError() {
 											PrimaryRrSetGroupRrSetTxtRecordMap["values"] = ValuesItems
 										}
@@ -10506,6 +10549,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 		if !data.Secondary.PrimaryServers.IsNull() && !data.Secondary.PrimaryServers.IsUnknown() {
 			var PrimaryServersItems []string
 			diags := data.Secondary.PrimaryServers.ElementsAs(ctx, &PrimaryServersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				SecondaryMap["primary_servers"] = PrimaryServersItems
 			}
@@ -10629,7 +10673,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -10655,7 +10700,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -11351,7 +11397,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -11377,7 +11424,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -11594,7 +11642,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -11713,7 +11762,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -11739,7 +11789,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -12435,7 +12486,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -12461,7 +12513,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -12678,7 +12731,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 																				items = append(items, s)
 																			}
 																		}
-																		listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																		listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																		resp.Diagnostics.Append(diags...)
 																		return listVal
 																	}
 																	return types.ListNull(types.StringType)
@@ -12770,7 +12824,8 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

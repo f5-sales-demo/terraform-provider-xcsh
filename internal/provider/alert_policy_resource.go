@@ -735,6 +735,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					if !RoutesItem.Group.Groups.IsNull() && !RoutesItem.Group.Groups.IsUnknown() {
 						var GroupsItems []string
 						diags := RoutesItem.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RoutesGroupMap["groups"] = GroupsItems
 						}
@@ -748,6 +749,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						if !RoutesItem.NotificationParameters.Custom.Labels.IsNull() && !RoutesItem.NotificationParameters.Custom.Labels.IsUnknown() {
 							var LabelsItems []string
 							diags := RoutesItem.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesNotificationParametersCustomMap["labels"] = LabelsItems
 							}
@@ -782,6 +784,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					if !RoutesItem.Severity.Severities.IsNull() && !RoutesItem.Severity.Severities.IsUnknown() {
 						var SeveritiesItems []string
 						diags := RoutesItem.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RoutesSeverityMap["severities"] = SeveritiesItems
 						}
@@ -800,6 +803,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.NotificationParameters.Custom.Labels.IsNull() && !data.NotificationParameters.Custom.Labels.IsUnknown() {
 				var LabelsItems []string
 				diags := data.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					NotificationParametersCustomMap["labels"] = LabelsItems
 				}
@@ -1036,7 +1040,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1062,7 +1067,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1140,7 +1146,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1176,7 +1183,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1541,7 +1549,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1567,7 +1576,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1645,7 +1655,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -1681,7 +1692,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1906,6 +1918,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					if !RoutesItem.Group.Groups.IsNull() && !RoutesItem.Group.Groups.IsUnknown() {
 						var GroupsItems []string
 						diags := RoutesItem.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RoutesGroupMap["groups"] = GroupsItems
 						}
@@ -1919,6 +1932,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						if !RoutesItem.NotificationParameters.Custom.Labels.IsNull() && !RoutesItem.NotificationParameters.Custom.Labels.IsUnknown() {
 							var LabelsItems []string
 							diags := RoutesItem.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesNotificationParametersCustomMap["labels"] = LabelsItems
 							}
@@ -1953,6 +1967,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					if !RoutesItem.Severity.Severities.IsNull() && !RoutesItem.Severity.Severities.IsUnknown() {
 						var SeveritiesItems []string
 						diags := RoutesItem.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							RoutesSeverityMap["severities"] = SeveritiesItems
 						}
@@ -1971,6 +1986,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.NotificationParameters.Custom.Labels.IsNull() && !data.NotificationParameters.Custom.Labels.IsUnknown() {
 				var LabelsItems []string
 				diags := data.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					NotificationParametersCustomMap["labels"] = LabelsItems
 				}
@@ -2227,7 +2243,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2253,7 +2270,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2331,7 +2349,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -2367,7 +2386,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)

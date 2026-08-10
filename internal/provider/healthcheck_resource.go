@@ -20,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -56,11 +57,11 @@ type HealthcheckEmptyModel struct {
 type HealthcheckHTTPHealthCheckModel struct {
 	ExpectedResponse       types.String           `tfsdk:"expected_response"`
 	ExpectedStatusCodes    types.List             `tfsdk:"expected_status_codes"`
+	Headers                types.Map              `tfsdk:"headers"`
 	HostHeader             types.String           `tfsdk:"host_header"`
 	Path                   types.String           `tfsdk:"path"`
 	RequestHeadersToRemove types.List             `tfsdk:"request_headers_to_remove"`
 	UseHttp2               types.Bool             `tfsdk:"use_http2"`
-	Headers                *HealthcheckEmptyModel `tfsdk:"headers"`
 	UseOriginServerName    *HealthcheckEmptyModel `tfsdk:"use_origin_server_name"`
 }
 
@@ -68,11 +69,11 @@ type HealthcheckHTTPHealthCheckModel struct {
 var HealthcheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
 	"expected_response":         types.StringType,
 	"expected_status_codes":     types.ListType{ElemType: types.StringType},
+	"headers":                   types.MapType{ElemType: types.StringType},
 	"host_header":               types.StringType,
 	"path":                      types.StringType,
 	"request_headers_to_remove": types.ListType{ElemType: types.StringType},
 	"use_http2":                 types.BoolType,
-	"headers":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_origin_server_name":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
@@ -230,6 +231,15 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 							listvalidator.SizeAtMost(16),
 						},
 					},
+					"headers": schema.MapAttribute{
+						MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Map{
+							mapplanmodifier.UseStateForUnknown(),
+						},
+						ElementType: types.StringType,
+					},
 					"host_header": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [use_origin_server_name] The value of the host header.",
 						Optional:            true,
@@ -266,9 +276,6 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 				},
 				Blocks: map[string]schema.Block{
-					"headers": schema.SingleNestedBlock{
-						MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs. Defaults to `map[]`. Server applies default when omitted.",
-					},
 					"use_origin_server_name": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 					},
@@ -442,12 +449,18 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.HTTPHealthCheck.ExpectedStatusCodes.IsNull() && !data.HTTPHealthCheck.ExpectedStatusCodes.IsUnknown() {
 			var ExpectedStatusCodesItems []string
 			diags := data.HTTPHealthCheck.ExpectedStatusCodes.ElementsAs(ctx, &ExpectedStatusCodesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				HTTPHealthCheckMap["expected_status_codes"] = ExpectedStatusCodesItems
 			}
 		}
-		if data.HTTPHealthCheck.Headers != nil {
-			HTTPHealthCheckMap["headers"] = map[string]interface{}{}
+		if !data.HTTPHealthCheck.Headers.IsNull() && !data.HTTPHealthCheck.Headers.IsUnknown() {
+			var HeadersMap map[string]string
+			diags := data.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				HTTPHealthCheckMap["headers"] = HeadersMap
+			}
 		}
 		if !data.HTTPHealthCheck.HostHeader.IsNull() && !data.HTTPHealthCheck.HostHeader.IsUnknown() {
 			HTTPHealthCheckMap["host_header"] = data.HTTPHealthCheck.HostHeader.ValueString()
@@ -458,6 +471,7 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.HTTPHealthCheck.RequestHeadersToRemove.IsNull() && !data.HTTPHealthCheck.RequestHeadersToRemove.IsUnknown() {
 			var RequestHeadersToRemoveItems []string
 			diags := data.HTTPHealthCheck.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				HTTPHealthCheckMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 			}
@@ -544,22 +558,18 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: func() *HealthcheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
-				if !isImport {
-					if _, ok := blockData["headers"].(map[string]interface{}); ok {
-						return &HealthcheckEmptyModel{}
-					}
-				}
-				return nil
-			}(),
+				return types.MapNull(types.StringType)
+			}(), "headers", &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -580,7 +590,8 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -791,22 +802,18 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: func() *HealthcheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
-				if !isImport {
-					if _, ok := blockData["headers"].(map[string]interface{}); ok {
-						return &HealthcheckEmptyModel{}
-					}
-				}
-				return nil
-			}(),
+				return types.MapNull(types.StringType)
+			}(), "headers", &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -827,7 +834,8 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -980,12 +988,18 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.HTTPHealthCheck.ExpectedStatusCodes.IsNull() && !data.HTTPHealthCheck.ExpectedStatusCodes.IsUnknown() {
 			var ExpectedStatusCodesItems []string
 			diags := data.HTTPHealthCheck.ExpectedStatusCodes.ElementsAs(ctx, &ExpectedStatusCodesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				HTTPHealthCheckMap["expected_status_codes"] = ExpectedStatusCodesItems
 			}
 		}
-		if data.HTTPHealthCheck.Headers != nil {
-			HTTPHealthCheckMap["headers"] = map[string]interface{}{}
+		if !data.HTTPHealthCheck.Headers.IsNull() && !data.HTTPHealthCheck.Headers.IsUnknown() {
+			var HeadersMap map[string]string
+			diags := data.HTTPHealthCheck.Headers.ElementsAs(ctx, &HeadersMap, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				HTTPHealthCheckMap["headers"] = HeadersMap
+			}
 		}
 		if !data.HTTPHealthCheck.HostHeader.IsNull() && !data.HTTPHealthCheck.HostHeader.IsUnknown() {
 			HTTPHealthCheckMap["host_header"] = data.HTTPHealthCheck.HostHeader.ValueString()
@@ -996,6 +1010,7 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.HTTPHealthCheck.RequestHeadersToRemove.IsNull() && !data.HTTPHealthCheck.RequestHeadersToRemove.IsUnknown() {
 			var RequestHeadersToRemoveItems []string
 			diags := data.HTTPHealthCheck.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				HTTPHealthCheckMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 			}
@@ -1109,22 +1124,18 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: func() *HealthcheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
-				if !isImport {
-					if _, ok := blockData["headers"].(map[string]interface{}); ok {
-						return &HealthcheckEmptyModel{}
-					}
-				}
-				return nil
-			}(),
+				return types.MapNull(types.StringType)
+			}(), "headers", &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -1145,7 +1156,8 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

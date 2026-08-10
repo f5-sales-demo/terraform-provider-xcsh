@@ -2446,6 +2446,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.RequestCookiesToRemove.IsNull() && !RoutesItem.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
 					diags := RoutesItem.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
@@ -2502,6 +2503,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.RequestHeadersToRemove.IsNull() && !RoutesItem.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
 					diags := RoutesItem.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
@@ -2615,6 +2617,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.ResponseCookiesToRemove.IsNull() && !RoutesItem.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
 					diags := RoutesItem.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
@@ -2671,6 +2674,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.ResponseHeadersToRemove.IsNull() && !RoutesItem.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
 					diags := RoutesItem.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 					}
@@ -2704,6 +2708,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsUnknown() {
 							var AllowOriginItems []string
 							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationCORSPolicyMap["allow_origin"] = AllowOriginItems
 							}
@@ -2711,6 +2716,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsUnknown() {
 							var AllowOriginRegexItems []string
 							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationCORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 							}
@@ -2736,6 +2742,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 								var DomainsItems []string
 								diags := RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesRouteDestinationCSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 								}
@@ -2960,6 +2967,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsUnknown() {
 							var RetriableStatusCodesItems []int64
 							diags := RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationRetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
 							}
@@ -2967,6 +2975,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsUnknown() {
 							var RetryConditionItems []string
 							diags := RoutesItem.RouteDestination.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationRetryPolicyMap["retry_condition"] = RetryConditionItems
 							}
@@ -3511,7 +3520,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -3621,7 +3631,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -3890,7 +3901,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -4000,7 +4012,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -4080,7 +4093,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4093,7 +4107,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4155,7 +4170,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -4657,7 +4673,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -4670,7 +4687,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -5465,7 +5483,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -5575,7 +5594,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -5844,7 +5864,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -5954,7 +5975,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -6034,7 +6056,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -6047,7 +6070,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -6109,7 +6133,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6611,7 +6636,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -6624,7 +6650,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -7188,6 +7215,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.RequestCookiesToRemove.IsNull() && !RoutesItem.RequestCookiesToRemove.IsUnknown() {
 					var RequestCookiesToRemoveItems []string
 					diags := RoutesItem.RequestCookiesToRemove.ElementsAs(ctx, &RequestCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["request_cookies_to_remove"] = RequestCookiesToRemoveItems
 					}
@@ -7244,6 +7272,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.RequestHeadersToRemove.IsNull() && !RoutesItem.RequestHeadersToRemove.IsUnknown() {
 					var RequestHeadersToRemoveItems []string
 					diags := RoutesItem.RequestHeadersToRemove.ElementsAs(ctx, &RequestHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["request_headers_to_remove"] = RequestHeadersToRemoveItems
 					}
@@ -7357,6 +7386,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.ResponseCookiesToRemove.IsNull() && !RoutesItem.ResponseCookiesToRemove.IsUnknown() {
 					var ResponseCookiesToRemoveItems []string
 					diags := RoutesItem.ResponseCookiesToRemove.ElementsAs(ctx, &ResponseCookiesToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["response_cookies_to_remove"] = ResponseCookiesToRemoveItems
 					}
@@ -7413,6 +7443,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.ResponseHeadersToRemove.IsNull() && !RoutesItem.ResponseHeadersToRemove.IsUnknown() {
 					var ResponseHeadersToRemoveItems []string
 					diags := RoutesItem.ResponseHeadersToRemove.ElementsAs(ctx, &ResponseHeadersToRemoveItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						RoutesItemMap["response_headers_to_remove"] = ResponseHeadersToRemoveItems
 					}
@@ -7446,6 +7477,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.IsUnknown() {
 							var AllowOriginItems []string
 							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOrigin.ElementsAs(ctx, &AllowOriginItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationCORSPolicyMap["allow_origin"] = AllowOriginItems
 							}
@@ -7453,6 +7485,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsNull() && !RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.IsUnknown() {
 							var AllowOriginRegexItems []string
 							diags := RoutesItem.RouteDestination.CORSPolicy.AllowOriginRegex.ElementsAs(ctx, &AllowOriginRegexItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationCORSPolicyMap["allow_origin_regex"] = AllowOriginRegexItems
 							}
@@ -7478,6 +7511,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 								var DomainsItems []string
 								diags := RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									RoutesRouteDestinationCSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 								}
@@ -7702,6 +7736,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.IsUnknown() {
 							var RetriableStatusCodesItems []int64
 							diags := RoutesItem.RouteDestination.RetryPolicy.RetriableStatusCodes.ElementsAs(ctx, &RetriableStatusCodesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationRetryPolicyMap["retriable_status_codes"] = RetriableStatusCodesItems
 							}
@@ -7709,6 +7744,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsNull() && !RoutesItem.RouteDestination.RetryPolicy.RetryCondition.IsUnknown() {
 							var RetryConditionItems []string
 							diags := RoutesItem.RouteDestination.RetryPolicy.RetryCondition.ElementsAs(ctx, &RetryConditionItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RoutesRouteDestinationRetryPolicyMap["retry_condition"] = RetryConditionItems
 							}
@@ -8273,7 +8309,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -8383,7 +8420,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -8652,7 +8690,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -8762,7 +8801,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -8842,7 +8882,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -8855,7 +8896,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -8917,7 +8959,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -9419,7 +9462,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -9432,7 +9476,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

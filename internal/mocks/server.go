@@ -533,32 +533,7 @@ func (s *Server) applyResourceDefaults(spec map[string]interface{}, resourceType
 // validateResourceName validates the resource name based on resource type
 // Returns an error if the name is invalid for the resource type
 func (s *Server) validateResourceName(resourceType, name string) error {
-	switch resourceType {
-	case "dns_domains":
-		// DNS domains must be valid domain names (contain at least one dot)
-		if !isValidDomainName(name) {
-			return fmt.Errorf("invalid domain name: %s - must be a valid DNS domain", name)
-		}
-	}
 	return nil
-}
-
-// isValidDomainName checks if the name is a valid domain name
-func isValidDomainName(name string) bool {
-	// Domain names must contain at least one dot and have valid characters
-	// F5 XC requires lowercase domain names
-	if !strings.Contains(name, ".") {
-		return false
-	}
-	// Check for any uppercase letters - F5 XC rejects uppercase in domain names
-	for _, c := range name {
-		if c >= 'A' && c <= 'Z' {
-			return false
-		}
-	}
-	// Check for valid domain name characters (lowercase only)
-	domainPattern := regexp.MustCompile(`^[a-z0-9]([a-z0-9\-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9\-]*[a-z0-9])?)*$`)
-	return domainPattern.MatchString(name)
 }
 
 // extractResourceTypeFromPath extracts the resource type from the API path

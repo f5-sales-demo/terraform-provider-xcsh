@@ -3829,6 +3829,7 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 		if !data.KafkaReceiver.BootstrapServers.IsNull() && !data.KafkaReceiver.BootstrapServers.IsUnknown() {
 			var BootstrapServersItems []string
 			diags := data.KafkaReceiver.BootstrapServers.ElementsAs(ctx, &BootstrapServersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				KafkaReceiverMap["bootstrap_servers"] = BootstrapServersItems
 			}
@@ -3958,6 +3959,7 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 		if !data.NsList.Namespaces.IsNull() && !data.NsList.Namespaces.IsUnknown() {
 			var NamespacesItems []string
 			diags := data.NsList.Namespaces.ElementsAs(ctx, &NamespacesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				NsListMap["namespaces"] = NamespacesItems
 			}
@@ -5753,7 +5755,8 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -6053,7 +6056,8 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8446,7 +8450,8 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -8746,7 +8751,8 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -10270,6 +10276,7 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 		if !data.KafkaReceiver.BootstrapServers.IsNull() && !data.KafkaReceiver.BootstrapServers.IsUnknown() {
 			var BootstrapServersItems []string
 			diags := data.KafkaReceiver.BootstrapServers.ElementsAs(ctx, &BootstrapServersItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				KafkaReceiverMap["bootstrap_servers"] = BootstrapServersItems
 			}
@@ -10399,6 +10406,7 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 		if !data.NsList.Namespaces.IsNull() && !data.NsList.Namespaces.IsUnknown() {
 			var NamespacesItems []string
 			diags := data.NsList.Namespaces.ElementsAs(ctx, &NamespacesItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				NsListMap["namespaces"] = NamespacesItems
 			}
@@ -12214,7 +12222,8 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -12514,7 +12523,8 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

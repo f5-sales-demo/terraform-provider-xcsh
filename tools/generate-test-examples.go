@@ -23,7 +23,7 @@ var formatStringRegex = regexp.MustCompile("return\\s+(?:acctest\\.ConfigCompose
 var simpleReturnRegex = regexp.MustCompile("return\\s+fmt\\.Sprintf\\(`([^`]+)`")
 
 const (
-	expectedNamedExampleCount = 78
+	expectedNamedExampleCount = 79
 	xcshProviderSource        = "f5-sales-demo/xcsh"
 	xcshVersionConstraint     = ">= 0.1.0"
 	timeProviderVersion       = "0.13.1"
@@ -129,7 +129,7 @@ func renderExamples(testDir, outputDir string) ([]generatedExample, error) {
 			header := fmt.Sprintf("# %s — Verified Configuration Example\n# This configuration is extracted from acceptance tests\n# and verified against the live F5 XC API.\n\n",
 				toHumanName(ex.Name))
 
-			cleaned := cleanConfig(ex.Config)
+			cleaned := cleanConfig(ex.Name, ex.Config)
 			if cleaned == "" {
 				continue
 			}
@@ -262,8 +262,13 @@ func extractHCL(funcBody string) string {
 	return funcBody[backtickStart:backtickEnd]
 }
 
-func cleanConfig(config string) string {
+func cleanConfig(name, config string) string {
 	config = strings.TrimSpace(config)
+
+	if name == "nestedLabels" {
+		config = strings.ReplaceAll(config, "%[2]q", `"192.0.2.1"`)
+		config = strings.ReplaceAll(config, "%[3]s", "    labels = {\n      \"env\" = \"test\"\n      \"app\" = \"demo\"\n    }\n")
+	}
 
 	// Positional values in acceptance helpers do not have one universal meaning.
 	// Resolve fields with constrained domains before applying the general sample

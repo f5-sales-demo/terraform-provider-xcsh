@@ -92,7 +92,7 @@ An [`aws_assume_role`](#aws-assume-role) block supports the following:
 
 <a id="aws-assume-role-session-name"></a>&#x2022; [`session_name`](#aws-assume-role-session-name) - Optional String<br>Use the role session name to uniquely identify a session, which will be used for deploy, monitor from F5XC console
 
-<a id="aws-assume-role-session-tags"></a>&#x2022; [`session_tags`](#aws-assume-role-session-tags) - Optional Block<br>Session tags are key-value pair attributes that you pass when you assume an IAM role
+<a id="aws-assume-role-session-tags"></a>&#x2022; [`session_tags`](#aws-assume-role-session-tags) - Optional Map<br>Session tags are key-value pair attributes that you pass when you assume an IAM role
 
 #### AWS Secret Key
 

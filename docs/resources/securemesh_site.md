@@ -288,7 +288,7 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 
 <a id="interface-40e35f"></a>&#x2022; [`ethernet_interface`](#interface-40e35f) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-40e35f) below.
 
-<a id="labels-eb9e14"></a>&#x2022; [`labels`](#labels-eb9e14) - Optional Block<br>Add Labels for this Interface, these labels can be used in firewall policy
+<a id="labels-eb9e14"></a>&#x2022; [`labels`](#labels-eb9e14) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
 #### Custom Network Config Interface List Interfaces Dedicated Interface
 
@@ -384,7 +384,7 @@ A [`sli_config`](#custom-network-config-sli-config) block (within [`custom_netwo
 
 <a id="group-c050c8"></a>&#x2022; [`dc_cluster_group`](#group-c050c8) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#group-c050c8) below.
 
-<a id="custom-network-config-sli-config-labels"></a>&#x2022; [`labels`](#custom-network-config-sli-config-labels) - Optional Block<br>Add Labels for this network, these labels can be used in firewall policy
+<a id="custom-network-config-sli-config-labels"></a>&#x2022; [`labels`](#custom-network-config-sli-config-labels) - Optional Map<br>Add Labels for this network, these labels can be used in firewall policy
 
 <a id="nameserver-b7700f"></a>&#x2022; [`nameserver`](#nameserver-b7700f) - Optional String<br>Optional DNS V4 server IP to be used for name resolution
 
@@ -452,7 +452,7 @@ A [`slo_config`](#custom-network-config-slo-config) block (within [`custom_netwo
 
 <a id="group-4f2dd5"></a>&#x2022; [`dc_cluster_group`](#group-4f2dd5) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#group-4f2dd5) below.
 
-<a id="custom-network-config-slo-config-labels"></a>&#x2022; [`labels`](#custom-network-config-slo-config-labels) - Optional Block<br>Add Labels for this network, these labels can be used in firewall policy
+<a id="custom-network-config-slo-config-labels"></a>&#x2022; [`labels`](#custom-network-config-slo-config-labels) - Optional Map<br>Add Labels for this network, these labels can be used in firewall policy
 
 <a id="nameserver-21f3ed"></a>&#x2022; [`nameserver`](#nameserver-21f3ed) - Optional String<br>Optional DNS V4 server IP to be used for name resolution
 

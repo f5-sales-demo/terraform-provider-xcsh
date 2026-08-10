@@ -335,6 +335,7 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 	if !data.AuthenticationAlgos.IsNull() && !data.AuthenticationAlgos.IsUnknown() {
 		var AuthenticationAlgosItems []string
 		diags := data.AuthenticationAlgos.ElementsAs(ctx, &AuthenticationAlgosItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["authentication_algos"] = AuthenticationAlgosItems
 		}
@@ -342,6 +343,7 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 	if !data.EncryptionAlgos.IsNull() && !data.EncryptionAlgos.IsUnknown() {
 		var EncryptionAlgosItems []string
 		diags := data.EncryptionAlgos.ElementsAs(ctx, &EncryptionAlgosItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["encryption_algos"] = EncryptionAlgosItems
 		}
@@ -351,6 +353,7 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !data.DhGroupSet.DhGroups.IsNull() && !data.DhGroupSet.DhGroups.IsUnknown() {
 			var DhGroupsItems []string
 			diags := data.DhGroupSet.DhGroups.ElementsAs(ctx, &DhGroupsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DhGroupSetMap["dh_groups"] = DhGroupsItems
 			}
@@ -439,7 +442,8 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -639,7 +643,8 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -760,6 +765,7 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 	if !data.AuthenticationAlgos.IsNull() && !data.AuthenticationAlgos.IsUnknown() {
 		var AuthenticationAlgosItems []string
 		diags := data.AuthenticationAlgos.ElementsAs(ctx, &AuthenticationAlgosItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["authentication_algos"] = AuthenticationAlgosItems
 		}
@@ -767,6 +773,7 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 	if !data.EncryptionAlgos.IsNull() && !data.EncryptionAlgos.IsUnknown() {
 		var EncryptionAlgosItems []string
 		diags := data.EncryptionAlgos.ElementsAs(ctx, &EncryptionAlgosItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["encryption_algos"] = EncryptionAlgosItems
 		}
@@ -776,6 +783,7 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !data.DhGroupSet.DhGroups.IsNull() && !data.DhGroupSet.DhGroups.IsUnknown() {
 			var DhGroupsItems []string
 			diags := data.DhGroupSet.DhGroups.ElementsAs(ctx, &DhGroupsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				DhGroupSetMap["dh_groups"] = DhGroupsItems
 			}
@@ -884,7 +892,8 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

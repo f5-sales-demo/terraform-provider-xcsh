@@ -123,7 +123,7 @@ during create<br>See [Metadata](#aws-byoc-connections-metadata) below.
 
 <a id="name-ebc6a3"></a>&#x2022; [`system_generated_name`](#name-ebc6a3) - Optional Block<br>Enable this option
 
-<a id="aws-byoc-connections-tags"></a>&#x2022; [`tags`](#aws-byoc-connections-tags) - Optional Block<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any F5XC specific tags
+<a id="aws-byoc-connections-tags"></a>&#x2022; [`tags`](#aws-byoc-connections-tags) - Optional Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any F5XC specific tags
 
 <a id="aws-byoc-connections-user-assigned-name"></a>&#x2022; [`user_assigned_name`](#aws-byoc-connections-user-assigned-name) - Optional String<br>User is managing the AWS resource name
 

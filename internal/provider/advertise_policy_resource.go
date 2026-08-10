@@ -1007,6 +1007,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
@@ -1033,6 +1034,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -1123,6 +1125,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
@@ -1137,6 +1140,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
 			var XfccHeaderElementsItems []string
 			diags := data.TLSParameters.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSParametersMap["xfcc_header_elements"] = XfccHeaderElementsItems
 			}
@@ -1382,7 +1386,8 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1430,7 +1435,8 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -1613,7 +1619,8 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -1643,7 +1650,8 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2109,7 +2117,8 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2157,7 +2166,8 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -2340,7 +2350,8 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -2370,7 +2381,8 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -2751,6 +2763,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
@@ -2777,6 +2790,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -2867,6 +2881,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
@@ -2881,6 +2896,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
 			var XfccHeaderElementsItems []string
 			diags := data.TLSParameters.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				TLSParametersMap["xfcc_header_elements"] = XfccHeaderElementsItems
 			}
@@ -3160,7 +3176,8 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -3208,7 +3225,8 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3391,7 +3409,8 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -3421,7 +3440,8 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)

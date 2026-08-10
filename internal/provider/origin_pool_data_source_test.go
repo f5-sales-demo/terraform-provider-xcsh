@@ -44,7 +44,6 @@ resource "xcsh_origin_pool" "test" {
   namespace = "system"
   port = 443
   origin_servers {
-    labels {}
     public_name {
       dns_name = "example.com"
     }

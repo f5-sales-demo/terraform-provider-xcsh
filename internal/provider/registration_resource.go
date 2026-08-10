@@ -1256,6 +1256,7 @@ func (r *RegistrationResource) Create(ctx context.Context, req resource.CreateRe
 			if !data.Infra.BondConfig.Interfaces.IsNull() && !data.Infra.BondConfig.Interfaces.IsUnknown() {
 				var InterfacesItems []string
 				diags := data.Infra.BondConfig.Interfaces.ElementsAs(ctx, &InterfacesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					InfraBondConfigMap["interfaces"] = InterfacesItems
 				}
@@ -1427,6 +1428,7 @@ func (r *RegistrationResource) Create(ctx context.Context, req resource.CreateRe
 						if !NetworkItem.IPAddress.IsNull() && !NetworkItem.IPAddress.IsUnknown() {
 							var IPAddressItems []string
 							diags := NetworkItem.IPAddress.ElementsAs(ctx, &IPAddressItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								NetworkItemMap["ip_address"] = IPAddressItems
 							}
@@ -1724,7 +1726,8 @@ func (r *RegistrationResource) Create(ctx context.Context, req resource.CreateRe
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2099,7 +2102,8 @@ func (r *RegistrationResource) Create(ctx context.Context, req resource.CreateRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2756,7 +2760,8 @@ func (r *RegistrationResource) Read(ctx context.Context, req resource.ReadReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -3131,7 +3136,8 @@ func (r *RegistrationResource) Read(ctx context.Context, req resource.ReadReques
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -3732,6 +3738,7 @@ func (r *RegistrationResource) Update(ctx context.Context, req resource.UpdateRe
 			if !data.Infra.BondConfig.Interfaces.IsNull() && !data.Infra.BondConfig.Interfaces.IsUnknown() {
 				var InterfacesItems []string
 				diags := data.Infra.BondConfig.Interfaces.ElementsAs(ctx, &InterfacesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					InfraBondConfigMap["interfaces"] = InterfacesItems
 				}
@@ -3903,6 +3910,7 @@ func (r *RegistrationResource) Update(ctx context.Context, req resource.UpdateRe
 						if !NetworkItem.IPAddress.IsNull() && !NetworkItem.IPAddress.IsUnknown() {
 							var IPAddressItems []string
 							diags := NetworkItem.IPAddress.ElementsAs(ctx, &IPAddressItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								NetworkItemMap["ip_address"] = IPAddressItems
 							}
@@ -4220,7 +4228,8 @@ func (r *RegistrationResource) Update(ctx context.Context, req resource.UpdateRe
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -4595,7 +4604,8 @@ func (r *RegistrationResource) Update(ctx context.Context, req resource.UpdateRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

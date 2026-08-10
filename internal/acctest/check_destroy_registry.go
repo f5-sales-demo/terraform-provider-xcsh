@@ -549,9 +549,6 @@ var resourceDeleterRegistry = map[string]ResourceDeleter{
 	"xcsh_cloud_credentials": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeleteCloudCredentials(ctx, ns, name)
 	},
-	"xcsh_dns_domain": func(ctx context.Context, c *client.Client, ns, name string) error {
-		return c.DeleteDNSDomain(ctx, ns, name)
-	},
 
 	// ============================================================================
 	// Data Resources

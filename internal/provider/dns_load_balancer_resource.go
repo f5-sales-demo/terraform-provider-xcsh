@@ -793,6 +793,7 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !RulesItem.AsnList.AsNumbers.IsNull() && !RulesItem.AsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := RulesItem.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesAsnListMap["as_numbers"] = AsNumbersItems
 							}
@@ -836,6 +837,7 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !RulesItem.GeoLocationLabelSelector.Expressions.IsNull() && !RulesItem.GeoLocationLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.GeoLocationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesGeoLocationLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -863,6 +865,7 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !RulesItem.IPPrefixList.IPPrefixes.IsNull() && !RulesItem.IPPrefixList.IPPrefixes.IsUnknown() {
 							var IPPrefixesItems []string
 							diags := RulesItem.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 							}
@@ -1060,7 +1063,8 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -1139,7 +1143,8 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1193,7 +1198,8 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1545,7 +1551,8 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -1624,7 +1631,8 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1678,7 +1686,8 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1931,6 +1940,7 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !RulesItem.AsnList.AsNumbers.IsNull() && !RulesItem.AsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := RulesItem.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesAsnListMap["as_numbers"] = AsNumbersItems
 							}
@@ -1974,6 +1984,7 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !RulesItem.GeoLocationLabelSelector.Expressions.IsNull() && !RulesItem.GeoLocationLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.GeoLocationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesGeoLocationLabelSelectorMap["expressions"] = ExpressionsItems
 							}
@@ -2001,6 +2012,7 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !RulesItem.IPPrefixList.IPPrefixes.IsNull() && !RulesItem.IPPrefixList.IPPrefixes.IsUnknown() {
 							var IPPrefixesItems []string
 							diags := RulesItem.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RuleListRulesIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 							}
@@ -2225,7 +2237,8 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															items = append(items, int64(s))
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.Int64Type, items)
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.Int64Type)
@@ -2304,7 +2317,8 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -2358,7 +2372,8 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

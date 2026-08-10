@@ -142,21 +142,6 @@
       ]
     },
     {
-      "name": "DNS",
-      "slug": "dns",
-      "description": "DNS domains, zones, compliance checks, and DNS proxy configuration",
-      "resource_count": 7,
-      "resources": [
-        "dns_compliance_checks",
-        "dns_domain",
-        "dns_lb_health_check",
-        "dns_lb_pool",
-        "dns_load_balancer",
-        "dns_proxy",
-        "dns_zone"
-      ]
-    },
-    {
       "name": "Uncategorized",
       "slug": "uncategorized",
       "description": "Resources pending categorization",
@@ -169,6 +154,20 @@
         "protected_application",
         "protected_domain",
         "registration_approval"
+      ]
+    },
+    {
+      "name": "DNS",
+      "slug": "dns",
+      "description": "DNS domains, zones, compliance checks, and DNS proxy configuration",
+      "resource_count": 6,
+      "resources": [
+        "dns_compliance_checks",
+        "dns_lb_health_check",
+        "dns_lb_pool",
+        "dns_load_balancer",
+        "dns_proxy",
+        "dns_zone"
       ]
     },
     {
@@ -1504,104 +1503,6 @@
       "import_syntax": "terraform import xcsh_workload_flavor.example namespace/name"
     },
     {
-      "name": "dns_compliance_checks",
-      "category": "dns",
-      "description": "DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error",
-      "required": ["name", "namespace"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/dns_compliance_checks.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_dns_compliance_checks.example namespace/name"
-    },
-    {
-      "name": "dns_domain",
-      "category": "dns",
-      "description": "DNS Domain in a given namespace. If one already exist it will give a error",
-      "required": ["name", "dnssec_mode"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/dns_domain.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_dns_domain.example namespace/name"
-    },
-    {
-      "name": "dns_lb_health_check",
-      "category": "dns",
-      "description": "DNS Load Balancer Health Check in a given namespace. If one already exist it will give a error",
-      "required": ["name"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/dns_lb_health_check.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_dns_lb_health_check.example namespace/name"
-    },
-    {
-      "name": "dns_lb_pool",
-      "category": "dns",
-      "description": "DNS Load Balancer Pool in a given namespace. If one already exist it will give a error",
-      "required": ["name", "load_balancing_mode"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/dns_lb_pool.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_dns_lb_pool.example namespace/name"
-    },
-    {
-      "name": "dns_load_balancer",
-      "category": "dns",
-      "description": "DNS Load Balancer in a given namespace. If one already exist it will give a error",
-      "required": ["name"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/dns_load_balancer.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_dns_load_balancer.example namespace/name"
-    },
-    {
-      "name": "dns_proxy",
-      "category": "dns",
-      "description": "DNS Proxy in a given namespace. If one already exists it will give an error",
-      "required": ["name", "transport_type"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/dns_proxy.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_dns_proxy.example namespace/name"
-    },
-    {
-      "name": "dns_zone",
-      "category": "dns",
-      "description": "DNS Zone in a given namespace. If one already exist it will give a error",
-      "required": ["name"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/dns_zone.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_dns_zone.example namespace/name"
-    },
-    {
       "name": "application_profiles",
       "category": "uncategorized",
       "description": "Application Profiles in a given namespace. If one already exists it will give an error",
@@ -1698,6 +1599,90 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_registration_approval.example namespace/name"
+    },
+    {
+      "name": "dns_compliance_checks",
+      "category": "dns",
+      "description": "DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error",
+      "required": ["name", "namespace"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/dns_compliance_checks.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_compliance_checks.example namespace/name"
+    },
+    {
+      "name": "dns_lb_health_check",
+      "category": "dns",
+      "description": "DNS Load Balancer Health Check in a given namespace. If one already exist it will give a error",
+      "required": ["name"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/dns_lb_health_check.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_lb_health_check.example namespace/name"
+    },
+    {
+      "name": "dns_lb_pool",
+      "category": "dns",
+      "description": "DNS Load Balancer Pool in a given namespace. If one already exist it will give a error",
+      "required": ["name", "load_balancing_mode"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/dns_lb_pool.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_lb_pool.example namespace/name"
+    },
+    {
+      "name": "dns_load_balancer",
+      "category": "dns",
+      "description": "DNS Load Balancer in a given namespace. If one already exist it will give a error",
+      "required": ["name"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/dns_load_balancer.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_load_balancer.example namespace/name"
+    },
+    {
+      "name": "dns_proxy",
+      "category": "dns",
+      "description": "DNS Proxy in a given namespace. If one already exists it will give an error",
+      "required": ["name", "transport_type"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/dns_proxy.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_proxy.example namespace/name"
+    },
+    {
+      "name": "dns_zone",
+      "category": "dns",
+      "description": "DNS Zone in a given namespace. If one already exist it will give a error",
+      "required": ["name"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/dns_zone.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_dns_zone.example namespace/name"
     },
     {
       "name": "api_crawler",

@@ -34,7 +34,6 @@ func ApplyDiscoveredDefaults(spec map[string]interface{}, resourceType string) {
 	}
 }
 
-
 // applyHealthcheckDefaults applies discovered defaults for healthcheck resources
 func applyHealthcheckDefaults(spec map[string]interface{}) {
 	// API default: http_health_check.headers = {}
@@ -59,7 +58,6 @@ func applyHealthcheckDefaults(spec map[string]interface{}) {
 	}
 }
 
-
 // applyIpPrefixSetDefaults applies discovered defaults for ip_prefix_set resources
 func applyIpPrefixSetDefaults(spec map[string]interface{}) {
 	// API default: ipv4_prefixes = [1 items]
@@ -67,7 +65,6 @@ func applyIpPrefixSetDefaults(spec map[string]interface{}) {
 		spec["ipv4_prefixes"] = unmarshalJSON("[{\"description\":\"\",\"ipv4_prefix\":\"10.0.0.0/8\"}]")
 	}
 }
-
 
 // applyPolicerDefaults applies discovered defaults for policer resources
 func applyPolicerDefaults(spec map[string]interface{}) {

@@ -413,13 +413,13 @@ var FleetStorageClassListModelAttrTypes = map[string]attr.Type{
 
 // FleetStorageClassListStorageClassesModel represents storage_classes block
 type FleetStorageClassListStorageClassesModel struct {
+	AdvancedStorageParameters types.Map                                                        `tfsdk:"advanced_storage_parameters"`
 	AllowVolumeExpansion      types.Bool                                                       `tfsdk:"allow_volume_expansion"`
 	DefaultStorageClass       types.Bool                                                       `tfsdk:"default_storage_class"`
 	DescriptionSpec           types.String                                                     `tfsdk:"description_spec"`
 	ReclaimPolicy             types.String                                                     `tfsdk:"reclaim_policy"`
 	StorageClassName          types.String                                                     `tfsdk:"storage_class_name"`
 	StorageDevice             types.String                                                     `tfsdk:"storage_device"`
-	AdvancedStorageParameters *FleetEmptyModel                                                 `tfsdk:"advanced_storage_parameters"`
 	CustomStorage             *FleetStorageClassListStorageClassesCustomStorageModel           `tfsdk:"custom_storage"`
 	HpeStorage                *FleetStorageClassListStorageClassesHpeStorageModel              `tfsdk:"hpe_storage"`
 	NetappTrident             *FleetStorageClassListStorageClassesNetappTridentModel           `tfsdk:"netapp_trident"`
@@ -428,13 +428,13 @@ type FleetStorageClassListStorageClassesModel struct {
 
 // FleetStorageClassListStorageClassesModelAttrTypes defines the attribute types for FleetStorageClassListStorageClassesModel
 var FleetStorageClassListStorageClassesModelAttrTypes = map[string]attr.Type{
+	"advanced_storage_parameters": types.MapType{ElemType: types.StringType},
 	"allow_volume_expansion":      types.BoolType,
 	"default_storage_class":       types.BoolType,
 	"description_spec":            types.StringType,
 	"reclaim_policy":              types.StringType,
 	"storage_class_name":          types.StringType,
 	"storage_device":              types.StringType,
-	"advanced_storage_parameters": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"custom_storage":              types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesCustomStorageModelAttrTypes},
 	"hpe_storage":                 types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesHpeStorageModelAttrTypes},
 	"netapp_trident":              types.ObjectType{AttrTypes: FleetStorageClassListStorageClassesNetappTridentModelAttrTypes},
@@ -529,8 +529,8 @@ var FleetStorageDeviceListModelAttrTypes = map[string]attr.Type{
 
 // FleetStorageDeviceListStorageDevicesModel represents storage_devices block
 type FleetStorageDeviceListStorageDevicesModel struct {
+	AdvancedAdvancedParameters types.Map                                                         `tfsdk:"advanced_advanced_parameters"`
 	StorageDevice              types.String                                                      `tfsdk:"storage_device"`
-	AdvancedAdvancedParameters *FleetEmptyModel                                                  `tfsdk:"advanced_advanced_parameters"`
 	CustomStorage              *FleetEmptyModel                                                  `tfsdk:"custom_storage"`
 	HpeStorage                 *FleetStorageDeviceListStorageDevicesHpeStorageModel              `tfsdk:"hpe_storage"`
 	NetappTrident              *FleetStorageDeviceListStorageDevicesNetappTridentModel           `tfsdk:"netapp_trident"`
@@ -539,8 +539,8 @@ type FleetStorageDeviceListStorageDevicesModel struct {
 
 // FleetStorageDeviceListStorageDevicesModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesModel
 var FleetStorageDeviceListStorageDevicesModelAttrTypes = map[string]attr.Type{
+	"advanced_advanced_parameters": types.MapType{ElemType: types.StringType},
 	"storage_device":               types.StringType,
-	"advanced_advanced_parameters": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"custom_storage":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"hpe_storage":                  types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesHpeStorageModelAttrTypes},
 	"netapp_trident":               types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentModelAttrTypes},
@@ -664,6 +664,7 @@ type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel
 	ClientCertificate    types.String                                                                                 `tfsdk:"client_certificate"`
 	DataLifDNSName       types.String                                                                                 `tfsdk:"data_lif_dns_name"`
 	DataLifIP            types.String                                                                                 `tfsdk:"data_lif_ip"`
+	Labels               types.Map                                                                                    `tfsdk:"labels"`
 	LimitAggregateUsage  types.String                                                                                 `tfsdk:"limit_aggregate_usage"`
 	LimitVolumeSize      types.String                                                                                 `tfsdk:"limit_volume_size"`
 	ManagementLifDNSName types.String                                                                                 `tfsdk:"management_lif_dns_name"`
@@ -677,7 +678,6 @@ type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModel
 	Username             types.String                                                                                 `tfsdk:"username"`
 	AutoExportCidrs      *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModel  `tfsdk:"auto_export_cidrs"`
 	ClientPrivateKey     *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel `tfsdk:"client_private_key"`
-	Labels               *FleetEmptyModel                                                                             `tfsdk:"labels"`
 	Password             *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel         `tfsdk:"password"`
 	Storage              types.List                                                                                   `tfsdk:"storage"`
 	VolumeDefaults       *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel   `tfsdk:"volume_defaults"`
@@ -690,6 +690,7 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModelA
 	"client_certificate":      types.StringType,
 	"data_lif_dns_name":       types.StringType,
 	"data_lif_ip":             types.StringType,
+	"labels":                  types.MapType{ElemType: types.StringType},
 	"limit_aggregate_usage":   types.StringType,
 	"limit_volume_size":       types.StringType,
 	"management_lif_dns_name": types.StringType,
@@ -703,7 +704,6 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasModelA
 	"username":                types.StringType,
 	"auto_export_cidrs":       types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsModelAttrTypes},
 	"client_private_key":      types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModelAttrTypes},
-	"labels":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"password":                types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModelAttrTypes},
 	"storage":                 types.ListType{ElemType: types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes}},
 	"volume_defaults":         types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModelAttrTypes},
@@ -797,15 +797,15 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswo
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel represents storage block
 type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel struct {
+	Labels         types.Map                                                                                         `tfsdk:"labels"`
 	Zone           types.String                                                                                      `tfsdk:"zone"`
-	Labels         *FleetEmptyModel                                                                                  `tfsdk:"labels"`
 	VolumeDefaults *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel `tfsdk:"volume_defaults"`
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel
 var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModelAttrTypes = map[string]attr.Type{
+	"labels":          types.MapType{ElemType: types.StringType},
 	"zone":            types.StringType,
-	"labels":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"volume_defaults": types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModelAttrTypes},
 }
 
@@ -883,6 +883,7 @@ type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel
 	DataLifDNSName       types.String                                                                                 `tfsdk:"data_lif_dns_name"`
 	DataLifIP            types.String                                                                                 `tfsdk:"data_lif_ip"`
 	IgroupName           types.String                                                                                 `tfsdk:"igroup_name"`
+	Labels               types.Map                                                                                    `tfsdk:"labels"`
 	LimitAggregateUsage  types.Int64                                                                                  `tfsdk:"limit_aggregate_usage"`
 	LimitVolumeSize      types.Int64                                                                                  `tfsdk:"limit_volume_size"`
 	ManagementLifDNSName types.String                                                                                 `tfsdk:"management_lif_dns_name"`
@@ -894,7 +895,6 @@ type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel
 	TrustedCACertificate types.String                                                                                 `tfsdk:"trusted_ca_certificate"`
 	Username             types.String                                                                                 `tfsdk:"username"`
 	ClientPrivateKey     *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel `tfsdk:"client_private_key"`
-	Labels               *FleetEmptyModel                                                                             `tfsdk:"labels"`
 	NoChap               *FleetEmptyModel                                                                             `tfsdk:"no_chap"`
 	Password             *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel         `tfsdk:"password"`
 	Storage              types.List                                                                                   `tfsdk:"storage"`
@@ -908,6 +908,7 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModelA
 	"data_lif_dns_name":       types.StringType,
 	"data_lif_ip":             types.StringType,
 	"igroup_name":             types.StringType,
+	"labels":                  types.MapType{ElemType: types.StringType},
 	"limit_aggregate_usage":   types.Int64Type,
 	"limit_volume_size":       types.Int64Type,
 	"management_lif_dns_name": types.StringType,
@@ -919,7 +920,6 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModelA
 	"trusted_ca_certificate":  types.StringType,
 	"username":                types.StringType,
 	"client_private_key":      types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModelAttrTypes},
-	"labels":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_chap":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"password":                types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModelAttrTypes},
 	"storage":                 types.ListType{ElemType: types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes}},
@@ -1005,15 +1005,15 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswo
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel represents storage block
 type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel struct {
+	Labels         types.Map                                                                                         `tfsdk:"labels"`
 	Zone           types.String                                                                                      `tfsdk:"zone"`
-	Labels         *FleetEmptyModel                                                                                  `tfsdk:"labels"`
 	VolumeDefaults *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel `tfsdk:"volume_defaults"`
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel
 var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes = map[string]attr.Type{
+	"labels":          types.MapType{ElemType: types.StringType},
 	"zone":            types.StringType,
-	"labels":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"volume_defaults": types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModelAttrTypes},
 }
 
@@ -1229,18 +1229,18 @@ var FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayM
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel represents flash_arrays block
 type FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel struct {
+	Labels      types.Map                                                                                            `tfsdk:"labels"`
 	MgmtDNSName types.String                                                                                         `tfsdk:"mgmt_dns_name"`
 	MgmtIP      types.String                                                                                         `tfsdk:"mgmt_ip"`
 	APIToken    *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel `tfsdk:"api_token"`
-	Labels      *FleetEmptyModel                                                                                     `tfsdk:"labels"`
 }
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModel
 var FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysModelAttrTypes = map[string]attr.Type{
+	"labels":        types.MapType{ElemType: types.StringType},
 	"mgmt_dns_name": types.StringType,
 	"mgmt_ip":       types.StringType,
 	"api_token":     types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModelAttrTypes},
-	"labels":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel represents api_token block
@@ -1297,22 +1297,22 @@ var FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeM
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel represents flash_blades block
 type FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel struct {
+	Labels             types.Map                                                                                            `tfsdk:"labels"`
 	MgmtDNSName        types.String                                                                                         `tfsdk:"mgmt_dns_name"`
 	MgmtIP             types.String                                                                                         `tfsdk:"mgmt_ip"`
 	NfsEndpointDNSName types.String                                                                                         `tfsdk:"nfs_endpoint_dns_name"`
 	NfsEndpointIP      types.String                                                                                         `tfsdk:"nfs_endpoint_ip"`
 	APIToken           *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel `tfsdk:"api_token"`
-	Labels             *FleetEmptyModel                                                                                     `tfsdk:"labels"`
 }
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModel
 var FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesModelAttrTypes = map[string]attr.Type{
+	"labels":                types.MapType{ElemType: types.StringType},
 	"mgmt_dns_name":         types.StringType,
 	"mgmt_ip":               types.StringType,
 	"nfs_endpoint_dns_name": types.StringType,
 	"nfs_endpoint_ip":       types.StringType,
 	"api_token":             types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModelAttrTypes},
-	"labels":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel represents api_token block
@@ -2256,6 +2256,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						MarkdownDescription: "List of Storage Classes. List of custom storage classes.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"advanced_storage_parameters": schema.MapAttribute{
+									MarkdownDescription: "Advanced Parameters. Map of parameter name and string value.",
+									Optional:            true,
+									ElementType:         types.StringType,
+								},
 								"allow_volume_expansion": schema.BoolAttribute{
 									MarkdownDescription: "Allow Volume Expansion. Allow volume expansion.",
 									Optional:            true,
@@ -2294,9 +2299,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"advanced_storage_parameters": schema.SingleNestedBlock{
-									MarkdownDescription: "Advanced Parameters. Map of parameter name and string value.",
-								},
 								"custom_storage": schema.SingleNestedBlock{
 									MarkdownDescription: "Custom Storage Class allows to insert Kubernetes storageclass definition which will be applied into given site.",
 									Attributes: map[string]schema.Attribute{
@@ -2461,6 +2463,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						MarkdownDescription: "List of Storage Devices. List of custom storage devices.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"advanced_advanced_parameters": schema.MapAttribute{
+									MarkdownDescription: "Advanced Parameters. Map of parameter name and string value.",
+									Optional:            true,
+									ElementType:         types.StringType,
+								},
 								"storage_device": schema.StringAttribute{
 									MarkdownDescription: "Storage device and device unit .",
 									Optional:            true,
@@ -2470,9 +2477,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"advanced_advanced_parameters": schema.SingleNestedBlock{
-									MarkdownDescription: "Advanced Parameters. Map of parameter name and string value.",
-								},
 								"custom_storage": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for custom storage.",
 								},
@@ -2643,6 +2647,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														validators.IPValidator(),
 													},
 												},
+												"labels": schema.MapAttribute{
+													MarkdownDescription: "List of labels for Storage Device used in NetApp ONTAP. It is used for storage class selection.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"limit_aggregate_usage": schema.StringAttribute{
 													MarkdownDescription: "Fail provisioning if usage is above this percentage. Not enforced by default.",
 													Optional:            true,
@@ -2763,9 +2772,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 													},
 												},
-												"labels": schema.SingleNestedBlock{
-													MarkdownDescription: "List of labels for Storage Device used in NetApp ONTAP. It is used for storage class selection.",
-												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
 													Attributes:          map[string]schema.Attribute{},
@@ -2812,15 +2818,17 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													MarkdownDescription: "List of Virtual Storage Pool definitions which are referred back by Storage Class label match selection.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
+															"labels": schema.MapAttribute{
+																MarkdownDescription: "List of labels for Storage Device used in NetApp ONTAP. It is used for storage class label match selection.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
 															"zone": schema.StringAttribute{
 																MarkdownDescription: "Virtual Pool Zone. Virtual Storage Pool zone definition.",
 																Optional:            true,
 															},
 														},
 														Blocks: map[string]schema.Block{
-															"labels": schema.SingleNestedBlock{
-																MarkdownDescription: "List of labels for Storage Device used in NetApp ONTAP. It is used for storage class label match selection.",
-															},
 															"volume_defaults": schema.SingleNestedBlock{
 																MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
 																Attributes: map[string]schema.Attribute{
@@ -2992,6 +3000,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														stringvalidator.LengthBetween(1, 256),
 													},
 												},
+												"labels": schema.MapAttribute{
+													MarkdownDescription: "List of labels for Storage Device used in NetApp ONTAP. It is used for storage class selection.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"limit_aggregate_usage": schema.Int64Attribute{
 													MarkdownDescription: "Fail provisioning if usage is above this percentage. Not enforced by default.",
 													Optional:            true,
@@ -3101,9 +3114,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 													},
 												},
-												"labels": schema.SingleNestedBlock{
-													MarkdownDescription: "List of labels for Storage Device used in NetApp ONTAP. It is used for storage class selection.",
-												},
 												"no_chap": schema.SingleNestedBlock{
 													MarkdownDescription: "Enable this option",
 												},
@@ -3153,15 +3163,17 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													MarkdownDescription: "List of Virtual Storage Pool definitions which are referred back by Storage Class label match selection.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
+															"labels": schema.MapAttribute{
+																MarkdownDescription: "List of labels for Storage Device used in NetApp ONTAP. It is used for storage class label match selection.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
 															"zone": schema.StringAttribute{
 																MarkdownDescription: "Virtual Pool Zone. Virtual Storage Pool zone definition.",
 																Optional:            true,
 															},
 														},
 														Blocks: map[string]schema.Block{
-															"labels": schema.SingleNestedBlock{
-																MarkdownDescription: "List of labels for Storage Device used in NetApp ONTAP. It is used for storage class label match selection.",
-															},
 															"volume_defaults": schema.SingleNestedBlock{
 																MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
 																Attributes: map[string]schema.Attribute{
@@ -3481,6 +3493,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															MarkdownDescription: "For FlashArrays you must set the 'mgmt_endpoint' and 'api_token' .",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
+																	"labels": schema.MapAttribute{
+																		MarkdownDescription: "Specifies labels optional, and can be any key-value pair for use with the PSO 'fleet' provisioner.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
 																	"mgmt_dns_name": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [mgmt_ip] Management Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
 																		Optional:            true,
@@ -3540,9 +3557,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																			},
 																		},
 																	},
-																	"labels": schema.SingleNestedBlock{
-																		MarkdownDescription: "Specifies labels optional, and can be any key-value pair for use with the PSO 'fleet' provisioner.",
-																	},
 																},
 															},
 														},
@@ -3568,6 +3582,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															MarkdownDescription: "For FlashBlades you must set the 'mgmt_endpoint', 'api_token' and nfs_endpoint .",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
+																	"labels": schema.MapAttribute{
+																		MarkdownDescription: "Specifies labels optional, and can be any key-value pair for use with the PSO 'fleet' provisioner.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
 																	"mgmt_dns_name": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [mgmt_ip] Management Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
 																		Optional:            true,
@@ -3641,9 +3660,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																				},
 																			},
 																		},
-																	},
-																	"labels": schema.SingleNestedBlock{
-																		MarkdownDescription: "Specifies labels optional, and can be any key-value pair for use with the PSO 'fleet' provisioner.",
 																	},
 																},
 															},
@@ -4079,6 +4095,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
 						var DevicesItems []string
 						diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							BondDevicesItemMap["devices"] = DevicesItems
 						}
@@ -4461,8 +4478,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				var StorageClassesList []map[string]interface{}
 				for _, StorageClassesItem := range StorageClassesElems {
 					StorageClassesItemMap := make(map[string]interface{})
-					if StorageClassesItem.AdvancedStorageParameters != nil {
-						StorageClassesItemMap["advanced_storage_parameters"] = map[string]interface{}{}
+					if !StorageClassesItem.AdvancedStorageParameters.IsNull() && !StorageClassesItem.AdvancedStorageParameters.IsUnknown() {
+						var AdvancedStorageParametersMap map[string]string
+						diags := StorageClassesItem.AdvancedStorageParameters.ElementsAs(ctx, &AdvancedStorageParametersMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							StorageClassesItemMap["advanced_storage_parameters"] = AdvancedStorageParametersMap
+						}
 					}
 					if !StorageClassesItem.AllowVolumeExpansion.IsNull() && !StorageClassesItem.AllowVolumeExpansion.IsUnknown() {
 						StorageClassesItemMap["allow_volume_expansion"] = StorageClassesItem.AllowVolumeExpansion.ValueBool()
@@ -4581,8 +4603,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				var StorageDevicesList []map[string]interface{}
 				for _, StorageDevicesItem := range StorageDevicesElems {
 					StorageDevicesItemMap := make(map[string]interface{})
-					if StorageDevicesItem.AdvancedAdvancedParameters != nil {
-						StorageDevicesItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
+					if !StorageDevicesItem.AdvancedAdvancedParameters.IsNull() && !StorageDevicesItem.AdvancedAdvancedParameters.IsUnknown() {
+						var AdvancedAdvancedParametersMap map[string]string
+						diags := StorageDevicesItem.AdvancedAdvancedParameters.ElementsAs(ctx, &AdvancedAdvancedParametersMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							StorageDevicesItemMap["advanced_advanced_parameters"] = AdvancedAdvancedParametersMap
+						}
 					}
 					if StorageDevicesItem.CustomStorage != nil {
 						StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
@@ -4669,6 +4696,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsMap["prefixes"] = PrefixesItems
 									}
@@ -4717,8 +4745,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.ValueString()
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels != nil {
-								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["labels"] = map[string]interface{}{}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels.IsUnknown() {
+								var LabelsMap map[string]string
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels.ElementsAs(ctx, &LabelsMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["labels"] = LabelsMap
+								}
 							}
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.ValueString()
@@ -4773,8 +4806,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									var StorageList []map[string]interface{}
 									for _, StorageItem := range StorageElems {
 										StorageItemMap := make(map[string]interface{})
-										if StorageItem.Labels != nil {
-											StorageItemMap["labels"] = map[string]interface{}{}
+										if !StorageItem.Labels.IsNull() && !StorageItem.Labels.IsUnknown() {
+											var LabelsMap map[string]string
+											diags := StorageItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												StorageItemMap["labels"] = LabelsMap
+											}
 										}
 										if StorageItem.VolumeDefaults != nil {
 											StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsMap := make(map[string]interface{})
@@ -4928,8 +4966,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["igroup_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.ValueString()
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels != nil {
-								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["labels"] = map[string]interface{}{}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels.IsUnknown() {
+								var LabelsMap map[string]string
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels.ElementsAs(ctx, &LabelsMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["labels"] = LabelsMap
+								}
 							}
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.ValueInt64()
@@ -4984,8 +5027,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									var StorageList []map[string]interface{}
 									for _, StorageItem := range StorageElems {
 										StorageItemMap := make(map[string]interface{})
-										if StorageItem.Labels != nil {
-											StorageItemMap["labels"] = map[string]interface{}{}
+										if !StorageItem.Labels.IsNull() && !StorageItem.Labels.IsUnknown() {
+											var LabelsMap map[string]string
+											diags := StorageItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												StorageItemMap["labels"] = LabelsMap
+											}
 										}
 										if StorageItem.VolumeDefaults != nil {
 											StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsMap := make(map[string]interface{})
@@ -5179,6 +5227,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsUnknown() {
 									var DefaultMountOptsItems []string
 									diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.ElementsAs(ctx, &DefaultMountOptsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										StorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayMap["default_mount_opts"] = DefaultMountOptsItems
 									}
@@ -5221,8 +5270,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												FlashArraysItemMap["api_token"] = StorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap
 											}
-											if FlashArraysItem.Labels != nil {
-												FlashArraysItemMap["labels"] = map[string]interface{}{}
+											if !FlashArraysItem.Labels.IsNull() && !FlashArraysItem.Labels.IsUnknown() {
+												var LabelsMap map[string]string
+												diags := FlashArraysItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													FlashArraysItemMap["labels"] = LabelsMap
+												}
 											}
 											if !FlashArraysItem.MgmtDNSName.IsNull() && !FlashArraysItem.MgmtDNSName.IsUnknown() {
 												FlashArraysItemMap["mgmt_dns_name"] = FlashArraysItem.MgmtDNSName.ValueString()
@@ -5286,8 +5340,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												FlashBladesItemMap["api_token"] = StorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap
 											}
-											if FlashBladesItem.Labels != nil {
-												FlashBladesItemMap["labels"] = map[string]interface{}{}
+											if !FlashBladesItem.Labels.IsNull() && !FlashBladesItem.Labels.IsUnknown() {
+												var LabelsMap map[string]string
+												diags := FlashBladesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													FlashBladesItemMap["labels"] = LabelsMap
+												}
 											}
 											if !FlashBladesItem.MgmtDNSName.IsNull() && !FlashBladesItem.MgmtDNSName.IsUnknown() {
 												FlashBladesItemMap["mgmt_dns_name"] = FlashBladesItem.MgmtDNSName.ValueString()
@@ -5370,6 +5429,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !StorageRoutesItem.Attrs.IsNull() && !StorageRoutesItem.Attrs.IsUnknown() {
 						var AttrsItems []string
 						diags := StorageRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							StorageRoutesItemMap["attrs"] = AttrsItems
 						}
@@ -5671,7 +5731,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -6337,15 +6398,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
-								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+								AdvancedStorageParameters: UnmarshalStringMap(ctx, StorageClassesItemMap["advanced_storage_parameters"], func() types.Map {
+									if len(StorageClassesExisting) > StorageClassesIdx {
 										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
-									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "advanced_storage_parameters", &resp.Diagnostics),
 								AllowVolumeExpansion: func() types.Bool {
 									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
@@ -6589,15 +6647,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
-								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+								AdvancedAdvancedParameters: UnmarshalStringMap(ctx, StorageDevicesItemMap["advanced_advanced_parameters"], func() types.Map {
+									if len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
-									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "advanced_advanced_parameters", &resp.Diagnostics),
 								CustomStorage: func() *FleetEmptyModel {
 									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
@@ -6790,7 +6845,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -6892,15 +6948,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapNasData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
 															}
-															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.String {
 															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -7011,15 +7064,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
-																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
-																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					return &FleetEmptyModel{}
-																				}
-																				return nil
-																			}(),
+																				return types.MapNull(types.StringType)
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
@@ -7361,15 +7411,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapSanData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
 															}
-															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.Int64 {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
@@ -7489,15 +7536,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
-																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
-																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					return &FleetEmptyModel{}
-																				}
-																				return nil
-																			}(),
+																				return types.MapNull(types.StringType)
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
@@ -7930,7 +7974,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -8015,15 +8060,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							}
 																							return nil
 																						}(),
-																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																						Labels: UnmarshalStringMap(ctx, FlashArraysItemMap["labels"], func() types.Map {
+																							if len(FlashArraysExisting) > FlashArraysIdx {
 																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
-																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
-																							}
-																							return nil
-																						}(),
+																							return types.MapNull(types.StringType)
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -8155,15 +8197,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							}
 																							return nil
 																						}(),
-																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																						Labels: UnmarshalStringMap(ctx, FlashBladesItemMap["labels"], func() types.Map {
+																							if len(FlashBladesExisting) > FlashBladesIdx {
 																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
-																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
-																							}
-																							return nil
-																						}(),
+																							return types.MapNull(types.StringType)
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -8316,7 +8355,8 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -8828,7 +8868,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -9494,15 +9535,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
-								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+								AdvancedStorageParameters: UnmarshalStringMap(ctx, StorageClassesItemMap["advanced_storage_parameters"], func() types.Map {
+									if len(StorageClassesExisting) > StorageClassesIdx {
 										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
-									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "advanced_storage_parameters", &resp.Diagnostics),
 								AllowVolumeExpansion: func() types.Bool {
 									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
@@ -9746,15 +9784,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
-								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+								AdvancedAdvancedParameters: UnmarshalStringMap(ctx, StorageDevicesItemMap["advanced_advanced_parameters"], func() types.Map {
+									if len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
-									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "advanced_advanced_parameters", &resp.Diagnostics),
 								CustomStorage: func() *FleetEmptyModel {
 									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
@@ -9947,7 +9982,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -10049,15 +10085,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapNasData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
 															}
-															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.String {
 															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -10168,15 +10201,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
-																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
-																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					return &FleetEmptyModel{}
-																				}
-																				return nil
-																			}(),
+																				return types.MapNull(types.StringType)
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
@@ -10518,15 +10548,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapSanData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
 															}
-															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.Int64 {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
@@ -10646,15 +10673,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
-																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
-																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					return &FleetEmptyModel{}
-																				}
-																				return nil
-																			}(),
+																				return types.MapNull(types.StringType)
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
@@ -11087,7 +11111,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -11172,15 +11197,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							}
 																							return nil
 																						}(),
-																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																						Labels: UnmarshalStringMap(ctx, FlashArraysItemMap["labels"], func() types.Map {
+																							if len(FlashArraysExisting) > FlashArraysIdx {
 																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
-																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
-																							}
-																							return nil
-																						}(),
+																							return types.MapNull(types.StringType)
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -11312,15 +11334,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							}
 																							return nil
 																						}(),
-																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																						Labels: UnmarshalStringMap(ctx, FlashBladesItemMap["labels"], func() types.Map {
+																							if len(FlashBladesExisting) > FlashBladesIdx {
 																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
-																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
-																							}
-																							return nil
-																						}(),
+																							return types.MapNull(types.StringType)
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -11473,7 +11492,8 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -11857,6 +11877,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
 						var DevicesItems []string
 						diags := BondDevicesItem.Devices.ElementsAs(ctx, &DevicesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							BondDevicesItemMap["devices"] = DevicesItems
 						}
@@ -12239,8 +12260,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				var StorageClassesList []map[string]interface{}
 				for _, StorageClassesItem := range StorageClassesElems {
 					StorageClassesItemMap := make(map[string]interface{})
-					if StorageClassesItem.AdvancedStorageParameters != nil {
-						StorageClassesItemMap["advanced_storage_parameters"] = map[string]interface{}{}
+					if !StorageClassesItem.AdvancedStorageParameters.IsNull() && !StorageClassesItem.AdvancedStorageParameters.IsUnknown() {
+						var AdvancedStorageParametersMap map[string]string
+						diags := StorageClassesItem.AdvancedStorageParameters.ElementsAs(ctx, &AdvancedStorageParametersMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							StorageClassesItemMap["advanced_storage_parameters"] = AdvancedStorageParametersMap
+						}
 					}
 					if !StorageClassesItem.AllowVolumeExpansion.IsNull() && !StorageClassesItem.AllowVolumeExpansion.IsUnknown() {
 						StorageClassesItemMap["allow_volume_expansion"] = StorageClassesItem.AllowVolumeExpansion.ValueBool()
@@ -12359,8 +12385,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				var StorageDevicesList []map[string]interface{}
 				for _, StorageDevicesItem := range StorageDevicesElems {
 					StorageDevicesItemMap := make(map[string]interface{})
-					if StorageDevicesItem.AdvancedAdvancedParameters != nil {
-						StorageDevicesItemMap["advanced_advanced_parameters"] = map[string]interface{}{}
+					if !StorageDevicesItem.AdvancedAdvancedParameters.IsNull() && !StorageDevicesItem.AdvancedAdvancedParameters.IsUnknown() {
+						var AdvancedAdvancedParametersMap map[string]string
+						diags := StorageDevicesItem.AdvancedAdvancedParameters.ElementsAs(ctx, &AdvancedAdvancedParametersMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							StorageDevicesItemMap["advanced_advanced_parameters"] = AdvancedAdvancedParametersMap
+						}
 					}
 					if StorageDevicesItem.CustomStorage != nil {
 						StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
@@ -12447,6 +12478,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.AutoExportCidrs.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasAutoExportCidrsMap["prefixes"] = PrefixesItems
 									}
@@ -12495,8 +12527,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["data_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.DataLifIP.ValueString()
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels != nil {
-								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["labels"] = map[string]interface{}{}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels.IsUnknown() {
+								var LabelsMap map[string]string
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Labels.ElementsAs(ctx, &LabelsMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["labels"] = LabelsMap
+								}
 							}
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.LimitAggregateUsage.ValueString()
@@ -12551,8 +12588,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									var StorageList []map[string]interface{}
 									for _, StorageItem := range StorageElems {
 										StorageItemMap := make(map[string]interface{})
-										if StorageItem.Labels != nil {
-											StorageItemMap["labels"] = map[string]interface{}{}
+										if !StorageItem.Labels.IsNull() && !StorageItem.Labels.IsUnknown() {
+											var LabelsMap map[string]string
+											diags := StorageItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												StorageItemMap["labels"] = LabelsMap
+											}
 										}
 										if StorageItem.VolumeDefaults != nil {
 											StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsMap := make(map[string]interface{})
@@ -12706,8 +12748,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["igroup_name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.IgroupName.ValueString()
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels != nil {
-								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["labels"] = map[string]interface{}{}
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels.IsUnknown() {
+								var LabelsMap map[string]string
+								diags := StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Labels.ElementsAs(ctx, &LabelsMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["labels"] = LabelsMap
+								}
 							}
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["limit_aggregate_usage"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.ValueInt64()
@@ -12762,8 +12809,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									var StorageList []map[string]interface{}
 									for _, StorageItem := range StorageElems {
 										StorageItemMap := make(map[string]interface{})
-										if StorageItem.Labels != nil {
-											StorageItemMap["labels"] = map[string]interface{}{}
+										if !StorageItem.Labels.IsNull() && !StorageItem.Labels.IsUnknown() {
+											var LabelsMap map[string]string
+											diags := StorageItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												StorageItemMap["labels"] = LabelsMap
+											}
 										}
 										if StorageItem.VolumeDefaults != nil {
 											StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsMap := make(map[string]interface{})
@@ -12957,6 +13009,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								if !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsNull() && !StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.IsUnknown() {
 									var DefaultMountOptsItems []string
 									diags := StorageDevicesItem.PureServiceOrchestrator.Arrays.FlashArray.DefaultMountOpts.ElementsAs(ctx, &DefaultMountOptsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										StorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayMap["default_mount_opts"] = DefaultMountOptsItems
 									}
@@ -12999,8 +13052,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												FlashArraysItemMap["api_token"] = StorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap
 											}
-											if FlashArraysItem.Labels != nil {
-												FlashArraysItemMap["labels"] = map[string]interface{}{}
+											if !FlashArraysItem.Labels.IsNull() && !FlashArraysItem.Labels.IsUnknown() {
+												var LabelsMap map[string]string
+												diags := FlashArraysItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													FlashArraysItemMap["labels"] = LabelsMap
+												}
 											}
 											if !FlashArraysItem.MgmtDNSName.IsNull() && !FlashArraysItem.MgmtDNSName.IsUnknown() {
 												FlashArraysItemMap["mgmt_dns_name"] = FlashArraysItem.MgmtDNSName.ValueString()
@@ -13064,8 +13122,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												FlashBladesItemMap["api_token"] = StorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap
 											}
-											if FlashBladesItem.Labels != nil {
-												FlashBladesItemMap["labels"] = map[string]interface{}{}
+											if !FlashBladesItem.Labels.IsNull() && !FlashBladesItem.Labels.IsUnknown() {
+												var LabelsMap map[string]string
+												diags := FlashBladesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													FlashBladesItemMap["labels"] = LabelsMap
+												}
 											}
 											if !FlashBladesItem.MgmtDNSName.IsNull() && !FlashBladesItem.MgmtDNSName.IsUnknown() {
 												FlashBladesItemMap["mgmt_dns_name"] = FlashBladesItem.MgmtDNSName.ValueString()
@@ -13148,6 +13211,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !StorageRoutesItem.Attrs.IsNull() && !StorageRoutesItem.Attrs.IsUnknown() {
 						var AttrsItems []string
 						diags := StorageRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							StorageRoutesItemMap["attrs"] = AttrsItems
 						}
@@ -13469,7 +13533,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -14135,15 +14200,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
-								AdvancedStorageParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageClassesExisting) > StorageClassesIdx {
+								AdvancedStorageParameters: UnmarshalStringMap(ctx, StorageClassesItemMap["advanced_storage_parameters"], func() types.Map {
+									if len(StorageClassesExisting) > StorageClassesIdx {
 										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
-									if _, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "advanced_storage_parameters", &resp.Diagnostics),
 								AllowVolumeExpansion: func() types.Bool {
 									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
@@ -14387,15 +14449,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
-								AdvancedAdvancedParameters: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+								AdvancedAdvancedParameters: UnmarshalStringMap(ctx, StorageDevicesItemMap["advanced_advanced_parameters"], func() types.Map {
+									if len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
-									if _, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "advanced_advanced_parameters", &resp.Diagnostics),
 								CustomStorage: func() *FleetEmptyModel {
 									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
@@ -14588,7 +14647,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -14690,15 +14750,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapNasData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
 															}
-															if _, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.String {
 															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -14809,15 +14866,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
-																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
-																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					return &FleetEmptyModel{}
-																				}
-																				return nil
-																			}(),
+																				return types.MapNull(types.StringType)
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
@@ -15159,15 +15213,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapSanData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
 															}
-															if _, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.Int64 {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
@@ -15287,15 +15338,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
-																			Labels: func() *FleetEmptyModel {
-																				if !isImport && len(StorageExisting) > StorageIdx {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
-																				if _, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					return &FleetEmptyModel{}
-																				}
-																				return nil
-																			}(),
+																				return types.MapNull(types.StringType)
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
@@ -15728,7 +15776,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -15813,15 +15862,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							}
 																							return nil
 																						}(),
-																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashArraysExisting) > FlashArraysIdx {
+																						Labels: UnmarshalStringMap(ctx, FlashArraysItemMap["labels"], func() types.Map {
+																							if len(FlashArraysExisting) > FlashArraysIdx {
 																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
-																							if _, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
-																							}
-																							return nil
-																						}(),
+																							return types.MapNull(types.StringType)
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -15953,15 +15999,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							}
 																							return nil
 																						}(),
-																						Labels: func() *FleetEmptyModel {
-																							if !isImport && len(FlashBladesExisting) > FlashBladesIdx {
+																						Labels: UnmarshalStringMap(ctx, FlashBladesItemMap["labels"], func() types.Map {
+																							if len(FlashBladesExisting) > FlashBladesIdx {
 																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
-																							if _, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
-																							}
-																							return nil
-																						}(),
+																							return types.MapNull(types.StringType)
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -16114,7 +16157,8 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)

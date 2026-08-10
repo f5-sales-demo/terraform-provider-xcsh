@@ -372,6 +372,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	if !data.AuthenticationAlgos.IsNull() && !data.AuthenticationAlgos.IsUnknown() {
 		var AuthenticationAlgosItems []string
 		diags := data.AuthenticationAlgos.ElementsAs(ctx, &AuthenticationAlgosItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["authentication_algos"] = AuthenticationAlgosItems
 		}
@@ -379,6 +380,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	if !data.DhGroup.IsNull() && !data.DhGroup.IsUnknown() {
 		var DhGroupItems []string
 		diags := data.DhGroup.ElementsAs(ctx, &DhGroupItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["dh_group"] = DhGroupItems
 		}
@@ -386,6 +388,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	if !data.EncryptionAlgos.IsNull() && !data.EncryptionAlgos.IsUnknown() {
 		var EncryptionAlgosItems []string
 		diags := data.EncryptionAlgos.ElementsAs(ctx, &EncryptionAlgosItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["encryption_algos"] = EncryptionAlgosItems
 		}
@@ -393,6 +396,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	if !data.Prf.IsNull() && !data.Prf.IsUnknown() {
 		var PrfItems []string
 		diags := data.Prf.ElementsAs(ctx, &PrfItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["prf"] = PrfItems
 		}
@@ -892,6 +896,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	if !data.AuthenticationAlgos.IsNull() && !data.AuthenticationAlgos.IsUnknown() {
 		var AuthenticationAlgosItems []string
 		diags := data.AuthenticationAlgos.ElementsAs(ctx, &AuthenticationAlgosItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["authentication_algos"] = AuthenticationAlgosItems
 		}
@@ -899,6 +904,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	if !data.DhGroup.IsNull() && !data.DhGroup.IsUnknown() {
 		var DhGroupItems []string
 		diags := data.DhGroup.ElementsAs(ctx, &DhGroupItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["dh_group"] = DhGroupItems
 		}
@@ -906,6 +912,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	if !data.EncryptionAlgos.IsNull() && !data.EncryptionAlgos.IsUnknown() {
 		var EncryptionAlgosItems []string
 		diags := data.EncryptionAlgos.ElementsAs(ctx, &EncryptionAlgosItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["encryption_algos"] = EncryptionAlgosItems
 		}
@@ -913,6 +920,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	if !data.Prf.IsNull() && !data.Prf.IsUnknown() {
 		var PrfItems []string
 		diags := data.Prf.ElementsAs(ctx, &PrfItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["prf"] = PrfItems
 		}

@@ -3263,6 +3263,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 													var PrefixesItems []string
 													diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 													}
@@ -3340,6 +3341,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 													var PrefixesItems []string
 													diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 													}
@@ -3570,6 +3572,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 		if !data.ProxyConfig.Domains.IsNull() && !data.ProxyConfig.Domains.IsUnknown() {
 			var DomainsItems []string
 			diags := data.ProxyConfig.Domains.ElementsAs(ctx, &DomainsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ProxyConfigMap["domains"] = DomainsItems
 			}
@@ -3702,6 +3705,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
@@ -3770,6 +3774,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
@@ -3801,6 +3806,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										ProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
@@ -3855,6 +3861,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
@@ -3923,6 +3930,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
@@ -4026,6 +4034,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -4094,6 +4103,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ProxyConfigHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -4501,7 +4511,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -4665,7 +4676,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -5110,7 +5122,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -5444,7 +5457,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -5596,7 +5610,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -5656,7 +5671,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -5774,7 +5790,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -5926,7 +5943,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -6199,7 +6217,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -6351,7 +6370,8 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -6864,7 +6884,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -7028,7 +7049,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -7473,7 +7495,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -7807,7 +7830,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -7959,7 +7983,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -8019,7 +8044,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -8137,7 +8163,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -8289,7 +8316,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -8562,7 +8590,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -8714,7 +8743,8 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -8990,6 +9020,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 													var PrefixesItems []string
 													diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 													}
@@ -9067,6 +9098,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 													var PrefixesItems []string
 													diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+													resp.Diagnostics.Append(diags...)
 													if !diags.HasError() {
 														OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 													}
@@ -9297,6 +9329,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 		if !data.ProxyConfig.Domains.IsNull() && !data.ProxyConfig.Domains.IsUnknown() {
 			var DomainsItems []string
 			diags := data.ProxyConfig.Domains.ElementsAs(ctx, &DomainsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				ProxyConfigMap["domains"] = DomainsItems
 			}
@@ -9429,6 +9462,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
@@ -9497,6 +9531,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
@@ -9528,6 +9563,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										ProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
@@ -9582,6 +9618,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
@@ -9650,6 +9687,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
@@ -9753,6 +9791,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
@@ -9821,6 +9860,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							ProxyConfigHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
@@ -10248,7 +10288,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -10412,7 +10453,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																													items = append(items, s)
 																												}
 																											}
-																											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																											resp.Diagnostics.Append(diags...)
 																											return listVal
 																										}
 																										return types.ListNull(types.StringType)
@@ -10857,7 +10899,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -11191,7 +11234,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -11343,7 +11387,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -11403,7 +11448,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																					items = append(items, s)
 																				}
 																			}
-																			listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
 																			return listVal
 																		}
 																		return types.ListNull(types.StringType)
@@ -11521,7 +11567,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -11673,7 +11720,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																			items = append(items, s)
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																	listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																	resp.Diagnostics.Append(diags...)
 																	return listVal
 																}
 																return types.ListNull(types.StringType)
@@ -11946,7 +11994,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)
@@ -12098,7 +12147,8 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																items = append(items, s)
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
 														return listVal
 													}
 													return types.ListNull(types.StringType)

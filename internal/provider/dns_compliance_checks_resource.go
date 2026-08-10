@@ -270,6 +270,7 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 	if !data.DomainDenylist.IsNull() && !data.DomainDenylist.IsUnknown() {
 		var DomainDenylistItems []string
 		diags := data.DomainDenylist.ElementsAs(ctx, &DomainDenylistItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["domain_denylist"] = DomainDenylistItems
 		}
@@ -277,6 +278,7 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 	if !data.DisallowedQueryTypeList.IsNull() && !data.DisallowedQueryTypeList.IsUnknown() {
 		var DisallowedQueryTypeListItems []string
 		diags := data.DisallowedQueryTypeList.ElementsAs(ctx, &DisallowedQueryTypeListItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["disallowed_query_type_list"] = DisallowedQueryTypeListItems
 		}
@@ -284,6 +286,7 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 	if !data.DisallowedResourceRecordTypeList.IsNull() && !data.DisallowedResourceRecordTypeList.IsUnknown() {
 		var DisallowedResourceRecordTypeListItems []string
 		diags := data.DisallowedResourceRecordTypeList.ElementsAs(ctx, &DisallowedResourceRecordTypeListItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["disallowed_resource_record_type_list"] = DisallowedResourceRecordTypeListItems
 		}
@@ -603,6 +606,7 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 	if !data.DomainDenylist.IsNull() && !data.DomainDenylist.IsUnknown() {
 		var DomainDenylistItems []string
 		diags := data.DomainDenylist.ElementsAs(ctx, &DomainDenylistItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["domain_denylist"] = DomainDenylistItems
 		}
@@ -610,6 +614,7 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 	if !data.DisallowedQueryTypeList.IsNull() && !data.DisallowedQueryTypeList.IsUnknown() {
 		var DisallowedQueryTypeListItems []string
 		diags := data.DisallowedQueryTypeList.ElementsAs(ctx, &DisallowedQueryTypeListItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["disallowed_query_type_list"] = DisallowedQueryTypeListItems
 		}
@@ -617,6 +622,7 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 	if !data.DisallowedResourceRecordTypeList.IsNull() && !data.DisallowedResourceRecordTypeList.IsUnknown() {
 		var DisallowedResourceRecordTypeListItems []string
 		diags := data.DisallowedResourceRecordTypeList.ElementsAs(ctx, &DisallowedResourceRecordTypeListItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["disallowed_resource_record_type_list"] = DisallowedResourceRecordTypeListItems
 		}

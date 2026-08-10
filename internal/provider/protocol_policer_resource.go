@@ -439,6 +439,7 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 						if !ProtocolPolicerItem.Protocol.ICMP.Type.IsNull() && !ProtocolPolicerItem.Protocol.ICMP.Type.IsUnknown() {
 							var TypeItems []string
 							diags := ProtocolPolicerItem.Protocol.ICMP.Type.ElementsAs(ctx, &TypeItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProtocolPolicerProtocolICMPMap["type"] = TypeItems
 							}
@@ -450,6 +451,7 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 						if !ProtocolPolicerItem.Protocol.TCP.Flags.IsNull() && !ProtocolPolicerItem.Protocol.TCP.Flags.IsUnknown() {
 							var FlagsItems []string
 							diags := ProtocolPolicerItem.Protocol.TCP.Flags.ElementsAs(ctx, &FlagsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProtocolPolicerProtocolTCPMap["flags"] = FlagsItems
 							}
@@ -578,7 +580,8 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -601,7 +604,8 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -845,7 +849,8 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -868,7 +873,8 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1026,6 +1032,7 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 						if !ProtocolPolicerItem.Protocol.ICMP.Type.IsNull() && !ProtocolPolicerItem.Protocol.ICMP.Type.IsUnknown() {
 							var TypeItems []string
 							diags := ProtocolPolicerItem.Protocol.ICMP.Type.ElementsAs(ctx, &TypeItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProtocolPolicerProtocolICMPMap["type"] = TypeItems
 							}
@@ -1037,6 +1044,7 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 						if !ProtocolPolicerItem.Protocol.TCP.Flags.IsNull() && !ProtocolPolicerItem.Protocol.TCP.Flags.IsUnknown() {
 							var FlagsItems []string
 							diags := ProtocolPolicerItem.Protocol.TCP.Flags.ElementsAs(ctx, &FlagsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								ProtocolPolicerProtocolTCPMap["flags"] = FlagsItems
 							}
@@ -1185,7 +1193,8 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1208,7 +1217,8 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

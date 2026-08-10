@@ -15,7 +15,7 @@ func TestNoStaleDatasourceKeys(t *testing.T) {
 		skipResources,
 		resourceDependencies,
 	}
-	
+
 	// Add keys from boolean maps
 	for key := range systemLevelResources {
 		mapsToCheck[0][key] = ""
@@ -32,10 +32,10 @@ func TestNoStaleDatasourceKeys(t *testing.T) {
 
 			resourcePath := filepath.Join("../internal/provider", key+"_resource.go")
 			dataSourcePath := filepath.Join("../internal/provider", key+"_data_source.go")
-			
+
 			_, errRes := os.Stat(resourcePath)
 			_, errData := os.Stat(dataSourcePath)
-			
+
 			if os.IsNotExist(errRes) && os.IsNotExist(errData) {
 				t.Errorf("generate-datasource-tests.go key %q has no corresponding resource or data source file", key)
 			}

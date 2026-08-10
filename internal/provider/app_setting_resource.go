@@ -673,6 +673,7 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 								if !MetricSelectorsItem.Metric.IsNull() && !MetricSelectorsItem.Metric.IsUnknown() {
 									var MetricItems []string
 									diags := MetricSelectorsItem.Metric.ElementsAs(ctx, &MetricItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										MetricSelectorsItemMap["metric"] = MetricItems
 									}
@@ -921,7 +922,8 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 																	items = append(items, s)
 																}
 															}
-															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
 															return listVal
 														}
 														return types.ListNull(types.StringType)
@@ -1454,7 +1456,8 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 																	items = append(items, s)
 																}
 															}
-															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
 															return listVal
 														}
 														return types.ListNull(types.StringType)
@@ -1890,6 +1893,7 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 								if !MetricSelectorsItem.Metric.IsNull() && !MetricSelectorsItem.Metric.IsUnknown() {
 									var MetricItems []string
 									diags := MetricSelectorsItem.Metric.ElementsAs(ctx, &MetricItems, false)
+									resp.Diagnostics.Append(diags...)
 									if !diags.HasError() {
 										MetricSelectorsItemMap["metric"] = MetricItems
 									}
@@ -2158,7 +2162,8 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 																	items = append(items, s)
 																}
 															}
-															listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
 															return listVal
 														}
 														return types.ListNull(types.StringType)

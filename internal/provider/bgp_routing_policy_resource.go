@@ -462,6 +462,7 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 						if !RulesItem.Action.Community.Community.IsNull() && !RulesItem.Action.Community.Community.IsUnknown() {
 							var CommunityItems []string
 							diags := RulesItem.Action.Community.Community.ElementsAs(ctx, &CommunityItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesActionCommunityMap["community"] = CommunityItems
 							}
@@ -489,6 +490,7 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 						if !RulesItem.Match.Community.Community.IsNull() && !RulesItem.Match.Community.Community.IsUnknown() {
 							var CommunityItems []string
 							diags := RulesItem.Match.Community.Community.ElementsAs(ctx, &CommunityItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesMatchCommunityMap["community"] = CommunityItems
 							}
@@ -597,7 +599,8 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -660,7 +663,8 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -914,7 +918,8 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -977,7 +982,8 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1166,6 +1172,7 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 						if !RulesItem.Action.Community.Community.IsNull() && !RulesItem.Action.Community.Community.IsUnknown() {
 							var CommunityItems []string
 							diags := RulesItem.Action.Community.Community.ElementsAs(ctx, &CommunityItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesActionCommunityMap["community"] = CommunityItems
 							}
@@ -1193,6 +1200,7 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 						if !RulesItem.Match.Community.Community.IsNull() && !RulesItem.Match.Community.Community.IsUnknown() {
 							var CommunityItems []string
 							diags := RulesItem.Match.Community.Community.ElementsAs(ctx, &CommunityItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								RulesMatchCommunityMap["community"] = CommunityItems
 							}
@@ -1321,7 +1329,8 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1384,7 +1393,8 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

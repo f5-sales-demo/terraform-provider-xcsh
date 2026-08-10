@@ -54,11 +54,11 @@ type OriginPoolEmptyModel struct {
 
 // OriginPoolOriginServersModel represents origin_servers block
 type OriginPoolOriginServersModel struct {
+	Labels               types.Map                                         `tfsdk:"labels"`
 	CbipService          *OriginPoolOriginServersCbipServiceModel          `tfsdk:"cbip_service"`
 	ConsulService        *OriginPoolOriginServersConsulServiceModel        `tfsdk:"consul_service"`
 	CustomEndpointObject *OriginPoolOriginServersCustomEndpointObjectModel `tfsdk:"custom_endpoint_object"`
 	K8SService           *OriginPoolOriginServersK8SServiceModel           `tfsdk:"k8s_service"`
-	Labels               *OriginPoolEmptyModel                             `tfsdk:"labels"`
 	PrivateIP            *OriginPoolOriginServersPrivateIPModel            `tfsdk:"private_ip"`
 	PrivateName          *OriginPoolOriginServersPrivateNameModel          `tfsdk:"private_name"`
 	PublicIP             *OriginPoolOriginServersPublicIPModel             `tfsdk:"public_ip"`
@@ -69,11 +69,11 @@ type OriginPoolOriginServersModel struct {
 
 // OriginPoolOriginServersModelAttrTypes defines the attribute types for OriginPoolOriginServersModel
 var OriginPoolOriginServersModelAttrTypes = map[string]attr.Type{
+	"labels":                 types.MapType{ElemType: types.StringType},
 	"cbip_service":           types.ObjectType{AttrTypes: OriginPoolOriginServersCbipServiceModelAttrTypes},
 	"consul_service":         types.ObjectType{AttrTypes: OriginPoolOriginServersConsulServiceModelAttrTypes},
 	"custom_endpoint_object": types.ObjectType{AttrTypes: OriginPoolOriginServersCustomEndpointObjectModelAttrTypes},
 	"k8s_service":            types.ObjectType{AttrTypes: OriginPoolOriginServersK8SServiceModelAttrTypes},
-	"labels":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"private_ip":             types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateIPModelAttrTypes},
 	"private_name":           types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateNameModelAttrTypes},
 	"public_ip":              types.ObjectType{AttrTypes: OriginPoolOriginServersPublicIPModelAttrTypes},
@@ -1046,7 +1046,13 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"origin_servers": schema.ListNestedBlock{
 				MarkdownDescription: "List of origin servers in this pool .",
 				NestedObject: schema.NestedBlockObject{
-					Attributes: map[string]schema.Attribute{},
+					Attributes: map[string]schema.Attribute{
+						"labels": schema.MapAttribute{
+							MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
+							Optional:            true,
+							ElementType:         types.StringType,
+						},
+					},
 					Blocks: map[string]schema.Block{
 						"cbip_service": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with Classic BIG-IP Service (Virtual Server).",
@@ -1312,9 +1318,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									MarkdownDescription: "Configuration parameter for vk8s networks.",
 								},
 							},
-						},
-						"labels": schema.SingleNestedBlock{
-							MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
 						},
 						"private_ip": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with private or public IP address and site information.",
@@ -2444,6 +2447,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersConsulServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -2525,6 +2529,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -2538,8 +2543,13 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
 				}
-				if OriginServersItem.Labels != nil {
-					OriginServersItemMap["labels"] = map[string]interface{}{}
+				if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
+					var LabelsMap map[string]string
+					diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						OriginServersItemMap["labels"] = LabelsMap
+					}
 				}
 				if OriginServersItem.PrivateIP != nil {
 					OriginServersPrivateIPMap := make(map[string]interface{})
@@ -2605,6 +2615,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -2682,6 +2693,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersPrivateNameSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -2825,6 +2837,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								EndpointSubsetsItemMap["keys"] = KeysItems
 							}
@@ -2954,6 +2967,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						UseTLSTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -2998,6 +3012,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -3285,7 +3300,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3453,7 +3469,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3479,17 +3496,12 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						return nil
 					}(),
-					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx {
+					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if !isImport {
-							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
-							}
-						}
-						return nil
-					}(),
+						return types.MapNull(types.StringType)
+					}(), "labels", &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -3628,7 +3640,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3792,7 +3805,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -4130,7 +4144,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -4465,7 +4480,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -4563,7 +4579,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5065,7 +5082,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5233,7 +5251,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5259,17 +5278,12 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 						}
 						return nil
 					}(),
-					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx {
+					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if !isImport {
-							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
-							}
-						}
-						return nil
-					}(),
+						return types.MapNull(types.StringType)
+					}(), "labels", &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -5408,7 +5422,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5572,7 +5587,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -5910,7 +5926,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -6245,7 +6262,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -6343,7 +6361,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -6731,6 +6750,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersConsulServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -6812,6 +6832,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -6825,8 +6846,13 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
 				}
-				if OriginServersItem.Labels != nil {
-					OriginServersItemMap["labels"] = map[string]interface{}{}
+				if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
+					var LabelsMap map[string]string
+					diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						OriginServersItemMap["labels"] = LabelsMap
+					}
 				}
 				if OriginServersItem.PrivateIP != nil {
 					OriginServersPrivateIPMap := make(map[string]interface{})
@@ -6892,6 +6918,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -6969,6 +6996,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									OriginServersPrivateNameSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
@@ -7112,6 +7140,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								EndpointSubsetsItemMap["keys"] = KeysItems
 							}
@@ -7241,6 +7270,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						UseTLSTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
@@ -7285,6 +7315,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -7620,7 +7651,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7788,7 +7820,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -7814,17 +7847,12 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						return nil
 					}(),
-					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx {
+					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if !isImport {
-							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
-							}
-						}
-						return nil
-					}(),
+						return types.MapNull(types.StringType)
+					}(), "labels", &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -7963,7 +7991,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8127,7 +8156,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -8465,7 +8495,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -8800,7 +8831,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -8898,7 +8930,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)

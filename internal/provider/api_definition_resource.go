@@ -436,6 +436,7 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 	if !data.SwaggerSpecs.IsNull() && !data.SwaggerSpecs.IsUnknown() {
 		var SwaggerSpecsItems []string
 		diags := data.SwaggerSpecs.ElementsAs(ctx, &SwaggerSpecsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["swagger_specs"] = SwaggerSpecsItems
 		}
@@ -974,6 +975,7 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 	if !data.SwaggerSpecs.IsNull() && !data.SwaggerSpecs.IsUnknown() {
 		var SwaggerSpecsItems []string
 		diags := data.SwaggerSpecs.ElementsAs(ctx, &SwaggerSpecsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["swagger_specs"] = SwaggerSpecsItems
 		}

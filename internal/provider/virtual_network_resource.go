@@ -441,6 +441,7 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 				if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 					var AttrsItems []string
 					diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						StaticRoutesItemMap["attrs"] = AttrsItems
 					}
@@ -454,6 +455,7 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 				if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 					var IPPrefixesItems []string
 					diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 					}
@@ -565,7 +567,8 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -593,7 +596,8 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -851,7 +855,8 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -879,7 +884,8 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -1086,6 +1092,7 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 				if !StaticRoutesItem.Attrs.IsNull() && !StaticRoutesItem.Attrs.IsUnknown() {
 					var AttrsItems []string
 					diags := StaticRoutesItem.Attrs.ElementsAs(ctx, &AttrsItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						StaticRoutesItemMap["attrs"] = AttrsItems
 					}
@@ -1099,6 +1106,7 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 				if !StaticRoutesItem.IPPrefixes.IsNull() && !StaticRoutesItem.IPPrefixes.IsUnknown() {
 					var IPPrefixesItems []string
 					diags := StaticRoutesItem.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						StaticRoutesItemMap["ip_prefixes"] = IPPrefixesItems
 					}
@@ -1230,7 +1238,8 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -1258,7 +1267,8 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)

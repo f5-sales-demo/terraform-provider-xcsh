@@ -732,6 +732,7 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			if !data.ServiceInfo.ServiceSelector.Expressions.IsNull() && !data.ServiceInfo.ServiceSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.ServiceInfo.ServiceSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					ServiceInfoServiceSelectorMap["expressions"] = ExpressionsItems
 				}
@@ -750,6 +751,7 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			if !data.SnatPool.SnatPool.Prefixes.IsNull() && !data.SnatPool.SnatPool.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					SnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 				}
@@ -960,7 +962,8 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -996,7 +999,8 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1429,7 +1433,8 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1465,7 +1470,8 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -1832,6 +1838,7 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			if !data.ServiceInfo.ServiceSelector.Expressions.IsNull() && !data.ServiceInfo.ServiceSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.ServiceInfo.ServiceSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					ServiceInfoServiceSelectorMap["expressions"] = ExpressionsItems
 				}
@@ -1850,6 +1857,7 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			if !data.SnatPool.SnatPool.Prefixes.IsNull() && !data.SnatPool.SnatPool.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					SnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 				}
@@ -2094,7 +2102,8 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2130,7 +2139,8 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)

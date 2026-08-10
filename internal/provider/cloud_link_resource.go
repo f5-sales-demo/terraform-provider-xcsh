@@ -91,6 +91,7 @@ type CloudLinkAWSByocConnectionsModel struct {
 	BGPAsn               types.Int64                               `tfsdk:"bgp_asn"`
 	ConnectionID         types.String                              `tfsdk:"connection_id"`
 	Region               types.String                              `tfsdk:"region"`
+	Tags                 types.Map                                 `tfsdk:"tags"`
 	UserAssignedName     types.String                              `tfsdk:"user_assigned_name"`
 	VirtualInterfaceType types.String                              `tfsdk:"virtual_interface_type"`
 	VLAN                 types.Int64                               `tfsdk:"vlan"`
@@ -98,7 +99,6 @@ type CloudLinkAWSByocConnectionsModel struct {
 	Ipv4                 *CloudLinkAWSByocConnectionsIpv4Model     `tfsdk:"ipv4"`
 	Metadata             *CloudLinkAWSByocConnectionsMetadataModel `tfsdk:"metadata"`
 	SystemGeneratedName  *CloudLinkEmptyModel                      `tfsdk:"system_generated_name"`
-	Tags                 *CloudLinkEmptyModel                      `tfsdk:"tags"`
 }
 
 // CloudLinkAWSByocConnectionsModelAttrTypes defines the attribute types for CloudLinkAWSByocConnectionsModel
@@ -106,6 +106,7 @@ var CloudLinkAWSByocConnectionsModelAttrTypes = map[string]attr.Type{
 	"bgp_asn":                types.Int64Type,
 	"connection_id":          types.StringType,
 	"region":                 types.StringType,
+	"tags":                   types.MapType{ElemType: types.StringType},
 	"user_assigned_name":     types.StringType,
 	"virtual_interface_type": types.StringType,
 	"vlan":                   types.Int64Type,
@@ -113,7 +114,6 @@ var CloudLinkAWSByocConnectionsModelAttrTypes = map[string]attr.Type{
 	"ipv4":                   types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsIpv4ModelAttrTypes},
 	"metadata":               types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsMetadataModelAttrTypes},
 	"system_generated_name":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"tags":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // CloudLinkAWSByocConnectionsAuthKeyModel represents auth_key block
@@ -401,6 +401,11 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 												stringvalidator.OneOf("ap-northeast-1", "ap-southeast-1", "eu-central-1", "eu-west-1", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-2", "ca-central-1", "af-south-1", "ap-east-1", "ap-south-1", "ap-northeast-2", "ap-southeast-2", "eu-south-1", "eu-north-1", "eu-west-2", "me-south-1", "us-west-1", "ap-southeast-3"),
 											},
 										},
+										"tags": schema.MapAttribute{
+											MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any F5XC specific tags.",
+											Optional:            true,
+											ElementType:         types.StringType,
+										},
 										"user_assigned_name": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [system_generated_name] User is managing the AWS resource name.",
 											Optional:            true,
@@ -500,9 +505,6 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 										},
 										"system_generated_name": schema.SingleNestedBlock{
 											MarkdownDescription: "Enable this option",
-										},
-										"tags": schema.SingleNestedBlock{
-											MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any F5XC specific tags.",
 										},
 									},
 								},
@@ -830,8 +832,13 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 						if ConnectionsItem.SystemGeneratedName != nil {
 							ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
 						}
-						if ConnectionsItem.Tags != nil {
-							ConnectionsItemMap["tags"] = map[string]interface{}{}
+						if !ConnectionsItem.Tags.IsNull() && !ConnectionsItem.Tags.IsUnknown() {
+							var TagsMap map[string]string
+							diags := ConnectionsItem.Tags.ElementsAs(ctx, &TagsMap, false)
+							resp.Diagnostics.Append(diags...)
+							if !diags.HasError() {
+								ConnectionsItemMap["tags"] = TagsMap
+							}
 						}
 						if !ConnectionsItem.UserAssignedName.IsNull() && !ConnectionsItem.UserAssignedName.IsUnknown() {
 							ConnectionsItemMap["user_assigned_name"] = ConnectionsItem.UserAssignedName.ValueString()
@@ -1111,15 +1118,12 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												return nil
 											}(),
-											Tags: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
-												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
-												}
-												return nil
-											}(),
+												return types.MapNull(types.StringType)
+											}(), "tags", &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)
@@ -1571,15 +1575,12 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												return nil
 											}(),
-											Tags: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
-												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
-												}
-												return nil
-											}(),
+												return types.MapNull(types.StringType)
+											}(), "tags", &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)
@@ -1904,8 +1905,13 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 						if ConnectionsItem.SystemGeneratedName != nil {
 							ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
 						}
-						if ConnectionsItem.Tags != nil {
-							ConnectionsItemMap["tags"] = map[string]interface{}{}
+						if !ConnectionsItem.Tags.IsNull() && !ConnectionsItem.Tags.IsUnknown() {
+							var TagsMap map[string]string
+							diags := ConnectionsItem.Tags.ElementsAs(ctx, &TagsMap, false)
+							resp.Diagnostics.Append(diags...)
+							if !diags.HasError() {
+								ConnectionsItemMap["tags"] = TagsMap
+							}
 						}
 						if !ConnectionsItem.UserAssignedName.IsNull() && !ConnectionsItem.UserAssignedName.IsUnknown() {
 							ConnectionsItemMap["user_assigned_name"] = ConnectionsItem.UserAssignedName.ValueString()
@@ -2205,15 +2211,12 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												return nil
 											}(),
-											Tags: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
-												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
-												}
-												return nil
-											}(),
+												return types.MapNull(types.StringType)
+											}(), "tags", &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)

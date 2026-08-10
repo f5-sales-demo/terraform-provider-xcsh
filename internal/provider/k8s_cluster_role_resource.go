@@ -414,6 +414,7 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 		if !data.K8SClusterRoleSelector.Expressions.IsNull() && !data.K8SClusterRoleSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.K8SClusterRoleSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				K8SClusterRoleSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -435,6 +436,7 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 						if !PolicyRuleItem.NonResourceURLList.Urls.IsNull() && !PolicyRuleItem.NonResourceURLList.Urls.IsUnknown() {
 							var UrlsItems []string
 							diags := PolicyRuleItem.NonResourceURLList.Urls.ElementsAs(ctx, &UrlsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleNonResourceURLListMap["urls"] = UrlsItems
 							}
@@ -442,6 +444,7 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 						if !PolicyRuleItem.NonResourceURLList.Verbs.IsNull() && !PolicyRuleItem.NonResourceURLList.Verbs.IsUnknown() {
 							var VerbsItems []string
 							diags := PolicyRuleItem.NonResourceURLList.Verbs.ElementsAs(ctx, &VerbsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleNonResourceURLListMap["verbs"] = VerbsItems
 							}
@@ -453,6 +456,7 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 						if !PolicyRuleItem.ResourceList.APIGroups.IsNull() && !PolicyRuleItem.ResourceList.APIGroups.IsUnknown() {
 							var APIGroupsItems []string
 							diags := PolicyRuleItem.ResourceList.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleResourceListMap["api_groups"] = APIGroupsItems
 							}
@@ -460,6 +464,7 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 						if !PolicyRuleItem.ResourceList.ResourceInstances.IsNull() && !PolicyRuleItem.ResourceList.ResourceInstances.IsUnknown() {
 							var ResourceInstancesItems []string
 							diags := PolicyRuleItem.ResourceList.ResourceInstances.ElementsAs(ctx, &ResourceInstancesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleResourceListMap["resource_instances"] = ResourceInstancesItems
 							}
@@ -467,6 +472,7 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 						if !PolicyRuleItem.ResourceList.ResourceTypes.IsNull() && !PolicyRuleItem.ResourceList.ResourceTypes.IsUnknown() {
 							var ResourceTypesItems []string
 							diags := PolicyRuleItem.ResourceList.ResourceTypes.ElementsAs(ctx, &ResourceTypesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleResourceListMap["resource_types"] = ResourceTypesItems
 							}
@@ -474,6 +480,7 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 						if !PolicyRuleItem.ResourceList.Verbs.IsNull() && !PolicyRuleItem.ResourceList.Verbs.IsUnknown() {
 							var VerbsItems []string
 							diags := PolicyRuleItem.ResourceList.Verbs.ElementsAs(ctx, &VerbsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleResourceListMap["verbs"] = VerbsItems
 							}
@@ -522,7 +529,8 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -556,7 +564,8 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -569,7 +578,8 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -589,7 +599,8 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -602,7 +613,8 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -615,7 +627,8 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -628,7 +641,8 @@ func (r *K8SClusterRoleResource) Create(ctx context.Context, req resource.Create
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -783,7 +797,8 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -817,7 +832,8 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -830,7 +846,8 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -850,7 +867,8 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -863,7 +881,8 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -876,7 +895,8 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -889,7 +909,8 @@ func (r *K8SClusterRoleResource) Read(ctx context.Context, req resource.ReadRequ
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -997,6 +1018,7 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 		if !data.K8SClusterRoleSelector.Expressions.IsNull() && !data.K8SClusterRoleSelector.Expressions.IsUnknown() {
 			var ExpressionsItems []string
 			diags := data.K8SClusterRoleSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
+			resp.Diagnostics.Append(diags...)
 			if !diags.HasError() {
 				K8SClusterRoleSelectorMap["expressions"] = ExpressionsItems
 			}
@@ -1018,6 +1040,7 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 						if !PolicyRuleItem.NonResourceURLList.Urls.IsNull() && !PolicyRuleItem.NonResourceURLList.Urls.IsUnknown() {
 							var UrlsItems []string
 							diags := PolicyRuleItem.NonResourceURLList.Urls.ElementsAs(ctx, &UrlsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleNonResourceURLListMap["urls"] = UrlsItems
 							}
@@ -1025,6 +1048,7 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 						if !PolicyRuleItem.NonResourceURLList.Verbs.IsNull() && !PolicyRuleItem.NonResourceURLList.Verbs.IsUnknown() {
 							var VerbsItems []string
 							diags := PolicyRuleItem.NonResourceURLList.Verbs.ElementsAs(ctx, &VerbsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleNonResourceURLListMap["verbs"] = VerbsItems
 							}
@@ -1036,6 +1060,7 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 						if !PolicyRuleItem.ResourceList.APIGroups.IsNull() && !PolicyRuleItem.ResourceList.APIGroups.IsUnknown() {
 							var APIGroupsItems []string
 							diags := PolicyRuleItem.ResourceList.APIGroups.ElementsAs(ctx, &APIGroupsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleResourceListMap["api_groups"] = APIGroupsItems
 							}
@@ -1043,6 +1068,7 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 						if !PolicyRuleItem.ResourceList.ResourceInstances.IsNull() && !PolicyRuleItem.ResourceList.ResourceInstances.IsUnknown() {
 							var ResourceInstancesItems []string
 							diags := PolicyRuleItem.ResourceList.ResourceInstances.ElementsAs(ctx, &ResourceInstancesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleResourceListMap["resource_instances"] = ResourceInstancesItems
 							}
@@ -1050,6 +1076,7 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 						if !PolicyRuleItem.ResourceList.ResourceTypes.IsNull() && !PolicyRuleItem.ResourceList.ResourceTypes.IsUnknown() {
 							var ResourceTypesItems []string
 							diags := PolicyRuleItem.ResourceList.ResourceTypes.ElementsAs(ctx, &ResourceTypesItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleResourceListMap["resource_types"] = ResourceTypesItems
 							}
@@ -1057,6 +1084,7 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 						if !PolicyRuleItem.ResourceList.Verbs.IsNull() && !PolicyRuleItem.ResourceList.Verbs.IsUnknown() {
 							var VerbsItems []string
 							diags := PolicyRuleItem.ResourceList.Verbs.ElementsAs(ctx, &VerbsItems, false)
+							resp.Diagnostics.Append(diags...)
 							if !diags.HasError() {
 								PolicyRuleListPolicyRuleResourceListMap["verbs"] = VerbsItems
 							}
@@ -1132,7 +1160,8 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 							items = append(items, s)
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
 					return listVal
 				}
 				return types.ListNull(types.StringType)
@@ -1166,7 +1195,8 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1179,7 +1209,8 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1199,7 +1230,8 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1212,7 +1244,8 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1225,7 +1258,8 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)
@@ -1238,7 +1272,8 @@ func (r *K8SClusterRoleResource) Update(ctx context.Context, req resource.Update
 															items = append(items, s)
 														}
 													}
-													listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
 													return listVal
 												}
 												return types.ListNull(types.StringType)

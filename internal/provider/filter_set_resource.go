@@ -409,6 +409,7 @@ func (r *FilterSetResource) Create(ctx context.Context, req resource.CreateReque
 					if !FilterFieldsItem.StringField.FieldValues.IsNull() && !FilterFieldsItem.StringField.FieldValues.IsUnknown() {
 						var FieldValuesItems []string
 						diags := FilterFieldsItem.StringField.FieldValues.ElementsAs(ctx, &FieldValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							FilterFieldsStringFieldMap["field_values"] = FieldValuesItems
 						}
@@ -524,7 +525,8 @@ func (r *FilterSetResource) Create(ctx context.Context, req resource.CreateReque
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -747,7 +749,8 @@ func (r *FilterSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)
@@ -889,6 +892,7 @@ func (r *FilterSetResource) Update(ctx context.Context, req resource.UpdateReque
 					if !FilterFieldsItem.StringField.FieldValues.IsNull() && !FilterFieldsItem.StringField.FieldValues.IsUnknown() {
 						var FieldValuesItems []string
 						diags := FilterFieldsItem.StringField.FieldValues.ElementsAs(ctx, &FieldValuesItems, false)
+						resp.Diagnostics.Append(diags...)
 						if !diags.HasError() {
 							FilterFieldsStringFieldMap["field_values"] = FieldValuesItems
 						}
@@ -1024,7 +1028,8 @@ func (r *FilterSetResource) Update(ctx context.Context, req resource.UpdateReque
 												items = append(items, s)
 											}
 										}
-										listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
 										return listVal
 									}
 									return types.ListNull(types.StringType)

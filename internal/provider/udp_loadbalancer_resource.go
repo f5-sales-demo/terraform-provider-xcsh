@@ -1364,6 +1364,7 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			createReq.Spec["domains"] = DomainsItems
 		}
@@ -2988,6 +2989,7 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
+		resp.Diagnostics.Append(diags...)
 		if !diags.HasError() {
 			apiResource.Spec["domains"] = DomainsItems
 		}

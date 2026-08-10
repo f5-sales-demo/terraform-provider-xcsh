@@ -1293,6 +1293,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
 					var KeysItems []string
 					diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						EndpointSubsetsItemMap["keys"] = KeysItems
 					}
@@ -1451,6 +1452,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			if !data.TLSParameters.CertParams.CipherSuites.IsNull() && !data.TLSParameters.CertParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSParametersCertParamsMap["cipher_suites"] = CipherSuitesItems
 				}
@@ -1504,6 +1506,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				if !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSParametersCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
@@ -1517,6 +1520,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
@@ -1543,6 +1547,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -1633,6 +1638,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
@@ -1789,7 +1795,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -2100,7 +2107,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2202,7 +2210,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -2226,7 +2235,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -2274,7 +2284,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -2457,7 +2468,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -2776,7 +2788,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -3087,7 +3100,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -3189,7 +3203,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -3213,7 +3228,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -3261,7 +3277,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -3444,7 +3461,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -3685,6 +3703,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				if !EndpointSubsetsItem.Keys.IsNull() && !EndpointSubsetsItem.Keys.IsUnknown() {
 					var KeysItems []string
 					diags := EndpointSubsetsItem.Keys.ElementsAs(ctx, &KeysItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						EndpointSubsetsItemMap["keys"] = KeysItems
 					}
@@ -3843,6 +3862,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			if !data.TLSParameters.CertParams.CipherSuites.IsNull() && !data.TLSParameters.CertParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSParametersCertParamsMap["cipher_suites"] = CipherSuitesItems
 				}
@@ -3896,6 +3916,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				if !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSParametersCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
@@ -3909,6 +3930,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
+				resp.Diagnostics.Append(diags...)
 				if !diags.HasError() {
 					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
@@ -3935,6 +3957,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
+								resp.Diagnostics.Append(diags...)
 								if !diags.HasError() {
 									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
@@ -4025,6 +4048,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
 						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
@@ -4215,7 +4239,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 									items = append(items, s)
 								}
 							}
-							listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
 							return listVal
 						}
 						return types.ListNull(types.StringType)
@@ -4526,7 +4551,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -4628,7 +4654,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)
@@ -4652,7 +4679,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 										items = append(items, s)
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
 								return listVal
 							}
 							return types.ListNull(types.StringType)
@@ -4700,7 +4728,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 																		items = append(items, s)
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
 																return listVal
 															}
 															return types.ListNull(types.StringType)
@@ -4883,7 +4912,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 													items = append(items, s)
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
 											return listVal
 										}
 										return types.ListNull(types.StringType)

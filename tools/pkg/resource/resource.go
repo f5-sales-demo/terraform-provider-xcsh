@@ -4,12 +4,14 @@
 // for code generation tools in the F5XC Terraform provider.
 package resource
 
+import "fmt"
+
 // SkipReason documents why a resource should be skipped.
 type SkipReason struct {
-	Reason      string // Human-readable reason
-	Category    string // Category of skip: "deprecated", "special", "credentials", "infrastructure", "permissions", "premium"
-	SkipGenerate bool  // Skip during code generation
-	SkipAPITest  bool  // Skip during API testing/discovery
+	Reason       string // Human-readable reason
+	Category     string // Category of skip: "deprecated", "special", "credentials", "infrastructure", "permissions", "premium"
+	SkipGenerate bool   // Skip during code generation
+	SkipAPITest  bool   // Skip during API testing/discovery
 }
 
 // SkippedResources lists resources that should be skipped during code generation and/or API testing.
@@ -19,8 +21,18 @@ var SkippedResources = map[string]SkipReason{
 	// Special Handling Required
 	// ============================================================================
 	"blindfold": {
-		Reason:      "Handled specially by provider-defined functions",
-		Category:    "special",
+		Reason:       "Handled specially by provider-defined functions",
+		Category:     "special",
+		SkipGenerate: true,
+		SkipAPITest:  true,
+	},
+
+	// ============================================================================
+	// Deprecated / Excluded Resources
+	// ============================================================================
+	"dns_domain": {
+		Reason:       "delegated domain creation is disabled",
+		Category:     "deprecated",
 		SkipGenerate: true,
 		SkipAPITest:  true,
 	},
@@ -29,26 +41,26 @@ var SkippedResources = map[string]SkipReason{
 	// Cloud Provider Sites - Require External Credentials
 	// ============================================================================
 	"aws_vpc_site": {
-		Reason:      "Requires AWS credentials and VPC infrastructure",
-		Category:    "credentials",
+		Reason:       "Requires AWS credentials and VPC infrastructure",
+		Category:     "credentials",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"azure_vnet_site": {
-		Reason:      "Requires Azure credentials and VNet infrastructure",
-		Category:    "credentials",
+		Reason:       "Requires Azure credentials and VNet infrastructure",
+		Category:     "credentials",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"gcp_vpc_site": {
-		Reason:      "Requires GCP credentials and VPC infrastructure",
-		Category:    "credentials",
+		Reason:       "Requires GCP credentials and VPC infrastructure",
+		Category:     "credentials",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"aws_tgw_site": {
-		Reason:      "Requires AWS credentials and Transit Gateway",
-		Category:    "credentials",
+		Reason:       "Requires AWS credentials and Transit Gateway",
+		Category:     "credentials",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
@@ -57,8 +69,8 @@ var SkippedResources = map[string]SkipReason{
 	// Cloud Credentials - Require External Secrets
 	// ============================================================================
 	"cloud_credentials": {
-		Reason:      "Requires cloud provider API secrets",
-		Category:    "credentials",
+		Reason:       "Requires cloud provider API secrets",
+		Category:     "credentials",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
@@ -67,32 +79,32 @@ var SkippedResources = map[string]SkipReason{
 	// Tenant Operations - Require Special Permissions
 	// ============================================================================
 	"tenant_configuration": {
-		Reason:      "Requires tenant administrator privileges",
-		Category:    "permissions",
+		Reason:       "Requires tenant administrator privileges",
+		Category:     "permissions",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"child_tenant": {
-		Reason:      "Requires MSP (Multi-Service Provider) tenant",
-		Category:    "permissions",
+		Reason:       "Requires MSP (Multi-Service Provider) tenant",
+		Category:     "permissions",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"child_tenant_manager": {
-		Reason:      "Requires MSP tenant administrator",
-		Category:    "permissions",
+		Reason:       "Requires MSP tenant administrator",
+		Category:     "permissions",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"managed_tenant": {
-		Reason:      "Requires MSP tenant",
-		Category:    "permissions",
+		Reason:       "Requires MSP tenant",
+		Category:     "permissions",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"allowed_tenant": {
-		Reason:      "Requires cross-tenant configuration",
-		Category:    "permissions",
+		Reason:       "Requires cross-tenant configuration",
+		Category:     "permissions",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
@@ -101,8 +113,8 @@ var SkippedResources = map[string]SkipReason{
 	// Physical Infrastructure - Require Hardware
 	// ============================================================================
 	"securemesh_site": {
-		Reason:      "Requires physical Secure Mesh hardware",
-		Category:    "infrastructure",
+		Reason:       "Requires physical Secure Mesh hardware",
+		Category:     "infrastructure",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
@@ -113,14 +125,14 @@ var SkippedResources = map[string]SkipReason{
 	// discover-defaults from auto-deriving the per-interface `labels {}` marker and
 	// left #1244 to be hand-seeded. See ResourceConfigs in tools/discover-defaults.go.
 	"voltstack_site": {
-		Reason:      "Requires physical VoltStack hardware",
-		Category:    "infrastructure",
+		Reason:       "Requires physical VoltStack hardware",
+		Category:     "infrastructure",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"registration": {
-		Reason:      "Requires physical site registration token",
-		Category:    "infrastructure",
+		Reason:       "Requires physical site registration token",
+		Category:     "infrastructure",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
@@ -129,14 +141,14 @@ var SkippedResources = map[string]SkipReason{
 	// Infrastructure Dependencies - Require Existing Resources
 	// ============================================================================
 	"fleet": {
-		Reason:      "Requires existing site infrastructure",
-		Category:    "infrastructure",
+		Reason:       "Requires existing site infrastructure",
+		Category:     "infrastructure",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
 	"workload": {
-		Reason:      "Requires existing Kubernetes infrastructure",
-		Category:    "infrastructure",
+		Reason:       "Requires existing Kubernetes infrastructure",
+		Category:     "infrastructure",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
@@ -145,8 +157,8 @@ var SkippedResources = map[string]SkipReason{
 	// Premium/Licensed Features
 	// ============================================================================
 	"cminstance": {
-		Reason:      "Requires Cloud Manager subscription",
-		Category:    "premium",
+		Reason:       "Requires Cloud Manager subscription",
+		Category:     "premium",
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
@@ -155,8 +167,8 @@ var SkippedResources = map[string]SkipReason{
 // ManuallyMaintainedFiles lists files in internal/provider that are manually maintained
 // and should not be overwritten by code generation.
 var ManuallyMaintainedFiles = map[string]bool{
-	"provider.go":                  true,
-	"functions_registration.go":   true,
+	"provider.go":               true,
+	"functions_registration.go": true,
 }
 
 // ManuallyMaintainedDirs lists directories that contain manually maintained code.
@@ -169,6 +181,18 @@ var ManuallyMaintainedDirs = []string{
 func IsSkipped(resourceName string) bool {
 	if reason, ok := SkippedResources[resourceName]; ok {
 		return reason.SkipGenerate
+	}
+	return false
+}
+
+// IsResourceSkipped checks if a resource is marked to be skipped from generation
+// and optionally logs the skip reason if verbose output is enabled.
+func IsResourceSkipped(resourceName string, verbose bool) bool {
+	if IsSkipped(resourceName) {
+		if verbose {
+			fmt.Printf("      ⏭️  Skipping excluded resource %s: %s\n", resourceName, GetSkipReason(resourceName))
+		}
+		return true
 	}
 	return false
 }
@@ -196,9 +220,9 @@ func IsManuallyMaintained(filename string) bool {
 
 // ResourceInfo contains metadata about a resource.
 type ResourceInfo struct {
-	Name        string
-	Category    string
-	Namespace   string
+	Name          string
+	Category      string
+	Namespace     string
 	IsLongRunning bool
 }
 
