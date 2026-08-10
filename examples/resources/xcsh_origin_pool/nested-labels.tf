@@ -21,7 +21,10 @@ resource "xcsh_origin_pool" "test" {
     public_ip {
       ip = "example-value"
     }
-    example-key = "example-value"
+    labels = {
+      "env" = "test"
+      "app" = "demo"
+    }
   }
 
   no_tls {}
