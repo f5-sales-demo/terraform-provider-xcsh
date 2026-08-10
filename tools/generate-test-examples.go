@@ -23,7 +23,7 @@ var formatStringRegex = regexp.MustCompile("return\\s+(?:acctest\\.ConfigCompose
 var simpleReturnRegex = regexp.MustCompile("return\\s+fmt\\.Sprintf\\(`([^`]+)`")
 
 const (
-	expectedNamedExampleCount = 78
+	expectedNamedExampleCount = 79
 	xcshProviderSource        = "f5-sales-demo/xcsh"
 	xcshVersionConstraint     = ">= 0.1.0"
 	timeProviderVersion       = "0.13.1"
