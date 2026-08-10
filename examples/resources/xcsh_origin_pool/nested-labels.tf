@@ -19,7 +19,7 @@ resource "xcsh_origin_pool" "test" {
 
   origin_servers {
     public_ip {
-      ip = "example-value"
+      ip = "192.0.2.1"
     }
     labels = {
       "env" = "test"

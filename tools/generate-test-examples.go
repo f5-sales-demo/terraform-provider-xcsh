@@ -266,6 +266,7 @@ func cleanConfig(name, config string) string {
 	config = strings.TrimSpace(config)
 
 	if name == "nestedLabels" {
+		config = strings.ReplaceAll(config, "%[2]q", `"192.0.2.1"`)
 		config = strings.ReplaceAll(config, "%[3]s", "    labels = {\n      \"env\" = \"test\"\n      \"app\" = \"demo\"\n    }\n")
 	}
 
