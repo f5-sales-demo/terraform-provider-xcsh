@@ -208,8 +208,8 @@ else
     # publication receipt per release (f5-sales-demo/api-specs-enriched#1321):
     # deliveries become receipted, delivery_count goes above zero, and the
     # ledger-binding branch below takes over permanently.
-    [ "$pin_sha" = "81f26bbb6f21756952f93bd66b689b29cd8af54444f683ef7488d1bb3aa84313" ] ||
-      fail "unreceipted bootstrap pin differs from the measured v2.1.214 baseline"
+    [ "$pin_sha" = "c8215661c0fe30d587247054472cb2a5b68d7eeda598323146b15fef10631fdb" ] ||
+      fail "unreceipted bootstrap pin differs from the measured v2.1.218 baseline"
   else
     jq -en \
       --arg pin_sha "$pin_sha" \
