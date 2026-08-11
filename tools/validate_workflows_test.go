@@ -3,6 +3,9 @@
 package main_test
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -47,7 +50,20 @@ type workflowDocument struct {
 	Jobs        map[string]map[string]any `yaml:"jobs"`
 }
 
-var secretReference = regexp.MustCompile(`\bsecrets\.([A-Za-z_][A-Za-z0-9_]*)\b`)
+var secretReference = regexp.MustCompile(`\bsecrets\s*(?:\.\s*([A-Za-z_][A-Za-z0-9_]*)\b|\[\s*['"]([A-Za-z_][A-Za-z0-9_]*)['"]\s*\])`)
+var secretContext = regexp.MustCompile(`\bsecrets\b`)
+var githubExpression = regexp.MustCompile(`(?s)\$\{\{(.*?)\}\}`)
+
+// These hashes cover the complete decoded `on` mapping, including branches,
+// paths, schedules, dispatch inputs, types, defaults, and options. A deliberate
+// trigger change must update the corresponding contract and its mutation tests.
+var expectedTriggerHashes = map[string]string{
+	"acc-tests.yml":         "3d67cb362b48dfc13a4869f7230d2f25f528b052e66947cb72d98733fcdf4d3c",
+	"auto-merge.yml":        "8effa43649d3b4a53cffb5aabf06e4906c55c0875d15b5ddf86c73e2d5a9137c",
+	"discover-defaults.yml": "a096243c69275bdfc113bb1830a4ac0ce6a3c6c627bc62e5fad7c295315b943d",
+	"on-merge.yml":          "885a2bb5dcdd6421e55a4c45b4d1100e4b68817270baf1bfcb6fe4b072a2560c",
+	"sync-openapi.yml":      "e9c7b7e72246dd9a3d8a549998232f3d436b2c563273c205cac2435c8c8bfdea",
+}
 
 var environmentBoundSecrets = map[string]bool{
 	"REPO_SYNC_TOKEN": true,
@@ -143,14 +159,38 @@ func recursivelyCollectSecrets(value any, path []string, found map[string]bool, 
 			recursivelyCollectSecrets(child, append(path, fmt.Sprint(index)), found, errors)
 		}
 	case string:
-		matches := secretReference.FindAllStringSubmatch(typed, -1)
-		for _, match := range matches {
-			found[match[1]] = true
+		referenceCount := 0
+		for _, expression := range githubExpression.FindAllStringSubmatch(typed, -1) {
+			body := expression[1]
+			matches := secretReference.FindAllStringSubmatchIndex(body, -1)
+			covered := make([][2]int, 0, len(matches))
+			for _, match := range matches {
+				name := ""
+				if match[2] >= 0 {
+					name = body[match[2]:match[3]]
+				} else if match[4] >= 0 {
+					name = body[match[4]:match[5]]
+				}
+				found[name] = true
+				covered = append(covered, [2]int{match[0], match[1]})
+				referenceCount++
+			}
+			for _, context := range secretContext.FindAllStringIndex(body, -1) {
+				isCovered := false
+				for _, span := range covered {
+					if span[0] <= context[0] && context[1] <= span[1] {
+						isCovered = true
+					}
+				}
+				if !isCovered {
+					*errors = append(*errors, "dynamic or malformed secret reference in "+strings.Join(path, "."))
+				}
+			}
 		}
-		if len(matches) > 0 {
+		if referenceCount > 0 {
 			allowed := false
 			for _, component := range path {
-				if component == "env" || component == "with" {
+				if component == "env" || component == "with" || component == "secrets" {
 					allowed = true
 				}
 			}
@@ -181,6 +221,18 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 	}
 	sort.Strings(triggerNames)
 	errors := []string{}
+	if expectedHash, ok := expectedTriggerHashes[filename]; ok {
+		encoded, marshalErr := json.Marshal(triggers)
+		if marshalErr != nil {
+			errors = append(errors, "cannot canonicalize triggers: "+marshalErr.Error())
+		} else {
+			digest := sha256.Sum256(encoded)
+			actualHash := hex.EncodeToString(digest[:])
+			if actualHash != expectedHash {
+				errors = append(errors, "complete trigger structure mismatch: "+actualHash)
+			}
+		}
+	}
 
 	contracts := map[string]jobContract{}
 	for _, contract := range protectedJobs {
@@ -376,6 +428,15 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 		t.Fatal(err)
 	}
 	cases := map[string]func(string) string{
+		"changed schedule": func(s string) string {
+			return strings.Replace(s, "cron: '0 2 * * 1'", "cron: '0 3 * * 1'", 1)
+		},
+		"changed dispatch mode": func(s string) string {
+			return strings.Replace(s, "          - real-only      # Sequential real API tests (self-hosted)", "          - unsafe-mode    # unauthorized dispatch mode", 1)
+		},
+		"changed PR path": func(s string) string {
+			return strings.Replace(s, "      - 'internal/blindfold/**'", "      - 'unsafe/**'", 1)
+		},
 		"obsolete runner input": func(s string) string {
 			return strings.Replace(s, "      timeout:\n", "      runner:\n        default: ubuntu-latest\n        type: string\n      timeout:\n", 1)
 		},
@@ -394,6 +455,9 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 		"direct run secret": func(s string) string {
 			return strings.Replace(s, "          echo \"Checking API credentials...\"", "          echo \"${{ secrets.XCSH_API_TOKEN }}\"", 1)
 		},
+		"dynamic secret": func(s string) string {
+			return strings.Replace(s, "${{ secrets.XCSH_API_TOKEN }}", "${{ secrets[matrix.secret_name] }}", 1)
+		},
 		"persist checkout": func(s string) string {
 			return strings.Replace(s, "persist-credentials: false", "persist-credentials: true", 1)
 		},
@@ -408,5 +472,32 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 				t.Fatal("unsafe mutation passed validation")
 			}
 		})
+	}
+}
+
+func TestProviderWorkflowSecretReferenceForms(t *testing.T) {
+	found := map[string]bool{}
+	errors := []string{}
+	recursivelyCollectSecrets(
+		map[string]any{
+			"env":     map[string]any{"A": "${{ secrets.DOT_NAME }}", "B": "${{ secrets['BRACKET_NAME'] }}"},
+			"secrets": map[string]any{"token": "${{ secrets.REUSABLE_TOKEN }}"},
+		},
+		nil,
+		found,
+		&errors,
+	)
+	if len(errors) != 0 {
+		t.Fatalf("literal secret forms failed: %v", errors)
+	}
+	expected := map[string]bool{"DOT_NAME": true, "BRACKET_NAME": true, "REUSABLE_TOKEN": true}
+	if !reflect.DeepEqual(found, expected) {
+		t.Fatalf("secret inventory mismatch: %v", found)
+	}
+	found = map[string]bool{}
+	errors = nil
+	recursivelyCollectSecrets(map[string]any{"env": map[string]any{"A": "${{ secrets[matrix.name] }}"}}, nil, found, &errors)
+	if len(errors) == 0 {
+		t.Fatal("dynamic secret expression passed validation")
 	}
 }
