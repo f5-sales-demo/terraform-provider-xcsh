@@ -501,3 +501,76 @@ func TestProviderWorkflowSecretReferenceForms(t *testing.T) {
 		t.Fatal("dynamic secret expression passed validation")
 	}
 }
+
+func TestAcceptanceSummaryDownloadsNamedEvidence(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "acc-tests.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow workflowDocument
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	summary, ok := workflow.Jobs["summary"]
+	if !ok {
+		t.Fatal("missing summary job")
+	}
+	type downloadContract struct {
+		condition string
+		path      string
+	}
+	expected := map[string]downloadContract{
+		"mock-test-reports": {
+			condition: "needs.mock-tests.result == 'success'",
+			path:      "all-reports/mock-test-reports/",
+		},
+		"real-api-test-reports": {
+			condition: "needs.real-api-tests.result == 'success'",
+			path:      "all-reports/real-api-test-reports/",
+		},
+		"comparison-reports": {
+			condition: "needs.compare-results.result == 'success'",
+			path:      "all-reports/comparison-reports/",
+		},
+	}
+	found := map[string]bool{}
+	steps, ok := summary["steps"].([]any)
+	if !ok {
+		t.Fatal("summary steps must be a list")
+	}
+	for _, raw := range steps {
+		step, ok := raw.(map[string]any)
+		if !ok {
+			t.Fatal("summary step must be a mapping")
+		}
+		uses, _ := step["uses"].(string)
+		if !strings.HasPrefix(uses, "actions/download-artifact@") {
+			continue
+		}
+		with, ok := step["with"].(map[string]any)
+		if !ok {
+			t.Fatal("artifact download must have literal inputs")
+		}
+		name, ok := with["name"].(string)
+		if !ok || name == "" {
+			t.Fatal("broad artifact download is forbidden")
+		}
+		contract, ok := expected[name]
+		if !ok {
+			t.Fatalf("unexpected summary artifact %q", name)
+		}
+		if found[name] {
+			t.Fatalf("duplicate summary artifact %q", name)
+		}
+		found[name] = true
+		if scalarString(step["if"]) != contract.condition {
+			t.Errorf("%s: condition mismatch", name)
+		}
+		if scalarString(with["path"]) != contract.path {
+			t.Errorf("%s: path mismatch", name)
+		}
+	}
+	if len(found) != len(expected) {
+		t.Fatalf("summary artifact inventory mismatch: %v", found)
+	}
+}
