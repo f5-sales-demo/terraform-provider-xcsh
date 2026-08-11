@@ -5,7 +5,7 @@
 # consistency comparison between mock and real API results.
 #
 # Triggers:
-#   - Manual dispatch with mode and runner selection
+#   - Manual dispatch with mode selection
 #   - Pull requests (mock tests only for safety)
 #   - Weekly scheduled run (full suite)
 #
@@ -19,10 +19,6 @@
 #   When both mock and real tests run, the workflow compares results to ensure
 #   the mock server behaves identically to the real F5 XC API. Any discrepancies
 #   indicate the mock server needs fixes (tests that pass on real but fail on mock).
-#
-# Runner Options:
-#   - self-hosted: Docker-based runner for VPN-only API access (default)
-#   - ubuntu-latest: Standard GitHub runner for public API access
 #
 # Required Secrets for Real API Tests:
 #     - XCSH_API_URL: F5 XC Console API URL (e.g., https://tenant.console.ves.volterra.io)
@@ -56,15 +52,6 @@ on:
         required: false
         default: '10'
         type: string
-      runner:
-        description: 'Runner type (self-hosted for VPN-only APIs)'
-        required: false
-        default: 'self-hosted'
-        type: choice
-        options:
-          - self-hosted     # VPN-required API access (default)
-          - ubuntu-latest   # Public API access
-
   pull_request:
     branches: [main]
     paths:
@@ -207,18 +194,20 @@ jobs:
 
   # ═══════════════════════════════════════════════════════════════════════════
   # Real API Tests - SEQUENTIAL with rate limiting
-  # Use self-hosted for VPN-only APIs, ubuntu-latest for public APIs
+  # Run only on the repository-specific VPN-connected runner.
   # ═══════════════════════════════════════════════════════════════════════════
   real-api-tests:
     name: Real API Tests (Sequential)
-    # Runner selection: self-hosted (VPN-required, default) or ubuntu-latest (public)
-    runs-on: ${{ github.event.inputs.runner || 'self-hosted' }}
+    environment: acceptance-tests
+    # Runner selection: exact repository-specific self-hosted runner tuple
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     needs: [mock-tests]
     # Run only when the selected mode's prerequisite state is exact. The
     # explicit always() is required for real-only: its mock prerequisite is
     # intentionally skipped, which must not suppress the real API job.
     if: |
       always() &&
+      github.event_name != 'pull_request' &&
       ((github.event_name == 'schedule' &&
         needs.mock-tests.result == 'success') ||
        (github.event_name == 'workflow_dispatch' &&
@@ -358,11 +347,13 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   cleanup:
     name: Cleanup Test Resources
-    runs-on: ${{ github.event.inputs.runner || 'self-hosted' }}
+    environment: acceptance-tests
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     needs: [real-api-tests]
     # ALWAYS run after real API tests, even if they failed
     if: |
       always() &&
+      github.event_name != 'pull_request' &&
       needs.real-api-tests.result != 'skipped'
     permissions:
       contents: read # checkout the provider sweepers
@@ -554,10 +545,29 @@ jobs:
     if: always()
 
     steps:
-      - name: Download all reports
+      # download-artifact v8 flattens a single unnamed artifact into the target
+      # directory. Use named downloads so the evidence paths are identical in
+      # mock-only, real-only, and full runs.
+      - name: Download mock test reports
+        if: needs.mock-tests.result == 'success'
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          path: all-reports/
+          name: mock-test-reports
+          path: all-reports/mock-test-reports/
+
+      - name: Download real API test reports
+        if: needs.real-api-tests.result == 'success'
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: real-api-test-reports
+          path: all-reports/real-api-test-reports/
+
+      - name: Download comparison reports
+        if: needs.compare-results.result == 'success'
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: comparison-reports
+          path: all-reports/comparison-reports/
 
       - name: Generate summary
         if: always()

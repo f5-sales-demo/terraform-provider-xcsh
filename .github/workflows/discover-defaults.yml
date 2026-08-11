@@ -59,9 +59,10 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   discover:
     name: Discover API Defaults
+    environment: default-discovery
     # IMPORTANT: This MUST run on a self-hosted runner with VPN access
     # The staging environment is not accessible from public GitHub runners
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     # Checkout, push, and PR creation all use REPO_SYNC_TOKEN explicitly. Keep
     # the automatic GITHUB_TOKEN disabled rather than granting duplicate writes.
     permissions: {}
