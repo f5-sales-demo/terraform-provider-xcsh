@@ -523,6 +523,7 @@ jobs:
   # the regeneration PR is merged (detected as bot commit in next workflow run).
   create-regeneration-pr:
     name: Create Regeneration PR
+    environment: provider-delivery
     needs: [detect-changes, regenerate-provider, regenerate-docs, generation-state]
     # Only run after the central classifier proves all applicable generators.
     if: |
@@ -908,6 +909,7 @@ jobs:
   # intent; this post-release PR is the sole writer of the durable receipt.
   receipt-spec-delivery:
     name: Receipt Published Spec Delivery
+    environment: provider-delivery
     needs: [detect-changes, tag-release]
     if: |
       always() &&

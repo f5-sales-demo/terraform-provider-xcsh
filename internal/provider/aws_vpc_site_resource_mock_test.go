@@ -57,6 +57,7 @@ func TestMockAWSVPCSiteResource_basic(t *testing.T) {
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
 					resource.TestCheckResourceAttr(resourceName, "namespace", nsName),
+					resource.TestCheckResourceAttr(resourceName, "tags.mock_test", "basic"),
 					resource.TestCheckResourceAttrSet(resourceName, "id"),
 				),
 			},
@@ -97,6 +98,7 @@ func TestMockAWSVPCSiteResource_withAWSConfig(t *testing.T) {
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
 					resource.TestCheckResourceAttr(resourceName, "namespace", nsName),
+					resource.TestCheckResourceAttr(resourceName, "tags.mock_test", "withAWSConfig"),
 				),
 			},
 		},
@@ -125,6 +127,7 @@ func TestMockAWSVPCSiteResource_update(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "description", "Initial description"),
+					resource.TestCheckResourceAttr(resourceName, "tags.mock_test", "update"),
 				),
 			},
 			// Step 2: Update description
@@ -133,6 +136,7 @@ func TestMockAWSVPCSiteResource_update(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "description", "Updated description"),
+					resource.TestCheckResourceAttr(resourceName, "tags.mock_test", "update"),
 				),
 			},
 		},
@@ -161,6 +165,7 @@ func TestMockAWSVPCSiteResource_labels(t *testing.T) {
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "labels.environment", "test"),
 					resource.TestCheckResourceAttr(resourceName, "labels.team", "platform"),
+					resource.TestCheckResourceAttr(resourceName, "tags.mock_test", "labels"),
 				),
 			},
 		},
@@ -220,6 +225,10 @@ resource "xcsh_aws_vpc_site" "test" {
   ssh_key       = "mock-ssh-key"
   address       = "Example City, Example Region"
   disk_size     = 80
+
+  tags = {
+    mock_test = "basic"
+  }
 }
 `, nsName, name))
 }
@@ -248,6 +257,10 @@ resource "xcsh_aws_vpc_site" "test" {
   labels = {
     environment = "mock-test"
   }
+
+  tags = {
+    mock_test = "withAWSConfig"
+  }
 }
 `, nsName, name))
 }
@@ -271,6 +284,10 @@ resource "xcsh_aws_vpc_site" "test" {
   address       = "Example City, Example Region"
   disk_size     = 80
   description   = %[3]q
+
+  tags = {
+    mock_test = "update"
+  }
 }
 `, nsName, name, description))
 }
@@ -297,6 +314,10 @@ resource "xcsh_aws_vpc_site" "test" {
   labels = {
     environment = "test"
     team        = "platform"
+  }
+
+  tags = {
+    mock_test = "labels"
   }
 }
 `, nsName, name))
