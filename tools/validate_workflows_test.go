@@ -20,6 +20,10 @@ import (
 
 const repositoryRunnerLabel = "terraform-provider-xcsh"
 
+var canonicalSelfHostedRunsOn = []string{
+	"self-hosted", "Linux", "X64", repositoryRunnerLabel, "ubuntu-24.04",
+}
+
 type jobContract struct {
 	workflow    string
 	job         string
@@ -34,13 +38,13 @@ type jobContract struct {
 func strptr(value string) *string { return &value }
 
 var protectedJobs = []jobContract{
-	{"acc-tests.yml", "mock-tests", []string{"ubuntu-latest"}, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
-	{"acc-tests.yml", "real-api-tests", []string{"self-hosted", "Linux", "X64", repositoryRunnerLabel}, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"acc-tests.yml", "cleanup", []string{"self-hosted", "Linux", "X64", repositoryRunnerLabel}, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"discover-defaults.yml", "discover", []string{"self-hosted", "Linux", "X64", repositoryRunnerLabel}, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"sync-openapi.yml", "sync", []string{"ubuntu-latest"}, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
-	{"on-merge.yml", "create-regeneration-pr", []string{"ubuntu-latest"}, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
-	{"on-merge.yml", "receipt-spec-delivery", []string{"ubuntu-latest"}, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"acc-tests.yml", "mock-tests", canonicalSelfHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
+	{"acc-tests.yml", "real-api-tests", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"acc-tests.yml", "cleanup", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"discover-defaults.yml", "discover", canonicalSelfHostedRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"sync-openapi.yml", "sync", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
+	{"on-merge.yml", "create-regeneration-pr", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"on-merge.yml", "receipt-spec-delivery", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
 	{"auto-merge.yml", "require-token", []string{"ubuntu-latest"}, "repository-settings", map[string]string{}, []string{"pull_request"}, nil, []string{"REPO_SYNC_TOKEN"}},
 }
 
@@ -280,10 +284,10 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 				}
 			}
 		}
-		contract, listed := contracts[jobID]
-		if isSelfHosted && !listed {
-			errors = append(errors, "unlisted self-hosted job "+jobID)
+		if isSelfHosted && !reflect.DeepEqual(runsOn, canonicalSelfHostedRunsOn) {
+			errors = append(errors, jobID+": invalid self-hosted tuple")
 		}
+		contract, listed := contracts[jobID]
 		if !listed {
 			continue
 		}
@@ -293,9 +297,6 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 		}
 		if !reflect.DeepEqual(runsOn, contract.runsOn) {
 			errors = append(errors, fmt.Sprintf("%s: runs-on %v", jobID, runsOn))
-		}
-		if isSelfHosted && !reflect.DeepEqual(runsOn, []string{"self-hosted", "Linux", "X64", repositoryRunnerLabel}) {
-			errors = append(errors, jobID+": invalid self-hosted tuple")
 		}
 		if scalarString(job["environment"]) != contract.environment {
 			errors = append(errors, jobID+": environment mismatch")
@@ -416,7 +417,27 @@ func TestProviderWorkflowContracts(t *testing.T) {
 			}
 		}
 	}
-	expected := map[string]bool{"acc-tests.yml/real-api-tests": true, "acc-tests.yml/cleanup": true, "discover-defaults.yml/discover": true}
+	expected := map[string]bool{
+		"acc-tests.yml/cleanup":               true,
+		"acc-tests.yml/compare-results":       true,
+		"acc-tests.yml/mock-tests":            true,
+		"acc-tests.yml/real-api-tests":        true,
+		"acc-tests.yml/summary":               true,
+		"ci.yml/check-constitution":           true,
+		"ci.yml/validate-docs-generation":     true,
+		"ci.yml/validate-mock-fixtures":       true,
+		"ci.yml/validate-shell-scripts":       true,
+		"ci.yml/validate-terraform-examples":  true,
+		"discover-defaults.yml/discover":      true,
+		"discover-defaults.yml/summary":       true,
+		"on-merge.yml/create-regeneration-pr": true,
+		"on-merge.yml/detect-changes":         true,
+		"on-merge.yml/generation-state":       true,
+		"on-merge.yml/receipt-spec-delivery":  true,
+		"on-merge.yml/summary":                true,
+		"security-audit.yml/govulncheck":      true,
+		"sync-openapi.yml/sync":               true,
+	}
 	if !reflect.DeepEqual(selfHosted, expected) {
 		t.Fatalf("self-hosted inventory mismatch: %v", selfHosted)
 	}
