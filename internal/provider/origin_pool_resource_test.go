@@ -788,7 +788,7 @@ func testAccOriginPoolConfig_nestedLabels(name, ip string, labels map[string]str
 	if len(labels) > 0 {
 		labelsStr.WriteString("    labels = {\n")
 		for k, v := range labels {
-			labelsStr.WriteString(fmt.Sprintf("      %q = %q\n", k, v))
+			fmt.Fprintf(&labelsStr, "      %q = %q\n", k, v)
 		}
 		labelsStr.WriteString("    }\n")
 	}
@@ -811,4 +811,3 @@ resource "xcsh_origin_pool" "test" {
 }
 `, name, ip, labelsStr.String())
 }
-
