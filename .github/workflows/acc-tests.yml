@@ -80,7 +80,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   mock-tests:
     name: Mock Tests (Parallel)
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
     # Always run mock tests except for real-only mode
     if: |
       github.event_name != 'workflow_dispatch' ||
@@ -200,7 +200,7 @@ jobs:
     name: Real API Tests (Sequential)
     environment: acceptance-tests
     # Runner selection: exact repository-specific self-hosted runner tuple
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
     needs: [mock-tests]
     # Run only when the selected mode's prerequisite state is exact. The
     # explicit always() is required for real-only: its mock prerequisite is
@@ -348,7 +348,7 @@ jobs:
   cleanup:
     name: Cleanup Test Resources
     environment: acceptance-tests
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
     needs: [real-api-tests]
     # ALWAYS run after real API tests, even if they failed
     if: |
@@ -420,7 +420,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   compare-results:
     name: Compare Mock vs Real
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
     needs: [mock-tests, real-api-tests]
     # Only run when both mock and real tests have completed
     if: |
@@ -540,7 +540,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   summary:
     name: Test Summary
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
     needs: [mock-tests, real-api-tests, compare-results, cleanup]
     if: always()
 

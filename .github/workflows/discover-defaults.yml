@@ -62,7 +62,7 @@ jobs:
     environment: default-discovery
     # IMPORTANT: This MUST run on a self-hosted runner with VPN access
     # The staging environment is not accessible from public GitHub runners
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
     # Checkout, push, and PR creation all use REPO_SYNC_TOKEN explicitly. Keep
     # the automatic GITHUB_TOKEN disabled rather than granting duplicate writes.
     permissions: {}
@@ -301,7 +301,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   summary:
     name: Discovery Summary
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
     needs: discover
     if: always()
     steps:
