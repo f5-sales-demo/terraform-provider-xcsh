@@ -1187,6 +1187,91 @@ func (r *ForwardProxyPolicyResource) ValidateConfig(ctx context.Context, req res
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AllowAll != nil && data.AllowList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all"),
+			"Conflicting Configuration",
+			"allow_all and allow_list are mutually exclusive.",
+		)
+	}
+	if data.AllowAll != nil && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all"),
+			"Conflicting Configuration",
+			"allow_all and deny_list are mutually exclusive.",
+		)
+	}
+	if data.AllowAll != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all"),
+			"Conflicting Configuration",
+			"allow_all and rule_list are mutually exclusive.",
+		)
+	}
+	if data.AllowList != nil && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_list"),
+			"Conflicting Configuration",
+			"allow_list and deny_list are mutually exclusive.",
+		)
+	}
+	if data.AllowList != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_list"),
+			"Conflicting Configuration",
+			"allow_list and rule_list are mutually exclusive.",
+		)
+	}
+	if data.AnyProxy != nil && data.DrpHTTPConnect != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_proxy"),
+			"Conflicting Configuration",
+			"any_proxy and drp_http_connect are mutually exclusive.",
+		)
+	}
+	if data.AnyProxy != nil && data.NetworkConnector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_proxy"),
+			"Conflicting Configuration",
+			"any_proxy and network_connector are mutually exclusive.",
+		)
+	}
+	if data.AnyProxy != nil && data.ProxyLabelSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_proxy"),
+			"Conflicting Configuration",
+			"any_proxy and proxy_label_selector are mutually exclusive.",
+		)
+	}
+	if data.DenyList != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_list"),
+			"Conflicting Configuration",
+			"deny_list and rule_list are mutually exclusive.",
+		)
+	}
+	if data.DrpHTTPConnect != nil && data.NetworkConnector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("drp_http_connect"),
+			"Conflicting Configuration",
+			"drp_http_connect and network_connector are mutually exclusive.",
+		)
+	}
+	if data.DrpHTTPConnect != nil && data.ProxyLabelSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("drp_http_connect"),
+			"Conflicting Configuration",
+			"drp_http_connect and proxy_label_selector are mutually exclusive.",
+		)
+	}
+	if data.NetworkConnector != nil && data.ProxyLabelSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("network_connector"),
+			"Conflicting Configuration",
+			"network_connector and proxy_label_selector are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

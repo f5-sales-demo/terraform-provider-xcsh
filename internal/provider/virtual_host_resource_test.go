@@ -720,6 +720,18 @@ resource "xcsh_virtual_host" "test" {
 
   domains = ["%[2]s.example.com"]
   proxy   = "SMA_PROXY"
+
+  add_location                = false
+  connection_idle_timeout     = 600000
+  custom_errors               = {}
+  disable_default_error_pages = false
+  disable_dns_resolve         = false
+  idle_timeout                = 600000
+  max_request_header_size     = 60
+  request_cookies_to_remove   = []
+  request_headers_to_remove   = []
+  response_cookies_to_remove  = []
+  response_headers_to_remove  = []
 }
 `, nsName, name))
 }
@@ -757,7 +769,16 @@ resource "xcsh_virtual_host" "test" {
   proxy   = "SMA_PROXY"
 
   add_location                = true
+  connection_idle_timeout     = 600000
+  custom_errors               = {}
   disable_default_error_pages = true
+  disable_dns_resolve         = false
+  idle_timeout                = 600000
+  max_request_header_size     = 60
+  request_cookies_to_remove   = []
+  request_headers_to_remove   = []
+  response_cookies_to_remove  = []
+  response_headers_to_remove  = []
 }
 `, nsName, name, description))
 }
@@ -787,6 +808,18 @@ resource "xcsh_virtual_host" "test" {
     environment = %[3]q
     managed_by  = %[4]q
   }
+
+  add_location                = false
+  connection_idle_timeout     = 600000
+  custom_errors               = {}
+  disable_default_error_pages = false
+  disable_dns_resolve         = false
+  idle_timeout                = 600000
+  max_request_header_size     = 60
+  request_cookies_to_remove   = []
+  request_headers_to_remove   = []
+  response_cookies_to_remove  = []
+  response_headers_to_remove  = []
 }
 `, nsName, name, environment, managedBy))
 }
@@ -812,6 +845,18 @@ resource "xcsh_virtual_host" "test" {
 
   domains = ["%[2]s.example.com"]
   proxy   = "SMA_PROXY"
+
+  add_location                = false
+  connection_idle_timeout     = 600000
+  custom_errors               = {}
+  disable_default_error_pages = false
+  disable_dns_resolve         = false
+  idle_timeout                = 600000
+  max_request_header_size     = 60
+  request_cookies_to_remove   = []
+  request_headers_to_remove   = []
+  response_cookies_to_remove  = []
+  response_headers_to_remove  = []
 }
 `, nsName, name, description))
 }
@@ -841,6 +886,18 @@ resource "xcsh_virtual_host" "test" {
     key1 = %[3]q
     key2 = %[4]q
   }
+
+  add_location                = false
+  connection_idle_timeout     = 600000
+  custom_errors               = {}
+  disable_default_error_pages = false
+  disable_dns_resolve         = false
+  idle_timeout                = 600000
+  max_request_header_size     = 60
+  request_cookies_to_remove   = []
+  request_headers_to_remove   = []
+  response_cookies_to_remove  = []
+  response_headers_to_remove  = []
 }
 `, nsName, name, value1, value2))
 }
@@ -871,6 +928,18 @@ resource "xcsh_virtual_host" "test" {
   domains = [
 %[3]s  ]
   proxy = "SMA_PROXY"
+
+  add_location                = false
+  connection_idle_timeout     = 600000
+  custom_errors               = {}
+  disable_default_error_pages = false
+  disable_dns_resolve         = false
+  idle_timeout                = 600000
+  max_request_header_size     = 60
+  request_cookies_to_remove   = []
+  request_headers_to_remove   = []
+  response_cookies_to_remove  = []
+  response_headers_to_remove  = []
 }
 `, nsName, name, domainsStr))
 }

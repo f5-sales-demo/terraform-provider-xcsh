@@ -56,8 +56,19 @@ resource "xcsh_virtual_host" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  domains = ["test.example.com"]
-  proxy   = "SMA_PROXY"
+  add_location                  = false
+  connection_idle_timeout       = 600000
+  custom_errors                 = {}
+  disable_default_error_pages   = false
+  disable_dns_resolve           = false
+  domains                       = ["test.example.com"]
+  idle_timeout                  = 600000
+  max_request_header_size       = 60
+  proxy                         = "SMA_PROXY"
+  request_cookies_to_remove     = []
+  request_headers_to_remove     = []
+  response_cookies_to_remove    = []
+  response_headers_to_remove    = []
 }
 
 data "xcsh_virtual_host" "test" {

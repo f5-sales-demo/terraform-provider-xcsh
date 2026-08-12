@@ -986,6 +986,49 @@ func (r *RateLimiterPolicyResource) ValidateConfig(ctx context.Context, req reso
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AnyServer != nil && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_server"),
+			"Conflicting Configuration",
+			"any_server and server_name are mutually exclusive.",
+		)
+	}
+	if data.AnyServer != nil && data.ServerNameMatcher != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_server"),
+			"Conflicting Configuration",
+			"any_server and server_name_matcher are mutually exclusive.",
+		)
+	}
+	if data.AnyServer != nil && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_server"),
+			"Conflicting Configuration",
+			"any_server and server_selector are mutually exclusive.",
+		)
+	}
+	if data.ServerNameMatcher != nil && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("server_name_matcher"),
+			"Conflicting Configuration",
+			"server_name_matcher and server_name are mutually exclusive.",
+		)
+	}
+	if data.ServerNameMatcher != nil && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("server_name_matcher"),
+			"Conflicting Configuration",
+			"server_name_matcher and server_selector are mutually exclusive.",
+		)
+	}
+	if data.ServerSelector != nil && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("server_selector"),
+			"Conflicting Configuration",
+			"server_selector and server_name are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

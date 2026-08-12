@@ -207,6 +207,28 @@ func (r *DataGroupResource) ValidateConfig(ctx context.Context, req resource.Val
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AddressRecords != nil && data.IntegerRecords != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("address_records"),
+			"Conflicting Configuration",
+			"address_records and integer_records are mutually exclusive.",
+		)
+	}
+	if data.AddressRecords != nil && data.StringRecords != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("address_records"),
+			"Conflicting Configuration",
+			"address_records and string_records are mutually exclusive.",
+		)
+	}
+	if data.IntegerRecords != nil && data.StringRecords != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("integer_records"),
+			"Conflicting Configuration",
+			"integer_records and string_records are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

@@ -673,6 +673,28 @@ func (r *APITestingResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.EveryDay != nil && data.EveryMonth != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("every_day"),
+			"Conflicting Configuration",
+			"every_day and every_month are mutually exclusive.",
+		)
+	}
+	if data.EveryDay != nil && data.EveryWeek != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("every_day"),
+			"Conflicting Configuration",
+			"every_day and every_week are mutually exclusive.",
+		)
+	}
+	if data.EveryMonth != nil && data.EveryWeek != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("every_month"),
+			"Conflicting Configuration",
+			"every_month and every_week are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

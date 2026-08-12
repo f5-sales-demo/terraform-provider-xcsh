@@ -58,6 +58,7 @@ resource "xcsh_container_registry" "test" {
   namespace  = xcsh_namespace.test.name
   registry          = "registry.example.com"
   user_name         = "testuser"
+  email             = "terraform-acceptance@example.com"
   password {
     clear_secret_info {
       url = "string:///dGVzdC1wYXNzd29yZA=="

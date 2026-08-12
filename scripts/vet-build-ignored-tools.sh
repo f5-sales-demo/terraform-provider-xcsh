@@ -36,6 +36,16 @@ for file in tools/*.go; do
   echo "[vet] $file"
   vet_files=("$file")
   test_file="${file%.go}_test.go"
+  # A few older companions use Go's conventional underscore-only basename
+  # even though their build-ignored command uses hyphens. Discover that form so
+  # those tests cannot silently disappear from this otherwise explicit gate.
+  if [ ! -f "$test_file" ]; then
+    normalized_file=${file//-/_}
+    normalized_test_file="${normalized_file%.go}_test.go"
+    if [ -f "$normalized_test_file" ]; then
+      test_file=$normalized_test_file
+    fi
+  fi
   if [ -f "$test_file" ]; then
     vet_files+=("$test_file")
   fi

@@ -2728,6 +2728,55 @@ func (r *AWSTGWSiteResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.BlockAllServices != nil && data.BlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("block_all_services"),
+			"Conflicting Configuration",
+			"block_all_services and blocked_services are mutually exclusive.",
+		)
+	}
+	if data.BlockAllServices != nil && data.DefaultBlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("block_all_services"),
+			"Conflicting Configuration",
+			"block_all_services and default_blocked_services are mutually exclusive.",
+		)
+	}
+	if data.BlockedServices != nil && data.DefaultBlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("blocked_services"),
+			"Conflicting Configuration",
+			"blocked_services and default_blocked_services are mutually exclusive.",
+		)
+	}
+	if data.DirectConnectDisabled != nil && data.DirectConnectEnabled != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("direct_connect_disabled"),
+			"Conflicting Configuration",
+			"direct_connect_disabled and direct_connect_enabled are mutually exclusive.",
+		)
+	}
+	if data.DirectConnectDisabled != nil && data.PrivateConnectivity != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("direct_connect_disabled"),
+			"Conflicting Configuration",
+			"direct_connect_disabled and private_connectivity are mutually exclusive.",
+		)
+	}
+	if data.DirectConnectEnabled != nil && data.PrivateConnectivity != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("direct_connect_enabled"),
+			"Conflicting Configuration",
+			"direct_connect_enabled and private_connectivity are mutually exclusive.",
+		)
+	}
+	if data.LogReceiver != nil && data.LogsStreamingDisabled != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("log_receiver"),
+			"Conflicting Configuration",
+			"log_receiver and logs_streaming_disabled are mutually exclusive.",
+		)
+	}
 
 	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
 	// them so that an empty labels block stops proposing their deletion. A configuration

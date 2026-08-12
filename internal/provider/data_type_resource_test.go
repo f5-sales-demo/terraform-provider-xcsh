@@ -480,9 +480,11 @@ func testAccDataTypeImportStateIdFunc(resourceName string) resource.ImportStateI
 func testAccDataTypeConfig_basicSystem(name string) string {
 	return fmt.Sprintf(`
 resource "xcsh_data_type" "test" {
-  name      = %[1]q
-  namespace = "system"
-  is_pii    = true
+  name              = %[1]q
+  namespace         = "system"
+  compliances       = []
+  is_pii            = true
+  is_sensitive_data = false
 
   rules {
     key_pattern {
@@ -499,6 +501,7 @@ resource "xcsh_data_type" "test" {
   name              = %[1]q
   namespace         = "system"
   description       = "Test data type description"
+  compliances       = []
   is_pii            = true
   is_sensitive_data = true
 
@@ -528,9 +531,11 @@ func testAccDataTypeConfig_withLabelsSystem(name string, labels map[string]strin
 
 	return fmt.Sprintf(`
 resource "xcsh_data_type" "test" {
-  name      = %[1]q
-  namespace = "system"
-  is_pii    = true
+  name              = %[1]q
+  namespace         = "system"
+  compliances       = []
+  is_pii            = true
+  is_sensitive_data = false
 
   labels = {
 %[2]s  }
@@ -547,10 +552,12 @@ resource "xcsh_data_type" "test" {
 func testAccDataTypeConfig_withDescriptionSystem(name, description string) string {
 	return fmt.Sprintf(`
 resource "xcsh_data_type" "test" {
-  name        = %[1]q
-  namespace   = "system"
-  description = %[2]q
-  is_pii      = true
+  name              = %[1]q
+  namespace         = "system"
+  description       = %[2]q
+  compliances       = []
+  is_pii            = true
+  is_sensitive_data = false
 
   rules {
     key_pattern {
@@ -569,9 +576,11 @@ func testAccDataTypeConfig_withAnnotationsSystem(name string, annotations map[st
 
 	return fmt.Sprintf(`
 resource "xcsh_data_type" "test" {
-  name      = %[1]q
-  namespace = "system"
-  is_pii    = true
+  name              = %[1]q
+  namespace         = "system"
+  compliances       = []
+  is_pii            = true
+  is_sensitive_data = false
 
   annotations = {
 %[2]s  }
@@ -590,6 +599,7 @@ func testAccDataTypeConfig_withPiiFlagsSystem(name string, isPii, isSensitive bo
 resource "xcsh_data_type" "test" {
   name              = %[1]q
   namespace         = "system"
+  compliances       = []
   is_pii            = %[2]t
   is_sensitive_data = %[3]t
 

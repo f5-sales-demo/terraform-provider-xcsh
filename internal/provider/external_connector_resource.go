@@ -805,6 +805,14 @@ func (r *ExternalConnectorResource) ValidateConfig(ctx context.Context, req reso
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.Gre != nil && data.Ipsec != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("gre"),
+			"Conflicting Configuration",
+			"gre and ipsec are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

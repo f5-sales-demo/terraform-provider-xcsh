@@ -436,6 +436,112 @@ func (r *DNSLBHealthCheckResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.HTTPHealthCheck != nil && data.HTTPSHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http_health_check"),
+			"Conflicting Configuration",
+			"http_health_check and https_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPHealthCheck != nil && data.ICMPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http_health_check"),
+			"Conflicting Configuration",
+			"http_health_check and icmp_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPHealthCheck != nil && data.TCPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http_health_check"),
+			"Conflicting Configuration",
+			"http_health_check and tcp_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPHealthCheck != nil && data.TCPHexHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http_health_check"),
+			"Conflicting Configuration",
+			"http_health_check and tcp_hex_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPHealthCheck != nil && data.UDPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http_health_check"),
+			"Conflicting Configuration",
+			"http_health_check and udp_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPSHealthCheck != nil && data.ICMPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("https_health_check"),
+			"Conflicting Configuration",
+			"https_health_check and icmp_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPSHealthCheck != nil && data.TCPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("https_health_check"),
+			"Conflicting Configuration",
+			"https_health_check and tcp_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPSHealthCheck != nil && data.TCPHexHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("https_health_check"),
+			"Conflicting Configuration",
+			"https_health_check and tcp_hex_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPSHealthCheck != nil && data.UDPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("https_health_check"),
+			"Conflicting Configuration",
+			"https_health_check and udp_health_check are mutually exclusive.",
+		)
+	}
+	if data.ICMPHealthCheck != nil && data.TCPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("icmp_health_check"),
+			"Conflicting Configuration",
+			"icmp_health_check and tcp_health_check are mutually exclusive.",
+		)
+	}
+	if data.ICMPHealthCheck != nil && data.TCPHexHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("icmp_health_check"),
+			"Conflicting Configuration",
+			"icmp_health_check and tcp_hex_health_check are mutually exclusive.",
+		)
+	}
+	if data.ICMPHealthCheck != nil && data.UDPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("icmp_health_check"),
+			"Conflicting Configuration",
+			"icmp_health_check and udp_health_check are mutually exclusive.",
+		)
+	}
+	if data.TCPHealthCheck != nil && data.TCPHexHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("tcp_health_check"),
+			"Conflicting Configuration",
+			"tcp_health_check and tcp_hex_health_check are mutually exclusive.",
+		)
+	}
+	if data.TCPHealthCheck != nil && data.UDPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("tcp_health_check"),
+			"Conflicting Configuration",
+			"tcp_health_check and udp_health_check are mutually exclusive.",
+		)
+	}
+	if data.TCPHexHealthCheck != nil && data.UDPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("tcp_hex_health_check"),
+			"Conflicting Configuration",
+			"tcp_hex_health_check and udp_health_check are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

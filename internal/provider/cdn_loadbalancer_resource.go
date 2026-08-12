@@ -11973,6 +11973,231 @@ func (r *CDNLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.ActiveServicePolicies != nil && data.NoServicePolicies != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_service_policies"),
+			"Conflicting Configuration",
+			"active_service_policies and no_service_policies are mutually exclusive.",
+		)
+	}
+	if data.ActiveServicePolicies != nil && data.ServicePoliciesFromNamespace != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_service_policies"),
+			"Conflicting Configuration",
+			"active_service_policies and service_policies_from_namespace are mutually exclusive.",
+		)
+	}
+	if data.APIRateLimit != nil && data.DisableRateLimit != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("api_rate_limit"),
+			"Conflicting Configuration",
+			"api_rate_limit and disable_rate_limit are mutually exclusive.",
+		)
+	}
+	if data.APIRateLimit != nil && data.RateLimit != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("api_rate_limit"),
+			"Conflicting Configuration",
+			"api_rate_limit and rate_limit are mutually exclusive.",
+		)
+	}
+	if data.APISpecification != nil && data.DisableAPIDefinition != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("api_specification"),
+			"Conflicting Configuration",
+			"api_specification and disable_api_definition are mutually exclusive.",
+		)
+	}
+	if data.AppFirewall != nil && data.DisableWAF != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("app_firewall"),
+			"Conflicting Configuration",
+			"app_firewall and disable_waf are mutually exclusive.",
+		)
+	}
+	if data.CaptchaChallenge != nil && data.EnableChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("captcha_challenge"),
+			"Conflicting Configuration",
+			"captcha_challenge and enable_challenge are mutually exclusive.",
+		)
+	}
+	if data.CaptchaChallenge != nil && data.JsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("captcha_challenge"),
+			"Conflicting Configuration",
+			"captcha_challenge and js_challenge are mutually exclusive.",
+		)
+	}
+	if data.CaptchaChallenge != nil && data.NoChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("captcha_challenge"),
+			"Conflicting Configuration",
+			"captcha_challenge and no_challenge are mutually exclusive.",
+		)
+	}
+	if data.CaptchaChallenge != nil && data.PolicyBasedChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("captcha_challenge"),
+			"Conflicting Configuration",
+			"captcha_challenge and policy_based_challenge are mutually exclusive.",
+		)
+	}
+	if data.ClientSideDefense != nil && data.DisableClientSideDefense != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("client_side_defense"),
+			"Conflicting Configuration",
+			"client_side_defense and disable_client_side_defense are mutually exclusive.",
+		)
+	}
+	if data.DefaultSensitiveDataPolicy != nil && data.SensitiveDataPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_sensitive_data_policy"),
+			"Conflicting Configuration",
+			"default_sensitive_data_policy and sensitive_data_policy are mutually exclusive.",
+		)
+	}
+	if data.DisableAPIDiscovery != nil && data.EnableAPIDiscovery != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_api_discovery"),
+			"Conflicting Configuration",
+			"disable_api_discovery and enable_api_discovery are mutually exclusive.",
+		)
+	}
+	if data.DisableIPReputation != nil && data.EnableIPReputation != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_ip_reputation"),
+			"Conflicting Configuration",
+			"disable_ip_reputation and enable_ip_reputation are mutually exclusive.",
+		)
+	}
+	if data.DisableMaliciousUserDetection != nil && data.EnableMaliciousUserDetection != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_malicious_user_detection"),
+			"Conflicting Configuration",
+			"disable_malicious_user_detection and enable_malicious_user_detection are mutually exclusive.",
+		)
+	}
+	if data.DisableRateLimit != nil && data.RateLimit != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_rate_limit"),
+			"Conflicting Configuration",
+			"disable_rate_limit and rate_limit are mutually exclusive.",
+		)
+	}
+	if data.DisableThreatMesh != nil && data.EnableThreatMesh != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_threat_mesh"),
+			"Conflicting Configuration",
+			"disable_threat_mesh and enable_threat_mesh are mutually exclusive.",
+		)
+	}
+	if data.EnableChallenge != nil && data.JsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("enable_challenge"),
+			"Conflicting Configuration",
+			"enable_challenge and js_challenge are mutually exclusive.",
+		)
+	}
+	if data.EnableChallenge != nil && data.NoChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("enable_challenge"),
+			"Conflicting Configuration",
+			"enable_challenge and no_challenge are mutually exclusive.",
+		)
+	}
+	if data.EnableChallenge != nil && data.PolicyBasedChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("enable_challenge"),
+			"Conflicting Configuration",
+			"enable_challenge and policy_based_challenge are mutually exclusive.",
+		)
+	}
+	if data.HTTP != nil && data.HTTPS != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http"),
+			"Conflicting Configuration",
+			"http and https are mutually exclusive.",
+		)
+	}
+	if data.HTTP != nil && data.HTTPSAutoCert != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http"),
+			"Conflicting Configuration",
+			"http and https_auto_cert are mutually exclusive.",
+		)
+	}
+	if data.HTTPS != nil && data.HTTPSAutoCert != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("https"),
+			"Conflicting Configuration",
+			"https and https_auto_cert are mutually exclusive.",
+		)
+	}
+	if data.JsChallenge != nil && data.NoChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("js_challenge"),
+			"Conflicting Configuration",
+			"js_challenge and no_challenge are mutually exclusive.",
+		)
+	}
+	if data.JsChallenge != nil && data.PolicyBasedChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("js_challenge"),
+			"Conflicting Configuration",
+			"js_challenge and policy_based_challenge are mutually exclusive.",
+		)
+	}
+	if data.L7DDOSActionBlock != nil && data.L7DDOSActionDefault != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("l7_ddos_action_block"),
+			"Conflicting Configuration",
+			"l7_ddos_action_block and l7_ddos_action_default are mutually exclusive.",
+		)
+	}
+	if data.L7DDOSActionBlock != nil && data.L7DDOSActionJsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("l7_ddos_action_block"),
+			"Conflicting Configuration",
+			"l7_ddos_action_block and l7_ddos_action_js_challenge are mutually exclusive.",
+		)
+	}
+	if data.L7DDOSActionDefault != nil && data.L7DDOSActionJsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("l7_ddos_action_default"),
+			"Conflicting Configuration",
+			"l7_ddos_action_default and l7_ddos_action_js_challenge are mutually exclusive.",
+		)
+	}
+	if data.NoChallenge != nil && data.PolicyBasedChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_challenge"),
+			"Conflicting Configuration",
+			"no_challenge and policy_based_challenge are mutually exclusive.",
+		)
+	}
+	if data.NoServicePolicies != nil && data.ServicePoliciesFromNamespace != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_service_policies"),
+			"Conflicting Configuration",
+			"no_service_policies and service_policies_from_namespace are mutually exclusive.",
+		)
+	}
+	if data.SlowDDOSMitigation != nil && data.SystemDefaultTimeouts != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("slow_ddos_mitigation"),
+			"Conflicting Configuration",
+			"slow_ddos_mitigation and system_default_timeouts are mutually exclusive.",
+		)
+	}
+	if data.UserIDClientIP != nil && data.UserIdentification != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("user_id_client_ip"),
+			"Conflicting Configuration",
+			"user_id_client_ip and user_identification are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -17276,8 +17501,8 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -17288,7 +17513,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -27169,9 +27394,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -27997,8 +28219,8 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -28009,7 +28231,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -37890,9 +38112,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -43899,8 +44118,8 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -43911,7 +44130,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -53792,9 +54011,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {

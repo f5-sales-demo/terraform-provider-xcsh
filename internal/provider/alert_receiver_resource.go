@@ -1065,6 +1065,112 @@ func (r *AlertReceiverResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.Email != nil && data.Opsgenie != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("email"),
+			"Conflicting Configuration",
+			"email and opsgenie are mutually exclusive.",
+		)
+	}
+	if data.Email != nil && data.Pagerduty != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("email"),
+			"Conflicting Configuration",
+			"email and pagerduty are mutually exclusive.",
+		)
+	}
+	if data.Email != nil && data.Slack != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("email"),
+			"Conflicting Configuration",
+			"email and slack are mutually exclusive.",
+		)
+	}
+	if data.Email != nil && data.Sms != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("email"),
+			"Conflicting Configuration",
+			"email and sms are mutually exclusive.",
+		)
+	}
+	if data.Email != nil && data.Webhook != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("email"),
+			"Conflicting Configuration",
+			"email and webhook are mutually exclusive.",
+		)
+	}
+	if data.Opsgenie != nil && data.Pagerduty != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("opsgenie"),
+			"Conflicting Configuration",
+			"opsgenie and pagerduty are mutually exclusive.",
+		)
+	}
+	if data.Opsgenie != nil && data.Slack != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("opsgenie"),
+			"Conflicting Configuration",
+			"opsgenie and slack are mutually exclusive.",
+		)
+	}
+	if data.Opsgenie != nil && data.Sms != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("opsgenie"),
+			"Conflicting Configuration",
+			"opsgenie and sms are mutually exclusive.",
+		)
+	}
+	if data.Opsgenie != nil && data.Webhook != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("opsgenie"),
+			"Conflicting Configuration",
+			"opsgenie and webhook are mutually exclusive.",
+		)
+	}
+	if data.Pagerduty != nil && data.Slack != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("pagerduty"),
+			"Conflicting Configuration",
+			"pagerduty and slack are mutually exclusive.",
+		)
+	}
+	if data.Pagerduty != nil && data.Sms != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("pagerduty"),
+			"Conflicting Configuration",
+			"pagerduty and sms are mutually exclusive.",
+		)
+	}
+	if data.Pagerduty != nil && data.Webhook != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("pagerduty"),
+			"Conflicting Configuration",
+			"pagerduty and webhook are mutually exclusive.",
+		)
+	}
+	if data.Slack != nil && data.Sms != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("slack"),
+			"Conflicting Configuration",
+			"slack and sms are mutually exclusive.",
+		)
+	}
+	if data.Slack != nil && data.Webhook != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("slack"),
+			"Conflicting Configuration",
+			"slack and webhook are mutually exclusive.",
+		)
+	}
+	if data.Sms != nil && data.Webhook != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("sms"),
+			"Conflicting Configuration",
+			"sms and webhook are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

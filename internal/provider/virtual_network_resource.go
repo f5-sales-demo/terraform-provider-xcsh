@@ -183,7 +183,11 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"legacy_type": schema.StringAttribute{
 				MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE", "VIRTUAL_NETWORK_PER_SITE", "VIRTUAL_NETWORK_PUBLIC", "VIRTUAL_NETWORK_GLOBAL", "VIRTUAL_NETWORK_SITE_SERVICE", "VIRTUAL_NETWORK_VER_INTERNAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE", "VIRTUAL_NETWORK_IP_AUTO", "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK", "VIRTUAL_NETWORK_SRV6_NETWORK", "VIRTUAL_NETWORK_IP_FABRIC", "VIRTUAL_NETWORK_SEGMENT", "VIRTUAL_NETWORK_MANAGEMENT"),
 				},
@@ -321,6 +325,49 @@ func (r *VirtualNetworkResource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.GlobalNetwork != nil && !data.LegacyType.IsNull() && !data.LegacyType.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("global_network"),
+			"Conflicting Configuration",
+			"global_network and legacy_type are mutually exclusive.",
+		)
+	}
+	if data.GlobalNetwork != nil && data.SiteLocalInsideNetwork != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("global_network"),
+			"Conflicting Configuration",
+			"global_network and site_local_inside_network are mutually exclusive.",
+		)
+	}
+	if data.GlobalNetwork != nil && data.SiteLocalNetwork != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("global_network"),
+			"Conflicting Configuration",
+			"global_network and site_local_network are mutually exclusive.",
+		)
+	}
+	if data.SiteLocalInsideNetwork != nil && !data.LegacyType.IsNull() && !data.LegacyType.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("site_local_inside_network"),
+			"Conflicting Configuration",
+			"site_local_inside_network and legacy_type are mutually exclusive.",
+		)
+	}
+	if data.SiteLocalInsideNetwork != nil && data.SiteLocalNetwork != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("site_local_inside_network"),
+			"Conflicting Configuration",
+			"site_local_inside_network and site_local_network are mutually exclusive.",
+		)
+	}
+	if data.SiteLocalNetwork != nil && !data.LegacyType.IsNull() && !data.LegacyType.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("site_local_network"),
+			"Conflicting Configuration",
+			"site_local_network and legacy_type are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1204,6 +1251,13 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["legacy_type"].(string); ok && v != "" {
+		data.LegacyType = types.StringValue(v)
+	} else if data.LegacyType.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.LegacyType = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

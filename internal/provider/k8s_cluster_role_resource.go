@@ -309,6 +309,28 @@ func (r *K8SClusterRoleResource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.K8SClusterRoleSelector != nil && data.PolicyRuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("k8s_cluster_role_selector"),
+			"Conflicting Configuration",
+			"k8s_cluster_role_selector and policy_rule_list are mutually exclusive.",
+		)
+	}
+	if data.K8SClusterRoleSelector != nil && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("k8s_cluster_role_selector"),
+			"Conflicting Configuration",
+			"k8s_cluster_role_selector and yaml are mutually exclusive.",
+		)
+	}
+	if data.PolicyRuleList != nil && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("policy_rule_list"),
+			"Conflicting Configuration",
+			"policy_rule_list and yaml are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

@@ -526,8 +526,8 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 			return fmt.Errorf("unsupported list element type %q at field %s", attr.ElementType, attr.Name)
 		}
 		listVar := attr.TfsdkTag + "List"
-		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok && len(v) > 0 {\n", indent, jsonName))
-		sb.WriteString(fmt.Sprintf("%s\tvar %s []%s\n", indent, listVar, goElem))
+		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok {\n", indent, jsonName))
+		sb.WriteString(fmt.Sprintf("%s\t%s := make([]%s, 0, len(v))\n", indent, listVar, goElem))
 		sb.WriteString(fmt.Sprintf("%s\tfor _, item := range v {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tif s, ok := item.(%s); ok {\n", indent, cast))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t%s = append(%s, %s)\n", indent, listVar, listVar, conv))
@@ -538,7 +538,7 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 		sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = listVal\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s} else if data.%s.IsNull() || data.%s.IsUnknown() {\n", indent, fieldName, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, elemType))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "map":
@@ -827,6 +827,18 @@ func hasObjectReferenceDescendant(attr openapi.TerraformAttribute) bool {
 	return false
 }
 
+// hasComputedDescendant reports whether a nested block contains a server-filled
+// value. A planned Optional+Computed leaf is unknown when omitted; preserving the
+// whole planned block after Create would carry that unknown into the result.
+func hasComputedDescendant(attr openapi.TerraformAttribute) bool {
+	for _, child := range attr.NestedAttributes {
+		if child.Computed || hasComputedDescendant(child) {
+			return true
+		}
+	}
+	return false
+}
+
 // renderUnmarshalSingleChild emits the closure entry for a single nested block child.
 func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
 	fieldName := attr.GoName
@@ -885,7 +897,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	// reference anywhere: an object-ref's tenant/uid/kind are Computed-only and unknown in
 	// state on create, so any block ON THE PATH to a reference must read those leaves from
 	// the API. See #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
-	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr)
+	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr)
 
 	// When a block cannot be preserved whole because it merely CONTAINS a reference on one
 	// arm (a "spine" block), reconstruct from the API but thread the prior-state accessor

@@ -633,6 +633,35 @@ func (r *NetworkConnectorResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.DisableForwardProxy != nil && data.EnableForwardProxy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_forward_proxy"),
+			"Conflicting Configuration",
+			"disable_forward_proxy and enable_forward_proxy are mutually exclusive.",
+		)
+	}
+	if data.SLIToGlobalDR != nil && data.SLIToSloSnat != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("sli_to_global_dr"),
+			"Conflicting Configuration",
+			"sli_to_global_dr and sli_to_slo_snat are mutually exclusive.",
+		)
+	}
+	if data.SLIToGlobalDR != nil && data.SloToGlobalDR != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("sli_to_global_dr"),
+			"Conflicting Configuration",
+			"sli_to_global_dr and slo_to_global_dr are mutually exclusive.",
+		)
+	}
+	if data.SLIToSloSnat != nil && data.SloToGlobalDR != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("sli_to_slo_snat"),
+			"Conflicting Configuration",
+			"sli_to_slo_snat and slo_to_global_dr are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

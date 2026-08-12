@@ -312,6 +312,28 @@ func (r *CertificateResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.CustomHashAlgorithms != nil && data.DisableOCSPStapling != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("custom_hash_algorithms"),
+			"Conflicting Configuration",
+			"custom_hash_algorithms and disable_ocsp_stapling are mutually exclusive.",
+		)
+	}
+	if data.CustomHashAlgorithms != nil && data.UseSystemDefaults != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("custom_hash_algorithms"),
+			"Conflicting Configuration",
+			"custom_hash_algorithms and use_system_defaults are mutually exclusive.",
+		)
+	}
+	if data.DisableOCSPStapling != nil && data.UseSystemDefaults != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_ocsp_stapling"),
+			"Conflicting Configuration",
+			"disable_ocsp_stapling and use_system_defaults are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

@@ -376,6 +376,42 @@ func (r *SiteMeshGroupResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.BfdDisabled != nil && data.BfdEnabled != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("bfd_disabled"),
+			"Conflicting Configuration",
+			"bfd_disabled and bfd_enabled are mutually exclusive.",
+		)
+	}
+	if data.DisableREFallback != nil && data.EnableREFallback != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_re_fallback"),
+			"Conflicting Configuration",
+			"disable_re_fallback and enable_re_fallback are mutually exclusive.",
+		)
+	}
+	if data.FullMesh != nil && data.HubMesh != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("full_mesh"),
+			"Conflicting Configuration",
+			"full_mesh and hub_mesh are mutually exclusive.",
+		)
+	}
+	if data.FullMesh != nil && data.SpokeMesh != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("full_mesh"),
+			"Conflicting Configuration",
+			"full_mesh and spoke_mesh are mutually exclusive.",
+		)
+	}
+	if data.HubMesh != nil && data.SpokeMesh != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hub_mesh"),
+			"Conflicting Configuration",
+			"hub_mesh and spoke_mesh are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

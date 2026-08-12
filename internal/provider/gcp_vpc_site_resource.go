@@ -3514,6 +3514,69 @@ func (r *GCPVPCSiteResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.BlockAllServices != nil && data.BlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("block_all_services"),
+			"Conflicting Configuration",
+			"block_all_services and blocked_services are mutually exclusive.",
+		)
+	}
+	if data.BlockAllServices != nil && data.DefaultBlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("block_all_services"),
+			"Conflicting Configuration",
+			"block_all_services and default_blocked_services are mutually exclusive.",
+		)
+	}
+	if data.BlockedServices != nil && data.DefaultBlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("blocked_services"),
+			"Conflicting Configuration",
+			"blocked_services and default_blocked_services are mutually exclusive.",
+		)
+	}
+	if data.DisableEncryption != nil && data.EnableEncryption != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_encryption"),
+			"Conflicting Configuration",
+			"disable_encryption and enable_encryption are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGw != nil && data.IngressGw != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw"),
+			"Conflicting Configuration",
+			"ingress_egress_gw and ingress_gw are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGw != nil && data.VoltstackCluster != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw"),
+			"Conflicting Configuration",
+			"ingress_egress_gw and voltstack_cluster are mutually exclusive.",
+		)
+	}
+	if data.IngressGw != nil && data.VoltstackCluster != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_gw"),
+			"Conflicting Configuration",
+			"ingress_gw and voltstack_cluster are mutually exclusive.",
+		)
+	}
+	if data.LogReceiver != nil && data.LogsStreamingDisabled != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("log_receiver"),
+			"Conflicting Configuration",
+			"log_receiver and logs_streaming_disabled are mutually exclusive.",
+		)
+	}
+	if data.PrivateConnectDisabled != nil && data.PrivateConnectivity != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("private_connect_disabled"),
+			"Conflicting Configuration",
+			"private_connect_disabled and private_connectivity are mutually exclusive.",
+		)
+	}
 
 	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
 	// them so that an empty labels block stops proposing their deletion. A configuration

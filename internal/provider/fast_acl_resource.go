@@ -1040,6 +1040,14 @@ func (r *FastACLResource) ValidateConfig(ctx context.Context, req resource.Valid
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.REACL != nil && data.SiteACL != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("re_acl"),
+			"Conflicting Configuration",
+			"re_acl and site_acl are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

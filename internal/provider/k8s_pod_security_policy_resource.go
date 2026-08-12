@@ -679,6 +679,14 @@ func (r *K8SPodSecurityPolicyResource) ValidateConfig(ctx context.Context, req r
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.PspSpec != nil && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("psp_spec"),
+			"Conflicting Configuration",
+			"psp_spec and yaml are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

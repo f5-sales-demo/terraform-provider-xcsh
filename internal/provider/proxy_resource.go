@@ -3623,6 +3623,42 @@ func (r *ProxyResource) ValidateConfig(ctx context.Context, req resource.Validat
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.ActiveForwardProxyPolicies != nil && data.NoForwardProxyPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_forward_proxy_policies"),
+			"Conflicting Configuration",
+			"active_forward_proxy_policies and no_forward_proxy_policy are mutually exclusive.",
+		)
+	}
+	if data.DoNotAdvertise != nil && data.SiteVirtualSites != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("do_not_advertise"),
+			"Conflicting Configuration",
+			"do_not_advertise and site_virtual_sites are mutually exclusive.",
+		)
+	}
+	if data.DynamicProxy != nil && data.HTTPProxy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dynamic_proxy"),
+			"Conflicting Configuration",
+			"dynamic_proxy and http_proxy are mutually exclusive.",
+		)
+	}
+	if data.NoInterception != nil && data.TLSIntercept != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_interception"),
+			"Conflicting Configuration",
+			"no_interception and tls_intercept are mutually exclusive.",
+		)
+	}
+	if data.SiteLocalInsideNetwork != nil && data.SiteLocalNetwork != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("site_local_inside_network"),
+			"Conflicting Configuration",
+			"site_local_inside_network and site_local_network are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

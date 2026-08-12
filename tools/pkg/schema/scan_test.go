@@ -3,8 +3,10 @@
 package schema
 
 import (
+	"strings"
 	"testing"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/conflicts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
@@ -114,17 +116,48 @@ func TestCollectConflictAttrs(t *testing.T) {
 	attrs := []openapi.TerraformAttribute{
 		{TfsdkTag: "field_a", GoName: "FieldA", ConflictsWith: []string{"field_b"}, IsBlock: false},
 		{TfsdkTag: "field_b", GoName: "FieldB", ConflictsWith: []string{"field_a"}, IsBlock: false},
-		{TfsdkTag: "block_c", GoName: "BlockC", ConflictsWith: []string{"field_a"}, IsBlock: true}, // excluded
+		{TfsdkTag: "block_c", GoName: "BlockC", ConflictsWith: []string{"field_a"}, IsBlock: true, NestedBlockType: "single"},
 	}
 	result, lookup := CollectConflictAttrs(attrs)
-	if len(result) != 2 {
-		t.Fatalf("CollectConflictAttrs returned %d attrs, want 2", len(result))
+	if len(result) != 3 {
+		t.Fatalf("CollectConflictAttrs returned %d attrs, want 3", len(result))
 	}
-	if lookup["field_a"] != "FieldA" {
-		t.Errorf("lookup[field_a] = %q, want %q", lookup["field_a"], "FieldA")
+	if lookup["field_a"].GoName != "FieldA" {
+		t.Errorf("lookup[field_a].GoName = %q, want %q", lookup["field_a"].GoName, "FieldA")
 	}
-	if _, ok := lookup["block_c"]; ok {
-		t.Error("Block attributes should not be in lookup")
+	if !lookup["block_c"].IsPointer {
+		t.Error("single block_c should be represented as a pointer in the lookup")
+	}
+}
+
+func TestApplyOneOfConflictsIncludesBlocks(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{
+		{TfsdkTag: "tcp", GoName: "TCP", IsBlock: true, NestedBlockType: "single"},
+		{TfsdkTag: "tls_tcp", GoName: "TLSTCP", IsBlock: true, NestedBlockType: "single"},
+		{TfsdkTag: "tls_tcp_auto_cert", GoName: "TLSTCPAutoCert", IsBlock: true, NestedBlockType: "single"},
+	}
+	group := []string{"tcp", "tls_tcp", "tls_tcp_auto_cert"}
+	ApplyOneOfConflicts(attrs, map[string][]string{
+		"tcp":               group,
+		"tls_tcp":           group,
+		"tls_tcp_auto_cert": group,
+	})
+
+	for _, attr := range attrs {
+		if len(attr.ConflictsWith) != 2 {
+			t.Errorf("%s has conflicts %v, want both OneOf peers", attr.TfsdkTag, attr.ConflictsWith)
+		}
+	}
+	conflictAttrs, lookup := CollectConflictAttrs(attrs)
+	checks := conflicts.GenerateChecks(conflictAttrs, lookup)
+	for _, want := range []string{
+		"data.TCP != nil && data.TLSTCP != nil",
+		"data.TCP != nil && data.TLSTCPAutoCert != nil",
+		"data.TLSTCP != nil && data.TLSTCPAutoCert != nil",
+	} {
+		if !strings.Contains(checks, want) {
+			t.Errorf("generated checks missing %q:\n%s", want, checks)
+		}
 	}
 }
 

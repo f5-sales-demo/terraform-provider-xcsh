@@ -34,7 +34,6 @@ resource "xcsh_forwarding_class" "example" {
   namespace = "staging"
 
   interface_group = "ANY_AVAILABLE_INTERFACE"
-  queue_id_to_use = "DSCP_BEST_EFFORT"
 }
 ```
 
@@ -68,7 +67,7 @@ resource "xcsh_forwarding_class" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="dscp-based-queue"></a>[`dscp_based_queue`](#dscp-based-queue) - Optional Block<br>Configuration parameter for dscp based queue
-<br><br>&#x2022; <a id="queue-id-to-use"></a>[`queue_id_to_use`](#queue-id-to-use) - Required String  Defaults to `DSCP_BEST_EFFORT`<br>Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`<br>[Enum:
+<br><br>&#x2022; <a id="queue-id-to-use"></a>[`queue_id_to_use`](#queue-id-to-use) - Optional String  Defaults to `DSCP_BEST_EFFORT`<br>Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`<br>[Enum:
 DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link
 Layer traffic like
 

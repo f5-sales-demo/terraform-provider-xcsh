@@ -739,7 +739,7 @@
       "name": "forwarding_class",
       "category": "networking",
       "description": "Forwarding class is created by users in system namespace. configuration",
-      "required": ["name", "namespace", "queue_id_to_use", "interface_group"],
+      "required": ["name", "namespace", "interface_group"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/forwarding_class.txt#minimal-valid-config"
@@ -913,7 +913,7 @@
       "name": "virtual_network",
       "category": "networking",
       "description": "Virtual network in given namespace",
-      "required": ["name", "legacy_type"],
+      "required": ["name"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/virtual_network.txt#minimal-valid-config"

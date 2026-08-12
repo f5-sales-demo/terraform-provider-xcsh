@@ -19447,6 +19447,49 @@ func (r *WorkloadResource) ValidateConfig(ctx context.Context, req resource.Vali
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.Job != nil && data.Service != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("job"),
+			"Conflicting Configuration",
+			"job and service are mutually exclusive.",
+		)
+	}
+	if data.Job != nil && data.SimpleService != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("job"),
+			"Conflicting Configuration",
+			"job and simple_service are mutually exclusive.",
+		)
+	}
+	if data.Job != nil && data.StatefulService != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("job"),
+			"Conflicting Configuration",
+			"job and stateful_service are mutually exclusive.",
+		)
+	}
+	if data.Service != nil && data.SimpleService != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("service"),
+			"Conflicting Configuration",
+			"service and simple_service are mutually exclusive.",
+		)
+	}
+	if data.Service != nil && data.StatefulService != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("service"),
+			"Conflicting Configuration",
+			"service and stateful_service are mutually exclusive.",
+		)
+	}
+	if data.SimpleService != nil && data.StatefulService != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("simple_service"),
+			"Conflicting Configuration",
+			"simple_service and stateful_service are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

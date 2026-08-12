@@ -601,7 +601,42 @@ func (r *EndpointResource) ValidateConfig(ctx context.Context, req resource.Vali
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.DNSName.IsNull() && !data.IP.IsNull() {
+	if data.DNSNameAdvanced != nil && !data.DNSName.IsNull() && !data.DNSName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dns_name_advanced"),
+			"Conflicting Configuration",
+			"dns_name_advanced and dns_name are mutually exclusive.",
+		)
+	}
+	if data.DNSNameAdvanced != nil && !data.IP.IsNull() && !data.IP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dns_name_advanced"),
+			"Conflicting Configuration",
+			"dns_name_advanced and ip are mutually exclusive.",
+		)
+	}
+	if data.DNSNameAdvanced != nil && data.ServiceInfo != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dns_name_advanced"),
+			"Conflicting Configuration",
+			"dns_name_advanced and service_info are mutually exclusive.",
+		)
+	}
+	if data.ServiceInfo != nil && !data.DNSName.IsNull() && !data.DNSName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("service_info"),
+			"Conflicting Configuration",
+			"service_info and dns_name are mutually exclusive.",
+		)
+	}
+	if data.ServiceInfo != nil && !data.IP.IsNull() && !data.IP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("service_info"),
+			"Conflicting Configuration",
+			"service_info and ip are mutually exclusive.",
+		)
+	}
+	if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() && !data.IP.IsNull() && !data.IP.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("dns_name"),
 			"Conflicting Configuration",

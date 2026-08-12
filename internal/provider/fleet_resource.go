@@ -3924,6 +3924,154 @@ func (r *FleetResource) ValidateConfig(ctx context.Context, req resource.Validat
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AllowAllUsb != nil && data.DenyAllUsb != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_usb"),
+			"Conflicting Configuration",
+			"allow_all_usb and deny_all_usb are mutually exclusive.",
+		)
+	}
+	if data.AllowAllUsb != nil && data.UsbPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_usb"),
+			"Conflicting Configuration",
+			"allow_all_usb and usb_policy are mutually exclusive.",
+		)
+	}
+	if data.BondDeviceList != nil && data.NoBondDevices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("bond_device_list"),
+			"Conflicting Configuration",
+			"bond_device_list and no_bond_devices are mutually exclusive.",
+		)
+	}
+	if data.DcClusterGroup != nil && data.DcClusterGroupInside != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dc_cluster_group"),
+			"Conflicting Configuration",
+			"dc_cluster_group and dc_cluster_group_inside are mutually exclusive.",
+		)
+	}
+	if data.DcClusterGroup != nil && data.NoDcClusterGroup != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dc_cluster_group"),
+			"Conflicting Configuration",
+			"dc_cluster_group and no_dc_cluster_group are mutually exclusive.",
+		)
+	}
+	if data.DcClusterGroupInside != nil && data.NoDcClusterGroup != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dc_cluster_group_inside"),
+			"Conflicting Configuration",
+			"dc_cluster_group_inside and no_dc_cluster_group are mutually exclusive.",
+		)
+	}
+	if data.DefaultConfig != nil && data.DeviceList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_config"),
+			"Conflicting Configuration",
+			"default_config and device_list are mutually exclusive.",
+		)
+	}
+	if data.DefaultConfig != nil && data.InterfaceList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_config"),
+			"Conflicting Configuration",
+			"default_config and interface_list are mutually exclusive.",
+		)
+	}
+	if data.DefaultSriovInterface != nil && data.SriovInterfaces != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_sriov_interface"),
+			"Conflicting Configuration",
+			"default_sriov_interface and sriov_interfaces are mutually exclusive.",
+		)
+	}
+	if data.DefaultStorageClass != nil && data.StorageClassList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_storage_class"),
+			"Conflicting Configuration",
+			"default_storage_class and storage_class_list are mutually exclusive.",
+		)
+	}
+	if data.DenyAllUsb != nil && data.UsbPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_all_usb"),
+			"Conflicting Configuration",
+			"deny_all_usb and usb_policy are mutually exclusive.",
+		)
+	}
+	if data.DeviceList != nil && data.InterfaceList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("device_list"),
+			"Conflicting Configuration",
+			"device_list and interface_list are mutually exclusive.",
+		)
+	}
+	if data.DisableGPU != nil && data.EnableGPU != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_gpu"),
+			"Conflicting Configuration",
+			"disable_gpu and enable_gpu are mutually exclusive.",
+		)
+	}
+	if data.DisableGPU != nil && data.EnableVgpu != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_gpu"),
+			"Conflicting Configuration",
+			"disable_gpu and enable_vgpu are mutually exclusive.",
+		)
+	}
+	if data.DisableLogAnonymization != nil && data.EnableLogAnonymization != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_log_anonymization"),
+			"Conflicting Configuration",
+			"disable_log_anonymization and enable_log_anonymization are mutually exclusive.",
+		)
+	}
+	if data.DisableVM != nil && data.EnableVM != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_vm"),
+			"Conflicting Configuration",
+			"disable_vm and enable_vm are mutually exclusive.",
+		)
+	}
+	if data.EnableGPU != nil && data.EnableVgpu != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("enable_gpu"),
+			"Conflicting Configuration",
+			"enable_gpu and enable_vgpu are mutually exclusive.",
+		)
+	}
+	if data.LogReceiver != nil && data.LogsStreamingDisabled != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("log_receiver"),
+			"Conflicting Configuration",
+			"log_receiver and logs_streaming_disabled are mutually exclusive.",
+		)
+	}
+	if data.NoStorageDevice != nil && data.StorageDeviceList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_storage_device"),
+			"Conflicting Configuration",
+			"no_storage_device and storage_device_list are mutually exclusive.",
+		)
+	}
+	if data.NoStorageInterfaces != nil && data.StorageInterfaceList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_storage_interfaces"),
+			"Conflicting Configuration",
+			"no_storage_interfaces and storage_interface_list are mutually exclusive.",
+		)
+	}
+	if data.NoStorageStaticRoutes != nil && data.StorageStaticRoutes != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_storage_static_routes"),
+			"Conflicting Configuration",
+			"no_storage_static_routes and storage_static_routes are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

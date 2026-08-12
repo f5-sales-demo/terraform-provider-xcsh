@@ -346,6 +346,28 @@ func (r *NetworkPolicyRuleResource) ValidateConfig(ctx context.Context, req reso
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.IPPrefixSet != nil && data.Prefix != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ip_prefix_set"),
+			"Conflicting Configuration",
+			"ip_prefix_set and prefix are mutually exclusive.",
+		)
+	}
+	if data.IPPrefixSet != nil && data.PrefixSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ip_prefix_set"),
+			"Conflicting Configuration",
+			"ip_prefix_set and prefix_selector are mutually exclusive.",
+		)
+	}
+	if data.Prefix != nil && data.PrefixSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("prefix"),
+			"Conflicting Configuration",
+			"prefix and prefix_selector are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -641,8 +663,8 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["ports"].([]interface{}); ok && len(v) > 0 {
-		var portsList []string
+	if v, ok := apiResource.Spec["ports"].([]interface{}); ok {
+		portsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				portsList = append(portsList, s)
@@ -653,7 +675,7 @@ func (r *NetworkPolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.Ports = listVal
 		}
-	} else {
+	} else if data.Ports.IsNull() || data.Ports.IsUnknown() {
 		data.Ports = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["prefix"].(map[string]interface{}); ok && (isImport || data.Prefix != nil) {
@@ -907,8 +929,8 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["ports"].([]interface{}); ok && len(v) > 0 {
-		var portsList []string
+	if v, ok := apiResource.Spec["ports"].([]interface{}); ok {
+		portsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				portsList = append(portsList, s)
@@ -919,7 +941,7 @@ func (r *NetworkPolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.Ports = listVal
 		}
-	} else {
+	} else if data.Ports.IsNull() || data.Ports.IsUnknown() {
 		data.Ports = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["prefix"].(map[string]interface{}); ok && (isImport || data.Prefix != nil) {
@@ -1276,8 +1298,8 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["ports"].([]interface{}); ok && len(v) > 0 {
-		var portsList []string
+	if v, ok := apiResource.Spec["ports"].([]interface{}); ok {
+		portsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				portsList = append(portsList, s)
@@ -1288,7 +1310,7 @@ func (r *NetworkPolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.Ports = listVal
 		}
-	} else {
+	} else if data.Ports.IsNull() || data.Ports.IsUnknown() {
 		data.Ports = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["prefix"].(map[string]interface{}); ok && (isImport || data.Prefix != nil) {

@@ -2778,7 +2778,98 @@ func (r *VirtualHostResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.AppendServerName.IsNull() && !data.ServerName.IsNull() {
+	if data.Authentication != nil && data.NoAuthentication != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("authentication"),
+			"Conflicting Configuration",
+			"authentication and no_authentication are mutually exclusive.",
+		)
+	}
+	if data.CaptchaChallenge != nil && data.JsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("captcha_challenge"),
+			"Conflicting Configuration",
+			"captcha_challenge and js_challenge are mutually exclusive.",
+		)
+	}
+	if data.CaptchaChallenge != nil && data.NoChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("captcha_challenge"),
+			"Conflicting Configuration",
+			"captcha_challenge and no_challenge are mutually exclusive.",
+		)
+	}
+	if data.DefaultHeader != nil && !data.AppendServerName.IsNull() && !data.AppendServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_header"),
+			"Conflicting Configuration",
+			"default_header and append_server_name are mutually exclusive.",
+		)
+	}
+	if data.DefaultHeader != nil && data.PassThrough != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_header"),
+			"Conflicting Configuration",
+			"default_header and pass_through are mutually exclusive.",
+		)
+	}
+	if data.DefaultHeader != nil && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_header"),
+			"Conflicting Configuration",
+			"default_header and server_name are mutually exclusive.",
+		)
+	}
+	if data.DefaultLoadBalancer != nil && data.NonDefaultLoadBalancer != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_loadbalancer"),
+			"Conflicting Configuration",
+			"default_loadbalancer and non_default_loadbalancer are mutually exclusive.",
+		)
+	}
+	if data.DisablePathNormalize != nil && data.EnablePathNormalize != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_path_normalize"),
+			"Conflicting Configuration",
+			"disable_path_normalize and enable_path_normalize are mutually exclusive.",
+		)
+	}
+	if data.JsChallenge != nil && data.NoChallenge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("js_challenge"),
+			"Conflicting Configuration",
+			"js_challenge and no_challenge are mutually exclusive.",
+		)
+	}
+	if data.NoRequestLimitPerConnection != nil && !data.MaxRequestsPerConnection.IsNull() && !data.MaxRequestsPerConnection.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_request_limit_per_connection"),
+			"Conflicting Configuration",
+			"no_request_limit_per_connection and max_requests_per_connection are mutually exclusive.",
+		)
+	}
+	if data.PassThrough != nil && !data.AppendServerName.IsNull() && !data.AppendServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("pass_through"),
+			"Conflicting Configuration",
+			"pass_through and append_server_name are mutually exclusive.",
+		)
+	}
+	if data.PassThrough != nil && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("pass_through"),
+			"Conflicting Configuration",
+			"pass_through and server_name are mutually exclusive.",
+		)
+	}
+	if data.TLSCertParams != nil && data.TLSParameters != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("tls_cert_params"),
+			"Conflicting Configuration",
+			"tls_cert_params and tls_parameters are mutually exclusive.",
+		)
+	}
+	if !data.AppendServerName.IsNull() && !data.AppendServerName.IsUnknown() && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("append_server_name"),
 			"Conflicting Configuration",
@@ -4641,8 +4732,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok && isImport && data.DisablePathNormalize == nil {
 		data.DisablePathNormalize = &VirtualHostEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -4653,7 +4744,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dynamic_reverse_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicReverseProxy != nil) {
@@ -5011,8 +5102,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	} else {
 		data.RequestCookiesToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRequestCookiesToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var request_cookies_to_removeList []string
+	if v, ok := apiResource.Spec["request_cookies_to_remove"].([]interface{}); ok {
+		request_cookies_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				request_cookies_to_removeList = append(request_cookies_to_removeList, s)
@@ -5023,7 +5114,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.RequestCookiesToRemove = listVal
 		}
-	} else {
+	} else if data.RequestCookiesToRemove.IsNull() || data.RequestCookiesToRemove.IsUnknown() {
 		data.RequestCookiesToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.RequestHeadersToAdd.IsNull() || len(data.RequestHeadersToAdd.Elements()) == 0) {
@@ -5124,8 +5215,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	} else {
 		data.RequestHeadersToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRequestHeadersToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var request_headers_to_removeList []string
+	if v, ok := apiResource.Spec["request_headers_to_remove"].([]interface{}); ok {
+		request_headers_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				request_headers_to_removeList = append(request_headers_to_removeList, s)
@@ -5136,7 +5227,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.RequestHeadersToRemove = listVal
 		}
-	} else {
+	} else if data.RequestHeadersToRemove.IsNull() || data.RequestHeadersToRemove.IsUnknown() {
 		data.RequestHeadersToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.ResponseCookiesToAdd.IsNull() || len(data.ResponseCookiesToAdd.Elements()) == 0) {
@@ -5396,8 +5487,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	} else {
 		data.ResponseCookiesToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostResponseCookiesToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var response_cookies_to_removeList []string
+	if v, ok := apiResource.Spec["response_cookies_to_remove"].([]interface{}); ok {
+		response_cookies_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				response_cookies_to_removeList = append(response_cookies_to_removeList, s)
@@ -5408,7 +5499,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.ResponseCookiesToRemove = listVal
 		}
-	} else {
+	} else if data.ResponseCookiesToRemove.IsNull() || data.ResponseCookiesToRemove.IsUnknown() {
 		data.ResponseCookiesToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.ResponseHeadersToAdd.IsNull() || len(data.ResponseHeadersToAdd.Elements()) == 0) {
@@ -5509,8 +5600,8 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	} else {
 		data.ResponseHeadersToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostResponseHeadersToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var response_headers_to_removeList []string
+	if v, ok := apiResource.Spec["response_headers_to_remove"].([]interface{}); ok {
+		response_headers_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				response_headers_to_removeList = append(response_headers_to_removeList, s)
@@ -5521,7 +5612,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.ResponseHeadersToRemove = listVal
 		}
-	} else {
+	} else if data.ResponseHeadersToRemove.IsNull() || data.ResponseHeadersToRemove.IsUnknown() {
 		data.ResponseHeadersToRemove = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["retry_policy"].(map[string]interface{}); ok && (isImport || data.RetryPolicy != nil) {
@@ -7127,8 +7218,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok && isImport && data.DisablePathNormalize == nil {
 		data.DisablePathNormalize = &VirtualHostEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -7139,7 +7230,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dynamic_reverse_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicReverseProxy != nil) {
@@ -7497,8 +7588,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	} else {
 		data.RequestCookiesToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRequestCookiesToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var request_cookies_to_removeList []string
+	if v, ok := apiResource.Spec["request_cookies_to_remove"].([]interface{}); ok {
+		request_cookies_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				request_cookies_to_removeList = append(request_cookies_to_removeList, s)
@@ -7509,7 +7600,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.RequestCookiesToRemove = listVal
 		}
-	} else {
+	} else if data.RequestCookiesToRemove.IsNull() || data.RequestCookiesToRemove.IsUnknown() {
 		data.RequestCookiesToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.RequestHeadersToAdd.IsNull() || len(data.RequestHeadersToAdd.Elements()) == 0) {
@@ -7610,8 +7701,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	} else {
 		data.RequestHeadersToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRequestHeadersToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var request_headers_to_removeList []string
+	if v, ok := apiResource.Spec["request_headers_to_remove"].([]interface{}); ok {
+		request_headers_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				request_headers_to_removeList = append(request_headers_to_removeList, s)
@@ -7622,7 +7713,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.RequestHeadersToRemove = listVal
 		}
-	} else {
+	} else if data.RequestHeadersToRemove.IsNull() || data.RequestHeadersToRemove.IsUnknown() {
 		data.RequestHeadersToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.ResponseCookiesToAdd.IsNull() || len(data.ResponseCookiesToAdd.Elements()) == 0) {
@@ -7882,8 +7973,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	} else {
 		data.ResponseCookiesToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostResponseCookiesToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var response_cookies_to_removeList []string
+	if v, ok := apiResource.Spec["response_cookies_to_remove"].([]interface{}); ok {
+		response_cookies_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				response_cookies_to_removeList = append(response_cookies_to_removeList, s)
@@ -7894,7 +7985,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.ResponseCookiesToRemove = listVal
 		}
-	} else {
+	} else if data.ResponseCookiesToRemove.IsNull() || data.ResponseCookiesToRemove.IsUnknown() {
 		data.ResponseCookiesToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.ResponseHeadersToAdd.IsNull() || len(data.ResponseHeadersToAdd.Elements()) == 0) {
@@ -7995,8 +8086,8 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	} else {
 		data.ResponseHeadersToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostResponseHeadersToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var response_headers_to_removeList []string
+	if v, ok := apiResource.Spec["response_headers_to_remove"].([]interface{}); ok {
+		response_headers_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				response_headers_to_removeList = append(response_headers_to_removeList, s)
@@ -8007,7 +8098,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.ResponseHeadersToRemove = listVal
 		}
-	} else {
+	} else if data.ResponseHeadersToRemove.IsNull() || data.ResponseHeadersToRemove.IsUnknown() {
 		data.ResponseHeadersToRemove = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["retry_policy"].(map[string]interface{}); ok && (isImport || data.RetryPolicy != nil) {
@@ -10805,8 +10896,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok && isImport && data.DisablePathNormalize == nil {
 		data.DisablePathNormalize = &VirtualHostEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -10817,7 +10908,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dynamic_reverse_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicReverseProxy != nil) {
@@ -11175,8 +11266,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	} else {
 		data.RequestCookiesToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRequestCookiesToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["request_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var request_cookies_to_removeList []string
+	if v, ok := apiResource.Spec["request_cookies_to_remove"].([]interface{}); ok {
+		request_cookies_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				request_cookies_to_removeList = append(request_cookies_to_removeList, s)
@@ -11187,7 +11278,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.RequestCookiesToRemove = listVal
 		}
-	} else {
+	} else if data.RequestCookiesToRemove.IsNull() || data.RequestCookiesToRemove.IsUnknown() {
 		data.RequestCookiesToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.RequestHeadersToAdd.IsNull() || len(data.RequestHeadersToAdd.Elements()) == 0) {
@@ -11288,8 +11379,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	} else {
 		data.RequestHeadersToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRequestHeadersToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var request_headers_to_removeList []string
+	if v, ok := apiResource.Spec["request_headers_to_remove"].([]interface{}); ok {
+		request_headers_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				request_headers_to_removeList = append(request_headers_to_removeList, s)
@@ -11300,7 +11391,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.RequestHeadersToRemove = listVal
 		}
-	} else {
+	} else if data.RequestHeadersToRemove.IsNull() || data.RequestHeadersToRemove.IsUnknown() {
 		data.RequestHeadersToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.ResponseCookiesToAdd.IsNull() || len(data.ResponseCookiesToAdd.Elements()) == 0) {
@@ -11560,8 +11651,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	} else {
 		data.ResponseCookiesToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostResponseCookiesToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["response_cookies_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var response_cookies_to_removeList []string
+	if v, ok := apiResource.Spec["response_cookies_to_remove"].([]interface{}); ok {
+		response_cookies_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				response_cookies_to_removeList = append(response_cookies_to_removeList, s)
@@ -11572,7 +11663,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.ResponseCookiesToRemove = listVal
 		}
-	} else {
+	} else if data.ResponseCookiesToRemove.IsNull() || data.ResponseCookiesToRemove.IsUnknown() {
 		data.ResponseCookiesToRemove = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.ResponseHeadersToAdd.IsNull() || len(data.ResponseHeadersToAdd.Elements()) == 0) {
@@ -11673,8 +11764,8 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	} else {
 		data.ResponseHeadersToAdd = types.ListNull(types.ObjectType{AttrTypes: VirtualHostResponseHeadersToAddModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["response_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
-		var response_headers_to_removeList []string
+	if v, ok := apiResource.Spec["response_headers_to_remove"].([]interface{}); ok {
+		response_headers_to_removeList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				response_headers_to_removeList = append(response_headers_to_removeList, s)
@@ -11685,7 +11776,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.ResponseHeadersToRemove = listVal
 		}
-	} else {
+	} else if data.ResponseHeadersToRemove.IsNull() || data.ResponseHeadersToRemove.IsUnknown() {
 		data.ResponseHeadersToRemove = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["retry_policy"].(map[string]interface{}); ok && (isImport || data.RetryPolicy != nil) {

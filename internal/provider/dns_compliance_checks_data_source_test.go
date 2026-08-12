@@ -53,9 +53,12 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_dns_compliance_checks" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  depends_on                           = [time_sleep.wait_for_namespace]
+  name                                 = %[2]q
+  namespace                            = xcsh_namespace.test.name
+  domain_denylist                      = []
+  disallowed_query_type_list           = []
+  disallowed_resource_record_type_list = []
 }
 
 data "xcsh_dns_compliance_checks" "test" {

@@ -2281,6 +2281,42 @@ func (r *OriginPoolResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AutomaticPort != nil && data.LBPort != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("automatic_port"),
+			"Conflicting Configuration",
+			"automatic_port and lb_port are mutually exclusive.",
+		)
+	}
+	if data.AutomaticPort != nil && !data.Port.IsNull() && !data.Port.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("automatic_port"),
+			"Conflicting Configuration",
+			"automatic_port and port are mutually exclusive.",
+		)
+	}
+	if data.LBPort != nil && !data.Port.IsNull() && !data.Port.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("lb_port"),
+			"Conflicting Configuration",
+			"lb_port and port are mutually exclusive.",
+		)
+	}
+	if data.UseTLS != nil && data.NoTLS != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("use_tls"),
+			"Conflicting Configuration",
+			"use_tls and no_tls are mutually exclusive.",
+		)
+	}
+	if !data.HealthCheckPort.IsNull() && !data.HealthCheckPort.IsUnknown() && data.SameAsEndpointPort != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("health_check_port"),
+			"Conflicting Configuration",
+			"health_check_port and same_as_endpoint_port are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

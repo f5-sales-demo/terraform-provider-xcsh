@@ -60,9 +60,12 @@ resource "xcsh_certificate" "test" {
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
 
-  certificate_url       = "string:///%[3]s"
-  private_key           = "string:///%[4]s"
-  disable_ocsp_stapling = "true"
+  certificate_url = "string:///%[3]s"
+  private_key {
+    clear_secret_info {
+      url = "string:///%[4]s"
+    }
+  }
 }
 
 data "xcsh_certificate" "test" {

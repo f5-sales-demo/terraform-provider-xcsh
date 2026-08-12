@@ -678,6 +678,77 @@ func (r *CloudCredentialsResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AWSAssumeRole != nil && data.AWSSecretKey != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("aws_assume_role"),
+			"Conflicting Configuration",
+			"aws_assume_role and aws_secret_key are mutually exclusive.",
+		)
+	}
+	if data.AWSAssumeRole != nil && data.AzureClientSecret != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("aws_assume_role"),
+			"Conflicting Configuration",
+			"aws_assume_role and azure_client_secret are mutually exclusive.",
+		)
+	}
+	if data.AWSAssumeRole != nil && data.AzurePfxCertificate != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("aws_assume_role"),
+			"Conflicting Configuration",
+			"aws_assume_role and azure_pfx_certificate are mutually exclusive.",
+		)
+	}
+	if data.AWSAssumeRole != nil && data.GCPCredFile != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("aws_assume_role"),
+			"Conflicting Configuration",
+			"aws_assume_role and gcp_cred_file are mutually exclusive.",
+		)
+	}
+	if data.AWSSecretKey != nil && data.AzureClientSecret != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("aws_secret_key"),
+			"Conflicting Configuration",
+			"aws_secret_key and azure_client_secret are mutually exclusive.",
+		)
+	}
+	if data.AWSSecretKey != nil && data.AzurePfxCertificate != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("aws_secret_key"),
+			"Conflicting Configuration",
+			"aws_secret_key and azure_pfx_certificate are mutually exclusive.",
+		)
+	}
+	if data.AWSSecretKey != nil && data.GCPCredFile != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("aws_secret_key"),
+			"Conflicting Configuration",
+			"aws_secret_key and gcp_cred_file are mutually exclusive.",
+		)
+	}
+	if data.AzureClientSecret != nil && data.AzurePfxCertificate != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("azure_client_secret"),
+			"Conflicting Configuration",
+			"azure_client_secret and azure_pfx_certificate are mutually exclusive.",
+		)
+	}
+	if data.AzureClientSecret != nil && data.GCPCredFile != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("azure_client_secret"),
+			"Conflicting Configuration",
+			"azure_client_secret and gcp_cred_file are mutually exclusive.",
+		)
+	}
+	if data.AzurePfxCertificate != nil && data.GCPCredFile != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("azure_pfx_certificate"),
+			"Conflicting Configuration",
+			"azure_pfx_certificate and gcp_cred_file are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

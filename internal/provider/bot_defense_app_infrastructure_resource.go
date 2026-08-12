@@ -391,6 +391,14 @@ func (r *BotDefenseAppInfrastructureResource) ValidateConfig(ctx context.Context
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.CloudHosted != nil && data.DataCenterHosted != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("cloud_hosted"),
+			"Conflicting Configuration",
+			"cloud_hosted and data_center_hosted are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

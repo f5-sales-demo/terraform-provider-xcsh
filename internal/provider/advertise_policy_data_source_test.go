@@ -41,10 +41,12 @@ func testAccAdvertisePolicyDataSourceConfig_basic(name string) string {
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
 resource "xcsh_advertise_policy" "test" {
-  name      = %[1]q
-  namespace = "system"
-  port      = 80
-  protocol  = "TCP"
+  name            = %[1]q
+  namespace       = "system"
+  address         = "192.0.2.1"
+  port            = 80
+  protocol        = "TCP"
+  skip_xff_append = false
 }
 
 data "xcsh_advertise_policy" "test" {

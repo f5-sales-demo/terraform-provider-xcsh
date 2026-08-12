@@ -42,9 +42,12 @@ func testAccFleetDataSourceConfig_basic(name string) string {
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
 resource "xcsh_fleet" "test" {
-  name        = %[1]q
-  namespace   = "system"
-  fleet_label = %[1]q
+  name                                 = %[1]q
+  namespace                            = "system"
+  fleet_label                          = %[1]q
+  enable_default_fleet_config_download = false
+  operating_system_version             = "default"
+  volterra_software_version            = "default"
 }
 
 data "xcsh_fleet" "test" {

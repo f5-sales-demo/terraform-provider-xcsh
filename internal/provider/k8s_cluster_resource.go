@@ -686,6 +686,77 @@ func (r *K8SClusterResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.ClusterScopedAccessPermit != nil && data.ClusterScopedAccessDeny != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("cluster_scoped_access_permit"),
+			"Conflicting Configuration",
+			"cluster_scoped_access_permit and cluster_scoped_access_deny are mutually exclusive.",
+		)
+	}
+	if data.ClusterWideAppList != nil && data.NoClusterWideApps != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("cluster_wide_app_list"),
+			"Conflicting Configuration",
+			"cluster_wide_app_list and no_cluster_wide_apps are mutually exclusive.",
+		)
+	}
+	if data.GlobalAccessEnable != nil && data.NoGlobalAccess != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("global_access_enable"),
+			"Conflicting Configuration",
+			"global_access_enable and no_global_access are mutually exclusive.",
+		)
+	}
+	if data.InsecureRegistryList != nil && data.NoInsecureRegistries != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("insecure_registry_list"),
+			"Conflicting Configuration",
+			"insecure_registry_list and no_insecure_registries are mutually exclusive.",
+		)
+	}
+	if data.LocalAccessConfig != nil && data.NoLocalAccess != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("local_access_config"),
+			"Conflicting Configuration",
+			"local_access_config and no_local_access are mutually exclusive.",
+		)
+	}
+	if data.UseCustomClusterRoleBindings != nil && data.UseDefaultClusterRoleBindings != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("use_custom_cluster_role_bindings"),
+			"Conflicting Configuration",
+			"use_custom_cluster_role_bindings and use_default_cluster_role_bindings are mutually exclusive.",
+		)
+	}
+	if data.UseCustomClusterRoleList != nil && data.UseDefaultClusterRoles != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("use_custom_cluster_role_list"),
+			"Conflicting Configuration",
+			"use_custom_cluster_role_list and use_default_cluster_roles are mutually exclusive.",
+		)
+	}
+	if data.UseCustomPodSecurityAdmission != nil && data.UseDefaultPodSecurityAdmission != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("use_custom_pod_security_admission"),
+			"Conflicting Configuration",
+			"use_custom_pod_security_admission and use_default_pod_security_admission are mutually exclusive.",
+		)
+	}
+	if data.UseCustomPspList != nil && data.UseDefaultPsp != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("use_custom_psp_list"),
+			"Conflicting Configuration",
+			"use_custom_psp_list and use_default_psp are mutually exclusive.",
+		)
+	}
+	if data.Vk8sNamespaceAccessPermit != nil && data.Vk8sNamespaceAccessDeny != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("vk8s_namespace_access_permit"),
+			"Conflicting Configuration",
+			"vk8s_namespace_access_permit and vk8s_namespace_access_deny are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

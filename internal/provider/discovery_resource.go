@@ -1171,6 +1171,21 @@ func (r *DiscoveryResource) ValidateConfig(ctx context.Context, req resource.Val
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.DiscoveryConsul != nil && data.DiscoveryK8S != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("discovery_consul"),
+			"Conflicting Configuration",
+			"discovery_consul and discovery_k8s are mutually exclusive.",
+		)
+	}
+	if data.NoClusterID != nil && !data.ClusterID.IsNull() && !data.ClusterID.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_cluster_id"),
+			"Conflicting Configuration",
+			"no_cluster_id and cluster_id are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -2083,9 +2098,6 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				return nil
 			}(),
 			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
-				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil {
-					return data.DiscoveryK8S.NamespaceMapping
-				}
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
 						Items: func() types.List {
@@ -2127,9 +2139,6 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				return nil
 			}(),
 			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
-				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
-					return data.DiscoveryK8S.PublishInfo
-				}
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
@@ -2164,9 +2173,6 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							return nil
 						}(),
 						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.Publish != nil {
-								return data.DiscoveryK8S.PublishInfo.Publish
-							}
 							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
 									Namespace: func() types.String {
@@ -2978,9 +2984,6 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				return nil
 			}(),
 			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
-				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil {
-					return data.DiscoveryK8S.NamespaceMapping
-				}
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
 						Items: func() types.List {
@@ -3022,9 +3025,6 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				return nil
 			}(),
 			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
-				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
-					return data.DiscoveryK8S.PublishInfo
-				}
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
@@ -3059,9 +3059,6 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							return nil
 						}(),
 						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.Publish != nil {
-								return data.DiscoveryK8S.PublishInfo.Publish
-							}
 							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
 									Namespace: func() types.String {
@@ -4244,9 +4241,6 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				return nil
 			}(),
 			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
-				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.NamespaceMapping != nil {
-					return data.DiscoveryK8S.NamespaceMapping
-				}
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SNamespaceMappingModel{
 						Items: func() types.List {
@@ -4288,9 +4282,6 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				return nil
 			}(),
 			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
-				if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
-					return data.DiscoveryK8S.PublishInfo
-				}
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
 						DisableSpec: func() *DiscoveryEmptyModel {
@@ -4325,9 +4316,6 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							return nil
 						}(),
 						Publish: func() *DiscoveryDiscoveryK8SPublishInfoPublishModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.Publish != nil {
-								return data.DiscoveryK8S.PublishInfo.Publish
-							}
 							if PublishData, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
 								return &DiscoveryDiscoveryK8SPublishInfoPublishModel{
 									Namespace: func() types.String {

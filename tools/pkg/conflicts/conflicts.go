@@ -11,23 +11,32 @@ import (
 type Attr struct {
 	TfsdkTag      string
 	GoName        string
+	IsPointer     bool
 	ConflictsWith []string
+}
+
+// Field describes how a top-level Terraform field is represented in the
+// generated resource model. Single nested blocks are pointers; attributes and
+// list nested blocks are framework values with IsNull/IsUnknown methods.
+type Field struct {
+	GoName    string
+	IsPointer bool
 }
 
 // GenerateChecks returns Go code for ValidateConfig body that checks mutual exclusivity.
 // Deduplicates: if A conflicts with B and B conflicts with A, only one check is emitted.
-// The goNameLookup map resolves tfsdk tags to Go field names for conflict targets.
-// If a conflict target is not found in the lookup, it is skipped (it may be a block or
-// an attribute that doesn't exist in the model).
-func GenerateChecks(attrs []Attr, goNameLookup map[string]string) string {
+// The fieldLookup map resolves tfsdk tags to generated model fields.
+// If a conflict target is not found in the lookup, it is skipped because it does not
+// exist in the generated model.
+func GenerateChecks(attrs []Attr, fieldLookup map[string]Field) string {
 	var sb strings.Builder
 	seen := make(map[string]bool)
 
 	for _, attr := range attrs {
 		for _, conflict := range attr.ConflictsWith {
-			conflictGoName, ok := goNameLookup[conflict]
+			conflictField, ok := fieldLookup[conflict]
 			if !ok {
-				// Conflict target not in lookup — skip (may be a block or missing attribute)
+				// Conflict target not in lookup — skip the missing field.
 				continue
 			}
 
@@ -38,7 +47,7 @@ func GenerateChecks(attrs []Attr, goNameLookup map[string]string) string {
 			}
 			seen[pairKey] = true
 
-			sb.WriteString(fmt.Sprintf("\tif !data.%s.IsNull() && !data.%s.IsNull() {\n", attr.GoName, conflictGoName))
+			sb.WriteString(fmt.Sprintf("\tif %s && %s {\n", configuredExpression(Field{GoName: attr.GoName, IsPointer: attr.IsPointer}), configuredExpression(conflictField)))
 			sb.WriteString("\t\tresp.Diagnostics.AddAttributeError(\n")
 			sb.WriteString(fmt.Sprintf("\t\t\tpath.Root(%q),\n", attr.TfsdkTag))
 			sb.WriteString("\t\t\t\"Conflicting Configuration\",\n")
@@ -47,6 +56,13 @@ func GenerateChecks(attrs []Attr, goNameLookup map[string]string) string {
 		}
 	}
 	return sb.String()
+}
+
+func configuredExpression(field Field) string {
+	if field.IsPointer {
+		return fmt.Sprintf("data.%s != nil", field.GoName)
+	}
+	return fmt.Sprintf("!data.%s.IsNull() && !data.%s.IsUnknown()", field.GoName, field.GoName)
 }
 
 // TfsdkToGoName converts snake_case tfsdk tag to TitleCase Go field name.
