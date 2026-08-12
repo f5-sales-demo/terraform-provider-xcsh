@@ -71,7 +71,7 @@ jobs:
   # ===========================================================================
   detect-changes:
     name: Detect Changes
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     permissions:
       contents: read # actions/checkout only
       pull-requests: read # attest an automated regeneration merge from its exact PR
@@ -427,7 +427,7 @@ jobs:
     name: Classify Generator State
     needs: [detect-changes, build-test, regenerate-provider, regenerate-docs]
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     permissions: {}
     outputs:
       create-pr: ${{ steps.classify.outputs.create_pr }}
@@ -530,7 +530,7 @@ jobs:
       always() &&
       needs.generation-state.result == 'success' &&
       needs.generation-state.outputs.create-pr == 'true'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     # Branch push, issue creation, PR creation and auto-merge all authenticate
     # with secrets.REPO_SYNC_TOKEN (checkout too, with persist-credentials:
     # false), so GITHUB_TOKEN needs no write scope here.
@@ -916,7 +916,7 @@ jobs:
       needs.detect-changes.outputs.is-regeneration-commit == 'true' &&
       needs.tag-release.result == 'success' &&
       needs.tag-release.outputs.new-tag != ''
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     permissions:
       contents: read
     steps:
@@ -931,7 +931,7 @@ jobs:
           fi
 
       - name: Checkout immutable released commit
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
           fetch-depth: 0
@@ -1041,7 +1041,7 @@ jobs:
     name: Workflow Summary
     needs: [detect-changes, build-test, regenerate-provider, regenerate-docs, generation-state, create-regeneration-pr, tag-release, receipt-spec-delivery]
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     permissions: {} # writes only to GITHUB_STEP_SUMMARY
     steps:
       - name: Print summary

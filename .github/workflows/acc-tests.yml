@@ -80,7 +80,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   mock-tests:
     name: Mock Tests (Parallel)
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     # Always run mock tests except for real-only mode
     if: |
       github.event_name != 'workflow_dispatch' ||
@@ -420,7 +420,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   compare-results:
     name: Compare Mock vs Real
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     needs: [mock-tests, real-api-tests]
     # Only run when both mock and real tests have completed
     if: |
@@ -540,7 +540,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   summary:
     name: Test Summary
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     needs: [mock-tests, real-api-tests, compare-results, cleanup]
     if: always()
 

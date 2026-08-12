@@ -301,7 +301,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   summary:
     name: Discovery Summary
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh]
     needs: discover
     if: always()
     steps:
