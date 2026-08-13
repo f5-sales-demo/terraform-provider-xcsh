@@ -19,6 +19,7 @@ import (
 )
 
 const repositoryRunnerLabel = "terraform-provider-xcsh"
+const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 
 var canonicalSelfHostedRunsOn = []string{
 	"self-hosted", "Linux", "X64", repositoryRunnerLabel, "ubuntu-24.04",
@@ -106,6 +107,21 @@ func stringSlice(value any) ([]string, error) {
 	default:
 		return nil, fmt.Errorf("runs-on must be a literal string or list, got %T", value)
 	}
+}
+
+func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []string {
+	canonical := append([]string(nil), runsOn...)
+	for index, label := range runsOn {
+		if !strings.Contains(label, "${{") {
+			continue
+		}
+		if label != repositoryRunnerExpression {
+			*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
+			continue
+		}
+		canonical[index] = repositoryRunnerLabel
+	}
+	return canonical
 }
 
 func stringMap(value any) (map[string]string, error) {
@@ -277,14 +293,11 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 	for jobID, job := range workflow.Jobs {
 		runsOn, runErr := stringSlice(job["runs-on"])
 		isSelfHosted := runErr == nil && slicesContain(runsOn, "self-hosted")
+		canonicalRunsOn := runsOn
 		if runErr == nil {
-			for _, label := range runsOn {
-				if strings.Contains(label, "${{") {
-					errors = append(errors, jobID+": dynamic runs-on is forbidden")
-				}
-			}
+			canonicalRunsOn = canonicalizeRunsOn(runsOn, &errors, jobID)
 		}
-		if isSelfHosted && !reflect.DeepEqual(runsOn, canonicalSelfHostedRunsOn) {
+		if isSelfHosted && !reflect.DeepEqual(canonicalRunsOn, canonicalSelfHostedRunsOn) {
 			errors = append(errors, jobID+": invalid self-hosted tuple")
 		}
 		contract, listed := contracts[jobID]
@@ -295,8 +308,8 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 			errors = append(errors, jobID+": "+runErr.Error())
 			continue
 		}
-		if !reflect.DeepEqual(runsOn, contract.runsOn) {
-			errors = append(errors, fmt.Sprintf("%s: runs-on %v", jobID, runsOn))
+		if !reflect.DeepEqual(canonicalRunsOn, contract.runsOn) {
+			errors = append(errors, fmt.Sprintf("%s: runs-on %v", jobID, canonicalRunsOn))
 		}
 		if scalarString(job["environment"]) != contract.environment {
 			errors = append(errors, jobID+": environment mismatch")
@@ -418,25 +431,27 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		}
 	}
 	expected := map[string]bool{
-		"acc-tests.yml/cleanup":               true,
-		"acc-tests.yml/compare-results":       true,
-		"acc-tests.yml/mock-tests":            true,
-		"acc-tests.yml/real-api-tests":        true,
-		"acc-tests.yml/summary":               true,
-		"ci.yml/check-constitution":           true,
-		"ci.yml/validate-docs-generation":     true,
-		"ci.yml/validate-mock-fixtures":       true,
-		"ci.yml/validate-shell-scripts":       true,
-		"ci.yml/validate-terraform-examples":  true,
-		"discover-defaults.yml/discover":      true,
-		"discover-defaults.yml/summary":       true,
-		"on-merge.yml/create-regeneration-pr": true,
-		"on-merge.yml/detect-changes":         true,
-		"on-merge.yml/generation-state":       true,
-		"on-merge.yml/receipt-spec-delivery":  true,
-		"on-merge.yml/summary":                true,
-		"security-audit.yml/govulncheck":      true,
-		"sync-openapi.yml/sync":               true,
+		"acc-tests.yml/cleanup":                    true,
+		"acc-tests.yml/compare-results":            true,
+		"acc-tests.yml/mock-tests":                 true,
+		"acc-tests.yml/real-api-tests":             true,
+		"acc-tests.yml/summary":                    true,
+		"ci.yml/check-constitution":                true,
+		"ci.yml/validate-docs-generation":          true,
+		"ci.yml/validate-mock-fixtures":            true,
+		"ci.yml/validate-shell-scripts":            true,
+		"ci.yml/validate-terraform-examples":       true,
+		"discover-defaults.yml/discover":           true,
+		"discover-defaults.yml/summary":            true,
+		"enforce-repo-settings.yml/resolve-source": true,
+		"on-merge.yml/create-regeneration-pr":      true,
+		"on-merge.yml/detect-changes":              true,
+		"on-merge.yml/generation-state":            true,
+		"on-merge.yml/receipt-spec-delivery":       true,
+		"on-merge.yml/summary":                     true,
+		"require-linked-issue.yml/check":           true,
+		"security-audit.yml/govulncheck":           true,
+		"sync-openapi.yml/sync":                    true,
 	}
 	if !reflect.DeepEqual(selfHosted, expected) {
 		t.Fatalf("self-hosted inventory mismatch: %v", selfHosted)
@@ -493,6 +508,24 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 				t.Fatal("unsafe mutation passed validation")
 			}
 		})
+	}
+}
+
+func TestWorkflowContractsRejectNonCanonicalDynamicRunner(t *testing.T) {
+	valid := []byte(`
+name: runner contract fixture
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: [self-hosted, Linux, X64, "${{ github.event.repository.name }}", ubuntu-24.04]
+`)
+	if issues := validateWorkflowBytes("fixture.yml", valid); len(issues) != 0 {
+		t.Fatalf("canonical repository runner expression failed: %v", issues)
+	}
+
+	unsafe := []byte(strings.Replace(string(valid), "github.event.repository.name", "github.event.inputs.runner", 1))
+	if issues := validateWorkflowBytes("fixture.yml", unsafe); len(issues) == 0 {
+		t.Fatal("non-canonical dynamic runner passed validation")
 	}
 }
 
