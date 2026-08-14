@@ -445,6 +445,13 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		}
 	}
 	expected := map[string]bool{
+		"_build-test.yml/build":                    true,
+		"_build-test.yml/lint":                     true,
+		"_generate-docs.yml/generate":              true,
+		"_generate-provider.yml/generate":          true,
+		"_tag-release.yml/preflight":               true,
+		"_tag-release.yml/publish":                 true,
+		"_tag-release.yml/tag":                     true,
 		"acc-tests.yml/cleanup":                    true,
 		"acc-tests.yml/compare-results":            true,
 		"acc-tests.yml/mock-tests":                 true,

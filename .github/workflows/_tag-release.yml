@@ -27,7 +27,7 @@ concurrency:
 jobs:
   preflight:
     name: Verify Release Source Is Reproducible
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, "${{ github.event.repository.name }}", ubuntu-24.04]
     permissions:
       contents: read # checkout and exact public spec release download
     steps:
@@ -95,7 +95,7 @@ jobs:
   tag:
     name: Resolve Immutable Version Tag
     needs: preflight
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, "${{ github.event.repository.name }}", ubuntu-24.04]
     # Creates the annotated version tag after proving it targets github.sha.
     permissions:
       contents: write # push the verified annotated tag
@@ -202,7 +202,7 @@ jobs:
   publish:
     name: Verify and Publish Release
     needs: tag
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, "${{ github.event.repository.name }}", ubuntu-24.04]
     # GoReleaser creates/repairs the draft and this job seals it after byte verification.
     permissions:
       contents: write # create/repair, verify, and publish release assets
