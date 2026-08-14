@@ -226,7 +226,7 @@ func recursivelyCollectSecrets(value any, path []string, found map[string]bool, 
 	}
 }
 
-func validateWorkflowBytes(filename string, content []byte) []string {
+func validateWorkflowBytes(filename string, content []byte, policySchema int) []string {
 	var workflow workflowDocument
 	if err := yaml.Unmarshal(content, &workflow); err != nil {
 		return []string{err.Error()}
@@ -257,6 +257,9 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 	contracts := map[string]jobContract{}
 	for _, contract := range protectedJobs {
 		if contract.workflow == filename {
+			if policySchema == 3 && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
+				contract.runsOn = canonicalSelfHostedRunsOn
+			}
 			contracts[contract.job] = contract
 		}
 	}
@@ -394,6 +397,17 @@ func slicesContain(values []string, wanted string) bool {
 
 func TestProviderWorkflowContracts(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
+	policyPath := filepath.Join("..", ".github", "config", "self-hosted-runner-policy.json")
+	policyBytes, err := os.ReadFile(policyPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var policy struct {
+		SchemaVersion int `json:"schema_version"`
+	}
+	if err := json.Unmarshal(policyBytes, &policy); err != nil {
+		t.Fatal(err)
+	}
 	entries, err := filepath.Glob(filepath.Join(workflowDir, "*.y*ml"))
 	if err != nil {
 		t.Fatal(err)
@@ -405,7 +419,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 			t.Fatal(err)
 		}
 		filename := filepath.Base(path)
-		for _, issue := range validateWorkflowBytes(filename, content) {
+		for _, issue := range validateWorkflowBytes(filename, content, policy.SchemaVersion) {
 			t.Errorf("%s: %s", filename, issue)
 		}
 		var workflow workflowDocument
@@ -452,6 +466,18 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		"require-linked-issue.yml/check":           true,
 		"security-audit.yml/govulncheck":           true,
 		"sync-openapi.yml/sync":                    true,
+	}
+	switch policy.SchemaVersion {
+	case 1:
+		// Schema v1 routes governed jobs to GitHub-hosted runners.
+	case 3:
+		// Schema v3 routes governed jobs to the managed socketless Docker fleet.
+		expected["auto-merge.yml/require-token"] = true
+		expected["dependabot-auto-merge.yml/auto-merge"] = true
+		expected["semgrep.yml/semgrep"] = true
+		expected["workflow-security-audit.yml/audit"] = true
+	default:
+		t.Fatalf("unsupported runner policy schema version: %d", policy.SchemaVersion)
 	}
 	if !reflect.DeepEqual(selfHosted, expected) {
 		t.Fatalf("self-hosted inventory mismatch: %v", selfHosted)
@@ -504,7 +530,7 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 			if mutated == string(base) {
 				t.Fatal("mutation did not apply")
 			}
-			if issues := validateWorkflowBytes("acc-tests.yml", []byte(mutated)); len(issues) == 0 {
+			if issues := validateWorkflowBytes("acc-tests.yml", []byte(mutated), 1); len(issues) == 0 {
 				t.Fatal("unsafe mutation passed validation")
 			}
 		})
@@ -519,12 +545,12 @@ jobs:
   check:
     runs-on: [self-hosted, Linux, X64, "${{ github.event.repository.name }}", ubuntu-24.04]
 `)
-	if issues := validateWorkflowBytes("fixture.yml", valid); len(issues) != 0 {
+	if issues := validateWorkflowBytes("fixture.yml", valid, 1); len(issues) != 0 {
 		t.Fatalf("canonical repository runner expression failed: %v", issues)
 	}
 
 	unsafe := []byte(strings.Replace(string(valid), "github.event.repository.name", "github.event.inputs.runner", 1))
-	if issues := validateWorkflowBytes("fixture.yml", unsafe); len(issues) == 0 {
+	if issues := validateWorkflowBytes("fixture.yml", unsafe, 1); len(issues) == 0 {
 		t.Fatal("non-canonical dynamic runner passed validation")
 	}
 }
