@@ -90,6 +90,10 @@ repo=$(new_repo manual-exception)
 stage_file "$repo" internal/provider/site_registration_data_source.go
 assert_passes "manually maintained provider source" "$repo"
 
+repo=$(new_repo site-image-manual-exception)
+stage_file "$repo" internal/provider/site_image_data_source.go
+assert_passes "site image manually maintained provider source" "$repo"
+
 repo=$(new_repo no-files)
 assert_passes "repository with no staged changes" "$repo"
 

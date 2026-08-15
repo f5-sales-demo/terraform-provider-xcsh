@@ -216,6 +216,9 @@ func TestGenerateProviderRegistration_StandaloneDataSources(t *testing.T) {
 	if !contains(contentStr, "NewSiteRegistrationDataSource,") {
 		t.Error("expected NewSiteRegistrationDataSource in provider.go DataSources()")
 	}
+	if !contains(contentStr, "NewSiteImageDataSource,") {
+		t.Error("expected NewSiteImageDataSource in provider.go DataSources()")
+	}
 }
 
 func TestGenerateProviderRegistration_ActionResource(t *testing.T) {

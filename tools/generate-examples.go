@@ -36,6 +36,7 @@ const providerDir = "internal/provider"
 var manuallyMaintained = map[string]bool{
 	"addon_service":                   true,
 	"addon_service_activation_status": true,
+	"site_image":                      true,
 	"site_registration":               true,
 }
 

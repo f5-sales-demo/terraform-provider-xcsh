@@ -33,9 +33,11 @@ MANUALLY_MAINTAINED_FILES=(
   "internal/provider/functions_registration.go"
   "internal/provider/addon_service_data_source.go"
   "internal/provider/addon_service_activation_status_data_source.go"
+	"internal/provider/site_image_data_source.go"
   "internal/provider/site_registration_data_source.go"
   "examples/data-sources/addon_service/data-source.tf"
   "examples/data-sources/addon_service_activation_status/data-source.tf"
+	"examples/data-sources/site_image/data-source.tf"
   "examples/data-sources/site_registration/data-source.tf"
   # MkDocs documentation site index files (navigation, not provider docs)
   "docs/resources/index.md"
@@ -58,6 +60,7 @@ GENERATOR_SOURCE_PATTERNS=(
   "^Makefile$"
   "^\.github/workflows/ci\.yml$"
   "^internal/provider/addon_service"
+	"^internal/provider/site_image"
   "^internal/provider/site_registration"
   "^internal/provider/functions_registration"
 )

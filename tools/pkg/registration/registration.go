@@ -32,6 +32,7 @@ var CoreResources = []string{}
 var StandaloneDataSources = []string{
 	"addon_service",                   // xcsh_addon_service — addon tier/details
 	"addon_service_activation_status", // xcsh_addon_service_activation_status — entitlement/subscription state
+	"site_image",                      // xcsh_site_image — platform image URL and checksum for a Customer Edge
 	"site_registration",               // xcsh_site_registration — resolve a site's CE registration name ("r-<uuid>")
 }
 
