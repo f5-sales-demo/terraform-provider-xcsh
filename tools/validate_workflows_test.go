@@ -19,6 +19,11 @@ import (
 )
 
 const repositoryRunnerLabel = "terraform-provider-xcsh"
+const repositoryRunnerExpression = "${{ github.event.repository.name }}"
+
+var canonicalSelfHostedRunsOn = []string{
+	"self-hosted", "Linux", "X64", repositoryRunnerLabel, "ubuntu-24.04",
+}
 
 type jobContract struct {
 	workflow    string
@@ -34,13 +39,13 @@ type jobContract struct {
 func strptr(value string) *string { return &value }
 
 var protectedJobs = []jobContract{
-	{"acc-tests.yml", "mock-tests", []string{"ubuntu-latest"}, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
-	{"acc-tests.yml", "real-api-tests", []string{"self-hosted", "Linux", "X64", repositoryRunnerLabel}, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"acc-tests.yml", "cleanup", []string{"self-hosted", "Linux", "X64", repositoryRunnerLabel}, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"discover-defaults.yml", "discover", []string{"self-hosted", "Linux", "X64", repositoryRunnerLabel}, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"sync-openapi.yml", "sync", []string{"ubuntu-latest"}, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
-	{"on-merge.yml", "create-regeneration-pr", []string{"ubuntu-latest"}, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
-	{"on-merge.yml", "receipt-spec-delivery", []string{"ubuntu-latest"}, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"acc-tests.yml", "mock-tests", canonicalSelfHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
+	{"acc-tests.yml", "real-api-tests", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"acc-tests.yml", "cleanup", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"discover-defaults.yml", "discover", canonicalSelfHostedRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"sync-openapi.yml", "sync", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
+	{"on-merge.yml", "create-regeneration-pr", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"on-merge.yml", "receipt-spec-delivery", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
 	{"auto-merge.yml", "require-token", []string{"ubuntu-latest"}, "repository-settings", map[string]string{}, []string{"pull_request"}, nil, []string{"REPO_SYNC_TOKEN"}},
 }
 
@@ -102,6 +107,21 @@ func stringSlice(value any) ([]string, error) {
 	default:
 		return nil, fmt.Errorf("runs-on must be a literal string or list, got %T", value)
 	}
+}
+
+func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []string {
+	canonical := append([]string(nil), runsOn...)
+	for index, label := range runsOn {
+		if !strings.Contains(label, "${{") {
+			continue
+		}
+		if label != repositoryRunnerExpression {
+			*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
+			continue
+		}
+		canonical[index] = repositoryRunnerLabel
+	}
+	return canonical
 }
 
 func stringMap(value any) (map[string]string, error) {
@@ -206,7 +226,7 @@ func recursivelyCollectSecrets(value any, path []string, found map[string]bool, 
 	}
 }
 
-func validateWorkflowBytes(filename string, content []byte) []string {
+func validateWorkflowBytes(filename string, content []byte, policySchema int) []string {
 	var workflow workflowDocument
 	if err := yaml.Unmarshal(content, &workflow); err != nil {
 		return []string{err.Error()}
@@ -237,6 +257,9 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 	contracts := map[string]jobContract{}
 	for _, contract := range protectedJobs {
 		if contract.workflow == filename {
+			if policySchema == 3 && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
+				contract.runsOn = canonicalSelfHostedRunsOn
+			}
 			contracts[contract.job] = contract
 		}
 	}
@@ -273,17 +296,14 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 	for jobID, job := range workflow.Jobs {
 		runsOn, runErr := stringSlice(job["runs-on"])
 		isSelfHosted := runErr == nil && slicesContain(runsOn, "self-hosted")
+		canonicalRunsOn := runsOn
 		if runErr == nil {
-			for _, label := range runsOn {
-				if strings.Contains(label, "${{") {
-					errors = append(errors, jobID+": dynamic runs-on is forbidden")
-				}
-			}
+			canonicalRunsOn = canonicalizeRunsOn(runsOn, &errors, jobID)
+		}
+		if isSelfHosted && !reflect.DeepEqual(canonicalRunsOn, canonicalSelfHostedRunsOn) {
+			errors = append(errors, jobID+": invalid self-hosted tuple")
 		}
 		contract, listed := contracts[jobID]
-		if isSelfHosted && !listed {
-			errors = append(errors, "unlisted self-hosted job "+jobID)
-		}
 		if !listed {
 			continue
 		}
@@ -291,11 +311,8 @@ func validateWorkflowBytes(filename string, content []byte) []string {
 			errors = append(errors, jobID+": "+runErr.Error())
 			continue
 		}
-		if !reflect.DeepEqual(runsOn, contract.runsOn) {
-			errors = append(errors, fmt.Sprintf("%s: runs-on %v", jobID, runsOn))
-		}
-		if isSelfHosted && !reflect.DeepEqual(runsOn, []string{"self-hosted", "Linux", "X64", repositoryRunnerLabel}) {
-			errors = append(errors, jobID+": invalid self-hosted tuple")
+		if !reflect.DeepEqual(canonicalRunsOn, contract.runsOn) {
+			errors = append(errors, fmt.Sprintf("%s: runs-on %v", jobID, canonicalRunsOn))
 		}
 		if scalarString(job["environment"]) != contract.environment {
 			errors = append(errors, jobID+": environment mismatch")
@@ -380,6 +397,17 @@ func slicesContain(values []string, wanted string) bool {
 
 func TestProviderWorkflowContracts(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
+	policyPath := filepath.Join("..", ".github", "config", "self-hosted-runner-policy.json")
+	policyBytes, err := os.ReadFile(policyPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var policy struct {
+		SchemaVersion int `json:"schema_version"`
+	}
+	if err := json.Unmarshal(policyBytes, &policy); err != nil {
+		t.Fatal(err)
+	}
 	entries, err := filepath.Glob(filepath.Join(workflowDir, "*.y*ml"))
 	if err != nil {
 		t.Fatal(err)
@@ -391,7 +419,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 			t.Fatal(err)
 		}
 		filename := filepath.Base(path)
-		for _, issue := range validateWorkflowBytes(filename, content) {
+		for _, issue := range validateWorkflowBytes(filename, content, policy.SchemaVersion) {
 			t.Errorf("%s: %s", filename, issue)
 		}
 		var workflow workflowDocument
@@ -416,7 +444,41 @@ func TestProviderWorkflowContracts(t *testing.T) {
 			}
 		}
 	}
-	expected := map[string]bool{"acc-tests.yml/real-api-tests": true, "acc-tests.yml/cleanup": true, "discover-defaults.yml/discover": true}
+	expected := map[string]bool{
+		"acc-tests.yml/cleanup":                    true,
+		"acc-tests.yml/compare-results":            true,
+		"acc-tests.yml/mock-tests":                 true,
+		"acc-tests.yml/real-api-tests":             true,
+		"acc-tests.yml/summary":                    true,
+		"ci.yml/check-constitution":                true,
+		"ci.yml/validate-docs-generation":          true,
+		"ci.yml/validate-mock-fixtures":            true,
+		"ci.yml/validate-shell-scripts":            true,
+		"ci.yml/validate-terraform-examples":       true,
+		"discover-defaults.yml/discover":           true,
+		"discover-defaults.yml/summary":            true,
+		"enforce-repo-settings.yml/resolve-source": true,
+		"on-merge.yml/create-regeneration-pr":      true,
+		"on-merge.yml/detect-changes":              true,
+		"on-merge.yml/generation-state":            true,
+		"on-merge.yml/receipt-spec-delivery":       true,
+		"on-merge.yml/summary":                     true,
+		"require-linked-issue.yml/check":           true,
+		"security-audit.yml/govulncheck":           true,
+		"sync-openapi.yml/sync":                    true,
+	}
+	switch policy.SchemaVersion {
+	case 1:
+		// Schema v1 routes governed jobs to GitHub-hosted runners.
+	case 3:
+		// Schema v3 routes governed jobs to the managed socketless Docker fleet.
+		expected["auto-merge.yml/require-token"] = true
+		expected["dependabot-auto-merge.yml/auto-merge"] = true
+		expected["semgrep.yml/semgrep"] = true
+		expected["workflow-security-audit.yml/audit"] = true
+	default:
+		t.Fatalf("unsupported runner policy schema version: %d", policy.SchemaVersion)
+	}
 	if !reflect.DeepEqual(selfHosted, expected) {
 		t.Fatalf("self-hosted inventory mismatch: %v", selfHosted)
 	}
@@ -468,10 +530,28 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 			if mutated == string(base) {
 				t.Fatal("mutation did not apply")
 			}
-			if issues := validateWorkflowBytes("acc-tests.yml", []byte(mutated)); len(issues) == 0 {
+			if issues := validateWorkflowBytes("acc-tests.yml", []byte(mutated), 1); len(issues) == 0 {
 				t.Fatal("unsafe mutation passed validation")
 			}
 		})
+	}
+}
+
+func TestWorkflowContractsRejectNonCanonicalDynamicRunner(t *testing.T) {
+	valid := []byte(`
+name: runner contract fixture
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: [self-hosted, Linux, X64, "${{ github.event.repository.name }}", ubuntu-24.04]
+`)
+	if issues := validateWorkflowBytes("fixture.yml", valid, 1); len(issues) != 0 {
+		t.Fatalf("canonical repository runner expression failed: %v", issues)
+	}
+
+	unsafe := []byte(strings.Replace(string(valid), "github.event.repository.name", "github.event.inputs.runner", 1))
+	if issues := validateWorkflowBytes("fixture.yml", unsafe, 1); len(issues) == 0 {
+		t.Fatal("non-canonical dynamic runner passed validation")
 	}
 }
 

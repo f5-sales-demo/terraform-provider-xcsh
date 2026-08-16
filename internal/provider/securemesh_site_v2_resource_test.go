@@ -95,7 +95,7 @@ func testAccSecuremeshSiteV2ResourceConfig_withLabels(name, description string, 
 	if len(topLabels) > 0 {
 		topLabelsStr.WriteString("  labels = {\n")
 		for k, v := range topLabels {
-			topLabelsStr.WriteString(fmt.Sprintf("    %q = %q\n", k, v))
+			fmt.Fprintf(&topLabelsStr, "    %q = %q\n", k, v)
 		}
 		topLabelsStr.WriteString("  }\n")
 	}
