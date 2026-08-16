@@ -1,7 +1,7 @@
 {
   "delivery_id": "242c0b63225d30265f0c0f29862f869b5f6bd02a39c1b417ab4e9c5d4d24c7ea",
   "release_tag": "v2.1.219",
-  "source_commit": "b34266611b2246e55438906e54195ceea4ec5bff",
+  "source_commit": "2378502dc1621966cceaab36c1913dec11b0722c",
   "spec_release_sha256": "968c7a53fcecd4388692fb9e1e5581c66608b96f6d90e0f03e5bfd6cc116180f",
   "target_commit": "1ee061b8d04e9ed8f3d90273b571502e597b141e",
   "version": "2.1.219"
