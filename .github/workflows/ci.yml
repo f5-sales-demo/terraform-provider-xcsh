@@ -76,7 +76,7 @@ jobs:
           ALLOW_PENDING_DELIVERY=false
           if [ -n "$CHANGED_FILES" ] &&
             ! printf '%s\n' "$CHANGED_FILES" | grep -qvE \
-              '^(\.github/workflows/|tools/validate_workflows_test\.go$|scripts/(check|test-check)-spec-version-freshness\.sh$)'; then
+              '^(\.github/workflows/|tools/validate_workflows_test\.go$|scripts/(generate-provider-docs|(check|test-check)-spec-version-freshness)\.sh$)'; then
             ALLOW_PENDING_DELIVERY=true
           fi
           ALLOW_PENDING_DELIVERY="$ALLOW_PENDING_DELIVERY" \

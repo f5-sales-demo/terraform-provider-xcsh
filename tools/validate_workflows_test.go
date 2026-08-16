@@ -72,6 +72,7 @@ func TestConstitutionAllowsOnlyExactPendingWorkflowRecovery(t *testing.T) {
 		`ALLOW_PENDING_DELIVERY=false`,
 		`ALLOW_PENDING_DELIVERY=true`,
 		`grep -qvE`,
+		`generate-provider-docs`,
 		`tools/spec-pending-delivery.json`,
 	}
 	for _, fragment := range required {
