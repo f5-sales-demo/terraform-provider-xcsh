@@ -81,6 +81,23 @@ func TestConstitutionAllowsOnlyExactPendingWorkflowRecovery(t *testing.T) {
 	}
 }
 
+func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", "scripts", "generate-provider-docs.sh"))
+	if err != nil {
+		t.Fatalf("read provider docs generator: %v", err)
+	}
+	script := string(content)
+	for _, fragment := range []string{
+		`export GOFLAGS="${GOFLAGS:--p=1}"`,
+		`export GOMAXPROCS="${GOMAXPROCS:-2}"`,
+		`export GOMEMLIMIT="${GOMEMLIMIT:-1200MiB}"`,
+	} {
+		if !strings.Contains(script, fragment) {
+			t.Errorf("provider docs memory contract is missing %q", fragment)
+		}
+	}
+}
+
 var protectedJobs = []jobContract{
 	{"acc-tests.yml", "mock-tests", canonicalSelfHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
 	{"acc-tests.yml", "real-api-tests", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
