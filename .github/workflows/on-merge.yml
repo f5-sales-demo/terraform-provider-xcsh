@@ -175,10 +175,36 @@ jobs:
                 echo "::error::A pending delivery can be released only by a receipted regeneration commit"
                 exit 1
               }
-              git diff --diff-filter=A --name-only HEAD^ HEAD | grep -qx "$RECEIPT" || {
-                echo "::error::Regeneration receipt was not introduced by this commit"
-                exit 1
-              }
+              RECEIPT_STATUS=$(git diff --name-status HEAD^ HEAD -- "$RECEIPT" | awk 'NR == 1 { print $1 }')
+              case "$RECEIPT_STATUS" in
+                A)
+                  echo "Regeneration receipt was introduced by this commit"
+                  ;;
+                M)
+                  PREVIOUS_RECEIPT=$(git show "HEAD^:$RECEIPT") || {
+                    echo "::error::Existing regeneration receipt could not be read from the pre-merge commit"
+                    exit 1
+                  }
+                  jq -e --slurpfile current "$RECEIPT" '
+                    type == "object" and
+                    (keys | sort) == [
+                      "delivery_id", "release_tag", "source_commit", "spec_release_sha256",
+                      "target_commit", "version"
+                    ] and
+                    (.source_commit | test("^[0-9a-f]{40}$")) and
+                    .source_commit != $current[0].source_commit and
+                    del(.source_commit) == ($current[0] | del(.source_commit))
+                  ' <<< "$PREVIOUS_RECEIPT" >/dev/null || {
+                    echo "::error::Existing regeneration receipt may change only its source commit during recovery"
+                    exit 1
+                  }
+                  echo "Existing regeneration receipt was rebound for pending recovery"
+                  ;;
+                *)
+                  echo "::error::Regeneration receipt must be added or rebound by this commit"
+                  exit 1
+                  ;;
+              esac
               jq -e '
                 type == "object" and
                 (keys | sort) == ["delivery_id", "release_tag", "target_commit", "version"] and
@@ -238,7 +264,7 @@ jobs:
               echo "Detected a regeneration merge without a spec delivery"
             fi
           elif [ "$RECEIPT_CHANGED" = true ]; then
-            echo "::error::Only the exact regeneration merge may introduce a receipt"
+            echo "::error::Only the exact regeneration merge may add or modify a receipt"
             exit 1
           fi
           echo "is_regeneration=$IS_REGENERATION" >> "$GITHUB_OUTPUT"
