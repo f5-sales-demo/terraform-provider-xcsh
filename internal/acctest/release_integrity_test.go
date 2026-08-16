@@ -342,18 +342,19 @@ func TestOnMergeGeneratorStateTruthTable(t *testing.T) {
 		tmp := t.TempDir()
 		output := filepath.Join(tmp, "github-output")
 		values := map[string]string{
-			"DETECT_RESULT":     "success",
-			"SHOULD_PROCESS":    "true",
-			"IS_REGENERATION":   "false",
-			"PENDING_DELIVERY":  "false",
-			"BUILD_RESULT":      "success",
-			"PROVIDER_REQUIRED": "true",
-			"PROVIDER_RESULT":   "success",
-			"PROVIDER_CHANGED":  "false",
-			"DOCS_REQUIRED":     "true",
-			"DOCS_RESULT":       "success",
-			"DOCS_CHANGED":      "false",
-			"GITHUB_OUTPUT":     output,
+			"DETECT_RESULT":                "success",
+			"SHOULD_PROCESS":               "true",
+			"IS_REGENERATION":              "false",
+			"PENDING_DELIVERY":             "false",
+			"RECOVERY_INFRASTRUCTURE_ONLY": "false",
+			"BUILD_RESULT":                 "success",
+			"PROVIDER_REQUIRED":            "true",
+			"PROVIDER_RESULT":              "success",
+			"PROVIDER_CHANGED":             "false",
+			"DOCS_REQUIRED":                "true",
+			"DOCS_RESULT":                  "success",
+			"DOCS_CHANGED":                 "false",
+			"GITHUB_OUTPUT":                output,
 		}
 		for _, assignment := range extraEnv {
 			key, value, ok := strings.Cut(assignment, "=")
@@ -425,6 +426,27 @@ func TestOnMergeGeneratorStateTruthTable(t *testing.T) {
 		}
 		if !strings.Contains(outputs, "create_pr=true") || strings.Contains(outputs, "release=true") {
 			t.Fatalf("pending delivery bypassed regeneration PR:\n%s", outputs)
+		}
+	})
+
+	t.Run("recovery infrastructure cannot release directly", func(t *testing.T) {
+		outputs, result, err := run(t, "RECOVERY_INFRASTRUCTURE_ONLY=true")
+		if err != nil {
+			t.Fatalf("recovery-only state failed classification: %v\n%s", err, result)
+		}
+		if strings.Contains(outputs, "create_pr=true") || strings.Contains(outputs, "release=true") {
+			t.Fatalf("recovery-only state authorized publication:\n%s", outputs)
+		}
+
+		outputs, result, err = run(t,
+			"RECOVERY_INFRASTRUCTURE_ONLY=true",
+			"PROVIDER_CHANGED=true",
+		)
+		if err != nil {
+			t.Fatalf("recovery generated-change state failed: %v\n%s", err, result)
+		}
+		if !strings.Contains(outputs, "create_pr=true") || strings.Contains(outputs, "release=true") {
+			t.Fatalf("recovery generated change bypassed regeneration PR:\n%s", outputs)
 		}
 	})
 

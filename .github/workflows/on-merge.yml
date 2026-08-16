@@ -84,6 +84,7 @@ jobs:
       has-any-changes: ${{ steps.changes.outputs.has_any_changes }}
       is-regeneration-commit: ${{ steps.check-author.outputs.is_regeneration }}
       pending-delivery: ${{ steps.changes.outputs.pending_delivery }}
+      recovery-infrastructure-only: ${{ steps.changes.outputs.recovery_infrastructure_only }}
       should-process: ${{ steps.should-process.outputs.result }}
       needs-regeneration: ${{ steps.should-process.outputs.needs_regeneration }}
       provider-regeneration-required: ${{ steps.should-process.outputs.provider_required }}
@@ -247,6 +248,12 @@ jobs:
             PENDING_DELIVERY=true
           fi
           echo "pending_delivery=$PENDING_DELIVERY" >> "$GITHUB_OUTPUT"
+
+          RECOVERY_INFRASTRUCTURE_ONLY=false
+          if printf '%s\n' "$CHANGED" | scripts/is-release-recovery-only.sh; then
+            RECOVERY_INFRASTRUCTURE_ONLY=true
+          fi
+          echo "recovery_infrastructure_only=$RECOVERY_INFRASTRUCTURE_ONLY" >> "$GITHUB_OUTPUT"
 
           # Check for OpenAPI spec changes
           if echo "$CHANGED" | grep -qE '^docs/specifications/api/'; then
@@ -444,6 +451,7 @@ jobs:
           SHOULD_PROCESS: ${{ needs.detect-changes.outputs.should-process }}
           IS_REGENERATION: ${{ needs.detect-changes.outputs.is-regeneration-commit }}
           PENDING_DELIVERY: ${{ needs.detect-changes.outputs.pending-delivery }}
+          RECOVERY_INFRASTRUCTURE_ONLY: ${{ needs.detect-changes.outputs.recovery-infrastructure-only }}
           BUILD_RESULT: ${{ needs.build-test.result }}
           PROVIDER_REQUIRED: ${{ needs.detect-changes.outputs.provider-regeneration-required }}
           PROVIDER_RESULT: ${{ needs.regenerate-provider.result }}
@@ -511,7 +519,7 @@ jobs:
           if [ "$PENDING_DELIVERY" = "true" ] ||
              [ "$PROVIDER_CHANGED" = "true" ] || [ "$DOCS_CHANGED" = "true" ]; then
             CREATE_PR=true
-          else
+          elif [ "$RECOVERY_INFRASTRUCTURE_ONLY" != "true" ]; then
             RELEASE=true
           fi
           {

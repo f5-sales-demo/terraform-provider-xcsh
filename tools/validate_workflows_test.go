@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"reflect"
 	"regexp"
@@ -71,13 +72,71 @@ func TestConstitutionAllowsOnlyExactPendingWorkflowRecovery(t *testing.T) {
 	required := []string{
 		`ALLOW_PENDING_DELIVERY=false`,
 		`ALLOW_PENDING_DELIVERY=true`,
-		`grep -qvE`,
-		`generate-provider-docs`,
+		`scripts/is-release-recovery-only.sh`,
 		`tools/spec-pending-delivery.json`,
 	}
 	for _, fragment := range required {
 		if !strings.Contains(workflow, fragment) {
 			t.Errorf("constitution pending-recovery contract is missing %q", fragment)
+		}
+	}
+}
+
+func TestReleaseRecoveryPathClassifier(t *testing.T) {
+	script := filepath.Join("..", "scripts", "is-release-recovery-only.sh")
+	cases := []struct {
+		name    string
+		paths   string
+		allowed bool
+	}{
+		{
+			name: "exact recovery infrastructure",
+			paths: strings.Join([]string{
+				".github/workflows/on-merge.yml",
+				".github/workflows/ci.yml",
+				"tools/validate_workflows_test.go",
+				"internal/acctest/release_integrity_test.go",
+				"scripts/generate-provider-docs.sh",
+				"scripts/check-spec-version-freshness.sh",
+				"scripts/test-check-spec-version-freshness.sh",
+				"scripts/is-release-recovery-only.sh",
+			}, "\n"),
+			allowed: true,
+		},
+		{name: "empty", paths: "", allowed: false},
+		{name: "substantive", paths: "internal/provider/provider.go\n", allowed: false},
+		{
+			name:    "mixed substantive",
+			paths:   ".github/workflows/on-merge.yml\ninternal/provider/provider.go\n",
+			allowed: false,
+		},
+	}
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			cmd := exec.Command(script)
+			cmd.Stdin = strings.NewReader(tc.paths)
+			err := cmd.Run()
+			if (err == nil) != tc.allowed {
+				t.Fatalf("allowed=%v, error=%v", tc.allowed, err)
+			}
+		})
+	}
+}
+
+func TestOnMergeGeneratorStateClassifier(t *testing.T) {
+	workflowBytes, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	workflow := string(workflowBytes)
+	for _, fragment := range []string{
+		`recovery-infrastructure-only: ${{ steps.changes.outputs.recovery_infrastructure_only }}`,
+		`scripts/is-release-recovery-only.sh`,
+		`RECOVERY_INFRASTRUCTURE_ONLY: ${{ needs.detect-changes.outputs.recovery-infrastructure-only }}`,
+		`elif [ "$RECOVERY_INFRASTRUCTURE_ONLY" != "true" ]; then`,
+	} {
+		if !strings.Contains(workflow, fragment) {
+			t.Errorf("on-merge recovery release classifier is missing %q", fragment)
 		}
 	}
 }

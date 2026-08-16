@@ -74,9 +74,7 @@ jobs:
           set -euo pipefail
           CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD")
           ALLOW_PENDING_DELIVERY=false
-          if [ -n "$CHANGED_FILES" ] &&
-            ! printf '%s\n' "$CHANGED_FILES" | grep -qvE \
-              '^(\.github/workflows/|tools/validate_workflows_test\.go$|scripts/(generate-provider-docs|(check|test-check)-spec-version-freshness)\.sh$)'; then
+          if printf '%s\n' "$CHANGED_FILES" | scripts/is-release-recovery-only.sh; then
             ALLOW_PENDING_DELIVERY=true
           fi
           ALLOW_PENDING_DELIVERY="$ALLOW_PENDING_DELIVERY" \
