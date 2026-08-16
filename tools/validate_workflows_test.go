@@ -62,6 +62,25 @@ func TestOnMergeRegenerationSubjectBindsSquashPRNumber(t *testing.T) {
 	}
 }
 
+func TestConstitutionAllowsOnlyExactPendingWorkflowRecovery(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "ci.yml"))
+	if err != nil {
+		t.Fatalf("read CI workflow: %v", err)
+	}
+	workflow := string(content)
+	required := []string{
+		`ALLOW_PENDING_DELIVERY=false`,
+		`ALLOW_PENDING_DELIVERY=true`,
+		`grep -qvE`,
+		`tools/spec-pending-delivery.json`,
+	}
+	for _, fragment := range required {
+		if !strings.Contains(workflow, fragment) {
+			t.Errorf("constitution pending-recovery contract is missing %q", fragment)
+		}
+	}
+}
+
 var protectedJobs = []jobContract{
 	{"acc-tests.yml", "mock-tests", canonicalSelfHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
 	{"acc-tests.yml", "real-api-tests", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},

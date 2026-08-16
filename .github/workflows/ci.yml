@@ -68,9 +68,20 @@ jobs:
 
       - name: Check Spec Version Freshness (#1255)
         env:
+          BASE_REF: ${{ github.base_ref }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          bash scripts/check-spec-version-freshness.sh
+          set -euo pipefail
+          CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD")
+          ALLOW_PENDING_DELIVERY=false
+          if [ -n "$CHANGED_FILES" ] &&
+            ! printf '%s\n' "$CHANGED_FILES" | grep -qvE \
+              '^(\.github/workflows/|tools/validate_workflows_test\.go$|scripts/(check|test-check)-spec-version-freshness\.sh$)'; then
+            ALLOW_PENDING_DELIVERY=true
+          fi
+          ALLOW_PENDING_DELIVERY="$ALLOW_PENDING_DELIVERY" \
+            bash scripts/check-spec-version-freshness.sh \
+              tools/spec-version.txt tools/spec-pending-delivery.json
 
       - name: Check for generated files (CLAUDE.md Rule 1)
         env:

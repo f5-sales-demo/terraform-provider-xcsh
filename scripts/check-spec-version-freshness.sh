@@ -5,6 +5,7 @@
 set -e
 
 SPEC_VERSION_FILE="${1:-tools/spec-version.txt}"
+PENDING_DELIVERY_FILE="${2:-tools/spec-pending-delivery.json}"
 
 if [ ! -f "$SPEC_VERSION_FILE" ]; then
   echo "::error::Spec version file not found at $SPEC_VERSION_FILE"
@@ -28,6 +29,38 @@ if command -v gh >/dev/null 2>&1; then
 
   echo "Latest upstream api-specs release: $LATEST_RELEASE"
   if [ "$CURRENT_VERSION" != "$LATEST_RELEASE" ]; then
+    if [ "${ALLOW_PENDING_DELIVERY:-false}" = "true" ]; then
+      [ -f "$PENDING_DELIVERY_FILE" ] || {
+        echo "::error::Pending-delivery recovery was requested without a pending delivery"
+        exit 1
+      }
+      jq -e --arg tag "$CURRENT_VERSION" '
+        type == "object" and
+        (keys | sort) == ["delivery_id", "release_tag", "target_commit", "version"] and
+        (.delivery_id | test("^[0-9a-f]{64}$")) and
+        .release_tag == $tag and
+        .release_tag == ("v" + .version) and
+        (.target_commit | test("^[0-9a-f]{40}$"))
+      ' "$PENDING_DELIVERY_FILE" >/dev/null || {
+        echo "::error::Pending delivery cannot authorize stale-pin recovery"
+        exit 1
+      }
+      CANONICAL=$(jq -cnS \
+        --arg commit "$(jq -r '.target_commit' "$PENDING_DELIVERY_FILE")" \
+        --arg event_type enriched-specs-updated \
+        --arg source f5-sales-demo/api-specs-enriched \
+        --arg tag "$(jq -r '.release_tag' "$PENDING_DELIVERY_FILE")" \
+        --arg target f5-sales-demo/terraform-provider-xcsh \
+        --arg version "$(jq -r '.version' "$PENDING_DELIVERY_FILE")" \
+        '{commit:$commit,event_type:$event_type,source:$source,tag:$tag,target:$target,version:$version}')
+      EXPECTED_ID=$(printf '%s' "$CANONICAL" | shasum -a 256 | awk '{print $1}')
+      [ "$(jq -r '.delivery_id' "$PENDING_DELIVERY_FILE")" = "$EXPECTED_ID" ] || {
+        echo "::error::Pending delivery ID is not canonical"
+        exit 1
+      }
+      echo "::notice::Allowing workflow-only recovery for exact pending delivery ${EXPECTED_ID}"
+      exit 0
+    fi
     echo "::error::tools/spec-version.txt ($CURRENT_VERSION) lags latest upstream api-specs-enriched release ($LATEST_RELEASE)"
     exit 1
   else
