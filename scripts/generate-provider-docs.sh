@@ -2,6 +2,14 @@
 
 set -euo pipefail
 
+# Schema export compiles the unusually large generated provider. Bound both
+# package and compiler parallelism so constrained CI runners cannot trade
+# determinism for a kernel OOM kill; callers may override these limits when a
+# larger dedicated builder is available.
+export GOFLAGS="${GOFLAGS:--p=1}"
+export GOMAXPROCS="${GOMAXPROCS:-2}"
+export GOMEMLIMIT="${GOMEMLIMIT:-1200MiB}"
+
 repository_root=$(git rev-parse --show-toplevel)
 cd "$repository_root"
 
