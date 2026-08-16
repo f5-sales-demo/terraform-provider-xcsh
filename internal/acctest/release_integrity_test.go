@@ -246,6 +246,95 @@ func TestRegenerationCommitRequiresExactPendingAttestation(t *testing.T) {
 		}
 	})
 
+	t.Run("pending recovery rebinds an existing receipt", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		receiptPath := filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")
+		data, err := os.ReadFile(receiptPath) //nolint:gosec // isolated test fixture
+		if err != nil {
+			t.Fatal(err)
+		}
+		var receipt map[string]any
+		if err := json.Unmarshal(data, &receipt); err != nil {
+			t.Fatal(err)
+		}
+
+		base := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD^"))
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "checkout", "-q", "--detach", base)
+		receipt["source_commit"] = strings.Repeat("a", 40)
+		writeReleaseTestJSON(t, receiptPath, receipt)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", receiptPath)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "rejected regeneration receipt")
+		recoverySource := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+
+		receipt["source_commit"] = recoverySource
+		writeReleaseTestJSON(t, receiptPath, receipt)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", receiptPath)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "chore: auto-regenerate provider and documentation")
+		recoveryMerge := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+		rewriteRegenerationPRIdentity(t, fixture, recoveryMerge, recoverySource)
+
+		output := filepath.Join(fixture.repo, "attestation-output")
+		env := append(append([]string{}, fixture.env...), "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+		result, runErr := runWorkflowScript(fixture.repo, script, env)
+		if runErr != nil {
+			t.Fatalf("valid recovery receipt rebind failed: %v\n%s", runErr, result)
+		}
+		outputs, readErr := os.ReadFile(output) //nolint:gosec // isolated fixture
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		if !strings.Contains(string(outputs), "is_regeneration=true") {
+			t.Fatalf("recovery receipt rebind was not recognized:\n%s", outputs)
+		}
+	})
+
+	t.Run("recovery receipt may change only its source commit", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		receiptPath := filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")
+		data, err := os.ReadFile(receiptPath) //nolint:gosec // isolated test fixture
+		if err != nil {
+			t.Fatal(err)
+		}
+		var receipt map[string]any
+		if err := json.Unmarshal(data, &receipt); err != nil {
+			t.Fatal(err)
+		}
+
+		base := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD^"))
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "checkout", "-q", "--detach", base)
+		receipt["source_commit"] = strings.Repeat("a", 40)
+		writeReleaseTestJSON(t, receiptPath, receipt)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", receiptPath)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "rejected regeneration receipt")
+		recoverySource := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+
+		receipt["source_commit"] = recoverySource
+		receipt["version"] = "2.1.209"
+		writeReleaseTestJSON(t, receiptPath, receipt)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", receiptPath)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "chore: auto-regenerate provider and documentation")
+		recoveryMerge := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+		rewriteRegenerationPRIdentity(t, fixture, recoveryMerge, recoverySource)
+
+		output := filepath.Join(fixture.repo, "attestation-output")
+		env := append(append([]string{}, fixture.env...), "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+		result, runErr := runWorkflowScript(fixture.repo, script, env)
+		if runErr == nil || !strings.Contains(result, "may change only its source commit") {
+			t.Fatalf("non-source recovery receipt change was accepted: err=%v\n%s", runErr, result)
+		}
+	})
+
+	t.Run("unattested receipt change fails closed", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		writeReleaseTestJSON(t, fixture.regenPR, []map[string]any{})
+		output := filepath.Join(fixture.repo, "attestation-output")
+		env := append(append([]string{}, fixture.env...), "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+		result, runErr := runWorkflowScript(fixture.repo, script, env)
+		if runErr == nil || !strings.Contains(result, "Only the exact regeneration merge may add or modify a receipt") {
+			t.Fatalf("unattested receipt change was accepted: err=%v\n%s", runErr, result)
+		}
+	})
+
 	t.Run("pending delivery without receipt fails closed", func(t *testing.T) {
 		fixture := newReceiptFixture(t, false, false)
 		runReleaseTestCommand(t, fixture.repo, nil, "git", "rm", "-q", "tools/spec-regeneration-receipt.json")
@@ -1711,6 +1800,24 @@ func rewriteRegenerationPRMergeCommit(t *testing.T, fixture *receiptFixture, com
 		t.Fatalf("expected one regeneration PR fixture, found %d", len(pulls))
 	}
 	pulls[0]["merge_commit_sha"] = commit
+	writeReleaseTestJSON(t, fixture.regenPR, pulls)
+}
+
+func rewriteRegenerationPRIdentity(t *testing.T, fixture *receiptFixture, mergeCommit, sourceCommit string) {
+	t.Helper()
+	data, err := os.ReadFile(fixture.regenPR) //nolint:gosec // isolated test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	var pulls []map[string]any
+	if err := json.Unmarshal(data, &pulls); err != nil {
+		t.Fatal(err)
+	}
+	if len(pulls) != 1 {
+		t.Fatalf("expected one regeneration PR fixture, found %d", len(pulls))
+	}
+	pulls[0]["merge_commit_sha"] = mergeCommit
+	pulls[0]["head"].(map[string]any)["ref"] = "auto-regenerate/" + sourceCommit
 	writeReleaseTestJSON(t, fixture.regenPR, pulls)
 }
 
