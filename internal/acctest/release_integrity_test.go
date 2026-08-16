@@ -301,6 +301,31 @@ func TestRegenerationCommitRequiresExactPendingAttestation(t *testing.T) {
 		}
 	})
 
+	t.Run("manual pending recovery bypasses historical merge attestation", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		regenerationCommit := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+		sourceCommit := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD^"))
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "checkout", "-q", "--detach", sourceCommit)
+		writeReleaseTestFile(t, fixture.repo, "intervening.txt", "main advanced\n", 0o600)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "intervening.txt")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "intervening main change")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "cherry-pick", regenerationCommit)
+		rewriteRegenerationPRMergeCommit(t, fixture, strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD")))
+		output := filepath.Join(fixture.repo, "attestation-output")
+		env := append(append([]string{}, fixture.env...), "PENDING_RESUME=true", "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+		result, runErr := runWorkflowScript(fixture.repo, script, env)
+		if runErr != nil {
+			t.Fatalf("manual recovery inspected the historical regeneration merge: %v\n%s", runErr, result)
+		}
+		outputs, readErr := os.ReadFile(output) //nolint:gosec // isolated fixture
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		if strings.TrimSpace(string(outputs)) != "is_regeneration=false" {
+			t.Fatalf("manual recovery did not enter the human regeneration path: %s", outputs)
+		}
+	})
+
 	t.Run("exact subject without PR attestation is a human change", func(t *testing.T) {
 		fixture := newReceiptFixture(t, false, false)
 		parent := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD^"))

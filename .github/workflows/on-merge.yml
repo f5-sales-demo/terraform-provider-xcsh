@@ -101,9 +101,19 @@ jobs:
         id: check-author
         env:
           GH_TOKEN: ${{ github.token }}
+          PENDING_RESUME: ${{ inputs.resume-pending || false }}
           TARGET_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
+          if [ "${PENDING_RESUME:-false}" = "true" ]; then
+            # A recovery dispatch regenerates from the current main tree. HEAD may
+            # be the previously rejected stale regeneration merge, so it is not a
+            # candidate release commit in this path. The build, generators, and
+            # pending-delivery validators below remain mandatory.
+            echo "Manual pending recovery bypasses historical merge attestation"
+            echo "is_regeneration=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           MESSAGE=$(git log -1 --format='%s')
           echo "Message: $MESSAGE"
           REGENERATION_TITLE="chore: auto-regenerate provider and documentation"
