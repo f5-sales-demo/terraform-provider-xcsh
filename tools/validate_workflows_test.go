@@ -38,6 +38,30 @@ type jobContract struct {
 
 func strptr(value string) *string { return &value }
 
+func TestOnMergeRegenerationSubjectBindsSquashPRNumber(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
+	if err != nil {
+		t.Fatalf("read on-merge workflow: %v", err)
+	}
+	workflow := string(content)
+	required := []string{
+		`REGENERATION_TITLE="chore: auto-regenerate provider and documentation"`,
+		`--arg message "$MESSAGE"`,
+		`--arg title "$REGENERATION_TITLE"`,
+		`.title == $title and`,
+		`$message == $title or`,
+		`$message == ($title + " (#" + (.number | tostring) + ")")`,
+	}
+	for _, fragment := range required {
+		if !strings.Contains(workflow, fragment) {
+			t.Errorf("on-merge regeneration subject contract is missing %q", fragment)
+		}
+	}
+	if strings.Contains(workflow, `--arg title "$MESSAGE"`) {
+		t.Error("on-merge must not treat the squash merge subject as the bare PR title")
+	}
+}
+
 var protectedJobs = []jobContract{
 	{"acc-tests.yml", "mock-tests", canonicalSelfHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
 	{"acc-tests.yml", "real-api-tests", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},

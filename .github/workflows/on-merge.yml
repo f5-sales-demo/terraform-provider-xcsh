@@ -105,6 +105,7 @@ jobs:
           set -euo pipefail
           MESSAGE=$(git log -1 --format='%s')
           echo "Message: $MESSAGE"
+          REGENERATION_TITLE="chore: auto-regenerate provider and documentation"
           IS_REGENERATION=false
           PENDING=tools/spec-pending-delivery.json
           RECEIPT=tools/spec-regeneration-receipt.json
@@ -113,19 +114,22 @@ jobs:
             RECEIPT_CHANGED=true
           fi
 
-          if [ "$MESSAGE" = "chore: auto-regenerate provider and documentation" ]; then
+          if [[ "$MESSAGE" == "$REGENERATION_TITLE"* ]]; then
             HEAD_COMMIT=$(git rev-parse HEAD)
             ASSOCIATED_PRS=$(gh api \
               "repos/${TARGET_REPOSITORY}/commits/${HEAD_COMMIT}/pulls")
             MATCHING_PRS=$(jq -c \
               --arg commit "$HEAD_COMMIT" \
+              --arg message "$MESSAGE" \
               --arg repository "$TARGET_REPOSITORY" \
-              --arg title "$MESSAGE" '
+              --arg title "$REGENERATION_TITLE" '
               [ .[] | select(
                 .state == "closed" and
                 .merged_at != null and
                 .merge_commit_sha == $commit and
                 .title == $title and
+                ($message == $title or
+                  $message == ($title + " (#" + (.number | tostring) + ")")) and
                 .base.ref == "main" and
                 .base.repo.full_name == $repository and
                 .head.repo.full_name == $repository and
