@@ -387,11 +387,11 @@ jobs:
           fi
           RESULT=false
 
-          if [[ "$DELIVERY_METADATA_ONLY" == "true" ]]; then
-            echo "Skipping: delivery receipt metadata cannot trigger regeneration or a release"
-          elif [[ "$IS_REGENERATION" == "true" ]]; then
+          if [[ "$IS_REGENERATION" == "true" ]]; then
             echo "Processing: exact regeneration completion - will proceed to tag/release"
             RESULT=true
+          elif [[ "$DELIVERY_METADATA_ONLY" == "true" ]]; then
+            echo "Skipping: delivery receipt metadata cannot trigger regeneration or a release"
           elif [[ "$NEEDS_REGEN" == "false" ]]; then
             # No regeneration needed - check if there are any substantive changes for tagging
             if [[ "$HAS_ANY_CHANGES" == "true" ]]; then
