@@ -129,9 +129,30 @@ expected_id=$(canonical_id \
   "$(jq -r '.target_commit' "$pending")")
 [ "$delivery_id" = "$expected_id" ] || fail "Pending delivery ID is not canonical"
 
-git diff --diff-filter=A --name-only "${RELEASED_COMMIT}^" "$RELEASED_COMMIT" |
-  grep -qx "$regeneration_receipt" ||
-  fail "Released commit did not introduce the regeneration receipt"
+receipt_status=$(git diff --name-status "${RELEASED_COMMIT}^" "$RELEASED_COMMIT" -- "$regeneration_receipt" |
+  awk 'NR == 1 { print $1 }')
+case "$receipt_status" in
+A)
+  ;;
+M)
+  previous_receipt=$(git show "${RELEASED_COMMIT}^:$regeneration_receipt") ||
+    fail "Pre-release regeneration receipt could not be read"
+  jq -e --slurpfile current "$regeneration_receipt" '
+    type == "object" and
+    (keys | sort) == [
+      "delivery_id", "release_tag", "source_commit", "spec_release_sha256",
+      "target_commit", "version"
+    ] and
+    (.source_commit | test("^[0-9a-f]{40}$")) and
+    .source_commit != $current[0].source_commit and
+    del(.source_commit) == ($current[0] | del(.source_commit))
+  ' <<<"$previous_receipt" >/dev/null ||
+    fail "Regeneration receipt may change only its source commit during recovery"
+  ;;
+*)
+  fail "Released commit did not introduce or exactly rebind the regeneration receipt"
+  ;;
+esac
 [ "$(tr -d '[:space:]' <tools/spec-version.txt)" = "$(jq -r '.release_tag' "$pending")" ] ||
   fail "Published spec marker does not match pending delivery"
 jq -e --slurpfile pending "$pending" '
@@ -166,8 +187,8 @@ jq -e --arg pin_sha "$pin_sha" --slurpfile pending "$pending" '
 ' "$regeneration_receipt" >/dev/null ||
   fail "Regeneration receipt does not bind the pending delivery"
 source_commit=$(jq -r '.source_commit' "$regeneration_receipt")
-git merge-base --is-ancestor "$source_commit" "${RELEASED_COMMIT}^" ||
-  fail "Regeneration source is not an ancestor of the released commit"
+[ "$source_commit" = "$(git rev-parse "${RELEASED_COMMIT}^")" ] ||
+  fail "Regeneration receipt source is not the exact release parent"
 
 release_json=$(mktemp)
 provider_receipts=$(mktemp)
