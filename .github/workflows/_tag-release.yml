@@ -293,14 +293,12 @@ jobs:
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
         run: |
           set -euo pipefail
-          VERSION=${RELEASE_TAG#v}
           scripts/build-mcp-data.sh "$RELEASE_TAG" "$RUNNER_TEMP/mcp-a.tar.gz"
           scripts/build-mcp-data.sh "$RELEASE_TAG" "$RUNNER_TEMP/mcp-b.tar.gz"
           cmp "$RUNNER_TEMP/mcp-a.tar.gz" "$RUNNER_TEMP/mcp-b.tar.gz" || {
             echo "::error::MCP archive is not byte-reproducible"
             exit 1
           }
-          cp "$RUNNER_TEMP/mcp-a.tar.gz" "mcp-data-${VERSION}.tar.gz"
 
       - name: Clear repairable draft artifacts
         if: steps.release_state.outputs.state == 'draft'
@@ -336,6 +334,7 @@ jobs:
         run: |
           set -euo pipefail
           VERSION=${RELEASE_TAG#v}
+          cp "$RUNNER_TEMP/mcp-a.tar.gz" "mcp-data-${VERSION}.tar.gz"
           gh release upload "$RELEASE_TAG" "mcp-data-${VERSION}.tar.gz" --clobber
 
       - name: Download and measure all release assets
