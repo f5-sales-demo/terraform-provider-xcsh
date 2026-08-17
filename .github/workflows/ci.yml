@@ -57,6 +57,7 @@ jobs:
       github.event_name == 'pull_request' &&
       !startsWith(github.head_ref, 'auto-generate/') &&
       !startsWith(github.head_ref, 'auto-regenerate/') &&
+      !startsWith(github.head_ref, 'spec-delivery-receipt/') &&
       github.head_ref != 'docs/auto-update' &&
       github.head_ref != 'openapi-update'
     steps:
