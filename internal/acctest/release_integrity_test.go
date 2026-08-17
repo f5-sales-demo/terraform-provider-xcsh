@@ -265,6 +265,94 @@ func TestPrepareSpecDeliveryReceiptRejectsInvalidRecoveryRebind(t *testing.T) {
 
 func TestRegenerationCommitRequiresExactPendingAttestation(t *testing.T) {
 	script := extractWorkflowRunStep(t, "on-merge.yml", "detect-changes", "Identify an exact regeneration completion commit")
+	t.Run("delayed pull request association is retried", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		output := filepath.Join(fixture.repo, "attestation-output")
+		callCount := filepath.Join(fixture.repo, "association-call-count")
+		env := append(append([]string{}, fixture.env...),
+			"TARGET_REPOSITORY="+dispatchTarget,
+			"GITHUB_OUTPUT="+output,
+			"PR_ASSOCIATION_ATTEMPTS=3",
+			"REGENERATION_PR_EMPTY_RESPONSES=2",
+			"REGENERATION_PR_CALL_COUNT="+callCount,
+		)
+		result, err := runWorkflowScript(fixture.repo, script, env)
+		if err != nil {
+			t.Fatalf("delayed PR association was not retried successfully: %v\n%s", err, result)
+		}
+		outputs, readErr := os.ReadFile(output) //nolint:gosec // isolated test fixture
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		if !strings.Contains(string(outputs), "is_regeneration=true") {
+			t.Fatalf("delayed exact association was not recognized:\n%s", outputs)
+		}
+		calls, readErr := os.ReadFile(callCount) //nolint:gosec // isolated test fixture
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		if strings.TrimSpace(string(calls)) != "3" {
+			t.Fatalf("association lookup count = %q, want 3", strings.TrimSpace(string(calls)))
+		}
+	})
+
+	t.Run("exhausted pull request association fails receipt closed", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		output := filepath.Join(fixture.repo, "attestation-output")
+		callCount := filepath.Join(fixture.repo, "association-call-count")
+		env := append(append([]string{}, fixture.env...),
+			"TARGET_REPOSITORY="+dispatchTarget,
+			"GITHUB_OUTPUT="+output,
+			"PR_ASSOCIATION_ATTEMPTS=3",
+			"REGENERATION_PR_EMPTY_RESPONSES=3",
+			"REGENERATION_PR_CALL_COUNT="+callCount,
+		)
+		result, runErr := runWorkflowScript(fixture.repo, script, env)
+		if runErr == nil || !strings.Contains(result, "not visible after 3 attempts") {
+			t.Fatalf("exhausted association lookup did not fail closed: err=%v\n%s", runErr, result)
+		}
+		if strings.Contains(result, "processing as a human change") {
+			t.Fatalf("receipt-changing commit was downgraded after exhausted lookup:\n%s", result)
+		}
+		calls, readErr := os.ReadFile(callCount) //nolint:gosec // isolated test fixture
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		if strings.TrimSpace(string(calls)) != "3" {
+			t.Fatalf("association lookup count = %q, want 3", strings.TrimSpace(string(calls)))
+		}
+	})
+
+	t.Run("squash subject resolves the exact pull request directly", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "--amend", "-qm", "chore: auto-regenerate provider and documentation (#42)")
+		mergeCommit := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+		rewriteRegenerationPRMergeCommit(t, fixture, mergeCommit)
+		output := filepath.Join(fixture.repo, "attestation-output")
+		callCount := filepath.Join(fixture.repo, "association-call-count")
+		env := append(append([]string{}, fixture.env...),
+			"TARGET_REPOSITORY="+dispatchTarget,
+			"GITHUB_OUTPUT="+output,
+			"PR_ASSOCIATION_ATTEMPTS=3",
+			"REGENERATION_PR_EMPTY_RESPONSES=3",
+			"REGENERATION_PR_CALL_COUNT="+callCount,
+		)
+		result, err := runWorkflowScript(fixture.repo, script, env)
+		if err != nil {
+			t.Fatalf("exact squash-subject PR lookup failed: %v\n%s", err, result)
+		}
+		outputs, readErr := os.ReadFile(output) //nolint:gosec // isolated test fixture
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		if !strings.Contains(string(outputs), "is_regeneration=true") {
+			t.Fatalf("exact squash-subject PR was not recognized:\n%s", outputs)
+		}
+		if _, statErr := os.Stat(callCount); !os.IsNotExist(statErr) {
+			t.Fatalf("commit association endpoint was called despite exact PR number: %v", statErr)
+		}
+	})
+
 	t.Run("zero generated diff still binds pending delivery", func(t *testing.T) {
 		fixture := newReceiptFixture(t, false, false)
 		output := filepath.Join(fixture.repo, "attestation-output")
@@ -366,7 +454,7 @@ func TestRegenerationCommitRequiresExactPendingAttestation(t *testing.T) {
 		output := filepath.Join(fixture.repo, "attestation-output")
 		env := append(append([]string{}, fixture.env...), "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
 		result, runErr := runWorkflowScript(fixture.repo, script, env)
-		if runErr == nil || !strings.Contains(result, "Only the exact regeneration merge may add or modify a receipt") {
+		if runErr == nil || !strings.Contains(result, "Merged regeneration PR association was not visible after 6 attempts") {
 			t.Fatalf("unattested receipt change was accepted: err=%v\n%s", runErr, result)
 		}
 	})
@@ -2217,7 +2305,21 @@ func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool) *receiptFix
 	writeReleaseTestFile(t, binDir, "gh", `#!/usr/bin/env bash
 set -euo pipefail
 if [[ "$*" == *"/commits/"*"/pulls"* ]]; then
+	if [ -n "${REGENERATION_PR_CALL_COUNT:-}" ]; then
+		calls=0
+		if [ -f "$REGENERATION_PR_CALL_COUNT" ]; then
+			calls=$(cat "$REGENERATION_PR_CALL_COUNT")
+		fi
+		calls=$((calls + 1))
+		printf '%s\n' "$calls" > "$REGENERATION_PR_CALL_COUNT"
+		if [ "$calls" -le "${REGENERATION_PR_EMPTY_RESPONSES:-0}" ]; then
+			printf '[]\n'
+			exit 0
+		fi
+	fi
   cat "$REGENERATION_PR_JSON"
+elif [[ "$*" =~ /pulls/[0-9]+$ ]]; then
+	jq -c '.[0]' "$REGENERATION_PR_JSON"
 else
   cat "$RELEASE_JSON"
 fi
@@ -2232,7 +2334,8 @@ fi
 		deliveryID: deliveryID, regenPR: regenPRPath,
 		env: []string{"PATH=" + binDir + string(os.PathListSeparator) + os.Getenv("PATH"), "RELEASE_JSON=" + releasePath,
 			"REGENERATION_PR_JSON=" + regenPRPath, "PROVIDER_TAG=" + providerTag, "RELEASED_COMMIT=" + releasedCommit,
-			"TARGET_REPOSITORY=" + dispatchTarget, "GITHUB_OUTPUT=" + output, "GH_TOKEN=fixture"},
+			"TARGET_REPOSITORY=" + dispatchTarget, "GITHUB_OUTPUT=" + output, "GH_TOKEN=fixture",
+			"PR_ASSOCIATION_RETRY_DELAY_SECONDS=0"},
 	}
 }
 

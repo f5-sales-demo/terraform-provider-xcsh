@@ -102,6 +102,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           PENDING_RESUME: ${{ inputs.resume-pending || false }}
+          PR_ASSOCIATION_ATTEMPTS: '6'
+          PR_ASSOCIATION_RETRY_DELAY_SECONDS: '10'
           TARGET_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -118,6 +120,8 @@ jobs:
           echo "Message: $MESSAGE"
           REGENERATION_TITLE="chore: auto-regenerate provider and documentation"
           IS_REGENERATION=false
+          PR_ASSOCIATION_ATTEMPTS=${PR_ASSOCIATION_ATTEMPTS:-6}
+          PR_ASSOCIATION_RETRY_DELAY_SECONDS=${PR_ASSOCIATION_RETRY_DELAY_SECONDS:-10}
           PENDING=tools/spec-pending-delivery.json
           RECEIPT=tools/spec-regeneration-receipt.json
           RECEIPT_CHANGED=false
@@ -127,28 +131,65 @@ jobs:
 
           if [[ "$MESSAGE" == "$REGENERATION_TITLE"* ]]; then
             HEAD_COMMIT=$(git rev-parse HEAD)
-            ASSOCIATED_PRS=$(gh api \
-              "repos/${TARGET_REPOSITORY}/commits/${HEAD_COMMIT}/pulls")
-            MATCHING_PRS=$(jq -c \
-              --arg commit "$HEAD_COMMIT" \
-              --arg message "$MESSAGE" \
-              --arg repository "$TARGET_REPOSITORY" \
-              --arg title "$REGENERATION_TITLE" '
-              [ .[] | select(
-                .state == "closed" and
-                .merged_at != null and
-                .merge_commit_sha == $commit and
-                .title == $title and
-                ($message == $title or
-                  $message == ($title + " (#" + (.number | tostring) + ")")) and
-                .base.ref == "main" and
-                .base.repo.full_name == $repository and
-                .head.repo.full_name == $repository and
-                (.head.ref | test("^auto-regenerate/[0-9a-f]{40}$")) and
-                (([.labels[].name] | index("automated")) != null) and
-                (([.labels[].name] | index("regeneration")) != null)
-              ) ]
-            ' <<< "$ASSOCIATED_PRS")
+            [[ "$PR_ASSOCIATION_ATTEMPTS" =~ ^[1-9][0-9]*$ ]] || {
+              echo "::error::PR association attempts must be a positive integer"
+              exit 1
+            }
+            [[ "$PR_ASSOCIATION_RETRY_DELAY_SECONDS" =~ ^[0-9]+$ ]] || {
+              echo "::error::PR association retry delay must be a non-negative integer"
+              exit 1
+            }
+            matching_prs() {
+              jq -c \
+                --arg commit "$HEAD_COMMIT" \
+                --arg message "$MESSAGE" \
+                --arg repository "$TARGET_REPOSITORY" \
+                --arg title "$REGENERATION_TITLE" '
+                [ .[] | select(
+                  .state == "closed" and
+                  .merged_at != null and
+                  .merge_commit_sha == $commit and
+                  .title == $title and
+                  ($message == $title or
+                    $message == ($title + " (#" + (.number | tostring) + ")")) and
+                  .base.ref == "main" and
+                  .base.repo.full_name == $repository and
+                  .head.repo.full_name == $repository and
+                  (.head.ref | test("^auto-regenerate/[0-9a-f]{40}$")) and
+                  (([.labels[].name] | index("automated")) != null) and
+                  (([.labels[].name] | index("regeneration")) != null)
+                ) ]
+              '
+            }
+
+            MATCHING_PRS='[]'
+            ASSOCIATION_EXHAUSTED=false
+            if [[ "$MESSAGE" =~ ^chore:\ auto-regenerate\ provider\ and\ documentation\ \(#[0-9]+\)$ ]]; then
+              PR_NUMBER=${MESSAGE##*\(#}
+              PR_NUMBER=${PR_NUMBER%)}
+              EXACT_PR=$(gh api "repos/${TARGET_REPOSITORY}/pulls/${PR_NUMBER}")
+              MATCHING_PRS=$(jq -cn --argjson pr "$EXACT_PR" '[$pr]' | matching_prs)
+            else
+              for ((attempt = 1; attempt <= PR_ASSOCIATION_ATTEMPTS; attempt++)); do
+                ASSOCIATED_PRS=$(gh api \
+                  "repos/${TARGET_REPOSITORY}/commits/${HEAD_COMMIT}/pulls")
+                MATCHING_PRS=$(matching_prs <<< "$ASSOCIATED_PRS")
+                MATCHING_COUNT=$(jq 'length' <<< "$MATCHING_PRS")
+                [ "$MATCHING_COUNT" -le 1 ] || {
+                  echo "::error::Release commit is associated with multiple regeneration PR identities"
+                  exit 1
+                }
+                if [ "$MATCHING_COUNT" -eq 1 ]; then
+                  break
+                fi
+                if [ "$attempt" -lt "$PR_ASSOCIATION_ATTEMPTS" ]; then
+                  echo "PR association is not visible yet; retrying (${attempt}/${PR_ASSOCIATION_ATTEMPTS})"
+                  sleep "$PR_ASSOCIATION_RETRY_DELAY_SECONDS"
+                else
+                  ASSOCIATION_EXHAUSTED=true
+                fi
+              done
+            fi
             MATCHING_COUNT=$(jq 'length' <<< "$MATCHING_PRS")
             [ "$MATCHING_COUNT" -le 1 ] || {
               echo "::error::Release commit is associated with multiple regeneration PR identities"
@@ -165,6 +206,10 @@ jobs:
               IS_REGENERATION=true
               echo "Detected exact automated regeneration PR ${REGENERATION_BRANCH}"
             else
+              if [ "$ASSOCIATION_EXHAUSTED" = true ] && [ "$RECEIPT_CHANGED" = true ]; then
+                echo "::error::Merged regeneration PR association was not visible after ${PR_ASSOCIATION_ATTEMPTS} attempts"
+                exit 1
+              fi
               echo "Exact subject has no matching automated regeneration PR; processing as a human change"
             fi
           fi
