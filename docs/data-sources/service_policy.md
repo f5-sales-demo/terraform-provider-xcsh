@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about service_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Service Policy API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note:** For more information, see the [Service Policy API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/).
 
 ## Example Usage
 

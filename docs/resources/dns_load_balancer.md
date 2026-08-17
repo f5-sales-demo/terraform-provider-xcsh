@@ -9,7 +9,7 @@ description: |-
 
 Manages DNS Load Balancer in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [DNS Load Balancer API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/dns/) to learn more.
+~> **Note:** For more information, see the [DNS Load Balancer API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/dns/).
 
 ## Example Usage
 

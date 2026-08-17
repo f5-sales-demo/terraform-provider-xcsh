@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a GCP VPC Site resource in F5 Distributed Cloud for deploying F5 sites within Google Cloud VPC environments. This is a read-only data source.
 
-~> **Note** Please refer to [GCP VPC Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note:** For more information, see the [GCP VPC Site API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/).
 
 ## Example Usage
 

@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users in system namespace. configuration. This is a read-only data source.
 
-~> **Note** Please refer to [Network Firewall API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/network_security/) to learn more.
+~> **Note:** For more information, see the [Network Firewall API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/network_security/).
 
 ## Example Usage
 

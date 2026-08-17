@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about virtual network in given namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Virtual Network API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/network/) to learn more.
+~> **Note:** For more information, see the [Virtual Network API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/network/).
 
 ## Example Usage
 

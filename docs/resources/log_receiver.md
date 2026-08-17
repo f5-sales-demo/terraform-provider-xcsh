@@ -9,7 +9,7 @@ description: |-
 
 Manages new Log Receiver object. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Log Receiver API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/observability/) to learn more.
+~> **Note:** For more information, see the [Log Receiver API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/observability/).
 
 ## Example Usage
 

@@ -361,10 +361,10 @@ openssl pkcs12 -in credentials.p12 -nokeys -info
 
 1. Verify that variables are exported:
 
-```bash
-export XCSH_API_TOKEN="<XC_API_TOKEN>"  # Correct
-XCSH_API_TOKEN="<XC_API_TOKEN>"         # Is not visible to child processes
-```
+   ```bash
+   export XCSH_API_TOKEN="<XC_API_TOKEN>"  # Correct
+   XCSH_API_TOKEN="<XC_API_TOKEN>"         # Is not visible to child processes
+   ```
 
 2. Verify that variable names match the exact required casing (`XCSH_API_URL`, `XCSH_API_TOKEN`).
 3. Check for hidden or unexpected characters in variable values.

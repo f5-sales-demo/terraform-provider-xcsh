@@ -9,7 +9,7 @@ description: |-
 
 Manages virtual site object in given namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Virtual Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/sites/) to learn more.
+~> **Note:** For more information, see the [Virtual Site API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/sites/).
 
 ## Example Usage
 

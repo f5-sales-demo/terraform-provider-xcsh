@@ -9,7 +9,7 @@ description: |-
 
 Manages Application Firewall. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [App Firewall API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note:** For more information, see the [App Firewall API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/).
 
 ## Example Usage
 

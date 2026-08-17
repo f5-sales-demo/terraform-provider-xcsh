@@ -9,7 +9,7 @@ description: |-
 
 Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Token API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/authentication/) to learn more.
+~> **Note:** For more information, see the [Token API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/authentication/).
 
 ## Example Usage
 

@@ -9,7 +9,7 @@ description: |-
 
 Manages endpoint will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Endpoint API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/service_mesh/) to learn more.
+~> **Note:** For more information, see the [Endpoint API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/service_mesh/).
 
 ## Example Usage
 

@@ -9,7 +9,7 @@ description: |-
 
 Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.
 
-~> **Note** Please refer to [Cloud Credentials API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note:** For more information, see the [Cloud Credentials API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/).
 
 ## Example Usage
 

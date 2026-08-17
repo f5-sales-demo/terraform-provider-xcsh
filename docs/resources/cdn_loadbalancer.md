@@ -9,7 +9,7 @@ description: |-
 
 Manages a CDN Load Balancer resource in F5 Distributed Cloud for content delivery and edge caching with load balancing.
 
-~> **Note** Please refer to [CDN Loadbalancer API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cdn/) to learn more.
+~> **Note:** For more information, see the [CDN Loadbalancer API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cdn/).
 
 ## Example Usage
 

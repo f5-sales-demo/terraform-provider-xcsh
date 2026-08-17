@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a Site resource in F5 Distributed Cloud for get of site. configuration. (read-only data source)
 
-~> **Note** Please refer to [Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/sites/) to learn more.
+~> **Note:** For more information, see the [Site API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/sites/).
 
 ## Example Usage
 

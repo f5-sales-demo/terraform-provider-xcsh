@@ -9,7 +9,7 @@ description: |-
 
 Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.
 
-~> **Note** Please refer to [Container Registry API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
+~> **Note:** For more information, see the [Container Registry API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/managed_kubernetes/).
 
 ## Example Usage
 

@@ -9,7 +9,7 @@ description: |-
 
 Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS.
 
-~> **Note** Please refer to [Certificate Chain API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/certificates/) to learn more.
+~> **Note:** For more information, see the [Certificate Chain API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/certificates/).
 
 ## Example Usage
 

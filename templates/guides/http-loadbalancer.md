@@ -91,9 +91,9 @@ Review the plan output, and then type `yes` when prompted to confirm deployment.
 
 After deployment, Terraform outputs a CNAME target. Create a DNS record with your DNS provider:
 
-| Type  | Name              | Value                                |
-| ----- | ----------------- | ------------------------------------ |
-| CNAME | `app.example.com` | `ves-io-app-example-com.ac.vh.ves.io` |
+| Type  | Name              | Value                                  |
+| ----- | ----------------- | -------------------------------------- |
+| CNAME | `app.example.com` | `ves-io-app-example-com.ac.vh.ves.io`  |
 
 ~> **Note:** DNS propagation time varies by provider and typically completes within a few minutes.
 
