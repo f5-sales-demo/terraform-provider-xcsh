@@ -180,14 +180,36 @@ if [ -e "$pending" ]; then
       (.source_commit | test("^[0-9a-f]{40}$"))
     ' "$regeneration" >/dev/null || fail "regeneration receipt is malformed or cross-bound"
     source_commit=$(jq -r '.source_commit' "$regeneration")
-    git merge-base --is-ancestor "$source_commit" HEAD ||
-      fail "regeneration source is not an ancestor of HEAD"
     if [ "$release_ready" = true ]; then
-      git diff --diff-filter=A --name-only HEAD^ HEAD |
-        grep -qx "$regeneration" ||
-        fail "release commit did not introduce the regeneration receipt"
-      git merge-base --is-ancestor "$source_commit" HEAD^ ||
-        fail "regeneration source is not an ancestor of the pre-release commit"
+      receipt_status=$(git diff --name-status HEAD^ HEAD -- "$regeneration" |
+        awk 'NR == 1 { print $1 }')
+      case "$receipt_status" in
+      A)
+        ;;
+      M)
+        previous_receipt=$(git show "HEAD^:$regeneration") ||
+          fail "pre-release regeneration receipt could not be read"
+        jq -e --slurpfile current "$regeneration" '
+          type == "object" and
+          (keys | sort) == [
+            "delivery_id", "release_tag", "source_commit", "spec_release_sha256",
+            "target_commit", "version"
+          ] and
+          (.source_commit | test("^[0-9a-f]{40}$")) and
+          .source_commit != $current[0].source_commit and
+          del(.source_commit) == ($current[0] | del(.source_commit))
+        ' <<<"$previous_receipt" >/dev/null ||
+          fail "regeneration receipt may change only its source commit during recovery"
+        ;;
+      *)
+        fail "release commit did not introduce or exactly rebind the regeneration receipt"
+        ;;
+      esac
+      [ "$source_commit" = "$(git rev-parse HEAD^)" ] ||
+        fail "regeneration receipt source is not the exact release parent"
+    else
+      git merge-base --is-ancestor "$source_commit" HEAD ||
+        fail "regeneration source is not an ancestor of HEAD"
     fi
   elif [ "$release_ready" = true ]; then
     fail "pending delivery has no regeneration receipt"

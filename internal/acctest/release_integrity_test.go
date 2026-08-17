@@ -8,6 +8,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"maps"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -224,6 +225,41 @@ func TestPrepareSpecDeliveryReceiptRetryRecognizesDurableMain(t *testing.T) {
 	}
 	if strings.TrimSpace(string(outputs)) != "changed=false" {
 		t.Fatalf("durable retry did not produce an exact no-op: %s", outputs)
+	}
+}
+
+func TestPrepareSpecDeliveryReceiptAcceptsExactRecoveryRebind(t *testing.T) {
+	fixture := newReceiptFixture(t, false, false)
+	rebindReceiptFixture(t, fixture, "", "")
+	runReleaseTestCommand(t, fixture.repo, fixture.env, fixture.script)
+}
+
+func TestPrepareSpecDeliveryReceiptRejectsInvalidRecoveryRebind(t *testing.T) {
+	for _, tc := range []struct {
+		name, previousVersion, sourceCommit, want string
+	}{
+		{
+			name:            "identity changed",
+			previousVersion: "2.1.207",
+			want:            "may change only its source commit",
+		},
+		{
+			name:         "source is not exact parent",
+			sourceCommit: strings.Repeat("a", 40),
+			want:         "source is not the exact release parent",
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			fixture := newReceiptFixture(t, false, false)
+			rebindReceiptFixture(t, fixture, tc.previousVersion, tc.sourceCommit)
+			cmd := exec.Command(fixture.script)
+			cmd.Dir = fixture.repo
+			cmd.Env = append(os.Environ(), fixture.env...)
+			output, runErr := cmd.CombinedOutput()
+			if runErr == nil || !strings.Contains(string(output), tc.want) {
+				t.Fatalf("invalid recovery rebind was accepted or failed for the wrong reason: err=%v\n%s", runErr, output)
+			}
+		})
 	}
 }
 
@@ -1642,6 +1678,46 @@ func TestReleaseReadyStateRejectsDescendantOfRegeneration(t *testing.T) {
 	}
 }
 
+func TestReleaseReadyStateAcceptsExactRecoveryRebind(t *testing.T) {
+	root := testRepositoryRoot(t)
+	fixture := newReceiptFixture(t, false, false)
+	rebindReceiptFixture(t, fixture, "", "")
+
+	validator := filepath.Join(root, "scripts", "validate-provider-delivery-state.sh")
+	runReleaseTestCommand(t, fixture.repo, []string{"TARGET_REPOSITORY=" + dispatchTarget}, validator, "--release-ready")
+}
+
+func TestReleaseReadyStateRejectsInvalidRecoveryRebind(t *testing.T) {
+	root := testRepositoryRoot(t)
+	validator := filepath.Join(root, "scripts", "validate-provider-delivery-state.sh")
+	for _, tc := range []struct {
+		name, previousVersion, sourceCommit, want string
+	}{
+		{
+			name:            "identity changed",
+			previousVersion: "2.1.207",
+			want:            "may change only its source commit",
+		},
+		{
+			name:         "source is not exact parent",
+			sourceCommit: strings.Repeat("a", 40),
+			want:         "source is not the exact release parent",
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			fixture := newReceiptFixture(t, false, false)
+			rebindReceiptFixture(t, fixture, tc.previousVersion, tc.sourceCommit)
+			cmd := exec.Command(validator, "--release-ready")
+			cmd.Dir = fixture.repo
+			cmd.Env = append(os.Environ(), "TARGET_REPOSITORY="+dispatchTarget)
+			output, runErr := cmd.CombinedOutput()
+			if runErr == nil || !strings.Contains(string(output), tc.want) {
+				t.Fatalf("invalid recovery rebind was accepted or failed for the wrong reason: err=%v\n%s", runErr, output)
+			}
+		})
+	}
+}
+
 func TestDraftCleanupDeletesEveryMeasuredAsset(t *testing.T) {
 	script := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Clear repairable draft artifacts")
 	tmp := t.TempDir()
@@ -1896,6 +1972,88 @@ func rewriteRegenerationPRIdentity(t *testing.T, fixture *receiptFixture, mergeC
 	pulls[0]["merge_commit_sha"] = mergeCommit
 	pulls[0]["head"].(map[string]any)["ref"] = "auto-regenerate/" + sourceCommit
 	writeReleaseTestJSON(t, fixture.regenPR, pulls)
+}
+
+func rebindReceiptFixture(t *testing.T, fixture *receiptFixture, previousVersion, sourceCommit string) {
+	t.Helper()
+	receiptPath := filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")
+	data, err := os.ReadFile(receiptPath) //nolint:gosec // isolated test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	var canonical map[string]any
+	if err := json.Unmarshal(data, &canonical); err != nil {
+		t.Fatal(err)
+	}
+	if previousVersion != "" {
+		previous := maps.Clone(canonical)
+		previous["version"] = previousVersion
+		writeReleaseTestJSON(t, receiptPath, previous)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", receiptPath)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "--amend", "--no-edit", "-q")
+	}
+	parent := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+	if sourceCommit == "" {
+		sourceCommit = parent
+	}
+	canonical["source_commit"] = sourceCommit
+	writeReleaseTestJSON(t, receiptPath, canonical)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "add", receiptPath)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "chore: auto-regenerate provider and documentation")
+	releasedCommit := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "tag", "-f", "v9.8.7")
+
+	releasePath := envValue(t, fixture.env, "RELEASE_JSON")
+	releaseData, err := os.ReadFile(releasePath) //nolint:gosec // isolated test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	var release map[string]any
+	if err := json.Unmarshal(releaseData, &release); err != nil {
+		t.Fatal(err)
+	}
+	body := release["body"].(string)
+	const markerPrefix = "<!-- provider-publication-receipt:"
+	markerStart := strings.Index(body, markerPrefix)
+	if markerStart < 0 {
+		t.Fatalf("release fixture is missing its publication receipt marker")
+	}
+	markerEnd := strings.Index(body[markerStart:], " -->")
+	if markerEnd < 0 {
+		t.Fatalf("release fixture has an unterminated publication receipt marker")
+	}
+	markerEnd += markerStart
+	var publication map[string]any
+	if err := json.Unmarshal([]byte(body[markerStart+len(markerPrefix):markerEnd]), &publication); err != nil {
+		t.Fatal(err)
+	}
+	publication["commit"] = releasedCommit
+	publicationJSON, err := json.Marshal(publication)
+	if err != nil {
+		t.Fatal(err)
+	}
+	release["body"] = body[:markerStart+len(markerPrefix)] + string(publicationJSON) + body[markerEnd:]
+	writeReleaseTestJSON(t, releasePath, release)
+
+	rewriteRegenerationPRIdentity(t, fixture, releasedCommit, parent)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "push", "-q", "--force", "origin", "HEAD:main", "v9.8.7")
+	for i, assignment := range fixture.env {
+		if strings.HasPrefix(assignment, "RELEASED_COMMIT=") {
+			fixture.env[i] = "RELEASED_COMMIT=" + releasedCommit
+		}
+	}
+}
+
+func envValue(t *testing.T, env []string, name string) string {
+	t.Helper()
+	prefix := name + "="
+	for _, assignment := range env {
+		if strings.HasPrefix(assignment, prefix) {
+			return strings.TrimPrefix(assignment, prefix)
+		}
+	}
+	t.Fatalf("environment fixture is missing %s", name)
+	return ""
 }
 
 func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool) *receiptFixture {

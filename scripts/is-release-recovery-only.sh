@@ -13,6 +13,8 @@ while IFS= read -r path; do
     scripts/generate-provider-docs.sh | \
     scripts/check-spec-version-freshness.sh | \
     scripts/test-check-spec-version-freshness.sh | \
+    scripts/prepare-spec-delivery-receipt.sh | \
+    scripts/validate-provider-delivery-state.sh | \
     scripts/is-release-recovery-only.sh) ;;
   *) exit 1 ;;
   esac
