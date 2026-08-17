@@ -261,15 +261,6 @@
       "category": "security",
       "description": "Application Firewall",
       "required": ["name", "namespace"],
-      "server_defaults": [
-        "allow_all_response_codes",
-        "default_anonymization",
-        "default_bot_setting",
-        "default_detection_settings",
-        "disable_ai_enhancements",
-        "monitoring",
-        "use_default_blocking_page"
-      ],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/app_firewall.txt#minimal-valid-config"
@@ -354,7 +345,6 @@
       "category": "security",
       "description": "Enhanced firewall policy specification. configuration",
       "required": ["name", "namespace"],
-      "server_defaults": ["allow_all"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/enhanced_firewall_policy.txt#minimal-valid-config"
@@ -425,7 +415,6 @@
       "category": "security",
       "description": "Malicious_user_mitigation creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace"],
-      "server_defaults": ["mitigation_type"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/malicious_user_mitigation.txt#minimal-valid-config"
@@ -454,7 +443,6 @@
       "category": "security",
       "description": "Network firewall is created by users in system namespace. configuration",
       "required": ["name", "namespace"],
-      "server_defaults": ["disable_fast_acl", "disable_forward_proxy_policy", "disable_network_policy"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/network_firewall.txt#minimal-valid-config"
@@ -511,7 +499,6 @@
       "category": "security",
       "description": "Protocol Inspection Specification in a given namespace. If one already exists it will give an error",
       "required": ["name", "namespace", "enable_disable_compliance_checks", "enable_disable_signatures"],
-      "server_defaults": ["action"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/protocol_inspection.txt#minimal-valid-config"
@@ -540,7 +527,6 @@
       "category": "security",
       "description": "Rate_limiter creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace"],
-      "server_defaults": ["user_identification"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/rate_limiter.txt#minimal-valid-config"
@@ -555,7 +541,6 @@
       "category": "security",
       "description": "Rate limiter policy create specification. configuration",
       "required": ["name", "namespace", "burst_size", "committed_information_rate"],
-      "server_defaults": ["rules"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/rate_limiter_policy.txt#minimal-valid-config"
@@ -570,7 +555,6 @@
       "category": "security",
       "description": "Sensitive_data_policy creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace"],
-      "server_defaults": ["compliances", "custom_data_types", "disabled_predefined_data_types"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/sensitive_data_policy.txt#minimal-valid-config"
@@ -585,7 +569,6 @@
       "category": "security",
       "description": "Service_policy creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace"],
-      "server_defaults": ["port_matcher"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/service_policy.txt#minimal-valid-config"
@@ -928,15 +911,7 @@
       "category": "load-balancing",
       "description": "Healthcheck object defines method to determine if the given endpoint is healthy. single healthcheck object can be referred to by one or many cluster objects. configuration",
       "required": ["name", "namespace", "interval", "timeout", "healthy_threshold", "unhealthy_threshold"],
-      "server_defaults": [
-        "http_health_check.expected_response",
-        "http_health_check.expected_status_codes",
-        "http_health_check.headers",
-        "http_health_check.request_headers_to_remove",
-        "http_health_check.use_http2",
-        "http_health_check.use_origin_server_name",
-        "jitter_percent"
-      ],
+      "server_defaults": ["jitter_percent", "use_http2"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/healthcheck.txt#minimal-valid-config"
@@ -952,51 +927,7 @@
       "category": "load-balancing",
       "description": "Load balancing HTTP/HTTPS traffic with advanced routing and security",
       "required": ["name", "namespace", "domains"],
-      "server_defaults": [
-        "add_location",
-        "default_pool.advanced_options.auto_http_config",
-        "default_pool.advanced_options.connection_timeout",
-        "default_pool.advanced_options.default_circuit_breaker",
-        "default_pool.advanced_options.disable_outlier_detection",
-        "default_pool.advanced_options.disable_subsets",
-        "default_pool.advanced_options.http_idle_timeout",
-        "default_pool.advanced_options.no_panic_threshold",
-        "default_pool.advanced_options.no_request_limit_per_connection",
-        "default_pool.endpoint_selection",
-        "default_pool.healthcheck",
-        "default_pool.loadbalancer_algorithm",
-        "default_pool.no_tls",
-        "default_pool.same_as_endpoint_port",
-        "default_pool.use_tls.default_session_key_caching",
-        "default_pool.use_tls.no_mtls",
-        "default_pool.use_tls.use_host_header_as_sni",
-        "default_pool.use_tls.volterra_trusted_ca",
-        "default_sensitive_data_policy",
-        "disable_api_definition",
-        "disable_api_discovery",
-        "disable_api_testing",
-        "disable_bot_defense",
-        "disable_ip_reputation",
-        "disable_malicious_user_detection",
-        "disable_malware_protection",
-        "disable_rate_limit",
-        "disable_threat_mesh",
-        "disable_trust_client_ip_headers",
-        "disable_waf",
-        "https_auto_cert.add_hsts",
-        "https_auto_cert.connection_idle_timeout",
-        "https_auto_cert.enable_path_normalize",
-        "https_auto_cert.http_redirect",
-        "https_auto_cert.no_mtls",
-        "l7_ddos_protection",
-        "no_challenge",
-        "rate_limit.no_ip_allowed_list",
-        "rate_limit.no_policies",
-        "rate_limit.rate_limiter.period_multiplier",
-        "round_robin",
-        "service_policies_from_namespace",
-        "user_id_client_ip"
-      ],
+      "server_defaults": ["connection_timeout", "http_idle_timeout"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/http_loadbalancer.txt#minimal-valid-config"
@@ -1012,25 +943,7 @@
       "category": "load-balancing",
       "description": "Defining backend server pools for load balancer targets",
       "required": ["name", "namespace", "origin_servers", "port"],
-      "server_defaults": [
-        "advanced_options.auto_http_config",
-        "advanced_options.connection_timeout",
-        "advanced_options.default_circuit_breaker",
-        "advanced_options.disable_outlier_detection",
-        "advanced_options.disable_subsets",
-        "advanced_options.http_idle_timeout",
-        "advanced_options.no_panic_threshold",
-        "advanced_options.no_request_limit_per_connection",
-        "endpoint_selection",
-        "healthcheck",
-        "loadbalancer_algorithm",
-        "no_tls",
-        "same_as_endpoint_port",
-        "use_tls.default_session_key_caching",
-        "use_tls.no_mtls",
-        "use_tls.use_host_header_as_sni",
-        "use_tls.volterra_trusted_ca"
-      ],
+      "server_defaults": ["connection_timeout", "http_idle_timeout"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/origin_pool.txt#minimal-valid-config"
@@ -1152,15 +1065,6 @@
       "category": "load-balancing",
       "description": "Load balancing TCP traffic across origin pools",
       "required": ["name", "namespace", "origin_pools"],
-      "server_defaults": [
-        "dns_volterra_managed",
-        "hash_policy_choice_round_robin",
-        "idle_timeout",
-        "no_sni",
-        "retract_cluster",
-        "service_policies_from_namespace",
-        "tcp"
-      ],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/tcp_loadbalancer.txt#minimal-valid-config"
@@ -1241,16 +1145,6 @@
       "category": "sites",
       "description": "Deploying F5 sites within Azure Virtual Network environments",
       "required": ["name", "namespace", "machine_type", "resource_group", "ssh_key"],
-      "server_defaults": [
-        "block_all_services",
-        "disk_size",
-        "ingress_gw.accelerated_networking",
-        "ingress_gw.performance_enhancement_mode",
-        "logs_streaming_disabled",
-        "machine_type",
-        "no_worker_nodes",
-        "tags"
-      ],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/azure_vnet_site.txt#minimal-valid-config"
@@ -1398,17 +1292,6 @@
       "category": "kubernetes",
       "description": "K8s_cluster will create the object in the storage backend for namespace metadata.namespace",
       "required": ["name", "namespace"],
-      "server_defaults": [
-        "cluster_scoped_access_deny",
-        "no_cluster_wide_apps",
-        "no_global_access",
-        "no_insecure_registries",
-        "no_local_access",
-        "use_default_cluster_role_bindings",
-        "use_default_cluster_roles",
-        "use_default_psp",
-        "vk8s_namespace_access_deny"
-      ],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/k8s_cluster.txt#minimal-valid-config"
@@ -1703,13 +1586,6 @@
       "category": "api-security",
       "description": "API Definition",
       "required": ["name", "namespace"],
-      "server_defaults": [
-        "api_inventory_exclusion_list",
-        "api_inventory_inclusion_list",
-        "non_api_endpoints",
-        "strict_schema_origin",
-        "swagger_specs"
-      ],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/api_definition.txt#minimal-valid-config"
@@ -1724,11 +1600,6 @@
       "category": "api-security",
       "description": "API discovery creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace", "user_defined_api_discovery_policy"],
-      "server_defaults": [
-        "custom_auth_types",
-        "user_defined_api_discovery_policy.discovery_rules",
-        "user_defined_api_discovery_policy.inclusive"
-      ],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/api_discovery.txt#minimal-valid-config"
@@ -1967,7 +1838,6 @@
       "category": "monitoring",
       "description": "New Global Log Receiver object",
       "required": ["name", "namespace", "log_type", "receiver_choice"],
-      "server_defaults": ["ns_current", "request_logs.sampled"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/global_log_receiver.txt#minimal-valid-config"
@@ -2205,7 +2075,6 @@
       "category": "service-mesh",
       "description": "New policer with traffic rate limits",
       "required": ["name", "namespace", "burst_size", "committed_information_rate"],
-      "server_defaults": ["policer_mode", "policer_type"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/policer.txt#minimal-valid-config"

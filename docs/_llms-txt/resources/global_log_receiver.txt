@@ -10,11 +10,6 @@ New Global Log Receiver object
 - log_type
 - receiver_choice
 
-## Server Defaults (safe to omit)
-
-- ns_current
-- request_logs.sampled
-
 ## Minimal Valid Config
 
 ```terraform

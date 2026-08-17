@@ -1,9 +1,6 @@
 # Development Guide
 
-Community-driven Terraform provider for F5 Distributed Cloud (F5XC)
-built using the HashiCorp Terraform Plugin Framework. The provider
-implements F5's public OpenAPI specifications to manage F5XC resources
-via Terraform.
+Community-driven Terraform provider for F5 Distributed Cloud built using the HashiCorp Terraform Plugin Framework. The provider implements public OpenAPI specifications to manage F5 Distributed Cloud resources through declarative Terraform configurations.
 
 ## Build & Development Commands
 
@@ -27,54 +24,54 @@ cp terraform-provider-xcsh ~/.terraform.d/plugins/registry.terraform.io/f5-sales
 
 ## Environment Variables
 
-- `XCSH_API_TOKEN` - API token for F5 Distributed Cloud (one of token or P12 required)
-- `XCSH_API_URL` - API URL for your F5 Distributed Cloud tenant (required, no default)
-- `XCSH_P12_FILE` - Path to P12 certificate file (alternative to token auth)
-- `XCSH_P12_PASSWORD` - Password for P12 file (required with XCSH_P12_FILE)
-- `TF_ACC=1` - Enable acceptance tests
+- `XCSH_API_TOKEN` — API token for F5 Distributed Cloud (one of token or P12 required)
+- `XCSH_API_URL` — Base API URL for your F5 Distributed Cloud tenant (required, no default)
+- `XCSH_P12_FILE` — Path to PKCS#12 certificate file (alternative to token authentication)
+- `XCSH_P12_PASSWORD` — Password for PKCS#12 certificate file (required with `XCSH_P12_FILE`)
+- `TF_ACC=1` — Enable acceptance test suite execution
 
 ## Architecture
 
 ### Directory Structure
 
-- `main.go` - Provider entry point with version injection via goreleaser
-- `internal/provider/` - All Terraform resources and data sources
-- `internal/client/` - F5XC API client (HTTP client with CRUD operations and type definitions)
-- `internal/functions/` - Provider-defined functions (manually maintained)
-- `internal/blindfold/` - F5XC Secret Management encryption library (manually maintained)
-- `tools/` - Code generation utilities for scaffolding new resources from OpenAPI specs
-- `docs/` - Auto-generated provider documentation for Terraform Registry
-- `examples/` - Example Terraform configurations
-- `templates/` - Templates for doc generation (`tfplugindocs`)
+- `main.go` — Provider entry point with version injection via GoReleaser
+- `internal/provider/` — Terraform resource and data source implementations
+- `internal/client/` — F5 Distributed Cloud API HTTP client and data type definitions
+- `internal/functions/` — Provider-defined functions
+- `internal/blindfold/` — F5 Distributed Cloud Secret Management client encryption library
+- `tools/` — Code generation and documentation transformation utilities
+- `docs/` — Generated provider documentation for the Terraform Registry
+- `examples/` — Terraform example configurations
+- `templates/` — Documentation templates processed by `tfplugindocs`
 
 ### Resource Implementation Pattern
 
-Each resource follows the Terraform Plugin Framework pattern:
+Each resource follows the Terraform Plugin Framework architecture:
 
-1. **Resource struct** implementing `resource.Resource`, `resource.ResourceWithConfigure`, `resource.ResourceWithImportState`
-2. **Model struct** with `tfsdk` tags for state management
-3. **CRUD methods**: `Create`, `Read`, `Update`, `Delete`
-4. **Registration** in `provider.go` via `Resources()` function
+1. **Resource struct** implementing `resource.Resource`, `resource.ResourceWithConfigure`, and `resource.ResourceWithImportState`
+2. **Model struct** with `tfsdk` tags for state encoding and decoding
+3. **CRUD methods**: `Create`, `Read`, `Update`, and `Delete`
+4. **Registration** in `provider.go` using the `Resources()` function
 
 Example reference: `internal/provider/namespace_resource.go`
 
 ### Client Architecture
 
-`internal/client/client.go` contains:
+`internal/client/client.go` provides:
 
-- HTTP client wrapper for F5XC API (`Client` struct)
-- Type definitions for all F5XC resources
-- CRUD methods following pattern: `Create{Resource}`, `Get{Resource}`, `Update{Resource}`, `Delete{Resource}`
+- HTTP client wrapper for the F5 Distributed Cloud REST API (`Client` struct)
+- Go type definitions for all supported resource schemas
+- Standardized CRUD methods: `Create{Resource}`, `Get{Resource}`, `Update{Resource}`, `Delete{Resource}`
 
-API authentication uses Bearer token: `Authorization: APIToken {token}`
+API authentication uses a Bearer token header: `Authorization: APIToken {token}` or mTLS certificates.
 
 ### Code Generation
 
-The `tools/` directory contains generators for scaffolding resources from F5 OpenAPI specs:
+The `tools/` directory contains utilities for scaffolding resources from OpenAPI specifications:
 
-- `generate-all-schemas.go` - Main generator for provider resources, data sources, and client types from v2 domain specs
-- `transform-docs.go` - Transforms generated documentation with enhanced metadata
-- `generate-examples.go` - Generates Terraform example configurations
+- `generate-all-schemas.go` — Generates provider resources, data sources, and client types from domain specifications
+- `transform-docs.go` — Enhances generated documentation with metadata, syntax callouts, and cross-references
+- `generate-examples.go` — Generates Terraform example configurations
 
 ## Generated Files (Never Commit Manually)
 
@@ -89,19 +86,19 @@ The `tools/` directory contains generators for scaffolding resources from F5 Ope
 | `internal/provider/*_resource.go` | `generate-all-schemas.go` | `on-merge.yml` |
 | `internal/provider/*_data_source.go` | `generate-all-schemas.go` | `on-merge.yml` |
 
-To fix a bug in generated code, fix the **generator** not the generated file. CI blocks PRs containing manually-modified generated files.
+To fix an issue in generated code or documentation, update the **generator or template**, not the generated file. CI automation blocks pull requests containing manually edited generated files.
 
 ## Manually Maintained Files
 
-These files live in otherwise auto-generated directories but are hand-written:
+The following files reside in generated directories but are maintained manually:
 
 | File | Purpose |
 | --- | --- |
 | `internal/provider/functions_registration.go` | Registers provider-defined functions |
 | `internal/provider/addon_service_data_source.go` | Data source for addon service details |
-| `internal/provider/addon_service_activation_status_data_source.go` | Data source for addon activation |
+| `internal/provider/addon_service_activation_status_data_source.go` | Data source for addon activation status |
 | `templates/functions.md.tmpl` | Template for function documentation |
-| `templates/guides/*.md` | Guide source files |
+| `templates/guides/*.md` | Guide source documents |
 | `examples/functions/*/function.tf` | Function example configurations |
 | `examples/guides/*/` | Guide example Terraform modules |
 
@@ -118,13 +115,13 @@ flowchart TD
     pr --> release[Tag &amp; Release<br/>ONE version bump]
 ```
 
-Reusable workflows (`_build-test.yml`, `_generate-docs.yml`, `_generate-provider.yml`, `_tag-release.yml`) are called by the `on-merge.yml` orchestrator.
+Reusable workflows (`_build-test.yml`, `_generate-docs.yml`, `_generate-provider.yml`, `_tag-release.yml`) are invoked by the `on-merge.yml` orchestrator.
 
 ## Provider-Defined Functions
 
 ### The `blindfold` Function
 
-Encrypts base64-encoded plaintext using F5XC blindfold encryption:
+Encrypts base64-encoded plaintext using F5 Distributed Cloud Secret Management:
 
 ```hcl
 provider::xcsh::blindfold(plaintext, policy_name, namespace)
@@ -138,21 +135,21 @@ Reads a file and encrypts its contents:
 provider::xcsh::blindfold_file(path, policy_name, namespace)
 ```
 
-Requirements: Terraform 1.8.0+, valid F5XC provider config, existing SecretPolicy.
+Requirements: Terraform >= 1.8.0, valid provider authentication, and an existing SecretPolicy.
 
 ### Adding New Functions
 
-1. Create implementation in `internal/functions/`
-2. Register in `internal/provider/functions_registration.go`
-3. Create examples in `examples/functions/<name>/function.tf`
-4. Add unit tests
+1. Implement function logic in `internal/functions/`
+2. Register the function in `internal/provider/functions_registration.go`
+3. Add example configurations in `examples/functions/<name>/function.tf`
+4. Write unit and functional tests
 5. Update preservation lists in `tools/generate-all-schemas.go`
 
 ## Guides
 
-Guide source files live in `templates/guides/`. Examples in `examples/guides/`. CI copies guides to `docs/guides/` via `tfplugindocs` on merge.
+Guide source files reside in `templates/guides/` with accompanying examples in `examples/guides/`. CI automation renders guides to `docs/guides/` using `tfplugindocs`.
 
-All guides need YAML frontmatter:
+All guides require YAML frontmatter:
 
 ```yaml
 ---
@@ -163,19 +160,19 @@ description: |-
 ---
 ```
 
-## F5XC API v2 Specs
+## API Specifications
 
-Starting with v3.0.0, the provider uses v2 API specs from the enriched API repository. Resources are organized into domain categories (Security, Networking, Infrastructure, Platform, Operations, AI). The generator auto-detects spec version and processes domain files containing multiple resources each.
+Starting with v3.0.0, the provider consumes v2 API specifications organized into domain categories (Security, Networking, Infrastructure, Platform, Operations, AI). The generator automatically detects specification schemas and processes domain files containing multiple resource definitions.
 
 ## Release Process
 
-Releases are automated via GoReleaser on tag push (`v*`):
+Releases are automated using GoReleaser when pushing a version tag (`v*`):
 
 1. Builds cross-platform binaries
-2. Signs checksums with GPG
-3. Publishes to GitHub Releases with Terraform Registry manifest
+2. Generates cryptographic SHA-256 checksums and GPG signatures
+3. Publishes release artifacts and manifests to GitHub Releases for the Terraform Registry
 
 ## Key Dependencies
 
-- `github.com/hashicorp/terraform-plugin-framework` - Core Terraform provider SDK
-- `github.com/hashicorp/terraform-plugin-log` - Structured logging
+- `github.com/hashicorp/terraform-plugin-framework` — Core Terraform provider SDK
+- `github.com/hashicorp/terraform-plugin-log` — Structured logging library

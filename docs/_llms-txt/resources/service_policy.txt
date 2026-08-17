@@ -8,10 +8,6 @@ Service_policy creates a new object in the storage backend for metadata.namespac
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- port_matcher
-
 ## Minimal Valid Config
 
 ```terraform

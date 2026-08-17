@@ -187,7 +187,7 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	} else if hasNamespace {
 		idComponentAttrs = append(idComponentAttrs, openapi.TerraformAttribute{
 			Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string",
-			Description: fmt.Sprintf("Namespace where the %s will be created.", naming.ToHumanReadableName(resourceName)),
+			Description: fmt.Sprintf("Namespace where the %s is created.", naming.ToHumanReadableName(resourceName)),
 			Required:    true, PlanModifier: "RequiresReplace"})
 	} else {
 		idComponentAttrs = append(idComponentAttrs, openapi.TerraformAttribute{
@@ -204,7 +204,7 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		{Name: "description", GoName: "Description", TfsdkTag: "description", Type: "string",
 			Description: "Human readable description for the object.", Optional: true},
 		{Name: "disable", GoName: "Disable", TfsdkTag: "disable", Type: "bool",
-			Description: "A value of true will administratively disable the object.", Optional: true},
+			Description: "A value of true administratively disables the object.", Optional: true},
 		{Name: "labels", GoName: "Labels", TfsdkTag: "labels", Type: "map", ElementType: "string",
 			Description: "Labels is a user defined key value map that can be attached to resources for organization and filtering.", Optional: true},
 	}
@@ -714,7 +714,7 @@ func SystemMetadataUIDAttribute(resourceName string) openapi.TerraformAttribute 
 	uidDesc := "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation."
 	uidSens := false
 	if naming.ToResourceTypeName(resourceName) == "Token" {
-		uidDesc += " For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured."
+		uidDesc += " For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured."
 		uidSens = true
 	}
 	return openapi.TerraformAttribute{

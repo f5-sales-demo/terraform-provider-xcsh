@@ -963,9 +963,9 @@ func transformAnchorsOnly(filePath string, content string) error {
 		line := lines[i]
 
 		// Replace API documentation link (generic or previously generated) with current resource-specific link
-		if apiDocURL != "" && (strings.Contains(line, "F5 XC API Documentation") || strings.Contains(line, "API docs]")) {
+		if apiDocURL != "" && (strings.Contains(line, "F5 XC API Documentation") || strings.Contains(line, "API docs]") || strings.Contains(line, "API documentation]")) {
 			displayName := naming.ToTitleCase(resourceName)
-			line = fmt.Sprintf("~> **Note** Please refer to [%s API docs](%s) to learn more.", displayName, apiDocURL)
+			line = fmt.Sprintf("~> **Note:** For more information, see the [%s API documentation](%s).", displayName, apiDocURL)
 		}
 
 		// Check if this is an anchor line
@@ -1366,9 +1366,9 @@ func transformDoc(filePath string) error {
 			line = fmt.Sprintf("subcategory: \"%s\"", subcategory)
 		}
 		// Replace API documentation link (generic or previously generated) with current resource-specific link
-		if apiDocURL != "" && (strings.Contains(line, "F5 XC API Documentation") || strings.Contains(line, "API docs]")) {
+		if apiDocURL != "" && (strings.Contains(line, "F5 XC API Documentation") || strings.Contains(line, "API docs]") || strings.Contains(line, "API documentation]")) {
 			displayName := naming.ToTitleCase(resourceName)
-			line = fmt.Sprintf("~> **Note** Please refer to [%s API docs](%s) to learn more.", displayName, apiDocURL)
+			line = fmt.Sprintf("~> **Note:** For more information, see the [%s API documentation](%s).", displayName, apiDocURL)
 		}
 		output.WriteString(line)
 		output.WriteString("\n")

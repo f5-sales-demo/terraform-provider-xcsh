@@ -23,8 +23,12 @@ DEPRECATED — do not use: volterraedge/volterra
 
 ## Guides
 
-- [authentication](guides/authentication) : API token, P12 certificate, and PEM auth methods
-- [http-loadbalancer](guides/http-loadbalancer) : Deploy production load balancers with security
+- [addon-activation](guides/addon-activation) : Activate and manage F5 Distributed Cloud addon services
+- [advanced-http-loadbalancer](guides/advanced-http-loadbalancer) : Deploy HTTP load balancers with WAF, bot defense, and security controls
+- [authentication](guides/authentication) : Configure API token, P12 certificate, and PEM certificate authentication
+- [blindfold](guides/blindfold) : Encrypt secrets locally with public key encryption
+- [http-loadbalancer](guides/http-loadbalancer) : Deploy HTTP load balancers with origin pools and health checks
+- [httpbin-minimal](guides/httpbin-minimal) : Deploy a minimal HTTP load balancer with httpbin backend
 
 ## Functions
 

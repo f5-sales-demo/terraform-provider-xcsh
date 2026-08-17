@@ -8,15 +8,15 @@ description: |-
 
 # HTTP Load Balancer with Security Features
 
-This guide walks you through deploying a complete HTTP Load Balancer on F5 Distributed Cloud. By the end, you'll have a production-ready load balancer with:
+This guide explains how to deploy a complete HTTP Load Balancer on F5 Distributed Cloud with the following security features:
 
-- **Web Application Firewall (WAF)** - Blocks common web attacks (SQLi, XSS, etc.)
-- **Bot Defense** - Protects against automated attacks and scrapers
-- **Rate Limiting** - Prevents abuse by limiting requests per client
-- **JavaScript Challenge** - Client-side bot detection
-- **Automatic TLS Certificates** - HTTPS with auto-renewal
-- **Health Monitoring** - Active health checks on origin servers
-- **Threat Mesh** - Global threat intelligence sharing
+- **Web Application Firewall (WAF)** — Blocks common web attacks (SQL injection, XSS, and command injection)
+- **Bot Defense** — Protects against automated attacks and scrapers
+- **Rate Limiting** — Prevents abuse by limiting requests per client IP
+- **JavaScript Challenge** — Validates client browsers and detects automation
+- **Automatic TLS Certificates** — Automates HTTPS provisioning and renewal
+- **Health Monitoring** — Actively tests origin server health
+- **Threat Mesh** — Integrates global threat intelligence telemetry
 
 For a minimal copy-paste example, see the [Httpbin Minimal Guide](httpbin-minimal.md).
 
@@ -24,11 +24,11 @@ For a minimal copy-paste example, see the [Httpbin Minimal Guide](httpbin-minima
 
 Before you begin, ensure you have:
 
-- **F5 Distributed Cloud Account** - Sign up at <https://www.f5.com/cloud/products/distributed-cloud-console> if you don't have one
-- **API Token** - Generate credentials from the F5XC Console at <https://docs.cloud.f5.com/docs/how-to/user-mgmt/credentials>
-- **Terraform >= 1.8** - Download and install from <https://www.terraform.io/downloads>
-- **A Domain** - Domain you control for DNS configuration
-- **Backend Origin Server** - Your application server accessible from the internet
+- **Terraform >= 1.0** — Download and install from <https://www.terraform.io/downloads>
+- **F5 Distributed Cloud Account** — Sign up at <https://www.f5.com/cloud/products/distributed-cloud-console>
+- **API Credentials** — Configure API token or P12 certificate authentication (see the [Authentication Guide](authentication.md))
+- **A Domain** — Domain you control for DNS delegation or CNAME routing
+- **Backend Origin Server** — Application server accessible by F5 Distributed Cloud Regional Edges
 
 ## Quick Start
 
@@ -44,11 +44,11 @@ cd terraform-provider-xcsh/examples/guides/http-loadbalancer
 Configure authentication using environment variables. **Never commit credentials to version control.**
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_API_TOKEN="your-api-token"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_API_TOKEN="<XC_API_TOKEN>"
 ```
 
--> **Tip:** Add these to your shell profile (`~/.bashrc` or `~/.zshrc`) for persistence across terminal sessions.
+-> **Tip:** Add these variables to your shell profile (`~/.bashrc` or `~/.zshrc`) for persistence across terminal sessions.
 
 ### Step 3: Configure Your Deployment
 
@@ -85,23 +85,23 @@ terraform plan
 terraform apply
 ```
 
-Review the plan output, then type `yes` to confirm deployment.
+Review the plan output, and then type `yes` when prompted to confirm deployment.
 
 ### Step 5: Configure DNS
 
-After deployment, Terraform outputs a CNAME target. Create a DNS record:
+After deployment, Terraform outputs a CNAME target. Create a DNS record with your DNS provider:
 
-| Type  | Name            | Value                                |
-| ----- | --------------- | ------------------------------------ |
-| CNAME | app.example.com | ves-io-app-example-com.ac.vh.ves.io  |
+| Type  | Name              | Value                                |
+| ----- | ----------------- | ------------------------------------ |
+| CNAME | `app.example.com` | `ves-io-app-example-com.ac.vh.ves.io` |
 
-~> **Note:** DNS propagation may take up to 48 hours, though typically completes within minutes.
+~> **Note:** DNS propagation time varies by provider and typically completes within a few minutes.
 
 ### Step 6: Verify
 
-1. **Wait for TLS provisioning** - Auto-cert typically provisions within 5 minutes
-2. **Access your application** - Navigate to `https://your-domain.com`
-3. **Check the console** - View traffic and security events in F5 Distributed Cloud Console
+1. **Wait for TLS provisioning** — Automatic certificate provisioning typically completes within 5 minutes.
+2. **Access your application** — Navigate to `https://app.example.com` in your browser.
+3. **Inspect telemetry** — View traffic and security events in the F5 Distributed Cloud Console.
 
 ## Configuration Options
 
@@ -204,49 +204,49 @@ This guide creates the following resources:
 
 **Solutions:**
 
-1. Verify DNS CNAME is correctly configured
-2. Wait up to 10 minutes for certificate provisioning
-3. Check the Load Balancer status in F5XC Console
+1. Verify that the DNS CNAME record is correctly configured with your DNS provider.
+2. Wait up to 10 minutes for automated certificate provisioning and challenge completion.
+3. Check the load balancer status in the F5 Distributed Cloud Console.
 
 ### 502 Bad Gateway
 
-**Symptom:** Load balancer returns 502 errors.
+**Symptom:** Load balancer returns HTTP 502 Bad Gateway errors.
 
 **Solutions:**
 
-1. Verify `origin_server` is accessible from the internet
-2. Check health check path returns HTTP 200
-3. Verify origin port is correct
-4. Check origin server TLS configuration
+1. Verify that `origin_server` is reachable by F5 Distributed Cloud Regional Edges.
+2. Verify that the health check endpoint returns HTTP 200.
+3. Verify that the origin port matches the backend service configuration.
+4. Check backend TLS settings if using HTTPS to origin.
 
 ### WAF Blocking Legitimate Traffic
 
-**Symptom:** Valid requests are blocked by WAF.
+**Symptom:** Valid requests are blocked by the Web Application Firewall.
 
 **Solutions:**
 
-1. Check Security Analytics in F5XC Console
-2. Review blocked request details
-3. Consider temporarily setting WAF to monitoring mode:
+1. Inspect Security Analytics in the F5 Distributed Cloud Console.
+2. Review the triggered signature and rule IDs.
+3. Temporarily configure WAF in monitoring mode during initial testing:
 
    ```hcl
-   enable_waf = false  # Disable in Terraform
+   enable_waf = false  # Disable or switch to monitoring
    ```
 
 ### Rate Limiting Too Aggressive
 
-**Symptom:** Users hitting rate limits during normal usage.
+**Symptom:** Users encounter rate limit errors during normal usage.
 
 **Solutions:**
 
-1. Increase the rate limit:
+1. Increase the rate limit threshold:
 
    ```hcl
    rate_limit_requests = 500
    ```
 
-2. Review rate limiting events in the console
-3. Consider user identification beyond IP address
+2. Inspect rate limiting telemetry in the console.
+3. Consider scoping rate limits to specific paths or user identifiers.
 
 ## Clean Up
 
@@ -256,21 +256,19 @@ To remove all resources created by this guide:
 terraform destroy
 ```
 
-Type `yes` to confirm destruction.
+Type `yes` when prompted to confirm resource destruction.
 
-!> **Warning:** This will immediately remove the load balancer and all associated resources. Traffic to your domain will no longer be handled by F5XC.
+~> **Warning:** This command immediately destroys the load balancer and all associated resources. Traffic to your domain is no longer handled by F5 Distributed Cloud.
 
 ## Next Steps
 
-Now that you have a basic HTTP Load Balancer deployed, consider exploring:
-
-- [Origin Pool Resource](../resources/origin_pool.md) - Add multiple origins for redundancy
-- [App Firewall Resource](../resources/app_firewall.md) - Customize WAF rules
-- [Service Policy Resource](../resources/service_policy.md) - Add custom access control
-- [TCP Load Balancer Resource](../resources/tcp_loadbalancer.md) - For non-HTTP applications
+- [Origin Pool Resource](../resources/origin_pool.md) — Add multiple origins for high availability
+- [App Firewall Resource](../resources/app_firewall.md) — Customize WAF rules and signatures
+- [Service Policy Resource](../resources/service_policy.md) — Configure custom access control policies
+- [TCP Load Balancer Resource](../resources/tcp_loadbalancer.md) — Load balance non-HTTP TCP traffic
 
 ## Support
 
-- **Provider Documentation:** [F5XC Provider](../index.md)
-- **F5 Documentation:** [F5 Distributed Cloud Docs](https://docs.cloud.f5.com/)
-- **Issues:** [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)
+- [Provider Documentation](../index.md)
+- [F5 Distributed Cloud Documentation](https://docs.cloud.f5.com/)
+- [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)
