@@ -1,12 +1,12 @@
 {
   "assets": {
-    "api-catalog.json": "sha256:33a441c306bfc25bd0e7ff8ae4bc872fce25eba6e86f24cfeabe61a5d3b7ed29",
-    "f5xc-api-specs-v2.1.219.zip": "sha256:d002ab1b04abe673f88b2e0c01d43913e99a76c462f73443de37cf1b393afea5",
-    "index.json": "sha256:ae81191b63745f3203941421f296426d75a3b4ea11f4b5c79b842934fa89c10c",
-    "minimal-export-defaults.json": "sha256:8c0be58228d51b667592d56e5cd7b8011731606c6a1de6fc14608349e7f49c5a",
-    "openapi.json": "sha256:57bac4065664f3bc5d2cfff43aff389aeb239aa6356e8cba7fe1a6353b64a8b7"
+    "api-catalog.json": "sha256:4508d97178f9539bcd3895cd2292773d566c7c3eef91bba6cb1c24693c61f38b",
+    "f5xc-api-specs-v2.1.221.zip": "sha256:40bd1d282b6987a9379852fef9d1a5833430f921369dfe49531a03daf9cfd15b",
+    "index.json": "sha256:ade4d093fe30c3552d1acaa84792112f021f6b1da42d864c09464d8f1b5d6000",
+    "minimal-export-defaults.json": "sha256:6a6874bec66edd75916f3aedd90e96a965f7d037703d547a1513862f1d99f102",
+    "openapi.json": "sha256:4a60a3b309c81500dc77818abdcd24107dd8a35e6b0027f71794e396e70e75ab"
   },
-  "release_tag": "v2.1.219",
-  "target_commit": "1ee061b8d04e9ed8f3d90273b571502e597b141e",
-  "version": "2.1.219"
+  "release_tag": "v2.1.221",
+  "target_commit": "6e6cfd6f135f34be22bd4d47baf9fa8bb4a1bbe0",
+  "version": "2.1.221"
 }
