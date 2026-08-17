@@ -437,6 +437,52 @@ func TestRegenerationCommitRequiresExactPendingAttestation(t *testing.T) {
 	})
 }
 
+func TestOnMergeProcessingPrioritizesExactRegenerationIdentity(t *testing.T) {
+	script := extractWorkflowRunStep(t, "on-merge.yml", "detect-changes", "Determine if processing should proceed")
+	run := func(t *testing.T, isRegeneration string) (string, string, error) {
+		t.Helper()
+		tmp := t.TempDir()
+		output := filepath.Join(tmp, "github-output")
+		env := []string{
+			"IS_REGENERATION=" + isRegeneration,
+			"SPECS=false",
+			"CODE=false",
+			"TOOLS=false",
+			"FUNCTIONS=false",
+			"HAS_ANY_CHANGES=false",
+			"DELIVERY_METADATA_ONLY=true",
+			"PENDING_DELIVERY=false",
+			"GITHUB_OUTPUT=" + output,
+		}
+		result, err := runWorkflowScript(tmp, script, env)
+		outputs, readErr := os.ReadFile(output) //nolint:gosec // isolated fixture
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		return string(outputs), result, err
+	}
+
+	t.Run("attested receipt-only regeneration proceeds", func(t *testing.T) {
+		outputs, result, err := run(t, "true")
+		if err != nil {
+			t.Fatalf("exact regeneration classification failed: %v\n%s", err, result)
+		}
+		if !strings.Contains(outputs, "result=true") || !strings.Contains(result, "exact regeneration completion") {
+			t.Fatalf("exact receipt-only regeneration did not proceed:\n%s\n%s", outputs, result)
+		}
+	})
+
+	t.Run("ordinary receipt-only commit remains skipped", func(t *testing.T) {
+		outputs, result, err := run(t, "false")
+		if err != nil {
+			t.Fatalf("ordinary metadata classification failed: %v\n%s", err, result)
+		}
+		if !strings.Contains(outputs, "result=false") || !strings.Contains(result, "metadata cannot trigger") {
+			t.Fatalf("ordinary receipt-only commit was not skipped:\n%s\n%s", outputs, result)
+		}
+	})
+}
+
 func TestOnMergeGeneratorStateTruthTable(t *testing.T) {
 	script := extractWorkflowRunStep(t, "on-merge.yml", "generation-state", "Classify generator state")
 	type generatorState struct {
