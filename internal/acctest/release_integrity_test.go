@@ -980,6 +980,7 @@ func TestReleaseWorkflowSerializesAndClassifiesReleaseState(t *testing.T) {
 		"absent":    {mode: "absent", wantState: "absent"},
 		"draft":     {mode: "draft", wantState: "draft"},
 		"published": {mode: "published", wantState: "published"},
+		"duplicate": {mode: "duplicate", wantError: "Release tag resolves to multiple releases"},
 		"forbidden": {mode: "forbidden", wantError: "Failed to resolve existing release state"},
 	} {
 		t.Run(name, func(t *testing.T) {
@@ -991,12 +992,24 @@ if [[ "$*" == *immutable-releases* ]]; then
   printf '%s\n' '{"enabled":true}'
   exit 0
 fi
-case "$RELEASE_MODE" in
-  absent) printf '%s\n' 'gh: Not Found (HTTP 404)' >&2; exit 1 ;;
-  draft) printf '%s\n' '{"draft":true,"prerelease":false}' ;;
-  published) printf '%s\n' '{"draft":false,"prerelease":false}' ;;
-  forbidden) printf '%s\n' 'gh: Forbidden (HTTP 403)' >&2; exit 1 ;;
-esac
+if [[ "$*" == *"releases/tags"* ]]; then
+  case "$RELEASE_MODE" in
+    absent|draft|duplicate) printf '%s\n' 'gh: Not Found (HTTP 404)' >&2; exit 1 ;;
+    published) printf '%s\n' '{"tag_name":"v1.2.3","draft":false,"prerelease":false}' ;;
+    forbidden) printf '%s\n' 'gh: Forbidden (HTTP 403)' >&2; exit 1 ;;
+  esac
+  exit 0
+fi
+if [[ "$*" == *"releases?per_page=100"* ]]; then
+  case "$RELEASE_MODE" in
+    absent) printf '%s\n' '[]' ;;
+    draft) printf '%s\n' '[{"tag_name":"v1.2.3","draft":true,"prerelease":false}]' ;;
+    duplicate) printf '%s\n' '[{"tag_name":"v1.2.3","draft":true,"prerelease":false},{"tag_name":"v1.2.3","draft":true,"prerelease":false}]' ;;
+    *) exit 88 ;;
+  esac
+  exit 0
+fi
+exit 88
 `
 			writeReleaseTestFile(t, bin, "gh", stub, 0o700)
 			output := filepath.Join(tmp, "github-output")
@@ -1027,6 +1040,39 @@ esac
 				t.Fatalf("release state was not classified as %s: %s", fixture.wantState, outputs)
 			}
 		})
+	}
+}
+
+func TestMutableDraftLookupUsesReleaseCollection(t *testing.T) {
+	measure := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Download and measure all release assets")
+	prepublish := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Publish verified draft")
+	published := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Verify sealed publication")
+
+	for name, script := range map[string]string{
+		"measure":    measure,
+		"prepublish": prepublish,
+	} {
+		for _, fragment := range []string{
+			`releases?per_page=100`,
+			`--paginate`,
+			`.tag_name == $tag`,
+			`length == 1`,
+			`.draft == true`,
+		} {
+			if !strings.Contains(script, fragment) {
+				t.Errorf("%s does not resolve exactly one stable draft from the release collection; missing %q", name, fragment)
+			}
+		}
+	}
+	if strings.Contains(prepublish, `releases/tags/${RELEASE_TAG}`) {
+		t.Fatal("prepublication draft re-measurement still uses the published-release tag endpoint")
+	}
+	if !strings.Contains(measure, `if [ "$RELEASE_STATE" = "published" ]; then`) ||
+		!strings.Contains(measure, `releases/tags/${RELEASE_TAG}`) {
+		t.Fatal("asset measurement does not reserve the exact tag endpoint for an already-published release")
+	}
+	if !strings.Contains(published, `releases/tags/${RELEASE_TAG}`) {
+		t.Fatal("sealed publication verification no longer uses the exact published-release tag endpoint")
 	}
 }
 
@@ -1308,7 +1354,7 @@ exit 0
 	writeReleaseTestFile(t, tampered, "release-notes.md", "notes\n", 0o600)
 	writeReleaseTestFile(t, tampered, "provider-receipt.json", "{}\n", 0o600)
 	writeReleaseTestJSON(t, filepath.Join(tampered, "release.json"), map[string]any{
-		"body": "notes\n", "draft": true, "prerelease": false,
+		"body": "notes\n", "tag_name": "v1.2.3", "draft": true, "prerelease": false,
 	})
 	writeReleaseTestFile(t, tamperedBin, "gh", `#!/usr/bin/env bash
 set -euo pipefail
@@ -1316,7 +1362,7 @@ printf '%s\n' "$*" >> "$GH_LOG"
 if [[ "$*" == *"/commits/"* ]]; then
   printf '%s\n' "$EXPECTED_COMMIT"
 elif [ "$1" = api ]; then
-  cat "$RELEASE_JSON"
+  jq -c -s '.' "$RELEASE_JSON"
 elif [ "$1 $2" = "release download" ]; then
   while [ "$#" -gt 0 ]; do
     if [ "$1" = --dir ]; then
