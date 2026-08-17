@@ -1030,6 +1030,23 @@ esac
 	}
 }
 
+func TestMCPArchiveDoesNotDirtyGoReleaserCheckout(t *testing.T) {
+	buildScript := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Build MCP archive twice")
+	canonicalArchive := `mcp-data-${VERSION}.tar.gz`
+	if strings.Contains(buildScript, canonicalArchive) {
+		t.Fatalf("MCP reproducibility step writes the canonical archive into the GoReleaser checkout:\n%s", buildScript)
+	}
+
+	attachScript := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Attach deterministic MCP archive to draft")
+	copyCommand := `cp "$RUNNER_TEMP/mcp-a.tar.gz" "mcp-data-${VERSION}.tar.gz"`
+	uploadCommand := `gh release upload "$RELEASE_TAG" "mcp-data-${VERSION}.tar.gz" --clobber`
+	copyIndex := strings.Index(attachScript, copyCommand)
+	uploadIndex := strings.Index(attachScript, uploadCommand)
+	if copyIndex < 0 || uploadIndex < 0 || copyIndex >= uploadIndex {
+		t.Fatalf("MCP archive is not copied to its canonical name immediately before upload:\n%s", attachScript)
+	}
+}
+
 func TestReleaseImmutabilityChecksUseAdministrationToken(t *testing.T) {
 	root := testRepositoryRoot(t)
 	releaseData, err := os.ReadFile(filepath.Join(root, ".github/workflows/_tag-release.yml")) //nolint:gosec // fixed repository path
