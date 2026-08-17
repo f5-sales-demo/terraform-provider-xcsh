@@ -260,7 +260,35 @@ jobs:
               echo "state=published" >> "$GITHUB_OUTPUT"
             fi
           elif grep -q '(HTTP 404)$' "$RUNNER_TEMP/release-probe.err"; then
-            echo "state=absent" >> "$GITHUB_OUTPUT"
+            if ! gh api --paginate \
+              "repos/${REPOSITORY}/releases?per_page=100" \
+              > "$RUNNER_TEMP/release-pages.json" \
+              2> "$RUNNER_TEMP/release-list.err"; then
+              cat "$RUNNER_TEMP/release-list.err" >&2
+              echo "::error::Failed to resolve draft release state"
+              exit 1
+            fi
+            jq -se --arg tag "$RELEASE_TAG" \
+              '[.[][] | select(.tag_name == $tag)]' \
+              "$RUNNER_TEMP/release-pages.json" \
+              > "$RUNNER_TEMP/release-matches.json"
+            MATCH_COUNT=$(jq 'length' "$RUNNER_TEMP/release-matches.json")
+            if [ "$MATCH_COUNT" -eq 0 ]; then
+              echo "state=absent" >> "$GITHUB_OUTPUT"
+            elif [ "$MATCH_COUNT" -eq 1 ]; then
+              jq -e '.[0].draft == true and .[0].prerelease == false' \
+                "$RUNNER_TEMP/release-matches.json" \
+                >/dev/null || {
+                echo "::error::Release collection returned an invalid draft state"
+                exit 1
+              }
+              jq '.[0]' "$RUNNER_TEMP/release-matches.json" \
+                > "$RUNNER_TEMP/release-initial.json"
+              echo "state=draft" >> "$GITHUB_OUTPUT"
+            else
+              echo "::error::Release tag resolves to multiple releases"
+              exit 1
+            fi
           else
             cat "$RUNNER_TEMP/release-probe.err" >&2
             echo "::error::Failed to resolve existing release state"
@@ -341,13 +369,27 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+          RELEASE_STATE: ${{ steps.release_state.outputs.state }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
           rm -rf "$RUNNER_TEMP/provider-assets"
           mkdir -p "$RUNNER_TEMP/provider-assets"
-          gh api "repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" \
-            > "$RUNNER_TEMP/release-measured.json"
+          if [ "$RELEASE_STATE" = "published" ]; then
+            gh api "repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" \
+              > "$RUNNER_TEMP/release-measured.json"
+          else
+            gh api --paginate "repos/${REPOSITORY}/releases?per_page=100" \
+              | jq -se --arg tag "$RELEASE_TAG" '
+                  [.[][] | select(.tag_name == $tag)] |
+                  if length == 1 and .[0].draft == true and .[0].prerelease == false
+                  then .[0]
+                  elif length == 0 then error("draft release not found")
+                  elif length > 1 then error("release tag is ambiguous")
+                  else error("release is not a stable draft")
+                  end
+                ' > "$RUNNER_TEMP/release-measured.json"
+          fi
           gh release download "$RELEASE_TAG" --dir "$RUNNER_TEMP/provider-assets"
 
       - name: Verify already-published release without mutation
@@ -430,8 +472,16 @@ jobs:
           # body edit: another writer could have replaced an asset or receipt.
           rm -rf "$RUNNER_TEMP/provider-assets"
           mkdir -p "$RUNNER_TEMP/provider-assets"
-          gh api "repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" \
-            > "$RUNNER_TEMP/release-prepublish.json"
+          gh api --paginate "repos/${REPOSITORY}/releases?per_page=100" \
+            | jq -se --arg tag "$RELEASE_TAG" '
+                [.[][] | select(.tag_name == $tag)] |
+                if length == 1 and .[0].draft == true and .[0].prerelease == false
+                then .[0]
+                elif length == 0 then error("draft release not found")
+                elif length > 1 then error("release tag is ambiguous")
+                else error("release is not a stable draft")
+                end
+              ' > "$RUNNER_TEMP/release-prepublish.json"
           jq -e '.draft == true and .prerelease == false' \
             "$RUNNER_TEMP/release-prepublish.json" >/dev/null || {
             echo "::error::Verified draft changed state before publication"
