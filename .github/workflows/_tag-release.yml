@@ -10,6 +10,9 @@ on:
       gpg-passphrase:
         description: GPG key passphrase
         required: true
+      repository-administration-token:
+        description: Read repository release-immutability policy
+        required: true
     outputs:
       new-tag:
         description: The immutable version tag for this commit
@@ -40,7 +43,7 @@ jobs:
 
       - name: Require immutable release policy before tagging
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.repository-administration-token }}
           REPOSITORY: ${{ github.repository }}
         run: |
           gh api "repos/${REPOSITORY}/immutable-releases" \
@@ -233,11 +236,13 @@ jobs:
         id: release_state
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY_ADMINISTRATION_TOKEN: ${{ secrets.repository-administration-token }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh api "repos/${REPOSITORY}/immutable-releases" \
+          GH_TOKEN="$REPOSITORY_ADMINISTRATION_TOKEN" \
+            gh api "repos/${REPOSITORY}/immutable-releases" \
             | jq -e '.enabled == true' >/dev/null || {
             echo "::error::Repository release immutability must be enabled before tagging"
             exit 1
