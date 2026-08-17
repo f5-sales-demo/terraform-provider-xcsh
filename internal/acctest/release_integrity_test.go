@@ -972,6 +972,7 @@ esac
 				"RUNNER_TEMP=" + tmp,
 				"GITHUB_OUTPUT=" + output,
 				"GH_TOKEN=fixture",
+				"REPOSITORY_ADMINISTRATION_TOKEN=administration-fixture",
 			})
 			if fixture.wantError != "" {
 				if runErr == nil || !strings.Contains(result, fixture.wantError) {
@@ -990,6 +991,36 @@ esac
 				t.Fatalf("release state was not classified as %s: %s", fixture.wantState, outputs)
 			}
 		})
+	}
+}
+
+func TestReleaseImmutabilityChecksUseAdministrationToken(t *testing.T) {
+	root := testRepositoryRoot(t)
+	releaseData, err := os.ReadFile(filepath.Join(root, ".github/workflows/_tag-release.yml")) //nolint:gosec // fixed repository path
+	if err != nil {
+		t.Fatal(err)
+	}
+	releaseWorkflow := string(releaseData)
+	if strings.Count(releaseWorkflow, "repos/${REPOSITORY}/immutable-releases") != 2 {
+		t.Fatal("release workflow must check immutable-release policy before tagging and publishing")
+	}
+	if !strings.Contains(releaseWorkflow, "GH_TOKEN: ${{ secrets.repository-administration-token }}") ||
+		!strings.Contains(releaseWorkflow, "REPOSITORY_ADMINISTRATION_TOKEN: ${{ secrets.repository-administration-token }}") ||
+		!strings.Contains(releaseWorkflow, "GH_TOKEN=\"$REPOSITORY_ADMINISTRATION_TOKEN\"") {
+		t.Fatal("immutable-release policy probes do not use the dedicated administration credential")
+	}
+	if !strings.Contains(releaseWorkflow, "GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}") {
+		t.Fatal("ordinary release API reads no longer use the job-scoped token")
+	}
+
+	for _, caller := range []string{"on-merge.yml", "release-manual.yml"} {
+		data, readErr := os.ReadFile(filepath.Join(root, ".github/workflows", caller)) //nolint:gosec // fixed repository path
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		if strings.Count(string(data), "repository-administration-token: ${{ secrets.REPO_SYNC_TOKEN }}") != 1 {
+			t.Fatalf("%s does not pass the established administration credential exactly once", caller)
+		}
 	}
 }
 

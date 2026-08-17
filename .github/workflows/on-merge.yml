@@ -951,6 +951,7 @@ jobs:
     secrets:
       gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
       gpg-passphrase: ${{ secrets.PASSPHRASE }}
+      repository-administration-token: ${{ secrets.REPO_SYNC_TOKEN }}
 
   # A dispatch is complete only after generated provider content is merged and
   # the corresponding provider release exists. The sync PR records pending
