@@ -15,7 +15,11 @@ while IFS= read -r path; do
     scripts/test-check-spec-version-freshness.sh | \
     scripts/prepare-spec-delivery-receipt.sh | \
     scripts/validate-provider-delivery-state.sh | \
-    scripts/is-release-recovery-only.sh) ;;
+    scripts/is-release-recovery-only.sh | \
+    tools/provider-publication-receipts.json | \
+    tools/spec-deliveries.json | \
+    tools/spec-pending-delivery.json | \
+    tools/spec-regeneration-receipt.json) ;;
   *) exit 1 ;;
   esac
 done
