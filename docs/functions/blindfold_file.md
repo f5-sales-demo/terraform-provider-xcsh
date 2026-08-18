@@ -165,4 +165,4 @@ resource "xcsh_certificate" "certs" {
 
 ## See Also
 
-- [F5XC Secret Management Documentation](https://docs.cloud.f5.com/docs/how-to/advanced-security/blindfold-your-tls-certificates)
+- [F5 Distributed Cloud Secret Management Documentation](https://docs.cloud.f5.com/docs/how-to/advanced-security/blindfold-your-tls-certificates)

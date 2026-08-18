@@ -1,12 +1,12 @@
 ---
 page_title: "XCSH Provider"
 description: |-
-  Terraform provider for F5 Distributed Cloud (F5XC) enabling infrastructure as code for load balancers, security policies, sites, and networking. Community-maintained provider built from public F5 API documentation.
+  Terraform provider for F5 Distributed Cloud enabling infrastructure as code for load balancers, security policies, sites, and networking. Community-maintained provider built from public F5 API documentation.
 ---
 
 # XCSH Provider
 
-The XCSH Terraform provider enables infrastructure as code management for F5 Distributed Cloud (F5XC) resources. Configure HTTP/TCP load balancers, origin pools, application firewalls, service policies, cloud sites, and more through declarative Terraform configurations.
+The XCSH Terraform provider enables infrastructure as code management for F5 Distributed Cloud resources. Configure HTTP/TCP load balancers, origin pools, application firewalls, service policies, cloud sites, and networking through declarative Terraform configurations.
 
 This is a community-maintained provider built from public F5 API documentation.
 
@@ -16,17 +16,17 @@ This is a community-maintained provider built from public F5 API documentation.
 |-----------|---------|
 | terraform | >= 1.8  |
 
--> **Note:** This provider uses provider-defined functions which require Terraform 1.8 or later. For details, see the [Functions](/docs/functions) documentation.
+~> **Note:** This provider uses provider-defined functions which require Terraform 1.8 or later. For details, see the [Functions](/docs/functions) documentation.
 
 ## Authenticating to F5 Distributed Cloud
 
 The XCSH Terraform provider supports multiple authentication methods:
 
-1. **API Token** - Simplest method using a personal API token
-2. **P12 Certificate** - Certificate-based authentication using PKCS#12 bundle
-3. **PEM Certificate** - Certificate-based authentication using separate cert/key files
+1. **API Token** — Token-based bearer authentication
+2. **P12 Certificate** — Mutual TLS authentication using a PKCS#12 bundle (recommended for production)
+3. **PEM Certificate** — Certificate-based authentication using separate PEM certificate and private key files
 
-Learn more about [how to generate API credentials](https://docs.cloud.f5.com/docs/how-to/user-mgmt/credentials).
+For more information, see the [F5 Distributed Cloud Credentials Guide](https://docs.cloud.f5.com/docs-v2/administration/how-tos/user-mgmt/Credentials).
 
 ## Example Usage
 
@@ -75,31 +75,31 @@ variable "xcsh_api_token" {
 
 ### Required (one of the following authentication methods)
 
-* `api_token` - F5 Distributed Cloud API Token (`String`, Sensitive). Can also be set via `XCSH_API_TOKEN` environment variable.
+* `api_token` — F5 Distributed Cloud API token (`String`, Sensitive). Can also be set with the `XCSH_API_TOKEN` environment variable.
 
-* `api_p12_file` - Path to PKCS#12 certificate bundle file (`String`). Can also be set via `XCSH_P12_FILE` environment variable. Requires `p12_password`.
+* `api_p12_file` — Path to a PKCS#12 certificate bundle file (`String`). Can also be set with the `XCSH_P12_FILE` environment variable. Requires `p12_password`.
 
-* `api_cert` and `api_key` - Paths to PEM-encoded certificate and private key files (`String`). Can also be set via `XCSH_CERT` and `XCSH_KEY` environment variables.
+* `api_cert` and `api_key` — Paths to PEM-encoded certificate and private key files (`String`). Can also be set with the `XCSH_CERT` and `XCSH_KEY` environment variables.
 
 ### Optional
 
-* `api_url` - F5 Distributed Cloud API URL (`String`). Base URL **without** `/api` suffix. Required. No default. Set to your tenant URL (e.g., `https://your-tenant.console.ves.volterra.io`). Can also be set via `XCSH_API_URL` environment variable.
+* `api_url` — F5 Distributed Cloud API URL (`String`). Base URL **without** `/api` suffix. Required. No default. Set to your tenant URL (for example, `https://<XC_TENANT>.console.ves.volterra.io`). Can also be set with the `XCSH_API_URL` environment variable.
 
-* `p12_password` - Password for PKCS#12 certificate bundle (`String`, Sensitive). Required when using `api_p12_file`. Can also be set via `XCSH_P12_PASSWORD` environment variable.
+* `p12_password` — Password for the PKCS#12 certificate bundle (`String`, Sensitive). Required when using `api_p12_file`. Can also be set with the `XCSH_P12_PASSWORD` environment variable.
 
-* `api_ca_cert` - Path to PEM-encoded CA certificate file (`String`). Optional, used for server certificate verification. Can also be set via `XCSH_CACERT` environment variable.
+* `api_ca_cert` — Path to a PEM-encoded CA certificate file (`String`). Optional, used for server certificate verification. Can also be set with the `XCSH_CACERT` environment variable.
 
 ## Authentication Options
 
 ### Option 1: API Token Authentication
 
-The simplest authentication method using a personal API token.
+The simplest authentication method using an API token.
 
 **Provider Configuration:**
 
 ```hcl
 provider "xcsh" {
-  api_url   = "https://your-tenant.console.ves.volterra.io"
+  api_url   = "https://<XC_TENANT>.console.ves.volterra.io"
   api_token = var.xcsh_api_token
 }
 ```
@@ -107,8 +107,8 @@ provider "xcsh" {
 **Environment Variables:**
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_API_TOKEN="your-api-token"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_API_TOKEN="<XC_API_TOKEN>"
 ```
 
 ### Option 2: P12 Certificate Authentication
@@ -119,8 +119,8 @@ Certificate-based authentication using a PKCS#12 bundle downloaded from F5 Distr
 
 ```hcl
 provider "xcsh" {
-  api_url      = "https://your-tenant.console.ves.volterra.io"
-  api_p12_file = "/path/to/certificate.p12"
+  api_url      = "https://<XC_TENANT>.console.ves.volterra.io"
+  api_p12_file = "/path/to/credentials.p12"
   p12_password = var.xcsh_p12_password
 }
 ```
@@ -128,20 +128,20 @@ provider "xcsh" {
 **Environment Variables:**
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_P12_FILE="/path/to/certificate.p12"
-export XCSH_P12_PASSWORD="your-p12-password"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_P12_FILE="/path/to/credentials.p12"
+export XCSH_P12_PASSWORD="<XC_P12_PASSWORD>"
 ```
 
 ### Option 3: PEM Certificate Authentication
 
-Certificate-based authentication using separate PEM-encoded certificate and key files.
+Certificate-based authentication using separate PEM-encoded certificate and private key files.
 
 **Provider Configuration:**
 
 ```hcl
 provider "xcsh" {
-  api_url     = "https://your-tenant.console.ves.volterra.io"
+  api_url     = "https://<XC_TENANT>.console.ves.volterra.io"
   api_cert    = "/path/to/certificate.crt"
   api_key     = "/path/to/private.key"
   api_ca_cert = "/path/to/ca-certificate.crt"  # Optional
@@ -151,21 +151,21 @@ provider "xcsh" {
 **Environment Variables:**
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
 export XCSH_CERT="/path/to/certificate.crt"
 export XCSH_KEY="/path/to/private.key"
 export XCSH_CACERT="/path/to/ca-certificate.crt"  # Optional
 ```
 
--> **Note:** Environment variables are the recommended approach for CI/CD pipelines and to avoid storing sensitive credentials in version control.
+~> **Note:** Environment variables are the recommended approach for automated CI/CD pipelines to avoid storing sensitive credentials in version control.
 
 ## Getting Started
 
-1. **Generate API Credentials**: Navigate to your F5 Distributed Cloud console, go to **Administration** > **Personal Management** > **Credentials**, and create either an API Token or download a certificate bundle.
+1. **Generate API Credentials**: In the F5 Distributed Cloud Console, navigate to **Administration** → **Personal Management** → **Credentials**, and create an API Token or download a certificate bundle.
 
-2. **Configure the Provider**: Add the provider configuration to your Terraform files using one of the authentication options above.
+2. **Configure the Provider**: Add the provider configuration block to your Terraform root module using one of the authentication options above.
 
-3. **Create Resources**: Start managing XCSH resources like namespaces, load balancers, and origin pools.
+3. **Create Resources**: Manage F5 Distributed Cloud resources such as namespaces, load balancers, and origin pools.
 
 ### Example: Create a Namespace
 

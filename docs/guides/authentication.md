@@ -20,64 +20,64 @@ This guide covers authentication configuration for the F5 Distributed Cloud Terr
 
 ## Prerequisites
 
-- **F5 Distributed Cloud Account** - Sign up at <https://www.f5.com/cloud/products/distributed-cloud-console>
-- **Terraform >= 1.8** - Download from <https://www.terraform.io/downloads>
-- **Console Access** - Ability to create credentials in the F5XC Console
+- **Terraform >= 1.0** — Download from <https://www.terraform.io/downloads>
+- **F5 Distributed Cloud Account** — Sign up at <https://www.f5.com/cloud/products/distributed-cloud-console>
+- **Console Access** — Tenant credentials with permissions to generate API tokens or certificates
 
 ## Creating Credentials in F5 Distributed Cloud
 
 ### Personal Credentials
 
-Personal credentials are tied to your user account and ideal for development.
+Personal credentials are tied to your user account and suitable for development environments.
 
 #### Creating an API Token
 
-1. Open the F5 Distributed Cloud Console
-2. Navigate to **Administration** → **Personal Management** → **Credentials**
-3. Click **+ Add Credentials**
-4. Enter a name (e.g., "terraform-dev-token")
-5. Select **API Token** from the dropdown
-6. Choose an expiry date
-7. Click **Generate**, then **Copy** the token value
+1. Open the F5 Distributed Cloud Console.
+2. Navigate to **Administration** → **Personal Management** → **Credentials**.
+3. Select **+ Add Credentials**.
+4. Enter a name (for example, `terraform-dev-token`).
+5. In the **Credential Type** list, select **API Token**.
+6. Choose an expiration date.
+7. Select **Generate**, and then copy the token value.
 
-!> **Warning:** Copy and save your token immediately. You cannot retrieve it after closing this dialog.
+~> **Warning:** Copy and store your token immediately. You cannot retrieve the token value after closing the dialog.
 
 #### Creating a P12 Certificate
 
-1. Navigate to **Administration** → **Personal Management** → **Credentials**
-2. Click **+ Add Credentials**
-3. Enter a name (e.g., "terraform-dev-cert")
-4. Select **API Certificate** from the dropdown
-5. Enter and confirm a password
-6. Select an expiry date
-7. Click **Download** to get the `.p12` file
+1. Navigate to **Administration** → **Personal Management** → **Credentials**.
+2. Select **+ Add Credentials**.
+3. Enter a name (for example, `terraform-dev-cert`).
+4. In the **Credential Type** list, select **API Certificate**.
+5. Enter and confirm a password.
+6. Select an expiration date.
+7. Select **Download** to save the `.p12` certificate file.
 
--> **Tip:** Store the P12 file securely and never commit it to version control.
+-> **Tip:** Store the P12 certificate securely and never commit it to version control.
 
 ### Service Credentials (IAM)
 
-Service credentials are managed through IAM and recommended for production. They can be scoped to specific roles and namespaces.
+Service credentials are managed through IAM and recommended for CI/CD pipelines and production automation. You can scope service credentials to specific roles and namespaces.
 
 #### Creating a Service API Token
 
-1. Navigate to **Administration** → **IAM** → **Service Credentials**
-2. Click **+ Add Service Credentials**
-3. Enter a name (e.g., "terraform-cicd-token")
-4. Select **API Token** from the dropdown
-5. Optionally assign roles and namespaces to limit scope
-6. Choose an expiry date
-7. Click **Generate**, then **Copy** the token value
+1. Navigate to **Administration** → **IAM** → **Service Credentials**.
+2. Select **+ Add Service Credentials**.
+3. Enter a name (for example, `terraform-cicd-token`).
+4. In the **Credential Type** list, select **API Token**.
+5. Assign roles and namespaces to restrict credential scope.
+6. Choose an expiration date.
+7. Select **Generate**, and then copy the token value.
 
 #### Creating a Service P12 Certificate
 
-1. Navigate to **Administration** → **IAM** → **Service Credentials**
-2. Click **+ Add Service Credentials**
-3. Enter a name
-4. Select **API Certificate** from the dropdown
-5. Optionally assign roles and namespaces
-6. Enter and confirm a password
-7. Select an expiry date
-8. Click **Download** to get the `.p12` file
+1. Navigate to **Administration** → **IAM** → **Service Credentials**.
+2. Select **+ Add Service Credentials**.
+3. Enter a name (for example, `terraform-cicd-cert`).
+4. In the **Credential Type** list, select **API Certificate**.
+5. Assign roles and namespaces to restrict scope.
+6. Enter and confirm a password.
+7. Select an expiration date.
+8. Select **Download** to save the `.p12` certificate file.
 
 ## Provider Configuration
 
@@ -88,8 +88,8 @@ API tokens provide bearer token authentication over TLS. This is the quickest wa
 **Using Environment Variables:**
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_API_TOKEN="your-api-token"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_API_TOKEN="<XC_API_TOKEN>"
 ```
 
 **Using Provider Configuration:**
@@ -108,9 +108,9 @@ P12 certificates provide mutual TLS (mTLS) authentication, where both client and
 **Using Environment Variables:**
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_P12_FILE="/path/to/your-credentials.p12"
-export XCSH_P12_PASSWORD="your-p12-password"  # pragma: allowlist secret
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_P12_FILE="/path/to/credentials.p12"
+export XCSH_P12_PASSWORD="<XC_P12_PASSWORD>"  # pragma: allowlist secret
 ```
 
 **Using Provider Configuration:**
@@ -125,9 +125,9 @@ provider "xcsh" {
 
 ### Method 3: PEM Certificate Authentication (Derived from P12)
 
-PEM authentication uses separate certificate and private key files. Since F5XC only provides P12 certificates, you must extract PEM files using OpenSSL.
+PEM authentication uses separate certificate and private key files. Because F5 Distributed Cloud generates P12 certificates, you must extract PEM files using OpenSSL when required by external tooling.
 
-**When to use this method:** Only when your tooling specifically requires PEM format instead of P12.
+**When to use this method:** Use PEM authentication only when your tooling specifically requires PEM format rather than P12.
 
 **Step 1: Extract PEM files from P12:**
 
@@ -136,14 +136,14 @@ PEM authentication uses separate certificate and private key files. Since F5XC o
 mkdir -p certs
 
 # Extract the certificate
-openssl pkcs12 -in ~/your-tenant.console.ves.volterra.io.api-creds.p12 \
+openssl pkcs12 -in ~/<XC_TENANT>.console.ves.volterra.io.api-creds.p12 \
   -nodes -nokeys -out certs/xcsh.cert
-# Enter Import Password: <your p12 password>
+# Enter Import Password: <XC_P12_PASSWORD>
 
 # Extract the private key
-openssl pkcs12 -in ~/your-tenant.console.ves.volterra.io.api-creds.p12 \
+openssl pkcs12 -in ~/<XC_TENANT>.console.ves.volterra.io.api-creds.p12 \
   -nodes -nocerts -out certs/xcsh.key
-# Enter Import Password: <your p12 password>
+# Enter Import Password: <XC_P12_PASSWORD>
 ```
 
 **Step 2: Configure the provider:**
@@ -151,7 +151,7 @@ openssl pkcs12 -in ~/your-tenant.console.ves.volterra.io.api-creds.p12 \
 **Using Environment Variables:**
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
 export XCSH_CERT="/path/to/certs/xcsh.cert"
 export XCSH_KEY="/path/to/certs/xcsh.key"
 ```
@@ -166,13 +166,13 @@ provider "xcsh" {
 }
 ```
 
-~> **Note:** For server certificate verification, specify a CA certificate using `XCSH_CACERT` environment variable or `api_ca_cert` provider attribute.
+~> **Note:** For server certificate verification, specify a CA certificate using the `XCSH_CACERT` environment variable or the `api_ca_cert` provider attribute.
 
 ## Environment Variable Reference
 
 | Variable            | Description                                    | Required                       |
 | ------------------- | ---------------------------------------------- | ------------------------------ |
-| `XCSH_API_URL`      | F5XC tenant API URL                            | Yes                            |
+| `XCSH_API_URL`      | F5 Distributed Cloud tenant API URL            | Yes                            |
 | `XCSH_API_TOKEN`    | API token for bearer authentication            | One of: token, P12, or PEM     |
 | `XCSH_P12_FILE`     | Path to P12 certificate file                   | With `XCSH_P12_PASSWORD`       |
 | `XCSH_P12_PASSWORD` | Password for P12 file                          | With `XCSH_P12_FILE`           |
@@ -184,20 +184,20 @@ provider "xcsh" {
 
 ```bash
 # Add to ~/.bashrc or ~/.zshrc
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_API_TOKEN="your-api-token"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_API_TOKEN="<XC_API_TOKEN>"
 ```
 
 Then reload: `source ~/.zshrc` or `source ~/.bashrc`
 
 ### Authentication Priority
 
-When multiple methods are configured, the provider uses this priority:
+When multiple authentication methods are configured, the provider evaluates them in this order:
 
-1. **P12 Certificate** - If `api_p12_file` is set (requires `p12_password`)
-2. **PEM Certificate** - If both `api_cert` and `api_key` are set
-3. **API Token** - If `api_token` is set
-4. **Error** - If none are provided
+1. **P12 Certificate** — Evaluated when `api_p12_file` is set (requires `p12_password`)
+2. **PEM Certificate** — Evaluated when both `api_cert` and `api_key` are set
+3. **API Token** — Evaluated when `api_token` is set
+4. **Error** — Returned when no valid credentials are provided
 
 ## CI/CD Integration
 
@@ -241,10 +241,10 @@ jobs:
 
 **GitHub Secrets to configure:**
 
-| Secret Name        | Value                                          |
-| ------------------ | ---------------------------------------------- |
-| `XCSH_API_URL`     | `https://your-tenant.console.ves.volterra.io`  |
-| `XCSH_API_TOKEN`   | Your API token value                           |
+| Secret Name        | Value                                         |
+| ------------------ | --------------------------------------------- |
+| `XCSH_API_URL`     | `https://<XC_TENANT>.console.ves.volterra.io` |
+| `XCSH_API_TOKEN`   | `<XC_API_TOKEN>`                              |
 
 ### GitHub Actions with P12 Certificate
 
@@ -298,26 +298,26 @@ jobs:
 
 ```bash
 # On macOS
-base64 -i your-credentials.p12 | pbcopy
+base64 -i credentials.p12 | pbcopy
 
 # On Linux
-base64 -w 0 your-credentials.p12
+base64 -w 0 credentials.p12
 ```
 
 **GitHub Secrets to configure:**
 
-| Secret Name         | Value                                          |
-| ------------------- | ---------------------------------------------- |
-| `XCSH_API_URL`      | `https://your-tenant.console.ves.volterra.io`  |
-| `XCSH_P12_BASE64`   | Base64-encoded P12 file contents               |
-| `XCSH_P12_PASSWORD` | Password for the P12 file                      |
+| Secret Name         | Value                                         |
+| ------------------- | --------------------------------------------- |
+| `XCSH_API_URL`      | `https://<XC_TENANT>.console.ves.volterra.io` |
+| `XCSH_P12_BASE64`   | Base64-encoded P12 file contents              |
+| `XCSH_P12_PASSWORD` | Password for the P12 file                     |
 
 ## Security Best Practices
 
-- **Never commit credentials** to version control. Add `*.tfvars`, `*.p12`, and `*.pem` to `.gitignore`
-- **Use environment variables** for sensitive values in local development
-- **Use GitHub Secrets** or equivalent for CI/CD pipelines
-- **Limit credential scope** using Service Credentials with specific roles and namespaces
+- **Never commit credentials** to version control. Add `*.tfvars`, `*.p12`, and `*.pem` to `.gitignore`.
+- **Use environment variables** for sensitive values in local development.
+- **Use secret managers or CI/CD secrets** for automated pipelines.
+- **Limit credential scope** using Service Credentials with specific roles and namespaces.
 
 ### Choosing the Right Method
 
@@ -331,58 +331,58 @@ base64 -w 0 your-credentials.p12
 
 ### Authentication Failed (401 Unauthorized)
 
-1. Verify API URL does **NOT** include `/api` suffix (e.g., `https://tenant.console.ves.volterra.io`)
-2. Check token hasn't expired
-3. Verify token copied correctly (no whitespace)
-4. Ensure environment variables are exported:
+1. Verify that the API URL does **not** include the `/api` suffix (for example, `https://<XC_TENANT>.console.ves.volterra.io`).
+2. Verify that the token has not expired.
+3. Verify that the token was copied without leading or trailing whitespace.
+4. Verify that the environment variables are exported:
 
 ```bash
-echo $XCSH_API_URL
-echo $XCSH_API_TOKEN
+echo "$XCSH_API_URL"
+echo "$XCSH_API_TOKEN"
 ```
 
 ### Certificate Verification Failed
 
-1. Verify P12 password is correct
-2. Check file path is absolute or correctly relative
-3. Test P12 file:
+1. Verify that the P12 password is correct.
+2. Verify that the file path is accessible and correctly referenced.
+3. Test the P12 file locally:
 
 ```bash
-openssl pkcs12 -in your-credentials.p12 -nokeys -info
+openssl pkcs12 -in credentials.p12 -nokeys -info
 ```
 
 ### Permission Denied (403 Forbidden)
 
-1. Verify credential has required permissions
-2. For Service Credentials, check role and namespace assignments
-3. Some operations require specific system roles
+1. Verify that the credential has required permissions for the target resources.
+2. For Service Credentials, check assigned roles and namespace access.
+3. Some operations require specific system roles (for example, tenant administration).
 
 ### Environment Variables Not Working
 
-1. Ensure variables are exported:
+1. Verify that variables are exported:
 
-```bash
-export XCSH_API_TOKEN="token"  # Correct
-XCSH_API_TOKEN="token"         # Won't work
-```
+   ```bash
+   export XCSH_API_TOKEN="<XC_API_TOKEN>"  # Correct
+   XCSH_API_TOKEN="<XC_API_TOKEN>"         # Is not visible to child processes
+   ```
 
-1. Verify spelling is exact (case-sensitive)
-2. Check for hidden characters in values
+2. Verify that variable names match the exact required casing (`XCSH_API_URL`, `XCSH_API_TOKEN`).
+3. Check for hidden or unexpected characters in variable values.
 
 ## Revoking Credentials
 
-1. Navigate to **Administration** → **Personal Management** → **Credentials** (or **IAM** → **Service Credentials**)
-2. Find the credential
-3. Click **Actions** (three dots) → **Force Expiry**
+1. Navigate to **Administration** → **Personal Management** → **Credentials** (or **IAM** → **Service Credentials**).
+2. Locate the credential to revoke.
+3. Select **Actions** (three dots) → **Force Expiry**.
 
 ## Next Steps
 
-- [HTTP Load Balancer Guide](http-loadbalancer.md) - Deploy your first load balancer
-- [Blindfold Functions Guide](blindfold.md) - Secure secret management
+- [HTTP Load Balancer Guide](http-loadbalancer.md) — Deploy your first load balancer
+- [Blindfold Functions Guide](blindfold.md) — Secure secret management
 
 ## Support
 
 - [Provider Documentation](../index.md)
-- [F5 Distributed Cloud Docs](https://docs.cloud.f5.com/)
+- [F5 Distributed Cloud Documentation](https://docs.cloud.f5.com/)
 - [F5 Credentials Guide](https://docs.cloud.f5.com/docs-v2/administration/how-tos/user-mgmt/Credentials)
 - [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)

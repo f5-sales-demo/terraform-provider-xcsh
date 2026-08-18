@@ -30,11 +30,11 @@ and what the current subscription state is.
 | `AS_SUBSCRIBED` | Service is active and subscribed         |
 | `AS_ERROR`      | Subscription in error state              |
 
-~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
-```terraform
+```hcl
 data "xcsh_addon_service_activation_status" "example" {
   name      = "example-resource"
   namespace = "system"
@@ -45,7 +45,7 @@ data "xcsh_addon_service_activation_status" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 ### Spec Argument Reference
 
