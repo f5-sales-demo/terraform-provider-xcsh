@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about API Definition. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [API Definition API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/api/) to learn more.
+~> **Note:** For more information, see the [API Definition API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/api/).
 
 ## Example Usage
 
@@ -42,7 +42,7 @@ output "api_definition_id" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 

@@ -9,7 +9,7 @@ description: |-
 
 Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Virtual K8S API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/container_services/) to learn more.
+~> **Note:** For more information, see the [Virtual K8S API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/container_services/).
 
 ## Example Usage
 
@@ -39,7 +39,7 @@ resource "xcsh_virtual_k8s" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -201,7 +201,7 @@ IP address threat categories for security filtering.
 
 Import is supported using the following syntax:
 
-```shell
+```bash
 # Import using namespace/name format
 terraform import xcsh_virtual_k8s.example system/example
 ```

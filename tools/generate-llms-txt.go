@@ -988,8 +988,12 @@ func generateL0(config *LLMsConfig, categories []CategoryInfo) error {
 	// Guides
 	sb.WriteString("## Guides\n\n")
 	guides := []struct{ name, desc string }{
-		{"authentication", "API token, P12 certificate, and PEM auth methods"},
-		{"http-loadbalancer", "Deploy production load balancers with security"},
+		{"addon-activation", "Activate and manage F5 Distributed Cloud addon services"},
+		{"advanced-http-loadbalancer", "Deploy HTTP load balancers with WAF, bot defense, and security controls"},
+		{"authentication", "Configure API token, P12 certificate, and PEM certificate authentication"},
+		{"blindfold", "Encrypt secrets locally with public key encryption"},
+		{"http-loadbalancer", "Deploy HTTP load balancers with origin pools and health checks"},
+		{"httpbin-minimal", "Deploy a minimal HTTP load balancer with httpbin backend"},
 	}
 	for _, g := range guides {
 		sb.WriteString(fmt.Sprintf("- [%s](guides/%s) : %s\n", g.name, g.name, g.desc))

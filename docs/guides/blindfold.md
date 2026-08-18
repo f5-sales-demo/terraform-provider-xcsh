@@ -2,22 +2,22 @@
 page_title: "Guide: Blindfold Secret Management Functions"
 subcategory: "Guides"
 description: |-
-  Learn how to securely encrypt secrets using F5XC Blindfold functions.
+  Securely encrypt sensitive data using F5 Distributed Cloud Blindfold functions.
   Covers TLS certificates, cloud credentials, and container registry authentication.
 ---
 
 # Blindfold Secret Management Functions
 
-This guide walks you through using F5XC Blindfold functions to securely encrypt sensitive data. By the end, you'll understand how to:
+This guide explains how to use F5 Distributed Cloud Blindfold functions to encrypt sensitive data locally before transmitting it to the control plane. Topics covered include:
 
-- **Encrypt TLS private keys** - Secure certificate key storage
-- **Protect cloud credentials** - AWS, Azure, and GCP secrets
-- **Secure container registries** - Private image pull authentication
-- **Understand the security model** - Local encryption, never transmitted unencrypted
+- **Encrypt TLS private keys** — Configure certificate key storage
+- **Protect cloud credentials** — Secure AWS, Azure, and Google Cloud credentials
+- **Secure container registries** — Authenticate private container image pulls
+- **Understand the security model** — Apply client-side encryption without plaintext transmission
 
 ## Overview
 
-F5 Distributed Cloud Secret Management ("blindfold") provides client-side encryption for sensitive data. The blindfold functions encrypt your secrets locally using RSA-OAEP with SHA-256, meaning **your plaintext secrets never leave your machine unencrypted**.
+F5 Distributed Cloud Secret Management (Blindfold) provides client-side encryption for sensitive data. The blindfold functions encrypt secrets locally using RSA-OAEP with SHA-256, ensuring that **plaintext secrets never leave your local environment unencrypted**.
 
 ### How It Works
 
@@ -32,7 +32,8 @@ F5 Distributed Cloud Secret Management ("blindfold") provides client-side encryp
 │                      └────────┬─────────┘             │            │
 │                               │                       │            │
 │                      ┌────────▼─────────┐             │            │
-│                      │ F5XC Public Key  │             │            │
+│                      │ F5 Distributed   │             │            │
+│                      │ Cloud Public Key │             │            │
 │                      │ (fetched once)   │             │            │
 │                      └──────────────────┘             │            │
 └──────────────────────────────────────────────────────│────────────┘
@@ -47,39 +48,39 @@ F5 Distributed Cloud Secret Management ("blindfold") provides client-side encryp
 
 ### Security Properties
 
-- **Local encryption**: Secrets encrypted on your machine before transmission
-- **RSA-OAEP with SHA-256**: Industry-standard encryption algorithm
-- **Policy-controlled decryption**: Only authorized F5XC services can decrypt
-- **No plaintext storage**: F5XC never receives or stores plaintext secrets
+- **Local encryption**: Secrets are encrypted on your local machine before transmission.
+- **RSA-OAEP with SHA-256**: Industry-standard asymmetric encryption.
+- **Policy-controlled decryption**: Only authorized F5 Distributed Cloud services can decrypt the payload.
+- **No plaintext storage**: The control plane never receives or stores plaintext secrets.
 
 ## Prerequisites
 
 Before you begin, ensure you have:
 
-- **Terraform >= 1.8** - Provider-defined functions require Terraform 1.8 or later
-- **F5 Distributed Cloud Account** - Sign up at <https://www.f5.com/cloud/products/distributed-cloud-console>
-- **API Credentials** - Token or P12 certificate authentication configured
+- **Terraform >= 1.8** — Provider-defined functions require Terraform 1.8 or later (download from <https://www.terraform.io/downloads>)
+- **F5 Distributed Cloud Account** — Sign up at <https://www.f5.com/cloud/products/distributed-cloud-console>
+- **API Credentials** — Configure API token or P12 certificate authentication (see the [Authentication Guide](authentication.md))
 
 ### Authentication Setup
 
-Configure one of these authentication methods via environment variables:
+Configure one of these authentication methods using environment variables:
 
 #### Option 1: API Token (Recommended for development)
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_API_TOKEN="your-api-token"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_API_TOKEN="<XC_API_TOKEN>"
 ```
 
 #### Option 2: P12 Certificate (Recommended for production)
 
 ```bash
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_P12_FILE="/path/to/your-credentials.p12"
-export XCSH_P12_PASSWORD="your-p12-password"  # pragma: allowlist secret
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_P12_FILE="/path/to/credentials.p12"
+export XCSH_P12_PASSWORD="<XC_P12_PASSWORD>"  # pragma: allowlist secret
 ```
 
--> **Tip:** Add these to your shell profile (`~/.bashrc` or `~/.zshrc`) for persistence across terminal sessions.
+-> **Tip:** Add these variables to your shell profile (`~/.bashrc` or `~/.zshrc`) for persistence across terminal sessions.
 
 ## Quick Start
 
@@ -187,13 +188,13 @@ location = provider::xcsh::blindfold_file(
 
 ### Built-in SecretPolicy
 
-Every F5XC tenant includes a default policy: `ves-io-allow-volterra` in the `shared` namespace. This policy allows Volterra (F5XC) services to decrypt secrets.
+Every F5 Distributed Cloud tenant includes a default policy: `ves-io-allow-volterra` in the `shared` namespace. This policy allows F5 Distributed Cloud platform services to decrypt secrets.
 
 ## Use Cases
 
 ### TLS Certificate Private Key
 
-Store TLS certificates for load balancers. Note that TLS private keys are typically too large (>1000 bytes) for direct blindfold encryption (~190 byte limit). Use `clear_secret_info` for TLS keys:
+Store TLS certificates for load balancers. Note that RSA TLS private keys are typically too large (>1000 bytes) for direct asymmetric blindfold encryption (~190 byte limit). Use `clear_secret_info` for TLS keys:
 
 ```hcl
 resource "xcsh_certificate" "example" {
@@ -202,8 +203,8 @@ resource "xcsh_certificate" "example" {
 
   certificate_url = "string:///${base64encode(file("${path.module}/certs/server.crt"))}"
 
-  # TLS private keys are too large for blindfold encryption
-  # Use clear_secret_info - the key is transmitted securely over HTTPS
+  # TLS private keys exceed the RSA-OAEP direct encryption size limit
+  # Use clear_secret_info — the key is transmitted securely over HTTPS (TLS)
   private_key {
     clear_secret_info {
       url = "string:///${base64encode(file("${path.module}/certs/server.key"))}"
@@ -214,7 +215,7 @@ resource "xcsh_certificate" "example" {
 }
 ```
 
-~> **Size Limitation:** Blindfold encryption uses RSA-OAEP which limits plaintext to ~190 bytes. TLS private keys exceed this limit. Use `clear_secret_info` for certificates - the data is transmitted securely over HTTPS. For secrets under 190 bytes (API keys, passwords), use blindfold functions as shown below.
+~> **Size Limitation:** Direct Blindfold encryption uses RSA-OAEP which limits plaintext to ~190 bytes for 2048-bit keys. TLS private keys exceed this limit. Use `clear_secret_info` for certificates — the payload is encrypted in transit over HTTPS. For secrets under 190 bytes (such as API keys, passwords, and client tokens), use the `blindfold()` function as shown below.
 
 ### AWS Cloud Credentials
 
@@ -369,7 +370,7 @@ RSA-OAEP encryption has a maximum plaintext size based on the key size:
 | 2048-bit | ~190 bytes        |
 | 4096-bit | ~446 bytes        |
 
-~> **Note:** If your secret exceeds the size limit, consider splitting it or using a different approach. The function will return a clear error message if the plaintext is too large.
+~> **Note:** If your secret exceeds the size limit, consider splitting it or using an alternative approach. The function returns an error message if the plaintext exceeds the maximum allowed size.
 
 ### Output Format
 
@@ -385,7 +386,7 @@ When base64-decoded, the sealed JSON contains these fields:
 {
   "key_version": "v1.2.3",
   "policy_id": "shared/ves-io-allow-volterra",
-  "tenant": "example-corp",
+  "tenant": "<XC_TENANT>",
   "data": "ABCDEF1234567890..."
 }
 ```
@@ -393,99 +394,102 @@ When base64-decoded, the sealed JSON contains these fields:
 Field descriptions:
 
 - `key_version`: Public key version used for encryption
-- `policy_id`: Reference to the SecretPolicy (namespace/name format)
-- `tenant`: example-corp
-- `data`: base64-encoded RSA-OAEP ciphertext
+- `policy_id`: Reference to the SecretPolicy (`namespace/name` format)
+- `tenant`: F5 Distributed Cloud tenant identifier
+- `data`: Base64-encoded RSA-OAEP ciphertext
 
 ### Function Behavior
 
-- **Idempotent**: Same input produces different output (due to random padding)
-- **Network required**: Functions fetch the public key from F5XC API
-- **Caching**: Public keys are cached for the Terraform run
+- **Non-deterministic output**: The same plaintext generates different ciphertext on each run due to randomized OAEP padding.
+- **Network access required**: Functions fetch the active public key from the F5 Distributed Cloud API.
+- **In-memory caching**: Public keys are cached for the duration of the Terraform execution.
 
 ## Troubleshooting
 
 ### Authentication Configuration Error
 
-**Symptom:** Error message about missing authentication configuration.
+**Symptom:** Error message indicates missing or invalid authentication credentials.
 
 **Solution:**
 
 ```bash
 # Verify environment variables are set
-echo $XCSH_API_URL
-echo $XCSH_API_TOKEN  # or XCSH_P12_FILE
+echo "$XCSH_API_URL"
+echo "$XCSH_API_TOKEN"  # or XCSH_P12_FILE
 
 # Set them if missing
-export XCSH_API_URL="https://your-tenant.console.ves.volterra.io"
-export XCSH_API_TOKEN="your-api-token"
+export XCSH_API_URL="https://<XC_TENANT>.console.ves.volterra.io"
+export XCSH_API_TOKEN="<XC_API_TOKEN>"
 ```
 
 ### Policy Not Found
 
-**Symptom:** Error about secret policy not found.
+**Symptom:** Error indicating that the specified SecretPolicy was not found.
 
 **Solutions:**
 
-1. Use the built-in policy:
+1. Use the built-in default policy:
 
    ```hcl
    policy_name = "ves-io-allow-volterra"
    namespace   = "shared"
    ```
 
-2. Verify your custom policy exists in F5XC Console
+2. Verify that any custom SecretPolicy exists in the specified namespace in the F5 Distributed Cloud Console.
 
 ### Plaintext Too Large
 
-**Symptom:** Error indicating plaintext exceeds maximum size.
+**Symptom:** Error indicates that the plaintext exceeds the maximum allowed size for RSA-OAEP encryption.
 
 **Solutions:**
 
-1. Verify your secret size:
+1. Check your secret payload size:
 
    ```bash
    wc -c < your-secret-file
    ```
 
-2. For large files (like some GCP credentials), consider:
-   - Extracting only the private key portion
-   - Using F5XC's external secret management integration
+2. For larger files (such as GCP credentials or TLS private keys):
+   - Extract only the private key or secret token portion
+   - Use `clear_secret_info` with TLS in transit
 
 ### File Not Found
 
-**Symptom:** Error about file not found when using `blindfold_file()`.
+**Symptom:** Error indicating file not found when calling `blindfold_file()`.
 
 **Solutions:**
 
-1. Use `${path.module}` for relative paths:
+1. Use `${path.module}` for relative file paths:
 
    ```hcl
    location = provider::xcsh::blindfold_file(
-     "${path.module}/certs/server.key",  # Correct
-     ...
+     "${path.module}/certs/server.key",
+     "ves-io-allow-volterra",
+     "shared"
    )
    ```
 
-2. Verify the file exists and is readable
+2. Verify that the file exists and has appropriate read permissions.
 
-### Invalid base64
+### Invalid Base64 Encoding
 
-**Symptom:** Error about invalid base64 encoding.
+**Symptom:** Error indicating invalid base64 encoding.
 
-**Solution:** Ensure you're base64-encoding your plaintext:
+**Solution:** Ensure you base64-encode plaintext strings before passing them to `blindfold()`:
 
 ```hcl
 # Correct
 location = provider::xcsh::blindfold(
-  base64encode(var.secret),  # base64encode() wraps the secret
-  ...
+  base64encode(var.secret),
+  "ves-io-allow-volterra",
+  "shared"
 )
 
 # Incorrect
 location = provider::xcsh::blindfold(
-  var.secret,  # Raw secret will fail
-  ...
+  var.secret,  # Raw plaintext string fails
+  "ves-io-allow-volterra",
+  "shared"
 )
 ```
 
@@ -497,23 +501,21 @@ To remove all resources created by this guide:
 terraform destroy
 ```
 
-Type `yes` to confirm destruction.
+Type `yes` when prompted to confirm resource destruction.
 
-!> **Warning:** This will immediately remove all created resources. Ensure you have backups of any certificates or credentials you need.
+~> **Warning:** This command immediately destroys all managed resources in the plan. Ensure you have backups of any certificates or credentials before proceeding.
 
 ## Next Steps
 
-Now that you understand blindfold encryption, explore related resources:
-
-- [Certificate Resource](../resources/certificate.md) - Full certificate management
-- [Cloud Credentials Resource](../resources/cloud_credentials.md) - Cloud provider authentication
-- [HTTP Load Balancer Guide](./http-loadbalancer.md) - Use certificates in load balancers
-- [blindfold Function Reference](../functions/blindfold.md) - Function API details
-- [blindfold_file Function Reference](../functions/blindfold_file.md) - Function API details
+- [Certificate Resource](../resources/certificate.md) — Full certificate management
+- [Cloud Credentials Resource](../resources/cloud_credentials.md) — Cloud provider authentication
+- [HTTP Load Balancer Guide](./http-loadbalancer.md) — Use certificates in load balancers
+- [blindfold Function Reference](../functions/blindfold.md) — Function API details
+- [blindfold_file Function Reference](../functions/blindfold_file.md) — Function API details
 
 ## Support
 
-- **Provider Documentation:** [F5XC Provider](../index.md)
-- **F5 Documentation:** [F5 Distributed Cloud Docs](https://docs.cloud.f5.com/)
-- **Secret Management:** [F5XC Secret Management](https://docs.cloud.f5.com/docs/how-to/secrets-management)
-- **Issues:** [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)
+- [Provider Documentation](../index.md)
+- [F5 Distributed Cloud Documentation](https://docs.cloud.f5.com/)
+- [F5 Secret Management](https://docs.cloud.f5.com/docs/how-to/secrets-management)
+- [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)

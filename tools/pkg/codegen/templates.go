@@ -275,7 +275,7 @@ func (r *{{.TitleCase}}Resource) ModifyPlan(ctx context.Context, req resource.Mo
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the {{.Name}} from F5 Distributed Cloud.",
+			"This permanently deletes the {{.Name}} from F5 Distributed Cloud.",
 		)
 		return
 	}

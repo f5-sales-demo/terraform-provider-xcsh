@@ -19,9 +19,9 @@ A complete, validated Terraform configuration that deploys four resources:
 
 Copy this entire block into a `main.tf` file. Set `XCSH_API_URL` and `XCSH_API_TOKEN` environment variables, then run `terraform init && terraform apply`.
 
-~> **Important:** Replace `your-namespace` with your actual F5 XC namespace.
+~> **Important:** Replace `demo-app` with your target F5 Distributed Cloud namespace.
 
-```terraform
+```hcl
 terraform {
   required_version = ">= 1.0"
 
@@ -154,4 +154,4 @@ This configuration relies on server-applied defaults for fields you don't need t
 - **Challenge:** `no_challenge` (server default)
 - **API features:** `disable_api_definition`, `disable_api_discovery`, `disable_api_testing` (server defaults)
 
-To enable any of these features, add them explicitly. See the [full HTTP Load Balancer guide](http-loadbalancer.md) for production configurations.
+To enable any of these features, configure them explicitly in your resource block. For production configurations, see the [HTTP Load Balancer Guide](http-loadbalancer.md).

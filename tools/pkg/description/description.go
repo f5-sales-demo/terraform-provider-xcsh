@@ -240,6 +240,7 @@ func TransformResourceDescription(resourceName, rawDescription string) string {
 					remainder := desc[len(verb):]
 					remainder = strings.TrimPrefix(remainder, "s") // handle "Creates" -> "Create"
 					remainder = strings.TrimSpace(remainder)
+					remainder = strings.TrimSuffix(remainder, ".")
 					if remainder != "" {
 						// Clean up articles
 						remainder = strings.TrimPrefix(remainder, "a ")
@@ -261,7 +262,11 @@ func TransformResourceDescription(resourceName, rawDescription string) string {
 					if capability != "" {
 						humanDesc = fmt.Sprintf("Manages a %s resource in F5 Distributed Cloud for %s.", humanName, capability)
 					} else {
-						humanDesc = fmt.Sprintf("Manages a %s resource in F5 Distributed Cloud. %s", humanName, desc)
+						cleanDesc := desc
+						if !strings.HasSuffix(cleanDesc, ".") {
+							cleanDesc += "."
+						}
+						humanDesc = fmt.Sprintf("Manages a %s resource in F5 Distributed Cloud. %s", humanName, cleanDesc)
 					}
 				} else {
 					// If description already looks good, just ensure it ends properly
@@ -292,31 +297,31 @@ func GenerateCapabilityDescriptionOnly(resourceName, humanName, rawDesc string) 
 	// Resource-specific capability mappings for common F5 XC resources
 	capabilities := map[string]string{
 		// Sites
-		"securemesh_site":    "deploying secure mesh edge sites with distributed security capabilities",
-		"securemesh_site_v2": "deploying secure mesh edge sites with enhanced security and networking features",
+		"securemesh_site":    "deploying secure mesh edge sites with distributed security",
+		"securemesh_site_v2": "deploying secure mesh edge sites with security and networking controls",
 		"aws_vpc_site":       "deploying F5 sites within AWS VPC environments",
 		"azure_vnet_site":    "deploying F5 sites within Azure Virtual Network environments",
 		"gcp_vpc_site":       "deploying F5 sites within Google Cloud VPC environments",
 		"aws_tgw_site":       "deploying F5 sites connected via AWS Transit Gateway",
-		"voltstack_site":     "deploying Volterra stack sites for edge computing",
+		"voltstack_site":     "deploying App Stack edge computing sites",
 		"virtual_site":       "creating logical groupings of sites based on labels and selectors",
 
 		// Load Balancing
-		"http_loadbalancer": "load balancing HTTP/HTTPS traffic with advanced routing and security",
+		"http_loadbalancer": "load balancing HTTP/HTTPS traffic with routing and security controls",
 		"tcp_loadbalancer":  "load balancing TCP traffic across origin pools",
 		"udp_loadbalancer":  "load balancing UDP traffic across origin pools",
-		"dns_load_balancer": "intelligent DNS-based load balancing across multiple endpoints",
+		"dns_load_balancer": "DNS load balancing across multiple endpoints",
 		"cdn_loadbalancer":  "content delivery and edge caching with load balancing",
 		"origin_pool":       "defining backend server pools for load balancer targets",
 		"healthcheck":       "monitoring backend server health and availability",
 		"route":             "defining traffic routing rules for load balancers",
 
 		// Security
-		"app_firewall":                   "web application firewall (WAF) protection",
+		"app_firewall":                   "Web Application Firewall (WAF) protection",
 		"service_policy":                 "defining service-level access control and security policies",
 		"network_firewall":               "network-level firewall rules and security controls",
 		"rate_limiter":                   "protecting services from traffic spikes and DDoS attacks",
-		"bot_defense_app_infrastructure": "bot detection and mitigation capabilities",
+		"bot_defense_app_infrastructure": "bot detection and mitigation",
 		"malicious_user_mitigation":      "identifying and blocking malicious user behavior",
 		"waf_exclusion_policy":           "excluding specific requests from WAF inspection",
 
@@ -364,7 +369,7 @@ func GenerateCapabilityDescriptionOnly(resourceName, humanName, rawDesc string) 
 		// API Security
 		"api_definition": "API schema and endpoint definitions for security",
 		"api_discovery":  "automatic API endpoint discovery and inventory",
-		"api_testing":    "API testing and validation capabilities",
+		"api_testing":    "API testing and validation",
 		"api_crawler":    "API endpoint crawling and discovery",
 
 		// Organization

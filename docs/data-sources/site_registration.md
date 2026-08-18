@@ -49,11 +49,11 @@ resource "xcsh_registration_approval" "ce" {
 
 **Possible `state` values:** `NOTSET`, `NEW`, `APPROVED`, `ADMITTED`, `RETIRED`, `FAILED`, `DONE`, `PENDING`, `ONLINE`, `UPGRADING`, `MAINTENANCE`, `FAILED_INACTIVE`.
 
-~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
-```terraform
+```hcl
 data "xcsh_site_registration" "example" {
   name      = "example-resource"
   namespace = "system"
@@ -64,7 +64,7 @@ data "xcsh_site_registration" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 ### Metadata Argument Reference
 

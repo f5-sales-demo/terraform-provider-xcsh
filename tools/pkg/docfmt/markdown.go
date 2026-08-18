@@ -11,7 +11,7 @@ const calloutSignature = "-> **Syntax Rule:**"
 const syntaxRulesCallout = "-> **Syntax Rule:** This provider uses OneOf groups for mutually " +
 	"exclusive options. Fields documented as \"Optional Block\" use empty block " +
 	"syntax `field_name {}`, **never** `field_name = true`. Boolean attributes " +
-	"(like `add_hsts`, `http_redirect`) use `= true/false` as normal."
+	"(such as `add_hsts` and `http_redirect`) use `= true` or `= false`."
 
 var (
 	headingPattern = regexp.MustCompile(`^#{1,6}\s+\S`)

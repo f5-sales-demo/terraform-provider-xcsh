@@ -2,39 +2,38 @@
 page_title: "Guide: Advanced HTTP Load Balancer Security"
 subcategory: "Guides"
 description: |-
-  Advanced guide to deploying a fully-secured HTTP Load Balancer with all security
-  controls including WAF, Data Guard, IP Reputation, Malicious User Detection, and
-  Threat Mesh using F5 Distributed Cloud and Terraform.
+  Deploy a secured HTTP Load Balancer with security controls including WAF, Data Guard,
+  IP Reputation, Malicious User Detection, and Threat Mesh using F5 Distributed Cloud and Terraform.
 ---
 
 # Advanced HTTP Load Balancer Security
 
-This guide extends the [basic HTTP Load Balancer guide](http-loadbalancer.md) with advanced security features for production deployments requiring comprehensive protection against sophisticated threats.
+This guide extends the [HTTP Load Balancer Guide](http-loadbalancer.md) with security features for production deployments requiring comprehensive protection against application and network threats.
 
-By following this guide, you'll deploy an HTTP Load Balancer with **11 security controls**:
+This guide demonstrates how to deploy an HTTP Load Balancer configured with defense-in-depth security controls across multiple layers:
 
-| Security Layer      | Feature                    | Protection                                     |
-| ------------------- | -------------------------- | ---------------------------------------------- |
-| **Perimeter**       | IP Reputation              | Blocks known malicious IPs by threat category  |
-| **Perimeter**       | Threat Mesh                | Global threat intelligence sharing             |
-| **Bot Defense**     | JavaScript Challenge       | Client-side bot detection                      |
-| **Bot Defense**     | Malicious User Detection   | Behavioral analysis and risk scoring           |
-| **Application**     | Web Application Firewall   | Blocks SQLi, XSS, and OWASP Top 10             |
-| **Application**     | Bot Protection Settings    | Signature-based bot classification             |
-| **Rate Control**    | Rate Limiting              | Prevents abuse with configurable thresholds    |
-| **Data Protection** | Data Guard                 | Masks sensitive data (CC, SSN) in responses    |
+| Security Layer      | Feature                  | Protection                                    |
+| ------------------- | ------------------------ | --------------------------------------------- |
+| **Perimeter**       | IP Reputation            | Blocks known malicious IPs by threat category |
+| **Perimeter**       | Threat Mesh              | Global threat intelligence sharing            |
+| **Bot Defense**     | JavaScript Challenge     | Client-side bot detection                     |
+| **Bot Defense**     | Malicious User Detection | Behavioral analysis and risk scoring          |
+| **Application**     | Web Application Firewall | Blocks SQLi, XSS, and OWASP Top 10            |
+| **Application**     | Bot Protection Settings  | Signature-based bot classification            |
+| **Rate Control**    | Rate Limiting            | Prevents abuse with configurable thresholds   |
+| **Data Protection** | Data Guard               | Masks sensitive data (CC, SSN) in responses   |
 
 ## Prerequisites
 
 Before you begin, ensure you have:
 
-- **F5 Distributed Cloud Account** - Sign up at <https://www.f5.com/cloud/products/distributed-cloud-console>
-- **API Token** - Generate credentials from the F5XC Console ([documentation](https://docs.cloud.f5.com/docs/how-to/user-mgmt/credentials))
-- **Terraform >= 1.8** - Download from <https://www.terraform.io/downloads>
-- **Namespace** - An existing namespace or permissions to create one
-- **Backend Origin** - Your application server accessible from the internet
+- **Terraform >= 1.0** — Download from <https://www.terraform.io/downloads>
+- **F5 Distributed Cloud Account** — Sign up at <https://www.f5.com/cloud/products/distributed-cloud-console>
+- **API Credentials** — Configure API token or P12 certificate authentication (see the [Authentication Guide](authentication.md))
+- **Namespace** — An existing namespace or permissions to create one
+- **Backend Origin** — An application server reachable by F5 Distributed Cloud Regional Edges
 
--> **Tip:** Review the [Authentication Guide](authentication.md) for detailed credential setup instructions.
+-> **Tip:** See the [Authentication Guide](authentication.md) for detailed credential setup instructions.
 
 ## Complete Configuration
 
@@ -63,18 +62,18 @@ provider "xcsh" {
 
 ```hcl
 variable "api_token" {
-  description = "F5 XC API token for authentication"
+  description = "F5 Distributed Cloud API token for authentication"
   type        = string
   sensitive   = true
 }
 
 variable "api_url" {
-  description = "F5 XC API URL (e.g., https://your-tenant.console.ves.volterra.io/api)"
+  description = "F5 Distributed Cloud API URL (for example, https://<XC_TENANT>.console.ves.volterra.io/api)"
   type        = string
 }
 
 variable "namespace" {
-  description = "F5 XC namespace for the load balancer"
+  description = "F5 Distributed Cloud namespace for the load balancer"
   type        = string
   default     = "default"
 }
@@ -82,7 +81,7 @@ variable "namespace" {
 variable "name_prefix" {
   description = "Prefix for resource names"
   type        = string
-  default     = "secure-app"
+  default     = "example-secure-app"
 }
 
 variable "domain" {
@@ -326,7 +325,7 @@ Data Guard automatically detects and masks sensitive data in HTTP responses befo
 - Social Security Numbers (SSN)
 - Custom patterns (configurable)
 
-!> **Important:** Data Guard requires WAF to be enabled. If you disable WAF, Data Guard will not function.
+~> **Important:** Data Guard requires WAF to be enabled. If you disable WAF, Data Guard does not function.
 
 ### Malicious User Detection
 
@@ -519,7 +518,7 @@ output "security_summary" {
 ```hcl
 rate_limit {
   ip_allowed_list {
-    prefixes = ["10.0.0.0/8", "192.168.0.0/16"]
+    prefixes = ["198.51.100.0/24", "203.0.113.0/24"]
   }
   rate_limiter {
     # ... configuration ...
@@ -529,21 +528,21 @@ rate_limit {
 
 ### JavaScript Challenge Breaking Application
 
-**Symptom:** API calls or mobile apps fail with JavaScript challenge.
+**Symptom:** API calls or mobile applications fail when encountering the JavaScript challenge.
 
 **Solutions:**
 
 1. Use `no_challenge {}` instead of `js_challenge {}` for API-only endpoints
-2. Configure trusted client rules to bypass JS challenge for specific clients
-3. Consider using `captcha_challenge {}` for interactive applications
+2. Configure trusted client rules to bypass the JavaScript challenge for specific clients
+3. Use `captcha_challenge {}` for interactive web applications
 
 ## Security Best Practices
 
-1. **Start with monitoring mode** - Deploy WAF in monitoring mode first to understand your traffic patterns
-2. **Review security analytics** - Regularly review blocked requests in the F5XC Console
-3. **Tune gradually** - Enable features one at a time and monitor impact
-4. **Use all layers** - Defense in depth requires multiple security controls
-5. **Keep Terraform state secure** - Use remote state with encryption for production
+1. **Start with monitoring mode** — Deploy WAF in monitoring mode initially to establish traffic baselines without blocking legitimate requests.
+2. **Review security analytics** — Regularly inspect blocked requests and threat detections in the F5 Distributed Cloud Console.
+3. **Tune controls incrementally** — Enable individual security controls sequentially and verify application behavior after each change.
+4. **Apply defense in depth** — Combine network, transport, and application layer controls for comprehensive protection.
+5. **Protect Terraform state** — Use remote state backends with server-side encryption and strict access control for production environments.
 
 ## Related Documentation
 
