@@ -105,7 +105,8 @@ runs:
             .version == $version and
             (.target_commit | test("^[0-9a-f]{40}$")) and
             (.assets | keys | sort) ==
-              ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json"] and
+              ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
+               "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json"] and
             ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
           ' "$PIN_FILE" >/dev/null || {
           echo "::error::Tracked spec release pin is malformed or names another release"
@@ -151,10 +152,13 @@ runs:
           "$BUNDLE_NAME" \
           index.json \
           minimal-export-defaults.json \
-          openapi.json | sort)
+          openapi.json \
+          smsv2-contract-manifest.json \
+          smsv2-contract.json \
+          smsv2-evidence-receipt.json | sort)
         ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
         [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
-          echo "::error::Release asset set differs from the five-asset contract"
+          echo "::error::Release asset set differs from the verified SMSv2 contract"
           exit 1
         }
 
@@ -175,7 +179,8 @@ runs:
             .version == $pin[0].version and
             .assets == $pin[0].assets and
             (.assets | keys | sort) ==
-              ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json"] and
+              ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
+               "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json"] and
             ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
           ' >/dev/null || {
           echo "::error::Publication receipt does not exactly match the tracked release pin"
@@ -234,7 +239,8 @@ runs:
 
         COMPANIONS="${STAGING_ROOT}/companions"
         mkdir -p "$COMPANIONS"
-        for asset in api-catalog.json index.json minimal-export-defaults.json openapi.json; do
+        for asset in api-catalog.json index.json minimal-export-defaults.json openapi.json \
+          smsv2-contract-manifest.json smsv2-contract.json smsv2-evidence-receipt.json; do
           AID=$(jq -r --arg name "$asset" \
             '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
             "$RELEASE_METADATA")
@@ -265,6 +271,8 @@ runs:
           echo "::error::Downloaded spec bundle differs from its publication receipt"
           exit 1
         }
+
+        python3 "${GITHUB_WORKSPACE:-.}/scripts/validate-smsv2-release.py" "$COMPANIONS" "$RELEASE_TAG" "$TAG_COMMIT"
 
         if [ ! -f "${STAGED_SPECS}/index.json" ] || \
           [ ! -d "${STAGED_SPECS}/domains" ] || \
