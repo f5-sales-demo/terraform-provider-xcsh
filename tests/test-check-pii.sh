@@ -2203,6 +2203,20 @@ git -C "$repo" add fixture.ts
 git -C "$repo" commit -qm literal
 assert_violation "quoted identity literals in code" "$repo" --scope head --mode enforce
 
+repo=$(new_repo go-fmt-identity-placeholder)
+cat >"${repo}/fixture.go" <<'EOF'
+package fixture
+
+import "fmt"
+
+func render(namespaceValue string) string {
+	return fmt.Sprintf("  namespace = \"%s\"\n", namespaceValue)
+}
+EOF
+git -C "$repo" add fixture.go
+git -C "$repo" commit -qm go-fmt-identity-placeholder
+assert_clean "escaped Go fmt identity placeholders are dynamic" "$repo" --scope head --mode enforce
+
 repo=$(new_repo code-numeric-literal)
 printf 'const context = { account_id: 987654321 };\n' >"${repo}/fixture.ts"
 git -C "$repo" add fixture.ts

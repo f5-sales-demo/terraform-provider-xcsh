@@ -112,6 +112,9 @@ jobs:
         env:
           # workflow_dispatch inputs are free-text; via env they stay inert data
           # instead of expanding into the run body as shell.
+          GOGC: "10"
+          GOMEMLIMIT: 4GiB
+          GOMAXPROCS: "1"
           INPUT_PARALLEL: ${{ github.event.inputs.parallel }}
           INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
         run: |
@@ -130,6 +133,8 @@ jobs:
           # Tests include both provider resources AND provider-defined functions
           TEST_STATUS=0
           TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
+            -p 1 \
+            -gcflags='all=-N -l' \
             -parallel "$PARALLEL" \
             -timeout "${TIMEOUT}m" \
             -run 'TestMock.*' \

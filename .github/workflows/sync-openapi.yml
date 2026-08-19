@@ -272,17 +272,18 @@ jobs:
           fi
 
           BUNDLE_NAME="f5xc-api-specs-${SPEC_VERSION}.zip"
-          EXPECTED_ASSETS=$(printf '%s\n' \
+          REQUIRED_ASSETS=$(printf '%s\n' \
             api-catalog.json \
             "$BUNDLE_NAME" \
             index.json \
             minimal-export-defaults.json \
-            openapi.json | sort)
-          ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
-          [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
-            echo "::error::Release ${SPEC_VERSION} asset set differs from the five-asset contract"
-            exit 1
-          }
+            openapi.json)
+          while IFS= read -r required_asset; do
+            [ "$(jq --arg name "$required_asset" '[.assets[] | select(.name == $name)] | length' "$RELEASE_METADATA")" -eq 1 ] || {
+              echo "::error::Release ${SPEC_VERSION} must contain exactly one required ${required_asset} asset"
+              exit 1
+            }
+          done <<< "$REQUIRED_ASSETS"
 
           RELEASE_BODY="${STAGING_ROOT}/release-body.txt"
           jq -r '.body // ""' "$RELEASE_METADATA" > "$RELEASE_BODY"
@@ -301,9 +302,10 @@ jobs:
               (keys | sort) == ["assets", "commit", "version"] and
               .version == $version and
               .commit == $commit and
-              (.assets | keys | sort) ==
-                ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json"] and
-              ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
+              (.assets as $assets |
+                [$assets["api-catalog.json"], $assets[$bundle], $assets["index.json"],
+                 $assets["minimal-export-defaults.json"], $assets["openapi.json"]] |
+                all(type == "string" and test("^sha256:[0-9a-f]{64}$")))
             ' >/dev/null || {
             echo "::error::Publication receipt does not match the release identity"
             exit 1
@@ -417,9 +419,17 @@ jobs:
           fi
           mkdir -p tools
           PIN_TMP=$(mktemp tools/spec-release.json.XXXXXX)
-          printf '%s' "$RECEIPT" | jq -S --arg tag "$SPEC_VERSION" '
-            {assets:.assets,release_tag:$tag,target_commit:.commit,version:.version}
-          ' > "$PIN_TMP"
+          printf '%s' "$RECEIPT" | jq -S \
+            --arg tag "$SPEC_VERSION" \
+            --arg bundle "$BUNDLE_NAME" '
+              {assets:{
+                "api-catalog.json":.assets["api-catalog.json"],
+                ($bundle):.assets[$bundle],
+                "index.json":.assets["index.json"],
+                "minimal-export-defaults.json":.assets["minimal-export-defaults.json"],
+                "openapi.json":.assets["openapi.json"]
+              },release_tag:$tag,target_commit:.commit,version:.version}
+            ' > "$PIN_TMP"
           mv "$PIN_TMP" tools/spec-release.json
 
       # The downloaded specs live under docs/specifications/api/, which is gitignored
