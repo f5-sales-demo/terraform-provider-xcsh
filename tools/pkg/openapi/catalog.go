@@ -35,11 +35,13 @@ var (
 // These fields are consumed as data; the provider does not reconstruct them from
 // Terraform names or RPC naming conventions.
 type CatalogOperation struct {
-	Method        string
-	Path          string
-	OperationID   string
-	Surface       string
-	RequestSchema string
+	Method         string
+	Path           string
+	OperationID    string
+	Surface        string
+	Role           string
+	RequestSchema  string
+	ResponseSchema string
 }
 
 // APIOperationIdentity groups the exact operations published for one
@@ -99,11 +101,13 @@ type apiOperationIdentityWire struct {
 }
 
 type catalogOperationWire struct {
-	Method        *string         `json:"method"`
-	Path          *string         `json:"path"`
-	OperationID   *string         `json:"operationId"`
-	Surface       *string         `json:"surface"`
-	RequestSchema json.RawMessage `json:"requestSchema"`
+	Method         *string         `json:"method"`
+	Path           *string         `json:"path"`
+	OperationID    *string         `json:"operationId"`
+	Surface        *string         `json:"surface"`
+	Role           json.RawMessage `json:"role"`
+	RequestSchema  json.RawMessage `json:"requestSchema"`
+	ResponseSchema json.RawMessage `json:"responseSchema"`
 }
 
 type apiExclusionWire struct {
@@ -550,12 +554,32 @@ func parseCatalogOperation(raw json.RawMessage, apiIdentity string) (CatalogOper
 			return CatalogOperation{}, fmt.Errorf("requestSchema must be absent or a non-empty schema name")
 		}
 	}
+	responseSchema := ""
+	if len(wire.ResponseSchema) > 0 {
+		if bytes.Equal(bytes.TrimSpace(wire.ResponseSchema), []byte("null")) {
+			return CatalogOperation{}, fmt.Errorf("responseSchema must be absent or a non-empty schema name")
+		}
+		if err := json.Unmarshal(wire.ResponseSchema, &responseSchema); err != nil || !schemaNamePattern.MatchString(responseSchema) {
+			return CatalogOperation{}, fmt.Errorf("responseSchema must be absent or a non-empty schema name")
+		}
+	}
+	role := ""
+	if len(wire.Role) > 0 {
+		if bytes.Equal(bytes.TrimSpace(wire.Role), []byte("null")) {
+			return CatalogOperation{}, fmt.Errorf("role must be absent, query, or issuance")
+		}
+		if err := json.Unmarshal(wire.Role, &role); err != nil || (role != "query" && role != "issuance") {
+			return CatalogOperation{}, fmt.Errorf("role must be absent, query, or issuance")
+		}
+	}
 	return CatalogOperation{
-		Method:        *wire.Method,
-		Path:          *wire.Path,
-		OperationID:   *wire.OperationID,
-		Surface:       *wire.Surface,
-		RequestSchema: requestSchema,
+		Method:         *wire.Method,
+		Path:           *wire.Path,
+		OperationID:    *wire.OperationID,
+		Surface:        *wire.Surface,
+		Role:           role,
+		RequestSchema:  requestSchema,
+		ResponseSchema: responseSchema,
 	}, nil
 }
 
