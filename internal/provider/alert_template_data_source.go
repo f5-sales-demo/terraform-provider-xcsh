@@ -42,7 +42,7 @@ func (d *AlertTemplateDataSource) Metadata(ctx context.Context, req datasource.M
 
 func (d *AlertTemplateDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Domain to protect. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Domain to protect in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",

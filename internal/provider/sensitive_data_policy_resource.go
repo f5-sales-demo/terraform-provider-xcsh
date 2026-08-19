@@ -93,7 +93,7 @@ func (r *SensitiveDataPolicyResource) Metadata(ctx context.Context, req resource
 
 func (r *SensitiveDataPolicyResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages sensitive_data_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages sensitive_data_policy creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Sensitive Data Policy. Must be unique within the namespace.",
@@ -106,7 +106,7 @@ func (r *SensitiveDataPolicyResource) Schema(ctx context.Context, req resource.S
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Sensitive Data Policy will be created.",
+				MarkdownDescription: "Namespace where the Sensitive Data Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -125,7 +125,7 @@ func (r *SensitiveDataPolicyResource) Schema(ctx context.Context, req resource.S
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -243,7 +243,7 @@ func (r *SensitiveDataPolicyResource) ModifyPlan(ctx context.Context, req resour
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the sensitive_data_policy from F5 Distributed Cloud.",
+			"This permanently deletes the sensitive_data_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

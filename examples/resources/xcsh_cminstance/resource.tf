@@ -1,5 +1,5 @@
 # Cminstance Resource Example
-# Manages App type will create the configuration in namespace metadata.namespace.
+# Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

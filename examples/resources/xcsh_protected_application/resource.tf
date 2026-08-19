@@ -1,5 +1,5 @@
 # ProtectedApplication Resource Example
-# Manages applications protected by Bot Defense.
+# Manages applications protected by Bot Defense in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

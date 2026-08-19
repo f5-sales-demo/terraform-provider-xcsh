@@ -950,7 +950,7 @@
     {
       "name": "http_loadbalancer",
       "category": "load-balancing",
-      "description": "Load balancing HTTP/HTTPS traffic with advanced routing and security",
+      "description": "Load balancing HTTP/HTTPS traffic with routing and security controls",
       "required": ["name", "namespace", "domains"],
       "server_defaults": [
         "add_location",
@@ -1312,7 +1312,7 @@
     {
       "name": "securemesh_site",
       "category": "sites",
-      "description": "Deploying secure mesh edge sites with distributed security capabilities",
+      "description": "Deploying secure mesh edge sites with distributed security",
       "required": ["name", "namespace", "address", "volterra_certified_hw"],
       "minimal_config": {
         "format": "terraform",
@@ -1326,7 +1326,7 @@
     {
       "name": "securemesh_site_v2",
       "category": "sites",
-      "description": "Deploying secure mesh edge sites with enhanced security and networking features",
+      "description": "Deploying secure mesh edge sites with security and networking controls",
       "required": ["name", "namespace"],
       "minimal_config": {
         "format": "terraform",
@@ -1368,7 +1368,7 @@
     {
       "name": "voltstack_site",
       "category": "sites",
-      "description": "Deploying Volterra stack sites for edge computing",
+      "description": "Deploying App Stack edge computing sites",
       "required": ["name", "namespace", "address", "volterra_certified_hw"],
       "minimal_config": {
         "format": "terraform",

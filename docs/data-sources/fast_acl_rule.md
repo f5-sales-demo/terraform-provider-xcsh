@@ -2,12 +2,12 @@
 page_title: "xcsh_fast_acl_rule Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about an existing Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.
+  Retrieves information about an existing Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud.
 ---
 
 # xcsh_fast_acl_rule (Data Source)
 
-Retrieves information about new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about new Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

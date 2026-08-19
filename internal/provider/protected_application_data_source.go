@@ -42,7 +42,7 @@ func (d *ProtectedApplicationDataSource) Metadata(ctx context.Context, req datas
 
 func (d *ProtectedApplicationDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages applications protected by Bot Defense. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages applications protected by Bot Defense in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",

@@ -1,5 +1,5 @@
 # GeoLocationSet Resource Example
-# Manages Geolocation Set.
+# Manages Geolocation Set in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

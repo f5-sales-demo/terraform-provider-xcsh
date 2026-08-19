@@ -102,7 +102,7 @@ func (r *VirtualK8SResource) Metadata(ctx context.Context, req resource.Metadata
 
 func (r *VirtualK8SResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Virtual K8S. Must be unique within the namespace.",
@@ -115,7 +115,7 @@ func (r *VirtualK8SResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Virtual K8S will be created.",
+				MarkdownDescription: "Namespace where the Virtual K8S is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -134,7 +134,7 @@ func (r *VirtualK8SResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -261,7 +261,7 @@ func (r *VirtualK8SResource) ModifyPlan(ctx context.Context, req resource.Modify
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the virtual_k8s from F5 Distributed Cloud.",
+			"This permanently deletes the virtual_k8s from F5 Distributed Cloud.",
 		)
 		return
 	}

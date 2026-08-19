@@ -287,7 +287,7 @@ func (r *K8SClusterResource) Metadata(ctx context.Context, req resource.Metadata
 
 func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages k8s_cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages k8s_cluster will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the K8S Cluster. Must be unique within the namespace.",
@@ -322,7 +322,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -693,7 +693,7 @@ func (r *K8SClusterResource) ModifyPlan(ctx context.Context, req resource.Modify
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the k8s_cluster from F5 Distributed Cloud.",
+			"This permanently deletes the k8s_cluster from F5 Distributed Cloud.",
 		)
 		return
 	}

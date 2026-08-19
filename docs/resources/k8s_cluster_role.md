@@ -2,12 +2,12 @@
 page_title: "xcsh_k8s_cluster_role Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
-  Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+  Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_k8s_cluster_role (Resource)
 
-Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [K8S Cluster Role API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/managed_kubernetes/).
 
@@ -15,7 +15,7 @@ Manages k8s_cluster_role will create the object in the storage backend for names
 
 ```terraform
 # K8SClusterRole Resource Example
-# Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace.
+# Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -51,7 +51,7 @@ resource "xcsh_k8s_cluster_role" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

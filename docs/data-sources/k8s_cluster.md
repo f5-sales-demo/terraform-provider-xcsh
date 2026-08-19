@@ -2,12 +2,12 @@
 page_title: "xcsh_k8s_cluster Data Source - xcsh"
 subcategory: "Kubernetes"
 description: |-
-  Retrieves information about k8s_cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+  Retrieves information about k8s_cluster will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_k8s_cluster (Data Source)
 
-Retrieves information about k8s_cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about k8s_cluster will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

@@ -2,12 +2,12 @@
 page_title: "xcsh_namespace Resource - xcsh"
 subcategory: "Organization"
 description: |-
-  Manages new namespace. Name of the object is name of the namespace. in F5 Distributed Cloud.
+  Manages new namespace. Name of the object is name of the namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_namespace (Resource)
 
-Manages new namespace. Name of the object is name of the namespace. in F5 Distributed Cloud.
+Manages new namespace. Name of the object is name of the namespace in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -49,7 +49,7 @@ resource "xcsh_namespace" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

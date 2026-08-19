@@ -1,5 +1,5 @@
 # AppFirewall Resource Example
-# Manages Application Firewall.
+# Manages Application Firewall in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

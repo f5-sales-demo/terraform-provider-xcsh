@@ -542,7 +542,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Network Interface will be created.",
+				MarkdownDescription: "Namespace where the Network Interface is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -561,7 +561,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -748,7 +748,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"network_prefix": schema.StringAttribute{
-											MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 10.1.1.0/24.",
+											MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
 											Optional:            true,
 										},
 										"pool_settings": schema.StringAttribute{
@@ -771,7 +771,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"end_ip": schema.StringAttribute{
-														MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 192.0.2.1.",
+														MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1024),
@@ -779,7 +779,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 													"start_ip": schema.StringAttribute{
-														MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 192.0.2.1.",
+														MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1024),
@@ -1239,7 +1239,7 @@ func (r *NetworkInterfaceResource) ModifyPlan(ctx context.Context, req resource.
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the network_interface from F5 Distributed Cloud.",
+			"This permanently deletes the network_interface from F5 Distributed Cloud.",
 		)
 		return
 	}

@@ -2,12 +2,12 @@
 page_title: "xcsh_log_receiver Data Source - xcsh"
 subcategory: "Monitoring"
 description: |-
-  Retrieves information about an existing Log Receiver object. in F5 Distributed Cloud.
+  Retrieves information about an existing Log Receiver object in F5 Distributed Cloud.
 ---
 
 # xcsh_log_receiver (Data Source)
 
-Retrieves information about new Log Receiver object. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about new Log Receiver object in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [Log Receiver API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/observability/).
 

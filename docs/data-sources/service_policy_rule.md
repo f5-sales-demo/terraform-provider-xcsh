@@ -2,12 +2,12 @@
 page_title: "xcsh_service_policy_rule Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about service_policy_rule creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+  Retrieves information about service_policy_rule creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_service_policy_rule (Data Source)
 
-Retrieves information about service_policy_rule creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about service_policy_rule creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

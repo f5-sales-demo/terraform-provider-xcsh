@@ -2,12 +2,12 @@
 page_title: "xcsh_dns_proxy Resource - xcsh"
 subcategory: "DNS"
 description: |-
-  Manages DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+  Manages DNS Proxy in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.
 ---
 
 # xcsh_dns_proxy (Resource)
 
-Manages DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+Manages DNS Proxy in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -53,7 +53,7 @@ resource "xcsh_dns_proxy" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
@@ -183,7 +183,7 @@ A [`k8s_service`](#service-496024) block (within [`origin_servers.origin_servers
 
 <a id="protocol-878ba3"></a>&#x2022; [`protocol`](#protocol-878ba3) - Optional String  Defaults to `PROTOCOL_TCP`<br>Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`<br>[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP
 
-<a id="name-5df1ff"></a>&#x2022; [`service_name`](#name-5df1ff) - Optional String<br>K8S service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:cluster-ID. If the servicename is 'frontend', namespace is 'speedtest' and cluster-ID is 'prod'
+<a id="name-5df1ff"></a>&#x2022; [`service_name`](#name-5df1ff) - Optional String<br>K8S service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod', then you will enter
 
 <a id="locator-15108d"></a>&#x2022; [`site_locator`](#locator-15108d) - Optional Block<br>Message defines a reference to a site or virtual site object<br>See [Site Locator](#locator-15108d) below.
 

@@ -427,7 +427,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the NAT Policy will be created.",
+				MarkdownDescription: "Namespace where the NAT Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -446,7 +446,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -955,7 +955,7 @@ func (r *NATPolicyResource) ModifyPlan(ctx context.Context, req resource.ModifyP
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the nat_policy from F5 Distributed Cloud.",
+			"This permanently deletes the nat_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

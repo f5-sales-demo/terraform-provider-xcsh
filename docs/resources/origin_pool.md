@@ -318,13 +318,13 @@ spec:
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Origin Pool. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Origin Pool will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Origin Pool is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
@@ -608,8 +608,8 @@ A [`k8s_service`](#origin-servers-k8s-service) block (within [`origin_servers`](
 
 <a id="origin-servers-k8s-service-protocol"></a>&#x2022; [`protocol`](#origin-servers-k8s-service-protocol) - Optional String  Defaults to `PROTOCOL_TCP`<br>Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`<br>[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP
 
-<a id="origin-servers-k8s-service-service-name"></a>&#x2022; [`service_name`](#origin-servers-k8s-service-service-name) - Optional String<br>K8S service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:cluster-ID. If the servicename is 'frontend', namespace is 'speedtest' and
-cluster-ID is 'prod'
+<a id="origin-servers-k8s-service-service-name"></a>&#x2022; [`service_name`](#origin-servers-k8s-service-service-name) - Optional String<br>K8S service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod',
+then you will enter
 
 <a id="origin-servers-k8s-service-site-locator"></a>&#x2022; [`site_locator`](#origin-servers-k8s-service-site-locator) - Optional Block<br>Message defines a reference to a site or virtual site object<br>See [Site Locator](#origin-servers-k8s-service-site-locator) below.
 

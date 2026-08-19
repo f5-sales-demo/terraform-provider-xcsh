@@ -2,12 +2,12 @@
 page_title: "xcsh_alert_policy Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about an existing Alert Policy Object. in F5 Distributed Cloud.
+  Retrieves information about an existing Alert Policy Object in F5 Distributed Cloud.
 ---
 
 # xcsh_alert_policy (Data Source)
 
-Retrieves information about new Alert Policy Object. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about new Alert Policy Object in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [Alert Policy API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/observability/).
 

@@ -1,5 +1,5 @@
 # AlertReceiver Resource Example
-# Manages new Alert Receiver object.
+# Manages new Alert Receiver object in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

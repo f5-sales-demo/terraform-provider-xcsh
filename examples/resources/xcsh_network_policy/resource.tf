@@ -1,5 +1,5 @@
 # NetworkPolicy Resource Example
-# Manages new network policy with configured parameters in specified namespace.
+# Manages new network policy with configured parameters in specified namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

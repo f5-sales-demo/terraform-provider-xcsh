@@ -2,12 +2,12 @@
 page_title: "xcsh_voltstack_site Data Source - xcsh"
 subcategory: "Sites"
 description: |-
-  Retrieves information about an existing Voltstack Site resource in F5 Distributed Cloud for deploying Volterra stack sites for edge computing.
+  Retrieves information about an existing Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing sites.
 ---
 
 # xcsh_voltstack_site (Data Source)
 
-Retrieves information about a Voltstack Site resource in F5 Distributed Cloud for deploying Volterra stack sites for edge computing. This is a read-only data source.
+Retrieves information about a Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing sites. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

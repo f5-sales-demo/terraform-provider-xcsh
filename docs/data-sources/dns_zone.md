@@ -2,12 +2,12 @@
 page_title: "xcsh_dns_zone Data Source - xcsh"
 subcategory: "DNS"
 description: |-
-  Retrieves information about DNS Zone in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
+  Retrieves information about DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.
 ---
 
 # xcsh_dns_zone (Data Source)
 
-Retrieves information about DNS Zone in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [DNS Zone API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/dns/).
 

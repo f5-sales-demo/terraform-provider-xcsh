@@ -49,13 +49,13 @@ resource "xcsh_registration" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Registration. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Registration will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Registration is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
@@ -292,7 +292,7 @@ A [`product`](#infra-hw-info-product) block (within [`infra.hw_info`](#infra-hw-
 
 <a id="infra-hw-info-product-name"></a>&#x2022; [`name`](#infra-hw-info-product-name) - Optional String<br>Name. Product name, eg. For AWS m5a.xlarge. Info taken from /sys/class/dmi/ID/product_name
 
-<a id="infra-hw-info-product-serial"></a>&#x2022; [`serial`](#infra-hw-info-product-serial) - Optional String<br>Serial number, eg. For AWS ec254b6d-9676-1a51-8b10-21370dbdc3e5. Info taken from /sys/class/dmi/ID/product_serial
+<a id="infra-hw-info-product-serial"></a>&#x2022; [`serial`](#infra-hw-info-product-serial) - Optional String<br>Serial number, eg. For AWS 00000000-0000-4000-8000-23460f645a1f. Info taken from /sys/class/dmi/ID/product_serial
 
 <a id="infra-hw-info-product-vendor"></a>&#x2022; [`vendor`](#infra-hw-info-product-vendor) - Optional String<br>Vendor. Vendor name, eg. For AWS Amazon EC2. Info taken from /sys/class/dmi/ID/product_vendor
 
@@ -365,8 +365,8 @@ An [`internet_proxy`](#infra-internet-proxy) block (within [`infra`](#infra)) su
 
 <a id="infra-internet-proxy-https-proxy"></a>&#x2022; [`https_proxy`](#infra-internet-proxy-https-proxy) - Optional String<br>It will be used as the proxy URL for HTTPS requests unless overridden by NoProxy
 
-<a id="infra-internet-proxy-no-proxy"></a>&#x2022; [`no_proxy`](#infra-internet-proxy-no-proxy) - Optional String<br>It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (192.0.2.1), an IP address prefix in CIDR notation (192.0.2.0/24), a domain name, or a special DNS label (*). An IP
-address prefix and
+<a id="infra-internet-proxy-no-proxy"></a>&#x2022; [`no_proxy`](#infra-internet-proxy-no-proxy) - Optional String<br>It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (192.0.2.103), an IP address prefix in CIDR notation (192.0.2.103/8), a domain name, or a special DNS label (*). An IP
+address
 
 <a id="infra-internet-proxy-proxy-cacert-url"></a>&#x2022; [`proxy_cacert_url`](#infra-internet-proxy-proxy-cacert-url) - Optional String<br>Allow optional different trust-store for proxy in HTTP CONNECT step by picking proxy CA certificate value
 

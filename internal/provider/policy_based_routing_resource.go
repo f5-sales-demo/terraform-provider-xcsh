@@ -401,7 +401,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Policy Based Routing will be created.",
+				MarkdownDescription: "Namespace where the Policy Based Routing is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -420,7 +420,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -927,7 +927,7 @@ func (r *PolicyBasedRoutingResource) ModifyPlan(ctx context.Context, req resourc
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the policy_based_routing from F5 Distributed Cloud.",
+			"This permanently deletes the policy_based_routing from F5 Distributed Cloud.",
 		)
 		return
 	}

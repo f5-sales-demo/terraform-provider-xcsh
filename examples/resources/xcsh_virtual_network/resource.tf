@@ -1,5 +1,5 @@
 # VirtualNetwork Resource Example
-# Manages virtual network in given namespace.
+# Manages virtual network in given namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

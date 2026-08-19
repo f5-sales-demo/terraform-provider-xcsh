@@ -2,12 +2,12 @@
 page_title: "xcsh_nfv_service Data Source - xcsh"
 subcategory: "Networking"
 description: |-
-  Retrieves information about an existing NFV service with configured parameters. in F5 Distributed Cloud.
+  Retrieves information about an existing NFV service with configured parameters in F5 Distributed Cloud.
 ---
 
 # xcsh_nfv_service (Data Source)
 
-Retrieves information about new NFV service with configured parameters. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about new NFV service with configured parameters in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

@@ -393,7 +393,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Enhanced Firewall Policy will be created.",
+				MarkdownDescription: "Namespace where the Enhanced Firewall Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -412,7 +412,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -849,7 +849,7 @@ func (r *EnhancedFirewallPolicyResource) ModifyPlan(ctx context.Context, req res
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the enhanced_firewall_policy from F5 Distributed Cloud.",
+			"This permanently deletes the enhanced_firewall_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

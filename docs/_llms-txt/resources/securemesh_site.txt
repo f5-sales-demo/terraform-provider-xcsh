@@ -1,7 +1,7 @@
 # xcsh_securemesh_site
 
 Category: Sites
-Deploying secure mesh edge sites with distributed security capabilities
+Deploying secure mesh edge sites with distributed security
 
 ## Required
 

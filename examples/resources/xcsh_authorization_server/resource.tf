@@ -1,5 +1,5 @@
 # AuthorizationServer Resource Example
-# Manages authorization_server creates a new object in the storage backend for metadata.namespace.
+# Manages authorization_server creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

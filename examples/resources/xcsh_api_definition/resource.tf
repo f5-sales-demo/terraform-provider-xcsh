@@ -1,5 +1,5 @@
 # APIDefinition Resource Example
-# Manages API Definition.
+# Manages API Definition in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

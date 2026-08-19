@@ -258,7 +258,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Authentication will be created.",
+				MarkdownDescription: "Namespace where the Authentication is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -277,7 +277,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -552,7 +552,7 @@ func (r *AuthenticationResource) ModifyPlan(ctx context.Context, req resource.Mo
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the authentication from F5 Distributed Cloud.",
+			"This permanently deletes the authentication from F5 Distributed Cloud.",
 		)
 		return
 	}

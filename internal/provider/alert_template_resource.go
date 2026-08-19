@@ -63,7 +63,7 @@ func (r *AlertTemplateResource) Metadata(ctx context.Context, req resource.Metad
 
 func (r *AlertTemplateResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Domain to protect. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Domain to protect in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Alert Template. Must be unique within the namespace.",
@@ -76,7 +76,7 @@ func (r *AlertTemplateResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Alert Template will be created.",
+				MarkdownDescription: "Namespace where the Alert Template is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -113,7 +113,7 @@ func (r *AlertTemplateResource) Schema(ctx context.Context, req resource.SchemaR
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -176,7 +176,7 @@ func (r *AlertTemplateResource) ModifyPlan(ctx context.Context, req resource.Mod
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the alert_template from F5 Distributed Cloud.",
+			"This permanently deletes the alert_template from F5 Distributed Cloud.",
 		)
 		return
 	}

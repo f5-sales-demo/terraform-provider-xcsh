@@ -2,12 +2,12 @@
 page_title: "xcsh_dns_zone Resource - xcsh"
 subcategory: "DNS"
 description: |-
-  Manages DNS Zone in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
+  Manages DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.
 ---
 
 # xcsh_dns_zone (Resource)
 
-Manages DNS Zone in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
+Manages DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [DNS Zone API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/dns/).
 
@@ -51,7 +51,7 @@ resource "xcsh_dns_zone" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
@@ -145,7 +145,7 @@ An [`a_record`](#primary-default-rr-set-group-a-record) block (within [`primary.
 
 <a id="name-59b7b8"></a>&#x2022; [`name`](#name-59b7b8) - Optional String<br>Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-6ab550"></a>&#x2022; [`values`](#values-6ab550) - Optional List<br>IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.1
+<a id="values-6ab550"></a>&#x2022; [`values`](#values-6ab550) - Optional List<br>IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242
 
 #### Primary Default Rr Set Group Aaaa Record
 

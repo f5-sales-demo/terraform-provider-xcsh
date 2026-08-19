@@ -2,12 +2,12 @@
 page_title: "xcsh_protocol_policer Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud.
+  Retrieves information about protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.
 ---
 
 # xcsh_protocol_policer (Data Source)
 
-Retrieves information about protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

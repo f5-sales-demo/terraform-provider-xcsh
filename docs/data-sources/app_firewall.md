@@ -2,12 +2,12 @@
 page_title: "xcsh_app_firewall Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about Application Firewall. in F5 Distributed Cloud.
+  Retrieves information about Application Firewall in F5 Distributed Cloud.
 ---
 
 # xcsh_app_firewall (Data Source)
 
-Retrieves information about Application Firewall. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Application Firewall in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [App Firewall API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/).
 

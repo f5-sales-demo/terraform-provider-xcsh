@@ -1,5 +1,5 @@
 # SecuremeshSite Resource Example
-# Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities.
+# Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security.
 
 terraform {
   required_version = ">= 1.0"

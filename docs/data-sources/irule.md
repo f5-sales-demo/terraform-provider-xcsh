@@ -2,12 +2,12 @@
 page_title: "xcsh_irule Data Source - xcsh"
 subcategory: "BIG-IP Integration"
 description: |-
-  Retrieves information about iRule in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+  Retrieves information about iRule in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.
 ---
 
 # xcsh_irule (Data Source)
 
-Retrieves information about iRule in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about iRule in a given namespace. If one already exists it will give an error in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

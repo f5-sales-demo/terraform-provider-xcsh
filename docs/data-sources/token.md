@@ -2,12 +2,12 @@
 page_title: "xcsh_token Data Source - xcsh"
 subcategory: "Authentication"
 description: |-
-  Retrieves information about an existing token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration. in F5 Distributed Cloud.
+  Retrieves information about an existing token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud.
 ---
 
 # xcsh_token (Data Source)
 
-Retrieves information about new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [Token API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/authentication/).
 
@@ -64,7 +64,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
-<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured
 
 ---
 

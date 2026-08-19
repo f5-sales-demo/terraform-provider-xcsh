@@ -2,12 +2,12 @@
 page_title: "xcsh_tunnel Data Source - xcsh"
 subcategory: "Networking"
 description: |-
-  Retrieves information about tunnel in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
+  Retrieves information about tunnel in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.
 ---
 
 # xcsh_tunnel (Data Source)
 
-Retrieves information about tunnel in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about tunnel in a given namespace. If one already exist it will give a error in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

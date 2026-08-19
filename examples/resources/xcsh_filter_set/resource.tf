@@ -1,5 +1,5 @@
 # FilterSet Resource Example
-# Manages specification.
+# Manages specification in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

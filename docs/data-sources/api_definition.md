@@ -2,12 +2,12 @@
 page_title: "xcsh_api_definition Data Source - xcsh"
 subcategory: "API Security"
 description: |-
-  Retrieves information about API Definition. in F5 Distributed Cloud.
+  Retrieves information about API Definition in F5 Distributed Cloud.
 ---
 
 # xcsh_api_definition (Data Source)
 
-Retrieves information about API Definition. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about API Definition in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [API Definition API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/api/).
 

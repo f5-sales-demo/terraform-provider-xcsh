@@ -2,12 +2,12 @@
 page_title: "xcsh_dns_load_balancer Resource - xcsh"
 subcategory: "DNS"
 description: |-
-  Manages DNS Load Balancer in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
+  Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.
 ---
 
 # xcsh_dns_load_balancer (Resource)
 
-Manages DNS Load Balancer in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.
+Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [DNS Load Balancer API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/dns/).
 
@@ -53,7 +53,7 @@ resource "xcsh_dns_load_balancer" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

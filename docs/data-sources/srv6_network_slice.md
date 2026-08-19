@@ -2,12 +2,12 @@
 page_title: "xcsh_srv6_network_slice Data Source - xcsh"
 subcategory: "Networking"
 description: |-
-  Retrieves information about srv6_network_slice creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+  Retrieves information about srv6_network_slice creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_srv6_network_slice (Data Source)
 
-Retrieves information about srv6_network_slice creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about srv6_network_slice creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

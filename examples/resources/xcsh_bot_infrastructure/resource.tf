@@ -1,5 +1,5 @@
 # BotInfrastructure Resource Example
-# Manages Bot Infrastructure.
+# Manages Bot Infrastructure in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

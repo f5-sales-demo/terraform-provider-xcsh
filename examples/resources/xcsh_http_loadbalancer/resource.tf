@@ -1,5 +1,5 @@
 # HTTPLoadBalancer Resource Example
-# Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
+# Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls.
 
 terraform {
   required_version = ">= 1.0"

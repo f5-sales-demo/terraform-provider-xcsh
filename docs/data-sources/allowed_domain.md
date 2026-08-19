@@ -2,12 +2,12 @@
 page_title: "xcsh_allowed_domain Data Source - xcsh"
 subcategory: "Organization"
 description: |-
-  Retrieves information about allowed domain. in F5 Distributed Cloud.
+  Retrieves information about allowed domain in F5 Distributed Cloud.
 ---
 
 # xcsh_allowed_domain (Data Source)
 
-Retrieves information about allowed domain. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about allowed domain in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

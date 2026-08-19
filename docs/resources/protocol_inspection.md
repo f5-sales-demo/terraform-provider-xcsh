@@ -2,12 +2,12 @@
 page_title: "xcsh_protocol_inspection Resource - xcsh"
 subcategory: "Security"
 description: |-
-  Manages Protocol Inspection Specification in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+  Manages Protocol Inspection Specification in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.
 ---
 
 # xcsh_protocol_inspection (Resource)
 
-Manages Protocol Inspection Specification in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+Manages Protocol Inspection Specification in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -72,13 +72,13 @@ spec:
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Protocol Inspection. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Protocol Inspection will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Protocol Inspection is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

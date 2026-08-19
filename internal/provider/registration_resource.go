@@ -476,7 +476,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Registration will be created.",
+				MarkdownDescription: "Namespace where the Registration is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -499,7 +499,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -889,7 +889,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 										},
 									},
 									"serial": schema.StringAttribute{
-										MarkdownDescription: "Serial number, eg. For AWS ec254b6d-9676-1a51-8b10-21370dbdc3e5. Info taken from /sys/class/dmi/ID/product_serial.",
+										MarkdownDescription: "Serial number, eg. For AWS 00000000-0000-4000-8000-23460f645a1f. Info taken from /sys/class/dmi/ID/product_serial.",
 										Optional:            true,
 									},
 									"vendor": schema.StringAttribute{
@@ -1043,7 +1043,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 								Optional:            true,
 							},
 							"no_proxy": schema.StringAttribute{
-								MarkdownDescription: "It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (192.0.2.1), an IP address prefix in CIDR notation (192.0.2.0/24), a domain name, or a special DNS label (*). An IP address prefix and..",
+								MarkdownDescription: "It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (192.0.2.103), an IP address prefix in CIDR notation (192.0.2.103/8), a domain name, or a special DNS label (*). An IP address..",
 								Optional:            true,
 							},
 							"proxy_cacert_url": schema.StringAttribute{
@@ -1150,7 +1150,7 @@ func (r *RegistrationResource) ModifyPlan(ctx context.Context, req resource.Modi
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the registration from F5 Distributed Cloud.",
+			"This permanently deletes the registration from F5 Distributed Cloud.",
 		)
 		return
 	}

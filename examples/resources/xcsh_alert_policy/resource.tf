@@ -1,5 +1,5 @@
 # AlertPolicy Resource Example
-# Manages new Alert Policy Object.
+# Manages new Alert Policy Object in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

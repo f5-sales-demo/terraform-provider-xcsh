@@ -5101,7 +5101,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the CDN Load Balancer will be created.",
+				MarkdownDescription: "Namespace where the CDN Load Balancer is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -5128,7 +5128,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -11980,7 +11980,7 @@ func (r *CDNLoadBalancerResource) ModifyPlan(ctx context.Context, req resource.M
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the cdn_loadbalancer from F5 Distributed Cloud.",
+			"This permanently deletes the cdn_loadbalancer from F5 Distributed Cloud.",
 		)
 		return
 	}

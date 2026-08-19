@@ -1,5 +1,5 @@
 # AppSetting Resource Example
-# Manages App setting configuration in namespace metadata.namespace.
+# Manages App setting configuration in namespace metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

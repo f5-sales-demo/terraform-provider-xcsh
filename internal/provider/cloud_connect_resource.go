@@ -319,7 +319,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Cloud Connect will be created.",
+				MarkdownDescription: "Namespace where the Cloud Connect is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -338,7 +338,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -689,7 +689,7 @@ func (r *CloudConnectResource) ModifyPlan(ctx context.Context, req resource.Modi
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the cloud_connect from F5 Distributed Cloud.",
+			"This permanently deletes the cloud_connect from F5 Distributed Cloud.",
 		)
 		return
 	}

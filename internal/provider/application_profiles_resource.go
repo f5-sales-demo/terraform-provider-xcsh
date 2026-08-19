@@ -1389,7 +1389,7 @@ func (r *ApplicationProfilesResource) Metadata(ctx context.Context, req resource
 
 func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Application Profiles in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Application Profiles in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Application Profiles. Must be unique within the namespace.",
@@ -1402,7 +1402,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Application Profiles will be created.",
+				MarkdownDescription: "Namespace where the Application Profiles is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -1421,7 +1421,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -3567,7 +3567,7 @@ func (r *ApplicationProfilesResource) ModifyPlan(ctx context.Context, req resour
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the application_profiles from F5 Distributed Cloud.",
+			"This permanently deletes the application_profiles from F5 Distributed Cloud.",
 		)
 		return
 	}

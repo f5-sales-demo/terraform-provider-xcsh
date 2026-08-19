@@ -43,7 +43,7 @@ func (d *TokenDataSource) Metadata(ctx context.Context, req datasource.MetadataR
 
 func (d *TokenDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -72,7 +72,7 @@ func (d *TokenDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 				ElementType:         types.StringType,
 			},
 			"uid": schema.StringAttribute{
-				MarkdownDescription: "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured.",
+				MarkdownDescription: "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured.",
 				Computed:            true,
 				Sensitive:           true,
 			},

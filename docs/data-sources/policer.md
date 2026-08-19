@@ -2,12 +2,12 @@
 page_title: "xcsh_policer Data Source - xcsh"
 subcategory: "Service Mesh"
 description: |-
-  Retrieves information about an existing policer with traffic rate limits. in F5 Distributed Cloud.
+  Retrieves information about an existing policer with traffic rate limits in F5 Distributed Cloud.
 ---
 
 # xcsh_policer (Data Source)
 
-Retrieves information about new policer with traffic rate limits. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about new policer with traffic rate limits in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

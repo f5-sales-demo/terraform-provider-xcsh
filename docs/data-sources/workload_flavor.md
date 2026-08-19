@@ -2,12 +2,12 @@
 page_title: "xcsh_workload_flavor Data Source - xcsh"
 subcategory: "Kubernetes"
 description: |-
-  Retrieves information about workload_flavor. in F5 Distributed Cloud.
+  Retrieves information about workload_flavor in F5 Distributed Cloud.
 ---
 
 # xcsh_workload_flavor (Data Source)
 
-Retrieves information about workload_flavor. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about workload_flavor in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

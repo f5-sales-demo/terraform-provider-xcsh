@@ -195,7 +195,7 @@ func (r *FastACLRuleResource) Metadata(ctx context.Context, req resource.Metadat
 
 func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Fast ACL Rule. Must be unique within the namespace.",
@@ -230,7 +230,7 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -458,7 +458,7 @@ func (r *FastACLRuleResource) ModifyPlan(ctx context.Context, req resource.Modif
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the fast_acl_rule from F5 Distributed Cloud.",
+			"This permanently deletes the fast_acl_rule from F5 Distributed Cloud.",
 		)
 		return
 	}

@@ -1,5 +1,5 @@
 # AllowedDomain Resource Example
-# Manages allowed domain.
+# Manages allowed domain in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

@@ -1,5 +1,5 @@
 # AlertGenPolicy Resource Example
-# Manages Alert Generation Policy.
+# Manages Alert Generation Policy in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

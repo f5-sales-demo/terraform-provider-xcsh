@@ -824,7 +824,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the TCP Load Balancer will be created.",
+				MarkdownDescription: "Namespace where the TCP Load Balancer is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -843,7 +843,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"domains": schema.ListAttribute{
@@ -2041,7 +2041,7 @@ func (r *TCPLoadBalancerResource) ModifyPlan(ctx context.Context, req resource.M
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the tcp_loadbalancer from F5 Distributed Cloud.",
+			"This permanently deletes the tcp_loadbalancer from F5 Distributed Cloud.",
 		)
 		return
 	}

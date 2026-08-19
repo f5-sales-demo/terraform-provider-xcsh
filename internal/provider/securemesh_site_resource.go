@@ -1198,7 +1198,7 @@ func (r *SecuremeshSiteResource) Metadata(ctx context.Context, req resource.Meta
 
 func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities.",
+		MarkdownDescription: "Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Securemesh Site. Must be unique within the namespace.",
@@ -1211,7 +1211,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Securemesh Site will be created.",
+				MarkdownDescription: "Namespace where the Securemesh Site is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -1237,7 +1237,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -1854,7 +1854,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																		},
 																	},
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 10.1.1.0/24.",
+																		MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
 																		Optional:            true,
 																	},
 																	"pool_settings": schema.StringAttribute{
@@ -1877,7 +1877,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"end_ip": schema.StringAttribute{
-																					MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 192.0.2.1.",
+																					MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
@@ -1885,7 +1885,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																					},
 																				},
 																				"start_ip": schema.StringAttribute{
-																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 192.0.2.1.",
+																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
@@ -2868,7 +2868,7 @@ func (r *SecuremeshSiteResource) ModifyPlan(ctx context.Context, req resource.Mo
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the securemesh_site from F5 Distributed Cloud.",
+			"This permanently deletes the securemesh_site from F5 Distributed Cloud.",
 		)
 		return
 	}

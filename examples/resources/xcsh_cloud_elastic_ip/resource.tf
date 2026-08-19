@@ -1,5 +1,5 @@
 # CloudElasticIP Resource Example
-# Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site.
+# Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

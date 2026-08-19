@@ -2,12 +2,12 @@
 page_title: "xcsh_waf_exclusion_policy Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about WAF exclusion policy. in F5 Distributed Cloud.
+  Retrieves information about WAF exclusion policy in F5 Distributed Cloud.
 ---
 
 # xcsh_waf_exclusion_policy (Data Source)
 
-Retrieves information about WAF exclusion policy. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about WAF exclusion policy in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

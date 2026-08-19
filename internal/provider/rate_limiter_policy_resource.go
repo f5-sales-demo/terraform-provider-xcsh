@@ -421,7 +421,7 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Rate Limiter Policy will be created.",
+				MarkdownDescription: "Namespace where the Rate Limiter Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -440,7 +440,7 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -993,7 +993,7 @@ func (r *RateLimiterPolicyResource) ModifyPlan(ctx context.Context, req resource
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the rate_limiter_policy from F5 Distributed Cloud.",
+			"This permanently deletes the rate_limiter_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

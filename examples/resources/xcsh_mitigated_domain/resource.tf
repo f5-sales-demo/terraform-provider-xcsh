@@ -1,5 +1,5 @@
 # MitigatedDomain Resource Example
-# Manages Mitigated Domain.
+# Manages Mitigated Domain in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

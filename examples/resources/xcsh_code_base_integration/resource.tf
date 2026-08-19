@@ -1,5 +1,5 @@
 # CodeBaseIntegration Resource Example
-# Manages integration details.
+# Manages integration details in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

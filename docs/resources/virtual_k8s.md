@@ -2,12 +2,12 @@
 page_title: "xcsh_virtual_k8s Resource - xcsh"
 subcategory: "Kubernetes"
 description: |-
-  Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+  Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_virtual_k8s (Resource)
 
-Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
+Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [Virtual K8S API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/container_services/).
 
@@ -15,7 +15,7 @@ Manages virtual_k8s will create the object in the storage backend for namespace 
 
 ```terraform
 # VirtualK8S Resource Example
-# Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace.
+# Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -47,13 +47,13 @@ resource "xcsh_virtual_k8s" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Virtual K8S. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Virtual K8S will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Virtual K8S is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

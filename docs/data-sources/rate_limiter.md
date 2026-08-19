@@ -2,12 +2,12 @@
 page_title: "xcsh_rate_limiter Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about rate_limiter creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+  Retrieves information about rate_limiter creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_rate_limiter (Data Source)
 
-Retrieves information about rate_limiter creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about rate_limiter creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [Rate Limiter API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/rate_limiting/).
 

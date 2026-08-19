@@ -87,7 +87,7 @@ func (r *CloudElasticIPResource) Metadata(ctx context.Context, req resource.Meta
 
 func (r *CloudElasticIPResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Cloud Elastic IP. Must be unique within the namespace.",
@@ -100,7 +100,7 @@ func (r *CloudElasticIPResource) Schema(ctx context.Context, req resource.Schema
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Cloud Elastic IP will be created.",
+				MarkdownDescription: "Namespace where the Cloud Elastic IP is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -126,7 +126,7 @@ func (r *CloudElasticIPResource) Schema(ctx context.Context, req resource.Schema
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -217,7 +217,7 @@ func (r *CloudElasticIPResource) ModifyPlan(ctx context.Context, req resource.Mo
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the cloud_elastic_ip from F5 Distributed Cloud.",
+			"This permanently deletes the cloud_elastic_ip from F5 Distributed Cloud.",
 		)
 		return
 	}

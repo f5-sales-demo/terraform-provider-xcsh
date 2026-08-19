@@ -1,5 +1,5 @@
 # Policer Resource Example
-# Manages new policer with traffic rate limits.
+# Manages new policer with traffic rate limits in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

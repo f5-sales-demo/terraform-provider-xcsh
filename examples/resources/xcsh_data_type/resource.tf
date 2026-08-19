@@ -1,5 +1,5 @@
 # DataType Resource Example
-# Manages data_type creates a new object in the storage backend for metadata.namespace.
+# Manages data_type creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

@@ -161,7 +161,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Nginx Service Discovery will be created.",
+				MarkdownDescription: "Namespace where the Nginx Service Discovery is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -180,7 +180,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -345,7 +345,7 @@ func (r *NginxServiceDiscoveryResource) ModifyPlan(ctx context.Context, req reso
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the nginx_service_discovery from F5 Distributed Cloud.",
+			"This permanently deletes the nginx_service_discovery from F5 Distributed Cloud.",
 		)
 		return
 	}
