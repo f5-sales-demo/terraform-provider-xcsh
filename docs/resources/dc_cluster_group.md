@@ -2,12 +2,12 @@
 page_title: "xcsh_dc_cluster_group Resource - xcsh"
 subcategory: "Networking"
 description: |-
-  Manages DC Cluster group in given namespace. in F5 Distributed Cloud.
+  Manages DC Cluster group in given namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_dc_cluster_group (Resource)
 
-Manages DC Cluster group in given namespace. in F5 Distributed Cloud.
+Manages DC Cluster group in given namespace in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -15,7 +15,7 @@ Manages DC Cluster group in given namespace. in F5 Distributed Cloud.
 
 ```terraform
 # DcClusterGroup Resource Example
-# Manages DC Cluster group in given namespace.
+# Manages DC Cluster group in given namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -51,7 +51,7 @@ resource "xcsh_dc_cluster_group" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

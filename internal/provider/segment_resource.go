@@ -76,7 +76,7 @@ func (r *SegmentResource) Schema(ctx context.Context, req resource.SchemaRequest
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Segment will be created.",
+				MarkdownDescription: "Namespace where the Segment is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -153,7 +153,7 @@ func (r *SegmentResource) ModifyPlan(ctx context.Context, req resource.ModifyPla
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the segment from F5 Distributed Cloud.",
+			"This permanently deletes the segment from F5 Distributed Cloud.",
 		)
 		return
 	}

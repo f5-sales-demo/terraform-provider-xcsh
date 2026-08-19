@@ -171,7 +171,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the BGP Routing Policy will be created.",
+				MarkdownDescription: "Namespace where the BGP Routing Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -190,7 +190,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -348,7 +348,7 @@ func (r *BGPRoutingPolicyResource) ModifyPlan(ctx context.Context, req resource.
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the bgp_routing_policy from F5 Distributed Cloud.",
+			"This permanently deletes the bgp_routing_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

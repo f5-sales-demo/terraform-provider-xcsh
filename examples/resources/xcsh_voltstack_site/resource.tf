@@ -1,5 +1,5 @@
 # VoltstackSite Resource Example
-# Manages a Voltstack Site resource in F5 Distributed Cloud for deploying Volterra stack sites for edge computing.
+# Manages a Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing sites.
 
 terraform {
   required_version = ">= 1.0"

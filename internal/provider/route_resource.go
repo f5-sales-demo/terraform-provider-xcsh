@@ -889,7 +889,7 @@ func (r *RouteResource) Metadata(ctx context.Context, req resource.MetadataReque
 
 func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Route. Must be unique within the namespace.",
@@ -902,7 +902,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Route will be created.",
+				MarkdownDescription: "Namespace where the Route is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -921,7 +921,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -2150,7 +2150,7 @@ func (r *RouteResource) ModifyPlan(ctx context.Context, req resource.ModifyPlanR
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the route from F5 Distributed Cloud.",
+			"This permanently deletes the route from F5 Distributed Cloud.",
 		)
 		return
 	}

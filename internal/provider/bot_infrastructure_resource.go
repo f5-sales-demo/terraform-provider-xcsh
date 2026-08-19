@@ -102,7 +102,7 @@ func (r *BotInfrastructureResource) Metadata(ctx context.Context, req resource.M
 
 func (r *BotInfrastructureResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Bot Infrastructure. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Bot Infrastructure in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Bot Infrastructure. Must be unique within the namespace.",
@@ -115,7 +115,7 @@ func (r *BotInfrastructureResource) Schema(ctx context.Context, req resource.Sch
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Bot Infrastructure will be created.",
+				MarkdownDescription: "Namespace where the Bot Infrastructure is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -134,7 +134,7 @@ func (r *BotInfrastructureResource) Schema(ctx context.Context, req resource.Sch
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -231,7 +231,7 @@ func (r *BotInfrastructureResource) ModifyPlan(ctx context.Context, req resource
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the bot_infrastructure from F5 Distributed Cloud.",
+			"This permanently deletes the bot_infrastructure from F5 Distributed Cloud.",
 		)
 		return
 	}

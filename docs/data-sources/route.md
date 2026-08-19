@@ -2,12 +2,12 @@
 page_title: "xcsh_route Data Source - xcsh"
 subcategory: "Load Balancing"
 description: |-
-  Retrieves information about route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests. in F5 Distributed Cloud.
+  Retrieves information about route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests in F5 Distributed Cloud.
 ---
 
 # xcsh_route (Data Source)
 
-Retrieves information about route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

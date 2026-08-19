@@ -101,7 +101,7 @@ func (r *AppTypeResource) Metadata(ctx context.Context, req resource.MetadataReq
 
 func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the App Type. Must be unique within the namespace.",
@@ -114,7 +114,7 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the App Type will be created.",
+				MarkdownDescription: "Namespace where the App Type is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -133,7 +133,7 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -227,7 +227,7 @@ func (r *AppTypeResource) ModifyPlan(ctx context.Context, req resource.ModifyPla
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the app_type from F5 Distributed Cloud.",
+			"This permanently deletes the app_type from F5 Distributed Cloud.",
 		)
 		return
 	}

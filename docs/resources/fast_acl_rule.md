@@ -2,12 +2,12 @@
 page_title: "xcsh_fast_acl_rule Resource - xcsh"
 subcategory: "Security"
 description: |-
-  Manages new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.
+  Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud.
 ---
 
 # xcsh_fast_acl_rule (Resource)
 
-Manages new Fast ACL rule, has specification to match source IP, source port and action to apply. in F5 Distributed Cloud.
+Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -15,7 +15,7 @@ Manages new Fast ACL rule, has specification to match source IP, source port and
 
 ```terraform
 # FastACLRule Resource Example
-# Manages new Fast ACL rule, has specification to match source IP, source port and action to apply.
+# Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -51,7 +51,7 @@ resource "xcsh_fast_acl_rule" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

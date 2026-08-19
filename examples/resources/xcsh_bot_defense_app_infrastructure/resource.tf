@@ -1,5 +1,5 @@
 # BotDefenseAppInfrastructure Resource Example
-# Manages Bot Defense App Infrastructure in a given namespace.
+# Manages Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

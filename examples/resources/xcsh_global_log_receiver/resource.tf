@@ -1,5 +1,5 @@
 # GlobalLogReceiver Resource Example
-# Manages new Global Log Receiver object.
+# Manages new Global Log Receiver object in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

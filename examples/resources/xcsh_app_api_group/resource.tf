@@ -1,5 +1,5 @@
 # AppAPIGroup Resource Example
-# Manages app_api_group creates a new object in the storage backend for metadata.namespace.
+# Manages app_api_group creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

@@ -1,5 +1,5 @@
 # FastACLRule Resource Example
-# Manages new Fast ACL rule, has specification to match source IP, source port and action to apply.
+# Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

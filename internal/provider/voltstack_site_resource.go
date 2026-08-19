@@ -2938,7 +2938,7 @@ func (r *VoltstackSiteResource) Metadata(ctx context.Context, req resource.Metad
 
 func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages a Voltstack Site resource in F5 Distributed Cloud for deploying Volterra stack sites for edge computing.",
+		MarkdownDescription: "Manages a Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing sites.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Voltstack Site. Must be unique within the namespace.",
@@ -2951,7 +2951,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Voltstack Site will be created.",
+				MarkdownDescription: "Namespace where the Voltstack Site is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -2977,7 +2977,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -3623,7 +3623,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		},
 																	},
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 10.1.1.0/24.",
+																		MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
 																		Optional:            true,
 																	},
 																	"pool_settings": schema.StringAttribute{
@@ -3646,7 +3646,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"end_ip": schema.StringAttribute{
-																					MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 192.0.2.1.",
+																					MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
@@ -3654,7 +3654,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					},
 																				},
 																				"start_ip": schema.StringAttribute{
-																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 192.0.2.1.",
+																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
@@ -6131,7 +6131,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		},
 																	},
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 10.1.1.0/24.",
+																		MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
 																		Optional:            true,
 																	},
 																	"pool_settings": schema.StringAttribute{
@@ -6154,7 +6154,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"end_ip": schema.StringAttribute{
-																					MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 192.0.2.1.",
+																					MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
@@ -6162,7 +6162,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					},
 																				},
 																				"start_ip": schema.StringAttribute{
-																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 192.0.2.1.",
+																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
@@ -7111,7 +7111,7 @@ func (r *VoltstackSiteResource) ModifyPlan(ctx context.Context, req resource.Mod
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the voltstack_site from F5 Distributed Cloud.",
+			"This permanently deletes the voltstack_site from F5 Distributed Cloud.",
 		)
 		return
 	}

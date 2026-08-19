@@ -5,7 +5,7 @@ HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
 ## Resources
 
 - [healthcheck](_llms-txt/resources/healthcheck.txt) : Healthcheck object defines method to determine if the given endpoint is...
-- [http_loadbalancer](_llms-txt/resources/http_loadbalancer.txt) : Load balancing HTTP/HTTPS traffic with advanced routing and security
+- [http_loadbalancer](_llms-txt/resources/http_loadbalancer.txt) : Load balancing HTTP/HTTPS traffic with routing and security controls
 - [origin_pool](_llms-txt/resources/origin_pool.txt) : Defining backend server pools for load balancer targets
 - [advertise_policy](_llms-txt/resources/advertise_policy.txt) : Advertise_policy object controls how and where a service represented by a...
 - [cdn_cache_rule](_llms-txt/resources/cdn_cache_rule.txt) : CDN loadbalancer specification. configuration

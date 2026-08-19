@@ -2,12 +2,12 @@
 page_title: "xcsh_token Resource - xcsh"
 subcategory: "Authentication"
 description: |-
-  Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration. in F5 Distributed Cloud.
+  Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud.
 ---
 
 # xcsh_token (Resource)
 
-Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration. in F5 Distributed Cloud.
+Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [Token API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/authentication/).
 
@@ -51,7 +51,7 @@ resource "xcsh_token" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
@@ -67,7 +67,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
-<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured
 
 ---
 

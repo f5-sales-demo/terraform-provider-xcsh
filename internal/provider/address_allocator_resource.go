@@ -83,7 +83,7 @@ func (r *AddressAllocatorResource) Metadata(ctx context.Context, req resource.Me
 
 func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Address Allocator will create an address allocator object in 'system' namespace of the user. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Address Allocator will create an address allocator object in 'system' namespace of the user in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Address Allocator. Must be unique within the namespace.",
@@ -96,7 +96,7 @@ func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Address Allocator will be created.",
+				MarkdownDescription: "Namespace where the Address Allocator is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -123,7 +123,7 @@ func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.Sche
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -164,14 +164,14 @@ func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.Sche
 						},
 					},
 					"local_interface_address_offset": schema.Int64Attribute{
-						MarkdownDescription: "Used to derive address for the local interface from the allocated subnet. If Local Interface Address Type is set to 'Offset from beginning of Subnet', this offset value is added to the allocated subnet and used as the local interface address. For example, if the allocated subnet is..",
+						MarkdownDescription: "Used to derive address for the local interface from the allocated subnet. If Local Interface Address Type is set to 'Offset from beginning of Subnet', this offset value is added to the allocated subnet and used as the local interface address. For example, if the allocated subnet is 192.0.2.0/24..",
 						Optional:            true,
 						Validators: []validator.Int64{
 							int64validator.Between(0, 32),
 						},
 					},
 					"local_interface_address_type": schema.StringAttribute{
-						MarkdownDescription: "[Enum: LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN|LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END|LOCAL_INTERFACE_ADDRESS_FROM_PREFIX] Dictates how local interface address is derived from the allocated subnet Use Nth address of the allocated subnet as the local interface address, N being the Local Interface Address Offset. For example, if the allocated subnet is 169.254.0.0/30, Local Interface Address Offset is set to 2 and.. Possible values are `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`, `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END`, `LOCAL_INTERFACE_ADDRESS_FROM_PREFIX`. Defaults to `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`.",
+						MarkdownDescription: "[Enum: LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN|LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END|LOCAL_INTERFACE_ADDRESS_FROM_PREFIX] Dictates how local interface address is derived from the allocated subnet Use Nth address of the allocated subnet as the local interface address, N being the Local Interface Address Offset. For example, if the allocated subnet is 192.0.2.0/24, Local Interface Address Offset is set to 2 and Local.. Possible values are `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`, `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END`, `LOCAL_INTERFACE_ADDRESS_FROM_PREFIX`. Defaults to `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.OneOf("LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN", "LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END", "LOCAL_INTERFACE_ADDRESS_FROM_PREFIX"),
@@ -212,7 +212,7 @@ func (r *AddressAllocatorResource) ModifyPlan(ctx context.Context, req resource.
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the address_allocator from F5 Distributed Cloud.",
+			"This permanently deletes the address_allocator from F5 Distributed Cloud.",
 		)
 		return
 	}

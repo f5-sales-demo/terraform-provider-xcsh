@@ -1,5 +1,5 @@
 # Endpoint Resource Example
-# Manages endpoint will create the object in the storage backend for namespace metadata.namespace.
+# Manages endpoint will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

@@ -62,7 +62,7 @@ func (r *DNSComplianceChecksResource) Metadata(ctx context.Context, req resource
 
 func (r *DNSComplianceChecksResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the DNS Compliance Checks. Must be unique within the namespace.",
@@ -75,7 +75,7 @@ func (r *DNSComplianceChecksResource) Schema(ctx context.Context, req resource.S
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the DNS Compliance Checks will be created.",
+				MarkdownDescription: "Namespace where the DNS Compliance Checks is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -102,7 +102,7 @@ func (r *DNSComplianceChecksResource) Schema(ctx context.Context, req resource.S
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"disallowed_query_type_list": schema.ListAttribute{
@@ -174,7 +174,7 @@ func (r *DNSComplianceChecksResource) ModifyPlan(ctx context.Context, req resour
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the dns_compliance_checks from F5 Distributed Cloud.",
+			"This permanently deletes the dns_compliance_checks from F5 Distributed Cloud.",
 		)
 		return
 	}

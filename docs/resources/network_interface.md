@@ -47,13 +47,13 @@ resource "xcsh_network_interface" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Network Interface. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Network Interface will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Network Interface is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
@@ -180,7 +180,7 @@ A [`dhcp_networks`](#networks-684a1f) block (within [`ethernet_interface.dhcp_se
 
 <a id="address-d4b422"></a>&#x2022; [`last_address`](#address-d4b422) - Optional Block<br>Enable this option
 
-<a id="prefix-e81d96"></a>&#x2022; [`network_prefix`](#prefix-e81d96) - Optional String<br>Set the network prefix for the site. Ex: 10.1.1.0/24
+<a id="prefix-e81d96"></a>&#x2022; [`network_prefix`](#prefix-e81d96) - Optional String<br>Set the network prefix for the site. Ex: 192.0.2.0/24
 
 <a id="settings-b06877"></a>&#x2022; [`pool_settings`](#settings-b06877) - Optional String  Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`<br>Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`<br>[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges
 in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation
@@ -193,9 +193,9 @@ in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool
 
 A [`pools`](#pools-09599a) block (within [`ethernet_interface.dhcp_server.dhcp_networks`](#networks-684a1f)) supports the following:
 
-<a id="end-ip-c2fe97"></a>&#x2022; [`end_ip`](#end-ip-c2fe97) - Optional String<br>Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 192.0.2.1
+<a id="end-ip-c2fe97"></a>&#x2022; [`end_ip`](#end-ip-c2fe97) - Optional String<br>Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186
 
-<a id="start-ip-fce2c1"></a>&#x2022; [`start_ip`](#start-ip-fce2c1) - Optional String<br>Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 192.0.2.1
+<a id="start-ip-fce2c1"></a>&#x2022; [`start_ip`](#start-ip-fce2c1) - Optional String<br>Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96
 
 #### Ethernet Interface DHCP Server Interface IP Map
 

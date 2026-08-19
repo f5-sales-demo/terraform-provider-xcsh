@@ -84,7 +84,7 @@ func (r *UsbPolicyResource) Metadata(ctx context.Context, req resource.MetadataR
 
 func (r *UsbPolicyResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages new USB policy object. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages new USB policy object in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Usb Policy. Must be unique within the namespace.",
@@ -97,7 +97,7 @@ func (r *UsbPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Usb Policy will be created.",
+				MarkdownDescription: "Namespace where the Usb Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -116,7 +116,7 @@ func (r *UsbPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -203,7 +203,7 @@ func (r *UsbPolicyResource) ModifyPlan(ctx context.Context, req resource.ModifyP
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the usb_policy from F5 Distributed Cloud.",
+			"This permanently deletes the usb_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

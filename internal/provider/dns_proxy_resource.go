@@ -615,7 +615,7 @@ func (r *DNSProxyResource) Metadata(ctx context.Context, req resource.MetadataRe
 
 func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages DNS Proxy in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the DNS Proxy. Must be unique within the namespace.",
@@ -650,7 +650,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -879,7 +879,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											},
 										},
 										"service_name": schema.StringAttribute{
-											MarkdownDescription: "Exclusive with [] K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:cluster-ID. If the servicename is 'frontend', namespace is 'speedtest' and cluster-ID is 'prod'..",
+											MarkdownDescription: "Exclusive with [] K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod', then you will enter..",
 											Optional:            true,
 										},
 									},
@@ -1513,7 +1513,7 @@ func (r *DNSProxyResource) ModifyPlan(ctx context.Context, req resource.ModifyPl
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the dns_proxy from F5 Distributed Cloud.",
+			"This permanently deletes the dns_proxy from F5 Distributed Cloud.",
 		)
 		return
 	}

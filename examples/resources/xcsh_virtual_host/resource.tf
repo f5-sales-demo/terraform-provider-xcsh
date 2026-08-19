@@ -1,5 +1,5 @@
 # VirtualHost Resource Example
-# Manages virtual host in a given namespace.
+# Manages virtual host in a given namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

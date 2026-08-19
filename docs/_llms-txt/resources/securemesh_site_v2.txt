@@ -1,7 +1,7 @@
 # xcsh_securemesh_site_v2
 
 Category: Sites
-Deploying secure mesh edge sites with enhanced security and networking features
+Deploying secure mesh edge sites with security and networking controls
 
 ## Required
 

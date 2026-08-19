@@ -724,7 +724,7 @@ func (r *ServicePolicyRuleResource) Metadata(ctx context.Context, req resource.M
 
 func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages service_policy_rule creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages service_policy_rule creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Service Policy Rule. Must be unique within the namespace.",
@@ -737,7 +737,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Service Policy Rule will be created.",
+				MarkdownDescription: "Namespace where the Service Policy Rule is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -756,7 +756,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -1872,7 +1872,7 @@ func (r *ServicePolicyRuleResource) ModifyPlan(ctx context.Context, req resource
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the service_policy_rule from F5 Distributed Cloud.",
+			"This permanently deletes the service_policy_rule from F5 Distributed Cloud.",
 		)
 		return
 	}

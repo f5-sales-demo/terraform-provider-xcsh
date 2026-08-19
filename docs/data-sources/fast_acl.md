@@ -2,12 +2,12 @@
 page_title: "xcsh_fast_acl Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to. in F5 Distributed Cloud.
+  Retrieves information about object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to in F5 Distributed Cloud.
 ---
 
 # xcsh_fast_acl (Data Source)
 
-Retrieves information about object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

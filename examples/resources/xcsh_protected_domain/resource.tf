@@ -1,5 +1,5 @@
 # ProtectedDomain Resource Example
-# Manages Domain to protect.
+# Manages Domain to protect in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

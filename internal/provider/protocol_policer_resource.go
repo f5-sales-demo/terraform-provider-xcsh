@@ -134,7 +134,7 @@ func (r *ProtocolPolicerResource) Metadata(ctx context.Context, req resource.Met
 
 func (r *ProtocolPolicerResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Protocol Policer. Must be unique within the namespace.",
@@ -169,7 +169,7 @@ func (r *ProtocolPolicerResource) Schema(ctx context.Context, req resource.Schem
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -300,7 +300,7 @@ func (r *ProtocolPolicerResource) ModifyPlan(ctx context.Context, req resource.M
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the protocol_policer from F5 Distributed Cloud.",
+			"This permanently deletes the protocol_policer from F5 Distributed Cloud.",
 		)
 		return
 	}

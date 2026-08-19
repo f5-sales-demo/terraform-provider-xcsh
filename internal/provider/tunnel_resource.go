@@ -282,7 +282,7 @@ func (r *TunnelResource) Metadata(ctx context.Context, req resource.MetadataRequ
 
 func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages tunnel in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages tunnel in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Tunnel. Must be unique within the namespace.",
@@ -295,7 +295,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Tunnel will be created.",
+				MarkdownDescription: "Namespace where the Tunnel is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -314,7 +314,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -581,7 +581,7 @@ func (r *TunnelResource) ModifyPlan(ctx context.Context, req resource.ModifyPlan
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the tunnel from F5 Distributed Cloud.",
+			"This permanently deletes the tunnel from F5 Distributed Cloud.",
 		)
 		return
 	}

@@ -1267,7 +1267,7 @@ func (r *BigIPHTTPProxyResource) Metadata(ctx context.Context, req resource.Meta
 
 func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the BIG-IP HTTP Proxy. Must be unique within the namespace.",
@@ -1280,7 +1280,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the BIG-IP HTTP Proxy will be created.",
+				MarkdownDescription: "Namespace where the BIG-IP HTTP Proxy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -1299,7 +1299,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -1521,7 +1521,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																},
 															},
 															"service_name": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [] K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:cluster-ID. If the servicename is 'frontend', namespace is 'speedtest' and cluster-ID is 'prod'..",
+																MarkdownDescription: "Exclusive with [] K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod', then you will enter..",
 																Optional:            true,
 															},
 														},
@@ -2992,7 +2992,7 @@ func (r *BigIPHTTPProxyResource) ModifyPlan(ctx context.Context, req resource.Mo
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the bigip_http_proxy from F5 Distributed Cloud.",
+			"This permanently deletes the bigip_http_proxy from F5 Distributed Cloud.",
 		)
 		return
 	}

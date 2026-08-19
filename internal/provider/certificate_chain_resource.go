@@ -73,7 +73,7 @@ func (r *CertificateChainResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Certificate Chain will be created.",
+				MarkdownDescription: "Namespace where the Certificate Chain is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -99,7 +99,7 @@ func (r *CertificateChainResource) Schema(ctx context.Context, req resource.Sche
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -155,7 +155,7 @@ func (r *CertificateChainResource) ModifyPlan(ctx context.Context, req resource.
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the certificate_chain from F5 Distributed Cloud.",
+			"This permanently deletes the certificate_chain from F5 Distributed Cloud.",
 		)
 		return
 	}

@@ -202,7 +202,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Tenant Configuration will be created.",
+				MarkdownDescription: "Namespace where the Tenant Configuration is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -221,7 +221,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -422,7 +422,7 @@ func (r *TenantConfigurationResource) ModifyPlan(ctx context.Context, req resour
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the tenant_configuration from F5 Distributed Cloud.",
+			"This permanently deletes the tenant_configuration from F5 Distributed Cloud.",
 		)
 		return
 	}

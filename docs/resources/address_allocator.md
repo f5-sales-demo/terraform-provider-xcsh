@@ -2,12 +2,12 @@
 page_title: "xcsh_address_allocator Resource - xcsh"
 subcategory: "Cloud Resources"
 description: |-
-  Manages Address Allocator will create an address allocator object in 'system' namespace of the user. in F5 Distributed Cloud.
+  Manages Address Allocator will create an address allocator object in 'system' namespace of the user in F5 Distributed Cloud.
 ---
 
 # xcsh_address_allocator (Resource)
 
-Manages Address Allocator will create an address allocator object in 'system' namespace of the user. in F5 Distributed Cloud.
+Manages Address Allocator will create an address allocator object in 'system' namespace of the user in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -15,7 +15,7 @@ Manages Address Allocator will create an address allocator object in 'system' na
 
 ```terraform
 # AddressAllocator Resource Example
-# Manages Address Allocator will create an address allocator object in 'system' namespace of the user.
+# Manages Address Allocator will create an address allocator object in 'system' namespace of the user in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -50,13 +50,13 @@ resource "xcsh_address_allocator" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Address Allocator. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Address Allocator will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Address Allocator is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
@@ -85,10 +85,11 @@ An [`address_allocation_scheme`](#address-allocation-scheme) block supports the 
 <a id="unit-44a05d"></a>&#x2022; [`allocation_unit`](#unit-44a05d) - Optional Number<br>Prefix length indicating the size of each allocated subnet. For example, if this is specified as 30, subnets of /30 will be allocated from the given address pool
 
 <a id="offset-3d4118"></a>&#x2022; [`local_interface_address_offset`](#offset-3d4118) - Optional Number<br>Used to derive address for the local interface from the allocated subnet. If Local Interface Address Type is set to 'Offset from beginning of Subnet', this offset value is added to the allocated subnet and used as the local interface address. For example, if the allocated subnet is
+192.0.2.0/24
 
 <a id="type-3a6e24"></a>&#x2022; [`local_interface_address_type`](#type-3a6e24) - Optional String  Defaults to `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`<br>Possible values are `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`, `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END`, `LOCAL_INTERFACE_ADDRESS_FROM_PREFIX`<br>[Enum:
-LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN|LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END|LOCAL_INTERFACE_ADDRESS_FROM_PREFIX] Dictates how local interface address is derived from the allocated subnet Use Nth address of the allocated subnet as the local interface address, N being the Local Interface Address Offset. For example, if the allocated subnet is 169.254.0.0/30, Local Interface
-Address Offset is set to 2 and
+LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN|LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END|LOCAL_INTERFACE_ADDRESS_FROM_PREFIX] Dictates how local interface address is derived from the allocated subnet Use Nth address of the allocated subnet as the local interface address, N being the Local Interface Address Offset. For example, if the allocated subnet is 192.0.2.0/24, Local Interface Address
+Offset is set to 2 and Local
 
 #### Timeouts
 

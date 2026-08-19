@@ -2,12 +2,12 @@
 page_title: "xcsh_authorization_server Resource - xcsh"
 subcategory: "Uncategorized"
 description: |-
-  Manages authorization_server creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+  Manages authorization_server creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_authorization_server (Resource)
 
-Manages authorization_server creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
+Manages authorization_server creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -15,7 +15,7 @@ Manages authorization_server creates a new object in the storage backend for met
 
 ```terraform
 # AuthorizationServer Resource Example
-# Manages authorization_server creates a new object in the storage backend for metadata.namespace.
+# Manages authorization_server creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -49,13 +49,13 @@ resource "xcsh_authorization_server" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Authorization Server. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Authorization Server will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Authorization Server is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

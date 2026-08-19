@@ -2,12 +2,12 @@
 page_title: "xcsh_bot_defense_app_infrastructure Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about Bot Defense App Infrastructure in a given namespace. in F5 Distributed Cloud.
+  Retrieves information about Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_bot_defense_app_infrastructure (Data Source)
 
-Retrieves information about Bot Defense App Infrastructure in a given namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

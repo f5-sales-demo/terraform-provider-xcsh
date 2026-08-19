@@ -2,12 +2,12 @@
 page_title: "xcsh_cminstance Data Source - xcsh"
 subcategory: "Subscriptions"
 description: |-
-  Retrieves information about App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud.
+  Retrieves information about App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_cminstance (Data Source)
 
-Retrieves information about App type will create the configuration in namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

@@ -153,7 +153,7 @@ func (r *AppAPIGroupResource) Metadata(ctx context.Context, req resource.Metadat
 
 func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages app_api_group creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages app_api_group creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the App API Group. Must be unique within the namespace.",
@@ -166,7 +166,7 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the App API Group will be created.",
+				MarkdownDescription: "Namespace where the App API Group is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -185,7 +185,7 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -371,7 +371,7 @@ func (r *AppAPIGroupResource) ModifyPlan(ctx context.Context, req resource.Modif
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the app_api_group from F5 Distributed Cloud.",
+			"This permanently deletes the app_api_group from F5 Distributed Cloud.",
 		)
 		return
 	}

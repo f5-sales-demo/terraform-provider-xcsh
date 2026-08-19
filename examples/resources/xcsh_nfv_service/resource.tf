@@ -1,5 +1,5 @@
 # NfvService Resource Example
-# Manages new NFV service with configured parameters.
+# Manages new NFV service with configured parameters in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

@@ -2,12 +2,12 @@
 page_title: "xcsh_http_loadbalancer Data Source - xcsh"
 subcategory: "Load Balancing"
 description: |-
-  Retrieves information about an existing HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
+  Retrieves information about an existing HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls.
 ---
 
 # xcsh_http_loadbalancer (Data Source)
 
-Retrieves information about an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security. This is a read-only data source.
+Retrieves information about an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls. This is a read-only data source.
 
 ~> **Note:** For more information, see the [HTTP Loadbalancer API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/).
 

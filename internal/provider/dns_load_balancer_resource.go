@@ -267,7 +267,7 @@ func (r *DNSLoadBalancerResource) Metadata(ctx context.Context, req resource.Met
 
 func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages DNS Load Balancer in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the DNS Load Balancer. Must be unique within the namespace.",
@@ -302,7 +302,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -649,7 +649,7 @@ func (r *DNSLoadBalancerResource) ModifyPlan(ctx context.Context, req resource.M
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the dns_load_balancer from F5 Distributed Cloud.",
+			"This permanently deletes the dns_load_balancer from F5 Distributed Cloud.",
 		)
 		return
 	}

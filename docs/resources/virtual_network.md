@@ -2,12 +2,12 @@
 page_title: "xcsh_virtual_network Resource - xcsh"
 subcategory: "Networking"
 description: |-
-  Manages virtual network in given namespace. in F5 Distributed Cloud.
+  Manages virtual network in given namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_virtual_network (Resource)
 
-Manages virtual network in given namespace. in F5 Distributed Cloud.
+Manages virtual network in given namespace in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [Virtual Network API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/network/).
 
@@ -15,7 +15,7 @@ Manages virtual network in given namespace. in F5 Distributed Cloud.
 
 ```terraform
 # VirtualNetwork Resource Example
-# Manages virtual network in given namespace.
+# Manages virtual network in given namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -53,7 +53,7 @@ resource "xcsh_virtual_network" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

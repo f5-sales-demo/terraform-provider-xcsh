@@ -1,5 +1,5 @@
 # AddressAllocator Resource Example
-# Manages Address Allocator will create an address allocator object in 'system' namespace of the user.
+# Manages Address Allocator will create an address allocator object in 'system' namespace of the user in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

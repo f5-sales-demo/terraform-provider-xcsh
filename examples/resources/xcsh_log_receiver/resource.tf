@@ -1,5 +1,5 @@
 # LogReceiver Resource Example
-# Manages new Log Receiver object.
+# Manages new Log Receiver object in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

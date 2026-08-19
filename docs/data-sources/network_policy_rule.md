@@ -2,12 +2,12 @@
 page_title: "xcsh_network_policy_rule Data Source - xcsh"
 subcategory: "Security"
 description: |-
-  Retrieves information about network policy rule with configured parameters in specified namespace. in F5 Distributed Cloud.
+  Retrieves information about network policy rule with configured parameters in specified namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_network_policy_rule (Data Source)
 
-Retrieves information about network policy rule with configured parameters in specified namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about network policy rule with configured parameters in specified namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

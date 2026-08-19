@@ -8161,7 +8161,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Workload will be created.",
+				MarkdownDescription: "Namespace where the Workload is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -8180,7 +8180,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -19454,7 +19454,7 @@ func (r *WorkloadResource) ModifyPlan(ctx context.Context, req resource.ModifyPl
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the workload from F5 Distributed Cloud.",
+			"This permanently deletes the workload from F5 Distributed Cloud.",
 		)
 		return
 	}

@@ -58,7 +58,7 @@ func (r *NamespaceResource) Metadata(ctx context.Context, req resource.MetadataR
 
 func (r *NamespaceResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages new namespace. Name of the object is name of the name space. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages new namespace. Name of the object is name of the name space in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Namespace. Must be unique within the namespace.",
@@ -91,7 +91,7 @@ func (r *NamespaceResource) Schema(ctx context.Context, req resource.SchemaReque
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -147,7 +147,7 @@ func (r *NamespaceResource) ModifyPlan(ctx context.Context, req resource.ModifyP
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the namespace from F5 Distributed Cloud.",
+			"This permanently deletes the namespace from F5 Distributed Cloud.",
 		)
 		return
 	}

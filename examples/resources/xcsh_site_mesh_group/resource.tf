@@ -1,5 +1,5 @@
 # SiteMeshGroup Resource Example
-# Manages Site Mesh Group in system namespace of user.
+# Manages Site Mesh Group in system namespace of user in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

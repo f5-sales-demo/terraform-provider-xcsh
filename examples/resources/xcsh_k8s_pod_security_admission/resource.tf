@@ -1,5 +1,5 @@
 # K8SPodSecurityAdmission Resource Example
-# Manages k8s_pod_security_admission will create the object in the storage backend.
+# Manages k8s_pod_security_admission will create the object in the storage backend in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

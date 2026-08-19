@@ -2,12 +2,12 @@
 page_title: "xcsh_dns_proxy Data Source - xcsh"
 subcategory: "DNS"
 description: |-
-  Retrieves information about DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.
+  Retrieves information about DNS Proxy in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.
 ---
 
 # xcsh_dns_proxy (Data Source)
 
-Retrieves information about DNS Proxy in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about DNS Proxy in a given namespace. If one already exists it will give an error in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

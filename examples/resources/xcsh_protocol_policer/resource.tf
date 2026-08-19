@@ -1,5 +1,5 @@
 # ProtocolPolicer Resource Example
-# Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits.
+# Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

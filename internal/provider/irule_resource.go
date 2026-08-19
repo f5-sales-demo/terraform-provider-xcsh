@@ -61,7 +61,7 @@ func (r *IruleResource) Metadata(ctx context.Context, req resource.MetadataReque
 
 func (r *IruleResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages iRule in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages iRule in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Irule. Must be unique within the namespace.",
@@ -74,7 +74,7 @@ func (r *IruleResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Irule will be created.",
+				MarkdownDescription: "Namespace where the Irule is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -107,7 +107,7 @@ func (r *IruleResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Required:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -163,7 +163,7 @@ func (r *IruleResource) ModifyPlan(ctx context.Context, req resource.ModifyPlanR
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the irule from F5 Distributed Cloud.",
+			"This permanently deletes the irule from F5 Distributed Cloud.",
 		)
 		return
 	}

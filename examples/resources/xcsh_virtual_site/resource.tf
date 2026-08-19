@@ -1,5 +1,5 @@
 # VirtualSite Resource Example
-# Manages virtual site object in given namespace.
+# Manages virtual site object in given namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

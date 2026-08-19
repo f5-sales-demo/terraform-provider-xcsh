@@ -1,5 +1,5 @@
 # FastACL Resource Example
-# Manages object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to.
+# Manages object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

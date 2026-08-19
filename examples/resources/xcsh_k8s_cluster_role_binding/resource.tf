@@ -1,5 +1,5 @@
 # K8SClusterRoleBinding Resource Example
-# Manages k8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace.
+# Manages k8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

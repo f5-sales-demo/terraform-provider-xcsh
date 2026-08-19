@@ -42,7 +42,7 @@ func (d *ApplicationProfilesDataSource) Metadata(ctx context.Context, req dataso
 
 func (d *ApplicationProfilesDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Application Profiles in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Application Profiles in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",

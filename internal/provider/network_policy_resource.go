@@ -399,7 +399,7 @@ func (r *NetworkPolicyResource) Metadata(ctx context.Context, req resource.Metad
 
 func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages new network policy with configured parameters in specified namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages new network policy with configured parameters in specified namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Network Policy. Must be unique within the namespace.",
@@ -412,7 +412,7 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Network Policy will be created.",
+				MarkdownDescription: "Namespace where the Network Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -431,7 +431,7 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -884,7 +884,7 @@ func (r *NetworkPolicyResource) ModifyPlan(ctx context.Context, req resource.Mod
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the network_policy from F5 Distributed Cloud.",
+			"This permanently deletes the network_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

@@ -1,7 +1,7 @@
 # xcsh_http_loadbalancer
 
 Category: Load Balancing
-Load balancing HTTP/HTTPS traffic with advanced routing and security
+Load balancing HTTP/HTTPS traffic with routing and security controls
 
 ## Required
 

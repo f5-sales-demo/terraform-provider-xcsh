@@ -2,12 +2,12 @@
 page_title: "xcsh_http_loadbalancer Resource - xcsh"
 subcategory: "Load Balancing"
 description: |-
-  Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
+  Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls.
 ---
 
 # xcsh_http_loadbalancer (Resource)
 
-Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
+Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls.
 
 ~> **Note:** For more information, see the [HTTP Loadbalancer API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/).
 
@@ -15,7 +15,7 @@ Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancin
 
 ```terraform
 # HTTPLoadBalancer Resource Example
-# Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
+# Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls.
 
 terraform {
   required_version = ">= 1.0"
@@ -637,13 +637,13 @@ spec:
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the HTTP Load Balancer. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the HTTP Load Balancer will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the HTTP Load Balancer is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
@@ -2896,7 +2896,7 @@ A [`k8s_service`](#default-pool-origin-servers-k8s-service) block (within [`defa
 
 <a id="protocol-ffcd27"></a>&#x2022; [`protocol`](#protocol-ffcd27) - Optional String  Defaults to `PROTOCOL_TCP`<br>Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`<br>[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP
 
-<a id="name-c77159"></a>&#x2022; [`service_name`](#name-c77159) - Optional String<br>K8S service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:cluster-ID. If the servicename is 'frontend', namespace is 'speedtest' and cluster-ID is 'prod'
+<a id="name-c77159"></a>&#x2022; [`service_name`](#name-c77159) - Optional String<br>K8S service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod', then you will enter
 
 <a id="locator-8a5921"></a>&#x2022; [`site_locator`](#locator-8a5921) - Optional Block<br>Message defines a reference to a site or virtual site object<br>See [Site Locator](#locator-8a5921) below.
 

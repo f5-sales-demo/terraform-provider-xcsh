@@ -4501,7 +4501,7 @@ func (r *SecuremeshSiteV2Resource) Metadata(ctx context.Context, req resource.Me
 
 func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with enhanced security and networking features.",
+		MarkdownDescription: "Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with security and networking controls.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Securemesh Site V2. Must be unique within the namespace.",
@@ -4514,7 +4514,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Securemesh Site V2 will be created.",
+				MarkdownDescription: "Namespace where the Securemesh Site V2 is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -4533,7 +4533,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -10380,7 +10380,7 @@ func (r *SecuremeshSiteV2Resource) ModifyPlan(ctx context.Context, req resource.
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the securemesh_site_v2 from F5 Distributed Cloud.",
+			"This permanently deletes the securemesh_site_v2 from F5 Distributed Cloud.",
 		)
 		return
 	}

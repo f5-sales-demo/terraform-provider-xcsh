@@ -2,12 +2,12 @@
 page_title: "xcsh_address_allocator Data Source - xcsh"
 subcategory: "Cloud Resources"
 description: |-
-  Retrieves information about Address Allocator will create an address allocator object in 'system' namespace of the user. in F5 Distributed Cloud.
+  Retrieves information about Address Allocator will create an address allocator object in 'system' namespace of the user in F5 Distributed Cloud.
 ---
 
 # xcsh_address_allocator (Data Source)
 
-Retrieves information about Address Allocator will create an address allocator object in 'system' namespace of the user. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Address Allocator will create an address allocator object in 'system' namespace of the user in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

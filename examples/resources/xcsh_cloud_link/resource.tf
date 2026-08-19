@@ -1,5 +1,5 @@
 # CloudLink Resource Example
-# Manages new CloudLink with configured parameters.
+# Manages new CloudLink with configured parameters in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

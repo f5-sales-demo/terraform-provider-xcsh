@@ -2,12 +2,12 @@
 page_title: "xcsh_namespace Data Source - xcsh"
 subcategory: "Organization"
 description: |-
-  Retrieves information about an existing namespace. Name of the object is name of the namespace. in F5 Distributed Cloud.
+  Retrieves information about an existing namespace. Name of the object is name of the namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_namespace (Data Source)
 
-Retrieves information about new namespace. Name of the object is name of the namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about new namespace. Name of the object is name of the namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

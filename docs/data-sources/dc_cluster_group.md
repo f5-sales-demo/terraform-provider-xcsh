@@ -2,12 +2,12 @@
 page_title: "xcsh_dc_cluster_group Data Source - xcsh"
 subcategory: "Networking"
 description: |-
-  Retrieves information about DC Cluster group in given namespace. in F5 Distributed Cloud.
+  Retrieves information about DC Cluster group in given namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_dc_cluster_group (Data Source)
 
-Retrieves information about DC Cluster group in given namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about DC Cluster group in given namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

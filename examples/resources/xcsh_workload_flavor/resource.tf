@@ -1,5 +1,5 @@
 # WorkloadFlavor Resource Example
-# Manages workload_flavor.
+# Manages workload_flavor in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

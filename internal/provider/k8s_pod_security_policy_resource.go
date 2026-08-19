@@ -276,7 +276,7 @@ func (r *K8SPodSecurityPolicyResource) Metadata(ctx context.Context, req resourc
 
 func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the K8S Pod Security Policy. Must be unique within the namespace.",
@@ -289,7 +289,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the K8S Pod Security Policy will be created.",
+				MarkdownDescription: "Namespace where the K8S Pod Security Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -308,7 +308,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -686,7 +686,7 @@ func (r *K8SPodSecurityPolicyResource) ModifyPlan(ctx context.Context, req resou
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the k8s_pod_security_policy from F5 Distributed Cloud.",
+			"This permanently deletes the k8s_pod_security_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

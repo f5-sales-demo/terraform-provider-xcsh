@@ -1369,7 +1369,7 @@ func (r *DNSZoneResource) Metadata(ctx context.Context, req resource.MetadataReq
 
 func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages DNS Zone in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Domain name for the DNS Zone (e.g., example.com). Must be a valid DNS domain name.",
@@ -1404,7 +1404,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -1464,7 +1464,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"values": schema.ListAttribute{
-											MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.1 .",
+											MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242 .",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -2342,7 +2342,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"values": schema.ListAttribute{
-														MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.1 .",
+														MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242 .",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{
@@ -3302,7 +3302,7 @@ func (r *DNSZoneResource) ModifyPlan(ctx context.Context, req resource.ModifyPla
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the dns_zone from F5 Distributed Cloud.",
+			"This permanently deletes the dns_zone from F5 Distributed Cloud.",
 		)
 		return
 	}

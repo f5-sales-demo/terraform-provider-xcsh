@@ -1,5 +1,5 @@
 # UsbPolicy Resource Example
-# Manages new USB policy object.
+# Manages new USB policy object in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

@@ -62,7 +62,7 @@ func (r *MitigatedDomainResource) Metadata(ctx context.Context, req resource.Met
 
 func (r *MitigatedDomainResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Mitigated Domain. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Mitigated Domain in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Mitigated Domain. Must be unique within the namespace.",
@@ -75,7 +75,7 @@ func (r *MitigatedDomainResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Mitigated Domain will be created.",
+				MarkdownDescription: "Namespace where the Mitigated Domain is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -110,7 +110,7 @@ func (r *MitigatedDomainResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 				PlanModifiers: []planmodifier.Bool{
 					boolplanmodifier.RequiresReplace(),
@@ -172,7 +172,7 @@ func (r *MitigatedDomainResource) ModifyPlan(ctx context.Context, req resource.M
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the mitigated_domain from F5 Distributed Cloud.",
+			"This permanently deletes the mitigated_domain from F5 Distributed Cloud.",
 		)
 		return
 	}

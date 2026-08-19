@@ -2,12 +2,12 @@
 page_title: "xcsh_cloud_elastic_ip Resource - xcsh"
 subcategory: "Cloud Resources"
 description: |-
-  Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site. in F5 Distributed Cloud.
+  Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5 Distributed Cloud.
 ---
 
 # xcsh_cloud_elastic_ip (Resource)
 
-Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site. in F5 Distributed Cloud.
+Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -15,7 +15,7 @@ Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a
 
 ```terraform
 # CloudElasticIP Resource Example
-# Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site.
+# Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -49,13 +49,13 @@ resource "xcsh_cloud_elastic_ip" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Cloud Elastic IP. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Cloud Elastic IP will be created
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Cloud Elastic IP is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

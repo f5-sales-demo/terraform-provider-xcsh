@@ -2,12 +2,12 @@
 page_title: "xcsh_protocol_policer Resource - xcsh"
 subcategory: "Security"
 description: |-
-  Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud.
+  Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.
 ---
 
 # xcsh_protocol_policer (Resource)
 
-Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits. in F5 Distributed Cloud.
+Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -15,7 +15,7 @@ Manages protocol_policer object, protocol_policer object contains list of L4 pro
 
 ```terraform
 # ProtocolPolicer Resource Example
-# Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits.
+# Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"
@@ -51,7 +51,7 @@ resource "xcsh_protocol_policer" "example" {
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
+<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 

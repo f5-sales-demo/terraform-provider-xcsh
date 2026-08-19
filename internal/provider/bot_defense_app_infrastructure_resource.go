@@ -152,7 +152,7 @@ func (r *BotDefenseAppInfrastructureResource) Metadata(ctx context.Context, req 
 
 func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Bot Defense App Infrastructure in a given namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Bot Defense App Infrastructure. Must be unique within the namespace.",
@@ -165,7 +165,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Bot Defense App Infrastructure will be created.",
+				MarkdownDescription: "Namespace where the Bot Defense App Infrastructure is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -184,7 +184,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -398,7 +398,7 @@ func (r *BotDefenseAppInfrastructureResource) ModifyPlan(ctx context.Context, re
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the bot_defense_app_infrastructure from F5 Distributed Cloud.",
+			"This permanently deletes the bot_defense_app_infrastructure from F5 Distributed Cloud.",
 		)
 		return
 	}

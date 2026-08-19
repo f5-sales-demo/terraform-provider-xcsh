@@ -1,5 +1,5 @@
 # WAFExclusionPolicy Resource Example
-# Manages WAF exclusion policy.
+# Manages WAF exclusion policy in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

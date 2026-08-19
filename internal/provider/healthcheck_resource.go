@@ -127,7 +127,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Healthcheck will be created.",
+				MarkdownDescription: "Namespace where the Healthcheck is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -174,7 +174,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -336,7 +336,7 @@ func (r *HealthcheckResource) ModifyPlan(ctx context.Context, req resource.Modif
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the healthcheck from F5 Distributed Cloud.",
+			"This permanently deletes the healthcheck from F5 Distributed Cloud.",
 		)
 		return
 	}

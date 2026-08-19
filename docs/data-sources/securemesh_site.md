@@ -2,12 +2,12 @@
 page_title: "xcsh_securemesh_site Data Source - xcsh"
 subcategory: "Sites"
 description: |-
-  Retrieves information about an existing Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities.
+  Retrieves information about an existing Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security.
 ---
 
 # xcsh_securemesh_site (Data Source)
 
-Retrieves information about a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security capabilities. This is a read-only data source.
+Retrieves information about a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with distributed security. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

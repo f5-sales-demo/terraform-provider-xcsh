@@ -1,5 +1,5 @@
 # DcClusterGroup Resource Example
-# Manages DC Cluster group in given namespace.
+# Manages DC Cluster group in given namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

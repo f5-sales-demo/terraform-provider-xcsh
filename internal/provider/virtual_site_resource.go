@@ -77,7 +77,7 @@ func (r *VirtualSiteResource) Metadata(ctx context.Context, req resource.Metadat
 
 func (r *VirtualSiteResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages virtual site object in given namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages virtual site object in given namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Virtual Site. Must be unique within the namespace.",
@@ -90,7 +90,7 @@ func (r *VirtualSiteResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Virtual Site will be created.",
+				MarkdownDescription: "Namespace where the Virtual Site is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -109,7 +109,7 @@ func (r *VirtualSiteResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -185,7 +185,7 @@ func (r *VirtualSiteResource) ModifyPlan(ctx context.Context, req resource.Modif
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the virtual_site from F5 Distributed Cloud.",
+			"This permanently deletes the virtual_site from F5 Distributed Cloud.",
 		)
 		return
 	}

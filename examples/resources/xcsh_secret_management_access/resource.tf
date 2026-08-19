@@ -1,5 +1,5 @@
 # SecretManagementAccess Resource Example
-# Manages secret_management_access creates a new object in storage backend for metadata.namespace.
+# Manages secret_management_access creates a new object in storage backend for metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

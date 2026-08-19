@@ -140,7 +140,7 @@ func (r *APICrawlerResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the API Crawler will be created.",
+				MarkdownDescription: "Namespace where the API Crawler is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -159,7 +159,7 @@ func (r *APICrawlerResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -287,7 +287,7 @@ func (r *APICrawlerResource) ModifyPlan(ctx context.Context, req resource.Modify
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the api_crawler from F5 Distributed Cloud.",
+			"This permanently deletes the api_crawler from F5 Distributed Cloud.",
 		)
 		return
 	}

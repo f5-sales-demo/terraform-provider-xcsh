@@ -2,12 +2,12 @@
 page_title: "xcsh_code_base_integration Data Source - xcsh"
 subcategory: "Integrations"
 description: |-
-  Retrieves information about integration details. in F5 Distributed Cloud.
+  Retrieves information about integration details in F5 Distributed Cloud.
 ---
 
 # xcsh_code_base_integration (Data Source)
 
-Retrieves information about integration details. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about integration details in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

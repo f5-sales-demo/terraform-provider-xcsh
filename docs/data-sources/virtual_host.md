@@ -2,12 +2,12 @@
 page_title: "xcsh_virtual_host Data Source - xcsh"
 subcategory: "Load Balancing"
 description: |-
-  Retrieves information about virtual host in a given namespace. in F5 Distributed Cloud.
+  Retrieves information about virtual host in a given namespace in F5 Distributed Cloud.
 ---
 
 # xcsh_virtual_host (Data Source)
 
-Retrieves information about virtual host in a given namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about virtual host in a given namespace in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

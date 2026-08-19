@@ -1,7 +1,7 @@
 # xcsh_voltstack_site
 
 Category: Sites
-Deploying Volterra stack sites for edge computing
+Deploying App Stack edge computing sites
 
 ## Required
 

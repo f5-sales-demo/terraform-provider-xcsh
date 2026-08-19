@@ -1,5 +1,5 @@
 # RateLimiter Resource Example
-# Manages rate_limiter creates a new object in the storage backend for metadata.namespace.
+# Manages rate_limiter creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

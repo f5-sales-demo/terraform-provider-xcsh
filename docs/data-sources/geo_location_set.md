@@ -2,12 +2,12 @@
 page_title: "xcsh_geo_location_set Data Source - xcsh"
 subcategory: "Cloud Resources"
 description: |-
-  Retrieves information about Geolocation Set. in F5 Distributed Cloud.
+  Retrieves information about Geolocation Set in F5 Distributed Cloud.
 ---
 
 # xcsh_geo_location_set (Data Source)
 
-Retrieves information about Geolocation Set. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Geolocation Set in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 

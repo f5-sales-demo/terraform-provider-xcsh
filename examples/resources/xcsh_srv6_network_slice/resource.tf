@@ -1,5 +1,5 @@
 # Srv6NetworkSlice Resource Example
-# Manages srv6_network_slice creates a new object in the storage backend for metadata.namespace.
+# Manages srv6_network_slice creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.
 
 terraform {
   required_version = ">= 1.0"

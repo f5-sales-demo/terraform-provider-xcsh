@@ -73,7 +73,7 @@ func (r *TrustedCAListResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Trusted CA List will be created.",
+				MarkdownDescription: "Namespace where the Trusted CA List is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -92,7 +92,7 @@ func (r *TrustedCAListResource) Schema(ctx context.Context, req resource.SchemaR
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -155,7 +155,7 @@ func (r *TrustedCAListResource) ModifyPlan(ctx context.Context, req resource.Mod
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the trusted_ca_list from F5 Distributed Cloud.",
+			"This permanently deletes the trusted_ca_list from F5 Distributed Cloud.",
 		)
 		return
 	}

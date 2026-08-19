@@ -114,7 +114,7 @@ func (r *MaliciousUserMitigationResource) Metadata(ctx context.Context, req reso
 
 func (r *MaliciousUserMitigationResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages malicious_user_mitigation creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages malicious_user_mitigation creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Malicious User Mitigation. Must be unique within the namespace.",
@@ -127,7 +127,7 @@ func (r *MaliciousUserMitigationResource) Schema(ctx context.Context, req resour
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Malicious User Mitigation will be created.",
+				MarkdownDescription: "Namespace where the Malicious User Mitigation is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -146,7 +146,7 @@ func (r *MaliciousUserMitigationResource) Schema(ctx context.Context, req resour
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -246,7 +246,7 @@ func (r *MaliciousUserMitigationResource) ModifyPlan(ctx context.Context, req re
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the malicious_user_mitigation from F5 Distributed Cloud.",
+			"This permanently deletes the malicious_user_mitigation from F5 Distributed Cloud.",
 		)
 		return
 	}

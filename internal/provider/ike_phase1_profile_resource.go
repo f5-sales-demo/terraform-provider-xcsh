@@ -127,7 +127,7 @@ func (r *IKEPhase1ProfileResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the IKE Phase1 Profile will be created.",
+				MarkdownDescription: "Namespace where the IKE Phase1 Profile is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -166,7 +166,7 @@ func (r *IKEPhase1ProfileResource) Schema(ctx context.Context, req resource.Sche
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -276,7 +276,7 @@ func (r *IKEPhase1ProfileResource) ModifyPlan(ctx context.Context, req resource.
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the ike_phase1_profile from F5 Distributed Cloud.",
+			"This permanently deletes the ike_phase1_profile from F5 Distributed Cloud.",
 		)
 		return
 	}

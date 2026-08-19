@@ -2,12 +2,12 @@
 page_title: "xcsh_site_mesh_group Data Source - xcsh"
 subcategory: "Sites"
 description: |-
-  Retrieves information about Site Mesh Group in system namespace of user. in F5 Distributed Cloud.
+  Retrieves information about Site Mesh Group in system namespace of user in F5 Distributed Cloud.
 ---
 
 # xcsh_site_mesh_group (Data Source)
 
-Retrieves information about Site Mesh Group in system namespace of user. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Site Mesh Group in system namespace of user in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note:** For more information, see the [Site Mesh Group API documentation](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/sites/).
 

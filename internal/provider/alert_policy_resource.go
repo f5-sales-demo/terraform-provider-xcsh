@@ -250,7 +250,7 @@ func (r *AlertPolicyResource) Metadata(ctx context.Context, req resource.Metadat
 
 func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages new Alert Policy Object. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages new Alert Policy Object in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Alert Policy. Must be unique within the namespace.",
@@ -263,7 +263,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Alert Policy will be created.",
+				MarkdownDescription: "Namespace where the Alert Policy is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -282,7 +282,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -552,7 +552,7 @@ func (r *AlertPolicyResource) ModifyPlan(ctx context.Context, req resource.Modif
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the alert_policy from F5 Distributed Cloud.",
+			"This permanently deletes the alert_policy from F5 Distributed Cloud.",
 		)
 		return
 	}

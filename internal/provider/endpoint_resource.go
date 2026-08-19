@@ -245,7 +245,7 @@ func (r *EndpointResource) Metadata(ctx context.Context, req resource.MetadataRe
 
 func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages endpoint will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages endpoint will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Endpoint. Must be unique within the namespace.",
@@ -258,7 +258,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Endpoint will be created.",
+				MarkdownDescription: "Namespace where the Endpoint is created.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -277,7 +277,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
-				MarkdownDescription: "A value of true will administratively disable the object.",
+				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -616,7 +616,7 @@ func (r *EndpointResource) ModifyPlan(ctx context.Context, req resource.ModifyPl
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the endpoint from F5 Distributed Cloud.",
+			"This permanently deletes the endpoint from F5 Distributed Cloud.",
 		)
 		return
 	}
