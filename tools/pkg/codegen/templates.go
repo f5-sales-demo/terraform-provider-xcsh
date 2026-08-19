@@ -245,6 +245,12 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 {{- if .HasConflicts}}
 {{.ConflictCheckCode}}
 {{- end}}
+{{- if eq .Name "securemesh_site_v2"}}
+	validateSecuremeshSiteV2AWSContract(ctx, data, resp)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+{{- end}}
 {{- if .FiltersDiscoveredSiteLabels}}
 
 	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
