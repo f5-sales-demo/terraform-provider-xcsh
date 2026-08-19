@@ -381,14 +381,16 @@ case "$*" in
         {id: 301, name: "f5xc-api-specs-v2.1.208.zip"},
         {id: 303, name: "index.json"},
         {id: 304, name: "minimal-export-defaults.json"},
-        {id: 305, name: "openapi.json"}
+        {id: 305, name: "openapi.json"},
+        {id: 306, name: "smsv2-contract.json"}
       ], body: ("<!-- publication-receipt:" + ({
         assets: {
           "api-catalog.json": ("sha256:" + $catalog_sha),
           "f5xc-api-specs-v2.1.208.zip": ("sha256:" + $bundle_sha),
           "index.json": ("sha256:" + $index_sha),
           "minimal-export-defaults.json": ("sha256:" + $minimal_sha),
-          "openapi.json": ("sha256:" + $openapi_sha)
+          "openapi.json": ("sha256:" + $openapi_sha),
+          "smsv2-contract.json": ("sha256:" + ("6" * 64))
         }, commit: $commit, version: "2.1.208"
       } | tojson) + " -->")}' ;;
   *) echo "unexpected gh invocation: $*" >&2; exit 9 ;;
@@ -449,6 +451,9 @@ esac
 		pin.Assets["api-catalog.json"] != wantCatalogDigest {
 		t.Fatalf("release pin does not preserve the verified receipt identity: %+v", pin)
 	}
+	if _, ok := pin.Assets["smsv2-contract.json"]; ok {
+		t.Fatalf("release pin persisted an additive asset that the provider does not consume: %+v", pin)
+	}
 	if _, err := os.Stat(stale); !os.IsNotExist(err) {
 		t.Fatalf("stale pre-release content survived exact bundle promotion: %v", err)
 	}
@@ -506,6 +511,63 @@ printf '%s\n' '{"tag_name":"v2.1.208","draft":false,"prerelease":false,"immutabl
 	output, err := cmd.CombinedOutput()
 	if err == nil || !strings.Contains(string(output), "final and immutable") {
 		t.Fatalf("mutable spec release was accepted: err=%v\n%s", err, output)
+	}
+}
+
+func TestSyncOpenAPIDownloadRequiresEachCoreAssetExactlyOnce(t *testing.T) {
+	script := extractSyncOpenAPIStep(t, "Download OpenAPI specs")
+	tag := "v2.1.208"
+	commit := strings.Repeat("a", 40)
+	receipt := testSpecPublicationReceipt(tag, commit)
+	base := testSpecReleaseMetadata(t, tag, true, []map[string]any{receipt}, nil)
+	tests := []struct {
+		name   string
+		mutate func([]any) []any
+	}{
+		{
+			name: "missing core asset",
+			mutate: func(assets []any) []any {
+				return assets[:len(assets)-1]
+			},
+		},
+		{
+			name: "duplicate core asset",
+			mutate: func(assets []any) []any {
+				return append(assets, assets[0])
+			},
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			tmp := t.TempDir()
+			metadata := mutateSpecReleaseAssets(t, base, test.mutate)
+			metadataPath := filepath.Join(tmp, "release.json")
+			if err := os.WriteFile(metadataPath, metadata, 0o600); err != nil {
+				t.Fatal(err)
+			}
+			binDir := filepath.Join(tmp, "bin")
+			if err := os.Mkdir(binDir, 0o750); err != nil {
+				t.Fatal(err)
+			}
+			stub := `#!/usr/bin/env bash
+case "$*" in
+  *releases/tags/v2.1.208*) cat "$STUB_RELEASE_METADATA" ;;
+  *commits/v2.1.208*) printf '%s\n' "$RESOLVED_COMMIT" ;;
+  *) echo "unexpected gh invocation: $*" >&2; exit 88 ;;
+esac
+`
+			if err := os.WriteFile(filepath.Join(binDir, "gh"), []byte(stub), 0o700); err != nil { //nolint:gosec // executable test stub
+				t.Fatal(err)
+			}
+			cmd := exec.Command("bash", "--noprofile", "--norc", "-eo", "pipefail", "-c", script)
+			cmd.Dir = tmp
+			cmd.Env = append(os.Environ(), "PATH="+binDir+string(os.PathListSeparator)+os.Getenv("PATH"), "SPEC_DIR="+filepath.Join(tmp, "specs"), "SPEC_VERSION="+tag, "ENRICHED_REPO="+dispatchSource, "GH_TOKEN=stub", "DISPATCH_TARGET_COMMIT="+commit, "RUNNER_TEMP="+filepath.Join(tmp, "runner"), "STUB_RELEASE_METADATA="+metadataPath, "RESOLVED_COMMIT="+commit)
+			output, err := cmd.CombinedOutput()
+			if err == nil || !strings.Contains(string(output), "must contain exactly one required") {
+				t.Fatalf("invalid core asset set was accepted: err=%v\n%s", err, output)
+			}
+		})
 	}
 }
 

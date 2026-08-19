@@ -243,14 +243,16 @@ case "$*" in
         {id: 101, name: "f5xc-api-specs-v2.1.208.zip", digest: ("sha256:" + $bundle_sha)},
         {id: 204, name: "index.json", digest: ("sha256:" + $index_sha)},
         {id: 203, name: "minimal-export-defaults.json", digest: ("sha256:" + $minimal_sha)},
-        {id: 205, name: "openapi.json", digest: ("sha256:" + $openapi_sha)}
+        {id: 205, name: "openapi.json", digest: ("sha256:" + $openapi_sha)},
+        {id: 206, name: "smsv2-contract.json", digest: ("sha256:" + ("6" * 64))}
       ], body: ("<!-- publication-receipt:" + ({
         assets: {
           "api-catalog.json": ("sha256:" + $catalog_sha),
           "f5xc-api-specs-v2.1.208.zip": ("sha256:" + $bundle_sha),
           "index.json": ("sha256:" + $index_sha),
           "minimal-export-defaults.json": ("sha256:" + $minimal_sha),
-          "openapi.json": ("sha256:" + $openapi_sha)
+          "openapi.json": ("sha256:" + $openapi_sha),
+          "smsv2-contract.json": ("sha256:" + ("6" * 64))
         }, commit: $commit, version: "2.1.208"
       } | tojson) + " -->")}' ;;
   *) echo "unexpected gh invocation: $*" >&2; exit 9 ;;
@@ -361,6 +363,40 @@ func TestDownloadSpecsActionRejectsMutableRelease(t *testing.T) {
 	}
 }
 
+func TestDownloadSpecsActionRequiresEachCoreAssetExactlyOnce(t *testing.T) {
+	tag := "v2.1.208"
+	commit := strings.Repeat("a", 40)
+	receipt := testSpecPublicationReceipt(tag, commit)
+	base := testSpecReleaseMetadata(t, tag, true, []map[string]any{receipt}, nil)
+	tests := []struct {
+		name   string
+		mutate func([]any) []any
+	}{
+		{
+			name: "missing core asset",
+			mutate: func(assets []any) []any {
+				return assets[:len(assets)-1]
+			},
+		},
+		{
+			name: "duplicate core asset",
+			mutate: func(assets []any) []any {
+				return append(assets, assets[0])
+			},
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			metadata := mutateSpecReleaseAssets(t, base, test.mutate)
+			output, err := runDownloadActionWithMetadata(t, metadata, commit)
+			if err == nil || !strings.Contains(output, "must contain exactly one required") {
+				t.Fatalf("invalid core asset set was accepted: err=%v\n%s", err, output)
+			}
+		})
+	}
+}
+
 func TestDownloadSpecsActionRejectsContradictoryPublicationReceipt(t *testing.T) {
 	tag := "v2.1.208"
 	commit := strings.Repeat("a", 40)
@@ -407,7 +443,7 @@ func TestDownloadSpecsActionRejectsContradictoryPublicationReceipt(t *testing.T)
 			metadata := testSpecReleaseMetadata(t, tag, true, []map[string]any{receipt}, nil)
 
 			output, err := runDownloadActionWithMetadata(t, metadata, commit)
-			if err == nil || !strings.Contains(output, "does not exactly match the tracked release pin") {
+			if err == nil || !strings.Contains(output, "does not match the tracked core release pin") {
 				t.Fatalf("contradictory publication receipt was accepted: err=%v\n%s", err, output)
 			}
 		})
@@ -481,7 +517,7 @@ func TestDownloadSpecsActionRejectsGitHubDigestMismatch(t *testing.T) {
 	})
 
 	output, err := runDownloadActionWithMetadata(t, metadata, commit)
-	if err == nil || !strings.Contains(output, "GitHub asset digests do not exactly match") {
+	if err == nil || !strings.Contains(output, "GitHub core asset digests do not match") {
 		t.Fatalf("GitHub digest contradicting the receipt was accepted: err=%v\n%s", err, output)
 	}
 }
@@ -579,6 +615,24 @@ func testSpecReleaseMetadata(
 		t.Fatal(err)
 	}
 	return metadata
+}
+
+func mutateSpecReleaseAssets(t *testing.T, metadata []byte, mutate func([]any) []any) []byte {
+	t.Helper()
+	var release map[string]any
+	if err := json.Unmarshal(metadata, &release); err != nil {
+		t.Fatal(err)
+	}
+	assets, ok := release["assets"].([]any)
+	if !ok {
+		t.Fatal("release metadata assets are not an array")
+	}
+	release["assets"] = mutate(assets)
+	updated, err := json.Marshal(release)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return updated
 }
 
 func testSpecAssetDigests(tag string, overrides map[string]string) map[string]string {
