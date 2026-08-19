@@ -1232,6 +1232,77 @@ func (r *NetworkInterfaceResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.DedicatedInterface != nil && data.DedicatedManagementInterface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dedicated_interface"),
+			"Conflicting Configuration",
+			"dedicated_interface and dedicated_management_interface are mutually exclusive.",
+		)
+	}
+	if data.DedicatedInterface != nil && data.EthernetInterface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dedicated_interface"),
+			"Conflicting Configuration",
+			"dedicated_interface and ethernet_interface are mutually exclusive.",
+		)
+	}
+	if data.DedicatedInterface != nil && data.Layer2Interface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dedicated_interface"),
+			"Conflicting Configuration",
+			"dedicated_interface and layer2_interface are mutually exclusive.",
+		)
+	}
+	if data.DedicatedInterface != nil && data.TunnelInterface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dedicated_interface"),
+			"Conflicting Configuration",
+			"dedicated_interface and tunnel_interface are mutually exclusive.",
+		)
+	}
+	if data.DedicatedManagementInterface != nil && data.EthernetInterface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dedicated_management_interface"),
+			"Conflicting Configuration",
+			"dedicated_management_interface and ethernet_interface are mutually exclusive.",
+		)
+	}
+	if data.DedicatedManagementInterface != nil && data.Layer2Interface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dedicated_management_interface"),
+			"Conflicting Configuration",
+			"dedicated_management_interface and layer2_interface are mutually exclusive.",
+		)
+	}
+	if data.DedicatedManagementInterface != nil && data.TunnelInterface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dedicated_management_interface"),
+			"Conflicting Configuration",
+			"dedicated_management_interface and tunnel_interface are mutually exclusive.",
+		)
+	}
+	if data.EthernetInterface != nil && data.Layer2Interface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ethernet_interface"),
+			"Conflicting Configuration",
+			"ethernet_interface and layer2_interface are mutually exclusive.",
+		)
+	}
+	if data.EthernetInterface != nil && data.TunnelInterface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ethernet_interface"),
+			"Conflicting Configuration",
+			"ethernet_interface and tunnel_interface are mutually exclusive.",
+		)
+	}
+	if data.Layer2Interface != nil && data.TunnelInterface != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("layer2_interface"),
+			"Conflicting Configuration",
+			"layer2_interface and tunnel_interface are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

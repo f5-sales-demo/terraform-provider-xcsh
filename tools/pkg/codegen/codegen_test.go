@@ -1056,6 +1056,26 @@ func TestRenderUnmarshalSingleChild_NonRefPreserves(t *testing.T) {
 	}
 }
 
+func TestRenderUnmarshalSingleChild_ComputedDescendantReconstructs(t *testing.T) {
+	block := openapi.TerraformAttribute{
+		GoName: "RateLimiter", JsonName: "rate_limiter", TfsdkTag: "rate_limiter",
+		IsBlock: true, NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "PeriodMultiplier", TfsdkTag: "period_multiplier", JsonName: "period_multiplier", Type: "int64", Optional: true, Computed: true},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "R", "RateLimitRateLimiter", block,
+		"blockData", "data.RateLimit", "data.RateLimit != nil", "single", "\t")
+	out := sb.String()
+	if strings.Contains(out, "return data.RateLimit.RateLimiter\n") {
+		t.Errorf("block with a Computed descendant must not preserve an unknown planned value:\n%s", out)
+	}
+	if !strings.Contains(out, `RateLimiterData["period_multiplier"]`) {
+		t.Errorf("block with a Computed descendant must reconstruct the leaf from the API response:\n%s", out)
+	}
+}
+
 // #1091: a single nested block that CONTAINS an object-reference descendant at any
 // depth (e.g. custom_api_auth_discovery -> api_discovery_ref) must NOT preserve the
 // planned value either — the planned api_discovery_ref.tenant is unknown (Computed-only),

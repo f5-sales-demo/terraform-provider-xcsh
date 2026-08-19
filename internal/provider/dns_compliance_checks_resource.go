@@ -313,8 +313,8 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domain_denylist"].([]interface{}); ok && len(v) > 0 {
-		var domain_denylistList []string
+	if v, ok := apiResource.Spec["domain_denylist"].([]interface{}); ok {
+		domain_denylistList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domain_denylistList = append(domain_denylistList, s)
@@ -325,11 +325,11 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.DomainDenylist = listVal
 		}
-	} else {
+	} else if data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown() {
 		data.DomainDenylist = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok && len(v) > 0 {
-		var disallowed_query_type_listList []string
+	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok {
+		disallowed_query_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disallowed_query_type_listList = append(disallowed_query_type_listList, s)
@@ -340,11 +340,11 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedQueryTypeList = listVal
 		}
-	} else {
+	} else if data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown() {
 		data.DisallowedQueryTypeList = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok && len(v) > 0 {
-		var disallowed_resource_record_type_listList []string
+	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok {
+		disallowed_resource_record_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disallowed_resource_record_type_listList = append(disallowed_resource_record_type_listList, s)
@@ -355,7 +355,7 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedResourceRecordTypeList = listVal
 		}
-	} else {
+	} else if data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown() {
 		data.DisallowedResourceRecordTypeList = types.ListNull(types.StringType)
 	}
 
@@ -479,8 +479,8 @@ func (r *DNSComplianceChecksResource) Read(ctx context.Context, req resource.Rea
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domain_denylist"].([]interface{}); ok && len(v) > 0 {
-		var domain_denylistList []string
+	if v, ok := apiResource.Spec["domain_denylist"].([]interface{}); ok {
+		domain_denylistList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domain_denylistList = append(domain_denylistList, s)
@@ -491,11 +491,11 @@ func (r *DNSComplianceChecksResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.DomainDenylist = listVal
 		}
-	} else {
+	} else if data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown() {
 		data.DomainDenylist = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok && len(v) > 0 {
-		var disallowed_query_type_listList []string
+	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok {
+		disallowed_query_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disallowed_query_type_listList = append(disallowed_query_type_listList, s)
@@ -506,11 +506,11 @@ func (r *DNSComplianceChecksResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedQueryTypeList = listVal
 		}
-	} else {
+	} else if data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown() {
 		data.DisallowedQueryTypeList = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok && len(v) > 0 {
-		var disallowed_resource_record_type_listList []string
+	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok {
+		disallowed_resource_record_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disallowed_resource_record_type_listList = append(disallowed_resource_record_type_listList, s)
@@ -521,7 +521,7 @@ func (r *DNSComplianceChecksResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedResourceRecordTypeList = listVal
 		}
-	} else {
+	} else if data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown() {
 		data.DisallowedResourceRecordTypeList = types.ListNull(types.StringType)
 	}
 
@@ -669,8 +669,8 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domain_denylist"].([]interface{}); ok && len(v) > 0 {
-		var domain_denylistList []string
+	if v, ok := apiResource.Spec["domain_denylist"].([]interface{}); ok {
+		domain_denylistList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domain_denylistList = append(domain_denylistList, s)
@@ -681,11 +681,11 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.DomainDenylist = listVal
 		}
-	} else {
+	} else if data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown() {
 		data.DomainDenylist = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok && len(v) > 0 {
-		var disallowed_query_type_listList []string
+	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok {
+		disallowed_query_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disallowed_query_type_listList = append(disallowed_query_type_listList, s)
@@ -696,11 +696,11 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedQueryTypeList = listVal
 		}
-	} else {
+	} else if data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown() {
 		data.DisallowedQueryTypeList = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok && len(v) > 0 {
-		var disallowed_resource_record_type_listList []string
+	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok {
+		disallowed_resource_record_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disallowed_resource_record_type_listList = append(disallowed_resource_record_type_listList, s)
@@ -711,7 +711,7 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedResourceRecordTypeList = listVal
 		}
-	} else {
+	} else if data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown() {
 		data.DisallowedResourceRecordTypeList = types.ListNull(types.StringType)
 	}
 

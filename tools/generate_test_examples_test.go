@@ -25,7 +25,7 @@ resource "xcsh_rate_limiter" "test" {
   }
 }`
 
-	got := cleanConfig(input)
+	got := cleanConfig("", input)
 	for _, want := range []string{
 		"healthy_threshold   = 3",
 		"unhealthy_threshold = 2",
@@ -98,11 +98,11 @@ func TestRenderExamplesHasExpectedSelection(t *testing.T) {
 	}
 
 	wantCounts := map[string]int{
-		"xcsh_http_loadbalancer":         15,
+		"xcsh_http_loadbalancer":         14,
 		"xcsh_tcp_loadbalancer":          6,
 		"xcsh_healthcheck":               13,
 		"xcsh_app_firewall":              11,
-		"xcsh_origin_pool":               6,
+		"xcsh_origin_pool":               7,
 		"xcsh_rate_limiter":              7,
 		"xcsh_service_policy":            4,
 		"xcsh_user_identification":       8,
@@ -119,6 +119,11 @@ func TestRenderExamplesHasExpectedSelection(t *testing.T) {
 		gotPaths[example.Path] = struct{}{}
 		if filepath.Base(example.Path) == "basic.tf" || filepath.Base(example.Path) == "basic-system.tf" {
 			t.Fatalf("basic example must remain canonical, got named path %s", example.Path)
+		}
+	}
+	for path := range gotPaths {
+		if strings.HasSuffix(path, "xcsh_http_loadbalancer/conflict-protocol.tf") {
+			t.Errorf("negative acceptance fixture was published as a verified example: %s", path)
 		}
 	}
 	for resource, want := range wantCounts {
@@ -146,6 +151,54 @@ func TestRenderExamplesHasExpectedSelection(t *testing.T) {
 		if !found {
 			t.Errorf("expected generated selection %s was missing", suffix)
 		}
+	}
+}
+
+func TestNegativeConfigHelpersAndStaleExamplePruning(t *testing.T) {
+	source := []byte(`package provider
+func TestAccExample(t *testing.T) {
+  resource.Test(t, resource.TestCase{Steps: []resource.TestStep{{
+    Config: testAccWidgetConfig_valid("ok"),
+  }, {
+    Config: testAccWidgetConfig_conflict("bad"),
+    ExpectError: regexp.MustCompile("conflict"),
+  }}})
+}
+func testAccWidgetConfig_valid(name string) string { return fmt.Sprintf(` + "`resource \"xcsh_widget\" \"test\" { name = %[1]q }`" + `, name) }
+func testAccWidgetConfig_conflict(name string) string { return fmt.Sprintf(` + "`resource \"xcsh_widget\" \"test\" { name = %[1]q }`" + `, name) }
+`)
+	excluded, err := negativeConfigHelpers(source)
+	if err != nil {
+		t.Fatalf("negativeConfigHelpers() error: %v", err)
+	}
+	if _, ok := excluded["testAccWidgetConfig_conflict"]; !ok {
+		t.Fatal("negative helper was not excluded")
+	}
+	if _, ok := excluded["testAccWidgetConfig_valid"]; ok {
+		t.Fatal("positive helper was excluded")
+	}
+
+	root := t.TempDir()
+	directory := filepath.Join(root, "xcsh_http_loadbalancer")
+	if err := os.MkdirAll(directory, 0755); err != nil {
+		t.Fatal(err)
+	}
+	stale := filepath.Join(directory, "conflict-protocol.tf")
+	manual := filepath.Join(directory, "manual.tf")
+	if err := os.WriteFile(stale, []byte("# heading\n"+generatedExampleMarker+"\n"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(manual, []byte("# maintained manually\n"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	if err := pruneStaleGeneratedExamples(root, nil); err != nil {
+		t.Fatalf("pruneStaleGeneratedExamples() error: %v", err)
+	}
+	if _, err := os.Stat(stale); !os.IsNotExist(err) {
+		t.Fatalf("stale generated example still exists: %v", err)
+	}
+	if _, err := os.Stat(manual); err != nil {
+		t.Fatalf("manual example was removed: %v", err)
 	}
 }
 

@@ -53,9 +53,10 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_proxy" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+	  depends_on         = [time_sleep.wait_for_namespace]
+	  name               = %[2]q
+	  namespace          = xcsh_namespace.test.name
+	  connection_timeout = 2000
 
   http_proxy {}
   do_not_advertise {}

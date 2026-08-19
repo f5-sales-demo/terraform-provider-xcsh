@@ -2515,6 +2515,119 @@ func (r *ServicePolicyResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AllowAllRequests != nil && data.AllowList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_requests"),
+			"Conflicting Configuration",
+			"allow_all_requests and allow_list are mutually exclusive.",
+		)
+	}
+	if data.AllowAllRequests != nil && data.DenyAllRequests != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_requests"),
+			"Conflicting Configuration",
+			"allow_all_requests and deny_all_requests are mutually exclusive.",
+		)
+	}
+	if data.AllowAllRequests != nil && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_requests"),
+			"Conflicting Configuration",
+			"allow_all_requests and deny_list are mutually exclusive.",
+		)
+	}
+	if data.AllowAllRequests != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_requests"),
+			"Conflicting Configuration",
+			"allow_all_requests and rule_list are mutually exclusive.",
+		)
+	}
+	if data.AllowList != nil && data.DenyAllRequests != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_list"),
+			"Conflicting Configuration",
+			"allow_list and deny_all_requests are mutually exclusive.",
+		)
+	}
+	if data.AllowList != nil && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_list"),
+			"Conflicting Configuration",
+			"allow_list and deny_list are mutually exclusive.",
+		)
+	}
+	if data.AllowList != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_list"),
+			"Conflicting Configuration",
+			"allow_list and rule_list are mutually exclusive.",
+		)
+	}
+	if data.DenyAllRequests != nil && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_all_requests"),
+			"Conflicting Configuration",
+			"deny_all_requests and deny_list are mutually exclusive.",
+		)
+	}
+	if data.DenyAllRequests != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_all_requests"),
+			"Conflicting Configuration",
+			"deny_all_requests and rule_list are mutually exclusive.",
+		)
+	}
+	if data.DenyList != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_list"),
+			"Conflicting Configuration",
+			"deny_list and rule_list are mutually exclusive.",
+		)
+	}
+	if data.ServerNameMatcher != nil && data.AnyServer != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("server_name_matcher"),
+			"Conflicting Configuration",
+			"server_name_matcher and any_server are mutually exclusive.",
+		)
+	}
+	if data.ServerNameMatcher != nil && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("server_name_matcher"),
+			"Conflicting Configuration",
+			"server_name_matcher and server_name are mutually exclusive.",
+		)
+	}
+	if data.ServerNameMatcher != nil && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("server_name_matcher"),
+			"Conflicting Configuration",
+			"server_name_matcher and server_selector are mutually exclusive.",
+		)
+	}
+	if data.ServerSelector != nil && data.AnyServer != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("server_selector"),
+			"Conflicting Configuration",
+			"server_selector and any_server are mutually exclusive.",
+		)
+	}
+	if data.ServerSelector != nil && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("server_selector"),
+			"Conflicting Configuration",
+			"server_selector and server_name are mutually exclusive.",
+		)
+	}
+	if data.AnyServer != nil && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_server"),
+			"Conflicting Configuration",
+			"any_server and server_name are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

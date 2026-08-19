@@ -39,7 +39,7 @@ func TestGenerateChecks_EmptyAttrs(t *testing.T) {
 		t.Errorf("GenerateChecks(nil, nil) = %q, want empty string", result)
 	}
 
-	result = GenerateChecks([]Attr{}, map[string]string{})
+	result = GenerateChecks([]Attr{}, map[string]Field{})
 	if result != "" {
 		t.Errorf("GenerateChecks([], {}) = %q, want empty string", result)
 	}
@@ -49,7 +49,7 @@ func TestGenerateChecks_SingleConflictPair(t *testing.T) {
 	attrs := []Attr{
 		{TfsdkTag: "field_a", GoName: "FieldA", ConflictsWith: []string{"field_b"}},
 	}
-	lookup := map[string]string{"field_a": "FieldA", "field_b": "FieldB"}
+	lookup := map[string]Field{"field_a": {GoName: "FieldA"}, "field_b": {GoName: "FieldB"}}
 	result := GenerateChecks(attrs, lookup)
 
 	// Check for expected code components
@@ -76,7 +76,7 @@ func TestGenerateChecks_Deduplication(t *testing.T) {
 		{TfsdkTag: "field_a", GoName: "FieldA", ConflictsWith: []string{"field_b"}},
 		{TfsdkTag: "field_b", GoName: "FieldB", ConflictsWith: []string{"field_a"}},
 	}
-	lookup := map[string]string{"field_a": "FieldA", "field_b": "FieldB"}
+	lookup := map[string]Field{"field_a": {GoName: "FieldA"}, "field_b": {GoName: "FieldB"}}
 	result := GenerateChecks(attrs, lookup)
 
 	// Count occurrences of the if statement pattern
@@ -91,9 +91,9 @@ func TestGenerateChecks_MultipleConflictPairs(t *testing.T) {
 		{TfsdkTag: "field_a", GoName: "FieldA", ConflictsWith: []string{"field_b", "field_c"}},
 		{TfsdkTag: "field_d", GoName: "FieldD", ConflictsWith: []string{"field_e"}},
 	}
-	lookup := map[string]string{
-		"field_a": "FieldA", "field_b": "FieldB", "field_c": "FieldC",
-		"field_d": "FieldD", "field_e": "FieldE",
+	lookup := map[string]Field{
+		"field_a": {GoName: "FieldA"}, "field_b": {GoName: "FieldB"}, "field_c": {GoName: "FieldC"},
+		"field_d": {GoName: "FieldD"}, "field_e": {GoName: "FieldE"},
 	}
 	result := GenerateChecks(attrs, lookup)
 
@@ -119,7 +119,7 @@ func TestGenerateChecks_GoNameUsedInNullCheck(t *testing.T) {
 	attrs := []Attr{
 		{TfsdkTag: "my_field", GoName: "MyField", ConflictsWith: []string{"other_field"}},
 	}
-	lookup := map[string]string{"my_field": "MyField", "other_field": "OtherField"}
+	lookup := map[string]Field{"my_field": {GoName: "MyField"}, "other_field": {GoName: "OtherField"}}
 	result := GenerateChecks(attrs, lookup)
 
 	// The GoName should be used in the data.X.IsNull() check
@@ -132,12 +132,42 @@ func TestGenerateChecks_GoNameUsedInNullCheck(t *testing.T) {
 	}
 }
 
+func TestGenerateChecks_BlockConflictPair(t *testing.T) {
+	attrs := []Attr{
+		{TfsdkTag: "no_tls", GoName: "NoTLS", IsPointer: true, ConflictsWith: []string{"use_tls"}},
+	}
+	lookup := map[string]Field{
+		"no_tls":  {GoName: "NoTLS", IsPointer: true},
+		"use_tls": {GoName: "UseTLS", IsPointer: true},
+	}
+
+	result := GenerateChecks(attrs, lookup)
+	if !strings.Contains(result, "if data.NoTLS != nil && data.UseTLS != nil {") {
+		t.Errorf("expected pointer-presence conflict check for nested blocks, got:\n%s", result)
+	}
+}
+
+func TestGenerateChecks_ListBlockConflictPair(t *testing.T) {
+	attrs := []Attr{
+		{TfsdkTag: "origin_servers", GoName: "OriginServers", ConflictsWith: []string{"automatic_port"}},
+	}
+	lookup := map[string]Field{
+		"origin_servers": {GoName: "OriginServers"},
+		"automatic_port": {GoName: "AutomaticPort", IsPointer: true},
+	}
+
+	result := GenerateChecks(attrs, lookup)
+	if !strings.Contains(result, "if !data.OriginServers.IsNull() && !data.OriginServers.IsUnknown() && data.AutomaticPort != nil {") {
+		t.Errorf("expected framework-value check for a list block and pointer check for a single block, got:\n%s", result)
+	}
+}
+
 func TestGenerateChecks_NoConflicts(t *testing.T) {
 	attrs := []Attr{
 		{TfsdkTag: "field_a", GoName: "FieldA", ConflictsWith: nil},
 		{TfsdkTag: "field_b", GoName: "FieldB", ConflictsWith: []string{}},
 	}
-	lookup := map[string]string{"field_a": "FieldA", "field_b": "FieldB"}
+	lookup := map[string]Field{"field_a": {GoName: "FieldA"}, "field_b": {GoName: "FieldB"}}
 	result := GenerateChecks(attrs, lookup)
 
 	if result != "" {
@@ -150,7 +180,7 @@ func TestGenerateChecks_ConflictTargetNotInLookup(t *testing.T) {
 	attrs := []Attr{
 		{TfsdkTag: "field_a", GoName: "FieldA", ConflictsWith: []string{"block_field"}},
 	}
-	lookup := map[string]string{"field_a": "FieldA"} // block_field not in lookup
+	lookup := map[string]Field{"field_a": {GoName: "FieldA"}} // block_field not in lookup
 	result := GenerateChecks(attrs, lookup)
 
 	if result != "" {
@@ -162,7 +192,7 @@ func TestGenerateChecks_CodeIndentation(t *testing.T) {
 	attrs := []Attr{
 		{TfsdkTag: "field_a", GoName: "FieldA", ConflictsWith: []string{"field_b"}},
 	}
-	lookup := map[string]string{"field_a": "FieldA", "field_b": "FieldB"}
+	lookup := map[string]Field{"field_a": {GoName: "FieldA"}, "field_b": {GoName: "FieldB"}}
 	result := GenerateChecks(attrs, lookup)
 
 	// Check for proper indentation with tabs

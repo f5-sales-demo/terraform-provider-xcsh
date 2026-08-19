@@ -254,6 +254,14 @@ func (r *VirtualK8SResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.Disabled != nil && data.Isolated != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disabled"),
+			"Conflicting Configuration",
+			"disabled and isolated are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

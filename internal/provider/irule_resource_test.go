@@ -74,9 +74,12 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_irule" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+	  depends_on       = [time_sleep.wait_for_namespace]
+	  name             = %[2]q
+	  namespace        = xcsh_namespace.test.name
+	  description      = "Terraform acceptance test iRule"
+	  description_spec = "Terraform acceptance test iRule"
+	  irule            = "when HTTP_REQUEST { return }"
 }
 `, nsName, name))
 }

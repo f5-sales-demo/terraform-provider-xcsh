@@ -78,9 +78,10 @@ resource "xcsh_endpoint" "test" {
   name      = %[2]q
   namespace = xcsh_namespace.test.name
 
-  ip       = "192.168.1.100"
-  port     = 8080
-  protocol = "TCP"
+  health_check_port = 8080
+  ip                = "192.168.1.100"
+  port              = 8080
+  protocol          = "TCP"
 }
 `, nsName, name))
 }

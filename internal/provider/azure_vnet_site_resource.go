@@ -7169,14 +7169,168 @@ func (r *AzureVNETSiteResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.AlternateRegion.IsNull() && !data.AzureRegion.IsNull() {
+	if data.BlockedServices != nil && data.BlockAllServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("blocked_services"),
+			"Conflicting Configuration",
+			"blocked_services and block_all_services are mutually exclusive.",
+		)
+	}
+	if data.BlockedServices != nil && data.DefaultBlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("blocked_services"),
+			"Conflicting Configuration",
+			"blocked_services and default_blocked_services are mutually exclusive.",
+		)
+	}
+	if data.DefaultBlockedServices != nil && data.BlockAllServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_blocked_services"),
+			"Conflicting Configuration",
+			"default_blocked_services and block_all_services are mutually exclusive.",
+		)
+	}
+	if data.DisableEncryption != nil && data.EnableEncryption != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_encryption"),
+			"Conflicting Configuration",
+			"disable_encryption and enable_encryption are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGw != nil && data.IngressEgressGwAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw"),
+			"Conflicting Configuration",
+			"ingress_egress_gw and ingress_egress_gw_ar are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGw != nil && data.IngressGw != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw"),
+			"Conflicting Configuration",
+			"ingress_egress_gw and ingress_gw are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGw != nil && data.IngressGwAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw"),
+			"Conflicting Configuration",
+			"ingress_egress_gw and ingress_gw_ar are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGw != nil && data.VoltstackCluster != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw"),
+			"Conflicting Configuration",
+			"ingress_egress_gw and voltstack_cluster are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGw != nil && data.VoltstackClusterAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw"),
+			"Conflicting Configuration",
+			"ingress_egress_gw and voltstack_cluster_ar are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGwAr != nil && data.IngressGw != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw_ar"),
+			"Conflicting Configuration",
+			"ingress_egress_gw_ar and ingress_gw are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGwAr != nil && data.IngressGwAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw_ar"),
+			"Conflicting Configuration",
+			"ingress_egress_gw_ar and ingress_gw_ar are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGwAr != nil && data.VoltstackCluster != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw_ar"),
+			"Conflicting Configuration",
+			"ingress_egress_gw_ar and voltstack_cluster are mutually exclusive.",
+		)
+	}
+	if data.IngressEgressGwAr != nil && data.VoltstackClusterAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_egress_gw_ar"),
+			"Conflicting Configuration",
+			"ingress_egress_gw_ar and voltstack_cluster_ar are mutually exclusive.",
+		)
+	}
+	if data.IngressGw != nil && data.IngressGwAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_gw"),
+			"Conflicting Configuration",
+			"ingress_gw and ingress_gw_ar are mutually exclusive.",
+		)
+	}
+	if data.IngressGw != nil && data.VoltstackCluster != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_gw"),
+			"Conflicting Configuration",
+			"ingress_gw and voltstack_cluster are mutually exclusive.",
+		)
+	}
+	if data.IngressGw != nil && data.VoltstackClusterAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_gw"),
+			"Conflicting Configuration",
+			"ingress_gw and voltstack_cluster_ar are mutually exclusive.",
+		)
+	}
+	if data.IngressGwAr != nil && data.VoltstackCluster != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_gw_ar"),
+			"Conflicting Configuration",
+			"ingress_gw_ar and voltstack_cluster are mutually exclusive.",
+		)
+	}
+	if data.IngressGwAr != nil && data.VoltstackClusterAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ingress_gw_ar"),
+			"Conflicting Configuration",
+			"ingress_gw_ar and voltstack_cluster_ar are mutually exclusive.",
+		)
+	}
+	if data.LogReceiver != nil && data.LogsStreamingDisabled != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("log_receiver"),
+			"Conflicting Configuration",
+			"log_receiver and logs_streaming_disabled are mutually exclusive.",
+		)
+	}
+	if data.VoltstackCluster != nil && data.VoltstackClusterAr != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("voltstack_cluster"),
+			"Conflicting Configuration",
+			"voltstack_cluster and voltstack_cluster_ar are mutually exclusive.",
+		)
+	}
+	if !data.AlternateRegion.IsNull() && !data.AlternateRegion.IsUnknown() && !data.AzureRegion.IsNull() && !data.AzureRegion.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("alternate_region"),
 			"Conflicting Configuration",
 			"alternate_region and azure_region are mutually exclusive.",
 		)
 	}
-	if !data.NodesPerAz.IsNull() && !data.TotalNodes.IsNull() {
+	if data.NoWorkerNodes != nil && !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_worker_nodes"),
+			"Conflicting Configuration",
+			"no_worker_nodes and nodes_per_az are mutually exclusive.",
+		)
+	}
+	if data.NoWorkerNodes != nil && !data.TotalNodes.IsNull() && !data.TotalNodes.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_worker_nodes"),
+			"Conflicting Configuration",
+			"no_worker_nodes and total_nodes are mutually exclusive.",
+		)
+	}
+	if !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() && !data.TotalNodes.IsNull() && !data.TotalNodes.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("nodes_per_az"),
 			"Conflicting Configuration",

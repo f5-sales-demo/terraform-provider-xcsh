@@ -858,7 +858,7 @@ func (r *AdvertisePolicyResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.Port.IsNull() && !data.PortRanges.IsNull() {
+	if !data.Port.IsNull() && !data.Port.IsUnknown() && !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("port"),
 			"Conflicting Configuration",

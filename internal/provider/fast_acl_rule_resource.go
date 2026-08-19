@@ -451,6 +451,14 @@ func (r *FastACLRuleResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.IPPrefixSet != nil && data.Prefix != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ip_prefix_set"),
+			"Conflicting Configuration",
+			"ip_prefix_set and prefix are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

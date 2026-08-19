@@ -875,8 +875,8 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 	} else {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {
-		var compliancesList []string
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				compliancesList = append(compliancesList, s)
@@ -887,7 +887,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else {
+	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["is_pii"].(bool); ok {
@@ -1229,8 +1229,8 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 	} else {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {
-		var compliancesList []string
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				compliancesList = append(compliancesList, s)
@@ -1241,7 +1241,7 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else {
+	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["is_pii"].(bool); ok {
@@ -1702,8 +1702,8 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 	} else {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {
-		var compliancesList []string
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				compliancesList = append(compliancesList, s)
@@ -1714,7 +1714,7 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else {
+	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["is_pii"].(bool); ok {

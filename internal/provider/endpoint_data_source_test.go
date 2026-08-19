@@ -54,9 +54,12 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_endpoint" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  depends_on        = [time_sleep.wait_for_namespace]
+  name              = %[2]q
+  namespace         = xcsh_namespace.test.name
+  health_check_port = 8080
+  port              = 8080
+  protocol          = "TCP"
   where {
     site {
       network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"

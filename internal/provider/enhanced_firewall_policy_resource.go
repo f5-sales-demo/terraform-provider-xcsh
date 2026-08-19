@@ -842,6 +842,154 @@ func (r *EnhancedFirewallPolicyResource) ValidateConfig(ctx context.Context, req
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AllowedDestinations != nil && data.AllowAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_destinations"),
+			"Conflicting Configuration",
+			"allowed_destinations and allow_all are mutually exclusive.",
+		)
+	}
+	if data.AllowedDestinations != nil && data.AllowedSources != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_destinations"),
+			"Conflicting Configuration",
+			"allowed_destinations and allowed_sources are mutually exclusive.",
+		)
+	}
+	if data.AllowedDestinations != nil && data.DeniedDestinations != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_destinations"),
+			"Conflicting Configuration",
+			"allowed_destinations and denied_destinations are mutually exclusive.",
+		)
+	}
+	if data.AllowedDestinations != nil && data.DeniedSources != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_destinations"),
+			"Conflicting Configuration",
+			"allowed_destinations and denied_sources are mutually exclusive.",
+		)
+	}
+	if data.AllowedDestinations != nil && data.DenyAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_destinations"),
+			"Conflicting Configuration",
+			"allowed_destinations and deny_all are mutually exclusive.",
+		)
+	}
+	if data.AllowedDestinations != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_destinations"),
+			"Conflicting Configuration",
+			"allowed_destinations and rule_list are mutually exclusive.",
+		)
+	}
+	if data.AllowedSources != nil && data.AllowAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_sources"),
+			"Conflicting Configuration",
+			"allowed_sources and allow_all are mutually exclusive.",
+		)
+	}
+	if data.AllowedSources != nil && data.DeniedDestinations != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_sources"),
+			"Conflicting Configuration",
+			"allowed_sources and denied_destinations are mutually exclusive.",
+		)
+	}
+	if data.AllowedSources != nil && data.DeniedSources != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_sources"),
+			"Conflicting Configuration",
+			"allowed_sources and denied_sources are mutually exclusive.",
+		)
+	}
+	if data.AllowedSources != nil && data.DenyAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_sources"),
+			"Conflicting Configuration",
+			"allowed_sources and deny_all are mutually exclusive.",
+		)
+	}
+	if data.AllowedSources != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_sources"),
+			"Conflicting Configuration",
+			"allowed_sources and rule_list are mutually exclusive.",
+		)
+	}
+	if data.DeniedDestinations != nil && data.AllowAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("denied_destinations"),
+			"Conflicting Configuration",
+			"denied_destinations and allow_all are mutually exclusive.",
+		)
+	}
+	if data.DeniedDestinations != nil && data.DeniedSources != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("denied_destinations"),
+			"Conflicting Configuration",
+			"denied_destinations and denied_sources are mutually exclusive.",
+		)
+	}
+	if data.DeniedDestinations != nil && data.DenyAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("denied_destinations"),
+			"Conflicting Configuration",
+			"denied_destinations and deny_all are mutually exclusive.",
+		)
+	}
+	if data.DeniedDestinations != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("denied_destinations"),
+			"Conflicting Configuration",
+			"denied_destinations and rule_list are mutually exclusive.",
+		)
+	}
+	if data.DeniedSources != nil && data.AllowAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("denied_sources"),
+			"Conflicting Configuration",
+			"denied_sources and allow_all are mutually exclusive.",
+		)
+	}
+	if data.DeniedSources != nil && data.DenyAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("denied_sources"),
+			"Conflicting Configuration",
+			"denied_sources and deny_all are mutually exclusive.",
+		)
+	}
+	if data.DeniedSources != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("denied_sources"),
+			"Conflicting Configuration",
+			"denied_sources and rule_list are mutually exclusive.",
+		)
+	}
+	if data.DenyAll != nil && data.AllowAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_all"),
+			"Conflicting Configuration",
+			"deny_all and allow_all are mutually exclusive.",
+		)
+	}
+	if data.DenyAll != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_all"),
+			"Conflicting Configuration",
+			"deny_all and rule_list are mutually exclusive.",
+		)
+	}
+	if data.RuleList != nil && data.AllowAll != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("rule_list"),
+			"Conflicting Configuration",
+			"rule_list and allow_all are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

@@ -1036,7 +1036,91 @@ func (r *UDPLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.ListenPort.IsNull() && !data.PortRanges.IsNull() {
+	if data.ActiveServicePolicies != nil && data.NoServicePolicies != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_service_policies"),
+			"Conflicting Configuration",
+			"active_service_policies and no_service_policies are mutually exclusive.",
+		)
+	}
+	if data.ActiveServicePolicies != nil && data.ServicePoliciesFromNamespace != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_service_policies"),
+			"Conflicting Configuration",
+			"active_service_policies and service_policies_from_namespace are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseCustom != nil && data.AdvertiseOnPublic != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_custom"),
+			"Conflicting Configuration",
+			"advertise_custom and advertise_on_public are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseCustom != nil && data.AdvertiseOnPublicDefaultVIP != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_custom"),
+			"Conflicting Configuration",
+			"advertise_custom and advertise_on_public_default_vip are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseCustom != nil && data.DoNotAdvertise != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_custom"),
+			"Conflicting Configuration",
+			"advertise_custom and do_not_advertise are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseOnPublic != nil && data.AdvertiseOnPublicDefaultVIP != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_on_public"),
+			"Conflicting Configuration",
+			"advertise_on_public and advertise_on_public_default_vip are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseOnPublic != nil && data.DoNotAdvertise != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_on_public"),
+			"Conflicting Configuration",
+			"advertise_on_public and do_not_advertise are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseOnPublicDefaultVIP != nil && data.DoNotAdvertise != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_on_public_default_vip"),
+			"Conflicting Configuration",
+			"advertise_on_public_default_vip and do_not_advertise are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceRandom != nil && data.HashPolicyChoiceRoundRobin != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_random"),
+			"Conflicting Configuration",
+			"hash_policy_choice_random and hash_policy_choice_round_robin are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceRandom != nil && data.HashPolicyChoiceSourceIPStickiness != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_random"),
+			"Conflicting Configuration",
+			"hash_policy_choice_random and hash_policy_choice_source_ip_stickiness are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceRoundRobin != nil && data.HashPolicyChoiceSourceIPStickiness != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_round_robin"),
+			"Conflicting Configuration",
+			"hash_policy_choice_round_robin and hash_policy_choice_source_ip_stickiness are mutually exclusive.",
+		)
+	}
+	if data.NoServicePolicies != nil && data.ServicePoliciesFromNamespace != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_service_policies"),
+			"Conflicting Configuration",
+			"no_service_policies and service_policies_from_namespace are mutually exclusive.",
+		)
+	}
+	if !data.ListenPort.IsNull() && !data.ListenPort.IsUnknown() && !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("listen_port"),
 			"Conflicting Configuration",
@@ -1872,8 +1956,8 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
 		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -1884,7 +1968,7 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
@@ -2543,8 +2627,8 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
 		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -2555,7 +2639,7 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
@@ -3531,8 +3615,8 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
 		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -3543,7 +3627,7 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {

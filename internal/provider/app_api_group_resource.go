@@ -364,6 +364,28 @@ func (r *AppAPIGroupResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.BigIPVirtualServer != nil && data.CDNLoadBalancer != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("bigip_virtual_server"),
+			"Conflicting Configuration",
+			"bigip_virtual_server and cdn_loadbalancer are mutually exclusive.",
+		)
+	}
+	if data.BigIPVirtualServer != nil && data.HTTPLoadBalancer != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("bigip_virtual_server"),
+			"Conflicting Configuration",
+			"bigip_virtual_server and http_loadbalancer are mutually exclusive.",
+		)
+	}
+	if data.CDNLoadBalancer != nil && data.HTTPLoadBalancer != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("cdn_loadbalancer"),
+			"Conflicting Configuration",
+			"cdn_loadbalancer and http_loadbalancer are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

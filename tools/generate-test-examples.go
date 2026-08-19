@@ -10,6 +10,9 @@ package main
 
 import (
 	"fmt"
+	"go/ast"
+	"go/parser"
+	"go/token"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -23,7 +26,7 @@ var formatStringRegex = regexp.MustCompile("return\\s+(?:acctest\\.ConfigCompose
 var simpleReturnRegex = regexp.MustCompile("return\\s+fmt\\.Sprintf\\(`([^`]+)`")
 
 const (
-	expectedNamedExampleCount = 79
+	expectedNamedExampleCount = 78
 	xcshProviderSource        = "f5-sales-demo/xcsh"
 	xcshVersionConstraint     = ">= 0.1.0"
 	timeProviderVersion       = "0.13.1"
@@ -77,6 +80,10 @@ func main() {
 		fmt.Fprintf(os.Stderr, "generate verified examples: %v\n", err)
 		os.Exit(1)
 	}
+	if err := pruneStaleGeneratedExamples("examples/resources", examples); err != nil {
+		fmt.Fprintf(os.Stderr, "prune stale verified examples: %v\n", err)
+		os.Exit(1)
+	}
 
 	paths := make([]string, 0, len(examples))
 	for _, example := range examples {
@@ -113,7 +120,11 @@ func renderExamples(testDir, outputDir string) ([]generatedExample, error) {
 			return nil, fmt.Errorf("read acceptance tests for %s: %w", res, err)
 		}
 
-		examples := extractExamples(res, string(content))
+		excluded, err := negativeConfigHelpers(content)
+		if err != nil {
+			return nil, fmt.Errorf("classify negative acceptance fixtures for %s: %w", res, err)
+		}
+		examples := extractExamples(res, string(content), excluded)
 
 		for _, ex := range examples {
 			exDir := filepath.Join(outputDir, "xcsh_"+ex.Resource)
@@ -145,13 +156,16 @@ func renderExamples(testDir, outputDir string) ([]generatedExample, error) {
 	return generated, nil
 }
 
-func extractExamples(resource, content string) []testExample {
+func extractExamples(resource, content string, excluded map[string]struct{}) []testExample {
 	var examples []testExample
 
 	matches := configFuncRegex.FindAllStringSubmatchIndex(content, -1)
 
 	for _, match := range matches {
 		funcName := content[match[2]:match[3]]
+		if _, skip := excluded[funcName]; skip {
+			continue
+		}
 		funcStart := match[0]
 
 		funcEnd := findFuncEnd(content, funcStart)
@@ -179,6 +193,99 @@ func extractExamples(resource, content string) []testExample {
 	}
 
 	return examples
+}
+
+// negativeConfigHelpers returns configuration helpers used by TestSteps that
+// expect an error. Those fixtures prove rejection behavior; publishing them as
+// "verified configuration examples" contradicts their acceptance-test contract.
+func negativeConfigHelpers(content []byte) (map[string]struct{}, error) {
+	file, err := parser.ParseFile(token.NewFileSet(), "acceptance_test.go", content, parser.SkipObjectResolution)
+	if err != nil {
+		return nil, err
+	}
+
+	excluded := make(map[string]struct{})
+	ast.Inspect(file, func(node ast.Node) bool {
+		literal, ok := node.(*ast.CompositeLit)
+		if !ok {
+			return true
+		}
+
+		var config ast.Expr
+		expectsError := false
+		for _, element := range literal.Elts {
+			field, ok := element.(*ast.KeyValueExpr)
+			if !ok {
+				continue
+			}
+			key, ok := field.Key.(*ast.Ident)
+			if !ok {
+				continue
+			}
+			switch key.Name {
+			case "Config":
+				config = field.Value
+			case "ExpectError":
+				expectsError = true
+			}
+		}
+		if !expectsError || config == nil {
+			return true
+		}
+
+		ast.Inspect(config, func(configNode ast.Node) bool {
+			call, ok := configNode.(*ast.CallExpr)
+			if !ok {
+				return true
+			}
+			function, ok := call.Fun.(*ast.Ident)
+			if ok && strings.HasPrefix(function.Name, "testAcc") && strings.Contains(function.Name, "Config_") {
+				excluded[function.Name] = struct{}{}
+			}
+			return true
+		})
+		return true
+	})
+	return excluded, nil
+}
+
+const generatedExampleMarker = "# This configuration is extracted from acceptance tests\n# and verified against the live F5 XC API."
+
+func pruneStaleGeneratedExamples(outputDir string, examples []generatedExample) error {
+	keep := make(map[string]struct{}, len(examples))
+	for _, example := range examples {
+		keep[filepath.Clean(example.Path)] = struct{}{}
+	}
+
+	for _, resource := range testExampleResources {
+		directory := filepath.Join(outputDir, "xcsh_"+resource)
+		entries, err := os.ReadDir(directory)
+		if err != nil {
+			if os.IsNotExist(err) {
+				continue
+			}
+			return err
+		}
+		for _, entry := range entries {
+			if entry.IsDir() || filepath.Ext(entry.Name()) != ".tf" || entry.Name() == "resource.tf" {
+				continue
+			}
+			path := filepath.Join(directory, entry.Name())
+			if _, retained := keep[filepath.Clean(path)]; retained {
+				continue
+			}
+			contents, err := os.ReadFile(path)
+			if err != nil {
+				return err
+			}
+			if strings.Contains(string(contents), generatedExampleMarker) {
+				if err := os.Remove(path); err != nil {
+					return err
+				}
+			}
+		}
+	}
+	return nil
 }
 
 func findFuncEnd(content string, start int) int {

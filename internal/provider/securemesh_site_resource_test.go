@@ -625,11 +625,12 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_securemesh_site" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+	  depends_on   = [time_sleep.wait_for_namespace]
+	  name         = %[2]q
+	  namespace    = xcsh_namespace.test.name
+	  address      = "Terraform acceptance test site"
+	  worker_nodes = []
 
-  # Minimal required configuration - only name and namespace are required
   volterra_certified_hw = "generic-single-nic-volstack-combo"
 
   # Use master_node_configuration for node details (correct schema block)
@@ -655,9 +656,11 @@ resource "time_sleep" "wait_for_namespace" {
 
 resource "xcsh_securemesh_site" "test" {
   depends_on  = [time_sleep.wait_for_namespace]
-  name        = %[2]q
-  namespace   = xcsh_namespace.test.name
-  description = %[3]q
+	  name         = %[2]q
+	  namespace    = xcsh_namespace.test.name
+	  description  = %[3]q
+	  address      = "Terraform acceptance test site"
+	  worker_nodes = []
 
   labels = {
     environment = "test"
@@ -692,9 +695,11 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_securemesh_site" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+	  depends_on   = [time_sleep.wait_for_namespace]
+	  name         = %[2]q
+	  namespace    = xcsh_namespace.test.name
+	  address      = "Terraform acceptance test site"
+	  worker_nodes = []
 
   labels = {
     environment = %[3]q
@@ -725,9 +730,11 @@ resource "time_sleep" "wait_for_namespace" {
 
 resource "xcsh_securemesh_site" "test" {
   depends_on  = [time_sleep.wait_for_namespace]
-  name        = %[2]q
-  namespace   = xcsh_namespace.test.name
-  description = %[3]q
+	  name         = %[2]q
+	  namespace    = xcsh_namespace.test.name
+	  description  = %[3]q
+	  address      = "Terraform acceptance test site"
+	  worker_nodes = []
 
   volterra_certified_hw = "generic-single-nic-volstack-combo"
 
@@ -752,9 +759,11 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_securemesh_site" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+	  depends_on   = [time_sleep.wait_for_namespace]
+	  name         = %[2]q
+	  namespace    = xcsh_namespace.test.name
+	  address      = "Terraform acceptance test site"
+	  worker_nodes = []
 
   annotations = {
     key1 = %[3]q

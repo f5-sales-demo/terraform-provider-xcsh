@@ -127,6 +127,11 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		attributes = append(attributes, attr)
 	}
 
+	// x-ves-oneof-field defines mutually exclusive top-level alternatives. Carry
+	// those relationships into the same generated ValidateConfig checks used for
+	// explicit x-f5xc-conflicts-with annotations, including pointer-backed blocks.
+	ApplyOneOfConflicts(attributes, fieldToOneOf)
+
 	// Sort attributes per HashiCorp documentation standards:
 	// Arguments: 1) ID components first, 2) Required alphabetically, 3) Optional alphabetically
 	// Attributes: 1) id first, 2) remaining alphabetically

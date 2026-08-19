@@ -2026,7 +2026,161 @@ func (r *TCPLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.ListenPort.IsNull() && !data.PortRanges.IsNull() {
+	if data.ActiveServicePolicies != nil && data.NoServicePolicies != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_service_policies"),
+			"Conflicting Configuration",
+			"active_service_policies and no_service_policies are mutually exclusive.",
+		)
+	}
+	if data.ActiveServicePolicies != nil && data.ServicePoliciesFromNamespace != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_service_policies"),
+			"Conflicting Configuration",
+			"active_service_policies and service_policies_from_namespace are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseCustom != nil && data.AdvertiseOnPublic != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_custom"),
+			"Conflicting Configuration",
+			"advertise_custom and advertise_on_public are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseCustom != nil && data.AdvertiseOnPublicDefaultVIP != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_custom"),
+			"Conflicting Configuration",
+			"advertise_custom and advertise_on_public_default_vip are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseCustom != nil && data.DoNotAdvertise != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_custom"),
+			"Conflicting Configuration",
+			"advertise_custom and do_not_advertise are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseOnPublic != nil && data.AdvertiseOnPublicDefaultVIP != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_on_public"),
+			"Conflicting Configuration",
+			"advertise_on_public and advertise_on_public_default_vip are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseOnPublic != nil && data.DoNotAdvertise != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_on_public"),
+			"Conflicting Configuration",
+			"advertise_on_public and do_not_advertise are mutually exclusive.",
+		)
+	}
+	if data.AdvertiseOnPublicDefaultVIP != nil && data.DoNotAdvertise != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_on_public_default_vip"),
+			"Conflicting Configuration",
+			"advertise_on_public_default_vip and do_not_advertise are mutually exclusive.",
+		)
+	}
+	if data.DefaultLBWithSni != nil && data.NoSni != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_lb_with_sni"),
+			"Conflicting Configuration",
+			"default_lb_with_sni and no_sni are mutually exclusive.",
+		)
+	}
+	if data.DefaultLBWithSni != nil && data.Sni != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_lb_with_sni"),
+			"Conflicting Configuration",
+			"default_lb_with_sni and sni are mutually exclusive.",
+		)
+	}
+	if data.DoNotRetractCluster != nil && data.RetractCluster != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("do_not_retract_cluster"),
+			"Conflicting Configuration",
+			"do_not_retract_cluster and retract_cluster are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceLeastActive != nil && data.HashPolicyChoiceRandom != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_least_active"),
+			"Conflicting Configuration",
+			"hash_policy_choice_least_active and hash_policy_choice_random are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceLeastActive != nil && data.HashPolicyChoiceRoundRobin != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_least_active"),
+			"Conflicting Configuration",
+			"hash_policy_choice_least_active and hash_policy_choice_round_robin are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceLeastActive != nil && data.HashPolicyChoiceSourceIPStickiness != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_least_active"),
+			"Conflicting Configuration",
+			"hash_policy_choice_least_active and hash_policy_choice_source_ip_stickiness are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceRandom != nil && data.HashPolicyChoiceRoundRobin != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_random"),
+			"Conflicting Configuration",
+			"hash_policy_choice_random and hash_policy_choice_round_robin are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceRandom != nil && data.HashPolicyChoiceSourceIPStickiness != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_random"),
+			"Conflicting Configuration",
+			"hash_policy_choice_random and hash_policy_choice_source_ip_stickiness are mutually exclusive.",
+		)
+	}
+	if data.HashPolicyChoiceSourceIPStickiness != nil && data.HashPolicyChoiceRoundRobin != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_source_ip_stickiness"),
+			"Conflicting Configuration",
+			"hash_policy_choice_source_ip_stickiness and hash_policy_choice_round_robin are mutually exclusive.",
+		)
+	}
+	if data.NoServicePolicies != nil && data.ServicePoliciesFromNamespace != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_service_policies"),
+			"Conflicting Configuration",
+			"no_service_policies and service_policies_from_namespace are mutually exclusive.",
+		)
+	}
+	if data.Sni != nil && data.NoSni != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("sni"),
+			"Conflicting Configuration",
+			"sni and no_sni are mutually exclusive.",
+		)
+	}
+	if data.TLSTCP != nil && data.TCP != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("tls_tcp"),
+			"Conflicting Configuration",
+			"tls_tcp and tcp are mutually exclusive.",
+		)
+	}
+	if data.TLSTCP != nil && data.TLSTCPAutoCert != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("tls_tcp"),
+			"Conflicting Configuration",
+			"tls_tcp and tls_tcp_auto_cert are mutually exclusive.",
+		)
+	}
+	if data.TLSTCPAutoCert != nil && data.TCP != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("tls_tcp_auto_cert"),
+			"Conflicting Configuration",
+			"tls_tcp_auto_cert and tcp are mutually exclusive.",
+		)
+	}
+	if !data.ListenPort.IsNull() && !data.ListenPort.IsUnknown() && !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("listen_port"),
 			"Conflicting Configuration",
@@ -3252,8 +3406,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -3264,7 +3418,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
@@ -4717,8 +4871,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -4729,7 +4883,7 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
@@ -6897,8 +7051,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -6909,7 +7063,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {

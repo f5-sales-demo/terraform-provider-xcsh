@@ -326,6 +326,28 @@ func (r *SubnetResource) ValidateConfig(ctx context.Context, req resource.Valida
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.ConnectToLayer2 != nil && data.ConnectToSlo != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("connect_to_layer2"),
+			"Conflicting Configuration",
+			"connect_to_layer2 and connect_to_slo are mutually exclusive.",
+		)
+	}
+	if data.ConnectToLayer2 != nil && data.IsolatedNw != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("connect_to_layer2"),
+			"Conflicting Configuration",
+			"connect_to_layer2 and isolated_nw are mutually exclusive.",
+		)
+	}
+	if data.ConnectToSlo != nil && data.IsolatedNw != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("connect_to_slo"),
+			"Conflicting Configuration",
+			"connect_to_slo and isolated_nw are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

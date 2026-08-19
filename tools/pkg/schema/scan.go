@@ -3,9 +3,23 @@
 package schema
 
 import (
+	"slices"
+
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/conflicts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
+
+// ApplyOneOfConflicts translates x-ves-oneof-field groups into pairwise
+// ConflictsWith relationships consumed by generated ValidateConfig checks.
+func ApplyOneOfConflicts(attributes []openapi.TerraformAttribute, fieldToOneOf map[string][]string) {
+	for i := range attributes {
+		for _, peer := range fieldToOneOf[attributes[i].TfsdkTag] {
+			if peer != attributes[i].TfsdkTag && !slices.Contains(attributes[i].ConflictsWith, peer) {
+				attributes[i].ConflictsWith = append(attributes[i].ConflictsWith, peer)
+			}
+		}
+	}
+}
 
 // HasNestedModelsWithAttrTypes checks recursively if any nested blocks would generate AttrTypes.
 // This is needed to determine if the attr import is required.
@@ -98,34 +112,30 @@ func HasListSizeValidatorsAny(attributes []openapi.TerraformAttribute) bool {
 	return false
 }
 
-// CollectConflictAttrs collects top-level non-block attributes that have ConflictsWith relationships.
-// Block attributes are excluded because their Go types are pointers to nested models (not framework
-// value types) and do not have the IsNull() method needed for conflict checking.
-func CollectConflictAttrs(attributes []openapi.TerraformAttribute) ([]conflicts.Attr, map[string]string) {
-	// Build a lookup map from tfsdk tag to Go field name for non-block attributes only.
-	// This is used to resolve conflict target names and to filter out block targets.
-	goNameLookup := make(map[string]string)
+// CollectConflictAttrs collects top-level attributes and blocks that have
+// ConflictsWith relationships. Generated validation checks pointer presence for
+// blocks and framework null/unknown state for scalar attributes.
+func CollectConflictAttrs(attributes []openapi.TerraformAttribute) ([]conflicts.Attr, map[string]conflicts.Field) {
+	fieldLookup := make(map[string]conflicts.Field)
 	for _, attr := range attributes {
-		if attr.IsBlock {
-			continue
+		fieldLookup[attr.TfsdkTag] = conflicts.Field{
+			GoName:    attr.GoName,
+			IsPointer: attr.IsBlock && attr.NestedBlockType == "single",
 		}
-		goNameLookup[attr.TfsdkTag] = attr.GoName
 	}
 
 	var result []conflicts.Attr
 	for _, attr := range attributes {
-		if attr.IsBlock {
-			continue
-		}
 		if len(attr.ConflictsWith) > 0 {
 			result = append(result, conflicts.Attr{
 				TfsdkTag:      attr.TfsdkTag,
 				GoName:        attr.GoName,
+				IsPointer:     attr.IsBlock && attr.NestedBlockType == "single",
 				ConflictsWith: attr.ConflictsWith,
 			})
 		}
 	}
-	return result, goNameLookup
+	return result, fieldLookup
 }
 
 // HasInt64RangeValidatorsAny returns true if any non-block int64 attribute has Minimum or Maximum set.

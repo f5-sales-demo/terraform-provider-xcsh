@@ -686,6 +686,70 @@ func (r *AppFirewallResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AllowedResponseCodes != nil && data.AllowAllResponseCodes != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allowed_response_codes"),
+			"Conflicting Configuration",
+			"allowed_response_codes and allow_all_response_codes are mutually exclusive.",
+		)
+	}
+	if data.Blocking != nil && data.Monitoring != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("blocking"),
+			"Conflicting Configuration",
+			"blocking and monitoring are mutually exclusive.",
+		)
+	}
+	if data.BlockingPage != nil && data.UseDefaultBlockingPage != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("blocking_page"),
+			"Conflicting Configuration",
+			"blocking_page and use_default_blocking_page are mutually exclusive.",
+		)
+	}
+	if data.BotProtectionSetting != nil && data.DefaultBotSetting != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("bot_protection_setting"),
+			"Conflicting Configuration",
+			"bot_protection_setting and default_bot_setting are mutually exclusive.",
+		)
+	}
+	if data.CustomAnonymization != nil && data.DefaultAnonymization != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("custom_anonymization"),
+			"Conflicting Configuration",
+			"custom_anonymization and default_anonymization are mutually exclusive.",
+		)
+	}
+	if data.CustomAnonymization != nil && data.DisableAnonymization != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("custom_anonymization"),
+			"Conflicting Configuration",
+			"custom_anonymization and disable_anonymization are mutually exclusive.",
+		)
+	}
+	if data.DetectionSettings != nil && data.DefaultDetectionSettings != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("detection_settings"),
+			"Conflicting Configuration",
+			"detection_settings and default_detection_settings are mutually exclusive.",
+		)
+	}
+	if data.DisableAnonymization != nil && data.DefaultAnonymization != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_anonymization"),
+			"Conflicting Configuration",
+			"disable_anonymization and default_anonymization are mutually exclusive.",
+		)
+	}
+	if data.EnableAiEnhancements != nil && data.DisableAiEnhancements != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("enable_ai_enhancements"),
+			"Conflicting Configuration",
+			"enable_ai_enhancements and disable_ai_enhancements are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

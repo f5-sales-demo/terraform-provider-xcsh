@@ -156,7 +156,11 @@ func (r *ForwardingClassResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"queue_id_to_use": schema.StringAttribute{
 				MarkdownDescription: "[Enum: DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link Layer traffic like.. Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`. Defaults to `DSCP_BEST_EFFORT`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("DSCP_BEST_EFFORT", "DSCP_CLASS1", "DSCP_CLASS2", "DSCP_CLASS3", "DSCP_CLASS4", "DSCP_EXPRESS_FORWARDING", "DSCP_CONTROL_L3", "DSCP_CONTROL_L2"),
 				},
@@ -264,6 +268,42 @@ func (r *ForwardingClassResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.Dscp != nil && data.NoMarking != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dscp"),
+			"Conflicting Configuration",
+			"dscp and no_marking are mutually exclusive.",
+		)
+	}
+	if data.Dscp != nil && !data.TosValue.IsNull() && !data.TosValue.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dscp"),
+			"Conflicting Configuration",
+			"dscp and tos_value are mutually exclusive.",
+		)
+	}
+	if data.DscpBasedQueue != nil && !data.QueueIDToUse.IsNull() && !data.QueueIDToUse.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dscp_based_queue"),
+			"Conflicting Configuration",
+			"dscp_based_queue and queue_id_to_use are mutually exclusive.",
+		)
+	}
+	if data.NoMarking != nil && !data.TosValue.IsNull() && !data.TosValue.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_marking"),
+			"Conflicting Configuration",
+			"no_marking and tos_value are mutually exclusive.",
+		)
+	}
+	if data.NoPolicer != nil && data.Policer != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_policer"),
+			"Conflicting Configuration",
+			"no_policer and policer are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -829,6 +869,13 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 	}
 
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["queue_id_to_use"].(string); ok && v != "" {
+		data.QueueIDToUse = types.StringValue(v)
+	} else if data.QueueIDToUse.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.QueueIDToUse = types.StringNull()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["tos_value"].(float64); ok {
 		data.TosValue = types.Int64Value(int64(v))
 	} else if data.TosValue.IsUnknown() {

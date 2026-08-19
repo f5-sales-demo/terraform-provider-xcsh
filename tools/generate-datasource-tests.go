@@ -46,22 +46,34 @@ var resourceConfigs = map[string]string{
 	// Simple resources - just name/namespace
 	"alert_policy": "",
 
-	"api_crawler":               "",
-	"api_definition":            "",
-	"api_discovery":             "",
-	"api_testing":               "",
-	"app_api_group":             "",
-	"app_firewall":              "",
-	"cdn_cache_rule":            "",
-	"cluster":                   "",
-	"code_base_integration":     "",
-	"dns_compliance_checks":     "",
-	"enhanced_firewall_policy":  "",
-	"ike1":                      "",
-	"ike2":                      "",
-	"ike_phase1_profile":        "",
-	"ike_phase2_profile":        "",
-	"irule":                     "",
+	"api_crawler":    "",
+	"api_definition": "",
+	"api_discovery":  "",
+	"api_testing": `
+  custom_header_value = "terraform-acceptance-test"`,
+	"app_api_group":  "",
+	"app_firewall":   "",
+	"cdn_cache_rule": "",
+	"cluster": `
+  connection_timeout     = 2000
+  endpoint_selection     = "DISTRIBUTED"
+  fallback_policy        = "NO_FALLBACK"
+  http_idle_timeout      = 2000
+  loadbalancer_algorithm = "ROUND_ROBIN"`,
+	"code_base_integration": "",
+	"dns_compliance_checks": `
+  domain_denylist                      = []
+  disallowed_query_type_list           = []
+  disallowed_resource_record_type_list = []`,
+	"enhanced_firewall_policy": "",
+	"ike1":                     "",
+	"ike2":                     "",
+	"ike_phase1_profile":       "",
+	"ike_phase2_profile":       "",
+	"irule": `
+  description      = "Terraform acceptance test iRule"
+  description_spec = "Terraform acceptance test iRule"
+  irule            = "when HTTP_REQUEST { return }"`,
 	"malicious_user_mitigation": "",
 	"namespace":                 "",
 	"rate_limiter":              "",
@@ -69,8 +81,9 @@ var resourceConfigs = map[string]string{
 
 	"sensitive_data_policy": "",
 
-	"trusted_ca_list": "",
-	"virtual_k8s":     "",
+	"trusted_ca_list": `
+  trusted_ca_url = "string:///dGVycmFmb3JtLWFjY2VwdGFuY2UtdGVzdA=="`,
+	"virtual_k8s": "",
 
 	// Resources with required fields
 	"address_allocator": `
@@ -78,7 +91,9 @@ var resourceConfigs = map[string]string{
   mode = "SITE_LOCAL_ADDRESS_ALLOCATOR"`,
 
 	"advertise_policy": `
-  port = 80`,
+  address         = "192.0.2.1"
+  port            = 80
+  skip_xff_append = false`,
 
 	"alert_receiver": `
   email {
@@ -146,6 +161,7 @@ var resourceConfigs = map[string]string{
 	"container_registry": `
   registry          = "registry.example.com"
   user_name         = "testuser"
+  email             = "terraform-acceptance@example.com"
   password {
     clear_secret_info {
       url = "string:///dGVzdC1wYXNzd29yZA=="
@@ -159,7 +175,9 @@ var resourceConfigs = map[string]string{
   string_records {}`,
 
 	"data_type": `
-  is_pii = true
+  compliances       = []
+  is_pii            = true
+  is_sensitive_data = false
   rules {
     key_pattern {
       substring_value = "test"
@@ -203,6 +221,9 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"endpoint": `
+  health_check_port = 8080
+  port              = 8080
+  protocol          = "TCP"
   where {
     site {
       network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
@@ -212,9 +233,11 @@ var resourceConfigs = map[string]string{
 	"fast_acl": `
   site_acl {
     fast_acl_rules {
-      name   = "test-rule"
       action {
-        deny = true
+        simple_action = "DENY"
+      }
+      metadata {
+        name = "test-rule"
       }
       prefix {
         prefix = ["10.0.0.0/8"]
@@ -240,7 +263,10 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"fleet": `
-  fleet_label = "test-fleet"
+  fleet_label                          = "test-fleet"
+  enable_default_fleet_config_download = false
+  operating_system_version             = "default"
+  volterra_software_version            = "default"
   network_connectors {
     disable_forward_proxy = true
   }`,
@@ -442,7 +468,8 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"proxy": `
-  proxy_url = "http://proxy.example.com:8080"`,
+  connection_timeout = 2000
+  proxy_url           = "http://proxy.example.com:8080"`,
 
 	"service_policy": `
   allow_all_requests {}
@@ -467,8 +494,10 @@ var resourceConfigs = map[string]string{
   type = "JWT"`,
 
 	"udp_loadbalancer": `
-  domains     = ["%[1]s.example.com"]
-  listen_port = 53
+  dns_volterra_managed = false
+  domains              = ["%[1]s.example.com"]
+  idle_timeout         = 30000
+  listen_port          = 53
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -486,8 +515,19 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"virtual_host": `
-  domains = ["test.example.com"]
-  proxy   = "SMA_PROXY"`,
+  add_location                  = false
+  connection_idle_timeout       = 600000
+  custom_errors                 = {}
+  disable_default_error_pages   = false
+  disable_dns_resolve           = false
+  domains                       = ["test.example.com"]
+  idle_timeout                  = 600000
+  max_request_header_size       = 60
+  proxy                         = "SMA_PROXY"
+  request_cookies_to_remove     = []
+  request_headers_to_remove     = []
+  response_cookies_to_remove    = []
+  response_headers_to_remove    = []`,
 
 	"virtual_network": `
   global_network {}`,

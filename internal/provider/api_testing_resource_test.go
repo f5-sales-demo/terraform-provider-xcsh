@@ -59,8 +59,9 @@ func testAccAPITestingImportStateIdFunc(resourceName string) resource.ImportStat
 func testAccAPITestingConfig_basic(name string) string {
 	return fmt.Sprintf(`
 resource "xcsh_api_testing" "test" {
-  name       = %[1]q
-  namespace  = "system"
+  name                = %[1]q
+  namespace           = "system"
+  custom_header_value = "terraform-acceptance-test"
 }
 `, name)
 }

@@ -303,8 +303,8 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["sid_prefixes"].([]interface{}); ok && len(v) > 0 {
-		var sid_prefixesList []string
+	if v, ok := apiResource.Spec["sid_prefixes"].([]interface{}); ok {
+		sid_prefixesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				sid_prefixesList = append(sid_prefixesList, s)
@@ -315,7 +315,7 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.SidPrefixes = listVal
 		}
-	} else {
+	} else if data.SidPrefixes.IsNull() || data.SidPrefixes.IsUnknown() {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
@@ -454,8 +454,8 @@ func (r *Srv6NetworkSliceResource) Read(ctx context.Context, req resource.ReadRe
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["sid_prefixes"].([]interface{}); ok && len(v) > 0 {
-		var sid_prefixesList []string
+	if v, ok := apiResource.Spec["sid_prefixes"].([]interface{}); ok {
+		sid_prefixesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				sid_prefixesList = append(sid_prefixesList, s)
@@ -466,7 +466,7 @@ func (r *Srv6NetworkSliceResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.SidPrefixes = listVal
 		}
-	} else {
+	} else if data.SidPrefixes.IsNull() || data.SidPrefixes.IsUnknown() {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
@@ -622,8 +622,8 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["sid_prefixes"].([]interface{}); ok && len(v) > 0 {
-		var sid_prefixesList []string
+	if v, ok := apiResource.Spec["sid_prefixes"].([]interface{}); ok {
+		sid_prefixesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				sid_prefixesList = append(sid_prefixesList, s)
@@ -634,7 +634,7 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.SidPrefixes = listVal
 		}
-	} else {
+	} else if data.SidPrefixes.IsNull() || data.SidPrefixes.IsUnknown() {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {

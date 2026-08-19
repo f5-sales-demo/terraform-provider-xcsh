@@ -329,6 +329,28 @@ func (r *HealthcheckResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.HTTPHealthCheck != nil && data.TCPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http_health_check"),
+			"Conflicting Configuration",
+			"http_health_check and tcp_health_check are mutually exclusive.",
+		)
+	}
+	if data.HTTPHealthCheck != nil && data.UDPICMPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http_health_check"),
+			"Conflicting Configuration",
+			"http_health_check and udp_icmp_health_check are mutually exclusive.",
+		)
+	}
+	if data.TCPHealthCheck != nil && data.UDPICMPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("tcp_health_check"),
+			"Conflicting Configuration",
+			"tcp_health_check and udp_icmp_health_check are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

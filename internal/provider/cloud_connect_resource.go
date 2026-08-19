@@ -682,6 +682,14 @@ func (r *CloudConnectResource) ValidateConfig(ctx context.Context, req resource.
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AWSProvider != nil && data.AzureVNETSite != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("aws_provider"),
+			"Conflicting Configuration",
+			"aws_provider and azure_vnet_site are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

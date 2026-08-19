@@ -375,9 +375,7 @@ func TestAccSensitiveDataPolicyResource_disappears(t *testing.T) {
 				Config: testAccSensitiveDataPolicyResourceConfig_basic(nsName, rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
-					// Delete the resource outside of Terraform
-					// TODO: add acctest.CheckSensitiveDataPolicyDisappears or use generic helper
-					// acctest.CheckResourceExists(resourceName),
+					acctest.CheckResourceDisappears("xcsh_sensitive_data_policy", resourceName),
 				),
 				// Expect the plan to show the resource needs to be recreated
 				ExpectNonEmptyPlan: true,

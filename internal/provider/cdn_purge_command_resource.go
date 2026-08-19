@@ -235,21 +235,49 @@ func (r *CDNPurgeCommandResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.Hostname.IsNull() && !data.Pattern.IsNull() {
+	if data.HardPurge != nil && data.SoftPurge != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hard_purge"),
+			"Conflicting Configuration",
+			"hard_purge and soft_purge are mutually exclusive.",
+		)
+	}
+	if data.PurgeAll != nil && !data.Hostname.IsNull() && !data.Hostname.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("purge_all"),
+			"Conflicting Configuration",
+			"purge_all and hostname are mutually exclusive.",
+		)
+	}
+	if data.PurgeAll != nil && !data.Pattern.IsNull() && !data.Pattern.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("purge_all"),
+			"Conflicting Configuration",
+			"purge_all and pattern are mutually exclusive.",
+		)
+	}
+	if data.PurgeAll != nil && !data.URLPath.IsNull() && !data.URLPath.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("purge_all"),
+			"Conflicting Configuration",
+			"purge_all and url_path are mutually exclusive.",
+		)
+	}
+	if !data.Hostname.IsNull() && !data.Hostname.IsUnknown() && !data.Pattern.IsNull() && !data.Pattern.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("hostname"),
 			"Conflicting Configuration",
 			"hostname and pattern are mutually exclusive.",
 		)
 	}
-	if !data.Hostname.IsNull() && !data.URLPath.IsNull() {
+	if !data.Hostname.IsNull() && !data.Hostname.IsUnknown() && !data.URLPath.IsNull() && !data.URLPath.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("hostname"),
 			"Conflicting Configuration",
 			"hostname and url_path are mutually exclusive.",
 		)
 	}
-	if !data.Pattern.IsNull() && !data.URLPath.IsNull() {
+	if !data.Pattern.IsNull() && !data.Pattern.IsUnknown() && !data.URLPath.IsNull() && !data.URLPath.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("pattern"),
 			"Conflicting Configuration",

@@ -1865,6 +1865,126 @@ func (r *ServicePolicyRuleResource) ValidateConfig(ctx context.Context, req reso
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AnyAsn != nil && data.AsnList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_asn"),
+			"Conflicting Configuration",
+			"any_asn and asn_list are mutually exclusive.",
+		)
+	}
+	if data.AnyAsn != nil && data.AsnMatcher != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_asn"),
+			"Conflicting Configuration",
+			"any_asn and asn_matcher are mutually exclusive.",
+		)
+	}
+	if data.AnyClient != nil && !data.ClientName.IsNull() && !data.ClientName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_client"),
+			"Conflicting Configuration",
+			"any_client and client_name are mutually exclusive.",
+		)
+	}
+	if data.AnyClient != nil && data.ClientNameMatcher != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_client"),
+			"Conflicting Configuration",
+			"any_client and client_name_matcher are mutually exclusive.",
+		)
+	}
+	if data.AnyClient != nil && data.ClientSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_client"),
+			"Conflicting Configuration",
+			"any_client and client_selector are mutually exclusive.",
+		)
+	}
+	if data.AnyClient != nil && data.IPThreatCategoryList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_client"),
+			"Conflicting Configuration",
+			"any_client and ip_threat_category_list are mutually exclusive.",
+		)
+	}
+	if data.AnyIP != nil && data.IPMatcher != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_ip"),
+			"Conflicting Configuration",
+			"any_ip and ip_matcher are mutually exclusive.",
+		)
+	}
+	if data.AnyIP != nil && data.IPPrefixList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_ip"),
+			"Conflicting Configuration",
+			"any_ip and ip_prefix_list are mutually exclusive.",
+		)
+	}
+	if data.AsnList != nil && data.AsnMatcher != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("asn_list"),
+			"Conflicting Configuration",
+			"asn_list and asn_matcher are mutually exclusive.",
+		)
+	}
+	if data.ClientNameMatcher != nil && !data.ClientName.IsNull() && !data.ClientName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("client_name_matcher"),
+			"Conflicting Configuration",
+			"client_name_matcher and client_name are mutually exclusive.",
+		)
+	}
+	if data.ClientNameMatcher != nil && data.ClientSelector != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("client_name_matcher"),
+			"Conflicting Configuration",
+			"client_name_matcher and client_selector are mutually exclusive.",
+		)
+	}
+	if data.ClientNameMatcher != nil && data.IPThreatCategoryList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("client_name_matcher"),
+			"Conflicting Configuration",
+			"client_name_matcher and ip_threat_category_list are mutually exclusive.",
+		)
+	}
+	if data.ClientSelector != nil && !data.ClientName.IsNull() && !data.ClientName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("client_selector"),
+			"Conflicting Configuration",
+			"client_selector and client_name are mutually exclusive.",
+		)
+	}
+	if data.ClientSelector != nil && data.IPThreatCategoryList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("client_selector"),
+			"Conflicting Configuration",
+			"client_selector and ip_threat_category_list are mutually exclusive.",
+		)
+	}
+	if data.IPMatcher != nil && data.IPPrefixList != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ip_matcher"),
+			"Conflicting Configuration",
+			"ip_matcher and ip_prefix_list are mutually exclusive.",
+		)
+	}
+	if data.IPThreatCategoryList != nil && !data.ClientName.IsNull() && !data.ClientName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ip_threat_category_list"),
+			"Conflicting Configuration",
+			"ip_threat_category_list and client_name are mutually exclusive.",
+		)
+	}
+	if data.Ja4TLSFingerprint != nil && data.TLSFingerprintMatcher != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("ja4_tls_fingerprint"),
+			"Conflicting Configuration",
+			"ja4_tls_fingerprint and tls_fingerprint_matcher are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

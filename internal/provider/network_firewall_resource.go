@@ -413,6 +413,42 @@ func (r *NetworkFirewallResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.ActiveEnhancedFirewallPolicies != nil && data.ActiveNetworkPolicies != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_enhanced_firewall_policies"),
+			"Conflicting Configuration",
+			"active_enhanced_firewall_policies and active_network_policies are mutually exclusive.",
+		)
+	}
+	if data.ActiveEnhancedFirewallPolicies != nil && data.DisableNetworkPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_enhanced_firewall_policies"),
+			"Conflicting Configuration",
+			"active_enhanced_firewall_policies and disable_network_policy are mutually exclusive.",
+		)
+	}
+	if data.ActiveFastAcls != nil && data.DisableFastACL != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_fast_acls"),
+			"Conflicting Configuration",
+			"active_fast_acls and disable_fast_acl are mutually exclusive.",
+		)
+	}
+	if data.ActiveForwardProxyPolicies != nil && data.DisableForwardProxyPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_forward_proxy_policies"),
+			"Conflicting Configuration",
+			"active_forward_proxy_policies and disable_forward_proxy_policy are mutually exclusive.",
+		)
+	}
+	if data.ActiveNetworkPolicies != nil && data.DisableNetworkPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("active_network_policies"),
+			"Conflicting Configuration",
+			"active_network_policies and disable_network_policy are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

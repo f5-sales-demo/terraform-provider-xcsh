@@ -7083,6 +7083,111 @@ func (r *VoltstackSiteResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AllowAllUsb != nil && data.DenyAllUsb != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_usb"),
+			"Conflicting Configuration",
+			"allow_all_usb and deny_all_usb are mutually exclusive.",
+		)
+	}
+	if data.AllowAllUsb != nil && data.UsbPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_usb"),
+			"Conflicting Configuration",
+			"allow_all_usb and usb_policy are mutually exclusive.",
+		)
+	}
+	if data.BlockedServices != nil && data.DefaultBlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("blocked_services"),
+			"Conflicting Configuration",
+			"blocked_services and default_blocked_services are mutually exclusive.",
+		)
+	}
+	if data.BondDeviceList != nil && data.NoBondDevices != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("bond_device_list"),
+			"Conflicting Configuration",
+			"bond_device_list and no_bond_devices are mutually exclusive.",
+		)
+	}
+	if data.CustomNetworkConfig != nil && data.DefaultNetworkConfig != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("custom_network_config"),
+			"Conflicting Configuration",
+			"custom_network_config and default_network_config are mutually exclusive.",
+		)
+	}
+	if data.CustomStorageConfig != nil && data.DefaultStorageConfig != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("custom_storage_config"),
+			"Conflicting Configuration",
+			"custom_storage_config and default_storage_config are mutually exclusive.",
+		)
+	}
+	if data.DefaultSriovInterface != nil && data.SriovInterfaces != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_sriov_interface"),
+			"Conflicting Configuration",
+			"default_sriov_interface and sriov_interfaces are mutually exclusive.",
+		)
+	}
+	if data.DenyAllUsb != nil && data.UsbPolicy != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_all_usb"),
+			"Conflicting Configuration",
+			"deny_all_usb and usb_policy are mutually exclusive.",
+		)
+	}
+	if data.DisableGPU != nil && data.EnableGPU != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_gpu"),
+			"Conflicting Configuration",
+			"disable_gpu and enable_gpu are mutually exclusive.",
+		)
+	}
+	if data.DisableGPU != nil && data.EnableVgpu != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_gpu"),
+			"Conflicting Configuration",
+			"disable_gpu and enable_vgpu are mutually exclusive.",
+		)
+	}
+	if data.DisableVM != nil && data.EnableVM != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_vm"),
+			"Conflicting Configuration",
+			"disable_vm and enable_vm are mutually exclusive.",
+		)
+	}
+	if data.EnableGPU != nil && data.EnableVgpu != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("enable_gpu"),
+			"Conflicting Configuration",
+			"enable_gpu and enable_vgpu are mutually exclusive.",
+		)
+	}
+	if data.K8SCluster != nil && data.NoK8SCluster != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("k8s_cluster"),
+			"Conflicting Configuration",
+			"k8s_cluster and no_k8s_cluster are mutually exclusive.",
+		)
+	}
+	if data.LocalControlPlane != nil && data.NoLocalControlPlane != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("local_control_plane"),
+			"Conflicting Configuration",
+			"local_control_plane and no_local_control_plane are mutually exclusive.",
+		)
+	}
+	if data.LogReceiver != nil && data.LogsStreamingDisabled != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("log_receiver"),
+			"Conflicting Configuration",
+			"log_receiver and logs_streaming_disabled are mutually exclusive.",
+		)
+	}
 
 	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
 	// them so that an empty labels block stops proposing their deletion. A configuration
@@ -16066,8 +16171,8 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && len(v) > 0 {
-		var worker_nodesList []string
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok {
+		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				worker_nodesList = append(worker_nodesList, s)
@@ -16078,7 +16183,7 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else {
+	} else if data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown() {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
@@ -22115,8 +22220,8 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && len(v) > 0 {
-		var worker_nodesList []string
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok {
+		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				worker_nodesList = append(worker_nodesList, s)
@@ -22127,7 +22232,7 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else {
+	} else if data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown() {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
@@ -31117,8 +31222,8 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && len(v) > 0 {
-		var worker_nodesList []string
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok {
+		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				worker_nodesList = append(worker_nodesList, s)
@@ -31129,7 +31234,7 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else {
+	} else if data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown() {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {

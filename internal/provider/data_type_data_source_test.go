@@ -40,9 +40,11 @@ func testAccDataTypeDataSourceConfig_basic(name string) string {
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
 resource "xcsh_data_type" "test" {
-  name      = %[1]q
-  namespace = "system"
-  is_pii = true
+  name              = %[1]q
+  namespace         = "system"
+  compliances       = []
+  is_pii            = true
+  is_sensitive_data = false
   rules {
     key_pattern {
       substring_value = "test"

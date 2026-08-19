@@ -53,9 +53,10 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_api_testing" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+	  depends_on          = [time_sleep.wait_for_namespace]
+	  name                = %[2]q
+	  namespace           = xcsh_namespace.test.name
+	  custom_header_value = "terraform-acceptance-test"
 }
 
 data "xcsh_api_testing" "test" {

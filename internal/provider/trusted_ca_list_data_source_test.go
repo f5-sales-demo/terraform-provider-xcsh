@@ -53,9 +53,10 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_trusted_ca_list" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  depends_on     = [time_sleep.wait_for_namespace]
+  name           = %[2]q
+  namespace      = xcsh_namespace.test.name
+  trusted_ca_url = "string:///dGVycmFmb3JtLWFjY2VwdGFuY2UtdGVzdA=="
 }
 
 data "xcsh_trusted_ca_list" "test" {

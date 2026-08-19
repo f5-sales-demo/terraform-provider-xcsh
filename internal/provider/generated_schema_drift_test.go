@@ -9,6 +9,7 @@ import (
 	"go/token"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strconv"
 	"strings"
@@ -136,6 +137,200 @@ func topLevelSchemaNames(t *testing.T, path string) map[string]bool {
 		}
 	}
 	return names
+}
+
+// topLevelRequiredSchemaAttributes returns required attributes directly under
+// Schema.Attributes. Required nested blocks are intentionally out of scope: the
+// framework represents block cardinality with validators rather than a Required
+// field, while the live-suite regression in #1636 was caused by newly required
+// top-level attributes silently missing from skipped acceptance fixtures.
+func topLevelRequiredSchemaAttributes(t *testing.T, path string) []string {
+	t.Helper()
+
+	file, err := parser.ParseFile(token.NewFileSet(), path, nil, parser.SkipObjectResolution)
+	if err != nil {
+		t.Fatalf("parsing %s: %v", path, err)
+	}
+
+	var schemaLit *ast.CompositeLit
+	ast.Inspect(file, func(n ast.Node) bool {
+		if schemaLit != nil {
+			return false
+		}
+		fn, ok := n.(*ast.FuncDecl)
+		if !ok || fn.Name.Name != "Schema" || fn.Recv == nil {
+			return true
+		}
+		ast.Inspect(fn, func(inner ast.Node) bool {
+			lit, ok := inner.(*ast.CompositeLit)
+			if !ok {
+				return true
+			}
+			if sel, ok := lit.Type.(*ast.SelectorExpr); ok && sel.Sel.Name == "Schema" {
+				schemaLit = lit
+				return false
+			}
+			return true
+		})
+		return false
+	})
+	if schemaLit == nil {
+		t.Fatalf("found no Schema literal in %s", path)
+	}
+
+	var required []string
+	for _, elt := range schemaLit.Elts {
+		section, ok := elt.(*ast.KeyValueExpr)
+		if !ok {
+			continue
+		}
+		key, ok := section.Key.(*ast.Ident)
+		if !ok || key.Name != "Attributes" {
+			continue
+		}
+		attributes, ok := section.Value.(*ast.CompositeLit)
+		if !ok {
+			continue
+		}
+		for _, entry := range attributes.Elts {
+			attribute, ok := entry.(*ast.KeyValueExpr)
+			if !ok {
+				continue
+			}
+			nameLiteral, ok := attribute.Key.(*ast.BasicLit)
+			if !ok || nameLiteral.Kind != token.STRING {
+				continue
+			}
+			name, err := strconv.Unquote(nameLiteral.Value)
+			if err != nil {
+				continue
+			}
+			definition, ok := attribute.Value.(*ast.CompositeLit)
+			if !ok {
+				continue
+			}
+			for _, field := range definition.Elts {
+				setting, ok := field.(*ast.KeyValueExpr)
+				if !ok {
+					continue
+				}
+				settingName, ok := setting.Key.(*ast.Ident)
+				if !ok || settingName.Name != "Required" {
+					continue
+				}
+				value, ok := setting.Value.(*ast.Ident)
+				if ok && value.Name == "true" {
+					required = append(required, name)
+				}
+			}
+		}
+	}
+	sort.Strings(required)
+	return required
+}
+
+func stringLiteralsContaining(t *testing.T, path, needle string) []string {
+	t.Helper()
+
+	file, err := parser.ParseFile(token.NewFileSet(), path, nil, parser.SkipObjectResolution)
+	if err != nil {
+		t.Fatalf("parsing %s: %v", path, err)
+	}
+
+	var matches []string
+	ast.Inspect(file, func(n ast.Node) bool {
+		literal, ok := n.(*ast.BasicLit)
+		if !ok || literal.Kind != token.STRING {
+			return true
+		}
+		value, err := strconv.Unquote(literal.Value)
+		if err == nil && strings.Contains(value, needle) {
+			matches = append(matches, value)
+		}
+		return true
+	})
+	return matches
+}
+
+func TestGeneratedSchemaFixturesIncludeCurrentRequiredArguments(t *testing.T) {
+	type fixtureContract struct {
+		resource         string
+		testFile         string
+		expectedFixtures int
+	}
+
+	contracts := []fixtureContract{
+		{"advertise_policy", "advertise_policy_data_source_test.go", 1},
+		{"api_testing", "api_testing_data_source_test.go", 1},
+		{"api_testing", "api_testing_resource_test.go", 1},
+		{"cluster", "cluster_data_source_test.go", 1},
+		{"cluster", "cluster_resource_test.go", 1},
+		{"container_registry", "container_registry_data_source_test.go", 1},
+		{"data_type", "data_type_data_source_test.go", 1},
+		{"data_type", "data_type_resource_test.go", 6},
+		{"dns_compliance_checks", "dns_compliance_checks_data_source_test.go", 1},
+		{"dns_compliance_checks", "dns_compliance_checks_resource_test.go", 1},
+		{"endpoint", "endpoint_data_source_test.go", 1},
+		{"endpoint", "endpoint_resource_test.go", 1},
+		{"fleet", "fleet_data_source_test.go", 1},
+		{"fleet", "fleet_resource_test.go", 1},
+		{"irule", "irule_data_source_test.go", 1},
+		{"irule", "irule_resource_test.go", 1},
+		{"proxy", "proxy_data_source_test.go", 1},
+		{"proxy", "proxy_resource_test.go", 1},
+		{"securemesh_site", "securemesh_site_resource_test.go", 5},
+		{"trusted_ca_list", "trusted_ca_list_data_source_test.go", 1},
+		{"udp_loadbalancer", "udp_loadbalancer_resource_test.go", 6},
+		{"virtual_host", "virtual_host_data_source_test.go", 1},
+		{"virtual_host", "virtual_host_resource_test.go", 6},
+		{"virtual_network", "virtual_network_data_source_test.go", 1},
+		{"virtual_network", "virtual_network_resource_test.go", 5},
+	}
+
+	for _, contract := range contracts {
+		contract := contract
+		t.Run(contract.testFile, func(t *testing.T) {
+			required := topLevelRequiredSchemaAttributes(t, contract.resource+"_resource.go")
+			if len(required) == 0 {
+				t.Fatalf("%s has no required top-level attributes; schema extraction would be vacuous", contract.resource)
+			}
+
+			fixtures := stringLiteralsContaining(t, contract.testFile, `resource "xcsh_`+contract.resource+`" "test"`)
+			if len(fixtures) != contract.expectedFixtures {
+				t.Fatalf("found %d %s fixtures, want %d", len(fixtures), contract.resource, contract.expectedFixtures)
+			}
+
+			for fixtureIndex, fixture := range fixtures {
+				for _, attribute := range required {
+					assignment := regexp.MustCompile(`(?m)^\s*` + regexp.QuoteMeta(attribute) + `\s*=`)
+					if !assignment.MatchString(fixture) {
+						t.Errorf("fixture %d for xcsh_%s is missing required argument %q", fixtureIndex+1, contract.resource, attribute)
+					}
+				}
+			}
+		})
+	}
+}
+
+func TestCorrectNestedBlockSyntaxInAcceptanceFixtures(t *testing.T) {
+	certificateFixtures := stringLiteralsContaining(t, "certificate_data_source_test.go", `resource "xcsh_certificate" "test"`)
+	if len(certificateFixtures) != 1 {
+		t.Fatalf("found %d certificate fixtures, want 1", len(certificateFixtures))
+	}
+	if regexp.MustCompile(`(?m)^\s*private_key\s*=`).MatchString(certificateFixtures[0]) ||
+		!regexp.MustCompile(`(?m)^\s*private_key\s*\{`).MatchString(certificateFixtures[0]) {
+		t.Error("certificate fixture must configure private_key as a nested block")
+	}
+
+	fastACLFixtures := stringLiteralsContaining(t, "fast_acl_data_source_test.go", `resource "xcsh_fast_acl" "test"`)
+	if len(fastACLFixtures) != 1 {
+		t.Fatalf("found %d fast ACL fixtures, want 1", len(fastACLFixtures))
+	}
+	for _, required := range []string{"site_acl {", "fast_acl_rules {", "action {", `simple_action = "DENY"`, "prefix {"} {
+		if !strings.Contains(fastACLFixtures[0], required) {
+			t.Errorf("fast ACL fixture is missing %q", required)
+		}
+	}
 }
 
 // checkedAttributePaths returns every literal attribute path asserted in a test

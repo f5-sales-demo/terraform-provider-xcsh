@@ -1154,6 +1154,63 @@ func (r *ClusterResource) ValidateConfig(ctx context.Context, req resource.Valid
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AutoHTTPConfig != nil && data.Http1Config != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("auto_http_config"),
+			"Conflicting Configuration",
+			"auto_http_config and http1_config are mutually exclusive.",
+		)
+	}
+	if data.AutoHTTPConfig != nil && data.Http2Options != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("auto_http_config"),
+			"Conflicting Configuration",
+			"auto_http_config and http2_options are mutually exclusive.",
+		)
+	}
+	if data.DisableProxyProtocol != nil && data.ProxyProtocolV1 != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_proxy_protocol"),
+			"Conflicting Configuration",
+			"disable_proxy_protocol and proxy_protocol_v1 are mutually exclusive.",
+		)
+	}
+	if data.DisableProxyProtocol != nil && data.ProxyProtocolV2 != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_proxy_protocol"),
+			"Conflicting Configuration",
+			"disable_proxy_protocol and proxy_protocol_v2 are mutually exclusive.",
+		)
+	}
+	if data.Http1Config != nil && data.Http2Options != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("http1_config"),
+			"Conflicting Configuration",
+			"http1_config and http2_options are mutually exclusive.",
+		)
+	}
+	if data.NoPanicThreshold != nil && !data.PanicThreshold.IsNull() && !data.PanicThreshold.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_panic_threshold"),
+			"Conflicting Configuration",
+			"no_panic_threshold and panic_threshold are mutually exclusive.",
+		)
+	}
+	if data.NoRequestLimitPerConnection != nil && !data.MaxRequestsPerConnection.IsNull() && !data.MaxRequestsPerConnection.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_request_limit_per_connection"),
+			"Conflicting Configuration",
+			"no_request_limit_per_connection and max_requests_per_connection are mutually exclusive.",
+		)
+	}
+	if data.ProxyProtocolV1 != nil && data.ProxyProtocolV2 != nil {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("proxy_protocol_v1"),
+			"Conflicting Configuration",
+			"proxy_protocol_v1 and proxy_protocol_v2 are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

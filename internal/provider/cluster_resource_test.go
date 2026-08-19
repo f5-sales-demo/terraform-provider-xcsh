@@ -74,9 +74,14 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_cluster" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  depends_on             = [time_sleep.wait_for_namespace]
+  name                   = %[2]q
+  namespace              = xcsh_namespace.test.name
+  connection_timeout     = 2000
+  endpoint_selection     = "DISTRIBUTED"
+  fallback_policy        = "NO_FALLBACK"
+  http_idle_timeout      = 2000
+  loadbalancer_algorithm = "ROUND_ROBIN"
 }
 `, nsName, name))
 }
