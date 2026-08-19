@@ -1537,6 +1537,10 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 		}
 	}
 	workflowText := string(workflowBytes)
+	mockScript := extractWorkflowRunStep(t, "acc-tests.yml", "mock-tests", "Run mock tests")
+	if !strings.Contains(mockScript, "go test -json \\\n  -p 1 \\") {
+		t.Fatal("mock acceptance tests do not serialize package builds for the constrained runner")
+	}
 	for _, forbidden := range []string{"P12", "p12", "GO_VERSION", "go-version:", "RUNNER_NAME", "batch_delay"} {
 		if strings.Contains(workflowText, forbidden) {
 			t.Fatalf("acceptance workflow retains pre-production compatibility or moving-toolchain marker %q", forbidden)

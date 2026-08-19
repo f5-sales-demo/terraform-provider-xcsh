@@ -130,6 +130,7 @@ jobs:
           # Tests include both provider resources AND provider-defined functions
           TEST_STATUS=0
           TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
+            -p 1 \
             -parallel "$PARALLEL" \
             -timeout "${TIMEOUT}m" \
             -run 'TestMock.*' \
