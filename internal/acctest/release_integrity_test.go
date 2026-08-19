@@ -1507,11 +1507,12 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 			ContinueOnError any    `yaml:"continue-on-error"`
 			If              string `yaml:"if"`
 			Steps           []struct {
-				Name            string         `yaml:"name"`
-				Uses            string         `yaml:"uses"`
-				With            map[string]any `yaml:"with"`
-				ContinueOnError any            `yaml:"continue-on-error"`
-				If              string         `yaml:"if"`
+				Name            string            `yaml:"name"`
+				Env             map[string]string `yaml:"env"`
+				Uses            string            `yaml:"uses"`
+				With            map[string]any    `yaml:"with"`
+				ContinueOnError any               `yaml:"continue-on-error"`
+				If              string            `yaml:"if"`
 			} `yaml:"steps"`
 		} `yaml:"jobs"`
 	}
@@ -1540,6 +1541,28 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 	mockScript := extractWorkflowRunStep(t, "acc-tests.yml", "mock-tests", "Run mock tests")
 	if !strings.Contains(mockScript, "go test -json \\\n  -p 1 \\") {
 		t.Fatal("mock acceptance tests do not serialize package builds for the constrained runner")
+	}
+	if !strings.Contains(mockScript, "-gcflags='all=-N -l'") {
+		t.Fatal("mock acceptance tests do not disable memory-heavy compiler optimization")
+	}
+	mockStepFound := false
+	for _, step := range workflow.Jobs["mock-tests"].Steps {
+		if step.Name != "Run mock tests" {
+			continue
+		}
+		mockStepFound = true
+		for key, want := range map[string]string{
+			"GOGC":       "10",
+			"GOMEMLIMIT": "4GiB",
+			"GOMAXPROCS": "1",
+		} {
+			if got := step.Env[key]; got != want {
+				t.Fatalf("mock acceptance %s = %q, want %q", key, got, want)
+			}
+		}
+	}
+	if !mockStepFound {
+		t.Fatal("mock acceptance test step not found")
 	}
 	for _, forbidden := range []string{"P12", "p12", "GO_VERSION", "go-version:", "RUNNER_NAME", "batch_delay"} {
 		if strings.Contains(workflowText, forbidden) {
