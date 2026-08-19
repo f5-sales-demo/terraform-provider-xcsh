@@ -78,6 +78,111 @@ func TestParseOperationCatalogPreservesExactOperationFacts(t *testing.T) {
 	}
 }
 
+func TestParseOperationCatalogPreservesOptionalResponseSchema(t *testing.T) {
+	raw := strings.Replace(
+		validOperationCatalog,
+		`"surface": "config"`,
+		`"surface": "config", "responseSchema": "probeResponse"`,
+		1,
+	)
+	catalog, err := ParseOperationCatalog([]byte(raw))
+	if err != nil {
+		t.Fatalf("ParseOperationCatalog() error = %v", err)
+	}
+	identity, ok := catalog.Identity("ves.io.schema.probe")
+	if !ok {
+		t.Fatal("Identity(ves.io.schema.probe) was not found")
+	}
+	if got := identity.Operations[0].ResponseSchema; got != "probeResponse" {
+		t.Fatalf("ResponseSchema = %q, want probeResponse", got)
+	}
+	if got := identity.Operations[1].ResponseSchema; got != "" {
+		t.Fatalf("absent ResponseSchema = %q, want empty", got)
+	}
+}
+
+func TestParseOperationCatalogRejectsInvalidResponseSchema(t *testing.T) {
+	tests := []struct {
+		name     string
+		fragment string
+		wantErr  string
+	}{
+		{name: "null", fragment: `"responseSchema": null`, wantErr: "responseSchema must be absent or a non-empty schema name"},
+		{name: "empty", fragment: `"responseSchema": ""`, wantErr: "responseSchema must be absent or a non-empty schema name"},
+		{name: "non-string", fragment: `"responseSchema": 42`, wantErr: "responseSchema must be absent or a non-empty schema name"},
+		{name: "malformed", fragment: `"responseSchema": "probe-response"`, wantErr: "responseSchema must be absent or a non-empty schema name"},
+		{name: "duplicate", fragment: `"responseSchema": "first", "responseSchema": "second"`, wantErr: "duplicate field"},
+		{name: "unknown field", fragment: `"unexpectedResponseSchema": "probeResponse"`, wantErr: `unknown field "unexpectedResponseSchema"`},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			raw := strings.Replace(
+				validOperationCatalog,
+				`"surface": "config"`,
+				`"surface": "config", `+tt.fragment,
+				1,
+			)
+			_, err := ParseOperationCatalog([]byte(raw))
+			if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+				t.Fatalf("ParseOperationCatalog() error = %v, want substring %q", err, tt.wantErr)
+			}
+		})
+	}
+}
+
+func TestParseOperationCatalogPreservesOptionalOperationRole(t *testing.T) {
+	raw := strings.Replace(
+		validOperationCatalog,
+		`"surface": "config"`,
+		`"surface": "config", "role": "query"`,
+		1,
+	)
+	catalog, err := ParseOperationCatalog([]byte(raw))
+	if err != nil {
+		t.Fatalf("ParseOperationCatalog() error = %v", err)
+	}
+	identity, ok := catalog.Identity("ves.io.schema.probe")
+	if !ok {
+		t.Fatal("Identity(ves.io.schema.probe) was not found")
+	}
+	if got := identity.Operations[0].Role; got != "query" {
+		t.Fatalf("Role = %q, want query", got)
+	}
+	if got := identity.Operations[1].Role; got != "" {
+		t.Fatalf("absent Role = %q, want empty", got)
+	}
+}
+
+func TestParseOperationCatalogRejectsInvalidOperationRole(t *testing.T) {
+	tests := []struct {
+		name     string
+		fragment string
+		wantErr  string
+	}{
+		{name: "null", fragment: `"role": null`, wantErr: "role must be absent, query, or issuance"},
+		{name: "empty", fragment: `"role": ""`, wantErr: "role must be absent, query, or issuance"},
+		{name: "non-string", fragment: `"role": 42`, wantErr: "role must be absent, query, or issuance"},
+		{name: "unsupported", fragment: `"role": "lookup"`, wantErr: "role must be absent, query, or issuance"},
+		{name: "duplicate", fragment: `"role": "query", "role": "issuance"`, wantErr: "duplicate field"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			raw := strings.Replace(
+				validOperationCatalog,
+				`"surface": "config"`,
+				`"surface": "config", `+tt.fragment,
+				1,
+			)
+			_, err := ParseOperationCatalog([]byte(raw))
+			if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+				t.Fatalf("ParseOperationCatalog() error = %v, want substring %q", err, tt.wantErr)
+			}
+		})
+	}
+}
+
 func TestParseOperationCatalogFromDir(t *testing.T) {
 	dir := t.TempDir()
 	if err := os.WriteFile(filepath.Join(dir, "api-catalog.json"), []byte(validOperationCatalog), 0o600); err != nil {
