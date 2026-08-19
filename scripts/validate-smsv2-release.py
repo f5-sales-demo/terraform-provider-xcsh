@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
+# pylint: disable=invalid-name,too-many-branches
+# ruff: noqa: D103,TRY003,EM102,PLR2004,FURB162
 """Reject unproven or tampered AWS SMSv2 release capability assets."""
+
 import datetime as dt
 import hashlib
 import json
@@ -21,9 +24,18 @@ def main() -> None:
         manifest = json.loads((directory / "smsv2-contract-manifest.json").read_text())
     except (OSError, json.JSONDecodeError) as error:
         fail(f"malformed manifest: {error}")
-    if set(manifest) != {"assets", "contract_id", "contract_version", "release", "schema_version"}:
+    if set(manifest) != {
+        "assets",
+        "contract_id",
+        "contract_version",
+        "release",
+        "schema_version",
+    }:
         fail("manifest fields are malformed")
-    if manifest["schema_version"] != 1 or manifest["contract_id"] != "f5xc-ce-automation/v1":
+    if (
+        manifest["schema_version"] != 1
+        or manifest["contract_id"] != "f5xc-ce-automation/v1"
+    ):
         fail("manifest contract identity is unsupported")
     if manifest["release"] != {"tag": tag, "commit": commit}:
         fail("manifest release identity does not match the resolved tag")
@@ -41,7 +53,10 @@ def main() -> None:
     except (OSError, json.JSONDecodeError) as error:
         fail(f"malformed SMSv2 asset: {error}")
     aws = contract.get("providers", {}).get("aws", {})
-    if contract.get("contract_id") != manifest["contract_id"] or aws.get("availability") != "evidence_backed":
+    if (
+        contract.get("contract_id") != manifest["contract_id"]
+        or aws.get("availability") != "evidence_backed"
+    ):
         fail("AWS contract identity or evidence state is invalid")
     if aws.get("capabilities") != {
         "aws_ce_create": "available",
@@ -50,18 +65,31 @@ def main() -> None:
     }:
         fail("AWS capability declaration is unsupported")
     api = contract.get("api", {})
-    if api.get("namespace") != "system" or set(api.get("operations", [])) != {"create", "read", "replace", "delete"}:
+    if api.get("namespace") != "system" or set(api.get("operations", [])) != {
+        "create",
+        "read",
+        "replace",
+        "delete",
+    }:
         fail("system-namespace CRUD declaration is incomplete")
     try:
-        observed_at = dt.datetime.fromisoformat(evidence["observed_at"].replace("Z", "+00:00"))
+        observed_at = dt.datetime.fromisoformat(
+            evidence["observed_at"].replace("Z", "+00:00")
+        )
     except (KeyError, AttributeError, ValueError):
         fail("evidence observation timestamp is invalid")
-    if dt.datetime.now(dt.timezone.utc) - observed_at > dt.timedelta(days=90):
+    if dt.datetime.now(dt.UTC) - observed_at > dt.timedelta(days=90):
         fail("evidence is stale")
     receipts = evidence.get("receipts")
-    if evidence.get("contract_id") != manifest["contract_id"] or not isinstance(receipts, list) or not receipts:
+    if (
+        evidence.get("contract_id") != manifest["contract_id"]
+        or not isinstance(receipts, list)
+        or not receipts
+    ):
         fail("evidence receipt is malformed")
-    if not all(item.get("sanitized") is True and item.get("redaction") for item in receipts):
+    if not all(
+        item.get("sanitized") is True and item.get("redaction") for item in receipts
+    ):
         fail("evidence receipt is not sanitized")
 
 
