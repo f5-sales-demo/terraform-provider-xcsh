@@ -214,11 +214,14 @@ if [ -e "$pending" ]; then
         # branch. Permit that exact inherited state only while validating a PR:
         # the candidate must not create or alter either pending-delivery file,
         # and release-ready validation always requires a fresh exact binding.
-        [ -n "$base_ref" ] &&
+        if [ -n "$base_ref" ] &&
           git cat-file -e "${base_ref}:${pending}" 2>/dev/null &&
           git cat-file -e "${base_ref}:${regeneration}" 2>/dev/null &&
-          git diff --quiet "$base_ref" HEAD -- "$pending" "$regeneration" ||
+          git diff --quiet "$base_ref" HEAD -- "$pending" "$regeneration"; then
+          :
+        else
           fail "regeneration source is not an ancestor of HEAD"
+        fi
       fi
     fi
   elif [ "$release_ready" = true ]; then
