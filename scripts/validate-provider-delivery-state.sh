@@ -209,15 +209,11 @@ if [ -e "$pending" ]; then
       [ "$source_commit" = "$(git rev-parse HEAD^)" ] ||
         fail "regeneration receipt source is not the exact release parent"
     else
-      # `source_commit` identifies the source event that was regenerated. A
-      # source PR may be squash-merged, in which case GitHub puts a distinct
-      # squash commit on main and the attested source is intentionally not an
-      # ancestor of HEAD. The on-merge workflow binds this identity to the
-      # exact associated PR and release commit; this reusable check verifies
-      # that the retained identity names a real commit without imposing an
-      # incompatible merge topology.
-      git cat-file -e "${source_commit}^{commit}" 2>/dev/null ||
-        fail "regeneration source commit is unavailable"
+      # The merge-time on-merge workflow attests this source against the exact
+      # associated PR. PR and release checkouts need not retain a squash PR's
+      # source object, so the reusable validator deliberately verifies only
+      # the receipt shape and durable bindings above.
+      :
     fi
   elif [ "$release_ready" = true ]; then
     fail "pending delivery has no regeneration receipt"

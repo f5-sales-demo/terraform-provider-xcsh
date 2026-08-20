@@ -2067,7 +2067,7 @@ func TestDeliveryStateValidatorAcceptsSquashMergedSourceCommit(t *testing.T) {
 	runReleaseTestCommand(t, fixture.repo, []string{"TARGET_REPOSITORY=" + dispatchTarget}, validator)
 }
 
-func TestDeliveryStateValidatorRejectsUnavailableSourceCommit(t *testing.T) {
+func TestDeliveryStateValidatorAcceptsUnfetchedSourceCommit(t *testing.T) {
 	root := testRepositoryRoot(t)
 	fixture := newReceiptFixture(t, false, false)
 	receiptPath := filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")
@@ -2089,8 +2089,8 @@ func TestDeliveryStateValidatorRejectsUnavailableSourceCommit(t *testing.T) {
 	cmd.Dir = fixture.repo
 	cmd.Env = append(os.Environ(), "TARGET_REPOSITORY="+dispatchTarget)
 	output, runErr := cmd.CombinedOutput()
-	if runErr == nil || !strings.Contains(string(output), "source commit is unavailable") {
-		t.Fatalf("unavailable regeneration source was accepted: err=%v\n%s", runErr, output)
+	if runErr != nil {
+		t.Fatalf("unfetched regeneration source was rejected: err=%v\n%s", runErr, output)
 	}
 }
 
