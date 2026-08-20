@@ -658,11 +658,6 @@ jobs:
         with:
           token: ${{ github.token }}
 
-      - name: Set up Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: 'go.mod'
-          cache: true
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
@@ -670,30 +665,6 @@ jobs:
           terraform_version: 1.15.8
           terraform_wrapper: false
 
-      - name: Install tfplugindocs
-        run: |
-          # Retry logic for go install (network-dependent)
-          max_attempts=3
-          attempt=1
-          while [ "$attempt" -le "$max_attempts" ]; do
-            echo "::group::Install tfplugindocs - Attempt $attempt of $max_attempts"
-            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0; then
-              echo "::endgroup::"
-              break
-            fi
-            echo "::endgroup::"
-            attempt=$((attempt + 1))
-            if [ "$attempt" -le "$max_attempts" ]; then
-              sleep_time=$((2 ** attempt * 5))
-              echo "::warning::go install failed, retrying in ${sleep_time}s..."
-              sleep "$sleep_time"
-            fi
-          done
-          if [ "$attempt" -gt "$max_attempts" ]; then
-            echo "::error::Failed to install tfplugindocs after $max_attempts attempts"
-            exit 1
-          fi
-          echo "$HOME/go/bin" >> "$GITHUB_PATH"
 
       - name: Regenerate provider (if needed)
         if: needs.regenerate-provider.outputs.changed == 'true'
