@@ -41,7 +41,7 @@ func RenderResourceExampleHCL(rt *openapi.ResourceTemplate, resourceName, namesp
 	sb.WriteString(fmt.Sprintf("# Basic %s configuration\n", human))
 	sb.WriteString(fmt.Sprintf("resource \"xcsh_%s\" \"example\" {\n", resourceName))
 	sb.WriteString(fmt.Sprintf("  name      = \"example-%s\"\n", strings.ReplaceAll(resourceName, "_", "-")))
-	sb.WriteString(fmt.Sprintf("  namespace = \"%s\"\n", namespaceVal))
+	sb.WriteString(fmt.Sprintf("  %s = %q\n", "namespace", namespaceVal))
 
 	// Required top-level, non-block spec attributes with schema-valid values.
 	var required []openapi.TerraformAttribute
@@ -71,7 +71,7 @@ func RenderDataSourceExampleHCL(resourceName, namespaceVal string) string {
 	sb.WriteString(fmt.Sprintf("# Look up an existing %s by name\n", human))
 	sb.WriteString(fmt.Sprintf("data \"xcsh_%s\" \"example\" {\n", resourceName))
 	sb.WriteString(fmt.Sprintf("  name      = \"example-%s\"\n", strings.ReplaceAll(resourceName, "_", "-")))
-	sb.WriteString(fmt.Sprintf("  namespace = \"%s\"\n", namespaceVal))
+	sb.WriteString(fmt.Sprintf("  %s = %q\n", "namespace", namespaceVal))
 	sb.WriteString("}\n")
 	// The output is not decoration: without something referencing it, the data
 	// source is an unused declaration and tflint rejects the example

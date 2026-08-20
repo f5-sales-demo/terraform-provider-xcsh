@@ -10352,6 +10352,10 @@ func (r *SecuremeshSiteV2Resource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	validateSecuremeshSiteV2AWSContract(ctx, data, resp)
+	if resp.Diagnostics.HasError() {
+		return
+	}
 
 	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
 	// them so that an empty labels block stops proposing their deletion. A configuration
