@@ -2036,6 +2036,64 @@ func TestDeliveryStateValidatorRejectsCrossBindingAndDeletion(t *testing.T) {
 	}
 }
 
+func TestDeliveryStateValidatorAcceptsSquashMergedSourceCommit(t *testing.T) {
+	root := testRepositoryRoot(t)
+	fixture := newReceiptFixture(t, false, false)
+
+	regenerationCommit := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+	sourceBase := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD^"))
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "checkout", "-q", "--detach", sourceBase)
+	writeReleaseTestFile(t, fixture.repo, "squash-source.txt", "source PR content\n", 0o600)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "squash-source.txt")
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "source PR commit")
+	squashSource := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "checkout", "-q", "--detach", regenerationCommit)
+	receiptPath := filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")
+	data, err := os.ReadFile(receiptPath) //nolint:gosec // isolated test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	var receipt map[string]any
+	if err := json.Unmarshal(data, &receipt); err != nil {
+		t.Fatal(err)
+	}
+	receipt["source_commit"] = squashSource
+	writeReleaseTestJSON(t, receiptPath, receipt)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "add", receiptPath)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "--amend", "--no-edit", "-q")
+
+	validator := filepath.Join(root, "scripts", "validate-provider-delivery-state.sh")
+	runReleaseTestCommand(t, fixture.repo, []string{"TARGET_REPOSITORY=" + dispatchTarget}, validator)
+}
+
+func TestDeliveryStateValidatorRejectsUnavailableSourceCommit(t *testing.T) {
+	root := testRepositoryRoot(t)
+	fixture := newReceiptFixture(t, false, false)
+	receiptPath := filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")
+	data, err := os.ReadFile(receiptPath) //nolint:gosec // isolated test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	var receipt map[string]any
+	if err := json.Unmarshal(data, &receipt); err != nil {
+		t.Fatal(err)
+	}
+	receipt["source_commit"] = strings.Repeat("f", 40)
+	writeReleaseTestJSON(t, receiptPath, receipt)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "add", receiptPath)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "--amend", "--no-edit", "-q")
+
+	validator := filepath.Join(root, "scripts", "validate-provider-delivery-state.sh")
+	cmd := exec.Command(validator)
+	cmd.Dir = fixture.repo
+	cmd.Env = append(os.Environ(), "TARGET_REPOSITORY="+dispatchTarget)
+	output, runErr := cmd.CombinedOutput()
+	if runErr == nil || !strings.Contains(string(output), "source commit is unavailable") {
+		t.Fatalf("unavailable regeneration source was accepted: err=%v\n%s", runErr, output)
+	}
+}
+
 func TestDeliveryStateValidatorRejectsDuplicateIdentities(t *testing.T) {
 	for _, tc := range []struct {
 		name                       string
