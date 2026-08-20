@@ -7,11 +7,12 @@
   },
   "defaults": {
     "replicas": 1,
-    "profile": "ubuntu-24.04"
+    "profile": "ubuntu-24.04",
+    "standby_profiles": ["ubuntu-24.04"]
   },
   "profiles": {
     "ubuntu-24.04": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:81fda9916c2d5ec72396ae57ffcf4403b36f837d91931f255e3b6da23caaea1b",
       "labels": ["ubuntu-24.04"],
       "memory": "8g",
       "cpus": "4",
@@ -21,7 +22,7 @@
       "docker_socket": false
     },
     "ubuntu-24.04-secondary": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:81fda9916c2d5ec72396ae57ffcf4403b36f837d91931f255e3b6da23caaea1b",
       "labels": ["ubuntu-24.04"],
       "memory": "8g",
       "cpus": "4",
@@ -31,7 +32,7 @@
       "docker_socket": false
     },
     "automation": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:81fda9916c2d5ec72396ae57ffcf4403b36f837d91931f255e3b6da23caaea1b",
       "labels": ["automation"],
       "memory": "8g",
       "cpus": "4",
@@ -41,7 +42,7 @@
       "docker_socket": false
     },
     "ubuntu-22.04": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:81fda9916c2d5ec72396ae57ffcf4403b36f837d91931f255e3b6da23caaea1b",
       "labels": ["ubuntu-22.04"],
       "memory": "8g",
       "cpus": "4",
@@ -51,7 +52,7 @@
       "docker_socket": false
     },
     "container-build": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:d7253128030110789e9df797e847ddd0298b15ea0c4c4c9546d53e1f8dacf208",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:399d43042850002f5c35ed41d7f4ab2ff393838b6cdfb7a7ae59333415de08fb",
       "labels": ["container-build"],
       "memory": "16g",
       "cpus": "6",
