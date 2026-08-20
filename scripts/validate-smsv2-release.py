@@ -76,6 +76,8 @@ def main() -> None:
         observed_at = dt.datetime.fromisoformat(
             evidence["observed_at"].replace("Z", "+00:00")
         )
+        if observed_at.tzinfo is None or observed_at.utcoffset() is None:
+            fail("evidence observation timestamp must include a timezone")
     except (KeyError, AttributeError, ValueError):
         fail("evidence observation timestamp is invalid")
     if dt.datetime.now(dt.UTC) - observed_at > dt.timedelta(days=90):

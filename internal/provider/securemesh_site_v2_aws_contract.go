@@ -61,9 +61,10 @@ func validateSecuremeshSiteV2AWSContract(
 			continue
 		}
 		var interfaces []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
-		resp.Diagnostics.Append(node.InterfaceList.ElementsAs(ctx, &interfaces, false)...)
-		if resp.Diagnostics.HasError() {
-			return
+		interfaceDiags := node.InterfaceList.ElementsAs(ctx, &interfaces, false)
+		resp.Diagnostics.Append(interfaceDiags...)
+		if interfaceDiags.HasError() {
+			continue
 		}
 		macs := map[string]bool{}
 		roles := map[string]bool{}

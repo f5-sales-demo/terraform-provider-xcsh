@@ -32,6 +32,18 @@ jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --a
 }' >"$work/smsv2-contract-manifest.json"
 
 python3 "$validator" "$work" "$tag" "$commit"
+naive="$work/naive"
+mkdir "$naive"
+cp "$work/smsv2-contract.json" "$work/smsv2-evidence-receipt.json" "$work/smsv2-contract-manifest.json" "$naive/"
+jq '.observed_at = "2026-08-01T12:00:00"' "$naive/smsv2-evidence-receipt.json" >"$naive/evidence.json"
+mv "$naive/evidence.json" "$naive/smsv2-evidence-receipt.json"
+naive_evidence_sha="sha256:$(sha256sum "$naive/smsv2-evidence-receipt.json" | awk '{print $1}')"
+jq --arg digest "$naive_evidence_sha" '.assets["smsv2-evidence-receipt.json"] = $digest' "$naive/smsv2-contract-manifest.json" >"$naive/manifest.json"
+mv "$naive/manifest.json" "$naive/smsv2-contract-manifest.json"
+if python3 "$validator" "$naive" "$tag" "$commit" >/dev/null 2>&1; then
+  echo "timezone-naive evidence was accepted" >&2
+  exit 1
+fi
 printf x >>"$work/smsv2-contract.json"
 if python3 "$validator" "$work" "$tag" "$commit"; then
   echo "tampered contract was accepted" >&2
