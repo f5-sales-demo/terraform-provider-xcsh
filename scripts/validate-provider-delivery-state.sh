@@ -209,8 +209,20 @@ if [ -e "$pending" ]; then
       [ "$source_commit" = "$(git rev-parse HEAD^)" ] ||
         fail "regeneration receipt source is not the exact release parent"
     else
-      git merge-base --is-ancestor "$source_commit" HEAD ||
-        fail "regeneration source is not an ancestor of HEAD"
+      if ! git merge-base --is-ancestor "$source_commit" HEAD; then
+        # A historical merge can have carried a stale receipt onto the protected
+        # branch. Permit that exact inherited state only while validating a PR:
+        # the candidate must not create or alter either pending-delivery file,
+        # and release-ready validation always requires a fresh exact binding.
+        if [ -n "$base_ref" ] &&
+          git cat-file -e "${base_ref}:${pending}" 2>/dev/null &&
+          git cat-file -e "${base_ref}:${regeneration}" 2>/dev/null &&
+          git diff --quiet "$base_ref" HEAD -- "$pending" "$regeneration"; then
+          :
+        else
+          fail "regeneration source is not an ancestor of HEAD"
+        fi
+      fi
     fi
   elif [ "$release_ready" = true ]; then
     fail "pending delivery has no regeneration receipt"
