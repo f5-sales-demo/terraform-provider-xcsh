@@ -1496,6 +1496,47 @@ grep -qx expected "$4/asset"
 	}
 }
 
+func TestRegenerationBuildUsesBoundedMemory(t *testing.T) {
+	workflowPath := filepath.Join(testRepositoryRoot(t), ".github", "workflows", "_generate-provider.yml")
+	workflowBytes, err := os.ReadFile(workflowPath) //nolint:gosec // fixed repository path
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow struct {
+		Jobs map[string]struct {
+			Steps []struct {
+				Name string            `yaml:"name"`
+				Run  string            `yaml:"run"`
+				Env  map[string]string `yaml:"env"`
+			} `yaml:"steps"`
+		} `yaml:"jobs"`
+	}
+	if err := yaml.Unmarshal(workflowBytes, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	for _, step := range workflow.Jobs["generate"].Steps {
+		if step.Name != "Build to verify" {
+			continue
+		}
+		for key, want := range map[string]string{
+			"GOGC":       "10",
+			"GOMEMLIMIT": "4GiB",
+			"GOMAXPROCS": "1",
+		} {
+			if got := step.Env[key]; got != want {
+				t.Fatalf("regeneration build %s = %q, want %q", key, got, want)
+			}
+		}
+		for _, want := range []string{"go build -p 1", "-gcflags='all=-N -l'", "-v ./..."} {
+			if !strings.Contains(step.Run, want) {
+				t.Fatalf("regeneration build does not use %q: %s", want, step.Run)
+			}
+		}
+		return
+	}
+	t.Fatal("regeneration build step not found")
+}
+
 func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 	workflowPath := filepath.Join(testRepositoryRoot(t), ".github", "workflows", "acc-tests.yml")
 	workflowBytes, err := os.ReadFile(workflowPath) //nolint:gosec // fixed repository path
