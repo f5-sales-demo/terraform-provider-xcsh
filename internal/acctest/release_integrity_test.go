@@ -1937,6 +1937,105 @@ func TestReleaseReadyStateRejectsInvalidRecoveryRebind(t *testing.T) {
 	}
 }
 
+func TestDeliveryStateValidatorPermitsOnlyInheritedStaleReceiptForPRValidation(t *testing.T) {
+	root := testRepositoryRoot(t)
+	validator := filepath.Join(root, "scripts", "validate-provider-delivery-state.sh")
+
+	t.Run("unchanged inherited receipt is accepted only with a base reference", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		staleSource := createNonAncestorReceiptSource(t, fixture.repo, "stale-source")
+		setRegenerationReceiptSource(t, fixture.repo, staleSource)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "tools/spec-regeneration-receipt.json")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "persist inherited stale receipt")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "tag", "delivery-base")
+		writeReleaseTestFile(t, fixture.repo, "governance.txt", "PR-only change\n", 0o600)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "governance.txt")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "governance change")
+
+		runReleaseTestCommand(t, fixture.repo, []string{"TARGET_REPOSITORY=" + dispatchTarget}, validator, "--base-ref", "delivery-base")
+
+		cmd := exec.Command(validator)
+		cmd.Dir = fixture.repo
+		cmd.Env = append(os.Environ(), "TARGET_REPOSITORY="+dispatchTarget)
+		output, runErr := cmd.CombinedOutput()
+		if runErr == nil || !strings.Contains(string(output), "source is not an ancestor") {
+			t.Fatalf("stale receipt without a base reference was accepted: err=%v\n%s", runErr, output)
+		}
+
+		cmd = exec.Command(validator, "--release-ready")
+		cmd.Dir = fixture.repo
+		cmd.Env = append(os.Environ(), "TARGET_REPOSITORY="+dispatchTarget)
+		output, runErr = cmd.CombinedOutput()
+		if runErr == nil || !strings.Contains(string(output), "release commit did not introduce") {
+			t.Fatalf("release-ready validation accepted an inherited stale receipt: err=%v\n%s", runErr, output)
+		}
+
+		secondStaleSource := createNonAncestorReceiptSource(t, fixture.repo, "second-stale-source")
+		setRegenerationReceiptSource(t, fixture.repo, secondStaleSource)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "tools/spec-regeneration-receipt.json")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "change stale receipt")
+		cmd = exec.Command(validator, "--base-ref", "delivery-base")
+		cmd.Dir = fixture.repo
+		cmd.Env = append(os.Environ(), "TARGET_REPOSITORY="+dispatchTarget)
+		output, runErr = cmd.CombinedOutput()
+		if runErr == nil || !strings.Contains(string(output), "source is not an ancestor") {
+			t.Fatalf("changed stale receipt was accepted: err=%v\n%s", runErr, output)
+		}
+	})
+
+	t.Run("new stale receipt is rejected even with a base reference", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		regenerationPath := filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")
+		regeneration, err := os.ReadFile(regenerationPath) //nolint:gosec // isolated fixture
+		if err != nil {
+			t.Fatal(err)
+		}
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "rm", "-q", "tools/spec-regeneration-receipt.json")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "remove stale receipt")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "tag", "delivery-base")
+		staleSource := createNonAncestorReceiptSource(t, fixture.repo, "new-stale-source")
+		if err := os.WriteFile(regenerationPath, regeneration, 0o600); err != nil {
+			t.Fatal(err)
+		}
+		setRegenerationReceiptSource(t, fixture.repo, staleSource)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "tools/spec-regeneration-receipt.json")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "add stale receipt")
+
+		cmd := exec.Command(validator, "--base-ref", "delivery-base")
+		cmd.Dir = fixture.repo
+		cmd.Env = append(os.Environ(), "TARGET_REPOSITORY="+dispatchTarget)
+		output, runErr := cmd.CombinedOutput()
+		if runErr == nil || !strings.Contains(string(output), "source is not an ancestor") {
+			t.Fatalf("new stale receipt was accepted: err=%v\n%s", runErr, output)
+		}
+	})
+}
+
+func createNonAncestorReceiptSource(t *testing.T, repo, branch string) string {
+	t.Helper()
+	runReleaseTestCommand(t, repo, nil, "git", "checkout", "-q", "-b", branch)
+	writeReleaseTestFile(t, repo, branch+".txt", "stale source\n", 0o600)
+	runReleaseTestCommand(t, repo, nil, "git", "add", branch+".txt")
+	runReleaseTestCommand(t, repo, nil, "git", "commit", "-qm", branch)
+	source := strings.TrimSpace(runReleaseTestCommand(t, repo, nil, "git", "rev-parse", "HEAD"))
+	runReleaseTestCommand(t, repo, nil, "git", "checkout", "-q", "main")
+	return source
+}
+
+func setRegenerationReceiptSource(t *testing.T, repo, source string) {
+	t.Helper()
+	path := filepath.Join(repo, "tools/spec-regeneration-receipt.json")
+	data, err := os.ReadFile(path) //nolint:gosec // isolated fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	var receipt map[string]any
+	if err := json.Unmarshal(data, &receipt); err != nil {
+		t.Fatal(err)
+	}
+	receipt["source_commit"] = source
+	writeReleaseTestJSON(t, path, receipt)
+}
 func TestDraftCleanupDeletesEveryMeasuredAsset(t *testing.T) {
 	script := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Clear repairable draft artifacts")
 	tmp := t.TempDir()
