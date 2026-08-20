@@ -151,9 +151,6 @@ ENUM_HEADER_RE = re.compile(
     r"[A-Za-z_$][A-Za-z0-9_$]*",
 )
 SOURCE_SNIPPET_INDEX_RE = re.compile(r"\$\{[A-Za-z_$][A-Za-z0-9_$]*(?:\+\+|--)?\}")
-GO_FORMAT_CONVERSION_RE = re.compile(
-    r"%(?:\[[1-9][0-9]*\])?[+#0 'I-]*(?:[1-9][0-9]*|\*)?(?:\.(?:[0-9]+|\*))?[vTtbcdoOqxXUeEfFgGspw]"
-)
 IDENTITY_FIELD_RE = re.compile(
     r"(?i)(?P<field_prefix>^|[^A-Za-z0-9_/-])"
     r"(?P<key_open>[*_~`'\"]*)"
@@ -2109,13 +2106,6 @@ def scan_structured_identity(
         if not is_literal_structured_identity_field(path, line, match):
             continue
         value = structured_field_value(path, line, match)
-        placeholder = value
-        captured = normalized_value(match.group("value"))
-        escaped_source_quote = context.source_code and match.group("quote").startswith(
-            "\\"
-        )
-        if escaped_source_quote and captured.endswith("\\"):
-            placeholder = captured[:-1]
         if numeric_enum_member(match, value, context):
             continue
         in_jq_span = match_is_in_spans(match, context.jq_spans)
@@ -2144,11 +2134,7 @@ def scan_structured_identity(
             safe_alias = aliases_at_value.get(alias.group(1), False)
         else:
             safe_alias = None
-        source_format_placeholder = context.source_code and bool(
-            GO_FORMAT_CONVERSION_RE.fullmatch(placeholder)
-        )
-        safe_value = placeholder_value(placeholder) or source_format_placeholder
-        if jq_literal or not (safe_alias if alias else safe_value):
+        if jq_literal or not (safe_alias if alias else placeholder_value(value)):
             add_finding(
                 findings,
                 path=path,
