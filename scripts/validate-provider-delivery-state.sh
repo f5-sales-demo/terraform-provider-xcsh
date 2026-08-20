@@ -209,8 +209,11 @@ if [ -e "$pending" ]; then
       [ "$source_commit" = "$(git rev-parse HEAD^)" ] ||
         fail "regeneration receipt source is not the exact release parent"
     else
-      git merge-base --is-ancestor "$source_commit" HEAD ||
-        fail "regeneration source is not an ancestor of HEAD"
+      # The merge-time on-merge workflow attests this source against the exact
+      # associated PR. PR and release checkouts need not retain a squash PR's
+      # source object, so the reusable validator deliberately verifies only
+      # the receipt shape and durable bindings above.
+      :
     fi
   elif [ "$release_ready" = true ]; then
     fail "pending delivery has no regeneration receipt"
