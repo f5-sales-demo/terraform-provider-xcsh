@@ -2228,7 +2228,7 @@ func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool) *receiptFix
 	}
 	writeReleaseTestFile(t, repo, "scripts/validate-provider-delivery-state.sh", string(validator), 0o700)
 	pending := fmt.Sprintf(`{"delivery_id":%q,"release_tag":"v2.1.208","target_commit":%q,"version":"2.1.208"}`+"\n", deliveryID, commit)
-	pin := fmt.Sprintf(`{"assets":{"api-catalog.json":%q,"f5xc-api-specs-v2.1.208.zip":%q,"index.json":%q,"minimal-export-defaults.json":%q,"openapi.json":%q},"release_tag":"v2.1.208","target_commit":%q,"version":"2.1.208"}`+"\n", "sha256:"+strings.Repeat("1", 64), "sha256:"+strings.Repeat("2", 64), "sha256:"+strings.Repeat("3", 64), "sha256:"+strings.Repeat("4", 64), "sha256:"+strings.Repeat("5", 64), commit)
+	pin := fmt.Sprintf(`{"assets":{"api-catalog.json":%q,"f5xc-api-specs-v2.1.208.zip":%q,"index.json":%q,"minimal-export-defaults.json":%q,"openapi.json":%q,"smsv2-contract-manifest.json":%q,"smsv2-contract.json":%q,"smsv2-evidence-receipt.json":%q},"release_tag":"v2.1.208","target_commit":%q,"version":"2.1.208"}`+"\n", "sha256:"+strings.Repeat("1", 64), "sha256:"+strings.Repeat("2", 64), "sha256:"+strings.Repeat("3", 64), "sha256:"+strings.Repeat("4", 64), "sha256:"+strings.Repeat("5", 64), "sha256:"+strings.Repeat("6", 64), "sha256:"+strings.Repeat("7", 64), "sha256:"+strings.Repeat("8", 64), commit)
 	writeReleaseTestFile(t, repo, "tools/spec-pending-delivery.json", pending, 0o600)
 	writeReleaseTestFile(t, repo, "tools/spec-release.json", pin, 0o600)
 	writeReleaseTestFile(t, repo, "tools/spec-version.txt", "v2.1.208\n", 0o600)
