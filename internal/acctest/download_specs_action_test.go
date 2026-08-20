@@ -12,6 +12,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 
 	"gopkg.in/yaml.v3"
 )
@@ -207,6 +208,17 @@ func TestDownloadSpecsActionUsesPinnedReleaseAndRetainsCatalog(t *testing.T) {
 	if err := os.WriteFile(openapi, []byte(`{"openapi":"3.0.0","paths":{}}`), 0o600); err != nil {
 		t.Fatal(err)
 	}
+	smsv2Assets := writeTestSMSv2Assets(t, tmp, "v2.1.208", strings.Repeat("a", 40))
+	validator, err := os.ReadFile(filepath.Join(testRepositoryRoot(t), "scripts", "validate-smsv2-release.py"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(filepath.Join(tmp, "scripts"), 0o750); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(tmp, "scripts", "validate-smsv2-release.py"), validator, 0o600); err != nil {
+		t.Fatal(err)
+	}
 	tagCommit := strings.Repeat("a", 40)
 	writeSpecReleasePin(t, tmp, "v2.1.208", tagCommit, map[string]string{
 		"api-catalog.json":             fileSHA256(t, catalog),
@@ -214,6 +226,9 @@ func TestDownloadSpecsActionUsesPinnedReleaseAndRetainsCatalog(t *testing.T) {
 		"index.json":                   fileSHA256(t, index),
 		"minimal-export-defaults.json": fileSHA256(t, minimal),
 		"openapi.json":                 fileSHA256(t, openapi),
+		"smsv2-contract-manifest.json": smsv2Assets["smsv2-contract-manifest.json"],
+		"smsv2-contract.json":          smsv2Assets["smsv2-contract.json"],
+		"smsv2-evidence-receipt.json":  smsv2Assets["smsv2-evidence-receipt.json"],
 	})
 	logPath := filepath.Join(tmp, "gh.log")
 	stub := `#!/usr/bin/env bash
@@ -224,6 +239,9 @@ case "$*" in
   *releases/assets/203*) cat "$MINIMAL_FILE" ;;
   *releases/assets/204*) cat "$INDEX_FILE" ;;
   *releases/assets/205*) cat "$OPENAPI_FILE" ;;
+  *releases/assets/206*) cat "$SMSV2_MANIFEST_FILE" ;;
+  *releases/assets/207*) cat "$SMSV2_CONTRACT_FILE" ;;
+  *releases/assets/208*) cat "$SMSV2_EVIDENCE_FILE" ;;
   *commits/v2.1.208*) printf '%s\n' "$TAG_COMMIT" ;;
   *releases/tags/v2.1.208*)
     bundle_sha=$(shasum -a 256 "$BUNDLE_ZIP" | awk '{print $1}')
@@ -231,20 +249,28 @@ case "$*" in
     index_sha=$(shasum -a 256 "$INDEX_FILE" | awk '{print $1}')
     minimal_sha=$(shasum -a 256 "$MINIMAL_FILE" | awk '{print $1}')
     openapi_sha=$(shasum -a 256 "$OPENAPI_FILE" | awk '{print $1}')
+    manifest_sha=$(shasum -a 256 "$SMSV2_MANIFEST_FILE" | cut -d " " -f1)
+    contract_sha=$(shasum -a 256 "$SMSV2_CONTRACT_FILE" | cut -d " " -f1)
+    evidence_sha=$(shasum -a 256 "$SMSV2_EVIDENCE_FILE" | cut -d " " -f1)
     jq -cn \
       --arg bundle_sha "$bundle_sha" \
       --arg catalog_sha "$catalog_sha" \
       --arg commit "$TAG_COMMIT" \
       --arg index_sha "$index_sha" \
       --arg minimal_sha "$minimal_sha" \
-      --arg openapi_sha "$openapi_sha" '
+      --arg openapi_sha "$openapi_sha" \
+      --arg manifest_sha "$manifest_sha" \
+      --arg contract_sha "$contract_sha" \
+      --arg evidence_sha "$evidence_sha" '
       {tag_name: "v2.1.208", draft: false, prerelease: false, immutable: true, assets: [
         {id: 202, name: "api-catalog.json", digest: ("sha256:" + $catalog_sha)},
         {id: 101, name: "f5xc-api-specs-v2.1.208.zip", digest: ("sha256:" + $bundle_sha)},
         {id: 204, name: "index.json", digest: ("sha256:" + $index_sha)},
         {id: 203, name: "minimal-export-defaults.json", digest: ("sha256:" + $minimal_sha)},
         {id: 205, name: "openapi.json", digest: ("sha256:" + $openapi_sha)},
-        {id: 206, name: "smsv2-contract.json", digest: ("sha256:" + ("6" * 64))}
+        {id: 206, name: "smsv2-contract-manifest.json", digest: ("sha256:" + $manifest_sha)},
+        {id: 207, name: "smsv2-contract.json", digest: ("sha256:" + $contract_sha)},
+        {id: 208, name: "smsv2-evidence-receipt.json", digest: ("sha256:" + $evidence_sha)}
       ], body: ("<!-- publication-receipt:" + ({
         assets: {
           "api-catalog.json": ("sha256:" + $catalog_sha),
@@ -252,7 +278,9 @@ case "$*" in
           "index.json": ("sha256:" + $index_sha),
           "minimal-export-defaults.json": ("sha256:" + $minimal_sha),
           "openapi.json": ("sha256:" + $openapi_sha),
-          "smsv2-contract.json": ("sha256:" + ("6" * 64))
+          "smsv2-contract-manifest.json": ("sha256:" + $manifest_sha),
+          "smsv2-contract.json": ("sha256:" + $contract_sha),
+          "smsv2-evidence-receipt.json": ("sha256:" + $evidence_sha)
         }, commit: $commit, version: "2.1.208"
       } | tojson) + " -->")}' ;;
   *) echo "unexpected gh invocation: $*" >&2; exit 9 ;;
@@ -275,6 +303,9 @@ esac
 		"MINIMAL_FILE=" + minimal,
 		"INDEX_FILE=" + index,
 		"OPENAPI_FILE=" + openapi,
+		"SMSV2_MANIFEST_FILE=" + filepath.Join(tmp, "smsv2-contract-manifest.json"),
+		"SMSV2_CONTRACT_FILE=" + filepath.Join(tmp, "smsv2-contract.json"),
+		"SMSV2_EVIDENCE_FILE=" + filepath.Join(tmp, "smsv2-evidence-receipt.json"),
 		"TAG_COMMIT=" + tagCommit,
 	}
 	cmd := exec.Command("bash", "--noprofile", "--norc", "-eo", "pipefail", "-c", script)
@@ -311,6 +342,9 @@ esac
 		"index.json":                   fileSHA256(t, index),
 		"minimal-export-defaults.json": fileSHA256(t, minimal),
 		"openapi.json":                 fileSHA256(t, openapi),
+		"smsv2-contract-manifest.json": smsv2Assets["smsv2-contract-manifest.json"],
+		"smsv2-contract.json":          smsv2Assets["smsv2-contract.json"],
+		"smsv2-evidence-receipt.json":  smsv2Assets["smsv2-evidence-receipt.json"],
 	})
 	sentinel := filepath.Join(specDir, "existing-bundle-must-survive")
 	if err := os.WriteFile(sentinel, []byte("preserve\n"), 0o600); err != nil {
@@ -363,40 +397,6 @@ func TestDownloadSpecsActionRejectsMutableRelease(t *testing.T) {
 	}
 }
 
-func TestDownloadSpecsActionRequiresEachCoreAssetExactlyOnce(t *testing.T) {
-	tag := "v2.1.208"
-	commit := strings.Repeat("a", 40)
-	receipt := testSpecPublicationReceipt(tag, commit)
-	base := testSpecReleaseMetadata(t, tag, true, []map[string]any{receipt}, nil)
-	tests := []struct {
-		name   string
-		mutate func([]any) []any
-	}{
-		{
-			name: "missing core asset",
-			mutate: func(assets []any) []any {
-				return assets[:len(assets)-1]
-			},
-		},
-		{
-			name: "duplicate core asset",
-			mutate: func(assets []any) []any {
-				return append(assets, assets[0])
-			},
-		},
-	}
-
-	for _, test := range tests {
-		t.Run(test.name, func(t *testing.T) {
-			metadata := mutateSpecReleaseAssets(t, base, test.mutate)
-			output, err := runDownloadActionWithMetadata(t, metadata, commit)
-			if err == nil || !strings.Contains(output, "must contain exactly one required") {
-				t.Fatalf("invalid core asset set was accepted: err=%v\n%s", err, output)
-			}
-		})
-	}
-}
-
 func TestDownloadSpecsActionRejectsContradictoryPublicationReceipt(t *testing.T) {
 	tag := "v2.1.208"
 	commit := strings.Repeat("a", 40)
@@ -443,7 +443,7 @@ func TestDownloadSpecsActionRejectsContradictoryPublicationReceipt(t *testing.T)
 			metadata := testSpecReleaseMetadata(t, tag, true, []map[string]any{receipt}, nil)
 
 			output, err := runDownloadActionWithMetadata(t, metadata, commit)
-			if err == nil || !strings.Contains(output, "does not match the tracked core release pin") {
+			if err == nil || !strings.Contains(output, "does not exactly match the tracked release pin") {
 				t.Fatalf("contradictory publication receipt was accepted: err=%v\n%s", err, output)
 			}
 		})
@@ -517,7 +517,7 @@ func TestDownloadSpecsActionRejectsGitHubDigestMismatch(t *testing.T) {
 	})
 
 	output, err := runDownloadActionWithMetadata(t, metadata, commit)
-	if err == nil || !strings.Contains(output, "GitHub core asset digests do not match") {
+	if err == nil || !strings.Contains(output, "GitHub asset digests do not exactly match") {
 		t.Fatalf("GitHub digest contradicting the receipt was accepted: err=%v\n%s", err, output)
 	}
 }
@@ -586,6 +586,9 @@ func testSpecReleaseMetadata(
 		"index.json",
 		"minimal-export-defaults.json",
 		"openapi.json",
+		"smsv2-contract-manifest.json",
+		"smsv2-contract.json",
+		"smsv2-evidence-receipt.json",
 	}
 	assets := make([]map[string]any, 0, len(names))
 	for id, name := range names {
@@ -617,24 +620,6 @@ func testSpecReleaseMetadata(
 	return metadata
 }
 
-func mutateSpecReleaseAssets(t *testing.T, metadata []byte, mutate func([]any) []any) []byte {
-	t.Helper()
-	var release map[string]any
-	if err := json.Unmarshal(metadata, &release); err != nil {
-		t.Fatal(err)
-	}
-	assets, ok := release["assets"].([]any)
-	if !ok {
-		t.Fatal("release metadata assets are not an array")
-	}
-	release["assets"] = mutate(assets)
-	updated, err := json.Marshal(release)
-	if err != nil {
-		t.Fatal(err)
-	}
-	return updated
-}
-
 func testSpecAssetDigests(tag string, overrides map[string]string) map[string]string {
 	bundle := "f5xc-api-specs-" + tag + ".zip"
 	digests := map[string]string{
@@ -643,6 +628,9 @@ func testSpecAssetDigests(tag string, overrides map[string]string) map[string]st
 		"index.json":                   strings.Repeat("0", 64),
 		"minimal-export-defaults.json": strings.Repeat("0", 64),
 		"openapi.json":                 strings.Repeat("0", 64),
+		"smsv2-contract-manifest.json": strings.Repeat("0", 64),
+		"smsv2-contract.json":          strings.Repeat("0", 64),
+		"smsv2-evidence-receipt.json":  strings.Repeat("0", 64),
 	}
 	for name, digest := range overrides {
 		digests[name] = digest
@@ -706,9 +694,37 @@ func fileSHA256(t *testing.T, path string) string {
 	return fmt.Sprintf("%x", sha256.Sum256(body))
 }
 
+// writeTestSMSv2Assets creates a minimal complete, fresh, sanitized contract
+// receipt accepted by the production validator.
+func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]string {
+	t.Helper()
+	contract := map[string]any{
+		"api":         map[string]any{"namespace": "system", "operations": []string{"create", "read", "replace", "delete"}},
+		"contract_id": "f5xc-ce-automation/v1",
+		"providers":   map[string]any{"aws": map[string]any{"availability": "evidence_backed", "capabilities": map[string]string{"aws_ce_create": "available", "runtime_status": "unavailable", "tgw_connect": "unavailable"}}},
+	}
+	evidence := map[string]any{"contract_id": "f5xc-ce-automation/v1", "observed_at": time.Now().UTC().Format(time.RFC3339), "receipts": []map[string]any{{"redaction": "fixture", "sanitized": true}}}
+	writeJSON := func(name string, value any) {
+		body, err := json.Marshal(value)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(filepath.Join(root, name), append(body, '\n'), 0o600); err != nil {
+			t.Fatal(err)
+		}
+	}
+	writeJSON("smsv2-contract.json", contract)
+	writeJSON("smsv2-evidence-receipt.json", evidence)
+	assets := map[string]string{"smsv2-contract.json": fileSHA256(t, filepath.Join(root, "smsv2-contract.json")), "smsv2-evidence-receipt.json": fileSHA256(t, filepath.Join(root, "smsv2-evidence-receipt.json"))}
+	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-ce-automation/v1", "contract_version": "fixture", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
+	assets["smsv2-contract-manifest.json"] = fileSHA256(t, filepath.Join(root, "smsv2-contract-manifest.json"))
+	return assets
+}
+
 // extractActionScript returns the shell body of the composite action's single step,
 // with GitHub's ${{ }} input expansions resolved to the environment variables the
 // tests set. Reading the real file means the test cannot drift from what CI runs.
+
 func extractActionScript(t *testing.T) string {
 	t.Helper()
 

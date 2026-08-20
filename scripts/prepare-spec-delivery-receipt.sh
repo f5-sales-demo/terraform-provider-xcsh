@@ -167,7 +167,10 @@ jq -e --slurpfile pending "$pending" '
     ("f5xc-api-specs-" + $pending[0].release_tag + ".zip"),
     "index.json",
     "minimal-export-defaults.json",
-    "openapi.json"
+    "openapi.json",
+    "smsv2-contract-manifest.json",
+    "smsv2-contract.json",
+    "smsv2-evidence-receipt.json"
   ] and
   ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
 ' "$pin" >/dev/null || fail "Published release pin does not match pending delivery"

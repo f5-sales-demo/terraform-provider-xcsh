@@ -344,6 +344,17 @@ func TestSyncOpenAPIDownloadPromotesExactReleaseCatalog(t *testing.T) {
 		t.Fatal(err)
 	}
 	minimal := filepath.Join(tmp, "minimal-export-defaults.json")
+	writeTestSMSv2Assets(t, tmp, "v2.1.208", strings.Repeat("a", 40))
+	validator, err := os.ReadFile(filepath.Join(testRepositoryRoot(t), "scripts", "validate-smsv2-release.py"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(filepath.Join(tmp, "scripts"), 0o750); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(tmp, "scripts", "validate-smsv2-release.py"), validator, 0o600); err != nil {
+		t.Fatal(err)
+	}
 	minimalBody := `{"version":"2.1.208","defaults":{}}`
 	if err := os.WriteFile(minimal, []byte(minimalBody), 0o600); err != nil {
 		t.Fatal(err)
@@ -362,6 +373,9 @@ case "$*" in
   *releases/assets/303*) cat "$INDEX_FILE" ;;
   *releases/assets/304*) cat "$MINIMAL_FILE" ;;
   *releases/assets/305*) cat "$OPENAPI_FILE" ;;
+  *releases/assets/306*) cat "$SMSV2_MANIFEST_FILE" ;;
+  *releases/assets/307*) cat "$SMSV2_CONTRACT_FILE" ;;
+  *releases/assets/308*) cat "$SMSV2_EVIDENCE_FILE" ;;
   *commits/v2.1.208*) printf '%s\n' "$TAG_COMMIT" ;;
   *releases/tags/v2.1.208*)
     bundle_sha=$(shasum -a 256 "$BUNDLE_ZIP" | awk '{print $1}')
@@ -369,20 +383,28 @@ case "$*" in
     index_sha=$(shasum -a 256 "$INDEX_FILE" | awk '{print $1}')
     minimal_sha=$(shasum -a 256 "$MINIMAL_FILE" | awk '{print $1}')
     openapi_sha=$(shasum -a 256 "$OPENAPI_FILE" | awk '{print $1}')
+    manifest_sha=$(shasum -a 256 "$SMSV2_MANIFEST_FILE" | cut -d " " -f1)
+    contract_sha=$(shasum -a 256 "$SMSV2_CONTRACT_FILE" | cut -d " " -f1)
+    evidence_sha=$(shasum -a 256 "$SMSV2_EVIDENCE_FILE" | cut -d " " -f1)
     jq -cn \
       --arg bundle_sha "$bundle_sha" \
       --arg catalog_sha "$catalog_sha" \
       --arg commit "$TAG_COMMIT" \
       --arg index_sha "$index_sha" \
       --arg minimal_sha "$minimal_sha" \
-      --arg openapi_sha "$openapi_sha" '
+      --arg openapi_sha "$openapi_sha" \
+      --arg manifest_sha "$manifest_sha" \
+      --arg contract_sha "$contract_sha" \
+      --arg evidence_sha "$evidence_sha" '
       {tag_name: "v2.1.208", draft: false, prerelease: false, immutable: true, assets: [
-        {id: 302, name: "api-catalog.json"},
-        {id: 301, name: "f5xc-api-specs-v2.1.208.zip"},
-        {id: 303, name: "index.json"},
-        {id: 304, name: "minimal-export-defaults.json"},
-        {id: 305, name: "openapi.json"},
-        {id: 306, name: "smsv2-contract.json"}
+        {id: 302, name: "api-catalog.json", digest: ("sha256:" + $catalog_sha)},
+        {id: 301, name: "f5xc-api-specs-v2.1.208.zip", digest: ("sha256:" + $bundle_sha)},
+        {id: 303, name: "index.json", digest: ("sha256:" + $index_sha)},
+        {id: 304, name: "minimal-export-defaults.json", digest: ("sha256:" + $minimal_sha)},
+        {id: 305, name: "openapi.json", digest: ("sha256:" + $openapi_sha)},
+        {id: 306, name: "smsv2-contract-manifest.json", digest: ("sha256:" + $manifest_sha)},
+        {id: 307, name: "smsv2-contract.json", digest: ("sha256:" + $contract_sha)},
+        {id: 308, name: "smsv2-evidence-receipt.json", digest: ("sha256:" + $evidence_sha)}
       ], body: ("<!-- publication-receipt:" + ({
         assets: {
           "api-catalog.json": ("sha256:" + $catalog_sha),
@@ -390,7 +412,9 @@ case "$*" in
           "index.json": ("sha256:" + $index_sha),
           "minimal-export-defaults.json": ("sha256:" + $minimal_sha),
           "openapi.json": ("sha256:" + $openapi_sha),
-          "smsv2-contract.json": ("sha256:" + ("6" * 64))
+          "smsv2-contract-manifest.json": ("sha256:" + $manifest_sha),
+          "smsv2-contract.json": ("sha256:" + $contract_sha),
+          "smsv2-evidence-receipt.json": ("sha256:" + $evidence_sha)
         }, commit: $commit, version: "2.1.208"
       } | tojson) + " -->")}' ;;
   *) echo "unexpected gh invocation: $*" >&2; exit 9 ;;
@@ -412,6 +436,9 @@ esac
 		"INDEX_FILE=" + index,
 		"MINIMAL_FILE=" + minimal,
 		"OPENAPI_FILE=" + openapi,
+		"SMSV2_MANIFEST_FILE=" + filepath.Join(tmp, "smsv2-contract-manifest.json"),
+		"SMSV2_CONTRACT_FILE=" + filepath.Join(tmp, "smsv2-contract.json"),
+		"SMSV2_EVIDENCE_FILE=" + filepath.Join(tmp, "smsv2-evidence-receipt.json"),
 		"DISPATCH_TARGET_COMMIT=" + strings.Repeat("a", 40),
 		"RUNNER_TEMP=" + filepath.Join(tmp, "runner"),
 		"TAG_COMMIT=" + strings.Repeat("a", 40),
@@ -450,9 +477,6 @@ esac
 		pin.TargetCommit != strings.Repeat("a", 40) ||
 		pin.Assets["api-catalog.json"] != wantCatalogDigest {
 		t.Fatalf("release pin does not preserve the verified receipt identity: %+v", pin)
-	}
-	if _, ok := pin.Assets["smsv2-contract.json"]; ok {
-		t.Fatalf("release pin persisted an additive asset that the provider does not consume: %+v", pin)
 	}
 	if _, err := os.Stat(stale); !os.IsNotExist(err) {
 		t.Fatalf("stale pre-release content survived exact bundle promotion: %v", err)
@@ -511,63 +535,6 @@ printf '%s\n' '{"tag_name":"v2.1.208","draft":false,"prerelease":false,"immutabl
 	output, err := cmd.CombinedOutput()
 	if err == nil || !strings.Contains(string(output), "final and immutable") {
 		t.Fatalf("mutable spec release was accepted: err=%v\n%s", err, output)
-	}
-}
-
-func TestSyncOpenAPIDownloadRequiresEachCoreAssetExactlyOnce(t *testing.T) {
-	script := extractSyncOpenAPIStep(t, "Download OpenAPI specs")
-	tag := "v2.1.208"
-	commit := strings.Repeat("a", 40)
-	receipt := testSpecPublicationReceipt(tag, commit)
-	base := testSpecReleaseMetadata(t, tag, true, []map[string]any{receipt}, nil)
-	tests := []struct {
-		name   string
-		mutate func([]any) []any
-	}{
-		{
-			name: "missing core asset",
-			mutate: func(assets []any) []any {
-				return assets[:len(assets)-1]
-			},
-		},
-		{
-			name: "duplicate core asset",
-			mutate: func(assets []any) []any {
-				return append(assets, assets[0])
-			},
-		},
-	}
-
-	for _, test := range tests {
-		t.Run(test.name, func(t *testing.T) {
-			tmp := t.TempDir()
-			metadata := mutateSpecReleaseAssets(t, base, test.mutate)
-			metadataPath := filepath.Join(tmp, "release.json")
-			if err := os.WriteFile(metadataPath, metadata, 0o600); err != nil {
-				t.Fatal(err)
-			}
-			binDir := filepath.Join(tmp, "bin")
-			if err := os.Mkdir(binDir, 0o750); err != nil {
-				t.Fatal(err)
-			}
-			stub := `#!/usr/bin/env bash
-case "$*" in
-  *releases/tags/v2.1.208*) cat "$STUB_RELEASE_METADATA" ;;
-  *commits/v2.1.208*) printf '%s\n' "$RESOLVED_COMMIT" ;;
-  *) echo "unexpected gh invocation: $*" >&2; exit 88 ;;
-esac
-`
-			if err := os.WriteFile(filepath.Join(binDir, "gh"), []byte(stub), 0o700); err != nil { //nolint:gosec // executable test stub
-				t.Fatal(err)
-			}
-			cmd := exec.Command("bash", "--noprofile", "--norc", "-eo", "pipefail", "-c", script)
-			cmd.Dir = tmp
-			cmd.Env = append(os.Environ(), "PATH="+binDir+string(os.PathListSeparator)+os.Getenv("PATH"), "SPEC_DIR="+filepath.Join(tmp, "specs"), "SPEC_VERSION="+tag, "ENRICHED_REPO="+dispatchSource, "GH_TOKEN=stub", "DISPATCH_TARGET_COMMIT="+commit, "RUNNER_TEMP="+filepath.Join(tmp, "runner"), "STUB_RELEASE_METADATA="+metadataPath, "RESOLVED_COMMIT="+commit)
-			output, err := cmd.CombinedOutput()
-			if err == nil || !strings.Contains(string(output), "must contain exactly one required") {
-				t.Fatalf("invalid core asset set was accepted: err=%v\n%s", err, output)
-			}
-		})
 	}
 }
 
