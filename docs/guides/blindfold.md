@@ -395,7 +395,7 @@ Field descriptions:
 
 - `key_version`: Public key version used for encryption
 - `policy_id`: Reference to the SecretPolicy (`namespace/name` format)
-- `tenant`: F5 Distributed Cloud tenant identifier
+- `tenant`: Tenant or organization identifier
 - `data`: Base64-encoded RSA-OAEP ciphertext
 
 ### Function Behavior

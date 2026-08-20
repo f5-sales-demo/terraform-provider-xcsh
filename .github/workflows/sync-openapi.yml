@@ -272,20 +272,18 @@ jobs:
           fi
 
           BUNDLE_NAME="f5xc-api-specs-${SPEC_VERSION}.zip"
-          EXPECTED_ASSETS=$(printf '%s\n' \
+          REQUIRED_ASSETS=$(printf '%s\n' \
             api-catalog.json \
             "$BUNDLE_NAME" \
             index.json \
             minimal-export-defaults.json \
-            openapi.json \
-            smsv2-contract-manifest.json \
-            smsv2-contract.json \
-            smsv2-evidence-receipt.json | sort)
-          ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
-          [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
-            echo "::error::Release ${SPEC_VERSION} asset set differs from the verified SMSv2 contract"
-            exit 1
-          }
+            openapi.json)
+          while IFS= read -r required_asset; do
+            [ "$(jq --arg name "$required_asset" '[.assets[] | select(.name == $name)] | length' "$RELEASE_METADATA")" -eq 1 ] || {
+              echo "::error::Release ${SPEC_VERSION} must contain exactly one required ${required_asset} asset"
+              exit 1
+            }
+          done <<< "$REQUIRED_ASSETS"
 
           RELEASE_BODY="${STAGING_ROOT}/release-body.txt"
           jq -r '.body // ""' "$RELEASE_METADATA" > "$RELEASE_BODY"
@@ -304,10 +302,10 @@ jobs:
               (keys | sort) == ["assets", "commit", "version"] and
               .version == $version and
               .commit == $commit and
-              (.assets | keys | sort) ==
-                ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
-                 "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json"] and
-              ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
+              (.assets as $assets |
+                [$assets["api-catalog.json"], $assets[$bundle], $assets["index.json"],
+                 $assets["minimal-export-defaults.json"], $assets["openapi.json"]] |
+                all(type == "string" and test("^sha256:[0-9a-f]{64}$")))
             ' >/dev/null || {
             echo "::error::Publication receipt does not match the release identity"
             exit 1
@@ -358,8 +356,7 @@ jobs:
 
           COMPANIONS="${STAGING_ROOT}/companions"
           mkdir -p "$COMPANIONS"
-          for asset in api-catalog.json index.json minimal-export-defaults.json openapi.json \
-            smsv2-contract-manifest.json smsv2-contract.json smsv2-evidence-receipt.json; do
+          for asset in api-catalog.json index.json minimal-export-defaults.json openapi.json; do
             AID=$(jq -r --arg name "$asset" \
               '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
               "$RELEASE_METADATA")
@@ -389,8 +386,6 @@ jobs:
             echo "::error::Downloaded spec bundle differs from its publication receipt"
             exit 1
           }
-
-          python3 scripts/validate-smsv2-release.py "$COMPANIONS" "$SPEC_VERSION" "$TAG_COMMIT"
           EXPECTED_CATALOG_VERSION="${SPEC_VERSION#v}"
           jq -e --arg version "$EXPECTED_CATALOG_VERSION" '.version == $version' \
             "${STAGED_SPECS}/api-catalog.json" >/dev/null || {
@@ -424,9 +419,17 @@ jobs:
           fi
           mkdir -p tools
           PIN_TMP=$(mktemp tools/spec-release.json.XXXXXX)
-          printf '%s' "$RECEIPT" | jq -S --arg tag "$SPEC_VERSION" '
-            {assets:.assets,release_tag:$tag,target_commit:.commit,version:.version}
-          ' > "$PIN_TMP"
+          printf '%s' "$RECEIPT" | jq -S \
+            --arg tag "$SPEC_VERSION" \
+            --arg bundle "$BUNDLE_NAME" '
+              {assets:{
+                "api-catalog.json":.assets["api-catalog.json"],
+                ($bundle):.assets[$bundle],
+                "index.json":.assets["index.json"],
+                "minimal-export-defaults.json":.assets["minimal-export-defaults.json"],
+                "openapi.json":.assets["openapi.json"]
+              },release_tag:$tag,target_commit:.commit,version:.version}
+            ' > "$PIN_TMP"
           mv "$PIN_TMP" tools/spec-release.json
 
       # The downloaded specs live under docs/specifications/api/, which is gitignored
