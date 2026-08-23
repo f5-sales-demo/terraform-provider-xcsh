@@ -146,3 +146,5 @@ IP address threat categories for security filtering.
 | `TOR_PROXY` | Tor exit nodes |
 | `DENIAL_OF_SERVICE` | DoS attack sources |
 | `NETWORK` | Known bad network ranges |
+
+<!-- linked-issue verification: #1796 -->
