@@ -1,17 +1,29 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "docker": {
-    "socket": "/run/docker.sock",
+    "host_socket": "/run/f5-actions-runner/container-build/docker.sock",
+    "runner_socket": "/run/docker.sock",
+    "data_root": "/data/actions-runners/container-build-docker",
+    "cache_max": "20g",
+    "cgroup_parent": "f5-actions-container-build.slice",
     "minimum_version": "29.2.1",
     "target_version": "29.7.2"
   },
+  "dispatcher": {
+    "repositories": ["f5-sales-demo/xcsh"],
+    "memory": "32g",
+    "cpus": "14",
+    "standard_runners": 2,
+    "container_build_runners": 1
+  },
   "defaults": {
     "replicas": 1,
-    "profile": "ubuntu-24.04"
+    "profile": "ubuntu-24.04",
+    "standby_profiles": ["ubuntu-24.04"]
   },
   "profiles": {
     "ubuntu-24.04": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:5c75fca80ee7af291adb7a38ff1117fd8b1a3741b0e78d0aee1f897eefa26aee",
       "labels": ["ubuntu-24.04"],
       "memory": "8g",
       "cpus": "4",
@@ -21,7 +33,7 @@
       "docker_socket": false
     },
     "ubuntu-24.04-secondary": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:5c75fca80ee7af291adb7a38ff1117fd8b1a3741b0e78d0aee1f897eefa26aee",
       "labels": ["ubuntu-24.04"],
       "memory": "8g",
       "cpus": "4",
@@ -31,7 +43,7 @@
       "docker_socket": false
     },
     "automation": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:5c75fca80ee7af291adb7a38ff1117fd8b1a3741b0e78d0aee1f897eefa26aee",
       "labels": ["automation"],
       "memory": "8g",
       "cpus": "4",
@@ -41,7 +53,7 @@
       "docker_socket": false
     },
     "ubuntu-22.04": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:f04d6bce9800b97d4abe941d4d42c9c99cc0db6945b868808724fda37f258ec4",
       "labels": ["ubuntu-22.04"],
       "memory": "8g",
       "cpus": "4",
@@ -51,7 +63,7 @@
       "docker_socket": false
     },
     "container-build": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:d7253128030110789e9df797e847ddd0298b15ea0c4c4c9546d53e1f8dacf208",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:019eccaa004b2572be23340385bda55a2477911b9156d3ecbda894c4a28507ac",
       "labels": ["container-build"],
       "memory": "16g",
       "cpus": "6",
@@ -67,6 +79,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -86,6 +104,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/docs-control": {
@@ -93,6 +117,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -146,6 +176,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/xcsh": {
@@ -156,10 +192,6 @@
         }
       },
       ".github/workflows/ci.yml": {
-        "check": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "CI validation uses the hosted Bun toolchain"
-        },
         "setup-zig": {
           "runs_on": "matrix",
           "reason": "Zig setup validates hosted Linux, macOS, and Windows"
@@ -167,42 +199,6 @@
         "native": {
           "runs_on": "matrix",
           "reason": "native builds require hosted platform-specific toolchains"
-        },
-        "test": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "test provisioning installs an ephemeral hosted toolchain"
-        },
-        "install_methods": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "installation tests require ephemeral package provisioning"
-        },
-        "invalidate-stale-release-prs": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "release PR maintenance uses the hosted GitHub environment"
-        },
-        "auto-release": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "release planning uses the hosted GitHub environment"
-        },
-        "build-release": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "release packaging uses the hosted Linux toolchain"
-        },
-        "create-release": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "release publication uses the hosted GitHub environment"
-        },
-        "update-homebrew": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "Homebrew formula updates use the hosted release environment"
-        },
-        "publish-npm": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "npm publication uses the hosted release environment"
-        },
-        "verify-npm-install": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "npm installation verification uses the hosted environment"
         },
         "build-sign-macos": {
           "runs_on": "matrix",
@@ -223,24 +219,6 @@
         "update-console-catalog": {
           "runs_on": "ubuntu-22.04",
           "reason": "catalog publishing uses the hosted GitHub environment"
-        }
-      },
-      ".github/workflows/container.yml": {
-        "container-build": {
-          "runs_on": "matrix",
-          "reason": "container builds require hosted native amd64 and arm64 runners"
-        },
-        "podman-uat-harness": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "Podman harness runs in an ephemeral hosted environment"
-        },
-        "container-test": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "container aggregation runs in the hosted test environment"
-        },
-        "publish-ghcr": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "container publication uses the hosted Docker environment"
         }
       },
       ".github/workflows/deploy-office-pane.yml": {
@@ -267,12 +245,6 @@
           "reason": "release reconciliation uses hosted registry access"
         }
       },
-      ".github/workflows/tag-on-version-bump.yml": {
-        "tag": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "immutable release tagging uses hosted GitHub credentials"
-        }
-      },
       ".github/workflows/test-codesign.yml": {
         "test-codesign": {
           "runs_on": "matrix",
@@ -283,6 +255,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -302,6 +280,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/administration": {
@@ -309,6 +293,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -318,6 +308,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/api-specs": {
@@ -325,6 +321,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -334,6 +336,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/bot-advanced": {
@@ -341,6 +349,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -350,6 +364,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/cdn": {
@@ -357,6 +377,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -366,6 +392,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/console": {
@@ -373,6 +405,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -382,6 +420,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/ddos": {
@@ -389,6 +433,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -398,6 +448,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/demo-resources": {
@@ -405,6 +461,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -414,6 +476,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/docs": {
@@ -421,6 +489,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -430,6 +504,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/docs-icons": {
@@ -437,6 +517,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -446,6 +532,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/i18n-core": {
@@ -453,6 +545,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -462,6 +560,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/marketplace-claude-code": {
@@ -469,6 +573,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -478,6 +588,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/nginx": {
@@ -485,6 +601,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -494,6 +616,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/origin-server": {
@@ -501,6 +629,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -510,6 +644,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/starlight-mega-menu": {
@@ -517,6 +657,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -526,6 +672,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/waf": {
@@ -533,6 +685,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -542,6 +700,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/webapp-api-protection": {
@@ -550,6 +714,12 @@
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
         }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
+        }
       }
     },
     "f5-sales-demo/xcsh-chrome-extension": {
@@ -557,6 +727,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     },
@@ -601,6 +777,12 @@
         "workflow-security-audit": {
           "runs_on": "ubuntu-latest",
           "reason": "read-only pull request workflow security audit"
+        }
+      },
+      ".github/workflows/require-linked-issue.yml": {
+        "pr-check": {
+          "runs_on": "ubuntu-24.04",
+          "reason": "immediate read-only linked-issue pull request check"
         }
       }
     }
@@ -721,7 +903,7 @@
     },
     "f5-sales-demo/xcsh": {
       "runner": {
-        "profiles": ["ubuntu-24.04", "ubuntu-22.04", "container-build"]
+        "profiles": ["ubuntu-24.04", "container-build"]
       }
     },
     "f5-sales-demo/xcsh-action": {
