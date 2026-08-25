@@ -278,14 +278,9 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		ForceReplaceForCreateDeleteOnly(attributes)
 	}
 
-	// Apply x-f5xc-minimum-configuration to improve Required field accuracy
-	minConfigFields := ParseMinConfigRequiredFields(createSpec.XF5XCMinimumConfiguration)
-	if len(minConfigFields) > 0 {
-		minFieldSet := make(map[string]bool, len(minConfigFields))
-		for _, f := range minConfigFields {
-			minFieldSet[f] = true
-		}
-		PromoteMinConfigRequired(attributes, minFieldSet)
+	concurrencyToken, err := ExtractConcurrencyTokenContract(spec, resourceName)
+	if err != nil {
+		return nil, err
 	}
 
 	// Get best description with enrichment extension priority:
@@ -358,6 +353,9 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		// #1391: only the resources F5 XC decorates with hardware/OS discovery labels
 		// filter those six unprefixed keys out of the read-back.
 		FiltersDiscoveredSiteLabels: openapi.LoadDiscoveredSiteLabels(titleCase),
+		HasConcurrencyToken:         concurrencyToken != nil,
+		ConcurrencyTokenJSONName:    concurrencyTokenJSONName(concurrencyToken),
+		ConcurrencyTokenGoName:      concurrencyTokenGoName(concurrencyToken),
 		APIPath:                     apiPath,
 		APIPathPlural:               resourceName + "s",
 		APIPathItem:                 apiPathItem,

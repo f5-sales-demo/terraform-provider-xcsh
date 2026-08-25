@@ -1941,3 +1941,127 @@ func TestTemplates_OwnershipIsPersistedOnlyAfterTheAPICall_Issue1398(t *testing.
 		})
 	}
 }
+
+func TestConcurrencyTokenGenerationIsClientOnlyAndPrivate(t *testing.T) {
+	tmpl := &openapi.ResourceTemplate{
+		Name:                     "zz_token_probe",
+		TitleCase:                "ZZTokenProbe",
+		Description:              "Probe.",
+		HasNamespaceInPath:       true,
+		APIPath:                  "/api/config/namespaces/%s/zz_token_probes",
+		APIPathItem:              "/api/config/namespaces/%s/zz_token_probes/%s",
+		HasConcurrencyToken:      true,
+		ConcurrencyTokenJSONName: "resource_version",
+		ConcurrencyTokenGoName:   "ResourceVersion",
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", Required: true},
+			{Name: "id", GoName: "ID", TfsdkTag: "id", Type: "string", Computed: true},
+		},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatalf("GenerateResourceFile: %v", err)
+	}
+	if err := GenerateClientTypes(tmpl, dir); err != nil {
+		t.Fatalf("GenerateClientTypes: %v", err)
+	}
+	resourceBytes, err := os.ReadFile(filepath.Join(dir, "zz_token_probe_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	clientBytes, err := os.ReadFile(filepath.Join(dir, "zz_token_probe_types.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	resourceSource := string(resourceBytes)
+	clientSource := string(clientBytes)
+
+	if !strings.Contains(clientSource, "ResourceVersion") || !strings.Contains(clientSource, "`json:\"resource_version,omitempty\"`") {
+		t.Fatal("client model is missing the conditional resource_version field")
+	}
+	for _, forbidden := range []string{`tfsdk:"resource_version"`, `"resource_version": schema.`, "data.ResourceVersion"} {
+		if strings.Contains(resourceSource, forbidden) {
+			t.Fatalf("concurrency token leaked into Terraform schema/state: %q", forbidden)
+		}
+	}
+	for _, want := range []string{
+		"concurrencyTokenPrivateKey",
+		"req.Private.GetKey(ctx, concurrencyTokenPrivateKey)",
+		"encodeConcurrencyToken(apiResource.ResourceVersion)",
+		"apiResource.ResourceVersion = concurrencyToken",
+		"Stale Configuration",
+		"Refresh Required Before Update",
+	} {
+		if !strings.Contains(resourceSource, want) {
+			t.Errorf("generated resource is missing concurrency behavior %q", want)
+		}
+	}
+
+	updateStart := strings.Index(resourceSource, "func (r *ZZTokenProbeResource) Update(")
+	if updateStart < 0 {
+		t.Fatal("generated Update not found")
+	}
+	update := resourceSource[updateStart:]
+	privateRead := strings.Index(update, "req.Private.GetKey(ctx, concurrencyTokenPrivateKey)")
+	put := strings.Index(update, "r.client.UpdateZZTokenProbe(ctx, apiResource)")
+	if privateRead < 0 || put < 0 || privateRead > put {
+		t.Fatal("Update must read the prior private token before PUT")
+	}
+	if strings.Count(update[:put], "GetZZTokenProbe(ctx") != 0 {
+		t.Fatal("token-bearing Update must not refresh the object/token immediately before PUT")
+	}
+	setToken := strings.Index(update, "resp.Private.SetKey(ctx, concurrencyTokenPrivateKey")
+	readback := strings.Index(update, "fetched, fetchErr := r.client.GetZZTokenProbe")
+	if setToken < 0 || readback < 0 || setToken < readback {
+		t.Fatal("new private token must be recorded only after successful update readback")
+	}
+
+	// SecureMesh preserves platform-authored labels with a pre-write GET. That GET
+	// must never replace the token selected from private state: doing so would adopt
+	// remote changes the reviewed plan did not contain.
+	tmpl.FiltersDiscoveredSiteLabels = true
+	decoratedDir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, decoratedDir); err != nil {
+		t.Fatalf("GenerateResourceFile(decorated): %v", err)
+	}
+	decoratedBytes, err := os.ReadFile(filepath.Join(decoratedDir, "zz_token_probe_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	decoratedUpdate := string(decoratedBytes)
+	decoratedUpdate = decoratedUpdate[strings.Index(decoratedUpdate, "func (r *ZZTokenProbeResource) Update("):]
+	privateRead = strings.Index(decoratedUpdate, "req.Private.GetKey(ctx, concurrencyTokenPrivateKey)")
+	labelRead := strings.Index(decoratedUpdate, "current, currentErr := r.client.GetZZTokenProbe")
+	put = strings.Index(decoratedUpdate, "r.client.UpdateZZTokenProbe(ctx, apiResource)")
+	if privateRead < 0 || labelRead < 0 || put < 0 || privateRead > labelRead || labelRead > put {
+		t.Fatal("decorated Update must select its private token before the label-preservation GET and PUT")
+	}
+	if strings.Contains(decoratedUpdate[:put], "current.ResourceVersion") {
+		t.Fatal("label-preservation GET must not replace the private concurrency token")
+	}
+}
+
+func TestRenderMarshalOmitsComputedOnlyNestedFields(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{{
+		Name: "interfaces", GoName: "Interfaces", TfsdkTag: "interfaces", JsonName: "interfaces",
+		IsSpecField: true, IsBlock: true, NestedBlockType: "list",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string", Optional: true},
+			{Name: "is_management", GoName: "IsManagement", TfsdkTag: "is_management", JsonName: "is_management", Type: "bool", Computed: true},
+			{Name: "is_primary", GoName: "IsPrimary", TfsdkTag: "is_primary", JsonName: "is_primary", Type: "bool", Computed: true},
+		},
+	}}
+	got, err := RenderSpecMarshalCode(attrs, "\t", "Probe")
+	if err != nil {
+		t.Fatalf("RenderSpecMarshalCode: %v", err)
+	}
+	if !strings.Contains(got, `["name"]`) {
+		t.Fatal("marshal omitted the configurable sibling")
+	}
+	for _, forbidden := range []string{`["is_management"]`, `["is_primary"]`} {
+		if strings.Contains(got, forbidden) {
+			t.Fatalf("marshal included read-only nested field %s", forbidden)
+		}
+	}
+}

@@ -7,13 +7,39 @@ import (
 	"crypto/x509"
 	"encoding/json"
 	"encoding/pem"
+	"errors"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"path/filepath"
 	"testing"
 	"time"
+
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 )
+
+func TestPutConflictIsReturnedAfterExactlyOneAttempt(t *testing.T) {
+	requests := 0
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		requests++
+		w.WriteHeader(http.StatusConflict)
+		_, _ = w.Write([]byte(`{"code":"CONFLICT","message":"stale token"}`))
+	}))
+	defer server.Close()
+
+	client := NewClient(server.URL, "test-token", WithMaxRetries(5))
+	err := client.Put(context.Background(), "/probe", map[string]string{"value": "unchanged"}, nil)
+	if err == nil {
+		t.Fatal("expected PUT conflict")
+	}
+	if requests != 1 {
+		t.Fatalf("PUT conflict made %d requests, want exactly 1", requests)
+	}
+	var apiErr *xcsherrors.XCSHError
+	if !errors.As(err, &apiErr) || apiErr.StatusCode != http.StatusConflict || apiErr.Code != xcsherrors.ErrCodeConflict {
+		t.Fatalf("expected typed conflict error, got %T: %v", err, err)
+	}
+}
 
 // =============================================================================
 // Tests for isRetryableStatus()

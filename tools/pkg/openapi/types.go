@@ -25,6 +25,14 @@ type RequiredFor struct {
 	Read          bool `json:"read"`
 }
 
+// ConcurrencyToken describes a server-assigned optimistic-concurrency field.
+// The field is carried by the API client and Terraform private state, never by
+// the practitioner-facing resource schema.
+type ConcurrencyToken struct {
+	ServerAssigned   bool     `json:"server_assigned"`
+	EchoOnOperations []string `json:"echo_on_operations"`
+}
+
 // Schema represents a schema definition in an OpenAPI spec.
 type Schema struct {
 	Type                 string            `json:"type"`
@@ -33,6 +41,7 @@ type Schema struct {
 	Format               string            `json:"format"`
 	Enum                 []interface{}     `json:"enum"`
 	Default              interface{}       `json:"default"`
+	ReadOnly             bool              `json:"readOnly"`
 	Properties           map[string]Schema `json:"properties"`
 	Items                *Schema           `json:"items"`
 	Ref                  string            `json:"$ref"`
@@ -82,10 +91,11 @@ type Schema struct {
 	XReconciledFromDiscovery bool   `json:"x-reconciled-from-discovery"`
 
 	// ---- SP-1 additions: field-level extensions ----
-	XF5XCServerDefault        bool        `json:"x-f5xc-server-default"`
-	XF5XCRequiredFor          RequiredFor `json:"x-f5xc-required-for"`
-	XF5XCRecommendedValue     interface{} `json:"x-f5xc-recommended-value"`
-	XF5XCMinimumConfiguration interface{} `json:"x-f5xc-minimum-configuration"`
+	XF5XCServerDefault        bool              `json:"x-f5xc-server-default"`
+	XF5XCRequiredFor          RequiredFor       `json:"x-f5xc-required-for"`
+	XF5XCRecommendedValue     interface{}       `json:"x-f5xc-recommended-value"`
+	XF5XCMinimumConfiguration interface{}       `json:"x-f5xc-minimum-configuration"`
+	XF5XCConcurrencyToken     *ConcurrencyToken `json:"x-f5xc-concurrency-token,omitempty"`
 
 	// Deserialized from enriched specs for lossless round-tripping.
 	// No generation code consumes these yet.
@@ -244,6 +254,12 @@ type ResourceTemplate struct {
 	// an unrelated object. The two platform prefixes are filtered regardless.
 	// See tools/pkg/openapi/discovered_site_labels.go.
 	FiltersDiscoveredSiteLabels bool
+
+	// Concurrency-token fields are detected from matching GET response and replace
+	// request envelopes. They intentionally do not appear in Attributes.
+	HasConcurrencyToken      bool
+	ConcurrencyTokenJSONName string
+	ConcurrencyTokenGoName   string
 
 	// ---- Action-resource fields (x-f5xc-action) ----
 	// IsAction marks this template as an action-style resource: Create issues the
