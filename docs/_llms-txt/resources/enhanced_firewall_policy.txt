@@ -8,10 +8,6 @@ Enhanced firewall policy specification. configuration
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- allow_all
-
 ## Minimal Valid Config
 
 ```terraform

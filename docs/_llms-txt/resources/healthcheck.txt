@@ -14,13 +14,8 @@ Healthcheck object defines method to determine if the given endpoint is healthy.
 
 ## Server Defaults (safe to omit)
 
-- http_health_check.expected_response
-- http_health_check.expected_status_codes
-- http_health_check.headers
-- http_health_check.request_headers_to_remove
-- http_health_check.use_http2
-- http_health_check.use_origin_server_name
 - jitter_percent
+- use_http2
 
 ## Minimal Valid Config
 

@@ -218,7 +218,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 							MarkdownDescription: "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
 							Optional:            true,
 							Validators: []validator.Int64{
-								int64validator.AtMost(100),
+								int64validator.Between(1, 100),
 							},
 						},
 						"period_multiplier": schema.Int64Attribute{
@@ -232,7 +232,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 							MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
 							Optional:            true,
 							Validators: []validator.Int64{
-								int64validator.AtMost(8192),
+								int64validator.Between(1, 8192),
 							},
 						},
 						"unit": schema.StringAttribute{
@@ -255,7 +255,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 											MarkdownDescription: "Duration. Configuration parameter for duration",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.AtMost(48),
+												int64validator.Between(1, 48),
 											},
 										},
 									},
@@ -267,7 +267,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 											MarkdownDescription: "Duration. Configuration parameter for duration",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.AtMost(60),
+												int64validator.Between(1, 60),
 											},
 										},
 									},
@@ -279,7 +279,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 											MarkdownDescription: "Duration. Configuration parameter for duration",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.AtMost(300),
+												int64validator.Between(1, 300),
 											},
 										},
 									},

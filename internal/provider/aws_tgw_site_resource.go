@@ -1556,7 +1556,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Enter TGW ASN. TGW ASN.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(65535),
+									int64validator.Between(1, 65535),
 								},
 							},
 							"tgw_id": schema.StringAttribute{
@@ -1570,7 +1570,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Enter F5XC Site ASN. F5XC Site ASN.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(65535),
+									int64validator.Between(1, 65535),
 								},
 							},
 						},
@@ -1592,14 +1592,14 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										MarkdownDescription: "TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534.",
 										Optional:            true,
 										Validators: []validator.Int64{
-											int64validator.AtMost(65534),
+											int64validator.Between(64513, 65534),
 										},
 									},
 									"volterra_site_asn": schema.Int64Attribute{
 										MarkdownDescription: "Enter F5XC Site ASN. F5XC Site ASN.",
 										Optional:            true,
 										Validators: []validator.Int64{
-											int64validator.AtMost(65535),
+											int64validator.Between(1, 65535),
 										},
 									},
 								},

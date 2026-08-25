@@ -11141,7 +11141,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.Between(0, 8192),
+												int64validator.Between(1, 8192),
 											},
 										},
 										"unit": schema.StringAttribute{
@@ -12200,7 +12200,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.Between(0, 8192),
+												int64validator.Between(1, 8192),
 											},
 										},
 										"unit": schema.StringAttribute{
@@ -19877,7 +19877,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(100),
+									int64validator.Between(1, 100),
 								},
 							},
 							"period_multiplier": schema.Int64Attribute{
@@ -19895,7 +19895,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(8192),
+									int64validator.Between(1, 8192),
 								},
 							},
 							"unit": schema.StringAttribute{
@@ -19918,7 +19918,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(48),
+													int64validator.Between(1, 48),
 												},
 											},
 										},
@@ -19930,7 +19930,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(60),
+													int64validator.Between(1, 60),
 												},
 											},
 										},
@@ -19942,7 +19942,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(300),
+													int64validator.Between(1, 300),
 												},
 											},
 										},
@@ -21122,6 +21122,9 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														"base_interval": schema.Int64Attribute{
 															MarkdownDescription: "Specifies the base interval between retries in milliseconds.",
 															Optional:            true,
+															Validators: []validator.Int64{
+																int64validator.AtLeast(1),
+															},
 														},
 														"max_interval": schema.Int64Attribute{
 															MarkdownDescription: "Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must be greater than or equal to the base_interval if set. The  times the base_interval. Defaults to `10`.",

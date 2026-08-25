@@ -10,11 +10,6 @@ New policer with traffic rate limits
 - burst_size
 - committed_information_rate
 
-## Server Defaults (safe to omit)
-
-- policer_mode
-- policer_type
-
 ## Minimal Valid Config
 
 ```terraform

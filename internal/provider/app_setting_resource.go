@@ -430,6 +430,9 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 												"login_failures_threshold": schema.Int64Attribute{
 													MarkdownDescription: "The number of failed logins beyond which the system will flag this user as malicious .",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtLeast(1),
+													},
 												},
 											},
 										},
@@ -439,6 +442,9 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 												"forbidden_requests_threshold": schema.Int64Attribute{
 													MarkdownDescription: "The number of forbidden requests beyond which the system will flag this user as malicious .",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtLeast(1),
+													},
 												},
 											},
 										},
@@ -467,7 +473,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 													MarkdownDescription: "The percentage of non-existent requests beyond which the system will flag this user as malicious .",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(100),
+														int64validator.Between(1, 100),
 													},
 												},
 											},

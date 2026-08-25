@@ -8,10 +8,6 @@ Malicious_user_mitigation creates a new object in the storage backend for metada
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- mitigation_type
-
 ## Minimal Valid Config
 
 ```terraform

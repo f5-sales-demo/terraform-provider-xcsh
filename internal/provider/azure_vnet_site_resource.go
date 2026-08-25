@@ -3907,7 +3907,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										MarkdownDescription: "Exclusive with [auto_asn] Set custom ASN for F5XC Site.",
 										Optional:            true,
 										Validators: []validator.Int64{
-											int64validator.AtMost(65535),
+											int64validator.Between(2, 65535),
 										},
 									},
 								},
@@ -4854,7 +4854,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										MarkdownDescription: "Exclusive with [auto_asn] Set custom ASN for F5XC Site.",
 										Optional:            true,
 										Validators: []validator.Int64{
-											int64validator.AtMost(65535),
+											int64validator.Between(2, 65535),
 										},
 									},
 								},

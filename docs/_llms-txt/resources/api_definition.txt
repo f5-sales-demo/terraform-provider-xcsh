@@ -8,14 +8,6 @@ API Definition
 - name
 - namespace
 
-## Server Defaults (safe to omit)
-
-- api_inventory_exclusion_list
-- api_inventory_inclusion_list
-- non_api_endpoints
-- strict_schema_origin
-- swagger_specs
-
 ## Minimal Valid Config
 
 ```terraform

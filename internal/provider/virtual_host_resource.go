@@ -2230,6 +2230,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							"base_interval": schema.Int64Attribute{
 								MarkdownDescription: "Specifies the base interval between retries in milliseconds.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtLeast(1),
+								},
 							},
 							"max_interval": schema.Int64Attribute{
 								MarkdownDescription: "Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must be greater than or equal to the base_interval if set. The  times the base_interval. Defaults to `10`.",
