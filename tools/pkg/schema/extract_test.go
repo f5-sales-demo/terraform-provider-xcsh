@@ -218,6 +218,11 @@ func TestExtractResourceSchema_RejectsInvalidConcurrencyTokenContract(t *testing
 			create.Properties = map[string]openapi.Schema{"resource_version": concurrencyTokenSchema(true, "replace")}
 			spec.Components.Schemas["token_probeCreateRequest"] = create
 		},
+		"create spec declares token": func(spec *openapi.Spec) {
+			create := spec.Components.Schemas["token_probeCreateSpecType"]
+			create.Properties["resource_version"] = concurrencyTokenSchema(true, "replace")
+			spec.Components.Schemas["token_probeCreateSpecType"] = create
+		},
 	}
 
 	for name, mutate := range tests {

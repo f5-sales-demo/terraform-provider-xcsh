@@ -137,13 +137,17 @@ func ExtractConcurrencyTokenContract(spec *openapi.Spec, resourceName string) (*
 		return nil, fmt.Errorf("%s concurrency token echo_on_operations differs between GetResponse and ReplaceRequest", resourceName)
 	}
 
-	if createSchema, found, findErr := findEnvelopeSchema(spec, resourceName, "CreateRequest"); findErr != nil {
-		return nil, findErr
-	} else if found {
-		if name, _, present, tokenErr := envelopeConcurrencyToken(createSchema); tokenErr != nil {
-			return nil, fmt.Errorf("%s CreateRequest: %w", resourceName, tokenErr)
-		} else if present {
-			return nil, fmt.Errorf("%s CreateRequest must not declare concurrency token %q", resourceName, name)
+	for _, createEnvelope := range []string{"CreateRequest", "CreateSpecType"} {
+		createSchema, found, findErr := findEnvelopeSchema(spec, resourceName, createEnvelope)
+		if findErr != nil {
+			return nil, findErr
+		}
+		if found {
+			if name, _, present, tokenErr := envelopeConcurrencyToken(createSchema); tokenErr != nil {
+				return nil, fmt.Errorf("%s %s: %w", resourceName, createEnvelope, tokenErr)
+			} else if present {
+				return nil, fmt.Errorf("%s %s must not declare concurrency token %q", resourceName, createEnvelope, name)
+			}
 		}
 	}
 
