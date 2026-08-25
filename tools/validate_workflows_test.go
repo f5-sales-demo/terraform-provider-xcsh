@@ -380,7 +380,7 @@ func validateWorkflowBytes(filename string, content []byte, policySchema int) []
 	contracts := map[string]jobContract{}
 	for _, contract := range protectedJobs {
 		if contract.workflow == filename {
-			if policySchema == 3 && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
+			if (policySchema == 3 || policySchema == 4) && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
 				contract.runsOn = canonicalSelfHostedRunsOn
 			}
 			contracts[contract.job] = contract
@@ -599,6 +599,16 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		expected["dependabot-auto-merge.yml/auto-merge"] = true
 		expected["semgrep.yml/semgrep"] = true
 		expected["workflow-security-audit.yml/audit"] = true
+	case 4:
+		// Schema v4 retains the managed fleet and adds its tool-cache smoke test.
+		expected["auto-merge.yml/require-token"] = true
+		expected["dependabot-auto-merge.yml/auto-merge"] = true
+		expected["semgrep.yml/semgrep"] = true
+		expected["workflow-security-audit.yml/audit"] = true
+		delete(expected, "enforce-repo-settings.yml/resolve-source")
+		delete(expected, "require-linked-issue.yml/check")
+		expected["require-linked-issue.yml/check-linked-issues"] = true
+		expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
 	default:
 		t.Fatalf("unsupported runner policy schema version: %d", policy.SchemaVersion)
 	}

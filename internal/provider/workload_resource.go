@@ -9012,7 +9012,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						MarkdownDescription: "Exclusive with [scale_to_zero] Number of replicas of service to spawn per site.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.Between(0, 5),
+							int64validator.Between(1, 5),
 						},
 					},
 				},
@@ -10437,7 +10437,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
-																		int64validator.AtMost(65535),
+																		int64validator.Between(1, 65535),
 																	},
 																},
 															},
@@ -10514,7 +10514,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
-																		int64validator.AtMost(65535),
+																		int64validator.Between(1, 65535),
 																	},
 																},
 															},
@@ -10554,7 +10554,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(65535),
+															int64validator.Between(1, 65535),
 														},
 													},
 												},
@@ -11818,7 +11818,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 																			Optional:            true,
 																			Validators: []validator.Int64{
-																				int64validator.AtMost(65535),
+																				int64validator.Between(1, 65535),
 																			},
 																		},
 																	},
@@ -13084,7 +13084,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.AtMost(65535),
+																	int64validator.Between(1, 65535),
 																},
 															},
 														},
@@ -14502,7 +14502,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						MarkdownDescription: "Exclusive with [scale_to_zero] Number of replicas of service to spawn per site.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.Between(0, 5),
+							int64validator.Between(1, 5),
 						},
 					},
 				},
@@ -15927,7 +15927,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
-																		int64validator.AtMost(65535),
+																		int64validator.Between(1, 65535),
 																	},
 																},
 															},
@@ -16004,7 +16004,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
-																		int64validator.AtMost(65535),
+																		int64validator.Between(1, 65535),
 																	},
 																},
 															},
@@ -16044,7 +16044,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(65535),
+															int64validator.Between(1, 65535),
 														},
 													},
 												},
@@ -17308,7 +17308,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 																			Optional:            true,
 																			Validators: []validator.Int64{
-																				int64validator.AtMost(65535),
+																				int64validator.Between(1, 65535),
 																			},
 																		},
 																	},
@@ -18574,7 +18574,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																MarkdownDescription: "Exclusive with [same_as_port] Port the workload is listening on.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.AtMost(65535),
+																	int64validator.Between(1, 65535),
 																},
 															},
 														},

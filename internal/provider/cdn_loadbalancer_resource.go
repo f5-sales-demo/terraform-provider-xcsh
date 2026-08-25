@@ -5424,7 +5424,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.Between(0, 8192),
+												int64validator.Between(1, 8192),
 											},
 										},
 										"unit": schema.StringAttribute{
@@ -6483,7 +6483,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.Between(0, 8192),
+												int64validator.Between(1, 8192),
 											},
 										},
 										"unit": schema.StringAttribute{
@@ -11430,7 +11430,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(100),
+									int64validator.Between(1, 100),
 								},
 							},
 							"period_multiplier": schema.Int64Attribute{
@@ -11448,7 +11448,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(8192),
+									int64validator.Between(1, 8192),
 								},
 							},
 							"unit": schema.StringAttribute{
@@ -11471,7 +11471,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(48),
+													int64validator.Between(1, 48),
 												},
 											},
 										},
@@ -11483,7 +11483,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(60),
+													int64validator.Between(1, 60),
 												},
 											},
 										},
@@ -11495,7 +11495,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(300),
+													int64validator.Between(1, 300),
 												},
 											},
 										},
