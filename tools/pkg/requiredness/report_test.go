@@ -85,11 +85,13 @@ func TestCompareTracesMinimumConfigurationPromotionRemoval(t *testing.T) {
 func TestCompareRejectsUntracedOrStillRequiredTransition(t *testing.T) {
 	for name, tc := range map[string]struct {
 		baselineMinimum   bool
+		baselineExplicit  bool
 		candidateExplicit bool
 		want              string
 	}{
-		"not minimum config": {false, false, "absent from baseline minimum configuration"},
-		"still required":     {true, true, "still requires it for create"},
+		"not minimum config":        {false, false, false, "absent from baseline minimum configuration"},
+		"genuinely required before": {true, true, false, "baseline contract genuinely required it for create"},
+		"still required":            {true, false, true, "still requires it for create"},
 	} {
 		t.Run(name, func(t *testing.T) {
 			baselineProvider := filepath.Join(t.TempDir(), "provider")
@@ -98,7 +100,7 @@ func TestCompareRejectsUntracedOrStillRequiredTransition(t *testing.T) {
 			candidateSpecs := t.TempDir()
 			writeFixture(t, filepath.Join(baselineProvider, "probe_resource.go"), resourceFixture(true))
 			writeFixture(t, filepath.Join(candidateProvider, "probe_resource.go"), resourceFixture(false))
-			writeFixture(t, filepath.Join(baselineSpecs, "domains", "probe.json"), specFixture(tc.baselineMinimum, false))
+			writeFixture(t, filepath.Join(baselineSpecs, "domains", "probe.json"), specFixture(tc.baselineMinimum, tc.baselineExplicit))
 			writeFixture(t, filepath.Join(candidateSpecs, "domains", "probe.json"), specFixture(false, tc.candidateExplicit))
 			_, err := Compare(baselineProvider, candidateProvider, baselineSpecs, candidateSpecs, Report{})
 			if err == nil || !strings.Contains(err.Error(), tc.want) {

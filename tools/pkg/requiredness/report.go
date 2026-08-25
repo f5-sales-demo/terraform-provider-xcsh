@@ -288,6 +288,9 @@ func Compare(baselineProviderDir, candidateProviderDir, baselineSpecDir, candida
 			if !minimumConfigurationContains(baselineCreate, attribute) {
 				return Report{}, fmt.Errorf("unexpected Required-to-Optional transition %s.%s: absent from baseline minimum configuration", resource, attribute)
 			}
+			if explicitlyRequired(baselineCreate, attribute) {
+				return Report{}, fmt.Errorf("invalid Required-to-Optional transition %s.%s: baseline contract genuinely required it for create", resource, attribute)
+			}
 			if explicitlyRequired(candidateCreate, attribute) {
 				return Report{}, fmt.Errorf("invalid Required-to-Optional transition %s.%s: candidate contract still requires it for create", resource, attribute)
 			}
