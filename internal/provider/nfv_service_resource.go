@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -24,6 +25,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1353,7 +1355,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Configuration parameter for enabled ssh access.",
 				Attributes: map[string]schema.Attribute{
 					"domain_suffix": schema.StringAttribute{
-						MarkdownDescription: "Domain suffix will be used along with node name to form the hostname for SSH node management .",
+						MarkdownDescription: "Domain suffix will be used along with node name to form the hostname for SSH node management.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
@@ -1371,18 +1373,18 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Configuration parameter for advertise on slo sli.",
 					},
 					"node_ssh_ports": schema.ListNestedBlock{
-						MarkdownDescription: "Enter TCP port and node name per node .",
+						MarkdownDescription: "Management Node SSH Port. Enter TCP port and node name per node.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"node_name": schema.StringAttribute{
-									MarkdownDescription: "Node name will be used to match a particular node with the desired TCP port .",
+									MarkdownDescription: "Node name will be used to match a particular node with the desired TCP port.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
 									},
 								},
 								"ssh_port": schema.Int64Attribute{
-									MarkdownDescription: "SSH Port. Enter TCP port per node .",
+									MarkdownDescription: "SSH Port. Enter TCP port per node.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(1024, 65535),
@@ -1397,7 +1399,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "[OneOf: f5_big_ip_aws_service, palo_alto_fw_service] Virtual BIG-IP AWS. Virtual BIG-IP specification for AWS.",
 				Attributes: map[string]schema.Attribute{
 					"admin_username": schema.StringAttribute{
-						MarkdownDescription: "Admin Username for BIG-IP .",
+						MarkdownDescription: "Admin Username. Admin Username for BIG-IP.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(256),
@@ -1429,7 +1431,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -1521,7 +1523,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Port Range List. List of port ranges.",
 								Attributes: map[string]schema.Attribute{
 									"ports": schema.ListAttribute{
-										MarkdownDescription: "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192 .",
+										MarkdownDescription: "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
 										Optional:            true,
 										ElementType:         types.StringType,
 										Validators: []validator.List{
@@ -1534,7 +1536,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Port Range List. List of port ranges.",
 								Attributes: map[string]schema.Attribute{
 									"ports": schema.ListAttribute{
-										MarkdownDescription: "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192 .",
+										MarkdownDescription: "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
 										Optional:            true,
 										ElementType:         types.StringType,
 										Validators: []validator.List{
@@ -1576,18 +1578,18 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 					"nodes": schema.ListNestedBlock{
-						MarkdownDescription: "Specify how and where the service nodes are spawned .",
+						MarkdownDescription: "Specify how and where the service nodes are spawned.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"aws_az_name": schema.StringAttribute{
-									MarkdownDescription: "The AWS Availability Zone must be consistent with the AWS Region chosen. Please select an AZ in the same Region as your TGW Site .",
+									MarkdownDescription: "The AWS Availability Zone must be consistent with the AWS Region chosen. Please select an AZ in the same Region as your TGW Site.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
 									},
 								},
 								"node_name": schema.StringAttribute{
-									MarkdownDescription: "Node Name will be used to assign as hostname to the service .",
+									MarkdownDescription: "Node Name will be used to assign as hostname to the service.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
@@ -1618,7 +1620,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
-													MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 													Optional:            true,
 												},
 											},
@@ -1637,7 +1639,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Configuration parameter for https management.",
 				Attributes: map[string]schema.Attribute{
 					"domain_suffix": schema.StringAttribute{
-						MarkdownDescription: "Domain suffix will be used along with node name to form URL to access node management .",
+						MarkdownDescription: "Domain suffix will be used along with node name to form URL to access node management.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
@@ -1699,7 +1701,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Enable this option",
 							},
 							"tls_certificates": schema.ListNestedBlock{
-								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -1743,7 +1745,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -1904,7 +1906,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -1922,7 +1924,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Enable this option",
 							},
 							"tls_certificates": schema.ListNestedBlock{
-								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -1966,7 +1968,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -2127,7 +2129,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -2145,7 +2147,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Enable this option",
 							},
 							"tls_certificates": schema.ListNestedBlock{
-								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2189,7 +2191,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -2350,7 +2352,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -2368,7 +2370,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Enable this option",
 							},
 							"tls_certificates": schema.ListNestedBlock{
-								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2412,7 +2414,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -2573,7 +2575,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -2623,7 +2625,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "For auto-setup, SSH public and pvt keys are needed. Using the given config user, SSH and API access will be configured.",
 						Attributes: map[string]schema.Attribute{
 							"admin_username": schema.StringAttribute{
-								MarkdownDescription: "Firewall Admin Username. Firewall Admin Username .",
+								MarkdownDescription: "Firewall Admin Username. Firewall Admin Username.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(256),
@@ -2643,7 +2645,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 												Optional:            true,
 											},
 											"location": schema.StringAttribute{
-												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(4, 131072),
@@ -2677,7 +2679,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "SSH Key includes both public and private key.",
 								Attributes: map[string]schema.Attribute{
 									"public_key": schema.StringAttribute{
-										MarkdownDescription: "Authorized Public SSH key which will be programmed on the node .",
+										MarkdownDescription: "Authorized Public SSH key which will be programmed on the node.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 8192),
@@ -2697,7 +2699,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -2781,7 +2783,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 							"server": schema.StringAttribute{
-								MarkdownDescription: "Panorama Server Address to which the firewall should connect to .",
+								MarkdownDescription: "Panorama Server Address to which the firewall should connect to.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
@@ -2809,7 +2811,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 												Optional:            true,
 											},
 											"location": schema.StringAttribute{
-												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(4, 131072),
@@ -2846,18 +2848,18 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"nodes": schema.ListNestedBlock{
-								MarkdownDescription: "Palo Alto Networks AZ Nodes. .",
+								MarkdownDescription: "Palo Alto Networks AZ Nodes. Configuration parameter for nodes",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"aws_az_name": schema.StringAttribute{
-											MarkdownDescription: "AWS availability zone, must be consistent with the selected AWS region. It is recommended that AZ is one of the AZ for sites .",
+											MarkdownDescription: "AWS availability zone, must be consistent with the selected AWS region. It is recommended that AZ is one of the AZ for sites.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1024),
 											},
 										},
 										"node_name": schema.StringAttribute{
-											MarkdownDescription: "Node Name will be used to assign as hostname to the service .",
+											MarkdownDescription: "Node Name will be used to assign as hostname to the service.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -2881,7 +2883,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 													MarkdownDescription: "Parameters for creating a new cloud subnet.",
 													Attributes: map[string]schema.Attribute{
 														"ipv4": schema.StringAttribute{
-															MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+															MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 															Optional:            true,
 														},
 													},
@@ -3107,9 +3109,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.IsUnknown() {
 					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["namespace"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.ValueString()
 				}
-				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.IsUnknown() {
-					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["tenant"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.ValueString()
-				}
 				F5BigIPAWSServiceAWSTGWSiteParamsMap["aws_tgw_site"] = F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap
 			}
 			F5BigIPAWSServiceMap["aws_tgw_site_params"] = F5BigIPAWSServiceAWSTGWSiteParamsMap
@@ -3249,9 +3248,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsUnknown() {
 					HTTPSManagementAdvertiseOnInternetPublicIPMap["namespace"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.ValueString()
 				}
-				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsUnknown() {
-					HTTPSManagementAdvertiseOnInternetPublicIPMap["tenant"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.ValueString()
-				}
 				HTTPSManagementAdvertiseOnInternetMap["public_ip"] = HTTPSManagementAdvertiseOnInternetPublicIPMap
 			}
 			HTTPSManagementMap["advertise_on_internet"] = HTTPSManagementAdvertiseOnInternetMap
@@ -3372,9 +3368,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL != nil {
@@ -3387,9 +3380,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap
 				}
@@ -3528,9 +3518,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL != nil {
@@ -3543,9 +3530,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap
 				}
@@ -3684,9 +3668,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL != nil {
@@ -3699,9 +3680,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap
 				}
@@ -3840,9 +3818,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL != nil {
@@ -3855,9 +3830,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap
 				}
@@ -3971,9 +3943,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.PaloAltoFwService.AWSTGWSite.Namespace.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Namespace.IsUnknown() {
 				PaloAltoFwServiceAWSTGWSiteMap["namespace"] = data.PaloAltoFwService.AWSTGWSite.Namespace.ValueString()
-			}
-			if !data.PaloAltoFwService.AWSTGWSite.Tenant.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Tenant.IsUnknown() {
-				PaloAltoFwServiceAWSTGWSiteMap["tenant"] = data.PaloAltoFwService.AWSTGWSite.Tenant.ValueString()
 			}
 			PaloAltoFwServiceMap["aws_tgw_site"] = PaloAltoFwServiceAWSTGWSiteMap
 		}
@@ -4092,11 +4061,28 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetNfvService(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -6407,6 +6393,16 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NfvService: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -8764,6 +8760,20 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.NfvService{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -8771,6 +8781,7 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -8897,9 +8908,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.IsUnknown() {
 					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["namespace"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.ValueString()
-				}
-				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.IsUnknown() {
-					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["tenant"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.ValueString()
 				}
 				F5BigIPAWSServiceAWSTGWSiteParamsMap["aws_tgw_site"] = F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap
 			}
@@ -9040,9 +9048,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsUnknown() {
 					HTTPSManagementAdvertiseOnInternetPublicIPMap["namespace"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.ValueString()
 				}
-				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsUnknown() {
-					HTTPSManagementAdvertiseOnInternetPublicIPMap["tenant"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.ValueString()
-				}
 				HTTPSManagementAdvertiseOnInternetMap["public_ip"] = HTTPSManagementAdvertiseOnInternetPublicIPMap
 			}
 			HTTPSManagementMap["advertise_on_internet"] = HTTPSManagementAdvertiseOnInternetMap
@@ -9163,9 +9168,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL != nil {
@@ -9178,9 +9180,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap
 				}
@@ -9319,9 +9318,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL != nil {
@@ -9334,9 +9330,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap
 				}
@@ -9475,9 +9468,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL != nil {
@@ -9490,9 +9480,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap
 				}
@@ -9631,9 +9618,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL != nil {
@@ -9646,9 +9630,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap
 				}
@@ -9763,9 +9744,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 			if !data.PaloAltoFwService.AWSTGWSite.Namespace.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Namespace.IsUnknown() {
 				PaloAltoFwServiceAWSTGWSiteMap["namespace"] = data.PaloAltoFwService.AWSTGWSite.Namespace.ValueString()
 			}
-			if !data.PaloAltoFwService.AWSTGWSite.Tenant.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Tenant.IsUnknown() {
-				PaloAltoFwServiceAWSTGWSiteMap["tenant"] = data.PaloAltoFwService.AWSTGWSite.Tenant.ValueString()
-			}
 			PaloAltoFwServiceMap["aws_tgw_site"] = PaloAltoFwServiceAWSTGWSiteMap
 		}
 		if data.PaloAltoFwService.DisablePanaroma != nil {
@@ -9879,6 +9857,14 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	_, err := r.client.UpdateNfvService(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of nfv_service %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update NfvService: %s", err))
 		return
 	}
@@ -9896,10 +9882,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -9909,6 +9891,19 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 	fetched, fetchErr := r.client.GetNfvService(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NfvService after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

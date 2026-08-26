@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -26,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -8254,14 +8256,14 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name. Name of the file .",
+													MarkdownDescription: "Name. Name of the file.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
 													},
 												},
 												"volume_name": schema.StringAttribute{
-													MarkdownDescription: "Volume Name. Name of the Volume .",
+													MarkdownDescription: "Volume Name. Name of the Volume.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(256),
@@ -8303,7 +8305,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						},
 					},
 					"containers": schema.ListNestedBlock{
-						MarkdownDescription: "Containers to use for the job .",
+						MarkdownDescription: "Containers. Containers to use for the job.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -8334,7 +8336,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Optional:            true,
 								},
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name. Name of the container .",
+									MarkdownDescription: "Name. Name of the container.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
@@ -8498,7 +8500,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path to access on the HTTP server.",
+													MarkdownDescription: "Path. Path to access on the HTTP server.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 2048),
@@ -8625,7 +8627,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path to access on the HTTP server.",
+													MarkdownDescription: "Path. Path to access on the HTTP server.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 2048),
@@ -8701,7 +8703,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
-										MarkdownDescription: "Which customer sites should this workload be deployed .",
+										MarkdownDescription: "Which customer sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -8739,7 +8741,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
-										MarkdownDescription: "Which customer virtual sites should this workload be deployed .",
+										MarkdownDescription: "Which customer virtual sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -8777,7 +8779,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
-										MarkdownDescription: "Which regional edge sites should this workload be deployed .",
+										MarkdownDescription: "Which regional edge sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -8815,7 +8817,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
-										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed .",
+										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -8867,7 +8869,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									MarkdownDescription: "Volume containing a temporary directory whose lifetime is the same as a replica of a workload.",
 									Attributes: map[string]schema.Attribute{
 										"size_limit": schema.Int64Attribute{
-											MarkdownDescription: "Size Limit (in GiB).",
+											MarkdownDescription: "Size Limit (in GiB). Configuration parameter for size limit",
 											Optional:            true,
 										},
 									},
@@ -8904,7 +8906,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									MarkdownDescription: "Volume containing a host mapped path into the workload.",
 									Attributes: map[string]schema.Attribute{
 										"path": schema.StringAttribute{
-											MarkdownDescription: "Path of the directory on the host .",
+											MarkdownDescription: "Path. Path of the directory on the host.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -8988,7 +8990,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"storage_size": schema.Int64Attribute{
-													MarkdownDescription: "Size in GiB of the persistent storage .",
+													MarkdownDescription: "Size (in GiB). Size in GiB of the persistent storage.",
 													Optional:            true,
 												},
 											},
@@ -9026,7 +9028,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"advertise_where": schema.ListNestedBlock{
-										MarkdownDescription: "Where should this load balancer be available .",
+										MarkdownDescription: "Where should this load balancer be available.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -9196,7 +9198,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 									},
 									"ports": schema.ListNestedBlock{
-										MarkdownDescription: "Ports. Ports to advertise .",
+										MarkdownDescription: "Ports. Ports to advertise.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -9534,7 +9536,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
-																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																							Optional:            true,
 																							ElementType:         types.StringType,
 																						},
@@ -9552,7 +9554,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			MarkdownDescription: "Enable this option",
 																		},
 																		"tls_certificates": schema.ListNestedBlock{
-																			MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+																			MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"certificate_url": schema.StringAttribute{
@@ -9596,7 +9598,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																										Optional:            true,
 																									},
 																									"location": schema.StringAttribute{
-																										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																										Optional:            true,
 																										Validators: []validator.String{
 																											stringvalidator.LengthBetween(4, 131072),
@@ -9757,7 +9759,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
-																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																							Optional:            true,
 																							ElementType:         types.StringType,
 																						},
@@ -10011,7 +10013,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																			Attributes: map[string]schema.Attribute{
 																				"xfcc_header_elements": schema.ListAttribute{
-																					MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																					MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																					Optional:            true,
 																					ElementType:         types.StringType,
 																				},
@@ -10100,7 +10102,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																									Optional:            true,
 																								},
 																								"name": schema.StringAttribute{
-																									MarkdownDescription: "Name. Name of the header .",
+																									MarkdownDescription: "Name. Name of the header.",
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthBetween(1, 63),
@@ -10219,7 +10221,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																									Optional:            true,
 																								},
 																								"name": schema.StringAttribute{
-																									MarkdownDescription: "Name. Name of the header .",
+																									MarkdownDescription: "Name. Name of the header.",
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthBetween(1, 63),
@@ -10407,7 +10409,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													MarkdownDescription: "Port. Port of the workload.",
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
-															MarkdownDescription: "Name. Name of the Port .",
+															MarkdownDescription: "Name. Name of the Port.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 63),
@@ -10420,7 +10422,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															MarkdownDescription: "Port Information. Port information.",
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
-																	MarkdownDescription: "Port the workload can be reached on .",
+																	MarkdownDescription: "Port. Port the workload can be reached on.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(1, 65535),
@@ -10480,11 +10482,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
-												MarkdownDescription: "Ports. Ports to advertise .",
+												MarkdownDescription: "Ports. Ports to advertise.",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
-															MarkdownDescription: "Name. Name of the Port .",
+															MarkdownDescription: "Name. Name of the Port.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 63),
@@ -10497,7 +10499,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															MarkdownDescription: "Port Information. Port information.",
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
-																	MarkdownDescription: "Port the workload can be reached on .",
+																	MarkdownDescription: "Port. Port the workload can be reached on.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(1, 65535),
@@ -10537,7 +10539,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												MarkdownDescription: "Port Information. Port information.",
 												Attributes: map[string]schema.Attribute{
 													"port": schema.Int64Attribute{
-														MarkdownDescription: "Port the workload can be reached on .",
+														MarkdownDescription: "Port. Port the workload can be reached on.",
 														Optional:            true,
 														Validators: []validator.Int64{
 															int64validator.Between(1, 65535),
@@ -10577,7 +10579,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
-												MarkdownDescription: "Ports. Ports to advertise .",
+												MarkdownDescription: "Ports. Ports to advertise.",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
@@ -10915,7 +10917,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																							Attributes: map[string]schema.Attribute{
 																								"xfcc_header_elements": schema.ListAttribute{
-																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																									Optional:            true,
 																									ElementType:         types.StringType,
 																								},
@@ -10933,7 +10935,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					MarkdownDescription: "Enable this option",
 																				},
 																				"tls_certificates": schema.ListNestedBlock{
-																					MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+																					MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"certificate_url": schema.StringAttribute{
@@ -10977,7 +10979,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																												Optional:            true,
 																											},
 																											"location": schema.StringAttribute{
-																												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																												Optional:            true,
 																												Validators: []validator.String{
 																													stringvalidator.LengthBetween(4, 131072),
@@ -11138,7 +11140,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																							Attributes: map[string]schema.Attribute{
 																								"xfcc_header_elements": schema.ListAttribute{
-																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																									Optional:            true,
 																									ElementType:         types.StringType,
 																								},
@@ -11392,7 +11394,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
-																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																							Optional:            true,
 																							ElementType:         types.StringType,
 																						},
@@ -11481,7 +11483,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																											Optional:            true,
 																										},
 																										"name": schema.StringAttribute{
-																											MarkdownDescription: "Name. Name of the header .",
+																											MarkdownDescription: "Name. Name of the header.",
 																											Optional:            true,
 																											Validators: []validator.String{
 																												stringvalidator.LengthBetween(1, 63),
@@ -11600,7 +11602,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																											Optional:            true,
 																										},
 																										"name": schema.StringAttribute{
-																											MarkdownDescription: "Name. Name of the header .",
+																											MarkdownDescription: "Name. Name of the header.",
 																											Optional:            true,
 																											Validators: []validator.String{
 																												stringvalidator.LengthBetween(1, 63),
@@ -11788,7 +11790,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															MarkdownDescription: "Port. Port of the workload.",
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
-																	MarkdownDescription: "Name. Name of the Port .",
+																	MarkdownDescription: "Name. Name of the Port.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 63),
@@ -11801,7 +11803,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	MarkdownDescription: "Port Information. Port information.",
 																	Attributes: map[string]schema.Attribute{
 																		"port": schema.Int64Attribute{
-																			MarkdownDescription: "Port the workload can be reached on .",
+																			MarkdownDescription: "Port. Port the workload can be reached on.",
 																			Optional:            true,
 																			Validators: []validator.Int64{
 																				int64validator.Between(1, 65535),
@@ -12190,7 +12192,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																				Attributes: map[string]schema.Attribute{
 																					"xfcc_header_elements": schema.ListAttribute{
-																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																					},
@@ -12208,7 +12210,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		MarkdownDescription: "Enable this option",
 																	},
 																	"tls_certificates": schema.ListNestedBlock{
-																		MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+																		MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"certificate_url": schema.StringAttribute{
@@ -12252,7 +12254,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																									Optional:            true,
 																								},
 																								"location": schema.StringAttribute{
-																									MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																									MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthBetween(4, 131072),
@@ -12413,7 +12415,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																				Attributes: map[string]schema.Attribute{
 																					"xfcc_header_elements": schema.ListAttribute{
-																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																					},
@@ -12667,7 +12669,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																		Attributes: map[string]schema.Attribute{
 																			"xfcc_header_elements": schema.ListAttribute{
-																				MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																				MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																				Optional:            true,
 																				ElementType:         types.StringType,
 																			},
@@ -12756,7 +12758,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																								Optional:            true,
 																							},
 																							"name": schema.StringAttribute{
-																								MarkdownDescription: "Name. Name of the header .",
+																								MarkdownDescription: "Name. Name of the header.",
 																								Optional:            true,
 																								Validators: []validator.String{
 																									stringvalidator.LengthBetween(1, 63),
@@ -12875,7 +12877,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																								Optional:            true,
 																							},
 																							"name": schema.StringAttribute{
-																								MarkdownDescription: "Name. Name of the header .",
+																								MarkdownDescription: "Name. Name of the header.",
 																								Optional:            true,
 																								Validators: []validator.String{
 																									stringvalidator.LengthBetween(1, 63),
@@ -13067,7 +13069,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														MarkdownDescription: "Port Information. Port information.",
 														Attributes: map[string]schema.Attribute{
 															"port": schema.Int64Attribute{
-																MarkdownDescription: "Port the workload can be reached on .",
+																MarkdownDescription: "Port. Port the workload can be reached on.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(1, 65535),
@@ -13161,14 +13163,14 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name. Name of the file .",
+													MarkdownDescription: "Name. Name of the file.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
 													},
 												},
 												"volume_name": schema.StringAttribute{
-													MarkdownDescription: "Volume Name. Name of the Volume .",
+													MarkdownDescription: "Volume Name. Name of the Volume.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(256),
@@ -13210,7 +13212,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						},
 					},
 					"containers": schema.ListNestedBlock{
-						MarkdownDescription: "Containers to use for service .",
+						MarkdownDescription: "Containers. Containers to use for service.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -13241,7 +13243,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Optional:            true,
 								},
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name. Name of the container .",
+									MarkdownDescription: "Name. Name of the container.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
@@ -13405,7 +13407,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path to access on the HTTP server.",
+													MarkdownDescription: "Path. Path to access on the HTTP server.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 2048),
@@ -13532,7 +13534,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path to access on the HTTP server.",
+													MarkdownDescription: "Path. Path to access on the HTTP server.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 2048),
@@ -13608,7 +13610,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
-										MarkdownDescription: "Which customer sites should this workload be deployed .",
+										MarkdownDescription: "Which customer sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -13646,7 +13648,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
-										MarkdownDescription: "Which customer virtual sites should this workload be deployed .",
+										MarkdownDescription: "Which customer virtual sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -13684,7 +13686,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
-										MarkdownDescription: "Which regional edge sites should this workload be deployed .",
+										MarkdownDescription: "Which regional edge sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -13722,7 +13724,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
-										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed .",
+										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -13777,7 +13779,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									MarkdownDescription: "Volume containing a temporary directory whose lifetime is the same as a replica of a workload.",
 									Attributes: map[string]schema.Attribute{
 										"size_limit": schema.Int64Attribute{
-											MarkdownDescription: "Size Limit (in GiB).",
+											MarkdownDescription: "Size Limit (in GiB). Configuration parameter for size limit",
 											Optional:            true,
 										},
 									},
@@ -13814,7 +13816,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									MarkdownDescription: "Volume containing a host mapped path into the workload.",
 									Attributes: map[string]schema.Attribute{
 										"path": schema.StringAttribute{
-											MarkdownDescription: "Path of the directory on the host .",
+											MarkdownDescription: "Path. Path of the directory on the host.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -13898,7 +13900,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"storage_size": schema.Int64Attribute{
-													MarkdownDescription: "Size in GiB of the persistent storage .",
+													MarkdownDescription: "Size (in GiB). Size in GiB of the persistent storage.",
 													Optional:            true,
 												},
 											},
@@ -13963,14 +13965,14 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name. Name of the file .",
+													MarkdownDescription: "Name. Name of the file.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
 													},
 												},
 												"volume_name": schema.StringAttribute{
-													MarkdownDescription: "Volume Name. Name of the Volume .",
+													MarkdownDescription: "Volume Name. Name of the Volume.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(256),
@@ -14042,7 +14044,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Optional:            true,
 							},
 							"name": schema.StringAttribute{
-								MarkdownDescription: "Name. Name of the container .",
+								MarkdownDescription: "Name. Name of the container.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 256),
@@ -14206,7 +14208,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											"path": schema.StringAttribute{
-												MarkdownDescription: "Path to access on the HTTP server.",
+												MarkdownDescription: "Path. Path to access on the HTTP server.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 2048),
@@ -14333,7 +14335,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											"path": schema.StringAttribute{
-												MarkdownDescription: "Path to access on the HTTP server.",
+												MarkdownDescription: "Path. Path to access on the HTTP server.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 2048),
@@ -14403,7 +14405,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						MarkdownDescription: "Persistent storage volume configuration for the workload.",
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
-								MarkdownDescription: "Name. Name of the volume .",
+								MarkdownDescription: "Name. Name of the volume.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 63),
@@ -14459,7 +14461,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											"storage_size": schema.Int64Attribute{
-												MarkdownDescription: "Size in GiB of the persistent storage .",
+												MarkdownDescription: "Size (in GiB). Size in GiB of the persistent storage.",
 												Optional:            true,
 											},
 										},
@@ -14485,7 +14487,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 							},
 							"service_port": schema.Int64Attribute{
-								MarkdownDescription: "Service port to advertise on Internet via HTTP loadbalancer using port 80 .",
+								MarkdownDescription: "Service port to advertise on Internet via HTTP loadbalancer using port 80.",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.Between(1024, 65535),
@@ -14516,7 +14518,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"advertise_where": schema.ListNestedBlock{
-										MarkdownDescription: "Where should this load balancer be available .",
+										MarkdownDescription: "Where should this load balancer be available.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -14686,7 +14688,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 									},
 									"ports": schema.ListNestedBlock{
-										MarkdownDescription: "Ports. Ports to advertise .",
+										MarkdownDescription: "Ports. Ports to advertise.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -15024,7 +15026,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
-																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																							Optional:            true,
 																							ElementType:         types.StringType,
 																						},
@@ -15042,7 +15044,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			MarkdownDescription: "Enable this option",
 																		},
 																		"tls_certificates": schema.ListNestedBlock{
-																			MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+																			MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"certificate_url": schema.StringAttribute{
@@ -15086,7 +15088,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																										Optional:            true,
 																									},
 																									"location": schema.StringAttribute{
-																										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																										Optional:            true,
 																										Validators: []validator.String{
 																											stringvalidator.LengthBetween(4, 131072),
@@ -15247,7 +15249,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
-																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																							Optional:            true,
 																							ElementType:         types.StringType,
 																						},
@@ -15501,7 +15503,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																			Attributes: map[string]schema.Attribute{
 																				"xfcc_header_elements": schema.ListAttribute{
-																					MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																					MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																					Optional:            true,
 																					ElementType:         types.StringType,
 																				},
@@ -15590,7 +15592,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																									Optional:            true,
 																								},
 																								"name": schema.StringAttribute{
-																									MarkdownDescription: "Name. Name of the header .",
+																									MarkdownDescription: "Name. Name of the header.",
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthBetween(1, 63),
@@ -15709,7 +15711,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																									Optional:            true,
 																								},
 																								"name": schema.StringAttribute{
-																									MarkdownDescription: "Name. Name of the header .",
+																									MarkdownDescription: "Name. Name of the header.",
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthBetween(1, 63),
@@ -15897,7 +15899,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													MarkdownDescription: "Port. Port of the workload.",
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
-															MarkdownDescription: "Name. Name of the Port .",
+															MarkdownDescription: "Name. Name of the Port.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 63),
@@ -15910,7 +15912,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															MarkdownDescription: "Port Information. Port information.",
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
-																	MarkdownDescription: "Port the workload can be reached on .",
+																	MarkdownDescription: "Port. Port the workload can be reached on.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(1, 65535),
@@ -15970,11 +15972,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
-												MarkdownDescription: "Ports. Ports to advertise .",
+												MarkdownDescription: "Ports. Ports to advertise.",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
-															MarkdownDescription: "Name. Name of the Port .",
+															MarkdownDescription: "Name. Name of the Port.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 63),
@@ -15987,7 +15989,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															MarkdownDescription: "Port Information. Port information.",
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
-																	MarkdownDescription: "Port the workload can be reached on .",
+																	MarkdownDescription: "Port. Port the workload can be reached on.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(1, 65535),
@@ -16027,7 +16029,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												MarkdownDescription: "Port Information. Port information.",
 												Attributes: map[string]schema.Attribute{
 													"port": schema.Int64Attribute{
-														MarkdownDescription: "Port the workload can be reached on .",
+														MarkdownDescription: "Port. Port the workload can be reached on.",
 														Optional:            true,
 														Validators: []validator.Int64{
 															int64validator.Between(1, 65535),
@@ -16067,7 +16069,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
-												MarkdownDescription: "Ports. Ports to advertise .",
+												MarkdownDescription: "Ports. Ports to advertise.",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
@@ -16405,7 +16407,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																							Attributes: map[string]schema.Attribute{
 																								"xfcc_header_elements": schema.ListAttribute{
-																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																									Optional:            true,
 																									ElementType:         types.StringType,
 																								},
@@ -16423,7 +16425,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					MarkdownDescription: "Enable this option",
 																				},
 																				"tls_certificates": schema.ListNestedBlock{
-																					MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+																					MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"certificate_url": schema.StringAttribute{
@@ -16467,7 +16469,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																												Optional:            true,
 																											},
 																											"location": schema.StringAttribute{
-																												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																												Optional:            true,
 																												Validators: []validator.String{
 																													stringvalidator.LengthBetween(4, 131072),
@@ -16628,7 +16630,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																							Attributes: map[string]schema.Attribute{
 																								"xfcc_header_elements": schema.ListAttribute{
-																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																									Optional:            true,
 																									ElementType:         types.StringType,
 																								},
@@ -16882,7 +16884,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
-																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																							Optional:            true,
 																							ElementType:         types.StringType,
 																						},
@@ -16971,7 +16973,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																											Optional:            true,
 																										},
 																										"name": schema.StringAttribute{
-																											MarkdownDescription: "Name. Name of the header .",
+																											MarkdownDescription: "Name. Name of the header.",
 																											Optional:            true,
 																											Validators: []validator.String{
 																												stringvalidator.LengthBetween(1, 63),
@@ -17090,7 +17092,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																											Optional:            true,
 																										},
 																										"name": schema.StringAttribute{
-																											MarkdownDescription: "Name. Name of the header .",
+																											MarkdownDescription: "Name. Name of the header.",
 																											Optional:            true,
 																											Validators: []validator.String{
 																												stringvalidator.LengthBetween(1, 63),
@@ -17278,7 +17280,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															MarkdownDescription: "Port. Port of the workload.",
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
-																	MarkdownDescription: "Name. Name of the Port .",
+																	MarkdownDescription: "Name. Name of the Port.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 63),
@@ -17291,7 +17293,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	MarkdownDescription: "Port Information. Port information.",
 																	Attributes: map[string]schema.Attribute{
 																		"port": schema.Int64Attribute{
-																			MarkdownDescription: "Port the workload can be reached on .",
+																			MarkdownDescription: "Port. Port the workload can be reached on.",
 																			Optional:            true,
 																			Validators: []validator.Int64{
 																				int64validator.Between(1, 65535),
@@ -17680,7 +17682,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																				Attributes: map[string]schema.Attribute{
 																					"xfcc_header_elements": schema.ListAttribute{
-																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																					},
@@ -17698,7 +17700,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		MarkdownDescription: "Enable this option",
 																	},
 																	"tls_certificates": schema.ListNestedBlock{
-																		MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+																		MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"certificate_url": schema.StringAttribute{
@@ -17742,7 +17744,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																									Optional:            true,
 																								},
 																								"location": schema.StringAttribute{
-																									MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																									MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthBetween(4, 131072),
@@ -17903,7 +17905,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																				Attributes: map[string]schema.Attribute{
 																					"xfcc_header_elements": schema.ListAttribute{
-																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																					},
@@ -18157,7 +18159,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 																		Attributes: map[string]schema.Attribute{
 																			"xfcc_header_elements": schema.ListAttribute{
-																				MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+																				MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 																				Optional:            true,
 																				ElementType:         types.StringType,
 																			},
@@ -18246,7 +18248,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																								Optional:            true,
 																							},
 																							"name": schema.StringAttribute{
-																								MarkdownDescription: "Name. Name of the header .",
+																								MarkdownDescription: "Name. Name of the header.",
 																								Optional:            true,
 																								Validators: []validator.String{
 																									stringvalidator.LengthBetween(1, 63),
@@ -18365,7 +18367,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																								Optional:            true,
 																							},
 																							"name": schema.StringAttribute{
-																								MarkdownDescription: "Name. Name of the header .",
+																								MarkdownDescription: "Name. Name of the header.",
 																								Optional:            true,
 																								Validators: []validator.String{
 																									stringvalidator.LengthBetween(1, 63),
@@ -18557,7 +18559,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														MarkdownDescription: "Port Information. Port information.",
 														Attributes: map[string]schema.Attribute{
 															"port": schema.Int64Attribute{
-																MarkdownDescription: "Port the workload can be reached on .",
+																MarkdownDescription: "Port. Port the workload can be reached on.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(1, 65535),
@@ -18651,14 +18653,14 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name. Name of the file .",
+													MarkdownDescription: "Name. Name of the file.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
 													},
 												},
 												"volume_name": schema.StringAttribute{
-													MarkdownDescription: "Volume Name. Name of the Volume .",
+													MarkdownDescription: "Volume Name. Name of the Volume.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(256),
@@ -18700,7 +18702,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						},
 					},
 					"containers": schema.ListNestedBlock{
-						MarkdownDescription: "Containers to use for service .",
+						MarkdownDescription: "Containers. Containers to use for service.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -18731,7 +18733,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Optional:            true,
 								},
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name. Name of the container .",
+									MarkdownDescription: "Name. Name of the container.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
@@ -18895,7 +18897,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path to access on the HTTP server.",
+													MarkdownDescription: "Path. Path to access on the HTTP server.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 2048),
@@ -19022,7 +19024,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path to access on the HTTP server.",
+													MarkdownDescription: "Path. Path to access on the HTTP server.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 2048),
@@ -19098,7 +19100,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
-										MarkdownDescription: "Which customer sites should this workload be deployed .",
+										MarkdownDescription: "Which customer sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -19136,7 +19138,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
-										MarkdownDescription: "Which customer virtual sites should this workload be deployed .",
+										MarkdownDescription: "Which customer virtual sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -19174,7 +19176,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
-										MarkdownDescription: "Which regional edge sites should this workload be deployed .",
+										MarkdownDescription: "Which regional edge sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -19212,7 +19214,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
-										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed .",
+										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -19248,11 +19250,11 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						},
 					},
 					"persistent_volumes": schema.ListNestedBlock{
-						MarkdownDescription: "Persistent storage configuration for the service .",
+						MarkdownDescription: "Persistent storage configuration for the service.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name. Name of the volume .",
+									MarkdownDescription: "Name. Name of the volume.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 63),
@@ -19308,7 +19310,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"storage_size": schema.Int64Attribute{
-													MarkdownDescription: "Size in GiB of the persistent storage .",
+													MarkdownDescription: "Size (in GiB). Size in GiB of the persistent storage.",
 													Optional:            true,
 												},
 											},
@@ -19343,7 +19345,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									MarkdownDescription: "Volume containing a temporary directory whose lifetime is the same as a replica of a workload.",
 									Attributes: map[string]schema.Attribute{
 										"size_limit": schema.Int64Attribute{
-											MarkdownDescription: "Size Limit (in GiB).",
+											MarkdownDescription: "Size Limit (in GiB). Configuration parameter for size limit",
 											Optional:            true,
 										},
 									},
@@ -19380,7 +19382,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									MarkdownDescription: "Volume containing a host mapped path into the workload.",
 									Attributes: map[string]schema.Attribute{
 										"path": schema.StringAttribute{
-											MarkdownDescription: "Path of the directory on the host .",
+											MarkdownDescription: "Path. Path of the directory on the host.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -19634,9 +19636,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						if !ContainersItem.CustomFlavor.Namespace.IsNull() && !ContainersItem.CustomFlavor.Namespace.IsUnknown() {
 							JobContainersCustomFlavorMap["namespace"] = ContainersItem.CustomFlavor.Namespace.ValueString()
 						}
-						if !ContainersItem.CustomFlavor.Tenant.IsNull() && !ContainersItem.CustomFlavor.Tenant.IsUnknown() {
-							JobContainersCustomFlavorMap["tenant"] = ContainersItem.CustomFlavor.Tenant.ValueString()
-						}
 						ContainersItemMap["custom_flavor"] = JobContainersCustomFlavorMap
 					}
 					if ContainersItem.DefaultFlavor != nil {
@@ -19654,9 +19653,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !ContainersItem.Image.ContainerRegistry.Namespace.IsNull() && !ContainersItem.Image.ContainerRegistry.Namespace.IsUnknown() {
 								JobContainersImageContainerRegistryMap["namespace"] = ContainersItem.Image.ContainerRegistry.Namespace.ValueString()
-							}
-							if !ContainersItem.Image.ContainerRegistry.Tenant.IsNull() && !ContainersItem.Image.ContainerRegistry.Tenant.IsUnknown() {
-								JobContainersImageContainerRegistryMap["tenant"] = ContainersItem.Image.ContainerRegistry.Tenant.ValueString()
 							}
 							JobContainersImageMap["container_registry"] = JobContainersImageContainerRegistryMap
 						}
@@ -19852,9 +19848,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						JobDeployOptionsDeployCESitesMap["site"] = SiteList
@@ -19877,9 +19870,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -19904,9 +19894,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						JobDeployOptionsDeployRESitesMap["site"] = SiteList
@@ -19929,9 +19916,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -20066,9 +20050,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
-									}
 									ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteMap["site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap
 								}
 								AdvertiseWhereItemMap["site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteMap
@@ -20086,9 +20067,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
-									}
 									ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 								}
 								AdvertiseWhereItemMap["virtual_site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteMap
@@ -20103,9 +20081,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-									}
 									ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 								}
 								if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -20115,9 +20090,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									}
 									if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-									}
-									if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 									}
 									ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 								}
@@ -20269,9 +20241,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 														CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 													}
-													if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-														CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-													}
 													CertificatesList = append(CertificatesList, CertificatesItemMap)
 												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -20324,9 +20293,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -20339,9 +20305,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 											}
@@ -20480,9 +20443,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -20495,9 +20455,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 											}
@@ -20653,9 +20610,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 											}
-											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-											}
 											ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 										}
 										if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -20668,9 +20622,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											}
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-											}
-											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 											}
 											ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 										}
@@ -20721,9 +20672,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 														}
 														if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 															ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-														}
-														if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-															ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 														}
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 													}
@@ -21177,9 +21125,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 														if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 															CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 														}
-														if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-															CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-														}
 														CertificatesList = append(CertificatesList, CertificatesItemMap)
 													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -21232,9 +21177,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -21247,9 +21189,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													}
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 												}
@@ -21388,9 +21327,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -21403,9 +21339,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													}
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 												}
@@ -21561,9 +21494,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-												}
 												ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -21576,9 +21506,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 											}
@@ -21629,9 +21556,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 															}
 															if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 																ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-															}
-															if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-																ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 															}
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 														}
@@ -22015,9 +21939,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 												CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 											}
-											if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-												CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-											}
 											CertificatesList = append(CertificatesList, CertificatesItemMap)
 										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -22070,9 +21991,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 										}
-										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 									}
 									if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -22085,9 +22003,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										}
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-										}
-										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 									}
@@ -22226,9 +22141,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 										}
-										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 									}
 									if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -22241,9 +22153,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										}
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-										}
-										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 									}
@@ -22399,9 +22308,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 									}
-									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-									}
 									ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 								}
 								if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -22414,9 +22320,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									}
 									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-									}
-									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 									}
 									ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 								}
@@ -22467,9 +22370,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-												}
-												if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 												}
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 											}
@@ -22802,9 +22702,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						if !ContainersItem.CustomFlavor.Namespace.IsNull() && !ContainersItem.CustomFlavor.Namespace.IsUnknown() {
 							ServiceContainersCustomFlavorMap["namespace"] = ContainersItem.CustomFlavor.Namespace.ValueString()
 						}
-						if !ContainersItem.CustomFlavor.Tenant.IsNull() && !ContainersItem.CustomFlavor.Tenant.IsUnknown() {
-							ServiceContainersCustomFlavorMap["tenant"] = ContainersItem.CustomFlavor.Tenant.ValueString()
-						}
 						ContainersItemMap["custom_flavor"] = ServiceContainersCustomFlavorMap
 					}
 					if ContainersItem.DefaultFlavor != nil {
@@ -22822,9 +22719,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !ContainersItem.Image.ContainerRegistry.Namespace.IsNull() && !ContainersItem.Image.ContainerRegistry.Namespace.IsUnknown() {
 								ServiceContainersImageContainerRegistryMap["namespace"] = ContainersItem.Image.ContainerRegistry.Namespace.ValueString()
-							}
-							if !ContainersItem.Image.ContainerRegistry.Tenant.IsNull() && !ContainersItem.Image.ContainerRegistry.Tenant.IsUnknown() {
-								ServiceContainersImageContainerRegistryMap["tenant"] = ContainersItem.Image.ContainerRegistry.Tenant.ValueString()
 							}
 							ServiceContainersImageMap["container_registry"] = ServiceContainersImageContainerRegistryMap
 						}
@@ -23020,9 +22914,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						ServiceDeployOptionsDeployCESitesMap["site"] = SiteList
@@ -23045,9 +22936,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -23072,9 +22960,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						ServiceDeployOptionsDeployRESitesMap["site"] = SiteList
@@ -23097,9 +22982,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -23288,9 +23170,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 				if !data.SimpleService.Container.CustomFlavor.Namespace.IsNull() && !data.SimpleService.Container.CustomFlavor.Namespace.IsUnknown() {
 					SimpleServiceContainerCustomFlavorMap["namespace"] = data.SimpleService.Container.CustomFlavor.Namespace.ValueString()
 				}
-				if !data.SimpleService.Container.CustomFlavor.Tenant.IsNull() && !data.SimpleService.Container.CustomFlavor.Tenant.IsUnknown() {
-					SimpleServiceContainerCustomFlavorMap["tenant"] = data.SimpleService.Container.CustomFlavor.Tenant.ValueString()
-				}
 				SimpleServiceContainerMap["custom_flavor"] = SimpleServiceContainerCustomFlavorMap
 			}
 			if data.SimpleService.Container.DefaultFlavor != nil {
@@ -23308,9 +23187,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 					}
 					if !data.SimpleService.Container.Image.ContainerRegistry.Namespace.IsNull() && !data.SimpleService.Container.Image.ContainerRegistry.Namespace.IsUnknown() {
 						SimpleServiceContainerImageContainerRegistryMap["namespace"] = data.SimpleService.Container.Image.ContainerRegistry.Namespace.ValueString()
-					}
-					if !data.SimpleService.Container.Image.ContainerRegistry.Tenant.IsNull() && !data.SimpleService.Container.Image.ContainerRegistry.Tenant.IsUnknown() {
-						SimpleServiceContainerImageContainerRegistryMap["tenant"] = data.SimpleService.Container.Image.ContainerRegistry.Tenant.ValueString()
 					}
 					SimpleServiceContainerImageMap["container_registry"] = SimpleServiceContainerImageContainerRegistryMap
 				}
@@ -23575,9 +23451,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
-									}
 									StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteMap["site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap
 								}
 								AdvertiseWhereItemMap["site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteMap
@@ -23595,9 +23468,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
-									}
 									StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 								}
 								AdvertiseWhereItemMap["virtual_site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteMap
@@ -23612,9 +23482,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-									}
 									StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 								}
 								if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -23624,9 +23491,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									}
 									if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-									}
-									if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 									}
 									StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 								}
@@ -23778,9 +23642,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 														CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 													}
-													if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-														CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-													}
 													CertificatesList = append(CertificatesList, CertificatesItemMap)
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -23833,9 +23694,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -23848,9 +23706,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 											}
@@ -23989,9 +23844,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -24004,9 +23856,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 											}
@@ -24162,9 +24011,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 											}
-											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-											}
 											StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 										}
 										if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -24177,9 +24023,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											}
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-											}
-											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 											}
 											StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 										}
@@ -24230,9 +24073,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 														}
 														if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 															StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-														}
-														if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-															StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 														}
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 													}
@@ -24686,9 +24526,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 														if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 															CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 														}
-														if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-															CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-														}
 														CertificatesList = append(CertificatesList, CertificatesItemMap)
 													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -24741,9 +24578,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -24756,9 +24590,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													}
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 												}
@@ -24897,9 +24728,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -24912,9 +24740,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													}
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 												}
@@ -25070,9 +24895,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-												}
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -25085,9 +24907,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 											}
@@ -25138,9 +24957,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 															}
 															if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 																StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-															}
-															if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-																StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 															}
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 														}
@@ -25524,9 +25340,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 											if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 												CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 											}
-											if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-												CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-											}
 											CertificatesList = append(CertificatesList, CertificatesItemMap)
 										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -25579,9 +25392,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 										}
-										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 									}
 									if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -25594,9 +25404,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										}
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-										}
-										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 									}
@@ -25735,9 +25542,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 										}
-										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 									}
 									if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -25750,9 +25554,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										}
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-										}
-										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 									}
@@ -25908,9 +25709,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 									}
-									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-									}
 									StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 								}
 								if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -25923,9 +25721,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 									}
 									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-									}
-									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 									}
 									StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 								}
@@ -25976,9 +25771,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-												}
-												if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 											}
@@ -26311,9 +26103,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 						if !ContainersItem.CustomFlavor.Namespace.IsNull() && !ContainersItem.CustomFlavor.Namespace.IsUnknown() {
 							StatefulServiceContainersCustomFlavorMap["namespace"] = ContainersItem.CustomFlavor.Namespace.ValueString()
 						}
-						if !ContainersItem.CustomFlavor.Tenant.IsNull() && !ContainersItem.CustomFlavor.Tenant.IsUnknown() {
-							StatefulServiceContainersCustomFlavorMap["tenant"] = ContainersItem.CustomFlavor.Tenant.ValueString()
-						}
 						ContainersItemMap["custom_flavor"] = StatefulServiceContainersCustomFlavorMap
 					}
 					if ContainersItem.DefaultFlavor != nil {
@@ -26331,9 +26120,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !ContainersItem.Image.ContainerRegistry.Namespace.IsNull() && !ContainersItem.Image.ContainerRegistry.Namespace.IsUnknown() {
 								StatefulServiceContainersImageContainerRegistryMap["namespace"] = ContainersItem.Image.ContainerRegistry.Namespace.ValueString()
-							}
-							if !ContainersItem.Image.ContainerRegistry.Tenant.IsNull() && !ContainersItem.Image.ContainerRegistry.Tenant.IsUnknown() {
-								StatefulServiceContainersImageContainerRegistryMap["tenant"] = ContainersItem.Image.ContainerRegistry.Tenant.ValueString()
 							}
 							StatefulServiceContainersImageMap["container_registry"] = StatefulServiceContainersImageContainerRegistryMap
 						}
@@ -26529,9 +26315,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						StatefulServiceDeployOptionsDeployCESitesMap["site"] = SiteList
@@ -26554,9 +26337,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -26581,9 +26361,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						StatefulServiceDeployOptionsDeployRESitesMap["site"] = SiteList
@@ -26606,9 +26383,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -26739,11 +26513,28 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetWorkload(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -42714,6 +42505,16 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Workload: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -58731,6 +58532,20 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.Workload{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -58738,6 +58553,7 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -58869,9 +58685,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						if !ContainersItem.CustomFlavor.Namespace.IsNull() && !ContainersItem.CustomFlavor.Namespace.IsUnknown() {
 							JobContainersCustomFlavorMap["namespace"] = ContainersItem.CustomFlavor.Namespace.ValueString()
 						}
-						if !ContainersItem.CustomFlavor.Tenant.IsNull() && !ContainersItem.CustomFlavor.Tenant.IsUnknown() {
-							JobContainersCustomFlavorMap["tenant"] = ContainersItem.CustomFlavor.Tenant.ValueString()
-						}
 						ContainersItemMap["custom_flavor"] = JobContainersCustomFlavorMap
 					}
 					if ContainersItem.DefaultFlavor != nil {
@@ -58889,9 +58702,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !ContainersItem.Image.ContainerRegistry.Namespace.IsNull() && !ContainersItem.Image.ContainerRegistry.Namespace.IsUnknown() {
 								JobContainersImageContainerRegistryMap["namespace"] = ContainersItem.Image.ContainerRegistry.Namespace.ValueString()
-							}
-							if !ContainersItem.Image.ContainerRegistry.Tenant.IsNull() && !ContainersItem.Image.ContainerRegistry.Tenant.IsUnknown() {
-								JobContainersImageContainerRegistryMap["tenant"] = ContainersItem.Image.ContainerRegistry.Tenant.ValueString()
 							}
 							JobContainersImageMap["container_registry"] = JobContainersImageContainerRegistryMap
 						}
@@ -59087,9 +58897,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						JobDeployOptionsDeployCESitesMap["site"] = SiteList
@@ -59112,9 +58919,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -59139,9 +58943,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						JobDeployOptionsDeployRESitesMap["site"] = SiteList
@@ -59164,9 +58965,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -59301,9 +59099,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
-									}
 									ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteMap["site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap
 								}
 								AdvertiseWhereItemMap["site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteMap
@@ -59321,9 +59116,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
-									}
 									ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 								}
 								AdvertiseWhereItemMap["virtual_site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteMap
@@ -59338,9 +59130,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-									}
 									ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 								}
 								if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -59350,9 +59139,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									}
 									if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-									}
-									if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 									}
 									ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 								}
@@ -59504,9 +59290,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 														CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 													}
-													if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-														CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-													}
 													CertificatesList = append(CertificatesList, CertificatesItemMap)
 												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -59559,9 +59342,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -59574,9 +59354,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 											}
@@ -59715,9 +59492,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -59730,9 +59504,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 											}
@@ -59888,9 +59659,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 											}
-											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-											}
 											ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 										}
 										if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -59903,9 +59671,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											}
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-											}
-											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 											}
 											ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 										}
@@ -59956,9 +59721,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 														}
 														if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 															ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-														}
-														if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-															ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 														}
 														ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 													}
@@ -60412,9 +60174,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 														if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 															CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 														}
-														if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-															CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-														}
 														CertificatesList = append(CertificatesList, CertificatesItemMap)
 													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -60467,9 +60226,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -60482,9 +60238,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													}
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 												}
@@ -60623,9 +60376,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -60638,9 +60388,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													}
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 													}
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 												}
@@ -60796,9 +60543,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-												}
 												ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -60811,9 +60555,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 											}
@@ -60864,9 +60605,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 															}
 															if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 																ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-															}
-															if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-																ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 															}
 															ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 														}
@@ -61250,9 +60988,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 												CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 											}
-											if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-												CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-											}
 											CertificatesList = append(CertificatesList, CertificatesItemMap)
 										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -61305,9 +61040,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 										}
-										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 									}
 									if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -61320,9 +61052,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										}
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-										}
-										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 									}
@@ -61461,9 +61190,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 										}
-										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 									}
 									if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -61476,9 +61202,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										}
 										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-										}
-										if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 										}
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 									}
@@ -61634,9 +61357,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 									}
-									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-									}
 									ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 								}
 								if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -61649,9 +61369,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									}
 									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-									}
-									if !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 									}
 									ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 								}
@@ -61702,9 +61419,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 													ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-												}
-												if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-													ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 												}
 												ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 											}
@@ -62037,9 +61751,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						if !ContainersItem.CustomFlavor.Namespace.IsNull() && !ContainersItem.CustomFlavor.Namespace.IsUnknown() {
 							ServiceContainersCustomFlavorMap["namespace"] = ContainersItem.CustomFlavor.Namespace.ValueString()
 						}
-						if !ContainersItem.CustomFlavor.Tenant.IsNull() && !ContainersItem.CustomFlavor.Tenant.IsUnknown() {
-							ServiceContainersCustomFlavorMap["tenant"] = ContainersItem.CustomFlavor.Tenant.ValueString()
-						}
 						ContainersItemMap["custom_flavor"] = ServiceContainersCustomFlavorMap
 					}
 					if ContainersItem.DefaultFlavor != nil {
@@ -62057,9 +61768,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !ContainersItem.Image.ContainerRegistry.Namespace.IsNull() && !ContainersItem.Image.ContainerRegistry.Namespace.IsUnknown() {
 								ServiceContainersImageContainerRegistryMap["namespace"] = ContainersItem.Image.ContainerRegistry.Namespace.ValueString()
-							}
-							if !ContainersItem.Image.ContainerRegistry.Tenant.IsNull() && !ContainersItem.Image.ContainerRegistry.Tenant.IsUnknown() {
-								ServiceContainersImageContainerRegistryMap["tenant"] = ContainersItem.Image.ContainerRegistry.Tenant.ValueString()
 							}
 							ServiceContainersImageMap["container_registry"] = ServiceContainersImageContainerRegistryMap
 						}
@@ -62255,9 +61963,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						ServiceDeployOptionsDeployCESitesMap["site"] = SiteList
@@ -62280,9 +61985,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -62307,9 +62009,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						ServiceDeployOptionsDeployRESitesMap["site"] = SiteList
@@ -62332,9 +62031,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -62523,9 +62219,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 				if !data.SimpleService.Container.CustomFlavor.Namespace.IsNull() && !data.SimpleService.Container.CustomFlavor.Namespace.IsUnknown() {
 					SimpleServiceContainerCustomFlavorMap["namespace"] = data.SimpleService.Container.CustomFlavor.Namespace.ValueString()
 				}
-				if !data.SimpleService.Container.CustomFlavor.Tenant.IsNull() && !data.SimpleService.Container.CustomFlavor.Tenant.IsUnknown() {
-					SimpleServiceContainerCustomFlavorMap["tenant"] = data.SimpleService.Container.CustomFlavor.Tenant.ValueString()
-				}
 				SimpleServiceContainerMap["custom_flavor"] = SimpleServiceContainerCustomFlavorMap
 			}
 			if data.SimpleService.Container.DefaultFlavor != nil {
@@ -62543,9 +62236,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 					}
 					if !data.SimpleService.Container.Image.ContainerRegistry.Namespace.IsNull() && !data.SimpleService.Container.Image.ContainerRegistry.Namespace.IsUnknown() {
 						SimpleServiceContainerImageContainerRegistryMap["namespace"] = data.SimpleService.Container.Image.ContainerRegistry.Namespace.ValueString()
-					}
-					if !data.SimpleService.Container.Image.ContainerRegistry.Tenant.IsNull() && !data.SimpleService.Container.Image.ContainerRegistry.Tenant.IsUnknown() {
-						SimpleServiceContainerImageContainerRegistryMap["tenant"] = data.SimpleService.Container.Image.ContainerRegistry.Tenant.ValueString()
 					}
 					SimpleServiceContainerImageMap["container_registry"] = SimpleServiceContainerImageContainerRegistryMap
 				}
@@ -62810,9 +62500,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
-									}
 									StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteMap["site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteSiteMap
 								}
 								AdvertiseWhereItemMap["site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereSiteMap
@@ -62830,9 +62517,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
-									}
 									StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 								}
 								AdvertiseWhereItemMap["virtual_site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVirtualSiteMap
@@ -62847,9 +62531,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 									}
-									if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-									}
 									StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 								}
 								if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -62859,9 +62540,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									}
 									if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-									}
-									if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 									}
 									StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = StatefulServiceAdvertiseOptionsAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 								}
@@ -63013,9 +62691,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 														CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 													}
-													if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-														CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-													}
 													CertificatesList = append(CertificatesList, CertificatesItemMap)
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -63068,9 +62743,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -63083,9 +62755,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 											}
@@ -63224,9 +62893,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -63239,9 +62905,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 											}
@@ -63397,9 +63060,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 											}
-											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-											}
 											StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 										}
 										if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -63412,9 +63072,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											}
 											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-											}
-											if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 											}
 											StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 										}
@@ -63465,9 +63122,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 														}
 														if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 															StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-														}
-														if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-															StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 														}
 														StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 													}
@@ -63921,9 +63575,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 														if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 															CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 														}
-														if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-															CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-														}
 														CertificatesList = append(CertificatesList, CertificatesItemMap)
 													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -63976,9 +63627,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -63991,9 +63639,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													}
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 												}
@@ -64132,9 +63777,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -64147,9 +63789,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													}
 													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-													}
-													if !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 													}
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 												}
@@ -64305,9 +63944,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 												}
-												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-												}
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 											}
 											if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -64320,9 +63956,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-												}
-												if !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = PortsItem.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 											}
@@ -64373,9 +64006,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 															}
 															if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 																StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-															}
-															if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-																StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 															}
 															StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 														}
@@ -64759,9 +64389,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 											if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 												CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 											}
-											if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-												CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-											}
 											CertificatesList = append(CertificatesList, CertificatesItemMap)
 										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -64814,9 +64441,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 										}
-										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsCRLMap
 									}
 									if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -64829,9 +64453,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										}
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-										}
-										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSCertParamsUseMtlsTrustedCAMap
 									}
@@ -64970,9 +64591,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 										}
-										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsCRLMap
 									}
 									if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -64985,9 +64603,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										}
 										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-										}
-										if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 										}
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSTLSParametersUseMtlsTrustedCAMap
 									}
@@ -65143,9 +64758,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 									}
-									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-									}
 									StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["crl"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsCRLMap
 								}
 								if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -65158,9 +64770,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 									}
 									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-									}
-									if !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 									}
 									StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsMap["trusted_ca"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertUseMtlsTrustedCAMap
 								}
@@ -65211,9 +64820,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-												}
-												if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-													StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 												}
 												StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectMap["route_ref"] = StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerSpecificRoutesRoutesCustomRouteObjectRouteRefMap
 											}
@@ -65546,9 +65152,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 						if !ContainersItem.CustomFlavor.Namespace.IsNull() && !ContainersItem.CustomFlavor.Namespace.IsUnknown() {
 							StatefulServiceContainersCustomFlavorMap["namespace"] = ContainersItem.CustomFlavor.Namespace.ValueString()
 						}
-						if !ContainersItem.CustomFlavor.Tenant.IsNull() && !ContainersItem.CustomFlavor.Tenant.IsUnknown() {
-							StatefulServiceContainersCustomFlavorMap["tenant"] = ContainersItem.CustomFlavor.Tenant.ValueString()
-						}
 						ContainersItemMap["custom_flavor"] = StatefulServiceContainersCustomFlavorMap
 					}
 					if ContainersItem.DefaultFlavor != nil {
@@ -65566,9 +65169,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !ContainersItem.Image.ContainerRegistry.Namespace.IsNull() && !ContainersItem.Image.ContainerRegistry.Namespace.IsUnknown() {
 								StatefulServiceContainersImageContainerRegistryMap["namespace"] = ContainersItem.Image.ContainerRegistry.Namespace.ValueString()
-							}
-							if !ContainersItem.Image.ContainerRegistry.Tenant.IsNull() && !ContainersItem.Image.ContainerRegistry.Tenant.IsUnknown() {
-								StatefulServiceContainersImageContainerRegistryMap["tenant"] = ContainersItem.Image.ContainerRegistry.Tenant.ValueString()
 							}
 							StatefulServiceContainersImageMap["container_registry"] = StatefulServiceContainersImageContainerRegistryMap
 						}
@@ -65764,9 +65364,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						StatefulServiceDeployOptionsDeployCESitesMap["site"] = SiteList
@@ -65789,9 +65386,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -65816,9 +65410,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							if !SiteItem.Namespace.IsNull() && !SiteItem.Namespace.IsUnknown() {
 								SiteItemMap["namespace"] = SiteItem.Namespace.ValueString()
 							}
-							if !SiteItem.Tenant.IsNull() && !SiteItem.Tenant.IsUnknown() {
-								SiteItemMap["tenant"] = SiteItem.Tenant.ValueString()
-							}
 							SiteList = append(SiteList, SiteItemMap)
 						}
 						StatefulServiceDeployOptionsDeployRESitesMap["site"] = SiteList
@@ -65841,9 +65432,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							if !VirtualSiteItem.Namespace.IsNull() && !VirtualSiteItem.Namespace.IsUnknown() {
 								VirtualSiteItemMap["namespace"] = VirtualSiteItem.Namespace.ValueString()
-							}
-							if !VirtualSiteItem.Tenant.IsNull() && !VirtualSiteItem.Tenant.IsUnknown() {
-								VirtualSiteItemMap["tenant"] = VirtualSiteItem.Tenant.ValueString()
 							}
 							VirtualSiteList = append(VirtualSiteList, VirtualSiteItemMap)
 						}
@@ -65970,6 +65558,14 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 
 	_, err := r.client.UpdateWorkload(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of workload %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update Workload: %s", err))
 		return
 	}
@@ -65987,10 +65583,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -66000,6 +65592,19 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 	fetched, fetchErr := r.client.GetWorkload(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Workload after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

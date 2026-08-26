@@ -10,8 +10,9 @@ import (
 
 // FilterSet represents a F5XC FilterSet
 type FilterSet struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateFilterSet creates a new FilterSet

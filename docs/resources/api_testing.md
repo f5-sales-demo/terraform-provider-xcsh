@@ -32,8 +32,6 @@ terraform {
 resource "xcsh_api_testing" "example" {
   name      = "example-api-testing"
   namespace = "staging"
-
-  custom_header_value = "example-value"
 }
 ```
 
@@ -61,7 +59,7 @@ resource "xcsh_api_testing" "example" {
 
 ### Spec Argument Reference
 
-<a id="custom-header-value"></a>&#x2022; [`custom_header_value`](#custom-header-value) - Required String<br>Add x-F5-API-testing-identifier header value to prevent security flags on API testing traffic
+<a id="custom-header-value"></a>&#x2022; [`custom_header_value`](#custom-header-value) - Optional String<br>Add x-F5-API-testing-identifier header value to prevent security flags on API testing traffic
 
 <a id="domains"></a>&#x2022; [`domains`](#domains) - Optional Block<br>Add and configure testing domains and credentials<br>See [Domains](#domains) below for details.
 
@@ -112,7 +110,7 @@ A [`credentials`](#domains-credentials) block (within [`domains`](#domains)) sup
 
 An [`api_key`](#domains-credentials-api-key) block (within [`domains.credentials`](#domains-credentials)) supports the following:
 
-<a id="domains-credentials-api-key-key"></a>&#x2022; [`key`](#domains-credentials-api-key-key) - Optional String<br>Key
+<a id="domains-credentials-api-key-key"></a>&#x2022; [`key`](#domains-credentials-api-key-key) - Optional String<br>Key. Cryptographic key material
 
 <a id="domains-credentials-api-key-value"></a>&#x2022; [`value`](#domains-credentials-api-key-value) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Value](#domains-credentials-api-key-value) below.
 
@@ -138,7 +136,7 @@ A [`basic_auth`](#domains-credentials-basic-auth) block (within [`domains.creden
 
 <a id="domains-credentials-basic-auth-password"></a>&#x2022; [`password`](#domains-credentials-basic-auth-password) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Password](#domains-credentials-basic-auth-password) below.
 
-<a id="domains-credentials-basic-auth-user"></a>&#x2022; [`user`](#domains-credentials-basic-auth-user) - Optional String<br>User
+<a id="domains-credentials-basic-auth-user"></a>&#x2022; [`user`](#domains-credentials-basic-auth-user) - Optional String<br>User. Configuration parameter for user
 
 #### Domains Credentials Basic Auth Password
 
@@ -186,9 +184,9 @@ A [`login_endpoint`](#domains-credentials-login-endpoint) block (within [`domain
 
 <a id="method-967184"></a>&#x2022; [`method`](#method-967184) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
 
-<a id="domains-credentials-login-endpoint-path"></a>&#x2022; [`path`](#domains-credentials-login-endpoint-path) - Optional String<br>Path
+<a id="domains-credentials-login-endpoint-path"></a>&#x2022; [`path`](#domains-credentials-login-endpoint-path) - Optional String<br>Path. URL path for the endpoint
 
-<a id="key-72a8fa"></a>&#x2022; [`token_response_key`](#key-72a8fa) - Optional String<br>Token Response Key
+<a id="key-72a8fa"></a>&#x2022; [`token_response_key`](#key-72a8fa) - Optional String<br>Configuration parameter for token response key
 
 #### Domains Credentials Login Endpoint JSON Payload
 

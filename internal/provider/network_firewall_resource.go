@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -23,6 +24,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -231,7 +233,7 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enhanced_firewall_policies": schema.ListNestedBlock{
-						MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+						MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -269,7 +271,7 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"fast_acls": schema.ListNestedBlock{
-						MarkdownDescription: "Ordered List of Fast ACL(s) active for this network firewall .",
+						MarkdownDescription: "Ordered List of Fast ACL(s) active for this network firewall.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -307,7 +309,7 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"forward_proxy_policies": schema.ListNestedBlock{
-						MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -345,7 +347,7 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"network_policies": schema.ListNestedBlock{
-						MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+						MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -529,9 +531,6 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 					if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 						EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 					}
-					if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-						EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-					}
 					EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 				}
 				ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -554,9 +553,6 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 					}
 					if !FastAclsItem.Namespace.IsNull() && !FastAclsItem.Namespace.IsUnknown() {
 						FastAclsItemMap["namespace"] = FastAclsItem.Namespace.ValueString()
-					}
-					if !FastAclsItem.Tenant.IsNull() && !FastAclsItem.Tenant.IsUnknown() {
-						FastAclsItemMap["tenant"] = FastAclsItem.Tenant.ValueString()
 					}
 					FastAclsList = append(FastAclsList, FastAclsItemMap)
 				}
@@ -581,9 +577,6 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 					}
-					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-					}
 					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
 				ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -606,9 +599,6 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 					}
 					if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 						NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-					}
-					if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-						NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 					}
 					NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 				}
@@ -633,11 +623,28 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetNetworkFirewall(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -879,6 +886,16 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NetworkFirewall: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1167,6 +1184,20 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.NetworkFirewall{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -1174,6 +1205,7 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -1234,9 +1266,6 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 					if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 						EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 					}
-					if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-						EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-					}
 					EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 				}
 				ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -1259,9 +1288,6 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 					}
 					if !FastAclsItem.Namespace.IsNull() && !FastAclsItem.Namespace.IsUnknown() {
 						FastAclsItemMap["namespace"] = FastAclsItem.Namespace.ValueString()
-					}
-					if !FastAclsItem.Tenant.IsNull() && !FastAclsItem.Tenant.IsUnknown() {
-						FastAclsItemMap["tenant"] = FastAclsItem.Tenant.ValueString()
 					}
 					FastAclsList = append(FastAclsList, FastAclsItemMap)
 				}
@@ -1286,9 +1312,6 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 					}
-					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-					}
 					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
 				ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -1312,9 +1335,6 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 					if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 						NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 					}
-					if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-						NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-					}
 					NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 				}
 				ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -1334,6 +1354,14 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 
 	_, err := r.client.UpdateNetworkFirewall(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of network_firewall %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update NetworkFirewall: %s", err))
 		return
 	}
@@ -1351,10 +1379,6 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -1364,6 +1388,19 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 	fetched, fetchErr := r.client.GetNetworkFirewall(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NetworkFirewall after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

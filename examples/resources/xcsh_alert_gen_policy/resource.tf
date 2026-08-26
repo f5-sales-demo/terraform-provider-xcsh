@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_alert_gen_policy" "example" {
   name      = "example-alert-gen-policy"
   namespace = "staging"
-
-  alert_status = "ALERT_ACTIVE"
 }

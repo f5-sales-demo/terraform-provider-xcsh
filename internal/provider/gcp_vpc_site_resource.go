@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -19,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -26,6 +28,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1596,14 +1599,14 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 			},
 			"instance_type": schema.StringAttribute{
-				MarkdownDescription: "Select Instance size based on performance needed .",
+				MarkdownDescription: "Select Instance size based on performance needed.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(64),
 				},
 			},
 			"ssh_key": schema.StringAttribute{
-				MarkdownDescription: "Public SSH key for accessing the site.",
+				MarkdownDescription: "Public SSH key. Public SSH key for accessing the site.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 8192),
@@ -1624,7 +1627,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"gcp_labels": schema.MapAttribute{
 				MarkdownDescription: "GCP Label is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in GCP console.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 			},
 			"labels": schema.MapAttribute{
@@ -1641,14 +1644,22 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"address": schema.StringAttribute{
 				MarkdownDescription: "Site's geographical address that can be used to determine its latitude and longitude.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 				},
 			},
 			"disk_size": schema.Int64Attribute{
 				MarkdownDescription: "Disk size to be used for this instance in GiB. 80 is 80 GiB.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.AtMost(64000),
 				},
@@ -1673,7 +1684,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Optional:            true,
 							},
 							"location": schema.StringAttribute{
-								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(4, 131072),
@@ -1811,11 +1822,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Configuration parameter for enable encryption.",
 				Attributes: map[string]schema.Attribute{
 					"kms_key_resource_id": schema.StringAttribute{
-						MarkdownDescription: "GCP KMS Key to be used to encrypt the disk attached to the VM .",
+						MarkdownDescription: "GCP KMS Key to be used to encrypt the disk attached to the VM.",
 						Optional:            true,
 					},
 					"kms_key_ring_id": schema.StringAttribute{
-						MarkdownDescription: "Key ring in which the CMK to be used to encrypt is present .",
+						MarkdownDescription: "Key ring in which the CMK to be used to encrypt is present.",
 						Optional:            true,
 					},
 				},
@@ -1824,7 +1835,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_gw, voltstack_cluster] Configuration parameter for ingress egress gw.",
 				Attributes: map[string]schema.Attribute{
 					"gcp_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: gcp-byol-multi-nic-voltmesh] Name for GCP certified hardware. The only possible value is `gcp-byol-multi-nic-voltmesh`.",
+						MarkdownDescription: "[Enum: gcp-byol-multi-nic-voltmesh] GCP Certified Hardware. Name for GCP certified hardware. The only possible value is `gcp-byol-multi-nic-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -1850,7 +1861,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1888,7 +1899,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1926,7 +1937,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2027,7 +2038,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -2116,7 +2127,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Configuration parameter for existing network.",
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
-										MarkdownDescription: "Name for your GCP VPC Network .",
+										MarkdownDescription: "GCP VPC Network Name. Name for your GCP VPC Network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2128,7 +2139,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Parameters to create a new GCP VPC Network.",
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
-										MarkdownDescription: "Name for your GCP VPC Network .",
+										MarkdownDescription: "GCP VPC Network Name. Name for your GCP VPC Network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2146,7 +2157,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2253,7 +2264,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2315,7 +2326,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Configuration parameter for existing subnet.",
 								Attributes: map[string]schema.Attribute{
 									"subnet_name": schema.StringAttribute{
-										MarkdownDescription: "Name of your subnet in VPC network .",
+										MarkdownDescription: "VPC Subnet Name. Name of your subnet in VPC network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2367,7 +2378,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Configuration parameter for existing network.",
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
-										MarkdownDescription: "Name for your GCP VPC Network .",
+										MarkdownDescription: "GCP VPC Network Name. Name for your GCP VPC Network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2379,7 +2390,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Parameters to create a new GCP VPC Network.",
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
-										MarkdownDescription: "Name for your GCP VPC Network .",
+										MarkdownDescription: "GCP VPC Network Name. Name for your GCP VPC Network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2397,7 +2408,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2504,7 +2515,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2566,7 +2577,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Configuration parameter for existing subnet.",
 								Attributes: map[string]schema.Attribute{
 									"subnet_name": schema.StringAttribute{
-										MarkdownDescription: "Name of your subnet in VPC network .",
+										MarkdownDescription: "VPC Subnet Name. Name of your subnet in VPC network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2634,7 +2645,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "GCP Ingress Gateway. Single interface GCP ingress site.",
 				Attributes: map[string]schema.Attribute{
 					"gcp_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: gcp-byol-voltmesh] Name for GCP certified hardware. The only possible value is `gcp-byol-voltmesh`.",
+						MarkdownDescription: "[Enum: gcp-byol-voltmesh] GCP Certified Hardware. Name for GCP certified hardware. The only possible value is `gcp-byol-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -2663,7 +2674,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Configuration parameter for existing network.",
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
-										MarkdownDescription: "Name for your GCP VPC Network .",
+										MarkdownDescription: "GCP VPC Network Name. Name for your GCP VPC Network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2675,7 +2686,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Parameters to create a new GCP VPC Network.",
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
-										MarkdownDescription: "Name for your GCP VPC Network .",
+										MarkdownDescription: "GCP VPC Network Name. Name for your GCP VPC Network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2696,7 +2707,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Configuration parameter for existing subnet.",
 								Attributes: map[string]schema.Attribute{
 									"subnet_name": schema.StringAttribute{
-										MarkdownDescription: "Name of your subnet in VPC network .",
+										MarkdownDescription: "VPC Subnet Name. Name of your subnet in VPC network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -2918,7 +2929,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "App Stack cluster of single interface GCP site.",
 				Attributes: map[string]schema.Attribute{
 					"gcp_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: gcp-byol-voltstack-combo] Name for GCP certified hardware. The only possible value is `gcp-byol-voltstack-combo`.",
+						MarkdownDescription: "[Enum: gcp-byol-voltstack-combo] GCP Certified Hardware. Name for GCP certified hardware. The only possible value is `gcp-byol-voltstack-combo`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -2944,7 +2955,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2982,7 +2993,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3020,7 +3031,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3094,7 +3105,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3228,7 +3239,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -3335,7 +3346,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -3397,7 +3408,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Configuration parameter for existing network.",
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
-										MarkdownDescription: "Name for your GCP VPC Network .",
+										MarkdownDescription: "GCP VPC Network Name. Name for your GCP VPC Network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -3409,7 +3420,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Parameters to create a new GCP VPC Network.",
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
-										MarkdownDescription: "Name for your GCP VPC Network .",
+										MarkdownDescription: "GCP VPC Network Name. Name for your GCP VPC Network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -3430,7 +3441,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Configuration parameter for existing subnet.",
 								Attributes: map[string]schema.Attribute{
 									"subnet_name": schema.StringAttribute{
-										MarkdownDescription: "Name of your subnet in VPC network .",
+										MarkdownDescription: "VPC Subnet Name. Name of your subnet in VPC network.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 64),
@@ -3727,9 +3738,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.CloudCredentials.Namespace.IsNull() && !data.CloudCredentials.Namespace.IsUnknown() {
 			CloudCredentialsMap["namespace"] = data.CloudCredentials.Namespace.ValueString()
 		}
-		if !data.CloudCredentials.Tenant.IsNull() && !data.CloudCredentials.Tenant.IsUnknown() {
-			CloudCredentialsMap["tenant"] = data.CloudCredentials.Tenant.ValueString()
-		}
 		createReq.Spec["cloud_credentials"] = CloudCredentialsMap
 	}
 	if data.Coordinates != nil {
@@ -3794,9 +3802,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					IngressEgressGwActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -3819,9 +3824,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
@@ -3846,9 +3848,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
 					IngressEgressGwActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -3864,9 +3863,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsUnknown() {
 				IngressEgressGwDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
-			if !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				IngressEgressGwDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
-			}
 			IngressEgressGwMap["dc_cluster_group_inside_vn"] = IngressEgressGwDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
@@ -3876,9 +3872,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
 				IngressEgressGwDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
-			}
-			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				IngressEgressGwDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
@@ -3916,9 +3909,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -3932,9 +3922,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -4001,20 +3988,11 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -4185,20 +4163,11 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -4441,9 +4410,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
@@ -4481,9 +4447,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.PrivateConnectivity.CloudLink.Namespace.IsNull() && !data.PrivateConnectivity.CloudLink.Namespace.IsUnknown() {
 				PrivateConnectivityCloudLinkMap["namespace"] = data.PrivateConnectivity.CloudLink.Namespace.ValueString()
-			}
-			if !data.PrivateConnectivity.CloudLink.Tenant.IsNull() && !data.PrivateConnectivity.CloudLink.Tenant.IsUnknown() {
-				PrivateConnectivityCloudLinkMap["tenant"] = data.PrivateConnectivity.CloudLink.Tenant.ValueString()
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
@@ -4523,9 +4486,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					VoltstackClusterActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -4548,9 +4508,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
@@ -4575,9 +4532,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
 					VoltstackClusterActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -4592,9 +4546,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Namespace.IsNull() && !data.VoltstackCluster.DcClusterGroup.Namespace.IsUnknown() {
 				VoltstackClusterDcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
-			}
-			if !data.VoltstackCluster.DcClusterGroup.Tenant.IsNull() && !data.VoltstackCluster.DcClusterGroup.Tenant.IsUnknown() {
-				VoltstackClusterDcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
 			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
@@ -4635,9 +4586,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -4651,9 +4599,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -4673,9 +4618,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.VoltstackCluster.K8SCluster.Namespace.IsNull() && !data.VoltstackCluster.K8SCluster.Namespace.IsUnknown() {
 				VoltstackClusterK8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
-			}
-			if !data.VoltstackCluster.K8SCluster.Tenant.IsNull() && !data.VoltstackCluster.K8SCluster.Tenant.IsUnknown() {
-				VoltstackClusterK8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
@@ -4733,20 +4675,11 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -4907,11 +4840,28 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetGCPVPCSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -7510,6 +7460,16 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read GCPVPCSite: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -10155,6 +10115,20 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.GCPVPCSite{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -10162,6 +10136,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -10319,9 +10294,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.CloudCredentials.Namespace.IsNull() && !data.CloudCredentials.Namespace.IsUnknown() {
 			CloudCredentialsMap["namespace"] = data.CloudCredentials.Namespace.ValueString()
 		}
-		if !data.CloudCredentials.Tenant.IsNull() && !data.CloudCredentials.Tenant.IsUnknown() {
-			CloudCredentialsMap["tenant"] = data.CloudCredentials.Tenant.ValueString()
-		}
 		apiResource.Spec["cloud_credentials"] = CloudCredentialsMap
 	}
 	if data.Coordinates != nil {
@@ -10386,9 +10358,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					IngressEgressGwActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -10411,9 +10380,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
@@ -10438,9 +10404,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
 					IngressEgressGwActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -10456,9 +10419,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsUnknown() {
 				IngressEgressGwDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
-			if !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				IngressEgressGwDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
-			}
 			IngressEgressGwMap["dc_cluster_group_inside_vn"] = IngressEgressGwDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
@@ -10468,9 +10428,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
 				IngressEgressGwDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
-			}
-			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				IngressEgressGwDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
@@ -10508,9 +10465,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -10524,9 +10478,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -10593,20 +10544,11 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -10777,20 +10719,11 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -11033,9 +10966,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
@@ -11073,9 +11003,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if !data.PrivateConnectivity.CloudLink.Namespace.IsNull() && !data.PrivateConnectivity.CloudLink.Namespace.IsUnknown() {
 				PrivateConnectivityCloudLinkMap["namespace"] = data.PrivateConnectivity.CloudLink.Namespace.ValueString()
-			}
-			if !data.PrivateConnectivity.CloudLink.Tenant.IsNull() && !data.PrivateConnectivity.CloudLink.Tenant.IsUnknown() {
-				PrivateConnectivityCloudLinkMap["tenant"] = data.PrivateConnectivity.CloudLink.Tenant.ValueString()
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
@@ -11115,9 +11042,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					VoltstackClusterActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -11140,9 +11064,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
@@ -11167,9 +11088,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
 					VoltstackClusterActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -11184,9 +11102,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Namespace.IsNull() && !data.VoltstackCluster.DcClusterGroup.Namespace.IsUnknown() {
 				VoltstackClusterDcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
-			}
-			if !data.VoltstackCluster.DcClusterGroup.Tenant.IsNull() && !data.VoltstackCluster.DcClusterGroup.Tenant.IsUnknown() {
-				VoltstackClusterDcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
 			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
@@ -11227,9 +11142,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -11243,9 +11155,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -11265,9 +11174,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if !data.VoltstackCluster.K8SCluster.Namespace.IsNull() && !data.VoltstackCluster.K8SCluster.Namespace.IsUnknown() {
 				VoltstackClusterK8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
-			}
-			if !data.VoltstackCluster.K8SCluster.Tenant.IsNull() && !data.VoltstackCluster.K8SCluster.Tenant.IsUnknown() {
-				VoltstackClusterK8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
@@ -11325,20 +11231,11 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -11495,6 +11392,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	_, err := r.client.UpdateGCPVPCSite(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of gcp_vpc_site %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update GCPVPCSite: %s", err))
 		return
 	}
@@ -11512,10 +11417,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -11528,7 +11429,34 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["address"].(string); ok && v != "" {
+		data.Address = types.StringValue(v)
+	} else if data.Address.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Address = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["disk_size"].(float64); ok {
+		data.DiskSize = types.Int64Value(int64(v))
+	} else if data.DiskSize.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.DiskSize = types.Int64Null()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

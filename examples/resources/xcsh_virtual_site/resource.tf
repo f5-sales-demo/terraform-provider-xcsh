@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_virtual_site" "example" {
   name      = "example-virtual-site"
   namespace = "staging"
-
-  site_type = "INVALID"
 }

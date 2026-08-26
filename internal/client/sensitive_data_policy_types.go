@@ -10,8 +10,9 @@ import (
 
 // SensitiveDataPolicy represents a F5XC SensitiveDataPolicy
 type SensitiveDataPolicy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateSensitiveDataPolicy creates a new SensitiveDataPolicy

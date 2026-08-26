@@ -32,8 +32,6 @@ terraform {
 resource "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
   namespace = "system"
-
-  transport_type = "UDP"
 }
 ```
 
@@ -77,7 +75,7 @@ resource "xcsh_dns_proxy" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="transport-type"></a>&#x2022; [`transport_type`](#transport-type) - Required String  Defaults to `UDP`<br>Possible values are `UDP`, `TCP`, `BothTCPAndUDP`<br>[Enum: UDP|TCP|BothTCPAndUDP] Transport Type - UDP: UDP - TCP: TCP - BothTCPAndUDP: Both TCP and UDP
+<a id="transport-type"></a>&#x2022; [`transport_type`](#transport-type) - Optional String  Defaults to `UDP`<br>Possible values are `UDP`, `TCP`, `BothTCPAndUDP`<br>[Enum: UDP|TCP|BothTCPAndUDP] Transport Type - UDP: UDP - TCP: TCP - BothTCPAndUDP: Both TCP and UDP
 
 ### Attributes Reference
 
@@ -125,7 +123,7 @@ An [`origin_servers`](#origin-servers) block supports the following:
 
 <a id="origin-servers-health-checks"></a>&#x2022; [`health_checks`](#origin-servers-health-checks) - Optional Block<br>Configuration parameter for health checks<br>See [Health Checks](#origin-servers-health-checks) below.
 
-<a id="origin-servers-origin-servers"></a>&#x2022; [`origin_servers`](#origin-servers-origin-servers) - Optional Block<br>List of origin servers for Proxy<br>See [Origin Servers](#origin-servers-origin-servers) below.
+<a id="origin-servers-origin-servers"></a>&#x2022; [`origin_servers`](#origin-servers-origin-servers) - Optional Block<br>List Of Origin Servers. List of origin servers for Proxy<br>See [Origin Servers](#origin-servers-origin-servers) below.
 
 #### Origin Servers Health Checks
 

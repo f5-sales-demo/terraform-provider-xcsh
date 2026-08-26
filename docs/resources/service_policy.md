@@ -532,7 +532,7 @@ A [`cookie_matchers`](#rule-list-rules-spec-cookie-matchers) block (within [`rul
 
 <a id="item-ab8ab4"></a>&#x2022; [`item`](#item-ab8ab4) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#item-ab8ab4) below.
 
-<a id="name-6a6bd0"></a>&#x2022; [`name`](#name-6a6bd0) - Optional String<br>Case-sensitive cookie name
+<a id="name-6a6bd0"></a>&#x2022; [`name`](#name-6a6bd0) - Optional String<br>Cookie Name. A case-sensitive cookie name
 
 #### Rule List Rules Spec Cookie Matchers Item
 
@@ -567,7 +567,7 @@ A [`headers`](#rule-list-rules-spec-headers) block (within [`rule_list.rules.spe
 <a id="rule-list-rules-spec-headers-item"></a>&#x2022; [`item`](#rule-list-rules-spec-headers-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See
 [Item](#rule-list-rules-spec-headers-item) below.
 
-<a id="rule-list-rules-spec-headers-name"></a>&#x2022; [`name`](#rule-list-rules-spec-headers-name) - Optional String<br>Case-insensitive HTTP header name
+<a id="rule-list-rules-spec-headers-name"></a>&#x2022; [`name`](#rule-list-rules-spec-headers-name) - Optional String<br>Header Name. A case-insensitive HTTP header name
 
 #### Rule List Rules Spec Headers Item
 

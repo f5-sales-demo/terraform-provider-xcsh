@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -22,12 +23,14 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -3214,31 +3217,34 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Azure VNET Site is created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Azure VNET Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"machine_type": schema.StringAttribute{
-				MarkdownDescription: "Select Instance size based on performance needed. The default setting for Accelerated Networking is enabled, thus make sure you select a Virtual Machine that supports accelerated networking or disable the setting under, Select Ingress Gateway or Ingress/Egress Gateway > advanced OPTIONS..",
+				MarkdownDescription: "Select Instance size based on performance needed. The default setting for Accelerated Networking is enabled, thus make sure you select a Virtual Machine that supports accelerated networking or disable the setting under, Select Ingress Gateway or Ingress/Egress Gateway > advanced OPTIONS.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(64),
 				},
 			},
 			"resource_group": schema.StringAttribute{
-				MarkdownDescription: "Azure resource group for resources that will be created .",
+				MarkdownDescription: "Azure resource group for resources that will be created.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 64),
 				},
 			},
 			"ssh_key": schema.StringAttribute{
-				MarkdownDescription: "Public SSH key for accessing the site.",
+				MarkdownDescription: "Public SSH key. Public SSH key for accessing the site.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 8192),
@@ -3364,7 +3370,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Optional:            true,
 							},
 							"location": schema.StringAttribute{
-								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(4, 131072),
@@ -3499,11 +3505,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Configuration parameter for enable encryption.",
 				Attributes: map[string]schema.Attribute{
 					"disk_encryption_set_id": schema.StringAttribute{
-						MarkdownDescription: "Azure Disk Encryption Set to be used to encrypt the disk attached to the VM .",
+						MarkdownDescription: "Azure Disk Encryption Set to be used to encrypt the disk attached to the VM.",
 						Optional:            true,
 					},
 					"resource_group": schema.StringAttribute{
-						MarkdownDescription: "The resource group in which the Disk Encryption Set is present .",
+						MarkdownDescription: "The resource group in which the Disk Encryption Set is present.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(1, 64),
@@ -3515,7 +3521,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_egress_gw_ar, ingress_gw, ingress_gw_ar, voltstack_cluster, voltstack_cluster_ar] Two interface Azure ingress/egress site.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`.",
+						MarkdownDescription: "[Enum: azure-byol-multi-nic-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -3541,7 +3547,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3579,7 +3585,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3617,7 +3623,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3655,7 +3661,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"azure_az": schema.StringAttribute{
-									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input . Possible values are `1`, `2`, `3`.",
+									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input. Possible values are `1`, `2`, `3`.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.OneOf("1", "2", "3"),
@@ -3695,7 +3701,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
-													MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 													Optional:            true,
 												},
 											},
@@ -3734,7 +3740,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
-													MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 													Optional:            true,
 												},
 											},
@@ -3812,7 +3818,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3919,7 +3925,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										MarkdownDescription: "Enable this option",
 									},
 									"connections": schema.ListNestedBlock{
-										MarkdownDescription: "Add the ExpressRoute Circuit Connections to this site .",
+										MarkdownDescription: "Add the ExpressRoute Circuit Connections to this site.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"circuit_id": schema.StringAttribute{
@@ -3978,7 +3984,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -4044,7 +4050,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												MarkdownDescription: "Parameters for creating a new cloud subnet.",
 												Attributes: map[string]schema.Attribute{
 													"ipv4": schema.StringAttribute{
-														MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+														MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 														Optional:            true,
 													},
 												},
@@ -4079,7 +4085,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												MarkdownDescription: "Parameters for creating a new cloud subnet.",
 												Attributes: map[string]schema.Attribute{
 													"ipv4": schema.StringAttribute{
-														MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+														MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 														Optional:            true,
 													},
 												},
@@ -4133,14 +4139,14 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Resource group and name of existing Azure VNet.",
 											Attributes: map[string]schema.Attribute{
 												"resource_group": schema.StringAttribute{
-													MarkdownDescription: "Resource group of existing VNet .",
+													MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
 													},
 												},
 												"vnet_name": schema.StringAttribute{
-													MarkdownDescription: "Existing VNet Name. Name of existing VNet .",
+													MarkdownDescription: "Existing VNet Name. Name of existing VNet.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -4166,7 +4172,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -4273,7 +4279,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -4353,7 +4359,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -4460,7 +4466,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -4556,7 +4562,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Two interface Azure ingress/egress site on Alternate Region with no support for zones.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`.",
+						MarkdownDescription: "[Enum: azure-byol-multi-nic-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -4582,7 +4588,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -4620,7 +4626,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -4658,7 +4664,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -4759,7 +4765,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -4866,7 +4872,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										MarkdownDescription: "Enable this option",
 									},
 									"connections": schema.ListNestedBlock{
-										MarkdownDescription: "Add the ExpressRoute Circuit Connections to this site .",
+										MarkdownDescription: "Add the ExpressRoute Circuit Connections to this site.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"circuit_id": schema.StringAttribute{
@@ -4925,7 +4931,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -4991,7 +4997,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												MarkdownDescription: "Parameters for creating a new cloud subnet.",
 												Attributes: map[string]schema.Attribute{
 													"ipv4": schema.StringAttribute{
-														MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+														MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 														Optional:            true,
 													},
 												},
@@ -5026,7 +5032,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												MarkdownDescription: "Parameters for creating a new cloud subnet.",
 												Attributes: map[string]schema.Attribute{
 													"ipv4": schema.StringAttribute{
-														MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+														MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 														Optional:            true,
 													},
 												},
@@ -5080,14 +5086,14 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Resource group and name of existing Azure VNet.",
 											Attributes: map[string]schema.Attribute{
 												"resource_group": schema.StringAttribute{
-													MarkdownDescription: "Resource group of existing VNet .",
+													MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
 													},
 												},
 												"vnet_name": schema.StringAttribute{
-													MarkdownDescription: "Existing VNet Name. Name of existing VNet .",
+													MarkdownDescription: "Existing VNet Name. Name of existing VNet.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -5113,7 +5119,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -5220,7 +5226,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -5347,7 +5353,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										MarkdownDescription: "Parameters for creating a new cloud subnet.",
 										Attributes: map[string]schema.Attribute{
 											"ipv4": schema.StringAttribute{
-												MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+												MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 												Optional:            true,
 											},
 										},
@@ -5386,7 +5392,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										MarkdownDescription: "Parameters for creating a new cloud subnet.",
 										Attributes: map[string]schema.Attribute{
 											"ipv4": schema.StringAttribute{
-												MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+												MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 												Optional:            true,
 											},
 										},
@@ -5403,7 +5409,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -5510,7 +5516,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -5606,7 +5612,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Single interface Azure ingress site on on Recommended Region.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`.",
+						MarkdownDescription: "[Enum: azure-byol-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -5632,7 +5638,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"azure_az": schema.StringAttribute{
-									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input . Possible values are `1`, `2`, `3`.",
+									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input. Possible values are `1`, `2`, `3`.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.OneOf("1", "2", "3"),
@@ -5672,7 +5678,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
-													MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 													Optional:            true,
 												},
 											},
@@ -5718,7 +5724,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Configuration parameter for ingress gw ar.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`.",
+						MarkdownDescription: "[Enum: azure-byol-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -5794,7 +5800,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										MarkdownDescription: "Parameters for creating a new cloud subnet.",
 										Attributes: map[string]schema.Attribute{
 											"ipv4": schema.StringAttribute{
-												MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+												MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 												Optional:            true,
 											},
 										},
@@ -5955,14 +5961,14 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						MarkdownDescription: "Resource group and name of existing Azure VNet.",
 						Attributes: map[string]schema.Attribute{
 							"resource_group": schema.StringAttribute{
-								MarkdownDescription: "Resource group of existing VNet .",
+								MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 64),
 								},
 							},
 							"vnet_name": schema.StringAttribute{
-								MarkdownDescription: "Existing VNet Name. Name of existing VNet .",
+								MarkdownDescription: "Existing VNet Name. Name of existing VNet.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 64),
@@ -6005,7 +6011,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "App Stack Cluster of single interface Azure nodes.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`.",
+						MarkdownDescription: "[Enum: azure-byol-voltstack-combo] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -6031,7 +6037,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -6069,7 +6075,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -6107,7 +6113,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -6145,7 +6151,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"azure_az": schema.StringAttribute{
-									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input . Possible values are `1`, `2`, `3`.",
+									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input. Possible values are `1`, `2`, `3`.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.OneOf("1", "2", "3"),
@@ -6185,7 +6191,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
-													MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 													Optional:            true,
 												},
 											},
@@ -6236,7 +6242,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -6370,7 +6376,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -6477,7 +6483,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -6567,7 +6573,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "App Stack Cluster of single interface Azure nodes.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "[Enum: azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`.",
+						MarkdownDescription: "[Enum: azure-byol-voltstack-combo] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -6593,7 +6599,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -6631,7 +6637,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -6669,7 +6675,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -6743,7 +6749,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -6927,7 +6933,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										MarkdownDescription: "Parameters for creating a new cloud subnet.",
 										Attributes: map[string]schema.Attribute{
 											"ipv4": schema.StringAttribute{
-												MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+												MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 												Optional:            true,
 											},
 										},
@@ -6941,7 +6947,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -7048,7 +7054,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -7364,9 +7370,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		if !data.AzureCred.Namespace.IsNull() && !data.AzureCred.Namespace.IsUnknown() {
 			AzureCredMap["namespace"] = data.AzureCred.Namespace.ValueString()
 		}
-		if !data.AzureCred.Tenant.IsNull() && !data.AzureCred.Tenant.IsUnknown() {
-			AzureCredMap["tenant"] = data.AzureCred.Tenant.ValueString()
-		}
 		createReq.Spec["azure_cred"] = AzureCredMap
 	}
 	if data.BlockedServices != nil {
@@ -7462,9 +7465,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					IngressEgressGwActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -7488,9 +7488,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					IngressEgressGwActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -7513,9 +7510,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -7599,9 +7593,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsUnknown() {
 				IngressEgressGwDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
-			if !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				IngressEgressGwDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
-			}
 			IngressEgressGwMap["dc_cluster_group_inside_vn"] = IngressEgressGwDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
@@ -7611,9 +7602,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
 				IngressEgressGwDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
-			}
-			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				IngressEgressGwDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
@@ -7640,9 +7628,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -7656,9 +7641,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -7898,20 +7880,11 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -8040,20 +8013,11 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -8188,9 +8152,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					IngressEgressGwArActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -8213,9 +8174,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
@@ -8240,9 +8198,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
 					IngressEgressGwArActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -8261,9 +8216,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.IsUnknown() {
 				IngressEgressGwArDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
-			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				IngressEgressGwArDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.ValueString()
-			}
 			IngressEgressGwArMap["dc_cluster_group_inside_vn"] = IngressEgressGwArDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGwAr.DcClusterGroupOutsideVn != nil {
@@ -8273,9 +8225,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
 				IngressEgressGwArDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.ValueString()
-			}
-			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				IngressEgressGwArDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
 			IngressEgressGwArMap["dc_cluster_group_outside_vn"] = IngressEgressGwArDcClusterGroupOutsideVnMap
 		}
@@ -8302,9 +8251,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -8318,9 +8264,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -8560,20 +8503,11 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -8763,20 +8697,11 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -9073,9 +8998,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.OfflineSurvivabilityMode != nil {
@@ -9169,9 +9091,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					VoltstackClusterActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -9195,9 +9114,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					VoltstackClusterActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -9220,9 +9136,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -9282,9 +9195,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			if !data.VoltstackCluster.DcClusterGroup.Namespace.IsNull() && !data.VoltstackCluster.DcClusterGroup.Namespace.IsUnknown() {
 				VoltstackClusterDcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
 			}
-			if !data.VoltstackCluster.DcClusterGroup.Tenant.IsNull() && !data.VoltstackCluster.DcClusterGroup.Tenant.IsUnknown() {
-				VoltstackClusterDcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
-			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
 		if data.VoltstackCluster.DefaultStorage != nil {
@@ -9313,9 +9223,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -9329,9 +9236,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -9351,9 +9255,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			if !data.VoltstackCluster.K8SCluster.Namespace.IsNull() && !data.VoltstackCluster.K8SCluster.Namespace.IsUnknown() {
 				VoltstackClusterK8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
-			}
-			if !data.VoltstackCluster.K8SCluster.Tenant.IsNull() && !data.VoltstackCluster.K8SCluster.Tenant.IsUnknown() {
-				VoltstackClusterK8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
@@ -9408,20 +9309,11 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -9555,9 +9447,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					VoltstackClusterArActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -9580,9 +9469,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
@@ -9607,9 +9493,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
 					VoltstackClusterArActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -9627,9 +9510,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			if !data.VoltstackClusterAr.DcClusterGroup.Namespace.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Namespace.IsUnknown() {
 				VoltstackClusterArDcClusterGroupMap["namespace"] = data.VoltstackClusterAr.DcClusterGroup.Namespace.ValueString()
-			}
-			if !data.VoltstackClusterAr.DcClusterGroup.Tenant.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Tenant.IsUnknown() {
-				VoltstackClusterArDcClusterGroupMap["tenant"] = data.VoltstackClusterAr.DcClusterGroup.Tenant.ValueString()
 			}
 			VoltstackClusterArMap["dc_cluster_group"] = VoltstackClusterArDcClusterGroupMap
 		}
@@ -9659,9 +9539,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -9675,9 +9552,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -9697,9 +9571,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			if !data.VoltstackClusterAr.K8SCluster.Namespace.IsNull() && !data.VoltstackClusterAr.K8SCluster.Namespace.IsUnknown() {
 				VoltstackClusterArK8SClusterMap["namespace"] = data.VoltstackClusterAr.K8SCluster.Namespace.ValueString()
-			}
-			if !data.VoltstackClusterAr.K8SCluster.Tenant.IsNull() && !data.VoltstackClusterAr.K8SCluster.Tenant.IsUnknown() {
-				VoltstackClusterArK8SClusterMap["tenant"] = data.VoltstackClusterAr.K8SCluster.Tenant.ValueString()
 			}
 			VoltstackClusterArMap["k8s_cluster"] = VoltstackClusterArK8SClusterMap
 		}
@@ -9791,20 +9662,11 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -9952,11 +9814,28 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetAzureVNETSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -15538,6 +15417,16 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AzureVNETSite: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -21166,6 +21055,20 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.AzureVNETSite{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -21173,6 +21076,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -21298,9 +21202,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		if !data.AzureCred.Namespace.IsNull() && !data.AzureCred.Namespace.IsUnknown() {
 			AzureCredMap["namespace"] = data.AzureCred.Namespace.ValueString()
 		}
-		if !data.AzureCred.Tenant.IsNull() && !data.AzureCred.Tenant.IsUnknown() {
-			AzureCredMap["tenant"] = data.AzureCred.Tenant.ValueString()
-		}
 		apiResource.Spec["azure_cred"] = AzureCredMap
 	}
 	if data.BlockedServices != nil {
@@ -21396,9 +21297,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					IngressEgressGwActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -21422,9 +21320,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					IngressEgressGwActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -21447,9 +21342,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -21533,9 +21425,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsUnknown() {
 				IngressEgressGwDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
-			if !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				IngressEgressGwDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
-			}
 			IngressEgressGwMap["dc_cluster_group_inside_vn"] = IngressEgressGwDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
@@ -21545,9 +21434,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
 				IngressEgressGwDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
-			}
-			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				IngressEgressGwDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
@@ -21574,9 +21460,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -21590,9 +21473,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -21832,20 +21712,11 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -21974,20 +21845,11 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -22122,9 +21984,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					IngressEgressGwArActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -22147,9 +22006,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
@@ -22174,9 +22030,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
 					IngressEgressGwArActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -22195,9 +22048,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.IsUnknown() {
 				IngressEgressGwArDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
-			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				IngressEgressGwArDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.ValueString()
-			}
 			IngressEgressGwArMap["dc_cluster_group_inside_vn"] = IngressEgressGwArDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGwAr.DcClusterGroupOutsideVn != nil {
@@ -22207,9 +22057,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
 				IngressEgressGwArDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.ValueString()
-			}
-			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				IngressEgressGwArDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
 			IngressEgressGwArMap["dc_cluster_group_outside_vn"] = IngressEgressGwArDcClusterGroupOutsideVnMap
 		}
@@ -22236,9 +22083,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -22252,9 +22096,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -22494,20 +22335,11 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -22697,20 +22529,11 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -23007,9 +22830,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.OfflineSurvivabilityMode != nil {
@@ -23103,9 +22923,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					VoltstackClusterActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -23129,9 +22946,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					VoltstackClusterActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -23154,9 +22968,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -23216,9 +23027,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			if !data.VoltstackCluster.DcClusterGroup.Namespace.IsNull() && !data.VoltstackCluster.DcClusterGroup.Namespace.IsUnknown() {
 				VoltstackClusterDcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
 			}
-			if !data.VoltstackCluster.DcClusterGroup.Tenant.IsNull() && !data.VoltstackCluster.DcClusterGroup.Tenant.IsUnknown() {
-				VoltstackClusterDcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
-			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
 		if data.VoltstackCluster.DefaultStorage != nil {
@@ -23247,9 +23055,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -23263,9 +23068,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -23285,9 +23087,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			if !data.VoltstackCluster.K8SCluster.Namespace.IsNull() && !data.VoltstackCluster.K8SCluster.Namespace.IsUnknown() {
 				VoltstackClusterK8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
-			}
-			if !data.VoltstackCluster.K8SCluster.Tenant.IsNull() && !data.VoltstackCluster.K8SCluster.Tenant.IsUnknown() {
-				VoltstackClusterK8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
@@ -23342,20 +23141,11 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -23489,9 +23279,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					VoltstackClusterArActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -23514,9 +23301,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
@@ -23541,9 +23325,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
 						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
-						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
 					VoltstackClusterArActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
@@ -23561,9 +23342,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			if !data.VoltstackClusterAr.DcClusterGroup.Namespace.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Namespace.IsUnknown() {
 				VoltstackClusterArDcClusterGroupMap["namespace"] = data.VoltstackClusterAr.DcClusterGroup.Namespace.ValueString()
-			}
-			if !data.VoltstackClusterAr.DcClusterGroup.Tenant.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Tenant.IsUnknown() {
-				VoltstackClusterArDcClusterGroupMap["tenant"] = data.VoltstackClusterAr.DcClusterGroup.Tenant.ValueString()
 			}
 			VoltstackClusterArMap["dc_cluster_group"] = VoltstackClusterArDcClusterGroupMap
 		}
@@ -23593,9 +23371,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -23609,9 +23384,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -23631,9 +23403,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			if !data.VoltstackClusterAr.K8SCluster.Namespace.IsNull() && !data.VoltstackClusterAr.K8SCluster.Namespace.IsUnknown() {
 				VoltstackClusterArK8SClusterMap["namespace"] = data.VoltstackClusterAr.K8SCluster.Namespace.ValueString()
-			}
-			if !data.VoltstackClusterAr.K8SCluster.Tenant.IsNull() && !data.VoltstackClusterAr.K8SCluster.Tenant.IsUnknown() {
-				VoltstackClusterArK8SClusterMap["tenant"] = data.VoltstackClusterAr.K8SCluster.Tenant.ValueString()
 			}
 			VoltstackClusterArMap["k8s_cluster"] = VoltstackClusterArK8SClusterMap
 		}
@@ -23725,20 +23494,11 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -23882,6 +23642,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 
 	_, err := r.client.UpdateAzureVNETSite(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of azure_vnet_site %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update AzureVNETSite: %s", err))
 		return
 	}
@@ -23899,10 +23667,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -23912,6 +23676,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	fetched, fetchErr := r.client.GetAzureVNETSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AzureVNETSite after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

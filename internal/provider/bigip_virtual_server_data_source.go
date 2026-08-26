@@ -91,7 +91,7 @@ func (d *BigIPVirtualServerDataSource) Schema(ctx context.Context, req datasourc
 				Computed:            true,
 			},
 			"bigip_version": schema.StringAttribute{
-				MarkdownDescription: "Version of the BIG-IP which hosts the virtual server .",
+				MarkdownDescription: "Version of the BIG-IP which hosts the virtual server.",
 				Computed:            true,
 			},
 			"bigip_vs_description": schema.StringAttribute{

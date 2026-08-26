@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_api_testing" "example" {
   name      = "example-api-testing"
   namespace = "staging"
-
-  custom_header_value = "example-value"
 }

@@ -32,8 +32,6 @@ terraform {
 resource "xcsh_dns_lb_pool" "example" {
   name      = "example-dns-lb-pool"
   namespace = "system"
-
-  load_balancing_mode = "ROUND_ROBIN"
 }
 ```
 
@@ -68,7 +66,7 @@ resource "xcsh_dns_lb_pool" "example" {
 <br><br>&#x2022; <a id="mx-pool"></a>[`mx_pool`](#mx-pool) - Optional Block<br>Pool for MX Record<br>See [Mx Pool](#mx-pool) below for details.
 <br><br>&#x2022; <a id="srv-pool"></a>[`srv_pool`](#srv-pool) - Optional Block<br>Pool for SRV Record<br>See [Srv Pool](#srv-pool) below for details.
 
-<a id="load-balancing-mode"></a>&#x2022; [`load_balancing_mode`](#load-balancing-mode) - Required String  Defaults to `ROUND_ROBIN`<br>Possible values are `ROUND_ROBIN`, `RATIO_MEMBER`, `STATIC_PERSIST`, `PRIORITY`<br>[Enum: ROUND_ROBIN|RATIO_MEMBER|STATIC_PERSIST|PRIORITY] - ROUND_ROBIN: Round-Robin Round Robin will ensure random equal distribution of requests among all pool members in a pool. -
+<a id="load-balancing-mode"></a>&#x2022; [`load_balancing_mode`](#load-balancing-mode) - Optional String  Defaults to `ROUND_ROBIN`<br>Possible values are `ROUND_ROBIN`, `RATIO_MEMBER`, `STATIC_PERSIST`, `PRIORITY`<br>[Enum: ROUND_ROBIN|RATIO_MEMBER|STATIC_PERSIST|PRIORITY] - ROUND_ROBIN: Round-Robin Round Robin will ensure random equal distribution of requests among all pool members in a pool. -
 RATIO_MEMBER: Ratio-Member Ratio-Member performs load balancing of requests across the pool members based on the ratio assigned to each pool member - STATIC_PERSIST
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
@@ -95,7 +93,7 @@ An [`a_pool`](#a-pool) block supports the following:
 
 <a id="a-pool-max-answers"></a>&#x2022; [`max_answers`](#a-pool-max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
 
-<a id="a-pool-members"></a>&#x2022; [`members`](#a-pool-members) - Optional Block<br>Pool Members<br>See [Members](#a-pool-members) below.
+<a id="a-pool-members"></a>&#x2022; [`members`](#a-pool-members) - Optional Block<br>Pool Members. Configuration parameter for members<br>See [Members](#a-pool-members) below.
 
 #### A Pool Health Check
 
@@ -127,7 +125,7 @@ An [`aaaa_pool`](#aaaa-pool) block supports the following:
 
 <a id="aaaa-pool-max-answers"></a>&#x2022; [`max_answers`](#aaaa-pool-max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
 
-<a id="aaaa-pool-members"></a>&#x2022; [`members`](#aaaa-pool-members) - Optional Block<br>Pool Members<br>See [Members](#aaaa-pool-members) below.
+<a id="aaaa-pool-members"></a>&#x2022; [`members`](#aaaa-pool-members) - Optional Block<br>Pool Members. Configuration parameter for members<br>See [Members](#aaaa-pool-members) below.
 
 #### Aaaa Pool Members
 
@@ -151,7 +149,7 @@ A [`cname_pool`](#cname-pool) block supports the following:
 
 <a id="cname-pool-health-check"></a>&#x2022; [`health_check`](#cname-pool-health-check) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Health Check](#cname-pool-health-check) below.
 
-<a id="cname-pool-members"></a>&#x2022; [`members`](#cname-pool-members) - Optional Block<br>Pool Members<br>See [Members](#cname-pool-members) below.
+<a id="cname-pool-members"></a>&#x2022; [`members`](#cname-pool-members) - Optional Block<br>Pool Members. Configuration parameter for members<br>See [Members](#cname-pool-members) below.
 
 #### Cname Pool Health Check
 
@@ -183,13 +181,13 @@ A [`mx_pool`](#mx-pool) block supports the following:
 
 <a id="mx-pool-max-answers"></a>&#x2022; [`max_answers`](#mx-pool-max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
 
-<a id="mx-pool-members"></a>&#x2022; [`members`](#mx-pool-members) - Optional Block<br>Pool Members<br>See [Members](#mx-pool-members) below.
+<a id="mx-pool-members"></a>&#x2022; [`members`](#mx-pool-members) - Optional Block<br>Pool Members. Configuration parameter for members<br>See [Members](#mx-pool-members) below.
 
 #### Mx Pool Members
 
 A [`members`](#mx-pool-members) block (within [`mx_pool`](#mx-pool)) supports the following:
 
-<a id="mx-pool-members-domain"></a>&#x2022; [`domain`](#mx-pool-members-domain) - Optional String<br>Domain
+<a id="mx-pool-members-domain"></a>&#x2022; [`domain`](#mx-pool-members-domain) - Optional String<br>Domain name for routing and identification
 
 <a id="mx-pool-members-name"></a>&#x2022; [`name`](#mx-pool-members-name) - Optional String<br>Name. Pool member name
 
@@ -203,7 +201,7 @@ A [`srv_pool`](#srv-pool) block supports the following:
 
 <a id="srv-pool-max-answers"></a>&#x2022; [`max_answers`](#srv-pool-max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
 
-<a id="srv-pool-members"></a>&#x2022; [`members`](#srv-pool-members) - Optional Block<br>Pool Members<br>See [Members](#srv-pool-members) below.
+<a id="srv-pool-members"></a>&#x2022; [`members`](#srv-pool-members) - Optional Block<br>Pool Members. Configuration parameter for members<br>See [Members](#srv-pool-members) below.
 
 #### Srv Pool Members
 
@@ -213,7 +211,7 @@ A [`members`](#srv-pool-members) block (within [`srv_pool`](#srv-pool)) supports
 
 <a id="srv-pool-members-name"></a>&#x2022; [`name`](#srv-pool-members-name) - Optional String<br>Name. Pool member name
 
-<a id="srv-pool-members-port"></a>&#x2022; [`port`](#srv-pool-members-port) - Optional Number<br>Port on which the service can be found
+<a id="srv-pool-members-port"></a>&#x2022; [`port`](#srv-pool-members-port) - Optional Number<br>Port. Port on which the service can be found
 
 <a id="srv-pool-members-priority"></a>&#x2022; [`priority`](#srv-pool-members-priority) - Optional Number<br>Priority of the target. A lower number indicates a higher preference
 

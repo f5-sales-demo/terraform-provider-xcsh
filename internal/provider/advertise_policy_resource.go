@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -19,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -27,6 +29,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -402,7 +405,11 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"address": schema.StringAttribute{
 				MarkdownDescription: "Optional. VIP to advertise. This VIP can be either V4/V6 address You can not specify this if where contains a site or virtual site of type REGIONAL_EDGE or public network If not specified and 'where' is specified with site or virtual site option, inside_vip or outside_vip specified in the site..",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(1024),
 				},
@@ -431,14 +438,22 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"protocol": schema.StringAttribute{
 				MarkdownDescription: "[Enum: TCP|UDP] Protocol. Protocol to advertise. Possible values are `TCP`, `UDP`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("TCP", "UDP"),
 				},
 			},
 			"skip_xff_append": schema.BoolAttribute{
 				MarkdownDescription: "If set, the loadbalancer will not append the remote address to the x-forwarded-for HTTP header.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{
@@ -568,7 +583,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -698,7 +713,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "Enable this option",
 							},
 							"ref": schema.ListNestedBlock{
-								MarkdownDescription: "Reference. A site direct reference .",
+								MarkdownDescription: "Reference. A site direct reference.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"kind": schema.StringAttribute{
@@ -739,7 +754,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"ref": schema.ListNestedBlock{
-								MarkdownDescription: "Virtual network direct reference .",
+								MarkdownDescription: "Reference. A virtual network direct reference.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"kind": schema.StringAttribute{
@@ -794,7 +809,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "Enable this option",
 							},
 							"ref": schema.ListNestedBlock{
-								MarkdownDescription: "Virtual_site direct reference .",
+								MarkdownDescription: "Reference. A virtual_site direct reference.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"kind": schema.StringAttribute{
@@ -974,20 +989,11 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			var PublicIPList []map[string]interface{}
 			for _, PublicIPItem := range PublicIPElems {
 				PublicIPItemMap := make(map[string]interface{})
-				if !PublicIPItem.Kind.IsNull() && !PublicIPItem.Kind.IsUnknown() {
-					PublicIPItemMap["kind"] = PublicIPItem.Kind.ValueString()
-				}
 				if !PublicIPItem.Name.IsNull() && !PublicIPItem.Name.IsUnknown() {
 					PublicIPItemMap["name"] = PublicIPItem.Name.ValueString()
 				}
 				if !PublicIPItem.Namespace.IsNull() && !PublicIPItem.Namespace.IsUnknown() {
 					PublicIPItemMap["namespace"] = PublicIPItem.Namespace.ValueString()
-				}
-				if !PublicIPItem.Tenant.IsNull() && !PublicIPItem.Tenant.IsUnknown() {
-					PublicIPItemMap["tenant"] = PublicIPItem.Tenant.ValueString()
-				}
-				if !PublicIPItem.Uid.IsNull() && !PublicIPItem.Uid.IsUnknown() {
-					PublicIPItemMap["uid"] = PublicIPItem.Uid.ValueString()
 				}
 				PublicIPList = append(PublicIPList, PublicIPItemMap)
 			}
@@ -1097,20 +1103,11 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 							var TrustedCAListList []map[string]interface{}
 							for _, TrustedCAListItem := range TrustedCAListElems {
 								TrustedCAListItemMap := make(map[string]interface{})
-								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-								}
 								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 								}
 								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-								}
-								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-								}
-								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
@@ -1168,20 +1165,11 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 					var RefList []map[string]interface{}
 					for _, RefItem := range RefElems {
 						RefItemMap := make(map[string]interface{})
-						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
-							RefItemMap["kind"] = RefItem.Kind.ValueString()
-						}
 						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
 							RefItemMap["name"] = RefItem.Name.ValueString()
 						}
 						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
 							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
-						}
-						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
-							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
-						}
-						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
-							RefItemMap["uid"] = RefItem.Uid.ValueString()
 						}
 						RefList = append(RefList, RefItemMap)
 					}
@@ -1200,20 +1188,11 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 					var RefList []map[string]interface{}
 					for _, RefItem := range RefElems {
 						RefItemMap := make(map[string]interface{})
-						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
-							RefItemMap["kind"] = RefItem.Kind.ValueString()
-						}
 						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
 							RefItemMap["name"] = RefItem.Name.ValueString()
 						}
 						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
 							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
-						}
-						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
-							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
-						}
-						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
-							RefItemMap["uid"] = RefItem.Uid.ValueString()
 						}
 						RefList = append(RefList, RefItemMap)
 					}
@@ -1241,20 +1220,11 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 					var RefList []map[string]interface{}
 					for _, RefItem := range RefElems {
 						RefItemMap := make(map[string]interface{})
-						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
-							RefItemMap["kind"] = RefItem.Kind.ValueString()
-						}
 						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
 							RefItemMap["name"] = RefItem.Name.ValueString()
 						}
 						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
 							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
-						}
-						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
-							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
-						}
-						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
-							RefItemMap["uid"] = RefItem.Uid.ValueString()
 						}
 						RefList = append(RefList, RefItemMap)
 					}
@@ -1287,11 +1257,28 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetAdvertisePolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1907,10 +1894,15 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 	} else {
 		data.Protocol = types.StringNull()
 	}
-	if v, ok := apiResource.Spec["skip_xff_append"].(bool); ok {
-		data.SkipXffAppend = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.SkipXffAppend.IsNull() && !data.SkipXffAppend.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.SkipXffAppend = types.BoolNull()
+		if v, ok := apiResource.Spec["skip_xff_append"].(bool); ok {
+			data.SkipXffAppend = types.BoolValue(v)
+		} else {
+			data.SkipXffAppend = types.BoolNull()
+		}
 	}
 
 	tflog.Trace(ctx, "created AdvertisePolicy resource")
@@ -1958,6 +1950,16 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AdvertisePolicy: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -2638,10 +2640,15 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 	} else {
 		data.Protocol = types.StringNull()
 	}
-	if v, ok := apiResource.Spec["skip_xff_append"].(bool); ok {
-		data.SkipXffAppend = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.SkipXffAppend.IsNull() && !data.SkipXffAppend.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.SkipXffAppend = types.BoolNull()
+		if v, ok := apiResource.Spec["skip_xff_append"].(bool); ok {
+			data.SkipXffAppend = types.BoolValue(v)
+		} else {
+			data.SkipXffAppend = types.BoolNull()
+		}
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -2671,6 +2678,20 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.AdvertisePolicy{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -2678,6 +2699,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -2730,20 +2752,11 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			var PublicIPList []map[string]interface{}
 			for _, PublicIPItem := range PublicIPElems {
 				PublicIPItemMap := make(map[string]interface{})
-				if !PublicIPItem.Kind.IsNull() && !PublicIPItem.Kind.IsUnknown() {
-					PublicIPItemMap["kind"] = PublicIPItem.Kind.ValueString()
-				}
 				if !PublicIPItem.Name.IsNull() && !PublicIPItem.Name.IsUnknown() {
 					PublicIPItemMap["name"] = PublicIPItem.Name.ValueString()
 				}
 				if !PublicIPItem.Namespace.IsNull() && !PublicIPItem.Namespace.IsUnknown() {
 					PublicIPItemMap["namespace"] = PublicIPItem.Namespace.ValueString()
-				}
-				if !PublicIPItem.Tenant.IsNull() && !PublicIPItem.Tenant.IsUnknown() {
-					PublicIPItemMap["tenant"] = PublicIPItem.Tenant.ValueString()
-				}
-				if !PublicIPItem.Uid.IsNull() && !PublicIPItem.Uid.IsUnknown() {
-					PublicIPItemMap["uid"] = PublicIPItem.Uid.ValueString()
 				}
 				PublicIPList = append(PublicIPList, PublicIPItemMap)
 			}
@@ -2853,20 +2866,11 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 							var TrustedCAListList []map[string]interface{}
 							for _, TrustedCAListItem := range TrustedCAListElems {
 								TrustedCAListItemMap := make(map[string]interface{})
-								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-								}
 								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 								}
 								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-								}
-								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-								}
-								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
@@ -2924,20 +2928,11 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 					var RefList []map[string]interface{}
 					for _, RefItem := range RefElems {
 						RefItemMap := make(map[string]interface{})
-						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
-							RefItemMap["kind"] = RefItem.Kind.ValueString()
-						}
 						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
 							RefItemMap["name"] = RefItem.Name.ValueString()
 						}
 						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
 							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
-						}
-						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
-							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
-						}
-						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
-							RefItemMap["uid"] = RefItem.Uid.ValueString()
 						}
 						RefList = append(RefList, RefItemMap)
 					}
@@ -2956,20 +2951,11 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 					var RefList []map[string]interface{}
 					for _, RefItem := range RefElems {
 						RefItemMap := make(map[string]interface{})
-						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
-							RefItemMap["kind"] = RefItem.Kind.ValueString()
-						}
 						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
 							RefItemMap["name"] = RefItem.Name.ValueString()
 						}
 						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
 							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
-						}
-						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
-							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
-						}
-						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
-							RefItemMap["uid"] = RefItem.Uid.ValueString()
 						}
 						RefList = append(RefList, RefItemMap)
 					}
@@ -2997,20 +2983,11 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 					var RefList []map[string]interface{}
 					for _, RefItem := range RefElems {
 						RefItemMap := make(map[string]interface{})
-						if !RefItem.Kind.IsNull() && !RefItem.Kind.IsUnknown() {
-							RefItemMap["kind"] = RefItem.Kind.ValueString()
-						}
 						if !RefItem.Name.IsNull() && !RefItem.Name.IsUnknown() {
 							RefItemMap["name"] = RefItem.Name.ValueString()
 						}
 						if !RefItem.Namespace.IsNull() && !RefItem.Namespace.IsUnknown() {
 							RefItemMap["namespace"] = RefItem.Namespace.ValueString()
-						}
-						if !RefItem.Tenant.IsNull() && !RefItem.Tenant.IsUnknown() {
-							RefItemMap["tenant"] = RefItem.Tenant.ValueString()
-						}
-						if !RefItem.Uid.IsNull() && !RefItem.Uid.IsUnknown() {
-							RefItemMap["uid"] = RefItem.Uid.ValueString()
 						}
 						RefList = append(RefList, RefItemMap)
 					}
@@ -3039,6 +3016,14 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 
 	_, err := r.client.UpdateAdvertisePolicy(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of advertise_policy %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update AdvertisePolicy: %s", err))
 		return
 	}
@@ -3056,10 +3041,6 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -3072,7 +3053,27 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["address"].(string); ok && v != "" {
+		data.Address = types.StringValue(v)
+	} else if data.Address.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Address = types.StringNull()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["port"].(float64); ok {
 		data.Port = types.Int64Value(int64(v))
 	} else if data.Port.IsUnknown() {
@@ -3085,6 +3086,20 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	} else if data.PortRanges.IsUnknown() {
 		// API didn't return value and plan was unknown - set to null
 		data.PortRanges = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["protocol"].(string); ok && v != "" {
+		data.Protocol = types.StringValue(v)
+	} else if data.Protocol.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Protocol = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["skip_xff_append"].(bool); ok {
+		data.SkipXffAppend = types.BoolValue(v)
+	} else if data.SkipXffAppend.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.SkipXffAppend = types.BoolNull()
 	}
 	// If plan had a value, preserve it
 
@@ -3697,10 +3712,15 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	} else {
 		data.Protocol = types.StringNull()
 	}
-	if v, ok := apiResource.Spec["skip_xff_append"].(bool); ok {
-		data.SkipXffAppend = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.SkipXffAppend.IsNull() && !data.SkipXffAppend.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.SkipXffAppend = types.BoolNull()
+		if v, ok := apiResource.Spec["skip_xff_append"].(bool); ok {
+			data.SkipXffAppend = types.BoolValue(v)
+		} else {
+			data.SkipXffAppend = types.BoolNull()
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

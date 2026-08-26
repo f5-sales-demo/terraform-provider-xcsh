@@ -228,7 +228,7 @@ An [`api_endpoint_rules`](#api-rate-limit-api-endpoint-rules) block (within [`ap
 
 <a id="method-1e49b0"></a>&#x2022; [`api_endpoint_method`](#method-1e49b0) - Optional Block<br>HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true<br>See [API Endpoint Method](#method-1e49b0) below.
 
-<a id="path-297bf2"></a>&#x2022; [`api_endpoint_path`](#path-297bf2) - Optional String<br>The endpoint (path) of the request
+<a id="path-297bf2"></a>&#x2022; [`api_endpoint_path`](#path-297bf2) - Optional String<br>API Endpoint. The endpoint (path) of the request
 
 <a id="matcher-794c7c"></a>&#x2022; [`client_matcher`](#matcher-794c7c) - Optional Block<br>Client Matcher. Client conditions for matching a rule<br>See [Client Matcher](#matcher-794c7c) below.
 
@@ -450,7 +450,7 @@ A [`server_url_rules`](#api-rate-limit-server-url-rules) block (within [`api_rat
 
 <a id="group-15c11a"></a>&#x2022; [`api_group`](#group-15c11a) - Optional String<br>API groups derived from API Definition swaggers. For example oas-all-operations including all paths and methods from the swaggers, oas-base-URLs covering all requests under base-paths from the swaggers. Custom groups can be created if user tags paths or operations with 'x-F5 Distributed
 
-<a id="path-44dbff"></a>&#x2022; [`base_path`](#path-44dbff) - Optional String<br>Prefix of the request path
+<a id="path-44dbff"></a>&#x2022; [`base_path`](#path-44dbff) - Optional String<br>Base Path. Prefix of the request path
 
 <a id="matcher-ed4b34"></a>&#x2022; [`client_matcher`](#matcher-ed4b34) - Optional Block<br>Client Matcher. Client conditions for matching a rule<br>See [Client Matcher](#matcher-ed4b34) below.
 
@@ -640,7 +640,7 @@ A [`validation_custom_list`](#list-23b577) block (within [`api_specification`](#
 
 <a id="mode-146cc3"></a>&#x2022; [`fall_through_mode`](#mode-146cc3) - Optional Block<br>Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a. Swagger) or doesn't have a specific rule in custom rules)<br>See [Fall Through Mode](#mode-146cc3) below.
 
-<a id="rules-f51668"></a>&#x2022; [`open_api_validation_rules`](#rules-f51668) - Optional Block<br>Validation List<br>See [Open API Validation Rules](#rules-f51668) below.
+<a id="rules-f51668"></a>&#x2022; [`open_api_validation_rules`](#rules-f51668) - Optional Block<br>Validation List. Rule or policy definition<br>See [Open API Validation Rules](#rules-f51668) below.
 
 <a id="settings-940e64"></a>&#x2022; [`settings`](#settings-940e64) - Optional Block<br>OpenAPI specification validation settings relevant for 'API Inventory' enforcement and for 'Custom list' enforcement<br>See [Settings](#settings-940e64) below.
 
@@ -1015,7 +1015,7 @@ A [`headers`](#headers-986193) block (within [`bot_defense.policy.protected_app_
 
 <a id="item-ca0df2"></a>&#x2022; [`item`](#item-ca0df2) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#item-ca0df2) below.
 
-<a id="name-34d16a"></a>&#x2022; [`name`](#name-34d16a) - Optional String<br>Case-insensitive HTTP header name
+<a id="name-34d16a"></a>&#x2022; [`name`](#name-34d16a) - Optional String<br>Header Name. A case-insensitive HTTP header name
 
 #### Bot Defense Policy Protected App Endpoints Headers Item
 
@@ -1742,7 +1742,7 @@ A [`reserved_claims`](#jwt-validation-reserved-claims) block (within [`jwt_valid
 
 An [`audience`](#jwt-validation-reserved-claims-audience) block (within [`jwt_validation.reserved_claims`](#jwt-validation-reserved-claims)) supports the following:
 
-<a id="audiences-a34853"></a>&#x2022; [`audiences`](#audiences-a34853) - Optional List<br>Values
+<a id="audiences-a34853"></a>&#x2022; [`audiences`](#audiences-a34853) - Optional List<br>Values. Configuration parameter for audiences
 
 #### JWT Validation Target
 
@@ -1758,13 +1758,13 @@ A [`target`](#jwt-validation-target) block (within [`jwt_validation`](#jwt-valid
 
 An [`api_groups`](#jwt-validation-target-api-groups) block (within [`jwt_validation.target`](#jwt-validation-target)) supports the following:
 
-<a id="groups-057782"></a>&#x2022; [`api_groups`](#groups-057782) - Optional List<br>API Groups
+<a id="groups-057782"></a>&#x2022; [`api_groups`](#groups-057782) - Optional List<br>API Groups. Group or collection configuration
 
 #### JWT Validation Target Base Paths
 
 A [`base_paths`](#jwt-validation-target-base-paths) block (within [`jwt_validation.target`](#jwt-validation-target)) supports the following:
 
-<a id="paths-b433d5"></a>&#x2022; [`base_paths`](#paths-b433d5) - Optional List<br>Prefix Values
+<a id="paths-b433d5"></a>&#x2022; [`base_paths`](#paths-b433d5) - Optional List<br>Prefix Values. File system or URL path
 
 #### JWT Validation Token Location
 
@@ -2293,7 +2293,7 @@ An [`ip_allowed_list`](#rate-limit-ip-allowed-list) block (within [`rate_limit`]
 
 A [`policies`](#rate-limit-policies) block (within [`rate_limit`](#rate-limit)) supports the following:
 
-<a id="rate-limit-policies-policies"></a>&#x2022; [`policies`](#rate-limit-policies-policies) - Optional Block<br>Ordered list of rate limiter policies<br>See [Policies](#rate-limit-policies-policies) below.
+<a id="rate-limit-policies-policies"></a>&#x2022; [`policies`](#rate-limit-policies-policies) - Optional Block<br>Rate Limiter Policies. Ordered list of rate limiter policies<br>See [Policies](#rate-limit-policies-policies) below.
 
 #### Rate Limit Policies Policies
 

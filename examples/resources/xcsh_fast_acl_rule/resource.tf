@@ -15,5 +15,5 @@ terraform {
 # Basic FastACLRule configuration
 resource "xcsh_fast_acl_rule" "example" {
   name      = "example-fast-acl-rule"
-  namespace = "system"
+  namespace = "staging"
 }

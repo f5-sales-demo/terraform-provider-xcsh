@@ -6,7 +6,6 @@ DNS Proxy in a given namespace. If one already exists it will give an error
 ## Required
 
 - name
-- transport_type
 
 ## Minimal Valid Config
 
@@ -14,8 +13,6 @@ DNS Proxy in a given namespace. If one already exists it will give an error
 resource "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
   namespace = "system"
-
-  transport_type = "UDP"
 }
 ```
 

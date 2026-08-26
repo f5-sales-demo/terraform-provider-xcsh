@@ -94,11 +94,11 @@ An [`auth_hmac`](#cookie-params-auth-hmac) block (within [`cookie_params`](#cook
 
 <a id="cookie-params-auth-hmac-prim-key"></a>&#x2022; [`prim_key`](#cookie-params-auth-hmac-prim-key) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Prim Key](#cookie-params-auth-hmac-prim-key) below.
 
-<a id="cookie-params-auth-hmac-prim-key-expiry"></a>&#x2022; [`prim_key_expiry`](#cookie-params-auth-hmac-prim-key-expiry) - Optional String<br>Primary HMAC Key Expiry time
+<a id="cookie-params-auth-hmac-prim-key-expiry"></a>&#x2022; [`prim_key_expiry`](#cookie-params-auth-hmac-prim-key-expiry) - Optional String<br>HMAC Primary Key Expiry. Primary HMAC Key Expiry time
 
 <a id="cookie-params-auth-hmac-sec-key"></a>&#x2022; [`sec_key`](#cookie-params-auth-hmac-sec-key) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Sec Key](#cookie-params-auth-hmac-sec-key) below.
 
-<a id="cookie-params-auth-hmac-sec-key-expiry"></a>&#x2022; [`sec_key_expiry`](#cookie-params-auth-hmac-sec-key-expiry) - Optional String<br>Secondary HMAC Key Expiry time
+<a id="cookie-params-auth-hmac-sec-key-expiry"></a>&#x2022; [`sec_key_expiry`](#cookie-params-auth-hmac-sec-key-expiry) - Optional String<br>HMAC Secondary Key Expiry. Secondary HMAC Key Expiry time
 
 #### Cookie Params Auth HMAC Prim Key
 

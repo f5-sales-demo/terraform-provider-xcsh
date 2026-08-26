@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -23,6 +24,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -837,7 +839,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
-						MarkdownDescription: "Custom Rule List. List of custom rules .",
+						MarkdownDescription: "Custom Rule List. List of custom rules.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"action": schema.StringAttribute{
@@ -1147,7 +1149,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 									MarkdownDescription: "URL Category List Type. List of URL categories.",
 									Attributes: map[string]schema.Attribute{
 										"url_categories": schema.ListAttribute{
-											MarkdownDescription: "[Enum: UNCATEGORIZED|REAL_ESTATE|COMPUTER_AND_INTERNET_SECURITY|FINANCIAL_SERVICES|BUSINESS_AND_ECONOMY|COMPUTER_AND_INTERNET_INFO|AUCTIONS|SHOPPING|CULT_AND_OCCULT|TRAVEL|ABUSED_DRUGS|ADULT_AND_PORNOGRAPHY|HOME_AND_GARDEN|MILITARY|SOCIAL_NETWORKING|DEAD_SITES|INDIVIDUAL_STOCK_ADVICE_AND_TOOLS|TRAINING_AND_TOOLS|DATING|SEX_EDUCATION|RELIGION|ENTERTAINMENT_AND_ARTS|PERSONAL_SITES_AND_BLOGS|LEGAL|LOCAL_INFORMATION|STREAMING_MEDIA|JOB_SEARCH|GAMBLING|TRANSLATION|REFERENCE_AND_RESEARCH|SHAREWARE_AND_FREEWARE|PEER_TO_PEER|MARIJUANA|HACKING|GAMES|PHILOSOPHY_AND_POLITICAL_ADVOCACY|WEAPONS|PAY_TO_SURF|HUNTING_AND_FISHING|SOCIETY|EDUCATIONAL_INSTITUTIONS|ONLINE_GREETING_CARDS|SPORTS|SWIMSUITS_AND_INTIMATE_APPAREL|QUESTIONABLE|KIDS|HATE_AND_RACISM|PERSONAL_STORAGE|VIOLENCE|KEYLOGGERS_AND_MONITORING|SEARCH_ENGINES|INTERNET_PORTALS|WEB_ADVERTISEMENTS|CHEATING|GROSS|WEB_BASED_EMAIL|MALWARE_SITES|PHISHING_AND_OTHER_FRAUDS|PROXY_AVOIDANCE_AND_ANONYMIZERS|SPYWARE_AND_ADWARE|MUSIC|GOVERNMENT|NUDITY|NEWS_AND_MEDIA|ILLEGAL|CONTENT_DELIVERY_NETWORKS|INTERNET_COMMUNICATIONS|BOT_NETS|ABORTION|HEALTH_AND_MEDICINE|CONFIRMED_SPAM_SOURCES|SPAM_URLS|UNCONFIRMED_SPAM_SOURCES|OPEN_HTTP_PROXIES|DYNAMICALLY_GENERATED_CONTENT|PARKED_DOMAINS|ALCOHOL_AND_TOBACCO|PRIVATE_IP_ADDRESSES|IMAGE_AND_VIDEO_SEARCH|FASHION_AND_BEAUTY|RECREATION_AND_HOBBIES|MOTOR_VEHICLES|WEB_HOSTING] List of URL categories to be selected . Possible values are `UNCATEGORIZED`, `REAL_ESTATE`, `COMPUTER_AND_INTERNET_SECURITY`, `FINANCIAL_SERVICES`, `BUSINESS_AND_ECONOMY`, `COMPUTER_AND_INTERNET_INFO`, `AUCTIONS`, `SHOPPING`, `CULT_AND_OCCULT`, `TRAVEL`, `ABUSED_DRUGS`, `ADULT_AND_PORNOGRAPHY`, `HOME_AND_GARDEN`, `MILITARY`, `SOCIAL_NETWORKING`, `DEAD_SITES`, `INDIVIDUAL_STOCK_ADVICE_AND_TOOLS`, `TRAINING_AND_TOOLS`, `DATING`, `SEX_EDUCATION`, `RELIGION`, `ENTERTAINMENT_AND_ARTS`, `PERSONAL_SITES_AND_BLOGS`, `LEGAL`, `LOCAL_INFORMATION`, `STREAMING_MEDIA`, `JOB_SEARCH`, `GAMBLING`, `TRANSLATION`, `REFERENCE_AND_RESEARCH`, `SHAREWARE_AND_FREEWARE`, `PEER_TO_PEER`, `MARIJUANA`, `HACKING`, `GAMES`, `PHILOSOPHY_AND_POLITICAL_ADVOCACY`, `WEAPONS`, `PAY_TO_SURF`, `HUNTING_AND_FISHING`, `SOCIETY`, `EDUCATIONAL_INSTITUTIONS`, `ONLINE_GREETING_CARDS`, `SPORTS`, `SWIMSUITS_AND_INTIMATE_APPAREL`, `QUESTIONABLE`, `KIDS`, `HATE_AND_RACISM`, `PERSONAL_STORAGE`, `VIOLENCE`, `KEYLOGGERS_AND_MONITORING`, `SEARCH_ENGINES`, `INTERNET_PORTALS`, `WEB_ADVERTISEMENTS`, `CHEATING`, `GROSS`, `WEB_BASED_EMAIL`, `MALWARE_SITES`, `PHISHING_AND_OTHER_FRAUDS`, `PROXY_AVOIDANCE_AND_ANONYMIZERS`, `SPYWARE_AND_ADWARE`, `MUSIC`, `GOVERNMENT`, `NUDITY`, `NEWS_AND_MEDIA`, `ILLEGAL`, `CONTENT_DELIVERY_NETWORKS`, `INTERNET_COMMUNICATIONS`, `BOT_NETS`, `ABORTION`, `HEALTH_AND_MEDICINE`, `CONFIRMED_SPAM_SOURCES`, `SPAM_URLS`, `UNCONFIRMED_SPAM_SOURCES`, `OPEN_HTTP_PROXIES`, `DYNAMICALLY_GENERATED_CONTENT`, `PARKED_DOMAINS`, `ALCOHOL_AND_TOBACCO`, `PRIVATE_IP_ADDRESSES`, `IMAGE_AND_VIDEO_SEARCH`, `FASHION_AND_BEAUTY`, `RECREATION_AND_HOBBIES`, `MOTOR_VEHICLES`, `WEB_HOSTING`. Defaults to `UNCATEGORIZED`.",
+											MarkdownDescription: "[Enum: UNCATEGORIZED|REAL_ESTATE|COMPUTER_AND_INTERNET_SECURITY|FINANCIAL_SERVICES|BUSINESS_AND_ECONOMY|COMPUTER_AND_INTERNET_INFO|AUCTIONS|SHOPPING|CULT_AND_OCCULT|TRAVEL|ABUSED_DRUGS|ADULT_AND_PORNOGRAPHY|HOME_AND_GARDEN|MILITARY|SOCIAL_NETWORKING|DEAD_SITES|INDIVIDUAL_STOCK_ADVICE_AND_TOOLS|TRAINING_AND_TOOLS|DATING|SEX_EDUCATION|RELIGION|ENTERTAINMENT_AND_ARTS|PERSONAL_SITES_AND_BLOGS|LEGAL|LOCAL_INFORMATION|STREAMING_MEDIA|JOB_SEARCH|GAMBLING|TRANSLATION|REFERENCE_AND_RESEARCH|SHAREWARE_AND_FREEWARE|PEER_TO_PEER|MARIJUANA|HACKING|GAMES|PHILOSOPHY_AND_POLITICAL_ADVOCACY|WEAPONS|PAY_TO_SURF|HUNTING_AND_FISHING|SOCIETY|EDUCATIONAL_INSTITUTIONS|ONLINE_GREETING_CARDS|SPORTS|SWIMSUITS_AND_INTIMATE_APPAREL|QUESTIONABLE|KIDS|HATE_AND_RACISM|PERSONAL_STORAGE|VIOLENCE|KEYLOGGERS_AND_MONITORING|SEARCH_ENGINES|INTERNET_PORTALS|WEB_ADVERTISEMENTS|CHEATING|GROSS|WEB_BASED_EMAIL|MALWARE_SITES|PHISHING_AND_OTHER_FRAUDS|PROXY_AVOIDANCE_AND_ANONYMIZERS|SPYWARE_AND_ADWARE|MUSIC|GOVERNMENT|NUDITY|NEWS_AND_MEDIA|ILLEGAL|CONTENT_DELIVERY_NETWORKS|INTERNET_COMMUNICATIONS|BOT_NETS|ABORTION|HEALTH_AND_MEDICINE|CONFIRMED_SPAM_SOURCES|SPAM_URLS|UNCONFIRMED_SPAM_SOURCES|OPEN_HTTP_PROXIES|DYNAMICALLY_GENERATED_CONTENT|PARKED_DOMAINS|ALCOHOL_AND_TOBACCO|PRIVATE_IP_ADDRESSES|IMAGE_AND_VIDEO_SEARCH|FASHION_AND_BEAUTY|RECREATION_AND_HOBBIES|MOTOR_VEHICLES|WEB_HOSTING] URL Categories. List of URL categories to be selected. Possible values are `UNCATEGORIZED`, `REAL_ESTATE`, `COMPUTER_AND_INTERNET_SECURITY`, `FINANCIAL_SERVICES`, `BUSINESS_AND_ECONOMY`, `COMPUTER_AND_INTERNET_INFO`, `AUCTIONS`, `SHOPPING`, `CULT_AND_OCCULT`, `TRAVEL`, `ABUSED_DRUGS`, `ADULT_AND_PORNOGRAPHY`, `HOME_AND_GARDEN`, `MILITARY`, `SOCIAL_NETWORKING`, `DEAD_SITES`, `INDIVIDUAL_STOCK_ADVICE_AND_TOOLS`, `TRAINING_AND_TOOLS`, `DATING`, `SEX_EDUCATION`, `RELIGION`, `ENTERTAINMENT_AND_ARTS`, `PERSONAL_SITES_AND_BLOGS`, `LEGAL`, `LOCAL_INFORMATION`, `STREAMING_MEDIA`, `JOB_SEARCH`, `GAMBLING`, `TRANSLATION`, `REFERENCE_AND_RESEARCH`, `SHAREWARE_AND_FREEWARE`, `PEER_TO_PEER`, `MARIJUANA`, `HACKING`, `GAMES`, `PHILOSOPHY_AND_POLITICAL_ADVOCACY`, `WEAPONS`, `PAY_TO_SURF`, `HUNTING_AND_FISHING`, `SOCIETY`, `EDUCATIONAL_INSTITUTIONS`, `ONLINE_GREETING_CARDS`, `SPORTS`, `SWIMSUITS_AND_INTIMATE_APPAREL`, `QUESTIONABLE`, `KIDS`, `HATE_AND_RACISM`, `PERSONAL_STORAGE`, `VIOLENCE`, `KEYLOGGERS_AND_MONITORING`, `SEARCH_ENGINES`, `INTERNET_PORTALS`, `WEB_ADVERTISEMENTS`, `CHEATING`, `GROSS`, `WEB_BASED_EMAIL`, `MALWARE_SITES`, `PHISHING_AND_OTHER_FRAUDS`, `PROXY_AVOIDANCE_AND_ANONYMIZERS`, `SPYWARE_AND_ADWARE`, `MUSIC`, `GOVERNMENT`, `NUDITY`, `NEWS_AND_MEDIA`, `ILLEGAL`, `CONTENT_DELIVERY_NETWORKS`, `INTERNET_COMMUNICATIONS`, `BOT_NETS`, `ABORTION`, `HEALTH_AND_MEDICINE`, `CONFIRMED_SPAM_SOURCES`, `SPAM_URLS`, `UNCONFIRMED_SPAM_SOURCES`, `OPEN_HTTP_PROXIES`, `DYNAMICALLY_GENERATED_CONTENT`, `PARKED_DOMAINS`, `ALCOHOL_AND_TOBACCO`, `PRIVATE_IP_ADDRESSES`, `IMAGE_AND_VIDEO_SEARCH`, `FASHION_AND_BEAUTY`, `RECREATION_AND_HOBBIES`, `MOTOR_VEHICLES`, `WEB_HOSTING`. Defaults to `UNCATEGORIZED`.",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -1506,9 +1508,6 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 		if !data.NetworkConnector.Namespace.IsNull() && !data.NetworkConnector.Namespace.IsUnknown() {
 			NetworkConnectorMap["namespace"] = data.NetworkConnector.Namespace.ValueString()
 		}
-		if !data.NetworkConnector.Tenant.IsNull() && !data.NetworkConnector.Tenant.IsUnknown() {
-			NetworkConnectorMap["tenant"] = data.NetworkConnector.Tenant.ValueString()
-		}
 		createReq.Spec["network_connector"] = NetworkConnectorMap
 	}
 	if data.ProxyLabelSelector != nil {
@@ -1562,9 +1561,6 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if !RulesItem.DstAsnSet.Namespace.IsNull() && !RulesItem.DstAsnSet.Namespace.IsUnknown() {
 							RuleListRulesDstAsnSetMap["namespace"] = RulesItem.DstAsnSet.Namespace.ValueString()
 						}
-						if !RulesItem.DstAsnSet.Tenant.IsNull() && !RulesItem.DstAsnSet.Tenant.IsUnknown() {
-							RuleListRulesDstAsnSetMap["tenant"] = RulesItem.DstAsnSet.Tenant.ValueString()
-						}
 						RulesItemMap["dst_asn_set"] = RuleListRulesDstAsnSetMap
 					}
 					if RulesItem.DstIPPrefixSet != nil {
@@ -1574,9 +1570,6 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						}
 						if !RulesItem.DstIPPrefixSet.Namespace.IsNull() && !RulesItem.DstIPPrefixSet.Namespace.IsUnknown() {
 							RuleListRulesDstIPPrefixSetMap["namespace"] = RulesItem.DstIPPrefixSet.Namespace.ValueString()
-						}
-						if !RulesItem.DstIPPrefixSet.Tenant.IsNull() && !RulesItem.DstIPPrefixSet.Tenant.IsUnknown() {
-							RuleListRulesDstIPPrefixSetMap["tenant"] = RulesItem.DstIPPrefixSet.Tenant.ValueString()
 						}
 						RulesItemMap["dst_ip_prefix_set"] = RuleListRulesDstIPPrefixSetMap
 					}
@@ -1649,9 +1642,6 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						}
 						if !RulesItem.IPPrefixSet.Namespace.IsNull() && !RulesItem.IPPrefixSet.Namespace.IsUnknown() {
 							RuleListRulesIPPrefixSetMap["namespace"] = RulesItem.IPPrefixSet.Namespace.ValueString()
-						}
-						if !RulesItem.IPPrefixSet.Tenant.IsNull() && !RulesItem.IPPrefixSet.Tenant.IsUnknown() {
-							RuleListRulesIPPrefixSetMap["tenant"] = RulesItem.IPPrefixSet.Tenant.ValueString()
 						}
 						RulesItemMap["ip_prefix_set"] = RuleListRulesIPPrefixSetMap
 					}
@@ -1759,11 +1749,28 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetForwardProxyPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -2687,6 +2694,16 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ForwardProxyPolicy: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -3657,6 +3674,20 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.ForwardProxyPolicy{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -3664,6 +3695,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -3927,9 +3959,6 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 		if !data.NetworkConnector.Namespace.IsNull() && !data.NetworkConnector.Namespace.IsUnknown() {
 			NetworkConnectorMap["namespace"] = data.NetworkConnector.Namespace.ValueString()
 		}
-		if !data.NetworkConnector.Tenant.IsNull() && !data.NetworkConnector.Tenant.IsUnknown() {
-			NetworkConnectorMap["tenant"] = data.NetworkConnector.Tenant.ValueString()
-		}
 		apiResource.Spec["network_connector"] = NetworkConnectorMap
 	}
 	if data.ProxyLabelSelector != nil {
@@ -3983,9 +4012,6 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if !RulesItem.DstAsnSet.Namespace.IsNull() && !RulesItem.DstAsnSet.Namespace.IsUnknown() {
 							RuleListRulesDstAsnSetMap["namespace"] = RulesItem.DstAsnSet.Namespace.ValueString()
 						}
-						if !RulesItem.DstAsnSet.Tenant.IsNull() && !RulesItem.DstAsnSet.Tenant.IsUnknown() {
-							RuleListRulesDstAsnSetMap["tenant"] = RulesItem.DstAsnSet.Tenant.ValueString()
-						}
 						RulesItemMap["dst_asn_set"] = RuleListRulesDstAsnSetMap
 					}
 					if RulesItem.DstIPPrefixSet != nil {
@@ -3995,9 +4021,6 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						}
 						if !RulesItem.DstIPPrefixSet.Namespace.IsNull() && !RulesItem.DstIPPrefixSet.Namespace.IsUnknown() {
 							RuleListRulesDstIPPrefixSetMap["namespace"] = RulesItem.DstIPPrefixSet.Namespace.ValueString()
-						}
-						if !RulesItem.DstIPPrefixSet.Tenant.IsNull() && !RulesItem.DstIPPrefixSet.Tenant.IsUnknown() {
-							RuleListRulesDstIPPrefixSetMap["tenant"] = RulesItem.DstIPPrefixSet.Tenant.ValueString()
 						}
 						RulesItemMap["dst_ip_prefix_set"] = RuleListRulesDstIPPrefixSetMap
 					}
@@ -4070,9 +4093,6 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						}
 						if !RulesItem.IPPrefixSet.Namespace.IsNull() && !RulesItem.IPPrefixSet.Namespace.IsUnknown() {
 							RuleListRulesIPPrefixSetMap["namespace"] = RulesItem.IPPrefixSet.Namespace.ValueString()
-						}
-						if !RulesItem.IPPrefixSet.Tenant.IsNull() && !RulesItem.IPPrefixSet.Tenant.IsUnknown() {
-							RuleListRulesIPPrefixSetMap["tenant"] = RulesItem.IPPrefixSet.Tenant.ValueString()
 						}
 						RulesItemMap["ip_prefix_set"] = RuleListRulesIPPrefixSetMap
 					}
@@ -4176,6 +4196,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 
 	_, err := r.client.UpdateForwardProxyPolicy(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of forward_proxy_policy %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update ForwardProxyPolicy: %s", err))
 		return
 	}
@@ -4193,10 +4221,6 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -4206,6 +4230,19 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 	fetched, fetchErr := r.client.GetForwardProxyPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ForwardProxyPolicy after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

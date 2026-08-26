@@ -10,8 +10,9 @@ import (
 
 // DNSProxy represents a F5XC DNSProxy
 type DNSProxy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateDNSProxy creates a new DNSProxy

@@ -10,8 +10,9 @@ import (
 
 // Cminstance represents a F5XC Cminstance
 type Cminstance struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateCminstance creates a new Cminstance

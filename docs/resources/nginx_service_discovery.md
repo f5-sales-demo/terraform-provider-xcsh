@@ -86,7 +86,7 @@ A [`discovery_target`](#discovery-target) block supports the following:
 
 A [`config_sync_group`](#discovery-target-config-sync-group) block (within [`discovery_target`](#discovery-target)) supports the following:
 
-<a id="group-141170"></a>&#x2022; [`config_sync_group`](#group-141170) - Optional Block<br>Select new ConfigSyncGroup<br>See [Config Sync Group](#group-141170) below.
+<a id="group-141170"></a>&#x2022; [`config_sync_group`](#group-141170) - Optional Block<br>Reference. Select new ConfigSyncGroup<br>See [Config Sync Group](#group-141170) below.
 
 #### Discovery Target Config Sync Group Config Sync Group
 
@@ -96,7 +96,7 @@ A [`config_sync_group`](#discovery-target-config-sync-group) block (within [`dis
 
 A [`nginx_instance`](#discovery-target-nginx-instance) block (within [`discovery_target`](#discovery-target)) supports the following:
 
-<a id="instance-164b57"></a>&#x2022; [`nginx_instance`](#instance-164b57) - Optional Block<br>Select new NGINX Instance<br>See [Nginx Instance](#instance-164b57) below.
+<a id="instance-164b57"></a>&#x2022; [`nginx_instance`](#instance-164b57) - Optional Block<br>Reference. Select new NGINX Instance<br>See [Nginx Instance](#instance-164b57) below.
 
 #### Discovery Target Nginx Instance Nginx Instance
 

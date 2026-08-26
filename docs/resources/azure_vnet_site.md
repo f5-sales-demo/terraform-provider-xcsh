@@ -31,7 +31,7 @@ terraform {
 # Basic AzureVNETSite configuration
 resource "xcsh_azure_vnet_site" "example" {
   name      = "example-azure-vnet-site"
-  namespace = "staging"
+  namespace = "system"
 
   machine_type   = "example-value"
   resource_group = "example-value"
@@ -53,8 +53,6 @@ resource "xcsh_azure_vnet_site" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Azure VNET Site. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Azure VNET Site is created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -62,6 +60,8 @@ resource "xcsh_azure_vnet_site" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Azure VNET Site. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -119,7 +119,7 @@ configuration for upto 7
 
 <a id="resource-group"></a>&#x2022; [`resource_group`](#resource-group) - Required String<br>Azure resource group for resources that will be created
 
-<a id="ssh-key"></a>&#x2022; [`ssh_key`](#ssh-key) - Required String<br>Public SSH key for accessing the site
+<a id="ssh-key"></a>&#x2022; [`ssh_key`](#ssh-key) - Required String<br>Public SSH key. Public SSH key for accessing the site
 
 <a id="sw"></a>&#x2022; [`sw`](#sw) - Optional Block<br>Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions
 
@@ -234,7 +234,7 @@ An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 
 <a id="ingress-egress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-egress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-egress-gw-az-nodes) below.
 
-<a id="ingress-egress-gw-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-egress-gw-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`
+<a id="ingress-egress-gw-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-egress-gw-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-multi-nic-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`
 
 <a id="inside-vn-3ce96a"></a>&#x2022; [`dc_cluster_group_inside_vn`](#inside-vn-3ce96a) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Inside Vn](#inside-vn-3ce96a) below.
 
@@ -362,7 +362,7 @@ An [`outside_subnet`](#subnet-631d3b) block (within [`ingress_egress_gw.az_nodes
 
 A [`global_network_list`](#ingress-egress-gw-global-network-list) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
-<a id="connections-bde45c"></a>&#x2022; [`global_network_connections`](#connections-bde45c) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-bde45c) below.
+<a id="connections-bde45c"></a>&#x2022; [`global_network_connections`](#connections-bde45c) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-bde45c) below.
 
 #### Ingress Egress Gw Global Network List Global Network Connections
 
@@ -496,7 +496,7 @@ A [`vnet`](#ingress-egress-gw-hub-spoke-vnets-vnet) block (within [`ingress_egre
 
 <a id="routing-bc490d"></a>&#x2022; [`manual_routing`](#routing-bc490d) - Optional Block<br>Enable this option
 
-<a id="group-e35b03"></a>&#x2022; [`resource_group`](#group-e35b03) - Optional String<br>Resource group of existing VNET
+<a id="group-e35b03"></a>&#x2022; [`resource_group`](#group-e35b03) - Optional String<br>Existing VNET Resource Group. Resource group of existing VNET
 
 <a id="name-7ba5bf"></a>&#x2022; [`vnet_name`](#name-7ba5bf) - Optional String<br>Existing VNET Name. Name of existing VNET
 
@@ -620,7 +620,7 @@ An [`ingress_egress_gw_ar`](#ingress-egress-gw-ar) block supports the following:
 
 <a id="policies-f5e0fc"></a>&#x2022; [`active_network_policies`](#policies-f5e0fc) - Optional Block<br>Configuration parameter for active network policies<br>See [Active Network Policies](#policies-f5e0fc) below.
 
-<a id="ingress-egress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-egress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`
+<a id="ingress-egress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-egress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-multi-nic-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`
 
 <a id="inside-vn-d5b061"></a>&#x2022; [`dc_cluster_group_inside_vn`](#inside-vn-d5b061) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Inside Vn](#inside-vn-d5b061) below.
 
@@ -704,7 +704,7 @@ An [`active_network_policies`](#policies-f5e0fc) block (within [`ingress_egress_
 
 A [`global_network_list`](#list-37dd04) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
 
-<a id="connections-2d2600"></a>&#x2022; [`global_network_connections`](#connections-2d2600) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-2d2600) below.
+<a id="connections-2d2600"></a>&#x2022; [`global_network_connections`](#connections-2d2600) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-2d2600) below.
 
 #### Ingress Egress Gw Ar Global Network List Global Network Connections
 
@@ -970,7 +970,7 @@ An [`ingress_gw`](#ingress-gw) block supports the following:
 
 <a id="ingress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-gw-az-nodes) below.
 
-<a id="ingress-gw-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`
+<a id="ingress-gw-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`
 
 <a id="ingress-gw-performance-enhancement-mode"></a>&#x2022; [`performance_enhancement_mode`](#ingress-gw-performance-enhancement-mode) - Optional Block<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default. Server applies default when omitted<br>See [Performance Enhancement Mode](#ingress-gw-performance-enhancement-mode) below.
 
@@ -1034,7 +1034,7 @@ An [`ingress_gw_ar`](#ingress-gw-ar) block supports the following:
 
 <a id="ingress-gw-ar-accelerated-networking"></a>&#x2022; [`accelerated_networking`](#ingress-gw-ar-accelerated-networking) - Optional Block<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#ingress-gw-ar-accelerated-networking) below.
 
-<a id="ingress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`
+<a id="ingress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`
 
 <a id="ingress-gw-ar-node"></a>&#x2022; [`node`](#ingress-gw-ar-node) - Optional Block<br>Parameters for creating Single interface Node for Alternate Region<br>See [Node](#ingress-gw-ar-node) below.
 
@@ -1180,7 +1180,7 @@ An [`existing_vnet`](#vnet-existing-vnet) block (within [`vnet`](#vnet)) support
 
 <a id="vnet-existing-vnet-manual-routing"></a>&#x2022; [`manual_routing`](#vnet-existing-vnet-manual-routing) - Optional Block<br>Enable this option
 
-<a id="vnet-existing-vnet-resource-group"></a>&#x2022; [`resource_group`](#vnet-existing-vnet-resource-group) - Optional String<br>Resource group of existing VNET
+<a id="vnet-existing-vnet-resource-group"></a>&#x2022; [`resource_group`](#vnet-existing-vnet-resource-group) - Optional String<br>Existing VNET Resource Group. Resource group of existing VNET
 
 <a id="vnet-existing-vnet-vnet-name"></a>&#x2022; [`vnet_name`](#vnet-existing-vnet-vnet-name) - Optional String<br>Existing VNET Name. Name of existing VNET
 
@@ -1208,7 +1208,7 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 <a id="voltstack-cluster-az-nodes"></a>&#x2022; [`az_nodes`](#voltstack-cluster-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#voltstack-cluster-az-nodes) below.
 
-<a id="voltstack-cluster-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#voltstack-cluster-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`
+<a id="voltstack-cluster-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#voltstack-cluster-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltstack-combo] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`
 
 <a id="voltstack-cluster-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#voltstack-cluster-dc-cluster-group) below.
 
@@ -1328,7 +1328,7 @@ A [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) block (within [`volt
 
 A [`global_network_list`](#voltstack-cluster-global-network-list) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
 
-<a id="connections-8e8842"></a>&#x2022; [`global_network_connections`](#connections-8e8842) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-8e8842) below.
+<a id="connections-8e8842"></a>&#x2022; [`global_network_connections`](#connections-8e8842) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-8e8842) below.
 
 #### Voltstack Cluster Global Network List Global Network Connections
 
@@ -1432,7 +1432,7 @@ A [`voltstack_cluster_ar`](#voltstack-cluster-ar) block supports the following:
 
 <a id="policies-32b156"></a>&#x2022; [`active_network_policies`](#policies-32b156) - Optional Block<br>Configuration parameter for active network policies<br>See [Active Network Policies](#policies-32b156) below.
 
-<a id="voltstack-cluster-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#voltstack-cluster-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`
+<a id="voltstack-cluster-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#voltstack-cluster-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltstack-combo] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`
 
 <a id="voltstack-cluster-ar-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#voltstack-cluster-ar-dc-cluster-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#voltstack-cluster-ar-dc-cluster-group) below.
 
@@ -1518,7 +1518,7 @@ A [`dc_cluster_group`](#voltstack-cluster-ar-dc-cluster-group) block (within [`v
 
 A [`global_network_list`](#list-7b202d) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
 
-<a id="connections-cbb7ff"></a>&#x2022; [`global_network_connections`](#connections-cbb7ff) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-cbb7ff) below.
+<a id="connections-cbb7ff"></a>&#x2022; [`global_network_connections`](#connections-cbb7ff) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-cbb7ff) below.
 
 #### Voltstack Cluster Ar Global Network List Global Network Connections
 

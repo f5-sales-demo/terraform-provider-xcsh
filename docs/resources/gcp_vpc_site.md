@@ -36,11 +36,6 @@ resource "xcsh_gcp_vpc_site" "example" {
   gcp_region    = "example-value"
   instance_type = "example-value"
   ssh_key       = "example-value"
-  gcp_labels = {
-    example = "value"
-  }
-  address   = "example-value"
-  disk_size = 1
 }
 ```
 
@@ -70,7 +65,7 @@ resource "xcsh_gcp_vpc_site" "example" {
 
 ### Spec Argument Reference
 
-<a id="address"></a>&#x2022; [`address`](#address) - Required String<br>Site's geographical address that can be used to determine its latitude and longitude
+<a id="address"></a>&#x2022; [`address`](#address) - Optional String<br>Site's geographical address that can be used to determine its latitude and longitude
 
 <a id="admin-password"></a>&#x2022; [`admin_password`](#admin-password) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Admin Password](#admin-password) below for details.
 
@@ -89,11 +84,11 @@ resource "xcsh_gcp_vpc_site" "example" {
 -> **One of the following:**
 &#x2022; <a id="disable-encryption"></a>[`disable_encryption`](#disable-encryption) - Optional Block<br>Configuration parameter for disable encryption
 
-<a id="disk-size"></a>&#x2022; [`disk_size`](#disk-size) - Required Number<br>Disk size to be used for this instance in GiB. 80 is 80 GiB
+<a id="disk-size"></a>&#x2022; [`disk_size`](#disk-size) - Optional Number<br>Disk size to be used for this instance in GiB. 80 is 80 GiB
 
 <a id="enable-encryption"></a>&#x2022; [`enable_encryption`](#enable-encryption) - Optional Block<br>Configuration parameter for enable encryption<br>See [Enable Encryption](#enable-encryption) below for details.
 
-<a id="gcp-labels"></a>&#x2022; [`gcp_labels`](#gcp-labels) - Required Map<br>GCP Label is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in GCP console
+<a id="gcp-labels"></a>&#x2022; [`gcp_labels`](#gcp-labels) - Optional Map<br>GCP Label is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in GCP console
 
 <a id="gcp-region"></a>&#x2022; [`gcp_region`](#gcp-region) - Required String<br>GCP Region. Name for GCP Region
 
@@ -119,7 +114,7 @@ configuration for upto 7
 &#x2022; <a id="private-connect-disabled"></a>[`private_connect_disabled`](#private-connect-disabled) - Optional Block<br>Enable this option
 <br><br>&#x2022; <a id="private-connectivity"></a>[`private_connectivity`](#private-connectivity) - Optional Block<br>Configuration parameter for private connectivity
 
-<a id="ssh-key"></a>&#x2022; [`ssh_key`](#ssh-key) - Required String<br>Public SSH key for accessing the site
+<a id="ssh-key"></a>&#x2022; [`ssh_key`](#ssh-key) - Required String<br>Public SSH key. Public SSH key for accessing the site
 
 <a id="sw"></a>&#x2022; [`sw`](#sw) - Optional Block<br>Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions
 
@@ -230,7 +225,7 @@ An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 
 <a id="all-8889af"></a>&#x2022; [`forward_proxy_allow_all`](#all-8889af) - Optional Block<br>Configuration parameter for forward proxy allow all
 
-<a id="ingress-egress-gw-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#ingress-egress-gw-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-multi-nic-voltmesh] Name for GCP certified hardware. The only possible value is `GCP-byol-multi-nic-voltmesh`
+<a id="ingress-egress-gw-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#ingress-egress-gw-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-multi-nic-voltmesh] GCP Certified Hardware. Name for GCP certified hardware. The only possible value is `GCP-byol-multi-nic-voltmesh`
 
 <a id="ingress-egress-gw-gcp-zone-names"></a>&#x2022; [`gcp_zone_names`](#ingress-egress-gw-gcp-zone-names) - Optional List<br>X-required List of zones when instances will be created, needs to match with region selected
 
@@ -310,7 +305,7 @@ An [`active_network_policies`](#policies-a2ee20) block (within [`ingress_egress_
 
 A [`global_network_list`](#ingress-egress-gw-global-network-list) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
-<a id="connections-bde45c"></a>&#x2022; [`global_network_connections`](#connections-bde45c) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-bde45c) below.
+<a id="connections-bde45c"></a>&#x2022; [`global_network_connections`](#connections-bde45c) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-bde45c) below.
 
 #### Ingress Egress Gw Global Network List Global Network Connections
 
@@ -346,13 +341,13 @@ An [`inside_network`](#ingress-egress-gw-inside-network) block (within [`ingress
 
 An [`existing_network`](#network-9ee4a6) block (within [`ingress_egress_gw.inside_network`](#ingress-egress-gw-inside-network)) supports the following:
 
-<a id="name-27b371"></a>&#x2022; [`name`](#name-27b371) - Optional String<br>Name for your GCP VPC Network
+<a id="name-27b371"></a>&#x2022; [`name`](#name-27b371) - Optional String<br>GCP VPC Network Name. Name for your GCP VPC Network
 
 #### Ingress Egress Gw Inside Network New Network
 
 A [`new_network`](#network-6793f9) block (within [`ingress_egress_gw.inside_network`](#ingress-egress-gw-inside-network)) supports the following:
 
-<a id="name-10e7e2"></a>&#x2022; [`name`](#name-10e7e2) - Optional String<br>Name for your GCP VPC Network
+<a id="name-10e7e2"></a>&#x2022; [`name`](#name-10e7e2) - Optional String<br>GCP VPC Network Name. Name for your GCP VPC Network
 
 #### Ingress Egress Gw Inside Static Routes
 
@@ -412,7 +407,7 @@ An [`inside_subnet`](#ingress-egress-gw-inside-subnet) block (within [`ingress_e
 
 An [`existing_subnet`](#subnet-d874b8) block (within [`ingress_egress_gw.inside_subnet`](#ingress-egress-gw-inside-subnet)) supports the following:
 
-<a id="name-2f0d2c"></a>&#x2022; [`subnet_name`](#name-2f0d2c) - Optional String<br>Name of your subnet in VPC network
+<a id="name-2f0d2c"></a>&#x2022; [`subnet_name`](#name-2f0d2c) - Optional String<br>VPC Subnet Name. Name of your subnet in VPC network
 
 #### Ingress Egress Gw Inside Subnet New Subnet
 
@@ -436,13 +431,13 @@ An [`outside_network`](#ingress-egress-gw-outside-network) block (within [`ingre
 
 An [`existing_network`](#network-7bcebe) block (within [`ingress_egress_gw.outside_network`](#ingress-egress-gw-outside-network)) supports the following:
 
-<a id="name-b3e497"></a>&#x2022; [`name`](#name-b3e497) - Optional String<br>Name for your GCP VPC Network
+<a id="name-b3e497"></a>&#x2022; [`name`](#name-b3e497) - Optional String<br>GCP VPC Network Name. Name for your GCP VPC Network
 
 #### Ingress Egress Gw Outside Network New Network
 
 A [`new_network`](#network-958024) block (within [`ingress_egress_gw.outside_network`](#ingress-egress-gw-outside-network)) supports the following:
 
-<a id="name-732274"></a>&#x2022; [`name`](#name-732274) - Optional String<br>Name for your GCP VPC Network
+<a id="name-732274"></a>&#x2022; [`name`](#name-732274) - Optional String<br>GCP VPC Network Name. Name for your GCP VPC Network
 
 #### Ingress Egress Gw Outside Static Routes
 
@@ -502,7 +497,7 @@ An [`outside_subnet`](#ingress-egress-gw-outside-subnet) block (within [`ingress
 
 An [`existing_subnet`](#subnet-34a158) block (within [`ingress_egress_gw.outside_subnet`](#ingress-egress-gw-outside-subnet)) supports the following:
 
-<a id="name-091b0d"></a>&#x2022; [`subnet_name`](#name-091b0d) - Optional String<br>Name of your subnet in VPC network
+<a id="name-091b0d"></a>&#x2022; [`subnet_name`](#name-091b0d) - Optional String<br>VPC Subnet Name. Name of your subnet in VPC network
 
 #### Ingress Egress Gw Outside Subnet New Subnet
 
@@ -532,7 +527,7 @@ A [`performance_enhancement_mode`](#mode-4d23c2) block (within [`ingress_egress_
 
 An [`ingress_gw`](#ingress-gw) block supports the following:
 
-<a id="ingress-gw-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#ingress-gw-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-voltmesh] Name for GCP certified hardware. The only possible value is `GCP-byol-voltmesh`
+<a id="ingress-gw-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#ingress-gw-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-voltmesh] GCP Certified Hardware. Name for GCP certified hardware. The only possible value is `GCP-byol-voltmesh`
 
 <a id="ingress-gw-gcp-zone-names"></a>&#x2022; [`gcp_zone_names`](#ingress-gw-gcp-zone-names) - Optional List<br>X-required List of zones when instances will be created, needs to match with region selected
 
@@ -558,13 +553,13 @@ A [`local_network`](#ingress-gw-local-network) block (within [`ingress_gw`](#ing
 
 An [`existing_network`](#network-16c1d3) block (within [`ingress_gw.local_network`](#ingress-gw-local-network)) supports the following:
 
-<a id="name-03ee92"></a>&#x2022; [`name`](#name-03ee92) - Optional String<br>Name for your GCP VPC Network
+<a id="name-03ee92"></a>&#x2022; [`name`](#name-03ee92) - Optional String<br>GCP VPC Network Name. Name for your GCP VPC Network
 
 #### Ingress Gw Local Network New Network
 
 A [`new_network`](#ingress-gw-local-network-new-network) block (within [`ingress_gw.local_network`](#ingress-gw-local-network)) supports the following:
 
-<a id="name-a157ec"></a>&#x2022; [`name`](#name-a157ec) - Optional String<br>Name for your GCP VPC Network
+<a id="name-a157ec"></a>&#x2022; [`name`](#name-a157ec) - Optional String<br>GCP VPC Network Name. Name for your GCP VPC Network
 
 #### Ingress Gw Local Subnet
 
@@ -578,7 +573,7 @@ A [`local_subnet`](#ingress-gw-local-subnet) block (within [`ingress_gw`](#ingre
 
 An [`existing_subnet`](#ingress-gw-local-subnet-existing-subnet) block (within [`ingress_gw.local_subnet`](#ingress-gw-local-subnet)) supports the following:
 
-<a id="name-a79c96"></a>&#x2022; [`subnet_name`](#name-a79c96) - Optional String<br>Name of your subnet in VPC network
+<a id="name-a79c96"></a>&#x2022; [`subnet_name`](#name-a79c96) - Optional String<br>VPC Subnet Name. Name of your subnet in VPC network
 
 #### Ingress Gw Local Subnet New Subnet
 
@@ -706,7 +701,7 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 <a id="all-48d905"></a>&#x2022; [`forward_proxy_allow_all`](#all-48d905) - Optional Block<br>Configuration parameter for forward proxy allow all
 
-<a id="voltstack-cluster-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#voltstack-cluster-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-voltstack-combo] Name for GCP certified hardware. The only possible value is `GCP-byol-voltstack-combo`
+<a id="voltstack-cluster-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#voltstack-cluster-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-voltstack-combo] GCP Certified Hardware. Name for GCP certified hardware. The only possible value is `GCP-byol-voltstack-combo`
 
 <a id="voltstack-cluster-gcp-zone-names"></a>&#x2022; [`gcp_zone_names`](#voltstack-cluster-gcp-zone-names) - Optional List<br>X-required List of zones when instances will be created, needs to match with region selected
 
@@ -790,7 +785,7 @@ A [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) block (within [`volt
 
 A [`global_network_list`](#voltstack-cluster-global-network-list) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
 
-<a id="connections-8e8842"></a>&#x2022; [`global_network_connections`](#connections-8e8842) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-8e8842) below.
+<a id="connections-8e8842"></a>&#x2022; [`global_network_connections`](#connections-8e8842) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-8e8842) below.
 
 #### Voltstack Cluster Global Network List Global Network Connections
 
@@ -882,13 +877,13 @@ A [`site_local_network`](#voltstack-cluster-site-local-network) block (within [`
 
 An [`existing_network`](#network-231a12) block (within [`voltstack_cluster.site_local_network`](#voltstack-cluster-site-local-network)) supports the following:
 
-<a id="name-27b5d6"></a>&#x2022; [`name`](#name-27b5d6) - Optional String<br>Name for your GCP VPC Network
+<a id="name-27b5d6"></a>&#x2022; [`name`](#name-27b5d6) - Optional String<br>GCP VPC Network Name. Name for your GCP VPC Network
 
 #### Voltstack Cluster Site Local Network New Network
 
 A [`new_network`](#network-c03c21) block (within [`voltstack_cluster.site_local_network`](#voltstack-cluster-site-local-network)) supports the following:
 
-<a id="name-52047a"></a>&#x2022; [`name`](#name-52047a) - Optional String<br>Name for your GCP VPC Network
+<a id="name-52047a"></a>&#x2022; [`name`](#name-52047a) - Optional String<br>GCP VPC Network Name. Name for your GCP VPC Network
 
 #### Voltstack Cluster Site Local Subnet
 
@@ -902,7 +897,7 @@ A [`site_local_subnet`](#voltstack-cluster-site-local-subnet) block (within [`vo
 
 An [`existing_subnet`](#subnet-73ee4c) block (within [`voltstack_cluster.site_local_subnet`](#voltstack-cluster-site-local-subnet)) supports the following:
 
-<a id="name-c7b494"></a>&#x2022; [`subnet_name`](#name-c7b494) - Optional String<br>Name of your subnet in VPC network
+<a id="name-c7b494"></a>&#x2022; [`subnet_name`](#name-c7b494) - Optional String<br>VPC Subnet Name. Name of your subnet in VPC network
 
 #### Voltstack Cluster Site Local Subnet New Subnet
 

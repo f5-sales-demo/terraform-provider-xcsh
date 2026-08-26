@@ -10,8 +10,9 @@ import (
 
 // BigIPHTTPProxy represents a F5XC BigIPHTTPProxy
 type BigIPHTTPProxy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateBigIPHTTPProxy creates a new BigIPHTTPProxy

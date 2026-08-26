@@ -10,8 +10,9 @@ import (
 
 // Ike2 represents a F5XC Ike2
 type Ike2 struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateIke2 creates a new Ike2

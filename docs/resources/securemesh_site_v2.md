@@ -31,7 +31,7 @@ terraform {
 # Basic SecuremeshSiteV2 configuration
 resource "xcsh_securemesh_site_v2" "example" {
   name      = "example-securemesh-site-v2"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 
@@ -47,8 +47,6 @@ resource "xcsh_securemesh_site_v2" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Securemesh Site V2. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Securemesh Site V2 is created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -56,6 +54,8 @@ resource "xcsh_securemesh_site_v2" "example" {
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Securemesh Site V2. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 
@@ -296,6 +296,10 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 <a id="interface-70af4e"></a>&#x2022; [`vlan_interface`](#interface-70af4e) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-70af4e) below.
 
+<a id="management-688dc8"></a>&#x2022; [`is_management`](#management-688dc8) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-e46db2"></a>&#x2022; [`is_primary`](#primary-e46db2) - Optional Bool<br>Configuration for is_primary
+
 #### AWS Not Managed Node List Interface List Bond Interface
 
 <a id="deep-4224d9"></a>Deeply nested **Interface** block collapsed for readability.
@@ -435,6 +439,10 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 
 <a id="interface-dba4bd"></a>&#x2022; [`vlan_interface`](#interface-dba4bd) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-dba4bd) below.
 
+<a id="management-d3d35a"></a>&#x2022; [`is_management`](#management-d3d35a) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-6fe89f"></a>&#x2022; [`is_primary`](#primary-6fe89f) - Optional Bool<br>Configuration for is_primary
+
 #### Azure Not Managed Node List Interface List Bond Interface
 
 <a id="deep-4cb273"></a>Deeply nested **Interface** block collapsed for readability.
@@ -573,6 +581,10 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 <a id="address-411954"></a>&#x2022; [`static_ipv6_address`](#address-411954) - Optional Block<br>Static IP Parameters. Configure Static IP parameters<br>See [Static IPv6 Address](#address-411954) below.
 
 <a id="interface-da3951"></a>&#x2022; [`vlan_interface`](#interface-da3951) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-da3951) below.
+
+<a id="management-91e116"></a>&#x2022; [`is_management`](#management-91e116) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-5c71bf"></a>&#x2022; [`is_primary`](#primary-5c71bf) - Optional Bool<br>Configuration for is_primary
 
 #### Baremetal Not Managed Node List Interface List Bond Interface
 
@@ -826,6 +838,10 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 
 <a id="interface-66fdd5"></a>&#x2022; [`vlan_interface`](#interface-66fdd5) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-66fdd5) below.
 
+<a id="management-38ff88"></a>&#x2022; [`is_management`](#management-38ff88) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-898abd"></a>&#x2022; [`is_primary`](#primary-898abd) - Optional Bool<br>Configuration for is_primary
+
 #### Equinix Not Managed Node List Interface List Bond Interface
 
 <a id="deep-b565ca"></a>Deeply nested **Interface** block collapsed for readability.
@@ -964,6 +980,10 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 <a id="address-6a68da"></a>&#x2022; [`static_ipv6_address`](#address-6a68da) - Optional Block<br>Static IP Parameters. Configure Static IP parameters<br>See [Static IPv6 Address](#address-6a68da) below.
 
 <a id="interface-bd3d44"></a>&#x2022; [`vlan_interface`](#interface-bd3d44) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-bd3d44) below.
+
+<a id="management-2ae1b3"></a>&#x2022; [`is_management`](#management-2ae1b3) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-921c34"></a>&#x2022; [`is_primary`](#primary-921c34) - Optional Bool<br>Configuration for is_primary
 
 #### GCP Not Managed Node List Interface List Bond Interface
 
@@ -1104,6 +1124,10 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 
 <a id="interface-5ffabb"></a>&#x2022; [`vlan_interface`](#interface-5ffabb) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-5ffabb) below.
 
+<a id="management-3ea519"></a>&#x2022; [`is_management`](#management-3ea519) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-2b511f"></a>&#x2022; [`is_primary`](#primary-2b511f) - Optional Bool<br>Configuration for is_primary
+
 #### Kvm Not Managed Node List Interface List Bond Interface
 
 <a id="deep-fc631b"></a>Deeply nested **Interface** block collapsed for readability.
@@ -1218,7 +1242,7 @@ A [`sli_config`](#local-vrf-sli-config) block (within [`local_vrf`](#local-vrf))
 
 A [`static_routes`](#local-vrf-sli-config-static-routes) block (within [`local_vrf.sli_config`](#local-vrf-sli-config)) supports the following:
 
-<a id="routes-159447"></a>&#x2022; [`static_routes`](#routes-159447) - Optional Block<br>Static Routes<br>See [Static Routes](#routes-159447) below.
+<a id="routes-159447"></a>&#x2022; [`static_routes`](#routes-159447) - Optional Block<br>Configuration parameter for static routes<br>See [Static Routes](#routes-159447) below.
 
 #### Local Vrf SLI Config Static Routes Static Routes
 
@@ -1240,7 +1264,7 @@ A [`static_routes`](#local-vrf-sli-config-static-routes) block (within [`local_v
 
 A [`static_v6_routes`](#local-vrf-sli-config-static-v6-routes) block (within [`local_vrf.sli_config`](#local-vrf-sli-config)) supports the following:
 
-<a id="routes-b75018"></a>&#x2022; [`static_routes`](#routes-b75018) - Optional Block<br>List of IPv6 static routes<br>See [Static Routes](#routes-b75018) below.
+<a id="routes-b75018"></a>&#x2022; [`static_routes`](#routes-b75018) - Optional Block<br>Static IPv6 Routes. List of IPv6 static routes<br>See [Static Routes](#routes-b75018) below.
 
 #### Local Vrf SLI Config Static V6 Routes Static Routes
 
@@ -1282,7 +1306,7 @@ A [`slo_config`](#local-vrf-slo-config) block (within [`local_vrf`](#local-vrf))
 
 A [`static_routes`](#local-vrf-slo-config-static-routes) block (within [`local_vrf.slo_config`](#local-vrf-slo-config)) supports the following:
 
-<a id="routes-07ae6c"></a>&#x2022; [`static_routes`](#routes-07ae6c) - Optional Block<br>Static Routes<br>See [Static Routes](#routes-07ae6c) below.
+<a id="routes-07ae6c"></a>&#x2022; [`static_routes`](#routes-07ae6c) - Optional Block<br>Configuration parameter for static routes<br>See [Static Routes](#routes-07ae6c) below.
 
 #### Local Vrf Slo Config Static Routes Static Routes
 
@@ -1304,7 +1328,7 @@ A [`static_routes`](#local-vrf-slo-config-static-routes) block (within [`local_v
 
 A [`static_v6_routes`](#local-vrf-slo-config-static-v6-routes) block (within [`local_vrf.slo_config`](#local-vrf-slo-config)) supports the following:
 
-<a id="routes-5b5639"></a>&#x2022; [`static_routes`](#routes-5b5639) - Optional Block<br>List of IPv6 static routes<br>See [Static Routes](#routes-5b5639) below.
+<a id="routes-5b5639"></a>&#x2022; [`static_routes`](#routes-5b5639) - Optional Block<br>Static IPv6 Routes. List of IPv6 static routes<br>See [Static Routes](#routes-5b5639) below.
 
 #### Local Vrf Slo Config Static V6 Routes Static Routes
 
@@ -1408,6 +1432,10 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 <a id="address-2a34d1"></a>&#x2022; [`static_ipv6_address`](#address-2a34d1) - Optional Block<br>Static IP Parameters. Configure Static IP parameters<br>See [Static IPv6 Address](#address-2a34d1) below.
 
 <a id="interface-e23d44"></a>&#x2022; [`vlan_interface`](#interface-e23d44) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-e23d44) below.
+
+<a id="management-748d7a"></a>&#x2022; [`is_management`](#management-748d7a) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-c7d5e9"></a>&#x2022; [`is_primary`](#primary-c7d5e9) - Optional Bool<br>Configuration for is_primary
 
 #### Nutanix Not Managed Node List Interface List Bond Interface
 
@@ -1547,6 +1575,10 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 <a id="address-eabfe8"></a>&#x2022; [`static_ipv6_address`](#address-eabfe8) - Optional Block<br>Static IP Parameters. Configure Static IP parameters<br>See [Static IPv6 Address](#address-eabfe8) below.
 
 <a id="interface-cb2c85"></a>&#x2022; [`vlan_interface`](#interface-cb2c85) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-cb2c85) below.
+
+<a id="management-2d7baf"></a>&#x2022; [`is_management`](#management-2d7baf) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-fd9815"></a>&#x2022; [`is_primary`](#primary-fd9815) - Optional Bool<br>Configuration for is_primary
 
 #### Oci Not Managed Node List Interface List Bond Interface
 
@@ -1795,6 +1827,10 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 
 <a id="interface-1fd835"></a>&#x2022; [`vlan_interface`](#interface-1fd835) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-1fd835) below.
 
+<a id="management-9de1f6"></a>&#x2022; [`is_management`](#management-9de1f6) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-af93ac"></a>&#x2022; [`is_primary`](#primary-af93ac) - Optional Bool<br>Configuration for is_primary
+
 #### Openstack Not Managed Node List Interface List Bond Interface
 
 <a id="deep-63720a"></a>Deeply nested **Interface** block collapsed for readability.
@@ -1913,6 +1949,9 @@ A [`segment_vrf`](#segment-vrf) block supports the following:
 
 <a id="segment-vrf-segment-config"></a>&#x2022; [`segment_config`](#segment-vrf-segment-config) - Optional Block<br>Segment Network Configuration. Segment Network Configuration<br>See [Segment Config](#segment-vrf-segment-config) below.
 
+<a id="segment-vrf-segment-network"></a>&#x2022; [`segment_network`](#segment-vrf-segment-network) - Optional Block<br>Type establishes a 'direct reference' from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name for public API and Uid for private API This type of reference is called direct because the relation is explicit and concrete (as
+opposed to selector<br>See [Segment Network](#segment-vrf-segment-network) below.
+
 #### Segment Vrf Segment Config
 
 A [`segment_config`](#segment-vrf-segment-config) block (within [`segment_vrf`](#segment-vrf)) supports the following:
@@ -1933,7 +1972,7 @@ A [`segment_config`](#segment-vrf-segment-config) block (within [`segment_vrf`](
 
 A [`static_routes`](#routes-657895) block (within [`segment_vrf.segment_config`](#segment-vrf-segment-config)) supports the following:
 
-<a id="routes-0c2461"></a>&#x2022; [`static_routes`](#routes-0c2461) - Optional Block<br>Static Routes<br>See [Static Routes](#routes-0c2461) below.
+<a id="routes-0c2461"></a>&#x2022; [`static_routes`](#routes-0c2461) - Optional Block<br>Configuration parameter for static routes<br>See [Static Routes](#routes-0c2461) below.
 
 #### Segment Vrf Segment Config Static Routes Static Routes
 
@@ -1955,7 +1994,7 @@ A [`static_routes`](#routes-657895) block (within [`segment_vrf.segment_config`]
 
 A [`static_v6_routes`](#routes-b310b9) block (within [`segment_vrf.segment_config`](#segment-vrf-segment-config)) supports the following:
 
-<a id="routes-070752"></a>&#x2022; [`static_routes`](#routes-070752) - Optional Block<br>List of IPv6 static routes<br>See [Static Routes](#routes-070752) below.
+<a id="routes-070752"></a>&#x2022; [`static_routes`](#routes-070752) - Optional Block<br>Static IPv6 Routes. List of IPv6 static routes<br>See [Static Routes](#routes-070752) below.
 
 #### Segment Vrf Segment Config Static V6 Routes Static Routes
 
@@ -1972,6 +2011,20 @@ A [`static_v6_routes`](#routes-b310b9) block (within [`segment_vrf.segment_confi
 #### Segment Vrf Segment Config Static V6 Routes Static Routes Node Interface List Interface
 
 <a id="deep-706462"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Segment Vrf Segment Network
+
+A [`segment_network`](#segment-vrf-segment-network) block (within [`segment_vrf`](#segment-vrf)) supports the following:
+
+<a id="segment-vrf-segment-network-name"></a>&#x2022; [`name`](#segment-vrf-segment-network-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="segment-vrf-segment-network-namespace"></a>&#x2022; [`namespace`](#segment-vrf-segment-network-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="segment-vrf-segment-network-kind"></a>&#x2022; [`kind`](#segment-vrf-segment-network-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="segment-vrf-segment-network-tenant"></a>&#x2022; [`tenant`](#segment-vrf-segment-network-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="segment-vrf-segment-network-uid"></a>&#x2022; [`uid`](#segment-vrf-segment-network-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Site Mesh Group On Slo
 
@@ -2109,6 +2162,10 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 <a id="address-535454"></a>&#x2022; [`static_ipv6_address`](#address-535454) - Optional Block<br>Static IP Parameters. Configure Static IP parameters<br>See [Static IPv6 Address](#address-535454) below.
 
 <a id="interface-699e69"></a>&#x2022; [`vlan_interface`](#interface-699e69) - Optional Block<br>Configuration parameter for VLAN interface<br>See [VLAN Interface](#interface-699e69) below.
+
+<a id="management-4da465"></a>&#x2022; [`is_management`](#management-4da465) - Optional Bool<br>Configuration for is_management
+
+<a id="primary-4b0865"></a>&#x2022; [`is_primary`](#primary-4b0865) - Optional Bool<br>Configuration for is_primary
 
 #### Vmware Not Managed Node List Interface List Bond Interface
 

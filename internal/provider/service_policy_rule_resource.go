@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -27,6 +28,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1036,7 +1038,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 							Optional:            true,
 						},
 						"name": schema.StringAttribute{
-							MarkdownDescription: "Case-sensitive cookie name.",
+							MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(1, 63),
@@ -1112,7 +1114,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 							Optional:            true,
 						},
 						"name": schema.StringAttribute{
-							MarkdownDescription: "Case-insensitive HTTP header name.",
+							MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(1, 63),
@@ -1242,7 +1244,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 				Attributes: map[string]schema.Attribute{
 					"ip_threat_categories": schema.ListAttribute{
-						MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+						MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 						Optional:            true,
 						ElementType:         types.StringType,
 						Validators: []validator.List{
@@ -1601,7 +1603,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"segments": schema.ListNestedBlock{
-								MarkdownDescription: "Segments. Select list of segments .",
+								MarkdownDescription: "Segments. Select list of segments.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1645,7 +1647,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"segments": schema.ListNestedBlock{
-								MarkdownDescription: "Segments. Select list of segments .",
+								MarkdownDescription: "Segments. Select list of segments.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1750,7 +1752,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"bot_name": schema.StringAttribute{
-											MarkdownDescription: "Bot Name.",
+											MarkdownDescription: "Bot Name. Human-readable name for the resource",
 											Optional:            true,
 										},
 									},
@@ -2064,20 +2066,11 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				var AsnSetsList []map[string]interface{}
 				for _, AsnSetsItem := range AsnSetsElems {
 					AsnSetsItemMap := make(map[string]interface{})
-					if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-						AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-					}
 					if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 						AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 					}
 					if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 						AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-					}
-					if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-						AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-					}
-					if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-						AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 					}
 					AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 				}
@@ -2310,20 +2303,11 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				var PrefixSetsList []map[string]interface{}
 				for _, PrefixSetsItem := range PrefixSetsElems {
 					PrefixSetsItemMap := make(map[string]interface{})
-					if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-						PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-					}
 					if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 						PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 					}
 					if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 						PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-					}
-					if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-						PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-					}
-					if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-						PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 					}
 					PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 				}
@@ -2652,9 +2636,6 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !SegmentsItem.Namespace.IsNull() && !SegmentsItem.Namespace.IsUnknown() {
 							SegmentsItemMap["namespace"] = SegmentsItem.Namespace.ValueString()
 						}
-						if !SegmentsItem.Tenant.IsNull() && !SegmentsItem.Tenant.IsUnknown() {
-							SegmentsItemMap["tenant"] = SegmentsItem.Tenant.ValueString()
-						}
 						SegmentsList = append(SegmentsList, SegmentsItemMap)
 					}
 					SegmentPolicyDstSegmentsMap["segments"] = SegmentsList
@@ -2683,9 +2664,6 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						}
 						if !SegmentsItem.Namespace.IsNull() && !SegmentsItem.Namespace.IsUnknown() {
 							SegmentsItemMap["namespace"] = SegmentsItem.Namespace.ValueString()
-						}
-						if !SegmentsItem.Tenant.IsNull() && !SegmentsItem.Tenant.IsUnknown() {
-							SegmentsItemMap["tenant"] = SegmentsItem.Tenant.ValueString()
 						}
 						SegmentsList = append(SegmentsList, SegmentsItemMap)
 					}
@@ -2854,11 +2832,28 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetServicePolicyRule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -4604,6 +4599,16 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ServicePolicyRule: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -6396,6 +6401,20 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.ServicePolicyRule{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -6403,6 +6422,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -6546,20 +6566,11 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				var AsnSetsList []map[string]interface{}
 				for _, AsnSetsItem := range AsnSetsElems {
 					AsnSetsItemMap := make(map[string]interface{})
-					if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-						AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-					}
 					if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 						AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 					}
 					if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 						AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-					}
-					if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-						AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-					}
-					if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-						AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 					}
 					AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 				}
@@ -6792,20 +6803,11 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				var PrefixSetsList []map[string]interface{}
 				for _, PrefixSetsItem := range PrefixSetsElems {
 					PrefixSetsItemMap := make(map[string]interface{})
-					if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-						PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-					}
 					if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 						PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 					}
 					if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 						PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-					}
-					if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-						PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-					}
-					if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-						PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 					}
 					PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 				}
@@ -7134,9 +7136,6 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !SegmentsItem.Namespace.IsNull() && !SegmentsItem.Namespace.IsUnknown() {
 							SegmentsItemMap["namespace"] = SegmentsItem.Namespace.ValueString()
 						}
-						if !SegmentsItem.Tenant.IsNull() && !SegmentsItem.Tenant.IsUnknown() {
-							SegmentsItemMap["tenant"] = SegmentsItem.Tenant.ValueString()
-						}
 						SegmentsList = append(SegmentsList, SegmentsItemMap)
 					}
 					SegmentPolicyDstSegmentsMap["segments"] = SegmentsList
@@ -7165,9 +7164,6 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						}
 						if !SegmentsItem.Namespace.IsNull() && !SegmentsItem.Namespace.IsUnknown() {
 							SegmentsItemMap["namespace"] = SegmentsItem.Namespace.ValueString()
-						}
-						if !SegmentsItem.Tenant.IsNull() && !SegmentsItem.Tenant.IsUnknown() {
-							SegmentsItemMap["tenant"] = SegmentsItem.Tenant.ValueString()
 						}
 						SegmentsList = append(SegmentsList, SegmentsItemMap)
 					}
@@ -7332,6 +7328,14 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 
 	_, err := r.client.UpdateServicePolicyRule(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of service_policy_rule %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update ServicePolicyRule: %s", err))
 		return
 	}
@@ -7349,10 +7353,6 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -7362,6 +7362,19 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	fetched, fetchErr := r.client.GetServicePolicyRule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ServicePolicyRule after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -23,6 +24,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -438,7 +440,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"vpc_id": schema.StringAttribute{
-													MarkdownDescription: "Enter the VPC ID of the VPC to be attached .",
+													MarkdownDescription: "Enter the VPC ID of the VPC to be attached.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(64),
@@ -451,7 +453,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"route_tables": schema.ListNestedBlock{
-															MarkdownDescription: "List of route tables. Route Tables .",
+															MarkdownDescription: "List of route tables. Route Tables.",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"route_table_id": schema.StringAttribute{
@@ -462,7 +464,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 																		},
 																	},
 																	"static_routes": schema.ListAttribute{
-																		MarkdownDescription: "Static Routes. List of Static Routes .",
+																		MarkdownDescription: "Static Routes. List of Static Routes.",
 																		Optional:            true,
 																		ElementType:         types.StringType,
 																		Validators: []validator.List{
@@ -551,14 +553,14 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"subscription_id": schema.StringAttribute{
-											MarkdownDescription: "Enter the Subscription ID of the VNet to be attached .",
+											MarkdownDescription: "Enter the Subscription ID of the VNet to be attached.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
 										},
 										"vnet_id": schema.StringAttribute{
-											MarkdownDescription: "Enter the VNet ID of the VNet to be attached in format /<resource-group-name>/<VNet-name> .",
+											MarkdownDescription: "Enter the VNet ID of the VNet to be attached in format /<resource-group-name>/<VNet-name>.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(256),
@@ -571,7 +573,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"route_tables": schema.ListNestedBlock{
-													MarkdownDescription: "Route Tables with static routes .",
+													MarkdownDescription: "List of route tables with static routes. Route Tables with static routes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
 															"route_table_id": schema.StringAttribute{
@@ -582,7 +584,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 																},
 															},
 															"static_routes": schema.ListAttribute{
-																MarkdownDescription: "Static Routes. List of Static Routes .",
+																MarkdownDescription: "Static Routes. List of Static Routes.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -794,9 +796,6 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 				if !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsUnknown() {
 					AWSProviderAWSTGWSiteCredMap["namespace"] = data.AWSProvider.AWSTGWSite.Cred.Namespace.ValueString()
 				}
-				if !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsUnknown() {
-					AWSProviderAWSTGWSiteCredMap["tenant"] = data.AWSProvider.AWSTGWSite.Cred.Tenant.ValueString()
-				}
 				AWSProviderAWSTGWSiteMap["cred"] = AWSProviderAWSTGWSiteCredMap
 			}
 			if data.AWSProvider.AWSTGWSite.Site != nil {
@@ -806,9 +805,6 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 				}
 				if !data.AWSProvider.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Namespace.IsUnknown() {
 					AWSProviderAWSTGWSiteSiteMap["namespace"] = data.AWSProvider.AWSTGWSite.Site.Namespace.ValueString()
-				}
-				if !data.AWSProvider.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Tenant.IsUnknown() {
-					AWSProviderAWSTGWSiteSiteMap["tenant"] = data.AWSProvider.AWSTGWSite.Site.Tenant.ValueString()
 				}
 				AWSProviderAWSTGWSiteMap["site"] = AWSProviderAWSTGWSiteSiteMap
 			}
@@ -899,9 +895,6 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 			if !data.AzureVNETSite.Site.Namespace.IsNull() && !data.AzureVNETSite.Site.Namespace.IsUnknown() {
 				AzureVNETSiteSiteMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
 			}
-			if !data.AzureVNETSite.Site.Tenant.IsNull() && !data.AzureVNETSite.Site.Tenant.IsUnknown() {
-				AzureVNETSiteSiteMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
-			}
 			AzureVNETSiteMap["site"] = AzureVNETSiteSiteMap
 		}
 		if data.AzureVNETSite.VNETAttachments != nil {
@@ -990,9 +983,6 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 		if !data.Segment.Namespace.IsNull() && !data.Segment.Namespace.IsUnknown() {
 			SegmentMap["namespace"] = data.Segment.Namespace.ValueString()
 		}
-		if !data.Segment.Tenant.IsNull() && !data.Segment.Tenant.IsUnknown() {
-			SegmentMap["tenant"] = data.Segment.Tenant.ValueString()
-		}
 		createReq.Spec["segment"] = SegmentMap
 	}
 
@@ -1002,11 +992,28 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetCloudConnect(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1471,6 +1478,16 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CloudConnect: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1982,6 +1999,20 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.CloudConnect{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -1989,6 +2020,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -2045,9 +2077,6 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 				if !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsUnknown() {
 					AWSProviderAWSTGWSiteCredMap["namespace"] = data.AWSProvider.AWSTGWSite.Cred.Namespace.ValueString()
 				}
-				if !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsUnknown() {
-					AWSProviderAWSTGWSiteCredMap["tenant"] = data.AWSProvider.AWSTGWSite.Cred.Tenant.ValueString()
-				}
 				AWSProviderAWSTGWSiteMap["cred"] = AWSProviderAWSTGWSiteCredMap
 			}
 			if data.AWSProvider.AWSTGWSite.Site != nil {
@@ -2057,9 +2086,6 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 				}
 				if !data.AWSProvider.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Namespace.IsUnknown() {
 					AWSProviderAWSTGWSiteSiteMap["namespace"] = data.AWSProvider.AWSTGWSite.Site.Namespace.ValueString()
-				}
-				if !data.AWSProvider.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Tenant.IsUnknown() {
-					AWSProviderAWSTGWSiteSiteMap["tenant"] = data.AWSProvider.AWSTGWSite.Site.Tenant.ValueString()
 				}
 				AWSProviderAWSTGWSiteMap["site"] = AWSProviderAWSTGWSiteSiteMap
 			}
@@ -2150,9 +2176,6 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 			if !data.AzureVNETSite.Site.Namespace.IsNull() && !data.AzureVNETSite.Site.Namespace.IsUnknown() {
 				AzureVNETSiteSiteMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
 			}
-			if !data.AzureVNETSite.Site.Tenant.IsNull() && !data.AzureVNETSite.Site.Tenant.IsUnknown() {
-				AzureVNETSiteSiteMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
-			}
 			AzureVNETSiteMap["site"] = AzureVNETSiteSiteMap
 		}
 		if data.AzureVNETSite.VNETAttachments != nil {
@@ -2241,14 +2264,19 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 		if !data.Segment.Namespace.IsNull() && !data.Segment.Namespace.IsUnknown() {
 			SegmentMap["namespace"] = data.Segment.Namespace.ValueString()
 		}
-		if !data.Segment.Tenant.IsNull() && !data.Segment.Tenant.IsUnknown() {
-			SegmentMap["tenant"] = data.Segment.Tenant.ValueString()
-		}
 		apiResource.Spec["segment"] = SegmentMap
 	}
 
 	_, err := r.client.UpdateCloudConnect(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of cloud_connect %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update CloudConnect: %s", err))
 		return
 	}
@@ -2266,10 +2294,6 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2279,6 +2303,19 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 	fetched, fetchErr := r.client.GetCloudConnect(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CloudConnect after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

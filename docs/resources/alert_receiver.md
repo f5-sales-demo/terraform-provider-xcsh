@@ -109,7 +109,7 @@ An [`opsgenie`](#opsgenie) block supports the following:
 
 <a id="opsgenie-api-key"></a>&#x2022; [`api_key`](#opsgenie-api-key) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [API Key](#opsgenie-api-key) below.
 
-<a id="opsgenie-url"></a>&#x2022; [`url`](#opsgenie-url) - Optional String<br>URL to send API requests to
+<a id="opsgenie-url"></a>&#x2022; [`url`](#opsgenie-url) - Optional String<br>API URL. URL to send API requests to
 
 #### Opsgenie API Key
 
@@ -143,7 +143,7 @@ A [`pagerduty`](#pagerduty) block supports the following:
 
 <a id="pagerduty-routing-key"></a>&#x2022; [`routing_key`](#pagerduty-routing-key) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Routing Key](#pagerduty-routing-key) below.
 
-<a id="pagerduty-url"></a>&#x2022; [`url`](#pagerduty-url) - Optional String<br>URL to send API requests to
+<a id="pagerduty-url"></a>&#x2022; [`url`](#pagerduty-url) - Optional String<br>Pager Duty URL. URL to send API requests to
 
 #### Pagerduty Routing Key
 
@@ -279,7 +279,7 @@ A [`basic_auth`](#webhook-http-config-basic-auth) block (within [`webhook.http_c
 
 <a id="webhook-http-config-basic-auth-password"></a>&#x2022; [`password`](#webhook-http-config-basic-auth-password) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Password](#webhook-http-config-basic-auth-password) below.
 
-<a id="name-8da031"></a>&#x2022; [`user_name`](#name-8da031) - Optional String<br>HTTP Basic Auth username
+<a id="name-8da031"></a>&#x2022; [`user_name`](#name-8da031) - Optional String<br>username. HTTP Basic Auth username
 
 #### Webhook HTTP Config Basic Auth Password
 

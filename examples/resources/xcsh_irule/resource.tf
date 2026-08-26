@@ -19,5 +19,4 @@ resource "xcsh_irule" "example" {
 
   description_spec = "example-value"
   irule            = "example-value"
-  description      = "example-value"
 }

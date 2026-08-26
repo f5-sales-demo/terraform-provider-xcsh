@@ -10,8 +10,9 @@ import (
 
 // K8SClusterRole represents a F5XC K8SClusterRole
 type K8SClusterRole struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateK8SClusterRole creates a new K8SClusterRole

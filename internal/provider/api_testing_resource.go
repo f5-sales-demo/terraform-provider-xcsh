@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -22,6 +23,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -356,7 +358,11 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"custom_header_value": schema.StringAttribute{
 				MarkdownDescription: "Add x-F5-API-testing-identifier header value to prevent security flags on API testing traffic.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(128),
 				},
@@ -370,7 +376,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Delete: true,
 			}),
 			"domains": schema.ListNestedBlock{
-				MarkdownDescription: "Add and configure testing domains and credentials .",
+				MarkdownDescription: "Add and configure testing domains and credentials.",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"allow_destructive_methods": schema.BoolAttribute{
@@ -391,7 +397,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"credential_name": schema.StringAttribute{
-										MarkdownDescription: "Enter a unique name for the credentials used in API testing .",
+										MarkdownDescription: "Enter a unique name for the credentials used in API testing.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
@@ -406,7 +412,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										MarkdownDescription: "API Key",
 										Attributes: map[string]schema.Attribute{
 											"key": schema.StringAttribute{
-												MarkdownDescription: "Key.",
+												MarkdownDescription: "Key. Cryptographic key material",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(128),
@@ -426,7 +432,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Optional:            true,
 															},
 															"location": schema.StringAttribute{
-																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(4, 131072),
@@ -462,7 +468,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										MarkdownDescription: "Basic Authentication.",
 										Attributes: map[string]schema.Attribute{
 											"user": schema.StringAttribute{
-												MarkdownDescription: "User.",
+												MarkdownDescription: "User. Configuration parameter for user",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 64),
@@ -482,7 +488,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Optional:            true,
 															},
 															"location": schema.StringAttribute{
-																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(4, 131072),
@@ -530,7 +536,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Optional:            true,
 															},
 															"location": schema.StringAttribute{
-																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(4, 131072),
@@ -573,14 +579,14 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 											},
 											"path": schema.StringAttribute{
-												MarkdownDescription: "Path.",
+												MarkdownDescription: "Path. URL path for the endpoint",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 1024),
 												},
 											},
 											"token_response_key": schema.StringAttribute{
-												MarkdownDescription: "Token Response Key. .",
+												MarkdownDescription: "Configuration parameter for token response key.",
 												Optional:            true,
 											},
 										},
@@ -597,7 +603,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 																Optional:            true,
 															},
 															"location": schema.StringAttribute{
-																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(4, 131072),
@@ -972,11 +978,28 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetAPITesting(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1425,6 +1448,16 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read APITesting: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1920,6 +1953,20 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.APITesting{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -1927,6 +1974,7 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -2166,6 +2214,14 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	_, err := r.client.UpdateAPITesting(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of api_testing %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update APITesting: %s", err))
 		return
 	}
@@ -2183,10 +2239,6 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2199,7 +2251,27 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["custom_header_value"].(string); ok && v != "" {
+		data.CustomHeaderValue = types.StringValue(v)
+	} else if data.CustomHeaderValue.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.CustomHeaderValue = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

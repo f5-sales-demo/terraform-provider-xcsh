@@ -161,7 +161,7 @@ An [`afsdb_record`](#record-026644) block (within [`primary.default_rr_set_group
 
 <a id="name-996289"></a>&#x2022; [`name`](#name-996289) - Optional String<br>AFSDB Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-776b5a"></a>&#x2022; [`values`](#values-776b5a) - Optional Block<br>AFSDB Value<br>See [Values](#values-776b5a) below.
+<a id="values-776b5a"></a>&#x2022; [`values`](#values-776b5a) - Optional Block<br>AFSDB Value. Configuration parameter for values<br>See [Values](#values-776b5a) below.
 
 #### Primary Default Rr Set Group Afsdb Record Values
 
@@ -191,7 +191,7 @@ A [`cds_record`](#primary-default-rr-set-group-cds-record) block (within [`prima
 
 <a id="name-54ff93"></a>&#x2022; [`name`](#name-54ff93) - Optional String<br>CDS Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-970128"></a>&#x2022; [`values`](#values-970128) - Optional Block<br>DS Value<br>See [Values](#values-970128) below.
+<a id="values-970128"></a>&#x2022; [`values`](#values-970128) - Optional Block<br>DS Value. Configuration parameter for values<br>See [Values](#values-970128) below.
 
 #### Primary Default Rr Set Group Cds Record Values
 
@@ -215,7 +215,7 @@ A [`cert_record`](#record-3ef094) block (within [`primary.default_rr_set_group`]
 
 <a id="name-f59c0d"></a>&#x2022; [`name`](#name-f59c0d) - Optional String<br>CERT Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-753772"></a>&#x2022; [`values`](#values-753772) - Optional Block<br>CERT Value<br>See [Values](#values-753772) below.
+<a id="values-753772"></a>&#x2022; [`values`](#values-753772) - Optional Block<br>CERT Value. Configuration parameter for values<br>See [Values](#values-753772) below.
 
 #### Primary Default Rr Set Group Cert Record Values
 
@@ -235,7 +235,7 @@ A [`ds_record`](#primary-default-rr-set-group-ds-record) block (within [`primary
 
 <a id="name-4472e4"></a>&#x2022; [`name`](#name-4472e4) - Optional String<br>DS Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-6934cb"></a>&#x2022; [`values`](#values-6934cb) - Optional Block<br>DS Value<br>See [Values](#values-6934cb) below.
+<a id="values-6934cb"></a>&#x2022; [`values`](#values-6934cb) - Optional Block<br>DS Value. Configuration parameter for values<br>See [Values](#values-6934cb) below.
 
 #### Primary Default Rr Set Group Ds Record Values
 
@@ -287,7 +287,7 @@ A [`loc_record`](#primary-default-rr-set-group-loc-record) block (within [`prima
 
 <a id="name-568c6c"></a>&#x2022; [`name`](#name-568c6c) - Optional String<br>LOC Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-17d6e4"></a>&#x2022; [`values`](#values-17d6e4) - Optional Block<br>LOC Value<br>See [Values](#values-17d6e4) below.
+<a id="values-17d6e4"></a>&#x2022; [`values`](#values-17d6e4) - Optional Block<br>LOC Value. Configuration parameter for values<br>See [Values](#values-17d6e4) below.
 
 #### Primary Default Rr Set Group Loc Record Values
 
@@ -299,7 +299,7 @@ A [`mx_record`](#primary-default-rr-set-group-mx-record) block (within [`primary
 
 <a id="name-0ee04c"></a>&#x2022; [`name`](#name-0ee04c) - Optional String<br>MX Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-032997"></a>&#x2022; [`values`](#values-032997) - Optional Block<br>MX Record Value<br>See [Values](#values-032997) below.
+<a id="values-032997"></a>&#x2022; [`values`](#values-032997) - Optional Block<br>MX Record Value. Configuration parameter for values<br>See [Values](#values-032997) below.
 
 #### Primary Default Rr Set Group Mx Record Values
 
@@ -311,7 +311,7 @@ A [`naptr_record`](#record-16470e) block (within [`primary.default_rr_set_group`
 
 <a id="name-9ba043"></a>&#x2022; [`name`](#name-9ba043) - Optional String<br>NAPTR Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-8f9cd5"></a>&#x2022; [`values`](#values-8f9cd5) - Optional Block<br>NAPTR Value<br>See [Values](#values-8f9cd5) below.
+<a id="values-8f9cd5"></a>&#x2022; [`values`](#values-8f9cd5) - Optional Block<br>NAPTR Value. Configuration parameter for values<br>See [Values](#values-8f9cd5) below.
 
 #### Primary Default Rr Set Group Naptr Record Values
 
@@ -323,7 +323,7 @@ A [`ns_record`](#primary-default-rr-set-group-ns-record) block (within [`primary
 
 <a id="name-816a8e"></a>&#x2022; [`name`](#name-816a8e) - Optional String<br>NS Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-0b1572"></a>&#x2022; [`values`](#values-0b1572) - Optional List<br>Name Servers
+<a id="values-0b1572"></a>&#x2022; [`values`](#values-0b1572) - Optional List<br>Name Servers. Configuration parameter for values
 
 #### Primary Default Rr Set Group Ptr Record
 
@@ -331,7 +331,7 @@ A [`ptr_record`](#primary-default-rr-set-group-ptr-record) block (within [`prima
 
 <a id="name-87ab5a"></a>&#x2022; [`name`](#name-87ab5a) - Optional String<br>PTR Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-987974"></a>&#x2022; [`values`](#values-987974) - Optional List<br>Domain Name
+<a id="values-987974"></a>&#x2022; [`values`](#values-987974) - Optional List<br>Domain Name. Configuration parameter for values
 
 #### Primary Default Rr Set Group Srv Record
 
@@ -339,7 +339,7 @@ A [`srv_record`](#primary-default-rr-set-group-srv-record) block (within [`prima
 
 <a id="name-d7e083"></a>&#x2022; [`name`](#name-d7e083) - Optional String<br>SRV Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-41fcb0"></a>&#x2022; [`values`](#values-41fcb0) - Optional Block<br>SRV Value<br>See [Values](#values-41fcb0) below.
+<a id="values-41fcb0"></a>&#x2022; [`values`](#values-41fcb0) - Optional Block<br>SRV Value. Configuration parameter for values<br>See [Values](#values-41fcb0) below.
 
 #### Primary Default Rr Set Group Srv Record Values
 
@@ -351,7 +351,7 @@ A [`sshfp_record`](#record-cc1927) block (within [`primary.default_rr_set_group`
 
 <a id="name-dba42e"></a>&#x2022; [`name`](#name-dba42e) - Optional String<br>SSHFP Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-eea3f2"></a>&#x2022; [`values`](#values-eea3f2) - Optional Block<br>SSHFP Value<br>See [Values](#values-eea3f2) below.
+<a id="values-eea3f2"></a>&#x2022; [`values`](#values-eea3f2) - Optional Block<br>SSHFP Value. Configuration parameter for values<br>See [Values](#values-eea3f2) below.
 
 #### Primary Default Rr Set Group Sshfp Record Values
 
@@ -371,7 +371,7 @@ A [`tlsa_record`](#record-db5883) block (within [`primary.default_rr_set_group`]
 
 <a id="name-687010"></a>&#x2022; [`name`](#name-687010) - Optional String<br>TLSA Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-49e48c"></a>&#x2022; [`values`](#values-49e48c) - Optional Block<br>TLSA Value<br>See [Values](#values-49e48c) below.
+<a id="values-49e48c"></a>&#x2022; [`values`](#values-49e48c) - Optional Block<br>TLSA Value. Configuration parameter for values<br>See [Values](#values-49e48c) below.
 
 #### Primary Default Rr Set Group Tlsa Record Values
 
@@ -383,7 +383,7 @@ A [`txt_record`](#primary-default-rr-set-group-txt-record) block (within [`prima
 
 <a id="name-ea3275"></a>&#x2022; [`name`](#name-ea3275) - Optional String<br>TXT Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-49770a"></a>&#x2022; [`values`](#values-49770a) - Optional List<br>Text
+<a id="values-49770a"></a>&#x2022; [`values`](#values-49770a) - Optional List<br>Text. Configuration parameter for values
 
 #### Primary Dnssec Mode
 
@@ -642,7 +642,7 @@ A [`soa_parameters`](#primary-soa-parameters) block (within [`primary`](#primary
 
 A [`secondary`](#secondary) block supports the following:
 
-<a id="secondary-primary-servers"></a>&#x2022; [`primary_servers`](#secondary-primary-servers) - Optional List<br>DNS Primary Server IP
+<a id="secondary-primary-servers"></a>&#x2022; [`primary_servers`](#secondary-primary-servers) - Optional List<br>Configuration parameter for primary servers
 
 <a id="secondary-tsig-key-algorithm"></a>&#x2022; [`tsig_key_algorithm`](#secondary-tsig-key-algorithm) - Optional String  Defaults to `UNDEFINED`<br>Possible values are `HMAC_MD5`, `UNDEFINED`, `HMAC_SHA1`, `HMAC_SHA224`, `HMAC_SHA256`, `HMAC_SHA384`, `HMAC_SHA512`<br>[Enum: HMAC_MD5|UNDEFINED|HMAC_SHA1|HMAC_SHA224|HMAC_SHA256|HMAC_SHA384|HMAC_SHA512] TSIG key value must be compatible with the
 specified algorithm - UNDEFINED: UNDEFINED - HMAC_MD5: HMAC_MD5 - HMAC_SHA1: HMAC_SHA1 - HMAC_SHA224: HMAC_SHA224 - HMAC_SHA256: HMAC_SHA256 - HMAC_SHA384: HMAC_SHA384 - HMAC_SHA512: HMAC_SHA512

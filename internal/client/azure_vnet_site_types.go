@@ -10,8 +10,9 @@ import (
 
 // AzureVNETSite represents a F5XC AzureVNETSite
 type AzureVNETSite struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateAzureVNETSite creates a new AzureVNETSite

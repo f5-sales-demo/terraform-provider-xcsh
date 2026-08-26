@@ -36,11 +36,6 @@ resource "xcsh_aws_vpc_site" "example" {
   aws_region    = "example-value"
   instance_type = "example-value"
   ssh_key       = "example-value"
-  tags = {
-    example = "value"
-  }
-  address   = "example-value"
-  disk_size = 1
 }
 ```
 
@@ -70,7 +65,7 @@ resource "xcsh_aws_vpc_site" "example" {
 
 ### Spec Argument Reference
 
-<a id="address"></a>&#x2022; [`address`](#address) - Required String<br>Site's geographical address that can be used to determine its latitude and longitude
+<a id="address"></a>&#x2022; [`address`](#address) - Optional String<br>Site's geographical address that can be used to determine its latitude and longitude
 
 <a id="admin-password"></a>&#x2022; [`admin_password`](#admin-password) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Admin Password](#admin-password) below for details.
 
@@ -103,7 +98,7 @@ resource "xcsh_aws_vpc_site" "example" {
 -> **One of the following:**
 &#x2022; <a id="disable-internet-vip"></a>[`disable_internet_vip`](#disable-internet-vip) - Optional Block<br>Enable this option
 
-<a id="disk-size"></a>&#x2022; [`disk_size`](#disk-size) - Required Number<br>Disk size to be used for this instance in GiB. 80 is 80 GiB
+<a id="disk-size"></a>&#x2022; [`disk_size`](#disk-size) - Optional Number<br>Disk size to be used for this instance in GiB. 80 is 80 GiB
 
 -> **One of the following:**
 &#x2022; <a id="egress-gateway-default"></a>[`egress_gateway_default`](#egress-gateway-default) - Optional Block<br>Configuration parameter for egress gateway default
@@ -141,11 +136,11 @@ configuration for upto 7
 
 <a id="os"></a>&#x2022; [`os`](#os) - Optional Block<br>Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions
 
-<a id="ssh-key"></a>&#x2022; [`ssh_key`](#ssh-key) - Required String<br>Public SSH key for accessing the site
+<a id="ssh-key"></a>&#x2022; [`ssh_key`](#ssh-key) - Required String<br>Public SSH key. Public SSH key for accessing the site
 
 <a id="sw"></a>&#x2022; [`sw`](#sw) - Optional Block<br>Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions
 
-<a id="tags"></a>&#x2022; [`tags`](#tags) - Required Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
+<a id="tags"></a>&#x2022; [`tags`](#tags) - Optional Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 
@@ -312,7 +307,7 @@ An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 <a id="ingress-egress-gw-allowed-vip-port-sli"></a>&#x2022; [`allowed_vip_port_sli`](#ingress-egress-gw-allowed-vip-port-sli) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site<br>See [Allowed VIP Port
 SLI](#ingress-egress-gw-allowed-vip-port-sli) below.
 
-<a id="ingress-egress-gw-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#ingress-egress-gw-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-multi-nic-voltmesh] Name for AWS certified hardware. The only possible value is `AWS-byol-multi-nic-voltmesh`
+<a id="ingress-egress-gw-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#ingress-egress-gw-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-multi-nic-voltmesh] AWS Certified Hardware. Name for AWS certified hardware. The only possible value is `AWS-byol-multi-nic-voltmesh`
 
 <a id="ingress-egress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-egress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-egress-gw-az-nodes) below.
 
@@ -474,7 +469,7 @@ A [`workload_subnet`](#subnet-333bb8) block (within [`ingress_egress_gw.az_nodes
 
 A [`global_network_list`](#ingress-egress-gw-global-network-list) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
-<a id="connections-bde45c"></a>&#x2022; [`global_network_connections`](#connections-bde45c) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-bde45c) below.
+<a id="connections-bde45c"></a>&#x2022; [`global_network_connections`](#connections-bde45c) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-bde45c) below.
 
 #### Ingress Egress Gw Global Network List Global Network Connections
 
@@ -610,7 +605,7 @@ An [`ingress_gw`](#ingress-gw) block supports the following:
 
 <a id="ingress-gw-allowed-vip-port"></a>&#x2022; [`allowed_vip_port`](#ingress-gw-allowed-vip-port) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site<br>See [Allowed VIP Port](#ingress-gw-allowed-vip-port) below.
 
-<a id="ingress-gw-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#ingress-gw-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-voltmesh] Name for AWS certified hardware. The only possible value is `AWS-byol-voltmesh`
+<a id="ingress-gw-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#ingress-gw-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-voltmesh] AWS Certified Hardware. Name for AWS certified hardware. The only possible value is `AWS-byol-voltmesh`
 
 <a id="ingress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-gw-az-nodes) below.
 
@@ -770,7 +765,7 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 <a id="voltstack-cluster-allowed-vip-port"></a>&#x2022; [`allowed_vip_port`](#voltstack-cluster-allowed-vip-port) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site<br>See [Allowed VIP Port](#voltstack-cluster-allowed-vip-port) below.
 
-<a id="voltstack-cluster-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#voltstack-cluster-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-voltstack-combo] Name for AWS certified hardware. The only possible value is `AWS-byol-voltstack-combo`
+<a id="voltstack-cluster-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#voltstack-cluster-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-voltstack-combo] AWS Certified Hardware. Name for AWS certified hardware. The only possible value is `AWS-byol-voltstack-combo`
 
 <a id="voltstack-cluster-az-nodes"></a>&#x2022; [`az_nodes`](#voltstack-cluster-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#voltstack-cluster-az-nodes) below.
 
@@ -894,7 +889,7 @@ A [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) block (within [`volt
 
 A [`global_network_list`](#voltstack-cluster-global-network-list) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
 
-<a id="connections-8e8842"></a>&#x2022; [`global_network_connections`](#connections-8e8842) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-8e8842) below.
+<a id="connections-8e8842"></a>&#x2022; [`global_network_connections`](#connections-8e8842) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-8e8842) below.
 
 #### Voltstack Cluster Global Network List Global Network Connections
 

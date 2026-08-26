@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -21,12 +22,14 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -50,42 +53,6 @@ type SecuremeshSiteV2Resource struct {
 
 // SecuremeshSiteV2EmptyModel represents empty nested blocks
 type SecuremeshSiteV2EmptyModel struct {
-}
-
-// SecuremeshSiteV2PerformanceEnhancementModeModel represents performance_enhancement_mode block
-type SecuremeshSiteV2PerformanceEnhancementModeModel struct {
-	PerfModeL3Enhanced *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
-}
-
-// SecuremeshSiteV2PerformanceEnhancementModeModelAttrTypes defines the attribute types for SecuremeshSiteV2PerformanceEnhancementModeModel
-var SecuremeshSiteV2PerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
-	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
-}
-
-// SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
-type SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *SecuremeshSiteV2EmptyModel `tfsdk:"jumbo"`
-	NoJumbo *SecuremeshSiteV2EmptyModel `tfsdk:"no_jumbo"`
-}
-
-// SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel
-var SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
-	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-}
-
-// SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
-type SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *SecuremeshSiteV2EmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *SecuremeshSiteV2EmptyModel `tfsdk:"jumbo_enabled"`
-}
-
-// SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel
-var SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
-	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecuremeshSiteV2ActiveEnhancedFirewallPoliciesModel represents active_enhanced_firewall_policies block
@@ -225,6 +192,8 @@ var SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes = map[string]attr.Type{
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                              `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                 `tfsdk:"labels"`
 	MTU                                     types.Int64                                                               `tfsdk:"mtu"`
 	Name                                    types.String                                                              `tfsdk:"name"`
@@ -248,6 +217,8 @@ type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -535,6 +506,8 @@ var SecuremeshSiteV2AzureNotManagedNodeListModelAttrTypes = map[string]attr.Type
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                                `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                  `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                  `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                   `tfsdk:"labels"`
 	MTU                                     types.Int64                                                                 `tfsdk:"mtu"`
 	Name                                    types.String                                                                `tfsdk:"name"`
@@ -558,6 +531,8 @@ type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -845,6 +820,8 @@ var SecuremeshSiteV2BaremetalNotManagedNodeListModelAttrTypes = map[string]attr.
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                                    `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                      `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                      `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                       `tfsdk:"labels"`
 	MTU                                     types.Int64                                                                     `tfsdk:"mtu"`
 	Name                                    types.String                                                                    `tfsdk:"name"`
@@ -868,6 +845,8 @@ type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -1313,6 +1292,8 @@ var SecuremeshSiteV2EquinixNotManagedNodeListModelAttrTypes = map[string]attr.Ty
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                                  `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                    `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                    `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                     `tfsdk:"labels"`
 	MTU                                     types.Int64                                                                   `tfsdk:"mtu"`
 	Name                                    types.String                                                                  `tfsdk:"name"`
@@ -1336,6 +1317,8 @@ type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -1623,6 +1606,8 @@ var SecuremeshSiteV2GCPNotManagedNodeListModelAttrTypes = map[string]attr.Type{
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                              `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                 `tfsdk:"labels"`
 	MTU                                     types.Int64                                                               `tfsdk:"mtu"`
 	Name                                    types.String                                                              `tfsdk:"name"`
@@ -1646,6 +1631,8 @@ type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -1933,6 +1920,8 @@ var SecuremeshSiteV2KvmNotManagedNodeListModelAttrTypes = map[string]attr.Type{
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                              `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                 `tfsdk:"labels"`
 	MTU                                     types.Int64                                                               `tfsdk:"mtu"`
 	Name                                    types.String                                                              `tfsdk:"name"`
@@ -1956,6 +1945,8 @@ type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -2617,6 +2608,8 @@ var SecuremeshSiteV2NutanixNotManagedNodeListModelAttrTypes = map[string]attr.Ty
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                                  `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                    `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                    `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                     `tfsdk:"labels"`
 	MTU                                     types.Int64                                                                   `tfsdk:"mtu"`
 	Name                                    types.String                                                                  `tfsdk:"name"`
@@ -2640,6 +2633,8 @@ type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -2927,6 +2922,8 @@ var SecuremeshSiteV2OciNotManagedNodeListModelAttrTypes = map[string]attr.Type{
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                              `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                 `tfsdk:"labels"`
 	MTU                                     types.Int64                                                               `tfsdk:"mtu"`
 	Name                                    types.String                                                              `tfsdk:"name"`
@@ -2950,6 +2947,8 @@ type SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -3249,6 +3248,8 @@ var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListModelAttrTypes = ma
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                                                  `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                                    `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                                    `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                                     `tfsdk:"labels"`
 	MTU                                     types.Int64                                                                                   `tfsdk:"mtu"`
 	Name                                    types.String                                                                                  `tfsdk:"name"`
@@ -3272,6 +3273,8 @@ type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -3559,6 +3562,8 @@ var SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes = map[string]attr.
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                                    `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                      `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                      `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                       `tfsdk:"labels"`
 	MTU                                     types.Int64                                                                     `tfsdk:"mtu"`
 	Name                                    types.String                                                                    `tfsdk:"name"`
@@ -3582,6 +3587,8 @@ type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -3830,6 +3837,42 @@ var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListVLANInterfaceModelAt
 	"vlan_id": types.Int64Type,
 }
 
+// SecuremeshSiteV2PerformanceEnhancementModeModel represents performance_enhancement_mode block
+type SecuremeshSiteV2PerformanceEnhancementModeModel struct {
+	PerfModeL3Enhanced *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
+	PerfModeL7Enhanced *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
+}
+
+// SecuremeshSiteV2PerformanceEnhancementModeModelAttrTypes defines the attribute types for SecuremeshSiteV2PerformanceEnhancementModeModel
+var SecuremeshSiteV2PerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
+	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
+}
+
+// SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
+type SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel struct {
+	Jumbo   *SecuremeshSiteV2EmptyModel `tfsdk:"jumbo"`
+	NoJumbo *SecuremeshSiteV2EmptyModel `tfsdk:"no_jumbo"`
+}
+
+// SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel
+var SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *SecuremeshSiteV2EmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *SecuremeshSiteV2EmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel
+var SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
 // SecuremeshSiteV2RESelectModel represents re_select block
 type SecuremeshSiteV2RESelectModel struct {
 	GeoProximity *SecuremeshSiteV2EmptyModel              `tfsdk:"geo_proximity"`
@@ -3856,12 +3899,14 @@ var SecuremeshSiteV2RESelectSpecificREModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2SegmentVrfModel represents segment_vrf block
 type SecuremeshSiteV2SegmentVrfModel struct {
-	SegmentConfig *SecuremeshSiteV2SegmentVrfSegmentConfigModel `tfsdk:"segment_config"`
+	SegmentConfig  *SecuremeshSiteV2SegmentVrfSegmentConfigModel  `tfsdk:"segment_config"`
+	SegmentNetwork *SecuremeshSiteV2SegmentVrfSegmentNetworkModel `tfsdk:"segment_network"`
 }
 
 // SecuremeshSiteV2SegmentVrfModelAttrTypes defines the attribute types for SecuremeshSiteV2SegmentVrfModel
 var SecuremeshSiteV2SegmentVrfModelAttrTypes = map[string]attr.Type{
-	"segment_config": types.ObjectType{AttrTypes: SecuremeshSiteV2SegmentVrfSegmentConfigModelAttrTypes},
+	"segment_config":  types.ObjectType{AttrTypes: SecuremeshSiteV2SegmentVrfSegmentConfigModelAttrTypes},
+	"segment_network": types.ObjectType{AttrTypes: SecuremeshSiteV2SegmentVrfSegmentNetworkModelAttrTypes},
 }
 
 // SecuremeshSiteV2SegmentVrfSegmentConfigModel represents segment_config block
@@ -4020,6 +4065,24 @@ var SecuremeshSiteV2SegmentVrfSegmentConfigStaticV6RoutesStaticRoutesNodeInterfa
 	"uid":       types.StringType,
 }
 
+// SecuremeshSiteV2SegmentVrfSegmentNetworkModel represents segment_network block
+type SecuremeshSiteV2SegmentVrfSegmentNetworkModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// SecuremeshSiteV2SegmentVrfSegmentNetworkModelAttrTypes defines the attribute types for SecuremeshSiteV2SegmentVrfSegmentNetworkModel
+var SecuremeshSiteV2SegmentVrfSegmentNetworkModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
 // SecuremeshSiteV2SiteMeshGroupOnSloModel represents site_mesh_group_on_slo block
 type SecuremeshSiteV2SiteMeshGroupOnSloModel struct {
 	NoSiteMeshGroup      *SecuremeshSiteV2EmptyModel                           `tfsdk:"no_site_mesh_group"`
@@ -4163,6 +4226,8 @@ var SecuremeshSiteV2VmwareNotManagedNodeListModelAttrTypes = map[string]attr.Typ
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel represents interface_list block
 type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel struct {
 	DescriptionSpec                         types.String                                                                 `tfsdk:"description_spec"`
+	IsManagement                            types.Bool                                                                   `tfsdk:"is_management"`
+	IsPrimary                               types.Bool                                                                   `tfsdk:"is_primary"`
 	Labels                                  types.Map                                                                    `tfsdk:"labels"`
 	MTU                                     types.Int64                                                                  `tfsdk:"mtu"`
 	Name                                    types.String                                                                 `tfsdk:"name"`
@@ -4186,6 +4251,8 @@ type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel struct {
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel
 var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes = map[string]attr.Type{
 	"description_spec":   types.StringType,
+	"is_management":      types.BoolType,
+	"is_primary":         types.BoolType,
 	"labels":             types.MapType{ElemType: types.StringType},
 	"mtu":                types.Int64Type,
 	"name":               types.StringType,
@@ -4445,7 +4512,6 @@ type SecuremeshSiteV2ResourceModel struct {
 	TunnelDeadTimeout              types.Int64                                          `tfsdk:"tunnel_dead_timeout"`
 	TunnelType                     types.String                                         `tfsdk:"tunnel_type"`
 	Timeouts                       timeouts.Value                                       `tfsdk:"timeouts"`
-	PerformanceEnhancementMode     *SecuremeshSiteV2PerformanceEnhancementModeModel     `tfsdk:"performance_enhancement_mode"`
 	ActiveEnhancedFirewallPolicies *SecuremeshSiteV2ActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *SecuremeshSiteV2ActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	AdminUserCredentials           *SecuremeshSiteV2AdminUserCredentialsModel           `tfsdk:"admin_user_credentials"`
@@ -4487,6 +4553,7 @@ type SecuremeshSiteV2ResourceModel struct {
 	OfflineSurvivabilityMode       *SecuremeshSiteV2OfflineSurvivabilityModeModel       `tfsdk:"offline_survivability_mode"`
 	OpenshiftVirtualization        *SecuremeshSiteV2OpenshiftVirtualizationModel        `tfsdk:"openshift_virtualization"`
 	Openstack                      *SecuremeshSiteV2OpenstackModel                      `tfsdk:"openstack"`
+	PerformanceEnhancementMode     *SecuremeshSiteV2PerformanceEnhancementModeModel     `tfsdk:"performance_enhancement_mode"`
 	RESelect                       *SecuremeshSiteV2RESelectModel                       `tfsdk:"re_select"`
 	SegmentVrf                     types.List                                           `tfsdk:"segment_vrf"`
 	SiteMeshGroupOnSlo             *SecuremeshSiteV2SiteMeshGroupOnSloModel             `tfsdk:"site_mesh_group_on_slo"`
@@ -4514,13 +4581,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Securemesh Site V2 is created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Securemesh Site V2. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
@@ -4578,42 +4648,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				Update: true,
 				Delete: true,
 			}),
-			"performance_enhancement_mode": schema.SingleNestedBlock{
-				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
-				Attributes:          map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"no_jumbo": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
-					},
-					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo_disabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"jumbo_enabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
-					},
-				},
-			},
 			"active_enhanced_firewall_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_enhanced_firewall_policies, no_network_policy; Default: no_network_policy] List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enhanced_firewall_policies": schema.ListNestedBlock{
-						MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+						MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -4651,7 +4691,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"forward_proxy_policies": schema.ListNestedBlock{
-						MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -4708,7 +4748,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -4786,6 +4826,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -4818,7 +4866,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -4826,21 +4874,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -4915,7 +4963,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -4964,7 +5012,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -5064,7 +5112,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -5099,7 +5147,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -5185,6 +5233,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -5217,7 +5273,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -5225,21 +5281,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -5314,7 +5370,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -5363,7 +5419,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -5463,7 +5519,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -5498,7 +5554,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -5584,6 +5640,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -5616,7 +5680,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -5624,21 +5688,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -5713,7 +5777,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -5762,7 +5826,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -5862,7 +5926,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -5897,7 +5961,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -5975,7 +6039,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "[OneOf: custom_proxy, f5_proxy] Configuration parameter for custom proxy.",
 				Attributes: map[string]schema.Attribute{
 					"proxy_ip_address": schema.StringAttribute{
-						MarkdownDescription: "Specify the IPv4 Address of the internal Enterprise Proxy .",
+						MarkdownDescription: "Specify the IPv4 Address of the internal Enterprise Proxy.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
@@ -5983,7 +6047,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 						},
 					},
 					"proxy_port": schema.Int64Attribute{
-						MarkdownDescription: "Specify the Port of the internal Enterprise Proxy .",
+						MarkdownDescription: "Specify the Port of the internal Enterprise Proxy.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							int64validator.Between(0, 65535),
@@ -6013,7 +6077,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -6232,6 +6296,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -6264,7 +6336,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -6272,21 +6344,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -6361,7 +6433,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -6410,7 +6482,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -6510,7 +6582,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -6545,7 +6617,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -6634,6 +6706,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -6666,7 +6746,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -6674,21 +6754,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -6763,7 +6843,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -6812,7 +6892,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -6912,7 +6992,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -6947,7 +7027,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -7033,6 +7113,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -7065,7 +7153,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -7073,21 +7161,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -7162,7 +7250,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -7211,7 +7299,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -7311,7 +7399,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -7346,7 +7434,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -7453,7 +7541,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "Static Routes. .",
+										MarkdownDescription: "Configuration parameter for static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -7473,7 +7561,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -7549,7 +7637,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "List of IPv6 static routes .",
+										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -7569,7 +7657,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -7687,7 +7775,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "Static Routes. .",
+										MarkdownDescription: "Configuration parameter for static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -7707,7 +7795,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -7783,7 +7871,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "List of IPv6 static routes .",
+										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -7803,7 +7891,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -7984,6 +8072,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -8016,7 +8112,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -8024,21 +8120,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -8113,7 +8209,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -8162,7 +8258,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -8262,7 +8358,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -8297,7 +8393,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -8383,6 +8479,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -8415,7 +8519,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -8423,21 +8527,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -8512,7 +8616,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -8561,7 +8665,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -8661,7 +8765,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -8696,7 +8800,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -8794,6 +8898,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -8826,7 +8938,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -8834,21 +8946,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -8923,7 +9035,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -8972,7 +9084,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -9072,7 +9184,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -9107,7 +9219,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -9193,6 +9305,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -9225,7 +9345,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -9233,21 +9353,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -9322,7 +9442,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -9371,7 +9491,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -9471,7 +9591,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -9506,7 +9626,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -9541,6 +9661,36 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 										},
 									},
 								},
+							},
+						},
+					},
+				},
+			},
+			"performance_enhancement_mode": schema.SingleNestedBlock{
+				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Attributes:          map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
+						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"no_jumbo": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
+					},
+					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
+						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"jumbo_enabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
@@ -9608,7 +9758,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"static_routes": schema.ListNestedBlock{
-											MarkdownDescription: "Static Routes. .",
+											MarkdownDescription: "Configuration parameter for static routes.",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"attrs": schema.ListAttribute{
@@ -9628,7 +9778,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 													"ip_prefixes": schema.ListAttribute{
-														MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+														MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{
@@ -9704,7 +9854,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"static_routes": schema.ListNestedBlock{
-											MarkdownDescription: "List of IPv6 static routes .",
+											MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"attrs": schema.ListAttribute{
@@ -9724,7 +9874,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 													"ip_prefixes": schema.ListAttribute{
-														MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes .",
+														MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes.",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{
@@ -9794,6 +9944,39 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 									},
+								},
+							},
+						},
+						"segment_network": schema.SingleNestedBlock{
+							MarkdownDescription: "Type establishes a 'direct reference' from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name for public API and Uid for private API This type of reference is called direct because the relation is explicit and concrete (as opposed to selector..",
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Optional:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Optional:            true,
+									Computed:            true,
+									PlanModifiers: []planmodifier.String{
+										stringplanmodifier.UseStateForUnknown(),
+									},
+									Validators: []validator.String{
+										stringvalidator.LengthBetween(1, 63),
+										stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+									},
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
 								},
 							},
 						},
@@ -9973,6 +10156,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(256),
 														},
 													},
+													"is_management": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_management.",
+														Computed:            true,
+													},
+													"is_primary": schema.BoolAttribute{
+														MarkdownDescription: "Configuration for is_primary.",
+														Computed:            true,
+													},
 													"labels": schema.MapAttribute{
 														MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 														Optional:            true,
@@ -10005,7 +10196,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Configuration parameter for bond interface.",
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
-																MarkdownDescription: "Ethernet devices that will make up this bond .",
+																MarkdownDescription: "Ethernet devices that will make up this bond.",
 																Optional:            true,
 																ElementType:         types.StringType,
 																Validators: []validator.List{
@@ -10013,21 +10204,21 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"link_polling_interval": schema.Int64Attribute{
-																MarkdownDescription: "Link polling interval in milliseconds .",
+																MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(500, 5000),
 																},
 															},
 															"link_up_delay": schema.Int64Attribute{
-																MarkdownDescription: "Milliseconds wait before link is declared up .",
+																MarkdownDescription: "Milliseconds wait before link is declared up.",
 																Optional:            true,
 																Validators: []validator.Int64{
 																	int64validator.Between(0, 1000),
 																},
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+																MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 64),
@@ -10102,7 +10293,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "IPV6DnsList.",
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
-																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																						Optional:            true,
 																						ElementType:         types.StringType,
 																						Validators: []validator.List{
@@ -10151,7 +10342,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																				MarkdownDescription: "Configuration parameter for automatic from start.",
 																			},
 																			"dhcp_networks": schema.ListNestedBlock{
-																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																				MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																				NestedObject: schema.NestedBlockObject{
 																					Attributes: map[string]schema.Attribute{
 																						"network_prefix": schema.StringAttribute{
@@ -10251,7 +10442,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"ip_address": schema.StringAttribute{
-																MarkdownDescription: "IP address of the interface and prefix length .",
+																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(7, 1024),
@@ -10286,7 +10477,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		},
 																	},
 																	"ip_address": schema.StringAttribute{
-																		MarkdownDescription: "IP address of the interface and prefix length .",
+																		MarkdownDescription: "IP address of the interface and prefix length.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(7, 1024),
@@ -10493,30 +10684,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.PerformanceEnhancementMode != nil {
-		PerformanceEnhancementModeMap := make(map[string]interface{})
-		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
-		}
-		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
-		}
-		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
-	}
 	if data.ActiveEnhancedFirewallPolicies != nil {
 		ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 		if !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
@@ -10532,9 +10699,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 					}
 					if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 						EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
-					}
-					if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-						EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
 					}
 					EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 				}
@@ -10558,9 +10722,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 					}
 					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-					}
-					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 					}
 					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
@@ -11577,9 +11738,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		if !data.DcClusterGroupSLI.Namespace.IsNull() && !data.DcClusterGroupSLI.Namespace.IsUnknown() {
 			DcClusterGroupSLIMap["namespace"] = data.DcClusterGroupSLI.Namespace.ValueString()
 		}
-		if !data.DcClusterGroupSLI.Tenant.IsNull() && !data.DcClusterGroupSLI.Tenant.IsUnknown() {
-			DcClusterGroupSLIMap["tenant"] = data.DcClusterGroupSLI.Tenant.ValueString()
-		}
 		createReq.Spec["dc_cluster_group_sli"] = DcClusterGroupSLIMap
 	}
 	if data.DcClusterGroupSlo != nil {
@@ -11589,9 +11747,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		}
 		if !data.DcClusterGroupSlo.Namespace.IsNull() && !data.DcClusterGroupSlo.Namespace.IsUnknown() {
 			DcClusterGroupSloMap["namespace"] = data.DcClusterGroupSlo.Namespace.ValueString()
-		}
-		if !data.DcClusterGroupSlo.Tenant.IsNull() && !data.DcClusterGroupSlo.Tenant.IsUnknown() {
-			DcClusterGroupSloMap["tenant"] = data.DcClusterGroupSlo.Tenant.ValueString()
 		}
 		createReq.Spec["dc_cluster_group_slo"] = DcClusterGroupSloMap
 	}
@@ -12625,20 +12780,11 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -12712,20 +12858,11 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -12826,20 +12963,11 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -12913,20 +13041,11 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -12966,9 +13085,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			}
 			if !data.LogReceiverWithNet.LogReceiver.Namespace.IsNull() && !data.LogReceiverWithNet.LogReceiver.Namespace.IsUnknown() {
 				LogReceiverWithNetLogReceiverMap["namespace"] = data.LogReceiverWithNet.LogReceiver.Namespace.ValueString()
-			}
-			if !data.LogReceiverWithNet.LogReceiver.Tenant.IsNull() && !data.LogReceiverWithNet.LogReceiver.Tenant.IsUnknown() {
-				LogReceiverWithNetLogReceiverMap["tenant"] = data.LogReceiverWithNet.LogReceiver.Tenant.ValueString()
 			}
 			LogReceiverWithNetMap["log_receiver"] = LogReceiverWithNetLogReceiverMap
 		}
@@ -14176,6 +14292,30 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["openstack"] = OpenstackMap
 	}
+	if data.PerformanceEnhancementMode != nil {
+		PerformanceEnhancementModeMap := make(map[string]interface{})
+		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
+		}
+		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
+		}
+		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+	}
 	if data.RESelect != nil {
 		RESelectMap := make(map[string]interface{})
 		if data.RESelect.GeoProximity != nil {
@@ -14265,20 +14405,11 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															var InterfaceList []map[string]interface{}
 															for _, InterfaceItem := range InterfaceElems {
 																InterfaceItemMap := make(map[string]interface{})
-																if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-																	InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-																}
 																if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 																	InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 																}
 																if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 																	InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-																}
-																if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-																	InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-																}
-																if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-																	InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 																}
 																InterfaceList = append(InterfaceList, InterfaceItemMap)
 															}
@@ -14352,20 +14483,11 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 															var InterfaceList []map[string]interface{}
 															for _, InterfaceItem := range InterfaceElems {
 																InterfaceItemMap := make(map[string]interface{})
-																if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-																	InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-																}
 																if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 																	InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 																}
 																if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 																	InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-																}
-																if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-																	InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-																}
-																if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-																	InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 																}
 																InterfaceList = append(InterfaceList, InterfaceItemMap)
 															}
@@ -14391,6 +14513,16 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 					}
 					SegmentVrfItemMap["segment_config"] = SegmentVrfSegmentConfigMap
 				}
+				if SegmentVrfItem.SegmentNetwork != nil {
+					SegmentVrfSegmentNetworkMap := make(map[string]interface{})
+					if !SegmentVrfItem.SegmentNetwork.Name.IsNull() && !SegmentVrfItem.SegmentNetwork.Name.IsUnknown() {
+						SegmentVrfSegmentNetworkMap["name"] = SegmentVrfItem.SegmentNetwork.Name.ValueString()
+					}
+					if !SegmentVrfItem.SegmentNetwork.Namespace.IsNull() && !SegmentVrfItem.SegmentNetwork.Namespace.IsUnknown() {
+						SegmentVrfSegmentNetworkMap["namespace"] = SegmentVrfItem.SegmentNetwork.Namespace.ValueString()
+					}
+					SegmentVrfItemMap["segment_network"] = SegmentVrfSegmentNetworkMap
+				}
 				SegmentVrfList = append(SegmentVrfList, SegmentVrfItemMap)
 			}
 			createReq.Spec["segment_vrf"] = SegmentVrfList
@@ -14408,9 +14540,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			}
 			if !data.SiteMeshGroupOnSlo.SiteMeshGroup.Namespace.IsNull() && !data.SiteMeshGroupOnSlo.SiteMeshGroup.Namespace.IsUnknown() {
 				SiteMeshGroupOnSloSiteMeshGroupMap["namespace"] = data.SiteMeshGroupOnSlo.SiteMeshGroup.Namespace.ValueString()
-			}
-			if !data.SiteMeshGroupOnSlo.SiteMeshGroup.Tenant.IsNull() && !data.SiteMeshGroupOnSlo.SiteMeshGroup.Tenant.IsUnknown() {
-				SiteMeshGroupOnSloSiteMeshGroupMap["tenant"] = data.SiteMeshGroupOnSlo.SiteMeshGroup.Tenant.ValueString()
 			}
 			SiteMeshGroupOnSloMap["site_mesh_group"] = SiteMeshGroupOnSloSiteMeshGroupMap
 		}
@@ -14778,11 +14907,28 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetSecuremeshSiteV2(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -14793,66 +14939,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &SecuremeshSiteV2PerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["active_enhanced_firewall_policies"].(map[string]interface{}); ok && (isImport || data.ActiveEnhancedFirewallPolicies != nil) {
 		data.ActiveEnhancedFirewallPolicies = &SecuremeshSiteV2ActiveEnhancedFirewallPoliciesModel{
 			EnhancedFirewallPolicies: func() types.List {
@@ -15377,6 +15463,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -15968,6 +16066,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -16557,6 +16667,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -17475,6 +17597,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -18068,6 +18202,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -18657,6 +18803,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -20079,6 +20237,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -20668,6 +20838,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -21281,6 +21463,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -21871,6 +22065,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -22087,6 +22293,66 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &SecuremeshSiteV2PerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -22491,6 +22757,43 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										}
 									}
 									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					SegmentNetwork: func() *SecuremeshSiteV2SegmentVrfSegmentNetworkModel {
+						if SegmentNetworkData, ok := itemMap["segment_network"].(map[string]interface{}); ok {
+							return &SecuremeshSiteV2SegmentVrfSegmentNetworkModel{
+								Kind: func() types.String {
+									if v, ok := SegmentNetworkData["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := SegmentNetworkData["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := SegmentNetworkData["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := SegmentNetworkData["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := SegmentNetworkData["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
 								}(),
 							}
 						}
@@ -23052,6 +23355,18 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -23335,6 +23650,16 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 		return
 	}
 
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -23407,66 +23732,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &SecuremeshSiteV2PerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["active_enhanced_firewall_policies"].(map[string]interface{}); ok && (isImport || data.ActiveEnhancedFirewallPolicies != nil) {
 		data.ActiveEnhancedFirewallPolicies = &SecuremeshSiteV2ActiveEnhancedFirewallPoliciesModel{
 			EnhancedFirewallPolicies: func() types.List {
@@ -23991,6 +24256,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -24582,6 +24859,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -25171,6 +25460,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -26089,6 +26390,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -26682,6 +26995,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -27271,6 +27596,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -28693,6 +29030,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -29282,6 +29631,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -29895,6 +30256,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -30485,6 +30858,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -30701,6 +31086,66 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &SecuremeshSiteV2PerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -31105,6 +31550,43 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 										}
 									}
 									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					SegmentNetwork: func() *SecuremeshSiteV2SegmentVrfSegmentNetworkModel {
+						if SegmentNetworkData, ok := itemMap["segment_network"].(map[string]interface{}); ok {
+							return &SecuremeshSiteV2SegmentVrfSegmentNetworkModel{
+								Kind: func() types.String {
+									if v, ok := SegmentNetworkData["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := SegmentNetworkData["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := SegmentNetworkData["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := SegmentNetworkData["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := SegmentNetworkData["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
 								}(),
 							}
 						}
@@ -31667,6 +32149,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -31928,6 +32422,20 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.SecuremeshSiteV2{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -31935,6 +32443,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -32016,30 +32525,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.PerformanceEnhancementMode != nil {
-		PerformanceEnhancementModeMap := make(map[string]interface{})
-		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
-		}
-		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
-		}
-		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
-	}
 	if data.ActiveEnhancedFirewallPolicies != nil {
 		ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 		if !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
@@ -32055,9 +32540,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 					}
 					if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 						EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
-					}
-					if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-						EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
 					}
 					EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 				}
@@ -32081,9 +32563,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 					}
 					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-					}
-					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 					}
 					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
@@ -33100,9 +33579,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		if !data.DcClusterGroupSLI.Namespace.IsNull() && !data.DcClusterGroupSLI.Namespace.IsUnknown() {
 			DcClusterGroupSLIMap["namespace"] = data.DcClusterGroupSLI.Namespace.ValueString()
 		}
-		if !data.DcClusterGroupSLI.Tenant.IsNull() && !data.DcClusterGroupSLI.Tenant.IsUnknown() {
-			DcClusterGroupSLIMap["tenant"] = data.DcClusterGroupSLI.Tenant.ValueString()
-		}
 		apiResource.Spec["dc_cluster_group_sli"] = DcClusterGroupSLIMap
 	}
 	if data.DcClusterGroupSlo != nil {
@@ -33112,9 +33588,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		}
 		if !data.DcClusterGroupSlo.Namespace.IsNull() && !data.DcClusterGroupSlo.Namespace.IsUnknown() {
 			DcClusterGroupSloMap["namespace"] = data.DcClusterGroupSlo.Namespace.ValueString()
-		}
-		if !data.DcClusterGroupSlo.Tenant.IsNull() && !data.DcClusterGroupSlo.Tenant.IsUnknown() {
-			DcClusterGroupSloMap["tenant"] = data.DcClusterGroupSlo.Tenant.ValueString()
 		}
 		apiResource.Spec["dc_cluster_group_slo"] = DcClusterGroupSloMap
 	}
@@ -34148,20 +34621,11 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -34235,20 +34699,11 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -34349,20 +34804,11 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -34436,20 +34882,11 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -34489,9 +34926,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			}
 			if !data.LogReceiverWithNet.LogReceiver.Namespace.IsNull() && !data.LogReceiverWithNet.LogReceiver.Namespace.IsUnknown() {
 				LogReceiverWithNetLogReceiverMap["namespace"] = data.LogReceiverWithNet.LogReceiver.Namespace.ValueString()
-			}
-			if !data.LogReceiverWithNet.LogReceiver.Tenant.IsNull() && !data.LogReceiverWithNet.LogReceiver.Tenant.IsUnknown() {
-				LogReceiverWithNetLogReceiverMap["tenant"] = data.LogReceiverWithNet.LogReceiver.Tenant.ValueString()
 			}
 			LogReceiverWithNetMap["log_receiver"] = LogReceiverWithNetLogReceiverMap
 		}
@@ -35699,6 +36133,30 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["openstack"] = OpenstackMap
 	}
+	if data.PerformanceEnhancementMode != nil {
+		PerformanceEnhancementModeMap := make(map[string]interface{})
+		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
+		}
+		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
+		}
+		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+	}
 	if data.RESelect != nil {
 		RESelectMap := make(map[string]interface{})
 		if data.RESelect.GeoProximity != nil {
@@ -35788,20 +36246,11 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															var InterfaceList []map[string]interface{}
 															for _, InterfaceItem := range InterfaceElems {
 																InterfaceItemMap := make(map[string]interface{})
-																if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-																	InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-																}
 																if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 																	InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 																}
 																if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 																	InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-																}
-																if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-																	InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-																}
-																if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-																	InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 																}
 																InterfaceList = append(InterfaceList, InterfaceItemMap)
 															}
@@ -35875,20 +36324,11 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 															var InterfaceList []map[string]interface{}
 															for _, InterfaceItem := range InterfaceElems {
 																InterfaceItemMap := make(map[string]interface{})
-																if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-																	InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-																}
 																if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 																	InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 																}
 																if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 																	InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-																}
-																if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-																	InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-																}
-																if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-																	InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 																}
 																InterfaceList = append(InterfaceList, InterfaceItemMap)
 															}
@@ -35914,6 +36354,16 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 					}
 					SegmentVrfItemMap["segment_config"] = SegmentVrfSegmentConfigMap
 				}
+				if SegmentVrfItem.SegmentNetwork != nil {
+					SegmentVrfSegmentNetworkMap := make(map[string]interface{})
+					if !SegmentVrfItem.SegmentNetwork.Name.IsNull() && !SegmentVrfItem.SegmentNetwork.Name.IsUnknown() {
+						SegmentVrfSegmentNetworkMap["name"] = SegmentVrfItem.SegmentNetwork.Name.ValueString()
+					}
+					if !SegmentVrfItem.SegmentNetwork.Namespace.IsNull() && !SegmentVrfItem.SegmentNetwork.Namespace.IsUnknown() {
+						SegmentVrfSegmentNetworkMap["namespace"] = SegmentVrfItem.SegmentNetwork.Namespace.ValueString()
+					}
+					SegmentVrfItemMap["segment_network"] = SegmentVrfSegmentNetworkMap
+				}
 				SegmentVrfList = append(SegmentVrfList, SegmentVrfItemMap)
 			}
 			apiResource.Spec["segment_vrf"] = SegmentVrfList
@@ -35931,9 +36381,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			}
 			if !data.SiteMeshGroupOnSlo.SiteMeshGroup.Namespace.IsNull() && !data.SiteMeshGroupOnSlo.SiteMeshGroup.Namespace.IsUnknown() {
 				SiteMeshGroupOnSloSiteMeshGroupMap["namespace"] = data.SiteMeshGroupOnSlo.SiteMeshGroup.Namespace.ValueString()
-			}
-			if !data.SiteMeshGroupOnSlo.SiteMeshGroup.Tenant.IsNull() && !data.SiteMeshGroupOnSlo.SiteMeshGroup.Tenant.IsUnknown() {
-				SiteMeshGroupOnSloSiteMeshGroupMap["tenant"] = data.SiteMeshGroupOnSlo.SiteMeshGroup.Tenant.ValueString()
 			}
 			SiteMeshGroupOnSloMap["site_mesh_group"] = SiteMeshGroupOnSloSiteMeshGroupMap
 		}
@@ -36297,6 +36744,14 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 
 	_, err := r.client.UpdateSecuremeshSiteV2(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of securemesh_site_v2 %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update SecuremeshSiteV2: %s", err))
 		return
 	}
@@ -36314,10 +36769,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -36327,6 +36778,19 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	fetched, fetchErr := r.client.GetSecuremeshSiteV2(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read SecuremeshSiteV2 after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -36350,66 +36814,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &SecuremeshSiteV2PerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["active_enhanced_firewall_policies"].(map[string]interface{}); ok && (isImport || data.ActiveEnhancedFirewallPolicies != nil) {
 		data.ActiveEnhancedFirewallPolicies = &SecuremeshSiteV2ActiveEnhancedFirewallPoliciesModel{
 			EnhancedFirewallPolicies: func() types.List {
@@ -36934,6 +37338,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -37525,6 +37941,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -38114,6 +38542,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -39032,6 +39472,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -39625,6 +40077,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -40214,6 +40678,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -41636,6 +42112,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -42225,6 +42713,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
@@ -42838,6 +43338,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -43428,6 +43940,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
@@ -43644,6 +44168,66 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &SecuremeshSiteV2PerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -44048,6 +44632,43 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										}
 									}
 									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					SegmentNetwork: func() *SecuremeshSiteV2SegmentVrfSegmentNetworkModel {
+						if SegmentNetworkData, ok := itemMap["segment_network"].(map[string]interface{}); ok {
+							return &SecuremeshSiteV2SegmentVrfSegmentNetworkModel{
+								Kind: func() types.String {
+									if v, ok := SegmentNetworkData["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := SegmentNetworkData["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := SegmentNetworkData["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := SegmentNetworkData["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := SegmentNetworkData["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
 								}(),
 							}
 						}
@@ -44609,6 +45230,18 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																		}
 																	}
 																	return nil
+																}(),
+																IsManagement: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_management"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																IsPrimary: func() types.Bool {
+																	if v, ok := InterfaceListItemMap["is_primary"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
 																}(),
 																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {

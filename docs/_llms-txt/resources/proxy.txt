@@ -7,7 +7,6 @@ Tcp loadbalancer create specification. configuration
 
 - name
 - namespace
-- connection_timeout
 
 ## Minimal Valid Config
 
@@ -15,8 +14,6 @@ Tcp loadbalancer create specification. configuration
 resource "xcsh_proxy" "example" {
   name      = "example-proxy"
   namespace = "staging"
-
-  connection_timeout = 1
 }
 ```
 

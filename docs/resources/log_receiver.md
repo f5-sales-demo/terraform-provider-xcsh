@@ -89,7 +89,7 @@ A [`syslog`](#syslog) block supports the following:
 
 A [`tcp_server`](#syslog-tcp-server) block (within [`syslog`](#syslog)) supports the following:
 
-<a id="syslog-tcp-server-port"></a>&#x2022; [`port`](#syslog-tcp-server-port) - Optional Number<br>Port number used for communication
+<a id="syslog-tcp-server-port"></a>&#x2022; [`port`](#syslog-tcp-server-port) - Optional Number<br>Port Number. Port number used for communication
 
 <a id="syslog-tcp-server-server-name"></a>&#x2022; [`server_name`](#syslog-tcp-server-server-name) - Optional String<br>Server name is fully qualified domain name or IP address of the server
 
@@ -141,7 +141,7 @@ A [`key_url`](#syslog-tls-server-mtls-enable-key-url) block (within [`syslog.tls
 
 An [`udp_server`](#syslog-udp-server) block (within [`syslog`](#syslog)) supports the following:
 
-<a id="syslog-udp-server-port"></a>&#x2022; [`port`](#syslog-udp-server-port) - Optional Number<br>Port number used for communication
+<a id="syslog-udp-server-port"></a>&#x2022; [`port`](#syslog-udp-server-port) - Optional Number<br>Port Number. Port number used for communication
 
 <a id="syslog-udp-server-server-name"></a>&#x2022; [`server_name`](#syslog-udp-server-server-name) - Optional String<br>Server name is fully qualified domain name or IP address of the server
 

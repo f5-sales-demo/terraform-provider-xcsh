@@ -15,5 +15,5 @@ terraform {
 # Basic K8SPodSecurityAdmission configuration
 resource "xcsh_k8s_pod_security_admission" "example" {
   name      = "example-k8s-pod-security-admission"
-  namespace = "staging"
+  namespace = "system"
 }

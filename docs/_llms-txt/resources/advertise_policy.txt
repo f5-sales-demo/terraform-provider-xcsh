@@ -7,9 +7,6 @@ Advertise_policy object controls how and where a service represented by a given 
 
 - name
 - namespace
-- address
-- protocol
-- skip_xff_append
 
 ## Minimal Valid Config
 
@@ -17,10 +14,6 @@ Advertise_policy object controls how and where a service represented by a given 
 resource "xcsh_advertise_policy" "example" {
   name      = "example-advertise-policy"
   namespace = "staging"
-
-  address         = "example-value"
-  protocol        = "TCP"
-  skip_xff_append = true
 }
 ```
 

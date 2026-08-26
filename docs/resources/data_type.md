@@ -32,10 +32,6 @@ terraform {
 resource "xcsh_data_type" "example" {
   name      = "example-data-type"
   namespace = "staging"
-
-  compliances       = ["example-value"]
-  is_pii            = true
-  is_sensitive_data = true
 }
 ```
 
@@ -63,12 +59,12 @@ resource "xcsh_data_type" "example" {
 
 ### Spec Argument Reference
 
-<a id="compliances"></a>&#x2022; [`compliances`](#compliances) - Required List<br>Possible values are `GDPR`, `CCPA`, `PIPEDA`, `LGPD`, `DPA_UK`, `PDPA_SG`, `APPI`, `HIPAA`, `CPRA_2023`, `CPA_CO`, `SOC2`, `PCI_DSS`, `ISO_IEC_27001`, `ISO_IEC_27701`, `EPRIVACY_DIRECTIVE`, `GLBA`, `SOX`<br>[Enum:
+<a id="compliances"></a>&#x2022; [`compliances`](#compliances) - Optional List<br>Possible values are `GDPR`, `CCPA`, `PIPEDA`, `LGPD`, `DPA_UK`, `PDPA_SG`, `APPI`, `HIPAA`, `CPRA_2023`, `CPA_CO`, `SOC2`, `PCI_DSS`, `ISO_IEC_27001`, `ISO_IEC_27701`, `EPRIVACY_DIRECTIVE`, `GLBA`, `SOX`<br>[Enum:
 GDPR|CCPA|PIPEDA|LGPD|DPA_UK|PDPA_SG|APPI|HIPAA|CPRA_2023|CPA_CO|SOC2|PCI_DSS|ISO_IEC_27001|ISO_IEC_27701|EPRIVACY_DIRECTIVE|GLBA|SOX] Choose applicable compliance frameworks such as GDPR, PCI/DSS, or CCPA to ensure the platform identifies whether vulnerabilities in API endpoints handling this data type may cause a compliance breach
 
-<a id="is-pii"></a>&#x2022; [`is_pii`](#is-pii) - Required Bool<br>Select this option to classify the custom data type as personally identifiable information (PII)
+<a id="is-pii"></a>&#x2022; [`is_pii`](#is-pii) - Optional Bool<br>Select this option to classify the custom data type as personally identifiable information (PII)
 
-<a id="is-sensitive-data"></a>&#x2022; [`is_sensitive_data`](#is-sensitive-data) - Required Bool<br>Select this option to classify the custom data type as sensitive, enabling detection of API vulnerabilities related to this data type
+<a id="is-sensitive-data"></a>&#x2022; [`is_sensitive_data`](#is-sensitive-data) - Optional Bool<br>Select this option to classify the custom data type as sensitive, enabling detection of API vulnerabilities related to this data type
 
 <a id="rules"></a>&#x2022; [`rules`](#rules) - Optional Block<br>Configure key/value or regex match rules to enable the platform to detect this custom data type in the API request or response<br>See [Rules](#rules) below for details.
 
@@ -106,7 +102,7 @@ A [`key_pattern`](#rules-key-pattern) block (within [`rules`](#rules)) supports 
 
 An [`exact_values`](#rules-key-pattern-exact-values) block (within [`rules.key_pattern`](#rules-key-pattern)) supports the following:
 
-<a id="values-4303de"></a>&#x2022; [`exact_values`](#values-4303de) - Optional List<br>List of exact values to match
+<a id="values-4303de"></a>&#x2022; [`exact_values`](#values-4303de) - Optional List<br>Exact Values. List of exact values to match
 
 #### Rules Key Value Pattern
 
@@ -158,7 +154,7 @@ A [`value_pattern`](#rules-value-pattern) block (within [`rules`](#rules)) suppo
 
 An [`exact_values`](#rules-value-pattern-exact-values) block (within [`rules.value_pattern`](#rules-value-pattern)) supports the following:
 
-<a id="values-cd8e66"></a>&#x2022; [`exact_values`](#values-cd8e66) - Optional List<br>List of exact values to match
+<a id="values-cd8e66"></a>&#x2022; [`exact_values`](#values-cd8e66) - Optional List<br>Exact Values. List of exact values to match
 
 #### Timeouts
 

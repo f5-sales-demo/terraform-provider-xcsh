@@ -311,7 +311,7 @@ A [`layer2_interface`](#layer2-interface) block supports the following:
 
 A [`l2sriov_interface`](#layer2-interface-l2sriov-interface) block (within [`layer2_interface`](#layer2-interface)) supports the following:
 
-<a id="device-493f29"></a>&#x2022; [`device`](#device-493f29) - Optional String<br>Physical ethernet interface
+<a id="device-493f29"></a>&#x2022; [`device`](#device-493f29) - Optional String<br>Ethernet Device. Physical ethernet interface
 
 <a id="untagged-3d16a0"></a>&#x2022; [`untagged`](#untagged-3d16a0) - Optional Block<br>Enable this option
 
@@ -321,7 +321,7 @@ A [`l2sriov_interface`](#layer2-interface-l2sriov-interface) block (within [`lay
 
 A [`l2vlan_interface`](#layer2-interface-l2vlan-interface) block (within [`layer2_interface`](#layer2-interface)) supports the following:
 
-<a id="device-5d2d98"></a>&#x2022; [`device`](#device-5d2d98) - Optional String<br>Physical ethernet interface
+<a id="device-5d2d98"></a>&#x2022; [`device`](#device-5d2d98) - Optional String<br>Ethernet Device. Physical ethernet interface
 
 <a id="vlan-id-04713c"></a>&#x2022; [`vlan_id`](#vlan-id-04713c) - Optional Number<br>VLAN ID. VLAN ID
 

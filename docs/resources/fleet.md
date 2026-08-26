@@ -33,10 +33,7 @@ resource "xcsh_fleet" "example" {
   name      = "example-fleet"
   namespace = "staging"
 
-  fleet_label                          = "example-value"
-  enable_default_fleet_config_download = true
-  operating_system_version             = "example-value"
-  volterra_software_version            = "example-value"
+  fleet_label = "example-value"
 }
 ```
 
@@ -98,7 +95,7 @@ resource "xcsh_fleet" "example" {
 -> **One of the following:**
 &#x2022; <a id="disable-vm"></a>[`disable_vm`](#disable-vm) - Optional Block<br>Enable this option
 
-<a id="enable-default-fleet-config-download"></a>&#x2022; [`enable_default_fleet_config_download`](#enable-default-fleet-config-download) - Required Bool<br>Enable default fleet config, It must be set for storage config and GPU config
+<a id="enable-default-fleet-config-download"></a>&#x2022; [`enable_default_fleet_config_download`](#enable-default-fleet-config-download) - Optional Bool<br>Enable default fleet config, It must be set for storage config and GPU config
 
 <a id="enable-log-anonymization"></a>&#x2022; [`enable_log_anonymization`](#enable-log-anonymization) - Optional Block<br>Configuration parameter for enable log anonymization
 
@@ -136,7 +133,7 @@ network<br>See [Network Firewall](#network-firewall) below for details.
 -> **One of the following:**
 &#x2022; <a id="no-storage-static-routes"></a>[`no_storage_static_routes`](#no-storage-static-routes) - Optional Block<br>Configuration parameter for no storage static routes
 
-<a id="operating-system-version"></a>&#x2022; [`operating_system_version`](#operating-system-version) - Required String<br>Desired Operating System version that is applied to all sites that are member of the fleet. Current Operating System version can be overridden via site config
+<a id="operating-system-version"></a>&#x2022; [`operating_system_version`](#operating-system-version) - Optional String<br>Desired Operating System version that is applied to all sites that are member of the fleet. Current Operating System version can be overridden via site config
 
 <a id="outside-virtual-network"></a>&#x2022; [`outside_virtual_network`](#outside-virtual-network) - Optional Block<br>Default outside (site local) virtual network for the fleet<br>See [Outside Virtual Network](#outside-virtual-network) below for details.
 
@@ -154,7 +151,7 @@ network<br>See [Network Firewall](#network-firewall) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 
-<a id="volterra-software-version"></a>&#x2022; [`volterra_software_version`](#volterra-software-version) - Required String<br>F5XC software version is human readable string matching released set of version components. The given software version is applied to all sites that are member of the fleet. Current software installed can be overridden via site config
+<a id="volterra-software-version"></a>&#x2022; [`volterra_software_version`](#volterra-software-version) - Optional String<br>F5XC software version is human readable string matching released set of version components. The given software version is applied to all sites that are member of the fleet. Current software installed can be overridden via site config
 
 ### Attributes Reference
 
@@ -195,11 +192,11 @@ A [`bond_devices`](#bond-device-list-bond-devices) block (within [`bond_device_l
 
 <a id="bond-device-list-bond-devices-lacp"></a>&#x2022; [`lacp`](#bond-device-list-bond-devices-lacp) - Optional Block<br>LACP parameters. LACP parameters for the bond device<br>See [Lacp](#bond-device-list-bond-devices-lacp) below.
 
-<a id="interval-0b4c96"></a>&#x2022; [`link_polling_interval`](#interval-0b4c96) - Optional Number<br>Link polling interval in milliseconds
+<a id="interval-0b4c96"></a>&#x2022; [`link_polling_interval`](#interval-0b4c96) - Optional Number<br>Link Polling Interval. Link polling interval in milliseconds
 
 <a id="delay-b1200b"></a>&#x2022; [`link_up_delay`](#delay-b1200b) - Optional Number<br>Milliseconds wait before link is declared up
 
-<a id="bond-device-list-bond-devices-name"></a>&#x2022; [`name`](#bond-device-list-bond-devices-name) - Optional String<br>Name for the Bond. Ex 'bond0'
+<a id="bond-device-list-bond-devices-name"></a>&#x2022; [`name`](#bond-device-list-bond-devices-name) - Optional String<br>Bond Device Name. Name for the Bond. Ex 'bond0'
 
 #### Bond Device List Bond Devices Lacp
 
@@ -414,11 +411,11 @@ A [`sriov_interfaces`](#sriov-interfaces) block supports the following:
 
 A [`sriov_interface`](#sriov-interfaces-sriov-interface) block (within [`sriov_interfaces`](#sriov-interfaces)) supports the following:
 
-<a id="name-6aa533"></a>&#x2022; [`interface_name`](#name-6aa533) - Optional String<br>Name of SR-IOV physical interface
+<a id="name-6aa533"></a>&#x2022; [`interface_name`](#name-6aa533) - Optional String<br>Name of physical interface. Name of SR-IOV physical interface
 
 <a id="vfs-4b661e"></a>&#x2022; [`number_of_vfio_vfs`](#vfs-4b661e) - Optional Number<br>Number of virtual functions reserved for VNFs and DPDK-based CNFs
 
-<a id="vfs-bf237a"></a>&#x2022; [`number_of_vfs`](#vfs-bf237a) - Optional Number<br>Total number of virtual functions
+<a id="vfs-bf237a"></a>&#x2022; [`number_of_vfs`](#vfs-bf237a) - Optional Number<br>Total number of virtual functions. Total number of virtual functions
 
 #### Storage Class List
 
@@ -526,7 +523,7 @@ A [`storage_devices`](#storage-device-list-storage-devices) block (within [`stor
 
 <a id="orchestrator-9f97a6"></a>&#x2022; [`pure_service_orchestrator`](#orchestrator-9f97a6) - Optional Block<br>Device configuration for Pure Storage Service Orchestrator<br>See [Pure Service Orchestrator](#orchestrator-9f97a6) below.
 
-<a id="device-9157b6"></a>&#x2022; [`storage_device`](#device-9157b6) - Optional String<br>Storage device and device unit
+<a id="device-9157b6"></a>&#x2022; [`storage_device`](#device-9157b6) - Optional String<br>Storage Device. Storage device and device unit
 
 #### Storage Device List Storage Devices Hpe Storage
 
@@ -758,7 +755,7 @@ An [`interfaces`](#storage-interface-list-interfaces) block (within [`storage_in
 
 A [`storage_static_routes`](#storage-static-routes) block supports the following:
 
-<a id="storage-static-routes-storage-routes"></a>&#x2022; [`storage_routes`](#storage-static-routes-storage-routes) - Optional Block<br>List of storage static routes<br>See [Storage Routes](#storage-static-routes-storage-routes) below.
+<a id="storage-static-routes-storage-routes"></a>&#x2022; [`storage_routes`](#storage-static-routes-storage-routes) - Optional Block<br>List of Static Routes. List of storage static routes<br>See [Storage Routes](#storage-static-routes-storage-routes) below.
 
 #### Storage Static Routes Storage Routes
 

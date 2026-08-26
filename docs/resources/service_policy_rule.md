@@ -238,7 +238,7 @@ A [`cookie_matchers`](#cookie-matchers) block supports the following:
 
 <a id="cookie-matchers-item"></a>&#x2022; [`item`](#cookie-matchers-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#cookie-matchers-item) below.
 
-<a id="cookie-matchers-name"></a>&#x2022; [`name`](#cookie-matchers-name) - Optional String<br>Case-sensitive cookie name
+<a id="cookie-matchers-name"></a>&#x2022; [`name`](#cookie-matchers-name) - Optional String<br>Cookie Name. A case-sensitive cookie name
 
 #### Cookie Matchers Item
 
@@ -270,7 +270,7 @@ A [`headers`](#headers) block supports the following:
 
 <a id="headers-item"></a>&#x2022; [`item`](#headers-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#headers-item) below.
 
-<a id="headers-name"></a>&#x2022; [`name`](#headers-name) - Optional String<br>Case-insensitive HTTP header name
+<a id="headers-name"></a>&#x2022; [`name`](#headers-name) - Optional String<br>Header Name. A case-insensitive HTTP header name
 
 #### Headers Item
 

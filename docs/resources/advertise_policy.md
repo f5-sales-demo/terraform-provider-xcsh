@@ -32,10 +32,6 @@ terraform {
 resource "xcsh_advertise_policy" "example" {
   name      = "example-advertise-policy"
   namespace = "staging"
-
-  address         = "example-value"
-  protocol        = "TCP"
-  skip_xff_append = true
 }
 ```
 
@@ -63,17 +59,17 @@ resource "xcsh_advertise_policy" "example" {
 
 ### Spec Argument Reference
 
-<a id="address"></a>&#x2022; [`address`](#address) - Required String  Specified in the site<br>Optional. VIP to advertise. This VIP can be either V4/V6 address You can not specify this if where contains a site or virtual site of type REGIONAL_EDGE or public network If not specified and 'where' is specified with site or virtual site option, inside_vip or outside_vip
+<a id="address"></a>&#x2022; [`address`](#address) - Optional String  Specified in the site<br>Optional. VIP to advertise. This VIP can be either V4/V6 address You can not specify this if where contains a site or virtual site of type REGIONAL_EDGE or public network If not specified and 'where' is specified with site or virtual site option, inside_vip or outside_vip
 
 -> **One of the following:**
 &#x2022; <a id="port"></a>[`port`](#port) - Optional Number<br>Port to advertise
 <br><br>&#x2022; <a id="port-ranges"></a>[`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
 
-<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Required String<br>Possible values are `TCP`, `UDP`<br>[Enum: TCP|UDP] Protocol. Protocol to advertise
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String<br>Possible values are `TCP`, `UDP`<br>[Enum: TCP|UDP] Protocol. Protocol to advertise
 
 <a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional Block<br>Optional. Public VIP to advertise This field is mutually exclusive with where and address fields<br>See [Public IP](#public-ip) below for details.
 
-<a id="skip-xff-append"></a>&#x2022; [`skip_xff_append`](#skip-xff-append) - Required Bool<br>If set, the loadbalancer will not append the remote address to the x-forwarded-for HTTP header
+<a id="skip-xff-append"></a>&#x2022; [`skip_xff_append`](#skip-xff-append) - Optional Bool<br>If set, the loadbalancer will not append the remote address to the x-forwarded-for HTTP header
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -240,7 +236,7 @@ A [`ref`](#where-site-ref) block (within [`where.site`](#where-site)) supports t
 
 A [`virtual_network`](#where-virtual-network) block (within [`where`](#where)) supports the following:
 
-<a id="where-virtual-network-ref"></a>&#x2022; [`ref`](#where-virtual-network-ref) - Optional Block<br>Virtual network direct reference<br>See [Ref](#where-virtual-network-ref) below.
+<a id="where-virtual-network-ref"></a>&#x2022; [`ref`](#where-virtual-network-ref) - Optional Block<br>Reference. A virtual network direct reference<br>See [Ref](#where-virtual-network-ref) below.
 
 #### Where Virtual Network Ref
 
@@ -269,7 +265,7 @@ A [`virtual_site`](#where-virtual-site) block (within [`where`](#where)) support
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
-<a id="where-virtual-site-ref"></a>&#x2022; [`ref`](#where-virtual-site-ref) - Optional Block<br>Virtual_site direct reference<br>See [Ref](#where-virtual-site-ref) below.
+<a id="where-virtual-site-ref"></a>&#x2022; [`ref`](#where-virtual-site-ref) - Optional Block<br>Reference. A virtual_site direct reference<br>See [Ref](#where-virtual-site-ref) below.
 
 #### Where Virtual Site Ref
 

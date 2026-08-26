@@ -10,8 +10,9 @@ import (
 
 // VirtualHost represents a F5XC VirtualHost
 type VirtualHost struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateVirtualHost creates a new VirtualHost

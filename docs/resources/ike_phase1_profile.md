@@ -77,7 +77,7 @@ encryption algorithms
 &#x2022; <a id="ike-keylifetime-hours"></a>[`ike_keylifetime_hours`](#ike-keylifetime-hours) - Optional Block<br>Configuration parameter for IKE keylifetime hours<br>See [IKE Keylifetime Hours](#ike-keylifetime-hours) below for details.
 <br><br>&#x2022; <a id="ike-keylifetime-minutes"></a>[`ike_keylifetime_minutes`](#ike-keylifetime-minutes) - Optional Block<br>Configuration parameter for IKE keylifetime minutes<br>See [IKE Keylifetime Minutes](#ike-keylifetime-minutes) below for details.
 
-<a id="prf"></a>&#x2022; [`prf`](#prf) - Required List  Defaults to `PRF_DEFAULT`<br>Possible values are `PRF_DEFAULT`, `PRFSHA256`, `PRFSHA384`, `PRFSHA512`<br>[Enum: PRF_DEFAULT|PRFSHA256|PRFSHA384|PRFSHA512] Select PseudoRandomFunction for IKE SA
+<a id="prf"></a>&#x2022; [`prf`](#prf) - Required List  Defaults to `PRF_DEFAULT`<br>Possible values are `PRF_DEFAULT`, `PRFSHA256`, `PRFSHA384`, `PRFSHA512`<br>[Enum: PRF_DEFAULT|PRFSHA256|PRFSHA384|PRFSHA512] PseudoRandomFunction. Select PseudoRandomFunction for IKE SA
 
 -> **One of the following:**
 &#x2022; <a id="reauth-disabled"></a>[`reauth_disabled`](#reauth-disabled) - Optional Block<br>Enable this option

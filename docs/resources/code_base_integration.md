@@ -117,7 +117,7 @@ A [`bitbucket`](#code-base-integration-Bitbucket) block (within [`code_base_inte
 
 <a id="code-base-integration-Bitbucket-passwd"></a>&#x2022; [`passwd`](#code-base-integration-Bitbucket-passwd) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Passwd](#code-base-integration-Bitbucket-passwd) below.
 
-<a id="username-5eed2c"></a>&#x2022; [`username`](#username-5eed2c) - Optional String<br>Bitbucket Username
+<a id="username-5eed2c"></a>&#x2022; [`username`](#username-5eed2c) - Optional String<br>Bitbucket Username. Human-readable name for the resource
 
 #### codebase Integration Bitbucket Passwd
 
@@ -151,9 +151,9 @@ A [`bitbucket_server`](#code-base-integration-Bitbucket-server) block (within [`
 
 <a id="passwd-2b47a2"></a>&#x2022; [`passwd`](#passwd-2b47a2) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Passwd](#passwd-2b47a2) below.
 
-<a id="url-248e46"></a>&#x2022; [`url`](#url-248e46) - Optional String<br>Bitbucket Server URL
+<a id="url-248e46"></a>&#x2022; [`url`](#url-248e46) - Optional String<br>Bitbucket Server URL. URL or URI reference
 
-<a id="username-18789e"></a>&#x2022; [`username`](#username-18789e) - Optional String<br>Bitbucket Server Username
+<a id="username-18789e"></a>&#x2022; [`username`](#username-18789e) - Optional String<br>Bitbucket Server Username. Human-readable name for the resource
 
 <a id="ssl-2bc57e"></a>&#x2022; [`verify_ssl`](#ssl-2bc57e) - Optional Bool<br>Verify SSL. Configuration parameter for verify SSL
 
@@ -179,7 +179,7 @@ A [`github`](#code-base-integration-GitHub) block (within [`code_base_integratio
 
 <a id="token-87a129"></a>&#x2022; [`access_token`](#token-87a129) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-87a129) below.
 
-<a id="code-base-integration-GitHub-username"></a>&#x2022; [`username`](#code-base-integration-GitHub-username) - Optional String<br>GitHub Username
+<a id="code-base-integration-GitHub-username"></a>&#x2022; [`username`](#code-base-integration-GitHub-username) - Optional String<br>GitHub Username. Human-readable name for the resource
 
 <a id="code-base-integration-GitHub-verify-ssl"></a>&#x2022; [`verify_ssl`](#code-base-integration-GitHub-verify-ssl) - Optional Bool<br>GitHub Verify SSL. Configuration parameter for verify SSL
 
@@ -205,9 +205,9 @@ A [`github_enterprise`](#code-base-integration-GitHub-enterprise) block (within 
 
 <a id="token-1cb3b1"></a>&#x2022; [`access_token`](#token-1cb3b1) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-1cb3b1) below.
 
-<a id="hostname-c8f0af"></a>&#x2022; [`hostname`](#hostname-c8f0af) - Optional String<br>GitHub Hostname
+<a id="hostname-c8f0af"></a>&#x2022; [`hostname`](#hostname-c8f0af) - Optional String<br>GitHub Hostname. Human-readable name for the resource
 
-<a id="username-cf1607"></a>&#x2022; [`username`](#username-cf1607) - Optional String<br>GitHub Username
+<a id="username-cf1607"></a>&#x2022; [`username`](#username-cf1607) - Optional String<br>GitHub Username. Human-readable name for the resource
 
 #### codebase Integration GitHub Enterprise Access Token
 
@@ -253,7 +253,7 @@ A [`gitlab_enterprise`](#code-base-integration-GitLab-enterprise) block (within 
 
 <a id="token-c6d526"></a>&#x2022; [`access_token`](#token-c6d526) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-c6d526) below.
 
-<a id="url-4e0ac4"></a>&#x2022; [`url`](#url-4e0ac4) - Optional String<br>GitLab URL
+<a id="url-4e0ac4"></a>&#x2022; [`url`](#url-4e0ac4) - Optional String<br>GitLab URL. URL or URI reference
 
 #### codebase Integration GitLab Enterprise Access Token
 

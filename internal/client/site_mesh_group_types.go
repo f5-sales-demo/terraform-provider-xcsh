@@ -10,8 +10,9 @@ import (
 
 // SiteMeshGroup represents a F5XC SiteMeshGroup
 type SiteMeshGroup struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateSiteMeshGroup creates a new SiteMeshGroup

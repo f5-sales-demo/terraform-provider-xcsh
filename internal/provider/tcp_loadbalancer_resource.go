@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -26,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -958,7 +960,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
-						MarkdownDescription: "Where should this load balancer be available .",
+						MarkdownDescription: "Where should this load balancer be available.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -1608,7 +1610,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -1626,7 +1628,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "Enable this option",
 							},
 							"tls_certificates": schema.ListNestedBlock{
-								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -1670,7 +1672,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -1831,7 +1833,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -1975,7 +1977,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 								Attributes: map[string]schema.Attribute{
 									"xfcc_header_elements": schema.ListAttribute{
-										MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+										MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 										Optional:            true,
 										ElementType:         types.StringType,
 									},
@@ -2150,9 +2152,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
 					}
-					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
-					}
 					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
 				ActiveServicePoliciesMap["policies"] = PoliciesList
@@ -2180,9 +2179,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
@@ -2208,9 +2204,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
@@ -2241,9 +2234,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
 						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -2260,9 +2250,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
@@ -2284,9 +2271,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
 						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -2301,9 +2285,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -2313,9 +2294,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
@@ -2337,9 +2315,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-			}
-			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
 			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
@@ -2393,9 +2368,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
 						OriginPoolsWeightsClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
-					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
-						OriginPoolsWeightsClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
-					}
 					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
 				if OriginPoolsWeightsItem.EndpointSubsets != nil {
@@ -2408,9 +2380,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
 						OriginPoolsWeightsPoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
-					}
-					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
-						OriginPoolsWeightsPoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
 					OriginPoolsWeightsItemMap["pool"] = OriginPoolsWeightsPoolMap
 				}
@@ -2445,9 +2414,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
-						}
-						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
 						}
 						CertificatesList = append(CertificatesList, CertificatesItemMap)
 					}
@@ -2501,9 +2467,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 						TLSTCPTLSCertParamsUseMtlsCRLMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-						TLSTCPTLSCertParamsUseMtlsCRLMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-					}
 					TLSTCPTLSCertParamsUseMtlsMap["crl"] = TLSTCPTLSCertParamsUseMtlsCRLMap
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.NoCRL != nil {
@@ -2516,9 +2479,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					TLSTCPTLSCertParamsUseMtlsMap["trusted_ca"] = TLSTCPTLSCertParamsUseMtlsTrustedCAMap
 				}
@@ -2657,9 +2617,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 						TLSTCPTLSParametersUseMtlsCRLMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-						TLSTCPTLSParametersUseMtlsCRLMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-					}
 					TLSTCPTLSParametersUseMtlsMap["crl"] = TLSTCPTLSParametersUseMtlsCRLMap
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.NoCRL != nil {
@@ -2672,9 +2629,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						TLSTCPTLSParametersUseMtlsTrustedCAMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TLSTCPTLSParametersUseMtlsTrustedCAMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					TLSTCPTLSParametersUseMtlsMap["trusted_ca"] = TLSTCPTLSParametersUseMtlsTrustedCAMap
 				}
@@ -2751,9 +2705,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 					TLSTCPAutoCertUseMtlsCRLMap["namespace"] = data.TLSTCPAutoCert.UseMtls.CRL.Namespace.ValueString()
 				}
-				if !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-					TLSTCPAutoCertUseMtlsCRLMap["tenant"] = data.TLSTCPAutoCert.UseMtls.CRL.Tenant.ValueString()
-				}
 				TLSTCPAutoCertUseMtlsMap["crl"] = TLSTCPAutoCertUseMtlsCRLMap
 			}
 			if data.TLSTCPAutoCert.UseMtls.NoCRL != nil {
@@ -2766,9 +2717,6 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 					TLSTCPAutoCertUseMtlsTrustedCAMap["namespace"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-				}
-				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-					TLSTCPAutoCertUseMtlsTrustedCAMap["tenant"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 				}
 				TLSTCPAutoCertUseMtlsMap["trusted_ca"] = TLSTCPAutoCertUseMtlsTrustedCAMap
 			}
@@ -2828,11 +2776,28 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetTCPLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -4233,6 +4198,16 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read TCPLoadBalancer: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -5680,6 +5655,20 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.TCPLoadBalancer{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -5687,6 +5676,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -5747,9 +5737,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
 					}
-					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
-					}
 					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
 				ActiveServicePoliciesMap["policies"] = PoliciesList
@@ -5777,9 +5764,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
@@ -5805,9 +5789,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
@@ -5838,9 +5819,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
 						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -5857,9 +5835,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
@@ -5881,9 +5856,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
 						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -5898,9 +5870,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -5910,9 +5879,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
@@ -5934,9 +5900,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-			}
-			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
 			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
@@ -5990,9 +5953,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
 						OriginPoolsWeightsClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
-					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
-						OriginPoolsWeightsClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
-					}
 					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
 				if OriginPoolsWeightsItem.EndpointSubsets != nil {
@@ -6005,9 +5965,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
 						OriginPoolsWeightsPoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
-					}
-					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
-						OriginPoolsWeightsPoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
 					OriginPoolsWeightsItemMap["pool"] = OriginPoolsWeightsPoolMap
 				}
@@ -6042,9 +5999,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
-						}
-						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
 						}
 						CertificatesList = append(CertificatesList, CertificatesItemMap)
 					}
@@ -6098,9 +6052,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 						TLSTCPTLSCertParamsUseMtlsCRLMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-						TLSTCPTLSCertParamsUseMtlsCRLMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-					}
 					TLSTCPTLSCertParamsUseMtlsMap["crl"] = TLSTCPTLSCertParamsUseMtlsCRLMap
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.NoCRL != nil {
@@ -6113,9 +6064,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					TLSTCPTLSCertParamsUseMtlsMap["trusted_ca"] = TLSTCPTLSCertParamsUseMtlsTrustedCAMap
 				}
@@ -6254,9 +6202,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 						TLSTCPTLSParametersUseMtlsCRLMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-						TLSTCPTLSParametersUseMtlsCRLMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-					}
 					TLSTCPTLSParametersUseMtlsMap["crl"] = TLSTCPTLSParametersUseMtlsCRLMap
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.NoCRL != nil {
@@ -6269,9 +6214,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						TLSTCPTLSParametersUseMtlsTrustedCAMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TLSTCPTLSParametersUseMtlsTrustedCAMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					TLSTCPTLSParametersUseMtlsMap["trusted_ca"] = TLSTCPTLSParametersUseMtlsTrustedCAMap
 				}
@@ -6348,9 +6290,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 					TLSTCPAutoCertUseMtlsCRLMap["namespace"] = data.TLSTCPAutoCert.UseMtls.CRL.Namespace.ValueString()
 				}
-				if !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-					TLSTCPAutoCertUseMtlsCRLMap["tenant"] = data.TLSTCPAutoCert.UseMtls.CRL.Tenant.ValueString()
-				}
 				TLSTCPAutoCertUseMtlsMap["crl"] = TLSTCPAutoCertUseMtlsCRLMap
 			}
 			if data.TLSTCPAutoCert.UseMtls.NoCRL != nil {
@@ -6363,9 +6302,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 					TLSTCPAutoCertUseMtlsTrustedCAMap["namespace"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-				}
-				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-					TLSTCPAutoCertUseMtlsTrustedCAMap["tenant"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 				}
 				TLSTCPAutoCertUseMtlsMap["trusted_ca"] = TLSTCPAutoCertUseMtlsTrustedCAMap
 			}
@@ -6421,6 +6357,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 
 	_, err := r.client.UpdateTCPLoadBalancer(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of tcp_loadbalancer %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update TCPLoadBalancer: %s", err))
 		return
 	}
@@ -6438,10 +6382,6 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -6451,6 +6391,19 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	fetched, fetchErr := r.client.GetTCPLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read TCPLoadBalancer after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

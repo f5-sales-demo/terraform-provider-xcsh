@@ -94,7 +94,7 @@ A [`password_policy`](#password-policy) block supports the following:
 
 <a id="password-policy-lowercase-characters"></a>&#x2022; [`lowercase_characters`](#password-policy-lowercase-characters) - Optional Number<br>The number of lower case letters required to be in the password string
 
-<a id="password-policy-minimum-length"></a>&#x2022; [`minimum_length`](#password-policy-minimum-length) - Optional Number<br>Minimum length of password
+<a id="password-policy-minimum-length"></a>&#x2022; [`minimum_length`](#password-policy-minimum-length) - Optional Number<br>Minimum Length. Minimum length of password
 
 <a id="password-policy-not-recently-used"></a>&#x2022; [`not_recently_used`](#password-policy-not-recently-used) - Optional Number<br>Policy is used to restrict user from using previously used passwords. Number that's set determines number of last passwords which user cannot use as new password
 
@@ -142,13 +142,13 @@ An [`absolute_timeout`](#timeout-40fe61) block (within [`user_session_expiration
 
 A [`hours`](#hours-f6f193) block (within [`user_session_expiration.absolute_timeout`](#timeout-40fe61)) supports the following:
 
-<a id="duration-002967"></a>&#x2022; [`duration`](#duration-002967) - Optional Number<br>Duration
+<a id="duration-002967"></a>&#x2022; [`duration`](#duration-002967) - Optional Number<br>Duration. Configuration parameter for duration
 
 #### User Session Expiration Absolute Timeout Minutes
 
 A [`minutes`](#minutes-35a806) block (within [`user_session_expiration.absolute_timeout`](#timeout-40fe61)) supports the following:
 
-<a id="duration-1bb577"></a>&#x2022; [`duration`](#duration-1bb577) - Optional Number<br>Duration
+<a id="duration-1bb577"></a>&#x2022; [`duration`](#duration-1bb577) - Optional Number<br>Duration. Configuration parameter for duration
 
 #### User Session Expiration Idle Timeout
 
@@ -162,13 +162,13 @@ An [`idle_timeout`](#user-session-expiration-idle-timeout) block (within [`user_
 
 A [`hours`](#hours-338ce5) block (within [`user_session_expiration.idle_timeout`](#user-session-expiration-idle-timeout)) supports the following:
 
-<a id="duration-5d3ae0"></a>&#x2022; [`duration`](#duration-5d3ae0) - Optional Number<br>Duration
+<a id="duration-5d3ae0"></a>&#x2022; [`duration`](#duration-5d3ae0) - Optional Number<br>Duration. Configuration parameter for duration
 
 #### User Session Expiration Idle Timeout Minutes
 
 A [`minutes`](#minutes-6044ef) block (within [`user_session_expiration.idle_timeout`](#user-session-expiration-idle-timeout)) supports the following:
 
-<a id="duration-4f5160"></a>&#x2022; [`duration`](#duration-4f5160) - Optional Number<br>Duration
+<a id="duration-4f5160"></a>&#x2022; [`duration`](#duration-4f5160) - Optional Number<br>Duration. Configuration parameter for duration
 
 ---
 

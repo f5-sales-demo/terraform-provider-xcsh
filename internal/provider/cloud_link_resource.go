@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -23,6 +24,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -388,14 +390,14 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											},
 										},
 										"connection_id": schema.StringAttribute{
-											MarkdownDescription: "ID of the existing AWS Direct Connect Connection .",
+											MarkdownDescription: "ID of the existing AWS Direct Connect Connection.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
 											},
 										},
 										"region": schema.StringAttribute{
-											MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] Region where the connection is setup . Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
+											MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] Region. Region where the connection is setup. Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.OneOf("ap-northeast-1", "ap-southeast-1", "eu-central-1", "eu-west-1", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-2", "ca-central-1", "af-south-1", "ap-east-1", "ap-south-1", "ap-northeast-2", "ap-southeast-2", "eu-south-1", "eu-north-1", "eu-west-2", "me-south-1", "us-west-1", "ap-southeast-3"),
@@ -421,7 +423,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											},
 										},
 										"vlan": schema.Int64Attribute{
-											MarkdownDescription: "Virtual Local Area Network number for the new virtual interface to be configured on the AWS. This tag is required for any traffic traversing the AWS Direct Connect connection .",
+											MarkdownDescription: "Virtual Local Area Network number for the new virtual interface to be configured on the AWS. This tag is required for any traffic traversing the AWS Direct Connect connection.",
 											Optional:            true,
 											Validators: []validator.Int64{
 												int64validator.Between(1, 4094),
@@ -441,7 +443,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -475,11 +477,11 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											MarkdownDescription: "Configure BGP IPv4 peering for endpoints.",
 											Attributes: map[string]schema.Attribute{
 												"aws_router_peer_address": schema.StringAttribute{
-													MarkdownDescription: "The BGP peer IP configured on the AWS endpoint .",
+													MarkdownDescription: "The BGP peer IP configured on the AWS endpoint.",
 													Optional:            true,
 												},
 												"router_peer_address": schema.StringAttribute{
-													MarkdownDescription: "The BGP peer IP configured on your (customer) endpoint .",
+													MarkdownDescription: "The BGP peer IP configured on your (customer) endpoint.",
 													Optional:            true,
 												},
 											},
@@ -541,7 +543,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"interconnect_attachment_name": schema.StringAttribute{
-											MarkdownDescription: "Name of already-existing GCP Cloud Interconnect Attachment .",
+											MarkdownDescription: "Name of already-existing GCP Cloud Interconnect Attachment.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 63),
@@ -555,7 +557,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											},
 										},
 										"region": schema.StringAttribute{
-											MarkdownDescription: "[Enum: asia-east1|asia-east2|asia-northeast1|asia-northeast2|asia-northeast3|asia-southeast1|asia-southeast2|europe-central2|europe-north1|europe-west1|europe-west2|europe-west3|europe-west4|europe-west6|europe-west8|europe-west9|europe-west10|europe-west12|europe-southwest1|me-west1|me-central1|me-central2|northamerica-northeast1|northamerica-northeast2|us-central1|us-east1|us-east4|us-east5|us-south1|us-west1|us-west2|us-west3|us-west4|southamerica-east1|southamerica-west1|australia-southeast1|australia-southeast2|asia-south1|asia-south2] GCP Region in which the GCP Cloud Interconnect attachment is configured . Possible values are `asia-east1`, `asia-east2`, `asia-northeast1`, `asia-northeast2`, `asia-northeast3`, `asia-southeast1`, `asia-southeast2`, `europe-central2`, `europe-north1`, `europe-west1`, `europe-west2`, `europe-west3`, `europe-west4`, `europe-west6`, `europe-west8`, `europe-west9`, `europe-west10`, `europe-west12`, `europe-southwest1`, `me-west1`, `me-central1`, `me-central2`, `northamerica-northeast1`, `northamerica-northeast2`, `us-central1`, `us-east1`, `us-east4`, `us-east5`, `us-south1`, `us-west1`, `us-west2`, `us-west3`, `us-west4`, `southamerica-east1`, `southamerica-west1`, `australia-southeast1`, `australia-southeast2`, `asia-south1`, `asia-south2`.",
+											MarkdownDescription: "[Enum: asia-east1|asia-east2|asia-northeast1|asia-northeast2|asia-northeast3|asia-southeast1|asia-southeast2|europe-central2|europe-north1|europe-west1|europe-west2|europe-west3|europe-west4|europe-west6|europe-west8|europe-west9|europe-west10|europe-west12|europe-southwest1|me-west1|me-central1|me-central2|northamerica-northeast1|northamerica-northeast2|us-central1|us-east1|us-east4|us-east5|us-south1|us-west1|us-west2|us-west3|us-west4|southamerica-east1|southamerica-west1|australia-southeast1|australia-southeast2|asia-south1|asia-south2] GCP Region in which the GCP Cloud Interconnect attachment is configured. Possible values are `asia-east1`, `asia-east2`, `asia-northeast1`, `asia-northeast2`, `asia-northeast3`, `asia-southeast1`, `asia-southeast2`, `europe-central2`, `europe-north1`, `europe-west1`, `europe-west2`, `europe-west3`, `europe-west4`, `europe-west6`, `europe-west8`, `europe-west9`, `europe-west10`, `europe-west12`, `europe-southwest1`, `me-west1`, `me-central1`, `me-central2`, `northamerica-northeast1`, `northamerica-northeast2`, `us-central1`, `us-east1`, `us-east4`, `us-east5`, `us-south1`, `us-west1`, `us-west2`, `us-west3`, `us-west4`, `southamerica-east1`, `southamerica-west1`, `australia-southeast1`, `australia-southeast2`, `asia-south1`, `asia-south2`.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.OneOf("asia-east1", "asia-east2", "asia-northeast1", "asia-northeast2", "asia-northeast3", "asia-southeast1", "asia-southeast2", "europe-central2", "europe-north1", "europe-west1", "europe-west2", "europe-west3", "europe-west4", "europe-west6", "europe-west8", "europe-west9", "europe-west10", "europe-west12", "europe-southwest1", "me-west1", "me-central1", "me-central2", "northamerica-northeast1", "northamerica-northeast2", "us-central1", "us-east1", "us-east4", "us-east5", "us-south1", "us-west1", "us-west2", "us-west3", "us-west4", "southamerica-east1", "southamerica-west1", "australia-southeast1", "australia-southeast2", "asia-south1", "asia-south2"),
@@ -758,9 +760,6 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 			if !data.AWS.AWSCred.Namespace.IsNull() && !data.AWS.AWSCred.Namespace.IsUnknown() {
 				AWSAWSCredMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
 			}
-			if !data.AWS.AWSCred.Tenant.IsNull() && !data.AWS.AWSCred.Tenant.IsUnknown() {
-				AWSAWSCredMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
-			}
 			AWSMap["aws_cred"] = AWSAWSCredMap
 		}
 		if data.AWS.Byoc != nil {
@@ -920,9 +919,6 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 			if !data.GCP.GCPCred.Namespace.IsNull() && !data.GCP.GCPCred.Namespace.IsUnknown() {
 				GCPGCPCredMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
 			}
-			if !data.GCP.GCPCred.Tenant.IsNull() && !data.GCP.GCPCred.Tenant.IsUnknown() {
-				GCPGCPCredMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
-			}
 			GCPMap["gcp_cred"] = GCPGCPCredMap
 		}
 		createReq.Spec["gcp"] = GCPMap
@@ -934,11 +930,28 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetCloudLink(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1331,6 +1344,16 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CloudLink: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1770,6 +1793,20 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.CloudLink{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -1777,6 +1814,7 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -1830,9 +1868,6 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 			}
 			if !data.AWS.AWSCred.Namespace.IsNull() && !data.AWS.AWSCred.Namespace.IsUnknown() {
 				AWSAWSCredMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
-			}
-			if !data.AWS.AWSCred.Tenant.IsNull() && !data.AWS.AWSCred.Tenant.IsUnknown() {
-				AWSAWSCredMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
 			}
 			AWSMap["aws_cred"] = AWSAWSCredMap
 		}
@@ -1993,9 +2028,6 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 			if !data.GCP.GCPCred.Namespace.IsNull() && !data.GCP.GCPCred.Namespace.IsUnknown() {
 				GCPGCPCredMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
 			}
-			if !data.GCP.GCPCred.Tenant.IsNull() && !data.GCP.GCPCred.Tenant.IsUnknown() {
-				GCPGCPCredMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
-			}
 			GCPMap["gcp_cred"] = GCPGCPCredMap
 		}
 		apiResource.Spec["gcp"] = GCPMap
@@ -2003,6 +2035,14 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 
 	_, err := r.client.UpdateCloudLink(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of cloud_link %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update CloudLink: %s", err))
 		return
 	}
@@ -2020,10 +2060,6 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2033,6 +2069,19 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 	fetched, fetchErr := r.client.GetCloudLink(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CloudLink after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

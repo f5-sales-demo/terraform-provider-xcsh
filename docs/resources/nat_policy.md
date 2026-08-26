@@ -141,7 +141,7 @@ A [`pools`](#rules-action-dynamic-pools) block (within [`rules.action.dynamic`](
 
 A [`cloud_connect`](#rules-cloud-connect) block (within [`rules`](#rules)) supports the following:
 
-<a id="rules-cloud-connect-refs"></a>&#x2022; [`refs`](#rules-cloud-connect-refs) - Optional Block<br>Reference to Cloud Connect Object<br>See [Refs](#rules-cloud-connect-refs) below.
+<a id="rules-cloud-connect-refs"></a>&#x2022; [`refs`](#rules-cloud-connect-refs) - Optional Block<br>Cloud Connect. Reference to Cloud Connect Object<br>See [Refs](#rules-cloud-connect-refs) below.
 
 #### Rules Cloud Connect Refs
 
@@ -265,7 +265,7 @@ An [`interface`](#rules-node-interface-list-interface) block (within [`rules.nod
 
 A [`segment`](#rules-segment) block (within [`rules`](#rules)) supports the following:
 
-<a id="rules-segment-refs"></a>&#x2022; [`refs`](#rules-segment-refs) - Optional Block<br>Reference to Segment Object<br>See [Refs](#rules-segment-refs) below.
+<a id="rules-segment-refs"></a>&#x2022; [`refs`](#rules-segment-refs) - Optional Block<br>Segment. Reference to Segment Object<br>See [Refs](#rules-segment-refs) below.
 
 #### Rules Segment Refs
 

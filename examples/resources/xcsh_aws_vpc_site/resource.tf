@@ -20,9 +20,4 @@ resource "xcsh_aws_vpc_site" "example" {
   aws_region    = "example-value"
   instance_type = "example-value"
   ssh_key       = "example-value"
-  tags = {
-    example = "value"
-  }
-  address   = "example-value"
-  disk_size = 1
 }

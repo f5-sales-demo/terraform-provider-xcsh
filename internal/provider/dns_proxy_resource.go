@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -25,6 +26,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -667,7 +669,11 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"transport_type": schema.StringAttribute{
 				MarkdownDescription: "[Enum: UDP|TCP|BothTCPAndUDP] Transport Type - UDP: UDP - TCP: TCP - BothTCPAndUDP: Both TCP and UDP. Possible values are `UDP`, `TCP`, `BothTCPAndUDP`. Defaults to `UDP`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("UDP", "TCP", "BothTCPAndUDP"),
 				},
@@ -788,7 +794,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						},
 						Blocks: map[string]schema.Block{
 							"health_check": schema.ListNestedBlock{
-								MarkdownDescription: "List of Health Checks. List of Health Checks .",
+								MarkdownDescription: "List of Health Checks. List of Health Checks.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -810,7 +816,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 												},
 												"expected_response": schema.StringAttribute{
-													MarkdownDescription: "Specifies an IPv4 or IPv6 address in the answer section of DNS Response .",
+													MarkdownDescription: "Specifies an IPv4 or IPv6 address in the answer section of DNS Response.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(1024),
@@ -843,14 +849,14 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											MarkdownDescription: "Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern.",
 											Attributes: map[string]schema.Attribute{
 												"expected_response": schema.StringAttribute{
-													MarkdownDescription: "Specifies a regular expression pattern which will be matched against response payload .",
+													MarkdownDescription: "Specifies a regular expression pattern which will be matched against response payload.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(2048),
 													},
 												},
 												"send_payload": schema.StringAttribute{
-													MarkdownDescription: "Text string sent in the request .",
+													MarkdownDescription: "Send string. Text string sent in the request.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(2048),
@@ -864,7 +870,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						},
 					},
 					"origin_servers": schema.ListNestedBlock{
-						MarkdownDescription: "List of origin servers for Proxy .",
+						MarkdownDescription: "List Of Origin Servers. List of origin servers for Proxy.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
@@ -1003,7 +1009,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 									MarkdownDescription: "Specify origin server with public DNS name.",
 									Attributes: map[string]schema.Attribute{
 										"dns_name": schema.StringAttribute{
-											MarkdownDescription: "DNS Name. DNS Name .",
+											MarkdownDescription: "DNS Name. DNS Name",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -1100,7 +1106,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
-								MarkdownDescription: "Where should this load balancer be available .",
+								MarkdownDescription: "Where should this load balancer be available.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
@@ -1640,9 +1646,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
 					IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
 				}
-				if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
-					IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
-				}
 				IrulesList = append(IrulesList, IrulesItemMap)
 			}
 			createReq.Spec["irules"] = IrulesList
@@ -1753,9 +1756,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
 									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
-								}
 								OriginServersOriginServersK8SServiceSiteLocatorMap["site"] = OriginServersOriginServersK8SServiceSiteLocatorSiteMap
 							}
 							if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
@@ -1765,9 +1765,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								}
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								OriginServersOriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap
 							}
@@ -1833,9 +1830,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
 										RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
 									}
-									if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
-										RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
-									}
 									RefsList = append(RefsList, RefsItemMap)
 								}
 								OriginServersOriginServersSitePreferencesMap["refs"] = RefsList
@@ -1857,9 +1851,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 		}
 		if !data.ProtocolInspection.Namespace.IsNull() && !data.ProtocolInspection.Namespace.IsUnknown() {
 			ProtocolInspectionMap["namespace"] = data.ProtocolInspection.Namespace.ValueString()
-		}
-		if !data.ProtocolInspection.Tenant.IsNull() && !data.ProtocolInspection.Tenant.IsUnknown() {
-			ProtocolInspectionMap["tenant"] = data.ProtocolInspection.Tenant.ValueString()
 		}
 		createReq.Spec["protocol_inspection"] = ProtocolInspectionMap
 	}
@@ -1884,9 +1875,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
@@ -1913,9 +1901,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								}
 								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap
 							}
@@ -1946,9 +1931,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 							}
 							AdvertiseWhereItemMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -1965,9 +1947,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 							}
@@ -1989,9 +1968,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 							}
 							AdvertiseWhereItemMap["virtual_site_with_vip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -2006,9 +1982,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 							}
 							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -2018,9 +1991,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 							}
@@ -2042,9 +2012,6 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-				}
-				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["tenant"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 				}
 				ProxyAdvertisementAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseOnPublicPublicIPMap
 			}
@@ -2068,11 +2035,28 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetDNSProxy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -3040,6 +3024,16 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSProxy: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -4054,6 +4048,20 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.DNSProxy{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -4061,6 +4069,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -4138,9 +4147,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
 					IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
-				}
-				if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
-					IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
 				}
 				IrulesList = append(IrulesList, IrulesItemMap)
 			}
@@ -4252,9 +4258,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
 									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
-								}
 								OriginServersOriginServersK8SServiceSiteLocatorMap["site"] = OriginServersOriginServersK8SServiceSiteLocatorSiteMap
 							}
 							if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
@@ -4264,9 +4267,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								}
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								OriginServersOriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap
 							}
@@ -4332,9 +4332,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
 										RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
 									}
-									if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
-										RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
-									}
 									RefsList = append(RefsList, RefsItemMap)
 								}
 								OriginServersOriginServersSitePreferencesMap["refs"] = RefsList
@@ -4356,9 +4353,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 		}
 		if !data.ProtocolInspection.Namespace.IsNull() && !data.ProtocolInspection.Namespace.IsUnknown() {
 			ProtocolInspectionMap["namespace"] = data.ProtocolInspection.Namespace.ValueString()
-		}
-		if !data.ProtocolInspection.Tenant.IsNull() && !data.ProtocolInspection.Tenant.IsUnknown() {
-			ProtocolInspectionMap["tenant"] = data.ProtocolInspection.Tenant.ValueString()
 		}
 		apiResource.Spec["protocol_inspection"] = ProtocolInspectionMap
 	}
@@ -4383,9 +4377,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
@@ -4412,9 +4403,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								}
 								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap
 							}
@@ -4445,9 +4433,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 							}
 							AdvertiseWhereItemMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -4464,9 +4449,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 							}
@@ -4488,9 +4470,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 							}
 							AdvertiseWhereItemMap["virtual_site_with_vip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -4505,9 +4484,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 							}
 							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -4517,9 +4493,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 							}
@@ -4542,9 +4515,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 				}
-				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["tenant"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-				}
 				ProxyAdvertisementAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseOnPublicPublicIPMap
 			}
 			ProxyAdvertisementMap["advertise_on_public"] = ProxyAdvertisementAdvertiseOnPublicMap
@@ -4563,6 +4533,14 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 
 	_, err := r.client.UpdateDNSProxy(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of dns_proxy %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update DNSProxy: %s", err))
 		return
 	}
@@ -4580,10 +4558,6 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -4596,7 +4570,27 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["transport_type"].(string); ok && v != "" {
+		data.TransportType = types.StringValue(v)
+	} else if data.TransportType.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.TransportType = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

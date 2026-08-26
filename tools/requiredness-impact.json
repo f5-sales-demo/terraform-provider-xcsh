@@ -1,0 +1,397 @@
+{
+  "baseline_provider": "v3.92.0",
+  "baseline_spec": "v2.1.222",
+  "candidate_spec": "v2.1.225",
+  "transitions": [
+    {
+      "resource": "address_allocator",
+      "attribute": "mode",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "advertise_policy",
+      "attribute": "address",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "advertise_policy",
+      "attribute": "protocol",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "advertise_policy",
+      "attribute": "skip_xff_append",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "alert_gen_policy",
+      "attribute": "alert_status",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "alert_template",
+      "attribute": "severity",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "api_testing",
+      "attribute": "custom_header_value",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "aws_tgw_site",
+      "attribute": "tags",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "aws_vpc_site",
+      "attribute": "address",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "aws_vpc_site",
+      "attribute": "disk_size",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "aws_vpc_site",
+      "attribute": "tags",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "azure_vnet_site",
+      "attribute": "namespace",
+      "reason": "verified_single_namespace_default"
+    },
+    {
+      "resource": "bot_defense_app_infrastructure",
+      "attribute": "environment_type",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "bot_defense_app_infrastructure",
+      "attribute": "traffic_type",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "bot_infrastructure",
+      "attribute": "traffic_type",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "cluster",
+      "attribute": "connection_timeout",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "cluster",
+      "attribute": "endpoint_selection",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "cluster",
+      "attribute": "fallback_policy",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "cluster",
+      "attribute": "http_idle_timeout",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "cluster",
+      "attribute": "loadbalancer_algorithm",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "container_registry",
+      "attribute": "email",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "data_type",
+      "attribute": "compliances",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "data_type",
+      "attribute": "is_pii",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "data_type",
+      "attribute": "is_sensitive_data",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "dns_compliance_checks",
+      "attribute": "disallowed_query_type_list",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "dns_compliance_checks",
+      "attribute": "disallowed_resource_record_type_list",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "dns_lb_pool",
+      "attribute": "load_balancing_mode",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "dns_proxy",
+      "attribute": "transport_type",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "endpoint",
+      "attribute": "health_check_port",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "endpoint",
+      "attribute": "port",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "endpoint",
+      "attribute": "protocol",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "fleet",
+      "attribute": "enable_default_fleet_config_download",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "fleet",
+      "attribute": "operating_system_version",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "fleet",
+      "attribute": "volterra_software_version",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "forwarding_class",
+      "attribute": "interface_group",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "forwarding_class",
+      "attribute": "queue_id_to_use",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "gcp_vpc_site",
+      "attribute": "address",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "gcp_vpc_site",
+      "attribute": "disk_size",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "gcp_vpc_site",
+      "attribute": "gcp_labels",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "irule",
+      "attribute": "description",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "k8s_pod_security_admission",
+      "attribute": "namespace",
+      "reason": "verified_single_namespace_default"
+    },
+    {
+      "resource": "network_policy_view",
+      "attribute": "namespace",
+      "reason": "verified_single_namespace_default"
+    },
+    {
+      "resource": "protected_application",
+      "attribute": "region",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "proxy",
+      "attribute": "connection_timeout",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "securemesh_site",
+      "attribute": "address",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "securemesh_site",
+      "attribute": "worker_nodes",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "securemesh_site_v2",
+      "attribute": "namespace",
+      "reason": "verified_single_namespace_default"
+    },
+    {
+      "resource": "segment",
+      "attribute": "namespace",
+      "reason": "verified_single_namespace_default"
+    },
+    {
+      "resource": "srv6_network_slice",
+      "attribute": "connect_to_access_networks",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "srv6_network_slice",
+      "attribute": "connect_to_enterprise_networks",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "srv6_network_slice",
+      "attribute": "connect_to_internet",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "srv6_network_slice",
+      "attribute": "namespace",
+      "reason": "verified_single_namespace_default"
+    },
+    {
+      "resource": "trusted_ca_list",
+      "attribute": "trusted_ca_url",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "tunnel",
+      "attribute": "tunnel_type",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "udp_loadbalancer",
+      "attribute": "dns_volterra_managed",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "udp_loadbalancer",
+      "attribute": "domains",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "udp_loadbalancer",
+      "attribute": "idle_timeout",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "add_location",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "connection_idle_timeout",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "custom_errors",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "disable_default_error_pages",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "disable_dns_resolve",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "domains",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "idle_timeout",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "max_request_header_size",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "proxy",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "request_cookies_to_remove",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "request_headers_to_remove",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "response_cookies_to_remove",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_host",
+      "attribute": "response_headers_to_remove",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_network",
+      "attribute": "legacy_type",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "virtual_site",
+      "attribute": "site_type",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "voltstack_site",
+      "attribute": "address",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "voltstack_site",
+      "attribute": "worker_nodes",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "workload_flavor",
+      "attribute": "ephemeral_storage",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "workload_flavor",
+      "attribute": "memory",
+      "reason": "minimum_configuration_promotion_removed"
+    },
+    {
+      "resource": "workload_flavor",
+      "attribute": "namespace",
+      "reason": "verified_single_namespace_default"
+    },
+    {
+      "resource": "workload_flavor",
+      "attribute": "vcpus",
+      "reason": "minimum_configuration_promotion_removed"
+    }
+  ]
+}

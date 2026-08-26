@@ -195,7 +195,7 @@ A [`query_params`](#routes-match-query-params) block (within [`routes.match`](#r
 
 A [`request_cookies_to_add`](#routes-request-cookies-to-add) block (within [`routes`](#routes)) supports the following:
 
-<a id="routes-request-cookies-to-add-name"></a>&#x2022; [`name`](#routes-request-cookies-to-add-name) - Optional String<br>Name of the cookie in Cookie header
+<a id="routes-request-cookies-to-add-name"></a>&#x2022; [`name`](#routes-request-cookies-to-add-name) - Optional String<br>Name. Name of the cookie in Cookie header
 
 <a id="routes-request-cookies-to-add-overwrite"></a>&#x2022; [`overwrite`](#routes-request-cookies-to-add-overwrite) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
 
@@ -283,7 +283,7 @@ A [`response_cookies_to_add`](#routes-response-cookies-to-add) block (within [`r
 
 <a id="value-e8b96e"></a>&#x2022; [`max_age_value`](#value-e8b96e) - Optional Number<br>Add max age attribute
 
-<a id="routes-response-cookies-to-add-name"></a>&#x2022; [`name`](#routes-response-cookies-to-add-name) - Optional String<br>Name of the cookie in Cookie header
+<a id="routes-response-cookies-to-add-name"></a>&#x2022; [`name`](#routes-response-cookies-to-add-name) - Optional String<br>Name. Name of the cookie in Cookie header
 
 <a id="overwrite-25fb1c"></a>&#x2022; [`overwrite`](#overwrite-25fb1c) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
 

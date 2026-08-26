@@ -10,8 +10,9 @@ import (
 
 // BotInfrastructure represents a F5XC BotInfrastructure
 type BotInfrastructure struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateBotInfrastructure creates a new BotInfrastructure

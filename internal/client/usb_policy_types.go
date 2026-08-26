@@ -10,8 +10,9 @@ import (
 
 // UsbPolicy represents a F5XC UsbPolicy
 type UsbPolicy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateUsbPolicy creates a new UsbPolicy

@@ -16,7 +16,4 @@ terraform {
 resource "xcsh_forwarding_class" "example" {
   name      = "example-forwarding-class"
   namespace = "staging"
-
-  interface_group = "ANY_AVAILABLE_INTERFACE"
-  queue_id_to_use = "DSCP_BEST_EFFORT"
 }

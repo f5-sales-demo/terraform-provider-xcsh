@@ -10,8 +10,9 @@ import (
 
 // LogReceiver represents a F5XC LogReceiver
 type LogReceiver struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateLogReceiver creates a new LogReceiver

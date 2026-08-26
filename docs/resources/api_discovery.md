@@ -99,7 +99,7 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`custom_auth_types`](#custom-auth-types) block supports the following:
 
-<a id="custom-auth-types-parameter-name"></a>&#x2022; [`parameter_name`](#custom-auth-types-parameter-name) - Optional String<br>The authentication parameter name
+<a id="custom-auth-types-parameter-name"></a>&#x2022; [`parameter_name`](#custom-auth-types-parameter-name) - Optional String<br>Parameter Name. The authentication parameter name
 
 <a id="custom-auth-types-parameter-type"></a>&#x2022; [`parameter_type`](#custom-auth-types-parameter-type) - Optional String  Defaults to `QUERY_PARAMETER`<br>Possible values are `QUERY_PARAMETER`, `HEADER`, `COOKIE`<br>[Enum: QUERY_PARAMETER|HEADER|COOKIE] Enumeration for authentication parameter types
 

@@ -10,8 +10,9 @@ import (
 
 // WorkloadFlavor represents a F5XC WorkloadFlavor
 type WorkloadFlavor struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateWorkloadFlavor creates a new WorkloadFlavor

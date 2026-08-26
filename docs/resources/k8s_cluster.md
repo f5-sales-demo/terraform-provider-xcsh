@@ -138,7 +138,7 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`cluster_wide_app_list`](#cluster-wide-app-list) block supports the following:
 
-<a id="cluster-wide-app-list-cluster-wide-apps"></a>&#x2022; [`cluster_wide_apps`](#cluster-wide-app-list-cluster-wide-apps) - Optional Block<br>List of cluster wide applications<br>See [Cluster Wide Apps](#cluster-wide-app-list-cluster-wide-apps) below.
+<a id="cluster-wide-app-list-cluster-wide-apps"></a>&#x2022; [`cluster_wide_apps`](#cluster-wide-app-list-cluster-wide-apps) - Optional Block<br>Cluster Wide Application List. List of cluster wide applications<br>See [Cluster Wide Apps](#cluster-wide-app-list-cluster-wide-apps) below.
 
 #### Cluster Wide App List Cluster Wide Apps
 

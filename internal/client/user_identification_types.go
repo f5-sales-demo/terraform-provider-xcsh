@@ -10,8 +10,9 @@ import (
 
 // UserIdentification represents a F5XC UserIdentification
 type UserIdentification struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateUserIdentification creates a new UserIdentification

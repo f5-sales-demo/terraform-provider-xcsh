@@ -10,8 +10,9 @@ import (
 
 // AlertGenPolicy represents a F5XC AlertGenPolicy
 type AlertGenPolicy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateAlertGenPolicy creates a new AlertGenPolicy

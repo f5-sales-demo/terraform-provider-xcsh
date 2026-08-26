@@ -16,8 +16,4 @@ terraform {
 resource "xcsh_endpoint" "example" {
   name      = "example-endpoint"
   namespace = "staging"
-
-  health_check_port = 1
-  port              = 1
-  protocol          = "TCP"
 }

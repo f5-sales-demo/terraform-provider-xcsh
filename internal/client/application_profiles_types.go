@@ -10,8 +10,9 @@ import (
 
 // ApplicationProfiles represents a F5XC ApplicationProfiles
 type ApplicationProfiles struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateApplicationProfiles creates a new ApplicationProfiles

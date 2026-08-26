@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -24,6 +25,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -149,14 +151,22 @@ func (r *ForwardingClassResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"interface_group": schema.StringAttribute{
 				MarkdownDescription: "[Enum: ANY_AVAILABLE_INTERFACE|INTERFACE_GROUP1|INTERFACE_GROUP2|INTERFACE_GROUP3] Interface group, group membership by adding group label to interface Choose any of the available interfaces Choose all interfaces with label group1 Choose all interfaces with label group2 Choose all interfaces with label group3. Possible values are `ANY_AVAILABLE_INTERFACE`, `INTERFACE_GROUP1`, `INTERFACE_GROUP2`, `INTERFACE_GROUP3`. Defaults to `ANY_AVAILABLE_INTERFACE`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("ANY_AVAILABLE_INTERFACE", "INTERFACE_GROUP1", "INTERFACE_GROUP2", "INTERFACE_GROUP3"),
 				},
 			},
 			"queue_id_to_use": schema.StringAttribute{
 				MarkdownDescription: "[Enum: DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link Layer traffic like.. Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`. Defaults to `DSCP_BEST_EFFORT`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("DSCP_BEST_EFFORT", "DSCP_CLASS1", "DSCP_CLASS2", "DSCP_CLASS3", "DSCP_CLASS4", "DSCP_EXPRESS_FORWARDING", "DSCP_CONTROL_L3", "DSCP_CONTROL_L2"),
 				},
@@ -391,9 +401,6 @@ func (r *ForwardingClassResource) Create(ctx context.Context, req resource.Creat
 		if !data.Policer.Namespace.IsNull() && !data.Policer.Namespace.IsUnknown() {
 			PolicerMap["namespace"] = data.Policer.Namespace.ValueString()
 		}
-		if !data.Policer.Tenant.IsNull() && !data.Policer.Tenant.IsUnknown() {
-			PolicerMap["tenant"] = data.Policer.Tenant.ValueString()
-		}
 		createReq.Spec["policer"] = PolicerMap
 	}
 	if !data.InterfaceGroup.IsNull() && !data.InterfaceGroup.IsUnknown() {
@@ -412,11 +419,28 @@ func (r *ForwardingClassResource) Create(ctx context.Context, req resource.Creat
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetForwardingClass(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -535,6 +559,16 @@ func (r *ForwardingClassResource) Read(ctx context.Context, req resource.ReadReq
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ForwardingClass: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -700,6 +734,20 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.ForwardingClass{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -707,6 +755,7 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -778,9 +827,6 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 		if !data.Policer.Namespace.IsNull() && !data.Policer.Namespace.IsUnknown() {
 			PolicerMap["namespace"] = data.Policer.Namespace.ValueString()
 		}
-		if !data.Policer.Tenant.IsNull() && !data.Policer.Tenant.IsUnknown() {
-			PolicerMap["tenant"] = data.Policer.Tenant.ValueString()
-		}
 		apiResource.Spec["policer"] = PolicerMap
 	}
 	if !data.InterfaceGroup.IsNull() && !data.InterfaceGroup.IsUnknown() {
@@ -795,6 +841,14 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 
 	_, err := r.client.UpdateForwardingClass(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of forwarding_class %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update ForwardingClass: %s", err))
 		return
 	}
@@ -812,10 +866,6 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -828,7 +878,34 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["interface_group"].(string); ok && v != "" {
+		data.InterfaceGroup = types.StringValue(v)
+	} else if data.InterfaceGroup.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.InterfaceGroup = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["queue_id_to_use"].(string); ok && v != "" {
+		data.QueueIDToUse = types.StringValue(v)
+	} else if data.QueueIDToUse.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.QueueIDToUse = types.StringNull()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["tos_value"].(float64); ok {
 		data.TosValue = types.Int64Value(int64(v))
 	} else if data.TosValue.IsUnknown() {
