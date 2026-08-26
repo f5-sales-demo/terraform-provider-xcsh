@@ -70,6 +70,23 @@ func TestConfigObjectConcurrencyLifecycle(t *testing.T) {
 	}
 }
 
+func TestConfigObjectPathFamiliesAreVersioned(t *testing.T) {
+	t.Parallel()
+
+	for _, path := range []string{
+		"/api/config/namespaces/system/widgets",
+		"/api/web/namespaces",
+		"/api/register/namespaces/system/tokens",
+	} {
+		if !isConfigObjectPath(path) {
+			t.Errorf("%s was not classified as a versioned API object path", path)
+		}
+	}
+	if isConfigObjectPath("/healthz") {
+		t.Fatal("non-API health endpoint was classified as a config object")
+	}
+}
+
 func decodeMockResponse(t *testing.T, response *http.Response) map[string]interface{} {
 	t.Helper()
 	defer response.Body.Close()

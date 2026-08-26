@@ -550,7 +550,13 @@ func (s *Server) buildResponse(requestBody map[string]interface{}, namespace str
 }
 
 func isConfigObjectPath(path string) bool {
-	return strings.HasPrefix(path, "/api/config/namespaces/")
+	// The controller exposes replaceable config objects through several API
+	// families, including /api/config, /api/web, and /api/register. The default
+	// mock CRUD handler only serves object-style endpoints; action and status
+	// endpoints are intercepted by handleSpecialEndpoints before reaching it.
+	// Version every default /api object so generated resources exercise the same
+	// server-assigned concurrency-token lifecycle regardless of envelope family.
+	return strings.HasPrefix(path, "/api/")
 }
 
 func (s *Server) nextResourceVersionLocked() string {
