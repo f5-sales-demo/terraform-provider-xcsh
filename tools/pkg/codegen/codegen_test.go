@@ -2054,7 +2054,7 @@ func TestExcludedReplaceGeneratesForceReplacementAndNoPut(t *testing.T) {
 		HasNamespaceInPath: true,
 		APIPath:            "/api/register/namespaces/%s/probes",
 		APIPathItem:        "/api/register/namespaces/%s/probes/%s",
-		ReplaceExcluded:    true,
+		UpdateDisabled:     true,
 		Attributes: []openapi.TerraformAttribute{
 			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true, PlanModifier: "RequiresReplace"},
 			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", Required: true, PlanModifier: "RequiresReplace"},

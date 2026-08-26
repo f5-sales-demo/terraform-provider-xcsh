@@ -766,21 +766,21 @@ func generateResourceFromSchema(resourceName string, schemaName string, specFile
 		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
 	}
 	replaceNeedsToken := false
-	replaceExcluded := false
+	updateDisabled := resolved.Replace == nil
 	if resolved.Replace != nil {
 		covered, exclusion, classifyErr := concurrencyInventory.ClassifyReplace(*resolved.Replace)
 		if classifyErr != nil {
 			return GenerationResult{ResourceName: resourceName, Success: false, Error: classifyErr.Error()}
 		}
 		replaceNeedsToken = covered
-		replaceExcluded = exclusion != nil
+		updateDisabled = exclusion != nil
 	}
 	if err := schema.ValidateGeneratedConcurrencyCoverage(resource, replaceNeedsToken); err != nil {
 		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
 	}
-	if replaceExcluded {
+	if updateDisabled {
 		schema.ForceReplaceForCreateDeleteOnly(resource.Attributes)
-		resource.ReplaceExcluded = true
+		resource.UpdateDisabled = true
 	}
 
 	// Count attributes and blocks

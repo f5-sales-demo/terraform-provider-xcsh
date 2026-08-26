@@ -615,11 +615,11 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 	if resp.Diagnostics.HasError() {
 		return
 	}
-{{- if .ReplaceExcluded}}
+{{- if .UpdateDisabled}}
 
-	// The released concurrency inventory classifies this API Replace as a
-	// non-config-object command. Every configurable field requires replacement;
-	// fail closed without a PUT if Update is nevertheless invoked.
+	// The released operation/concurrency contracts do not classify this object
+	// as safely replaceable. Every configurable field requires replacement; fail
+	// closed without a PUT if Update is nevertheless invoked.
 	resp.Diagnostics.AddError(
 		"Update Not Supported",
 		"This API object does not expose a refreshable configuration token and cannot be updated safely. Replace the Terraform resource instead.",
