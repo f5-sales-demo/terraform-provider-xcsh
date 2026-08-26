@@ -75,10 +75,16 @@ jobs:
           set -euo pipefail
           CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD")
           ALLOW_PENDING_DELIVERY=false
+          ALLOW_RECOVERY_INFRASTRUCTURE=false
           if printf '%s\n' "$CHANGED_FILES" | scripts/is-release-recovery-only.sh; then
-            ALLOW_PENDING_DELIVERY=true
+            if [ -f tools/spec-pending-delivery.json ]; then
+              ALLOW_PENDING_DELIVERY=true
+            else
+              ALLOW_RECOVERY_INFRASTRUCTURE=true
+            fi
           fi
           ALLOW_PENDING_DELIVERY="$ALLOW_PENDING_DELIVERY" \
+          ALLOW_RECOVERY_INFRASTRUCTURE="$ALLOW_RECOVERY_INFRASTRUCTURE" \
             bash scripts/check-spec-version-freshness.sh \
               tools/spec-version.txt tools/spec-pending-delivery.json
 
