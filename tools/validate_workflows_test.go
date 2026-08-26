@@ -143,6 +143,18 @@ func TestOnMergeGeneratorStateClassifier(t *testing.T) {
 	}
 }
 
+func TestOnMergePendingRecoveryPrecedesMetadataOnlySkip(t *testing.T) {
+	workflowBytes, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	workflow := string(workflowBytes)
+	recoveryAwareMetadataGuard := `elif [[ "$DELIVERY_METADATA_ONLY" == "true" && "$PENDING_DELIVERY" != "true" ]]; then`
+	if !strings.Contains(workflow, recoveryAwareMetadataGuard) {
+		t.Errorf("pending recovery must bypass the metadata-only skip; missing %q", recoveryAwareMetadataGuard)
+	}
+}
+
 func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", "scripts", "generate-provider-docs.sh"))
 	if err != nil {
