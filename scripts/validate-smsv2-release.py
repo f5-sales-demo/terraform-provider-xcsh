@@ -8,9 +8,10 @@ import hashlib
 import json
 import pathlib
 import sys
+from typing import NoReturn
 
 
-def fail(message: str) -> None:
+def fail(message: str) -> NoReturn:
     """Exit with a release-validation failure."""
     raise SystemExit(f"SMSv2 release validation failed: {message}")
 
@@ -108,13 +109,13 @@ def validate_concurrency(concurrency: dict, version: str) -> None:
     """Validate complete provider-wide concurrency coverage or exclusion."""
     resources = concurrency.get("resources")
     exclusions = concurrency.get("exclusions")
-    counts_match = isinstance(resources, list) and all(
+    if not isinstance(resources, list) or not isinstance(exclusions, list):
+        fail("provider-wide concurrency inventory is incomplete")
+    counts_match = all(
         concurrency.get(key) == len(resources)
         for key in ("eligible_count", "covered_count")
     )
-    exclusions_match = isinstance(exclusions, list) and concurrency.get(
-        "excluded_count"
-    ) == len(exclusions)
+    exclusions_match = concurrency.get("excluded_count") == len(exclusions)
     if (
         concurrency.get("version") != version
         or not counts_match
@@ -136,9 +137,15 @@ def valid_parity_paths(paths: object) -> tuple[list[str], bool]:
     """Return named parity paths and whether the path collection is valid."""
     if not isinstance(paths, list):
         return [], False
-    path_names = [item.get("path") for item in paths if isinstance(item, dict)]
-    valid_names = all(isinstance(path, str) and path for path in path_names)
-    return path_names, len(path_names) == len(paths) and valid_names
+    path_names = []
+    for item in paths:
+        if not isinstance(item, dict):
+            return [], False
+        path = item.get("path")
+        if not isinstance(path, str) or not path:
+            return [], False
+        path_names.append(path)
+    return path_names, True
 
 
 def validate_parity(parity: dict, version: str) -> None:

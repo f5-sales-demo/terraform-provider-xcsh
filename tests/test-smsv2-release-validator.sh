@@ -28,7 +28,7 @@ jq -n '{
 }' >"$work/concurrency_contracts.json"
 jq -n '{
   version:"9.9.9",resource:"securemesh_site_v2",path_count:1,
-  paths:{"spec.segment_vrf[].segment_network":{type:"object"}},choice_groups:{},
+  paths:[{path:"spec.segment_vrf[].segment_network",type:"object"}],choice_groups:{},
   deprecated_exclusions:["spec.log_receiver","spec.private_adn","spec.rseries"],
   current_platform_removals:[
     "spec.segment_vrf[].segment_config.nameserver_v6",
