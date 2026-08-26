@@ -155,14 +155,10 @@ func snapshotProvider(providerDir string) (snapshot, error) {
 }
 
 func loadSchemas(specDir string) (map[string]openapi.Schema, error) {
-	files, err := filepath.Glob(filepath.Join(specDir, "domains", "*.json"))
+	files, err := openapi.FindDomainSpecFiles(specDir)
 	if err != nil {
 		return nil, err
 	}
-	if len(files) == 0 {
-		return nil, fmt.Errorf("no domain specs in %s", specDir)
-	}
-	sort.Strings(files)
 	result := make(map[string]openapi.Schema)
 	for _, path := range files {
 		spec, parseErr := openapi.ParseFile(path)

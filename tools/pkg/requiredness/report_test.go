@@ -19,6 +19,12 @@ func writeFixture(t *testing.T, path, content string) {
 	}
 }
 
+func writeSpecBundle(t *testing.T, root, content string) {
+	t.Helper()
+	writeFixture(t, filepath.Join(root, "index.json"), `{"specifications":[{"domain":"probe","file":"probe.json"}]}`)
+	writeFixture(t, filepath.Join(root, "domains", "probe.json"), content)
+}
+
 func resourceFixture(required bool) string {
 	mode := "Optional: true"
 	if required {
@@ -62,8 +68,11 @@ func TestCompareTracesMinimumConfigurationPromotionRemoval(t *testing.T) {
 	candidateSpecs := t.TempDir()
 	writeFixture(t, filepath.Join(baselineProvider, "probe_resource.go"), resourceFixture(true))
 	writeFixture(t, filepath.Join(candidateProvider, "probe_resource.go"), resourceFixture(false))
-	writeFixture(t, filepath.Join(baselineSpecs, "domains", "probe.json"), specFixture(true, false))
-	writeFixture(t, filepath.Join(candidateSpecs, "domains", "probe.json"), specFixture(false, false))
+	writeSpecBundle(t, baselineSpecs, specFixture(true, false))
+	writeSpecBundle(t, candidateSpecs, specFixture(false, false))
+	// Contract manifests live beside domain specs in release archives but are not
+	// OpenAPI documents and must never be parsed as schemas.
+	writeFixture(t, filepath.Join(candidateSpecs, "domains", "smsv2_parity_manifest.json"), `{"paths":[]}`)
 
 	report, err := Compare(baselineProvider, candidateProvider, baselineSpecs, candidateSpecs, Report{
 		BaselineProvider: "main@abc",
@@ -100,8 +109,8 @@ func TestCompareRejectsUntracedOrStillRequiredTransition(t *testing.T) {
 			candidateSpecs := t.TempDir()
 			writeFixture(t, filepath.Join(baselineProvider, "probe_resource.go"), resourceFixture(true))
 			writeFixture(t, filepath.Join(candidateProvider, "probe_resource.go"), resourceFixture(false))
-			writeFixture(t, filepath.Join(baselineSpecs, "domains", "probe.json"), specFixture(tc.baselineMinimum, tc.baselineExplicit))
-			writeFixture(t, filepath.Join(candidateSpecs, "domains", "probe.json"), specFixture(false, tc.candidateExplicit))
+			writeSpecBundle(t, baselineSpecs, specFixture(tc.baselineMinimum, tc.baselineExplicit))
+			writeSpecBundle(t, candidateSpecs, specFixture(false, tc.candidateExplicit))
 			_, err := Compare(baselineProvider, candidateProvider, baselineSpecs, candidateSpecs, Report{})
 			if err == nil || !strings.Contains(err.Error(), tc.want) {
 				t.Fatalf("error = %v, want substring %q", err, tc.want)
@@ -132,8 +141,8 @@ func (r *ProbeResource) Schema() {
 	candidateSpec := `{"openapi":"3.0.0","info":{"version":"2"},"paths":{},"components":{"schemas":{"viewsprobeCreateSpecType":{"type":"object","x-f5xc-namespace-profile":{"constraint":{"allowed":["system"],"enforced":true}},"properties":{}}}}}`
 	writeFixture(t, filepath.Join(baselineProvider, "probe_resource.go"), provider(true))
 	writeFixture(t, filepath.Join(candidateProvider, "probe_resource.go"), provider(false))
-	writeFixture(t, filepath.Join(baselineSpecs, "domains", "probe.json"), baselineSpec)
-	writeFixture(t, filepath.Join(candidateSpecs, "domains", "probe.json"), candidateSpec)
+	writeSpecBundle(t, baselineSpecs, baselineSpec)
+	writeSpecBundle(t, candidateSpecs, candidateSpec)
 
 	report, err := Compare(baselineProvider, candidateProvider, baselineSpecs, candidateSpecs, Report{})
 	if err != nil {
