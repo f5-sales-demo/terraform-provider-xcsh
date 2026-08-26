@@ -16,8 +16,4 @@ terraform {
 resource "xcsh_advertise_policy" "example" {
   name      = "example-advertise-policy"
   namespace = "staging"
-
-  address         = "example-value"
-  protocol        = "TCP"
-  skip_xff_append = true
 }

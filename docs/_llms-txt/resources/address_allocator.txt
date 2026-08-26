@@ -7,7 +7,6 @@ Address Allocator will create an address allocator object in 'system' namespace 
 
 - name
 - namespace
-- mode
 
 ## Minimal Valid Config
 
@@ -17,7 +16,6 @@ resource "xcsh_address_allocator" "example" {
   namespace = "staging"
 
   address_pool = ["example-value"]
-  mode         = "LOCAL"
 }
 ```
 

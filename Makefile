@@ -289,9 +289,9 @@ release-prep: fmt lint test docs
 # leaving them out is why 143 examples and 91 docs drifted unnoticed (#1397).
 verify-generate: generate
 	@echo "Verifying no uncommitted changes from generation..."
-	@if [ -n "$$(git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs)" ]; then \
+	@if [ -n "$$(git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs tools/smsv2-parity-matrix.json)" ]; then \
 		echo "Error: Generated files have uncommitted changes"; \
-		git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs; \
+		git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs tools/smsv2-parity-matrix.json; \
 		exit 1; \
 	fi
 	@echo "All generated files are up to date"
@@ -331,7 +331,7 @@ testacc-mock:
 	@echo "Running MOCK API acceptance tests (TestMock*)..."
 	@echo "Category: MOCK_API - Tests against local mock server"
 	@echo ""
-	XCSH_MOCK_MODE=1 $(GO) test -v -timeout 30m ./internal/provider/... -run "^TestMock" 2>&1 | tee .test-output-mock.txt
+	TF_ACC=1 XCSH_MOCK_MODE=1 $(GO) test -v -timeout 30m ./internal/provider/... -run "^TestMock" 2>&1 | tee .test-output-mock.txt
 	@echo ""
 	@echo "Test output saved to .test-output-mock.txt"
 
@@ -342,7 +342,7 @@ testacc-all:
 	@echo "========================================================================"
 	@echo "PHASE 1: MOCK API TESTS (no credentials required)"
 	@echo "========================================================================"
-	XCSH_MOCK_MODE=1 $(GO) test -json -timeout 30m ./internal/provider/... -run "^TestMock" 2>&1 | tee .test-json-mock.txt | $(GO) run $(TOOLS_DIR)/test-report/main.go || true
+	TF_ACC=1 XCSH_MOCK_MODE=1 $(GO) test -json -timeout 30m ./internal/provider/... -run "^TestMock" 2>&1 | tee .test-json-mock.txt | $(GO) run $(TOOLS_DIR)/test-report/main.go || true
 	@echo ""
 	@echo "========================================================================"
 	@echo "PHASE 2: REAL API TESTS (requires credentials)"

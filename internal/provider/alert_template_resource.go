@@ -14,6 +14,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -86,19 +88,28 @@ func (r *AlertTemplateResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"alert_message": schema.StringAttribute{
-				MarkdownDescription: "Alert Message. Alert Message .",
+				MarkdownDescription: "Alert Message. Alert Message.",
 				Required:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(512),
 				},
 			},
 			"alert_message_details": schema.StringAttribute{
-				MarkdownDescription: "Detailed message of the alert .",
+				MarkdownDescription: "Alert Message Details. Detailed message of the alert.",
 				Required:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 			},
 			"alert_name": schema.StringAttribute{
-				MarkdownDescription: "Alert Name. Alert Name .",
+				MarkdownDescription: "Alert Name. Alert Name.",
 				Required:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(16),
 				},
@@ -107,19 +118,31 @@ func (r *AlertTemplateResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.RequiresReplace(),
+				},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -130,7 +153,11 @@ func (r *AlertTemplateResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"severity": schema.StringAttribute{
 				MarkdownDescription: "[Enum: MINOR|MAJOR|CRITICAL] List of alert severities Minor Major Critical. Possible values are `MINOR`, `MAJOR`, `CRITICAL`. Defaults to `MINOR`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("MINOR", "MAJOR", "CRITICAL"),
 				},
@@ -483,142 +510,14 @@ func (r *AlertTemplateResource) Update(ctx context.Context, req resource.UpdateR
 		return
 	}
 
-	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
-	resp.Diagnostics.Append(diags...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
-	defer cancel()
-
-	apiResource := &client.AlertTemplate{
-		Metadata: client.Metadata{
-			Name:      data.Name.ValueString(),
-			Namespace: data.Namespace.ValueString(),
-		},
-		Spec: make(map[string]interface{}),
-	}
-
-	if !data.Description.IsNull() {
-		apiResource.Metadata.Description = data.Description.ValueString()
-	}
-
-	if !data.Labels.IsNull() {
-		labels := make(map[string]string)
-		resp.Diagnostics.Append(data.Labels.ElementsAs(ctx, &labels, false)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
-		apiResource.Metadata.Labels = labels
-	}
-
-	// Re-capture ownership on every update, because the configuration's label set can
-	// change: a key added here becomes owned, and a key removed stops being owned so the
-	// next Read filters it again if it lives in a platform namespace (#1398).
-	//
-	// Captured HERE, before the platform's own discovery labels are merged in below —
-	// merging first would record those as configuration-owned and reintroduce exactly the
-	// #1391 bug this pairs with. Written to private state only after the API call
-	// succeeds; see the note at the write site.
-	ownedLabelKeys, ownedLabelErr := encodeOwnedLabelKeys(configLabelKeys(apiResource.Metadata.Labels))
-	if ownedLabelErr != nil {
-		resp.Diagnostics.AddError(
-			"Unable to Record Owned Label Keys",
-			"Could not encode the configuration's label keys for private state: "+ownedLabelErr.Error()+
-				"\n\nWithout this record the read-back cannot distinguish a label this "+
-				"configuration owns from one the platform authored, and a label in the "+
-				"ves.io/ namespace would never converge.",
-		)
-		return
-	}
-
-	if !data.Annotations.IsNull() {
-		annotations := make(map[string]string)
-		resp.Diagnostics.Append(data.Annotations.ElementsAs(ctx, &annotations, false)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
-		apiResource.Metadata.Annotations = annotations
-	}
-
-	// Marshal spec fields from Terraform state to API struct
-	if !data.AlertMessage.IsNull() && !data.AlertMessage.IsUnknown() {
-		apiResource.Spec["alert_message"] = data.AlertMessage.ValueString()
-	}
-	if !data.AlertMessageDetails.IsNull() && !data.AlertMessageDetails.IsUnknown() {
-		apiResource.Spec["alert_message_details"] = data.AlertMessageDetails.ValueString()
-	}
-	if !data.AlertName.IsNull() && !data.AlertName.IsUnknown() {
-		apiResource.Spec["alert_name"] = data.AlertName.ValueString()
-	}
-	if !data.Severity.IsNull() && !data.Severity.IsUnknown() {
-		apiResource.Spec["severity"] = data.Severity.ValueString()
-	}
-
-	_, err := r.client.UpdateAlertTemplate(ctx, apiResource)
-	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update AlertTemplate: %s", err))
-		return
-	}
-
-	// Only now that the write has landed. terraform-plugin-framework persists private
-	// state even when the method returns an error (it copies updateResp.Private into the
-	// response before checking diagnostics), so recording ownership earlier would be
-	// worse than not recording it: dropping a ves.io/ label from the configuration and
-	// then failing the update would leave private state claiming the key is unowned while
-	// the server still holds it, and Read would filter it out of sight for good.
-	//
-	// This is not airtight, and cannot be: Client.Put returns json.Unmarshal's error
-	// after a 2xx, so an error does not strictly prove the write was rejected. What it
-	// does guarantee is the direction of the residual. If the write landed and we return
-	// early, ownership stays as it was — an added label keeps being planned, which is
-	// visible and self-corrects on the next successful apply. The opposite ordering loses
-	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	// Use plan data for ID since API response may not include metadata.name
-	data.ID = types.StringValue(data.Name.ValueString())
-
-	// Fetch the resource to get complete state including computed fields
-	// PUT responses may not include all computed nested fields (like tenant in Object Reference blocks)
-	fetched, fetchErr := r.client.GetAlertTemplate(ctx, data.Namespace.ValueString(), data.Name.ValueString())
-	if fetchErr != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AlertTemplate after update: %s", fetchErr))
-		return
-	}
-
-	// Set computed fields from API response
-
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["alert_message"].(string); ok && v != "" {
-		data.AlertMessage = types.StringValue(v)
-	} else {
-		data.AlertMessage = types.StringNull()
-	}
-	if v, ok := apiResource.Spec["alert_message_details"].(string); ok && v != "" {
-		data.AlertMessageDetails = types.StringValue(v)
-	} else {
-		data.AlertMessageDetails = types.StringNull()
-	}
-	if v, ok := apiResource.Spec["alert_name"].(string); ok && v != "" {
-		data.AlertName = types.StringValue(v)
-	} else {
-		data.AlertName = types.StringNull()
-	}
-	if v, ok := apiResource.Spec["severity"].(string); ok && v != "" {
-		data.Severity = types.StringValue(v)
-	} else {
-		data.Severity = types.StringNull()
-	}
-
-	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	// The released operation/concurrency contracts do not classify this object
+	// as safely replaceable. Every configurable field requires replacement; fail
+	// closed without a PUT if Update is nevertheless invoked.
+	resp.Diagnostics.AddError(
+		"Update Not Supported",
+		"This API object does not expose a refreshable configuration token and cannot be updated safely. Replace the Terraform resource instead.",
+	)
+	return
 }
 
 func (r *AlertTemplateResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {

@@ -7,10 +7,7 @@ Fleet will create a fleet object in 'system' namespace of the user
 
 - name
 - namespace
-- enable_default_fleet_config_download
 - fleet_label
-- operating_system_version
-- volterra_software_version
 
 ## Minimal Valid Config
 
@@ -19,10 +16,7 @@ resource "xcsh_fleet" "example" {
   name      = "example-fleet"
   namespace = "staging"
 
-  fleet_label                          = "example-value"
-  enable_default_fleet_config_download = true
-  operating_system_version             = "example-value"
-  volterra_software_version            = "example-value"
+  fleet_label = "example-value"
 }
 ```
 

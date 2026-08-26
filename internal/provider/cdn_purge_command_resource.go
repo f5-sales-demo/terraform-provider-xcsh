@@ -15,6 +15,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -111,19 +113,31 @@ func (r *CDNPurgeCommandResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.RequiresReplace(),
+				},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -373,9 +387,6 @@ func (r *CDNPurgeCommandResource) Create(ctx context.Context, req resource.Creat
 		}
 		if !data.VirtualHost.Namespace.IsNull() && !data.VirtualHost.Namespace.IsUnknown() {
 			VirtualHostMap["namespace"] = data.VirtualHost.Namespace.ValueString()
-		}
-		if !data.VirtualHost.Tenant.IsNull() && !data.VirtualHost.Tenant.IsUnknown() {
-			VirtualHostMap["tenant"] = data.VirtualHost.Tenant.ValueString()
 		}
 		createReq.Spec["virtual_host"] = VirtualHostMap
 	}
@@ -642,208 +653,14 @@ func (r *CDNPurgeCommandResource) Update(ctx context.Context, req resource.Updat
 		return
 	}
 
-	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
-	resp.Diagnostics.Append(diags...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
-	defer cancel()
-
-	apiResource := &client.CDNPurgeCommand{
-		Metadata: client.Metadata{
-			Name:      data.Name.ValueString(),
-			Namespace: data.Namespace.ValueString(),
-		},
-		Spec: make(map[string]interface{}),
-	}
-
-	if !data.Description.IsNull() {
-		apiResource.Metadata.Description = data.Description.ValueString()
-	}
-
-	if !data.Labels.IsNull() {
-		labels := make(map[string]string)
-		resp.Diagnostics.Append(data.Labels.ElementsAs(ctx, &labels, false)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
-		apiResource.Metadata.Labels = labels
-	}
-
-	// Re-capture ownership on every update, because the configuration's label set can
-	// change: a key added here becomes owned, and a key removed stops being owned so the
-	// next Read filters it again if it lives in a platform namespace (#1398).
-	//
-	// Captured HERE, before the platform's own discovery labels are merged in below —
-	// merging first would record those as configuration-owned and reintroduce exactly the
-	// #1391 bug this pairs with. Written to private state only after the API call
-	// succeeds; see the note at the write site.
-	ownedLabelKeys, ownedLabelErr := encodeOwnedLabelKeys(configLabelKeys(apiResource.Metadata.Labels))
-	if ownedLabelErr != nil {
-		resp.Diagnostics.AddError(
-			"Unable to Record Owned Label Keys",
-			"Could not encode the configuration's label keys for private state: "+ownedLabelErr.Error()+
-				"\n\nWithout this record the read-back cannot distinguish a label this "+
-				"configuration owns from one the platform authored, and a label in the "+
-				"ves.io/ namespace would never converge.",
-		)
-		return
-	}
-
-	if !data.Annotations.IsNull() {
-		annotations := make(map[string]string)
-		resp.Diagnostics.Append(data.Annotations.ElementsAs(ctx, &annotations, false)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
-		apiResource.Metadata.Annotations = annotations
-	}
-
-	// Marshal spec fields from Terraform state to API struct
-	if data.HardPurge != nil {
-		apiResource.Spec["hard_purge"] = map[string]interface{}{}
-	}
-	if data.PurgeAll != nil {
-		apiResource.Spec["purge_all"] = map[string]interface{}{}
-	}
-	if data.SoftPurge != nil {
-		apiResource.Spec["soft_purge"] = map[string]interface{}{}
-	}
-	if data.VirtualHost != nil {
-		VirtualHostMap := make(map[string]interface{})
-		if !data.VirtualHost.Name.IsNull() && !data.VirtualHost.Name.IsUnknown() {
-			VirtualHostMap["name"] = data.VirtualHost.Name.ValueString()
-		}
-		if !data.VirtualHost.Namespace.IsNull() && !data.VirtualHost.Namespace.IsUnknown() {
-			VirtualHostMap["namespace"] = data.VirtualHost.Namespace.ValueString()
-		}
-		if !data.VirtualHost.Tenant.IsNull() && !data.VirtualHost.Tenant.IsUnknown() {
-			VirtualHostMap["tenant"] = data.VirtualHost.Tenant.ValueString()
-		}
-		apiResource.Spec["virtual_host"] = VirtualHostMap
-	}
-	if !data.Hostname.IsNull() && !data.Hostname.IsUnknown() {
-		apiResource.Spec["hostname"] = data.Hostname.ValueString()
-	}
-	if !data.Pattern.IsNull() && !data.Pattern.IsUnknown() {
-		apiResource.Spec["pattern"] = data.Pattern.ValueString()
-	}
-	if !data.URLPath.IsNull() && !data.URLPath.IsUnknown() {
-		apiResource.Spec["url_path"] = data.URLPath.ValueString()
-	}
-
-	_, err := r.client.UpdateCDNPurgeCommand(ctx, apiResource)
-	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update CDNPurgeCommand: %s", err))
-		return
-	}
-
-	// Only now that the write has landed. terraform-plugin-framework persists private
-	// state even when the method returns an error (it copies updateResp.Private into the
-	// response before checking diagnostics), so recording ownership earlier would be
-	// worse than not recording it: dropping a ves.io/ label from the configuration and
-	// then failing the update would leave private state claiming the key is unowned while
-	// the server still holds it, and Read would filter it out of sight for good.
-	//
-	// This is not airtight, and cannot be: Client.Put returns json.Unmarshal's error
-	// after a 2xx, so an error does not strictly prove the write was rejected. What it
-	// does guarantee is the direction of the residual. If the write landed and we return
-	// early, ownership stays as it was — an added label keeps being planned, which is
-	// visible and self-corrects on the next successful apply. The opposite ordering loses
-	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	// Use plan data for ID since API response may not include metadata.name
-	data.ID = types.StringValue(data.Name.ValueString())
-
-	// Fetch the resource to get complete state including computed fields
-	// PUT responses may not include all computed nested fields (like tenant in Object Reference blocks)
-	fetched, fetchErr := r.client.GetCDNPurgeCommand(ctx, data.Namespace.ValueString(), data.Name.ValueString())
-	if fetchErr != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CDNPurgeCommand after update: %s", fetchErr))
-		return
-	}
-
-	// Set computed fields from API response
-	if v, ok := fetched.Spec["hostname"].(string); ok && v != "" {
-		data.Hostname = types.StringValue(v)
-	} else if data.Hostname.IsUnknown() {
-		// API didn't return value and plan was unknown - set to null
-		data.Hostname = types.StringNull()
-	}
-	// If plan had a value, preserve it
-	if v, ok := fetched.Spec["pattern"].(string); ok && v != "" {
-		data.Pattern = types.StringValue(v)
-	} else if data.Pattern.IsUnknown() {
-		// API didn't return value and plan was unknown - set to null
-		data.Pattern = types.StringNull()
-	}
-	// If plan had a value, preserve it
-	if v, ok := fetched.Spec["url_path"].(string); ok && v != "" {
-		data.URLPath = types.StringValue(v)
-	} else if data.URLPath.IsUnknown() {
-		// API didn't return value and plan was unknown - set to null
-		data.URLPath = types.StringNull()
-	}
-	// If plan had a value, preserve it
-
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok && isImport && data.HardPurge == nil {
-		data.HardPurge = &CDNPurgeCommandEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok && isImport && data.PurgeAll == nil {
-		data.PurgeAll = &CDNPurgeCommandEmptyModel{}
-	}
-	if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok && isImport && data.SoftPurge == nil {
-		data.SoftPurge = &CDNPurgeCommandEmptyModel{}
-	}
-	if blockData, ok := apiResource.Spec["virtual_host"].(map[string]interface{}); ok && (isImport || data.VirtualHost != nil) {
-		data.VirtualHost = &CDNPurgeCommandVirtualHostModel{
-			Name: func() types.String {
-				if v, ok := blockData["name"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			Namespace: func() types.String {
-				if v, ok := blockData["namespace"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			Tenant: func() types.String {
-				if v, ok := blockData["tenant"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-		}
-	}
-	if v, ok := apiResource.Spec["hostname"].(string); ok && v != "" {
-		data.Hostname = types.StringValue(v)
-	} else {
-		data.Hostname = types.StringNull()
-	}
-	if v, ok := apiResource.Spec["pattern"].(string); ok && v != "" {
-		data.Pattern = types.StringValue(v)
-	} else {
-		data.Pattern = types.StringNull()
-	}
-	if v, ok := apiResource.Spec["url_path"].(string); ok && v != "" {
-		data.URLPath = types.StringValue(v)
-	} else {
-		data.URLPath = types.StringNull()
-	}
-
-	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	// The released operation/concurrency contracts do not classify this object
+	// as safely replaceable. Every configurable field requires replacement; fail
+	// closed without a PUT if Update is nevertheless invoked.
+	resp.Diagnostics.AddError(
+		"Update Not Supported",
+		"This API object does not expose a refreshable configuration token and cannot be updated safely. Replace the Terraform resource instead.",
+	)
+	return
 }
 
 func (r *CDNPurgeCommandResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {

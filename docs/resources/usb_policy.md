@@ -59,7 +59,7 @@ resource "xcsh_usb_policy" "example" {
 
 ### Spec Argument Reference
 
-<a id="allowed-devices"></a>&#x2022; [`allowed_devices`](#allowed-devices) - Optional Block<br>List of allowed USB devices<br>See [Allowed Devices](#allowed-devices) below for details.
+<a id="allowed-devices"></a>&#x2022; [`allowed_devices`](#allowed-devices) - Optional Block<br>Allowed USB devices. List of allowed USB devices<br>See [Allowed Devices](#allowed-devices) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

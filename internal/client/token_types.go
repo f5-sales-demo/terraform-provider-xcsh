@@ -10,9 +10,10 @@ import (
 
 // Token represents a F5XC Token
 type Token struct {
-	Metadata       Metadata               `json:"metadata"`
-	Spec           map[string]interface{} `json:"spec"`
-	SystemMetadata *TokenSystemMetadata   `json:"system_metadata,omitempty"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
+	SystemMetadata  *TokenSystemMetadata   `json:"system_metadata,omitempty"`
 }
 
 // TokenSystemMetadata carries server-generated object metadata returned in

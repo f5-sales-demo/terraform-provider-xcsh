@@ -10,8 +10,9 @@ import (
 
 // PolicyBasedRouting represents a F5XC PolicyBasedRouting
 type PolicyBasedRouting struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreatePolicyBasedRouting creates a new PolicyBasedRouting

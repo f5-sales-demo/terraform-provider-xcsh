@@ -68,7 +68,7 @@ resource "xcsh_crl" "example" {
 
 <a id="refresh-interval"></a>&#x2022; [`refresh_interval`](#refresh-interval) - Required Number<br>CRL Refresh interval. CRL refresh interval, in hours
 
-<a id="server-address"></a>&#x2022; [`server_address`](#server-address) - Required String<br>CRL server address or hostname
+<a id="server-address"></a>&#x2022; [`server_address`](#server-address) - Required String<br>CRL Server address. CRL server address or hostname
 
 <a id="server-port"></a>&#x2022; [`server_port`](#server-port) - Required Number<br>CRL Server Port. Set CRL Server port number
 

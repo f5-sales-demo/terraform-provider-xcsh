@@ -15,5 +15,5 @@ terraform {
 # Basic Segment configuration
 resource "xcsh_segment" "example" {
   name      = "example-segment"
-  namespace = "staging"
+  namespace = "system"
 }

@@ -7,8 +7,6 @@ Deploying F5 sites within Google Cloud VPC environments
 
 - name
 - namespace
-- address
-- disk_size
 - gcp_region
 - instance_type
 - ssh_key
@@ -23,11 +21,6 @@ resource "xcsh_gcp_vpc_site" "example" {
   gcp_region    = "example-value"
   instance_type = "example-value"
   ssh_key       = "example-value"
-  gcp_labels = {
-    example = "value"
-  }
-  address   = "example-value"
-  disk_size = 1
 }
 ```
 

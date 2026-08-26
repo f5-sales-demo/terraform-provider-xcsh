@@ -10,8 +10,9 @@ import (
 
 // DNSLBHealthCheck represents a F5XC DNSLBHealthCheck
 type DNSLBHealthCheck struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateDNSLBHealthCheck creates a new DNSLBHealthCheck

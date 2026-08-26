@@ -10,8 +10,9 @@ import (
 
 // DNSLBPool represents a F5XC DNSLBPool
 type DNSLBPool struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateDNSLBPool creates a new DNSLBPool

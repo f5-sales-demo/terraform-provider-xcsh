@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -25,6 +26,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -313,7 +315,11 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"load_balancing_mode": schema.StringAttribute{
 				MarkdownDescription: "[Enum: ROUND_ROBIN|RATIO_MEMBER|STATIC_PERSIST|PRIORITY] - ROUND_ROBIN: Round-Robin Round Robin will ensure random equal distribution of requests among all pool members in a pool. - RATIO_MEMBER: Ratio-Member Ratio-Member performs load balancing of requests across the pool members based on the ratio assigned to each pool member - STATIC_PERSIST.. Possible values are `ROUND_ROBIN`, `RATIO_MEMBER`, `STATIC_PERSIST`, `PRIORITY`. Defaults to `ROUND_ROBIN`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("ROUND_ROBIN", "RATIO_MEMBER", "STATIC_PERSIST", "PRIORITY"),
 				},
@@ -341,7 +347,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "[OneOf: a_pool, aaaa_pool, cname_pool, mx_pool, srv_pool] Pool for A Record.",
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
-						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query .",
+						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							int64validator.Between(1, 32),
@@ -383,7 +389,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 						},
 					},
 					"members": schema.ListNestedBlock{
-						MarkdownDescription: "Pool Members. .",
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"disable_spec": schema.BoolAttribute{
@@ -391,7 +397,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 									Optional:            true,
 								},
 								"ip_endpoint": schema.StringAttribute{
-									MarkdownDescription: "Public IP. Public IP address .",
+									MarkdownDescription: "Public IP. Public IP address.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
@@ -428,7 +434,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "Pool for AAAA Record.",
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
-						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query .",
+						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							int64validator.Between(1, 32),
@@ -437,7 +443,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 				Blocks: map[string]schema.Block{
 					"members": schema.ListNestedBlock{
-						MarkdownDescription: "Pool Members. .",
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"disable_spec": schema.BoolAttribute{
@@ -445,7 +451,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 									Optional:            true,
 								},
 								"ip_endpoint": schema.StringAttribute{
-									MarkdownDescription: "Public IP. Public IP address .",
+									MarkdownDescription: "Public IP. Public IP address.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
@@ -516,7 +522,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 						},
 					},
 					"members": schema.ListNestedBlock{
-						MarkdownDescription: "Pool Members. .",
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"domain": schema.StringAttribute{
@@ -560,7 +566,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "Pool for MX Record.",
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
-						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query .",
+						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							int64validator.Between(1, 32),
@@ -569,11 +575,11 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 				Blocks: map[string]schema.Block{
 					"members": schema.ListNestedBlock{
-						MarkdownDescription: "Pool Members. .",
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"domain": schema.StringAttribute{
-									MarkdownDescription: "Domain.",
+									MarkdownDescription: "Domain name for routing and identification.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
@@ -609,7 +615,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "Pool for SRV Record.",
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
-						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query .",
+						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							int64validator.Between(1, 32),
@@ -618,7 +624,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				},
 				Blocks: map[string]schema.Block{
 					"members": schema.ListNestedBlock{
-						MarkdownDescription: "Pool Members. .",
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"final_translation": schema.BoolAttribute{
@@ -633,7 +639,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 									},
 								},
 								"port": schema.Int64Attribute{
-									MarkdownDescription: "Port on which the service can be found .",
+									MarkdownDescription: "Port. Port on which the service can be found.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(0, 65535),
@@ -654,7 +660,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 									},
 								},
 								"target": schema.StringAttribute{
-									MarkdownDescription: "Domain name of the machine providing the service .",
+									MarkdownDescription: "Domain name of the machine providing the service.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
@@ -814,9 +820,6 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 			if !data.APool.HealthCheck.Namespace.IsNull() && !data.APool.HealthCheck.Namespace.IsUnknown() {
 				APoolHealthCheckMap["namespace"] = data.APool.HealthCheck.Namespace.ValueString()
 			}
-			if !data.APool.HealthCheck.Tenant.IsNull() && !data.APool.HealthCheck.Tenant.IsUnknown() {
-				APoolHealthCheckMap["tenant"] = data.APool.HealthCheck.Tenant.ValueString()
-			}
 			APoolMap["health_check"] = APoolHealthCheckMap
 		}
 		if !data.APool.MaxAnswers.IsNull() && !data.APool.MaxAnswers.IsUnknown() {
@@ -899,9 +902,6 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 			}
 			if !data.CnamePool.HealthCheck.Namespace.IsNull() && !data.CnamePool.HealthCheck.Namespace.IsUnknown() {
 				CnamePoolHealthCheckMap["namespace"] = data.CnamePool.HealthCheck.Namespace.ValueString()
-			}
-			if !data.CnamePool.HealthCheck.Tenant.IsNull() && !data.CnamePool.HealthCheck.Tenant.IsUnknown() {
-				CnamePoolHealthCheckMap["tenant"] = data.CnamePool.HealthCheck.Tenant.ValueString()
 			}
 			CnamePoolMap["health_check"] = CnamePoolHealthCheckMap
 		}
@@ -1024,11 +1024,28 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetDNSLBPool(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1488,6 +1505,16 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSLBPool: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1994,6 +2021,20 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.DNSLBPool{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -2001,6 +2042,7 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -2057,9 +2099,6 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 			}
 			if !data.APool.HealthCheck.Namespace.IsNull() && !data.APool.HealthCheck.Namespace.IsUnknown() {
 				APoolHealthCheckMap["namespace"] = data.APool.HealthCheck.Namespace.ValueString()
-			}
-			if !data.APool.HealthCheck.Tenant.IsNull() && !data.APool.HealthCheck.Tenant.IsUnknown() {
-				APoolHealthCheckMap["tenant"] = data.APool.HealthCheck.Tenant.ValueString()
 			}
 			APoolMap["health_check"] = APoolHealthCheckMap
 		}
@@ -2143,9 +2182,6 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 			}
 			if !data.CnamePool.HealthCheck.Namespace.IsNull() && !data.CnamePool.HealthCheck.Namespace.IsUnknown() {
 				CnamePoolHealthCheckMap["namespace"] = data.CnamePool.HealthCheck.Namespace.ValueString()
-			}
-			if !data.CnamePool.HealthCheck.Tenant.IsNull() && !data.CnamePool.HealthCheck.Tenant.IsUnknown() {
-				CnamePoolHealthCheckMap["tenant"] = data.CnamePool.HealthCheck.Tenant.ValueString()
 			}
 			CnamePoolMap["health_check"] = CnamePoolHealthCheckMap
 		}
@@ -2264,6 +2300,14 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 
 	_, err := r.client.UpdateDNSLBPool(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of dns_lb_pool %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update DNSLBPool: %s", err))
 		return
 	}
@@ -2281,10 +2325,6 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2297,7 +2337,27 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["load_balancing_mode"].(string); ok && v != "" {
+		data.LoadBalancingMode = types.StringValue(v)
+	} else if data.LoadBalancingMode.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.LoadBalancingMode = types.StringNull()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["ttl"].(float64); ok {
 		data.TTL = types.Int64Value(int64(v))
 	} else if data.TTL.IsUnknown() {

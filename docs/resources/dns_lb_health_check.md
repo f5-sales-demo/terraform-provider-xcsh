@@ -83,7 +83,7 @@ A [`http_health_check`](#http-health-check) block supports the following:
 
 <a id="http-health-check-disable-virtual-host"></a>&#x2022; [`disable_virtual_host`](#http-health-check-disable-virtual-host) - Optional Block<br>Enable this option
 
-<a id="http-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#http-health-check-health-check-port) - Optional Number<br>Port used for performing health check
+<a id="http-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#http-health-check-health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
 
 <a id="port-d66aae"></a>&#x2022; [`health_check_secondary_port`](#port-d66aae) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
 
@@ -99,7 +99,7 @@ A [`https_health_check`](#https-health-check) block supports the following:
 
 <a id="https-health-check-disable-virtual-host"></a>&#x2022; [`disable_virtual_host`](#https-health-check-disable-virtual-host) - Optional Block<br>Enable this option
 
-<a id="https-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#https-health-check-health-check-port) - Optional Number<br>Port used for performing health check
+<a id="https-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#https-health-check-health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
 
 <a id="port-4b56cd"></a>&#x2022; [`health_check_secondary_port`](#port-4b56cd) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
 
@@ -113,7 +113,7 @@ A [`https_health_check`](#https-health-check) block supports the following:
 
 A [`tcp_health_check`](#tcp-health-check) block supports the following:
 
-<a id="tcp-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#tcp-health-check-health-check-port) - Optional Number<br>Port used for performing health check
+<a id="tcp-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#tcp-health-check-health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
 
 <a id="port-719c9f"></a>&#x2022; [`health_check_secondary_port`](#port-719c9f) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
 
@@ -125,7 +125,7 @@ A [`tcp_health_check`](#tcp-health-check) block supports the following:
 
 A [`tcp_hex_health_check`](#tcp-hex-health-check) block supports the following:
 
-<a id="tcp-hex-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#tcp-hex-health-check-health-check-port) - Optional Number<br>Port used for performing health check
+<a id="tcp-hex-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#tcp-hex-health-check-health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
 
 <a id="port-1599fa"></a>&#x2022; [`health_check_secondary_port`](#port-1599fa) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
 
@@ -149,7 +149,7 @@ A [`timeouts`](#timeouts) block supports the following:
 
 An [`udp_health_check`](#udp-health-check) block supports the following:
 
-<a id="udp-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#udp-health-check-health-check-port) - Optional Number<br>Port used for performing health check
+<a id="udp-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#udp-health-check-health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
 
 <a id="port-71a6d7"></a>&#x2022; [`health_check_secondary_port`](#port-71a6d7) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
 

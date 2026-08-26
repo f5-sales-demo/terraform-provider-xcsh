@@ -75,7 +75,7 @@ func IsMetadataField(name string) bool {
 func FilterSpecFields(attrs []openapi.TerraformAttribute) []openapi.TerraformAttribute {
 	var specFields []openapi.TerraformAttribute
 	for _, attr := range attrs {
-		if !IsMetadataField(attr.TfsdkTag) && attr.IsSpecField {
+		if !IsMetadataField(attr.TfsdkTag) && attr.IsSpecField && !(attr.Computed && !attr.Optional && !attr.Required) {
 			specFields = append(specFields, attr)
 		}
 	}
@@ -112,24 +112,6 @@ func ParseMinConfigRequiredFields(raw interface{}) []string {
 		}
 	}
 	return result
-}
-
-// PromoteMinConfigRequired marks attributes as Required if their tfsdk tag appears in the minimum config.
-// This promotes Optional fields that are needed for a minimum viable configuration.
-func PromoteMinConfigRequired(attrs []openapi.TerraformAttribute, minFields map[string]bool) {
-	for i := range attrs {
-		if minFields[attrs[i].TfsdkTag] && attrs[i].Optional && !attrs[i].Required {
-			if len(attrs[i].ConflictsWith) > 0 {
-				continue
-			}
-			attrs[i].Required = true
-			attrs[i].Optional = false
-			if attrs[i].Computed {
-				attrs[i].Computed = false
-				attrs[i].PlanModifier = ""
-			}
-		}
-	}
 }
 
 // ResolveRef resolves a $ref string to a schema definition.
@@ -407,20 +389,28 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	if schema.XVesValidationRules[etldRule] == "true" || schema.XValidationRules[etldRule] == "true" {
 		attr.ETLDPlusOne = true
 	}
-	// x-required / x-ves-required are additional Required signals, but only
+	// x-ves-required and x-f5xc-required-for.create are additional Required signals, but only
 	// apply at depth 0 (top-level resource spec attributes). For nested
 	// attributes inside optional blocks, Required: true causes Terraform
 	// Plugin Framework to fail validation even when the block is absent.
-	if depth == 0 && (schema.XRequired || schema.XVesRequired == "true" || schema.XF5XCRequiredFor.Create) {
+	if depth == 0 && (schema.XVesRequired == "true" || schema.XF5XCRequiredFor.Create) {
 		attr.Required = true
 		attr.Optional = false
+	}
+	// OpenAPI readOnly fields are returned by the server but are never accepted as
+	// practitioner configuration. Keep them in state as Computed-only attributes.
+	if schema.ReadOnly {
+		attr.Required = false
+		attr.Optional = false
+		attr.Computed = true
+		attr.PlanModifier = ""
 	}
 	if attr.Required && len(attr.ConflictsWith) > 0 {
 		attr.Required = false
 		attr.Optional = true
 	}
 	// Set PlanModifier for immutable fields (reuses existing template infrastructure)
-	if attr.Immutable && attr.PlanModifier == "" {
+	if attr.Immutable && !schema.ReadOnly && attr.PlanModifier == "" {
 		attr.PlanModifier = "RequiresReplace"
 	}
 

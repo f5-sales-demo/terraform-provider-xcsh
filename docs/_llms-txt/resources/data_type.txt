@@ -7,8 +7,6 @@ Data_type creates a new object in the storage backend for metadata.namespace
 
 - name
 - namespace
-- is_pii
-- is_sensitive_data
 
 ## Minimal Valid Config
 
@@ -16,10 +14,6 @@ Data_type creates a new object in the storage backend for metadata.namespace
 resource "xcsh_data_type" "example" {
   name      = "example-data-type"
   namespace = "staging"
-
-  compliances       = ["example-value"]
-  is_pii            = true
-  is_sensitive_data = true
 }
 ```
 

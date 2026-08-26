@@ -31,12 +31,9 @@ terraform {
 # Basic Srv6NetworkSlice configuration
 resource "xcsh_srv6_network_slice" "example" {
   name      = "example-srv6-network-slice"
-  namespace = "staging"
+  namespace = "system"
 
-  sid_prefixes                   = ["example-value"]
-  connect_to_access_networks     = true
-  connect_to_enterprise_networks = true
-  connect_to_internet            = true
+  sid_prefixes = ["example-value"]
 }
 ```
 
@@ -52,8 +49,6 @@ resource "xcsh_srv6_network_slice" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Srv6 Network Slice. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Srv6 Network Slice is created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -62,13 +57,15 @@ resource "xcsh_srv6_network_slice" "example" {
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Srv6 Network Slice. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
+
 ### Spec Argument Reference
 
-<a id="connect-to-access-networks"></a>&#x2022; [`connect_to_access_networks`](#connect-to-access-networks) - Required Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to their corresponding access networks by importing route targets
+<a id="connect-to-access-networks"></a>&#x2022; [`connect_to_access_networks`](#connect-to-access-networks) - Optional Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to their corresponding access networks by importing route targets
 
-<a id="connect-to-enterprise-networks"></a>&#x2022; [`connect_to_enterprise_networks`](#connect-to-enterprise-networks) - Required Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to their corresponding enterprise networks by importing route targets
+<a id="connect-to-enterprise-networks"></a>&#x2022; [`connect_to_enterprise_networks`](#connect-to-enterprise-networks) - Optional Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to their corresponding enterprise networks by importing route targets
 
-<a id="connect-to-internet"></a>&#x2022; [`connect_to_internet`](#connect-to-internet) - Required Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to the internet by importing route targets
+<a id="connect-to-internet"></a>&#x2022; [`connect_to_internet`](#connect-to-internet) - Optional Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to the internet by importing route targets
 
 <a id="sid-prefixes"></a>&#x2022; [`sid_prefixes`](#sid-prefixes) - Required List<br>SID Locator from the prefix is allocated automatically for each node in each site
 

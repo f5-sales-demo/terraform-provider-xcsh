@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -26,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1402,7 +1404,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name. Name of the origin pool .",
+									MarkdownDescription: "Name. Name of the origin pool.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 63),
@@ -1448,7 +1450,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 												"interval": schema.Int64Attribute{
-													MarkdownDescription: "Time interval in seconds between two health check requests .",
+													MarkdownDescription: "Time interval in seconds between two health check requests.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(1, 600),
@@ -1471,7 +1473,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 											Blocks: map[string]schema.Block{
 												"health_check": schema.ListNestedBlock{
-													MarkdownDescription: "List of Health Checks. List of Health Checks .",
+													MarkdownDescription: "List of Health Checks. List of Health Checks.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -1482,14 +1484,14 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern.",
 																Attributes: map[string]schema.Attribute{
 																	"expected_response": schema.StringAttribute{
-																		MarkdownDescription: "Specifies a regular expression pattern which will be matched against response payload .",
+																		MarkdownDescription: "Specifies a regular expression pattern which will be matched against response payload.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(2048),
 																		},
 																	},
 																	"send_payload": schema.StringAttribute{
-																		MarkdownDescription: "Text string sent in the request .",
+																		MarkdownDescription: "Send string. Text string sent in the request.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(2048),
@@ -1506,7 +1508,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											MarkdownDescription: "Enable this option",
 										},
 										"origin_servers": schema.ListNestedBlock{
-											MarkdownDescription: "List of origin servers for Proxy .",
+											MarkdownDescription: "List of Origin Servers. List of origin servers for Proxy.",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
@@ -1781,7 +1783,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														MarkdownDescription: "Specify origin server with public DNS name.",
 														Attributes: map[string]schema.Attribute{
 															"dns_name": schema.StringAttribute{
-																MarkdownDescription: "DNS Name. DNS Name .",
+																MarkdownDescription: "DNS Name. DNS Name",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 256),
@@ -1815,7 +1817,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
-								MarkdownDescription: "Where should this load balancer be available .",
+								MarkdownDescription: "Where should this load balancer be available.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
@@ -2470,7 +2472,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 												Attributes: map[string]schema.Attribute{
 													"xfcc_header_elements": schema.ListAttribute{
-														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 														Optional:            true,
 														ElementType:         types.StringType,
 													},
@@ -2488,7 +2490,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										MarkdownDescription: "Enable this option",
 									},
 									"tls_certificates": schema.ListNestedBlock{
-										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -2532,7 +2534,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2693,7 +2695,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 												Attributes: map[string]schema.Attribute{
 													"xfcc_header_elements": schema.ListAttribute{
-														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 														Optional:            true,
 														ElementType:         types.StringType,
 													},
@@ -2947,7 +2949,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -3121,9 +3123,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
 						IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
 					}
-					if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
-						IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
-					}
 					IrulesList = append(IrulesList, IrulesItemMap)
 				}
 				IrulesMap["irules"] = IrulesList
@@ -3233,9 +3232,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
 													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 												}
-												if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
-												}
 												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap["site"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap
 											}
 											if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
@@ -3245,9 +3241,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												}
 												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
-												}
-												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 												}
 												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap
 											}
@@ -3296,9 +3289,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 											if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
 												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 											}
-											if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
-											}
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["segment"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap
 										}
 										if OriginServersItem.PrivateIP.SiteLocator != nil {
@@ -3311,9 +3301,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
 													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 												}
-												if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
-												}
 												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap["site"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap
 											}
 											if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
@@ -3323,9 +3310,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
-												}
-												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 												}
 												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap["virtual_site"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap
 											}
@@ -3414,9 +3398,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
 							AdvertiseWhereItemMap["advertise_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
@@ -3442,9 +3423,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								}
 								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap
 							}
@@ -3475,9 +3453,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 							}
 							AdvertiseWhereItemMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -3494,9 +3469,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 							}
@@ -3518,9 +3490,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 							}
 							AdvertiseWhereItemMap["virtual_site_with_vip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -3535,9 +3504,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 							}
 							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -3547,9 +3513,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 							}
@@ -3687,9 +3650,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 								CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 							}
-							if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-								CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-							}
 							CertificatesList = append(CertificatesList, CertificatesItemMap)
 						}
 						ProxyConfigHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -3742,9 +3702,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-						}
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["crl"] = ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -3757,9 +3714,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap
 					}
@@ -3898,9 +3852,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-						}
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["crl"] = ProxyConfigHTTPSTLSParametersUseMtlsCRLMap
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -3913,9 +3864,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap
 					}
@@ -4071,9 +4019,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-					}
 					ProxyConfigHTTPSAutoCertUseMtlsMap["crl"] = ProxyConfigHTTPSAutoCertUseMtlsCRLMap
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -4086,9 +4031,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					ProxyConfigHTTPSAutoCertUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap
 				}
@@ -4123,11 +4065,28 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetBigIPHTTPProxy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -6436,6 +6395,16 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read BigIPHTTPProxy: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -8791,6 +8760,20 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.BigIPHTTPProxy{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -8798,6 +8781,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -8877,9 +8861,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					}
 					if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
 						IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
-					}
-					if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
-						IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
 					}
 					IrulesList = append(IrulesList, IrulesItemMap)
 				}
@@ -8990,9 +8971,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
 													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 												}
-												if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
-												}
 												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap["site"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap
 											}
 											if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
@@ -9002,9 +8980,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												}
 												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
-												}
-												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 												}
 												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap
 											}
@@ -9053,9 +9028,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 											if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
 												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 											}
-											if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
-											}
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["segment"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap
 										}
 										if OriginServersItem.PrivateIP.SiteLocator != nil {
@@ -9068,9 +9040,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
 													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 												}
-												if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
-												}
 												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap["site"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap
 											}
 											if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
@@ -9080,9 +9049,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
-												}
-												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 												}
 												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap["virtual_site"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap
 											}
@@ -9171,9 +9137,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
 							AdvertiseWhereItemMap["advertise_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
@@ -9199,9 +9162,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								}
 								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap
 							}
@@ -9232,9 +9192,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 							}
 							AdvertiseWhereItemMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -9251,9 +9208,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 							}
@@ -9275,9 +9229,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 							}
 							AdvertiseWhereItemMap["virtual_site_with_vip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -9292,9 +9243,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 								}
-								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 							}
 							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -9304,9 +9252,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-								}
-								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 								}
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 							}
@@ -9444,9 +9389,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 								CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 							}
-							if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-								CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-							}
 							CertificatesList = append(CertificatesList, CertificatesItemMap)
 						}
 						ProxyConfigHTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -9499,9 +9441,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-						}
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["crl"] = ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -9514,9 +9453,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap
 					}
@@ -9655,9 +9591,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-						}
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["crl"] = ProxyConfigHTTPSTLSParametersUseMtlsCRLMap
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -9670,9 +9603,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap
 					}
@@ -9828,9 +9758,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-					}
 					ProxyConfigHTTPSAutoCertUseMtlsMap["crl"] = ProxyConfigHTTPSAutoCertUseMtlsCRLMap
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -9843,9 +9770,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					ProxyConfigHTTPSAutoCertUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap
 				}
@@ -9876,6 +9800,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 
 	_, err := r.client.UpdateBigIPHTTPProxy(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of bigip_http_proxy %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update BigIPHTTPProxy: %s", err))
 		return
 	}
@@ -9893,10 +9825,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -9906,6 +9834,19 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 	fetched, fetchErr := r.client.GetBigIPHTTPProxy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read BigIPHTTPProxy after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

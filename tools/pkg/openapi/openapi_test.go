@@ -272,7 +272,12 @@ func TestSchema_NewExtensions(t *testing.T) {
 					"x-f5xc-constraints": {"min_items": 1},
 					"x-f5xc-recommended-oneof-variant": "option_a",
 					"x-reconciled-at": "2026-04-23T09:16:13Z",
-					"x-reconciled-from-discovery": true
+					"x-reconciled-from-discovery": true,
+					"x-f5xc-concurrency-token": {
+						"server_assigned": true,
+						"echo_on_operations": ["replace"]
+					},
+					"readOnly": true
 				}
 			}
 		}
@@ -320,6 +325,15 @@ func TestSchema_NewExtensions(t *testing.T) {
 	}
 	if schema.XReconciledFromDiscovery != true {
 		t.Errorf("XReconciledFromDiscovery = %v, want true", schema.XReconciledFromDiscovery)
+	}
+	if schema.XF5XCConcurrencyToken == nil || !schema.XF5XCConcurrencyToken.ServerAssigned {
+		t.Fatal("XF5XCConcurrencyToken server_assigned was not parsed")
+	}
+	if !schema.ReadOnly {
+		t.Fatal("readOnly was not parsed")
+	}
+	if len(schema.XF5XCConcurrencyToken.EchoOnOperations) != 1 || schema.XF5XCConcurrencyToken.EchoOnOperations[0] != "replace" {
+		t.Fatalf("XF5XCConcurrencyToken.EchoOnOperations = %v, want [replace]", schema.XF5XCConcurrencyToken.EchoOnOperations)
 	}
 }
 

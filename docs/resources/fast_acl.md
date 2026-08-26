@@ -176,7 +176,7 @@ A [`selected_tenant_vip`](#re-acl-selected-tenant-vip) block (within [`re_acl`](
 
 <a id="vip-1d894b"></a>&#x2022; [`default_tenant_vip`](#vip-1d894b) - Optional Bool<br>Include tenant VIP in list of specific VIP(s)
 
-<a id="refs-523a60"></a>&#x2022; [`public_ip_refs`](#refs-523a60) - Optional Block<br>Select additional public VIP(s)<br>See [Public IP Refs](#refs-523a60) below.
+<a id="refs-523a60"></a>&#x2022; [`public_ip_refs`](#refs-523a60) - Optional Block<br>Select Public VIP(s). Select additional public VIP(s)<br>See [Public IP Refs](#refs-523a60) below.
 
 #### RE ACL Selected Tenant VIP Public IP Refs
 

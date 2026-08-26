@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -27,6 +28,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -505,35 +507,55 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"connection_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The timeout for new network connections to endpoints in the cluster. This is specified in milliseconds. The  seconds. Defaults to `2`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.AtMost(600000),
 				},
 			},
 			"endpoint_selection": schema.StringAttribute{
 				MarkdownDescription: "[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider only local endpoints for load balancing Enable this policy to load balance ONLY among locally discovered endpoints Prefer the local endpoints for.. Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`. Defaults to `DISTRIBUTED`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("DISTRIBUTED", "LOCAL_ONLY", "LOCAL_PREFERRED"),
 				},
 			},
 			"fallback_policy": schema.StringAttribute{
 				MarkdownDescription: "[Enum: NO_FALLBACK|ANY_ENDPOINT|DEFAULT_SUBSET] Enumeration for SubsetFallbackPolicy if subset match is not found. The request fails as if the cluster had no endpoint matching the subset policy Any cluster endpoint may be selected if the cluster had no endpoint matching the subset policy Load balancing is done over endpoints matching.. Possible values are `NO_FALLBACK`, `ANY_ENDPOINT`, `DEFAULT_SUBSET`. Defaults to `NO_FALLBACK`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("NO_FALLBACK", "ANY_ENDPOINT", "DEFAULT_SUBSET"),
 				},
 			},
 			"http_idle_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.AtMost(600000),
 				},
 			},
 			"loadbalancer_algorithm": schema.StringAttribute{
 				MarkdownDescription: "[Enum: ROUND_ROBIN|LEAST_REQUEST|RING_HASH|RANDOM|LB_OVERRIDE] Different load balancing algorithms supported When a connection to a endpoint in an upstream cluster is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in.. Possible values are `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `LB_OVERRIDE`. Defaults to `ROUND_ROBIN`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("ROUND_ROBIN", "LEAST_REQUEST", "RING_HASH", "RANDOM", "LB_OVERRIDE"),
 				},
@@ -831,7 +853,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 						},
 						Blocks: map[string]schema.Block{
 							"certificates": schema.ListNestedBlock{
-								MarkdownDescription: "Client TLS Certificate required for mTLS authentication .",
+								MarkdownDescription: "Client TLS Certificate required for mTLS authentication.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"kind": schema.StringAttribute{
@@ -1000,7 +1022,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -1311,20 +1333,11 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			var EndpointsList []map[string]interface{}
 			for _, EndpointsItem := range EndpointsElems {
 				EndpointsItemMap := make(map[string]interface{})
-				if !EndpointsItem.Kind.IsNull() && !EndpointsItem.Kind.IsUnknown() {
-					EndpointsItemMap["kind"] = EndpointsItem.Kind.ValueString()
-				}
 				if !EndpointsItem.Name.IsNull() && !EndpointsItem.Name.IsUnknown() {
 					EndpointsItemMap["name"] = EndpointsItem.Name.ValueString()
 				}
 				if !EndpointsItem.Namespace.IsNull() && !EndpointsItem.Namespace.IsUnknown() {
 					EndpointsItemMap["namespace"] = EndpointsItem.Namespace.ValueString()
-				}
-				if !EndpointsItem.Tenant.IsNull() && !EndpointsItem.Tenant.IsUnknown() {
-					EndpointsItemMap["tenant"] = EndpointsItem.Tenant.ValueString()
-				}
-				if !EndpointsItem.Uid.IsNull() && !EndpointsItem.Uid.IsUnknown() {
-					EndpointsItemMap["uid"] = EndpointsItem.Uid.ValueString()
 				}
 				EndpointsList = append(EndpointsList, EndpointsItemMap)
 			}
@@ -1339,20 +1352,11 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			var HealthChecksList []map[string]interface{}
 			for _, HealthChecksItem := range HealthChecksElems {
 				HealthChecksItemMap := make(map[string]interface{})
-				if !HealthChecksItem.Kind.IsNull() && !HealthChecksItem.Kind.IsUnknown() {
-					HealthChecksItemMap["kind"] = HealthChecksItem.Kind.ValueString()
-				}
 				if !HealthChecksItem.Name.IsNull() && !HealthChecksItem.Name.IsUnknown() {
 					HealthChecksItemMap["name"] = HealthChecksItem.Name.ValueString()
 				}
 				if !HealthChecksItem.Namespace.IsNull() && !HealthChecksItem.Namespace.IsUnknown() {
 					HealthChecksItemMap["namespace"] = HealthChecksItem.Namespace.ValueString()
-				}
-				if !HealthChecksItem.Tenant.IsNull() && !HealthChecksItem.Tenant.IsUnknown() {
-					HealthChecksItemMap["tenant"] = HealthChecksItem.Tenant.ValueString()
-				}
-				if !HealthChecksItem.Uid.IsNull() && !HealthChecksItem.Uid.IsUnknown() {
-					HealthChecksItemMap["uid"] = HealthChecksItem.Uid.ValueString()
 				}
 				HealthChecksList = append(HealthChecksList, HealthChecksItemMap)
 			}
@@ -1429,20 +1433,11 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 					var CertificatesList []map[string]interface{}
 					for _, CertificatesItem := range CertificatesElems {
 						CertificatesItemMap := make(map[string]interface{})
-						if !CertificatesItem.Kind.IsNull() && !CertificatesItem.Kind.IsUnknown() {
-							CertificatesItemMap["kind"] = CertificatesItem.Kind.ValueString()
-						}
 						if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
 							CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
 						}
 						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
-						}
-						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-						}
-						if !CertificatesItem.Uid.IsNull() && !CertificatesItem.Uid.IsUnknown() {
-							CertificatesItemMap["uid"] = CertificatesItem.Uid.ValueString()
 						}
 						CertificatesList = append(CertificatesList, CertificatesItemMap)
 					}
@@ -1478,20 +1473,11 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							var TrustedCAListList []map[string]interface{}
 							for _, TrustedCAListItem := range TrustedCAListElems {
 								TrustedCAListItemMap := make(map[string]interface{})
-								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-								}
 								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 								}
 								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-								}
-								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-								}
-								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
@@ -1610,20 +1596,11 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							var TrustedCAListList []map[string]interface{}
 							for _, TrustedCAListItem := range TrustedCAListElems {
 								TrustedCAListItemMap := make(map[string]interface{})
-								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-								}
 								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 								}
 								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-								}
-								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-								}
-								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
@@ -1705,11 +1682,28 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetCluster(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -2638,6 +2632,16 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Cluster: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -3613,6 +3617,20 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.Cluster{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -3620,6 +3638,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -3721,20 +3740,11 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			var EndpointsList []map[string]interface{}
 			for _, EndpointsItem := range EndpointsElems {
 				EndpointsItemMap := make(map[string]interface{})
-				if !EndpointsItem.Kind.IsNull() && !EndpointsItem.Kind.IsUnknown() {
-					EndpointsItemMap["kind"] = EndpointsItem.Kind.ValueString()
-				}
 				if !EndpointsItem.Name.IsNull() && !EndpointsItem.Name.IsUnknown() {
 					EndpointsItemMap["name"] = EndpointsItem.Name.ValueString()
 				}
 				if !EndpointsItem.Namespace.IsNull() && !EndpointsItem.Namespace.IsUnknown() {
 					EndpointsItemMap["namespace"] = EndpointsItem.Namespace.ValueString()
-				}
-				if !EndpointsItem.Tenant.IsNull() && !EndpointsItem.Tenant.IsUnknown() {
-					EndpointsItemMap["tenant"] = EndpointsItem.Tenant.ValueString()
-				}
-				if !EndpointsItem.Uid.IsNull() && !EndpointsItem.Uid.IsUnknown() {
-					EndpointsItemMap["uid"] = EndpointsItem.Uid.ValueString()
 				}
 				EndpointsList = append(EndpointsList, EndpointsItemMap)
 			}
@@ -3749,20 +3759,11 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			var HealthChecksList []map[string]interface{}
 			for _, HealthChecksItem := range HealthChecksElems {
 				HealthChecksItemMap := make(map[string]interface{})
-				if !HealthChecksItem.Kind.IsNull() && !HealthChecksItem.Kind.IsUnknown() {
-					HealthChecksItemMap["kind"] = HealthChecksItem.Kind.ValueString()
-				}
 				if !HealthChecksItem.Name.IsNull() && !HealthChecksItem.Name.IsUnknown() {
 					HealthChecksItemMap["name"] = HealthChecksItem.Name.ValueString()
 				}
 				if !HealthChecksItem.Namespace.IsNull() && !HealthChecksItem.Namespace.IsUnknown() {
 					HealthChecksItemMap["namespace"] = HealthChecksItem.Namespace.ValueString()
-				}
-				if !HealthChecksItem.Tenant.IsNull() && !HealthChecksItem.Tenant.IsUnknown() {
-					HealthChecksItemMap["tenant"] = HealthChecksItem.Tenant.ValueString()
-				}
-				if !HealthChecksItem.Uid.IsNull() && !HealthChecksItem.Uid.IsUnknown() {
-					HealthChecksItemMap["uid"] = HealthChecksItem.Uid.ValueString()
 				}
 				HealthChecksList = append(HealthChecksList, HealthChecksItemMap)
 			}
@@ -3839,20 +3840,11 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 					var CertificatesList []map[string]interface{}
 					for _, CertificatesItem := range CertificatesElems {
 						CertificatesItemMap := make(map[string]interface{})
-						if !CertificatesItem.Kind.IsNull() && !CertificatesItem.Kind.IsUnknown() {
-							CertificatesItemMap["kind"] = CertificatesItem.Kind.ValueString()
-						}
 						if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
 							CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
 						}
 						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
-						}
-						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-						}
-						if !CertificatesItem.Uid.IsNull() && !CertificatesItem.Uid.IsUnknown() {
-							CertificatesItemMap["uid"] = CertificatesItem.Uid.ValueString()
 						}
 						CertificatesList = append(CertificatesList, CertificatesItemMap)
 					}
@@ -3888,20 +3880,11 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							var TrustedCAListList []map[string]interface{}
 							for _, TrustedCAListItem := range TrustedCAListElems {
 								TrustedCAListItemMap := make(map[string]interface{})
-								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-								}
 								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 								}
 								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-								}
-								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-								}
-								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
@@ -4020,20 +4003,11 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							var TrustedCAListList []map[string]interface{}
 							for _, TrustedCAListItem := range TrustedCAListElems {
 								TrustedCAListItemMap := make(map[string]interface{})
-								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-								}
 								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 								}
 								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-								}
-								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-								}
-								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
@@ -4111,6 +4085,14 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 
 	_, err := r.client.UpdateCluster(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of cluster %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update Cluster: %s", err))
 		return
 	}
@@ -4128,10 +4110,6 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -4144,7 +4122,55 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["connection_timeout"].(float64); ok {
+		data.ConnectionTimeout = types.Int64Value(int64(v))
+	} else if data.ConnectionTimeout.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ConnectionTimeout = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["endpoint_selection"].(string); ok && v != "" {
+		data.EndpointSelection = types.StringValue(v)
+	} else if data.EndpointSelection.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.EndpointSelection = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["fallback_policy"].(string); ok && v != "" {
+		data.FallbackPolicy = types.StringValue(v)
+	} else if data.FallbackPolicy.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.FallbackPolicy = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["http_idle_timeout"].(float64); ok {
+		data.HTTPIdleTimeout = types.Int64Value(int64(v))
+	} else if data.HTTPIdleTimeout.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.HTTPIdleTimeout = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["loadbalancer_algorithm"].(string); ok && v != "" {
+		data.LoadBalancerAlgorithm = types.StringValue(v)
+	} else if data.LoadBalancerAlgorithm.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.LoadBalancerAlgorithm = types.StringNull()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["max_requests_per_connection"].(float64); ok {
 		data.MaxRequestsPerConnection = types.Int64Value(int64(v))
 	} else if data.MaxRequestsPerConnection.IsUnknown() {

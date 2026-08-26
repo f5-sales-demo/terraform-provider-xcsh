@@ -10,8 +10,9 @@ import (
 
 // Certificate represents a F5XC Certificate
 type Certificate struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateCertificate creates a new Certificate

@@ -88,7 +88,7 @@ An [`aws_assume_role`](#aws-assume-role) block supports the following:
 
 <a id="tenant-id-b8874c"></a>&#x2022; [`external_id_is_tenant_id`](#tenant-id-b8874c) - Optional Block<br>Enable this option
 
-<a id="aws-assume-role-role-arn"></a>&#x2022; [`role_arn`](#aws-assume-role-role-arn) - Optional String<br>IAM Role ARN to assume the role
+<a id="aws-assume-role-role-arn"></a>&#x2022; [`role_arn`](#aws-assume-role-role-arn) - Optional String<br>IAM Role ARN. IAM Role ARN to assume the role
 
 <a id="aws-assume-role-session-name"></a>&#x2022; [`session_name`](#aws-assume-role-session-name) - Optional String<br>Use the role session name to uniquely identify a session, which will be used for deploy, monitor from F5XC console
 
@@ -98,7 +98,7 @@ An [`aws_assume_role`](#aws-assume-role) block supports the following:
 
 An [`aws_secret_key`](#aws-secret-key) block supports the following:
 
-<a id="aws-secret-key-access-key"></a>&#x2022; [`access_key`](#aws-secret-key-access-key) - Optional String<br>Access key ID for your AWS account
+<a id="aws-secret-key-access-key"></a>&#x2022; [`access_key`](#aws-secret-key-access-key) - Optional String<br>Access Key ID. Access key ID for your AWS account
 
 <a id="aws-secret-key-secret-key"></a>&#x2022; [`secret_key`](#aws-secret-key-secret-key) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Secret Key](#aws-secret-key-secret-key) below.
 

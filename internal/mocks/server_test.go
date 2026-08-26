@@ -25,6 +25,7 @@ func TestServerCRUD(t *testing.T) {
 	defer s.Close()
 
 	client := s.Client()
+	var resourceVersion string
 
 	// Test Create (POST)
 	t.Run("Create", func(t *testing.T) {
@@ -60,6 +61,10 @@ func TestServerCRUD(t *testing.T) {
 		if metadata["name"] != "test-resource" {
 			t.Errorf("Expected name 'test-resource', got %v", metadata["name"])
 		}
+		resourceVersion, _ = result["resource_version"].(string)
+		if resourceVersion == "" {
+			t.Fatal("Expected resource_version in create response")
+		}
 	})
 
 	// Test Read (GET)
@@ -79,6 +84,7 @@ func TestServerCRUD(t *testing.T) {
 	// Test Update (PUT)
 	t.Run("Update", func(t *testing.T) {
 		updateBody := map[string]interface{}{
+			"resource_version": resourceVersion,
 			"metadata": map[string]interface{}{
 				"name":        "test-resource",
 				"namespace":   "demo-app",

@@ -32,9 +32,6 @@ terraform {
 resource "xcsh_bot_defense_app_infrastructure" "example" {
   name      = "example-bot-defense-app-infrastructure"
   namespace = "staging"
-
-  environment_type = "PRODUCTION"
-  traffic_type     = "WEB"
 }
 ```
 
@@ -66,11 +63,11 @@ resource "xcsh_bot_defense_app_infrastructure" "example" {
 &#x2022; <a id="cloud-hosted"></a>[`cloud_hosted`](#cloud-hosted) - Optional Block<br>F5 Hosted. Infra F5 Hosted<br>See [Cloud Hosted](#cloud-hosted) below for details.
 <br><br>&#x2022; <a id="data-center-hosted"></a>[`data_center_hosted`](#data-center-hosted) - Optional Block<br>F5 Hosted. Infra F5 Hosted<br>See [Data Center Hosted](#data-center-hosted) below for details.
 
-<a id="environment-type"></a>&#x2022; [`environment_type`](#environment-type) - Required String  Defaults to `PRODUCTION`<br>Possible values are `PRODUCTION`, `TESTING`<br>[Enum: PRODUCTION|TESTING] Environment Type Production environment Testing environment
+<a id="environment-type"></a>&#x2022; [`environment_type`](#environment-type) - Optional String  Defaults to `PRODUCTION`<br>Possible values are `PRODUCTION`, `TESTING`<br>[Enum: PRODUCTION|TESTING] Environment Type Production environment Testing environment
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="traffic-type"></a>&#x2022; [`traffic_type`](#traffic-type) - Required String  Defaults to `WEB`<br>Possible values are `WEB`, `MOBILE`<br>[Enum: WEB|MOBILE] Traffic Type Web traffic Mobile traffic
+<a id="traffic-type"></a>&#x2022; [`traffic_type`](#traffic-type) - Optional String  Defaults to `WEB`<br>Possible values are `WEB`, `MOBILE`<br>[Enum: WEB|MOBILE] Traffic Type Web traffic Mobile traffic
 
 ### Attributes Reference
 

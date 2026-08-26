@@ -85,6 +85,41 @@ func TestRequireSpecsAcceptsCompleteBundle(t *testing.T) {
 	}
 }
 
+func TestFindDomainSpecFilesUsesTheIndexAsTheDomainAllowlist(t *testing.T) {
+	dir := newBundle(t, `{"specifications":[{"domain":"sites","file":"sites.json"}]}`)
+	writeDomain(t, dir, "sites.json")
+	writeDomain(t, dir, "smsv2_parity_manifest.json")
+
+	files, err := FindDomainSpecFiles(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(files) != 1 || filepath.Base(files[0]) != "sites.json" {
+		t.Fatalf("domain inventory = %v, want only the index-listed OpenAPI document", files)
+	}
+}
+
+func TestFindDomainSpecFilesRejectsUnsafeOrMissingIndexEntries(t *testing.T) {
+	for _, test := range []struct {
+		name  string
+		index string
+	}{
+		{name: "traversal", index: `{"specifications":[{"domain":"sites","file":"../sites.json"}]}`},
+		{name: "missing", index: `{"specifications":[{"domain":"sites","file":"sites.json"}]}`},
+		{name: "duplicate", index: `{"specifications":[{"domain":"sites","file":"sites.json"},{"domain":"sites-copy","file":"sites.json"}]}`},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			dir := newBundle(t, test.index)
+			if test.name == "duplicate" {
+				writeDomain(t, dir, "sites.json")
+			}
+			if _, err := FindDomainSpecFiles(dir); err == nil {
+				t.Fatal("FindDomainSpecFiles accepted an invalid index entry")
+			}
+		})
+	}
+}
+
 func newBundle(t *testing.T, index string) string {
 	t.Helper()
 	dir := t.TempDir()

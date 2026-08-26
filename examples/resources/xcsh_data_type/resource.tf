@@ -16,8 +16,4 @@ terraform {
 resource "xcsh_data_type" "example" {
   name      = "example-data-type"
   namespace = "staging"
-
-  compliances       = ["example-value"]
-  is_pii            = true
-  is_sensitive_data = true
 }

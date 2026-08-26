@@ -189,9 +189,9 @@ A [`run_as_group`](#psp-spec-run-as-group) block (within [`psp_spec`](#psp-spec)
 
 An [`id_ranges`](#psp-spec-run-as-group-id-ranges) block (within [`psp_spec.run_as_group`](#psp-spec-run-as-group)) supports the following:
 
-<a id="psp-spec-run-as-group-id-ranges-max-id"></a>&#x2022; [`max_id`](#psp-spec-run-as-group-id-ranges-max-id) - Optional Number<br>Ending(maximum) ID for for ID range
+<a id="psp-spec-run-as-group-id-ranges-max-id"></a>&#x2022; [`max_id`](#psp-spec-run-as-group-id-ranges-max-id) - Optional Number<br>Ending ID. Ending(maximum) ID for for ID range
 
-<a id="psp-spec-run-as-group-id-ranges-min-id"></a>&#x2022; [`min_id`](#psp-spec-run-as-group-id-ranges-min-id) - Optional Number<br>Starting(minimum) ID for for ID range
+<a id="psp-spec-run-as-group-id-ranges-min-id"></a>&#x2022; [`min_id`](#psp-spec-run-as-group-id-ranges-min-id) - Optional Number<br>Starting ID. Starting(minimum) ID for for ID range
 
 #### Psp Spec Run As User
 
@@ -205,9 +205,9 @@ A [`run_as_user`](#psp-spec-run-as-user) block (within [`psp_spec`](#psp-spec)) 
 
 An [`id_ranges`](#psp-spec-run-as-user-id-ranges) block (within [`psp_spec.run_as_user`](#psp-spec-run-as-user)) supports the following:
 
-<a id="psp-spec-run-as-user-id-ranges-max-id"></a>&#x2022; [`max_id`](#psp-spec-run-as-user-id-ranges-max-id) - Optional Number<br>Ending(maximum) ID for for ID range
+<a id="psp-spec-run-as-user-id-ranges-max-id"></a>&#x2022; [`max_id`](#psp-spec-run-as-user-id-ranges-max-id) - Optional Number<br>Ending ID. Ending(maximum) ID for for ID range
 
-<a id="psp-spec-run-as-user-id-ranges-min-id"></a>&#x2022; [`min_id`](#psp-spec-run-as-user-id-ranges-min-id) - Optional Number<br>Starting(minimum) ID for for ID range
+<a id="psp-spec-run-as-user-id-ranges-min-id"></a>&#x2022; [`min_id`](#psp-spec-run-as-user-id-ranges-min-id) - Optional Number<br>Starting ID. Starting(minimum) ID for for ID range
 
 #### Psp Spec Supplemental Groups
 
@@ -221,9 +221,9 @@ A [`supplemental_groups`](#psp-spec-supplemental-groups) block (within [`psp_spe
 
 An [`id_ranges`](#psp-spec-supplemental-groups-id-ranges) block (within [`psp_spec.supplemental_groups`](#psp-spec-supplemental-groups)) supports the following:
 
-<a id="max-id-83c629"></a>&#x2022; [`max_id`](#max-id-83c629) - Optional Number<br>Ending(maximum) ID for for ID range
+<a id="max-id-83c629"></a>&#x2022; [`max_id`](#max-id-83c629) - Optional Number<br>Ending ID. Ending(maximum) ID for for ID range
 
-<a id="min-id-9f7a47"></a>&#x2022; [`min_id`](#min-id-9f7a47) - Optional Number<br>Starting(minimum) ID for for ID range
+<a id="min-id-9f7a47"></a>&#x2022; [`min_id`](#min-id-9f7a47) - Optional Number<br>Starting ID. Starting(minimum) ID for for ID range
 
 #### Timeouts
 

@@ -10,8 +10,9 @@ import (
 
 // TrustedCAList represents a F5XC TrustedCAList
 type TrustedCAList struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateTrustedCAList creates a new TrustedCAList

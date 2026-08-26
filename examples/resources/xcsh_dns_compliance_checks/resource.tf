@@ -17,7 +17,5 @@ resource "xcsh_dns_compliance_checks" "example" {
   name      = "example-dns-compliance-checks"
   namespace = "staging"
 
-  domain_denylist                      = ["example-value"]
-  disallowed_query_type_list           = ["example-value"]
-  disallowed_resource_record_type_list = ["example-value"]
+  domain_denylist = ["example-value"]
 }

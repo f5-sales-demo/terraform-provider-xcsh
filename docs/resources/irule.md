@@ -35,7 +35,6 @@ resource "xcsh_irule" "example" {
 
   description_spec = "example-value"
   irule            = "example-value"
-  description      = "example-value"
 }
 ```
 
@@ -49,13 +48,13 @@ resource "xcsh_irule" "example" {
 
 ### Metadata Argument Reference
 
-<a id="description"></a>&#x2022; [`description`](#description) - Required String<br>Human readable description for the object
-
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Irule. Must be unique within the namespace
 
 <a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Irule is created
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
+
+<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
 <a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true administratively disables the object
 
@@ -63,7 +62,7 @@ resource "xcsh_irule" "example" {
 
 ### Spec Argument Reference
 
-<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Required String<br>Specify Description for iRule
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Required String<br>Description for iRule. Specify Description for iRule
 
 <a id="irule"></a>&#x2022; [`irule`](#irule) - Required String<br>Www.internal.example.f5.com')} DNS::drop} irule content
 

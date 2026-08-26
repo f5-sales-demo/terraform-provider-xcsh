@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -26,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -61,42 +63,6 @@ type SecuremeshSiteMasterNodeConfigurationModel struct {
 var SecuremeshSiteMasterNodeConfigurationModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"public_ip": types.StringType,
-}
-
-// SecuremeshSitePerformanceEnhancementModeModel represents performance_enhancement_mode block
-type SecuremeshSitePerformanceEnhancementModeModel struct {
-	PerfModeL3Enhanced *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
-}
-
-// SecuremeshSitePerformanceEnhancementModeModelAttrTypes defines the attribute types for SecuremeshSitePerformanceEnhancementModeModel
-var SecuremeshSitePerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
-	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
-}
-
-// SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
-type SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *SecuremeshSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *SecuremeshSiteEmptyModel `tfsdk:"no_jumbo"`
-}
-
-// SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel
-var SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
-	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-}
-
-// SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
-type SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *SecuremeshSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *SecuremeshSiteEmptyModel `tfsdk:"jumbo_enabled"`
-}
-
-// SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel
-var SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
-	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecuremeshSiteBlockedServicesModel represents blocked_services block
@@ -1151,6 +1117,42 @@ var SecuremeshSiteOSModelAttrTypes = map[string]attr.Type{
 	"default_os_version":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
+// SecuremeshSitePerformanceEnhancementModeModel represents performance_enhancement_mode block
+type SecuremeshSitePerformanceEnhancementModeModel struct {
+	PerfModeL3Enhanced *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
+	PerfModeL7Enhanced *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
+}
+
+// SecuremeshSitePerformanceEnhancementModeModelAttrTypes defines the attribute types for SecuremeshSitePerformanceEnhancementModeModel
+var SecuremeshSitePerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
+	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
+}
+
+// SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
+type SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel struct {
+	Jumbo   *SecuremeshSiteEmptyModel `tfsdk:"jumbo"`
+	NoJumbo *SecuremeshSiteEmptyModel `tfsdk:"no_jumbo"`
+}
+
+// SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel
+var SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *SecuremeshSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *SecuremeshSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel
+var SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
 // SecuremeshSiteSwModel represents sw block
 type SecuremeshSiteSwModel struct {
 	VolterraSoftwareVersion types.String              `tfsdk:"volterra_software_version"`
@@ -1176,7 +1178,6 @@ type SecuremeshSiteResourceModel struct {
 	Address                    types.String                                   `tfsdk:"address"`
 	Timeouts                   timeouts.Value                                 `tfsdk:"timeouts"`
 	MasterNodeConfiguration    types.List                                     `tfsdk:"master_node_configuration"`
-	PerformanceEnhancementMode *SecuremeshSitePerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	BlockedServices            *SecuremeshSiteBlockedServicesModel            `tfsdk:"blocked_services"`
 	BondDeviceList             *SecuremeshSiteBondDeviceListModel             `tfsdk:"bond_device_list"`
 	Coordinates                *SecuremeshSiteCoordinatesModel                `tfsdk:"coordinates"`
@@ -1189,6 +1190,7 @@ type SecuremeshSiteResourceModel struct {
 	NoBondDevices              *SecuremeshSiteEmptyModel                      `tfsdk:"no_bond_devices"`
 	OfflineSurvivabilityMode   *SecuremeshSiteOfflineSurvivabilityModeModel   `tfsdk:"offline_survivability_mode"`
 	OS                         *SecuremeshSiteOSModel                         `tfsdk:"os"`
+	PerformanceEnhancementMode *SecuremeshSitePerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	Sw                         *SecuremeshSiteSwModel                         `tfsdk:"sw"`
 }
 
@@ -1247,7 +1249,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"worker_nodes": schema.ListAttribute{
 				MarkdownDescription: "Worker Nodes. Names of worker nodes.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
 					listvalidator.SizeAtMost(128),
@@ -1262,7 +1264,11 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"address": schema.StringAttribute{
 				MarkdownDescription: "Site's geographical address that can be used to determine its latitude and longitude.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 				},
@@ -1276,11 +1282,11 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				Delete: true,
 			}),
 			"master_node_configuration": schema.ListNestedBlock{
-				MarkdownDescription: "Configuration of master nodes .",
+				MarkdownDescription: "Master Nodes. Configuration of master nodes.",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
-							MarkdownDescription: "Name. Names of master node .",
+							MarkdownDescription: "Name. Names of master node.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(1, 63),
@@ -1293,36 +1299,6 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 							Validators: []validator.String{
 								stringvalidator.LengthAtMost(1024),
 								validators.IPv4Validator(),
-							},
-						},
-					},
-				},
-			},
-			"performance_enhancement_mode": schema.SingleNestedBlock{
-				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
-				Attributes:          map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"no_jumbo": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
-					},
-					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo_disabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"jumbo_enabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
@@ -1364,11 +1340,11 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
-						MarkdownDescription: "Bond Devices. List of bond devices .",
+						MarkdownDescription: "Bond Devices. List of bond devices.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"devices": schema.ListAttribute{
-									MarkdownDescription: "Ethernet devices that will make up this bond .",
+									MarkdownDescription: "Ethernet devices that will make up this bond.",
 									Optional:            true,
 									ElementType:         types.StringType,
 									Validators: []validator.List{
@@ -1376,21 +1352,21 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 									},
 								},
 								"link_polling_interval": schema.Int64Attribute{
-									MarkdownDescription: "Link polling interval in milliseconds .",
+									MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(500, 5000),
 									},
 								},
 								"link_up_delay": schema.Int64Attribute{
-									MarkdownDescription: "Milliseconds wait before link is declared up .",
+									MarkdownDescription: "Milliseconds wait before link is declared up.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(0, 1000),
 									},
 								},
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+									MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 64),
@@ -1455,7 +1431,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1493,7 +1469,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1531,7 +1507,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1581,7 +1557,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -1667,7 +1643,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"interfaces": schema.ListNestedBlock{
-								MarkdownDescription: "Configure network interfaces for this Secure Mesh site .",
+								MarkdownDescription: "Configure network interfaces for this Secure Mesh site.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
@@ -1744,7 +1720,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 											MarkdownDescription: "Configuration parameter for dedicated management interface.",
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
-													MarkdownDescription: "Name of the device for which interface is configured .",
+													MarkdownDescription: "Name of the device for which interface is configured.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -1775,7 +1751,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 											MarkdownDescription: "Configuration parameter for ethernet interface.",
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
-													MarkdownDescription: "Interface configuration for the ethernet device .",
+													MarkdownDescription: "Interface configuration for the ethernet device.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -1834,7 +1810,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 															MarkdownDescription: "Configuration parameter for automatic from start.",
 														},
 														"dhcp_networks": schema.ListNestedBlock{
-															MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses .",
+															MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"dgw_address": schema.StringAttribute{
@@ -1940,7 +1916,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																			MarkdownDescription: "IPV6DnsList.",
 																			Attributes: map[string]schema.Attribute{
 																				"dns_list": schema.ListAttribute{
-																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																					Optional:            true,
 																					ElementType:         types.StringType,
 																					Validators: []validator.List{
@@ -1989,7 +1965,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																			MarkdownDescription: "Configuration parameter for automatic from start.",
 																		},
 																		"dhcp_networks": schema.ListNestedBlock{
-																			MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																			MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"network_prefix": schema.StringAttribute{
@@ -2094,7 +2070,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	},
 																},
 																"ip_address": schema.StringAttribute{
-																	MarkdownDescription: "IP address of the interface and prefix length .",
+																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
@@ -2131,7 +2107,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	},
 																},
 																"ip_address": schema.StringAttribute{
-																	MarkdownDescription: "IP address of the interface and prefix length .",
+																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
@@ -2234,7 +2210,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "Static Routes. List of static routes .",
+										MarkdownDescription: "Static Routes. List of static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -2254,7 +2230,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -2330,7 +2306,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "List of IPv6 static routes .",
+										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -2350,7 +2326,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -2493,7 +2469,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "Static Routes. List of static routes .",
+										MarkdownDescription: "Static Routes. List of static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -2513,7 +2489,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -2589,7 +2565,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "List of IPv6 static routes .",
+										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -2609,7 +2585,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -2794,6 +2770,36 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				Blocks: map[string]schema.Block{
 					"default_os_version": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
+					},
+				},
+			},
+			"performance_enhancement_mode": schema.SingleNestedBlock{
+				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Attributes:          map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
+						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"no_jumbo": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
+					},
+					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
+						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"jumbo_enabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
 					},
 				},
 			},
@@ -2996,30 +3002,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 			createReq.Spec["master_node_configuration"] = MasterNodeConfigurationList
 		}
 	}
-	if data.PerformanceEnhancementMode != nil {
-		PerformanceEnhancementModeMap := make(map[string]interface{})
-		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
-		}
-		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
-		}
-		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
-	}
 	if !data.VolterraCertifiedHw.IsNull() && !data.VolterraCertifiedHw.IsUnknown() {
 		createReq.Spec["volterra_certified_hw"] = data.VolterraCertifiedHw.ValueString()
 	}
@@ -3124,9 +3106,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					CustomNetworkConfigActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -3150,9 +3129,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					CustomNetworkConfigActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -3175,9 +3151,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -3218,9 +3191,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -3234,9 +3204,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -3647,9 +3614,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				if !data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Namespace.IsNull() && !data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Namespace.IsUnknown() {
 					CustomNetworkConfigSLIConfigDcClusterGroupMap["namespace"] = data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Namespace.ValueString()
 				}
-				if !data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Tenant.IsNull() && !data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Tenant.IsUnknown() {
-					CustomNetworkConfigSLIConfigDcClusterGroupMap["tenant"] = data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Tenant.ValueString()
-				}
 				CustomNetworkConfigSLIConfigMap["dc_cluster_group"] = CustomNetworkConfigSLIConfigDcClusterGroupMap
 			}
 			if !data.CustomNetworkConfig.SLIConfig.Labels.IsNull() && !data.CustomNetworkConfig.SLIConfig.Labels.IsUnknown() {
@@ -3722,20 +3686,11 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -3809,20 +3764,11 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -3860,9 +3806,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				}
 				if !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.IsNull() && !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.IsUnknown() {
 					CustomNetworkConfigSloConfigDcClusterGroupMap["namespace"] = data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.ValueString()
-				}
-				if !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.IsNull() && !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.IsUnknown() {
-					CustomNetworkConfigSloConfigDcClusterGroupMap["tenant"] = data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.ValueString()
 				}
 				CustomNetworkConfigSloConfigMap["dc_cluster_group"] = CustomNetworkConfigSloConfigDcClusterGroupMap
 			}
@@ -3936,20 +3879,11 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -4023,20 +3957,11 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -4116,9 +4041,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
@@ -4146,6 +4068,30 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 			OSMap["operating_system_version"] = data.OS.OperatingSystemVersion.ValueString()
 		}
 		createReq.Spec["os"] = OSMap
+	}
+	if data.PerformanceEnhancementMode != nil {
+		PerformanceEnhancementModeMap := make(map[string]interface{})
+		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
+		}
+		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
+		}
+		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
@@ -4175,11 +4121,28 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetSecuremeshSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -4224,66 +4187,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 		}
 	} else {
 		data.MasterNodeConfiguration = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteMasterNodeConfigurationModelAttrTypes})
-	}
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &SecuremeshSitePerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
 	}
 	if v, ok := apiResource.Spec["volterra_certified_hw"].(string); ok && v != "" {
 		data.VolterraCertifiedHw = types.StringValue(v)
@@ -6512,6 +6415,66 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &SecuremeshSitePerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &SecuremeshSiteSwModel{
 			DefaultSwVersion: func() *SecuremeshSiteEmptyModel {
@@ -6597,6 +6560,16 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read SecuremeshSite: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -6707,66 +6680,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 	} else {
 		data.MasterNodeConfiguration = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteMasterNodeConfigurationModelAttrTypes})
 	}
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &SecuremeshSitePerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if v, ok := apiResource.Spec["volterra_certified_hw"].(string); ok && v != "" {
 		data.VolterraCertifiedHw = types.StringValue(v)
 	} else {
@@ -8994,6 +8907,66 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &SecuremeshSitePerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &SecuremeshSiteSwModel{
 			DefaultSwVersion: func() *SecuremeshSiteEmptyModel {
@@ -9061,6 +9034,20 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.SecuremeshSite{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -9068,6 +9055,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -9167,30 +9155,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 			}
 			apiResource.Spec["master_node_configuration"] = MasterNodeConfigurationList
 		}
-	}
-	if data.PerformanceEnhancementMode != nil {
-		PerformanceEnhancementModeMap := make(map[string]interface{})
-		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
-		}
-		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
-		}
-		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
 	if !data.VolterraCertifiedHw.IsNull() && !data.VolterraCertifiedHw.IsUnknown() {
 		apiResource.Spec["volterra_certified_hw"] = data.VolterraCertifiedHw.ValueString()
@@ -9296,9 +9260,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					CustomNetworkConfigActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -9322,9 +9283,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					CustomNetworkConfigActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -9347,9 +9305,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -9390,9 +9345,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -9406,9 +9358,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -9819,9 +9768,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				if !data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Namespace.IsNull() && !data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Namespace.IsUnknown() {
 					CustomNetworkConfigSLIConfigDcClusterGroupMap["namespace"] = data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Namespace.ValueString()
 				}
-				if !data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Tenant.IsNull() && !data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Tenant.IsUnknown() {
-					CustomNetworkConfigSLIConfigDcClusterGroupMap["tenant"] = data.CustomNetworkConfig.SLIConfig.DcClusterGroup.Tenant.ValueString()
-				}
 				CustomNetworkConfigSLIConfigMap["dc_cluster_group"] = CustomNetworkConfigSLIConfigDcClusterGroupMap
 			}
 			if !data.CustomNetworkConfig.SLIConfig.Labels.IsNull() && !data.CustomNetworkConfig.SLIConfig.Labels.IsUnknown() {
@@ -9894,20 +9840,11 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -9981,20 +9918,11 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -10032,9 +9960,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				}
 				if !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.IsNull() && !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.IsUnknown() {
 					CustomNetworkConfigSloConfigDcClusterGroupMap["namespace"] = data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.ValueString()
-				}
-				if !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.IsNull() && !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.IsUnknown() {
-					CustomNetworkConfigSloConfigDcClusterGroupMap["tenant"] = data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.ValueString()
 				}
 				CustomNetworkConfigSloConfigMap["dc_cluster_group"] = CustomNetworkConfigSloConfigDcClusterGroupMap
 			}
@@ -10108,20 +10033,11 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -10195,20 +10111,11 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -10288,9 +10195,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
@@ -10319,6 +10223,30 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 		}
 		apiResource.Spec["os"] = OSMap
 	}
+	if data.PerformanceEnhancementMode != nil {
+		PerformanceEnhancementModeMap := make(map[string]interface{})
+		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
+		}
+		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
+		}
+		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
 		if data.Sw.DefaultSwVersion != nil {
@@ -10343,6 +10271,14 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 
 	_, err := r.client.UpdateSecuremeshSite(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of securemesh_site %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update SecuremeshSite: %s", err))
 		return
 	}
@@ -10360,10 +10296,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -10376,7 +10308,27 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["address"].(string); ok && v != "" {
+		data.Address = types.StringValue(v)
+	} else if data.Address.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Address = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
@@ -10416,66 +10368,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 		}
 	} else {
 		data.MasterNodeConfiguration = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteMasterNodeConfigurationModelAttrTypes})
-	}
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &SecuremeshSitePerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *SecuremeshSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &SecuremeshSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
 	}
 	if v, ok := apiResource.Spec["volterra_certified_hw"].(string); ok && v != "" {
 		data.VolterraCertifiedHw = types.StringValue(v)
@@ -12701,6 +12593,66 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &SecuremeshSitePerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
 			}(),
 		}
 	}

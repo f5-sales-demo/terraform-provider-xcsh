@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -26,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -2987,7 +2989,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"worker_nodes": schema.ListAttribute{
 				MarkdownDescription: "Worker Nodes. Names of worker nodes.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
 					listvalidator.SizeAtMost(128),
@@ -3002,7 +3004,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"address": schema.StringAttribute{
 				MarkdownDescription: "Site's geographical address that can be used to determine its latitude and longitude.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 				},
@@ -3016,11 +3022,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Delete: true,
 			}),
 			"master_node_configuration": schema.ListNestedBlock{
-				MarkdownDescription: "Configuration of master nodes .",
+				MarkdownDescription: "Master Nodes. Configuration of master nodes.",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
-							MarkdownDescription: "Name. Names of master node .",
+							MarkdownDescription: "Name. Names of master node.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(1, 63),
@@ -3077,11 +3083,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
-						MarkdownDescription: "Bond Devices. List of bond devices .",
+						MarkdownDescription: "Bond Devices. List of bond devices.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"devices": schema.ListAttribute{
-									MarkdownDescription: "Ethernet devices that will make up this bond .",
+									MarkdownDescription: "Ethernet devices that will make up this bond.",
 									Optional:            true,
 									ElementType:         types.StringType,
 									Validators: []validator.List{
@@ -3089,21 +3095,21 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 								},
 								"link_polling_interval": schema.Int64Attribute{
-									MarkdownDescription: "Link polling interval in milliseconds .",
+									MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(500, 5000),
 									},
 								},
 								"link_up_delay": schema.Int64Attribute{
-									MarkdownDescription: "Milliseconds wait before link is declared up .",
+									MarkdownDescription: "Milliseconds wait before link is declared up.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(0, 1000),
 									},
 								},
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+									MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 64),
@@ -3229,7 +3235,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3267,7 +3273,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3305,7 +3311,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3355,7 +3361,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3441,7 +3447,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"interfaces": schema.ListNestedBlock{
-								MarkdownDescription: "Configure network interfaces for this App Stack site .",
+								MarkdownDescription: "Configure network interfaces for this App Stack site.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
@@ -3513,7 +3519,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Configuration parameter for dedicated management interface.",
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
-													MarkdownDescription: "Name of the device for which interface is configured .",
+													MarkdownDescription: "Name of the device for which interface is configured.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -3544,7 +3550,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Configuration parameter for ethernet interface.",
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
-													MarkdownDescription: "Interface configuration for the ethernet device .",
+													MarkdownDescription: "Interface configuration for the ethernet device.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -3603,7 +3609,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															MarkdownDescription: "Configuration parameter for automatic from start.",
 														},
 														"dhcp_networks": schema.ListNestedBlock{
-															MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses .",
+															MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"dgw_address": schema.StringAttribute{
@@ -3709,7 +3715,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			MarkdownDescription: "IPV6DnsList.",
 																			Attributes: map[string]schema.Attribute{
 																				"dns_list": schema.ListAttribute{
-																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																					Optional:            true,
 																					ElementType:         types.StringType,
 																					Validators: []validator.List{
@@ -3758,7 +3764,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			MarkdownDescription: "Configuration parameter for automatic from start.",
 																		},
 																		"dhcp_networks": schema.ListNestedBlock{
-																			MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																			MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"network_prefix": schema.StringAttribute{
@@ -3863,7 +3869,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"ip_address": schema.StringAttribute{
-																	MarkdownDescription: "IP address of the interface and prefix length .",
+																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
@@ -3900,7 +3906,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"ip_address": schema.StringAttribute{
-																	MarkdownDescription: "IP address of the interface and prefix length .",
+																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
@@ -3980,7 +3986,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"ip_address": schema.StringAttribute{
-																	MarkdownDescription: "IP address of the interface and prefix length .",
+																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
@@ -4052,7 +4058,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "Static Routes. List of static routes .",
+										MarkdownDescription: "Static Routes. List of static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4072,7 +4078,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -4148,7 +4154,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "List of IPv6 static routes .",
+										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4168,7 +4174,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -4292,7 +4298,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "Static Routes. List of static routes .",
+										MarkdownDescription: "Static Routes. List of static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4312,7 +4318,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -4388,7 +4394,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
-										MarkdownDescription: "List of IPv6 static routes .",
+										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4408,7 +4414,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
-													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes .",
+													MarkdownDescription: "List of IPv6 route prefixes that have common next hop and attributes.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -4510,7 +4516,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_routes": schema.ListNestedBlock{
-								MarkdownDescription: "Static Routes. List of static routes .",
+								MarkdownDescription: "Static Routes. List of static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"attrs": schema.ListAttribute{
@@ -4530,7 +4536,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 										"ip_prefixes": schema.ListAttribute{
-											MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+											MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -4822,7 +4828,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											ElementType:         types.StringType,
 										},
 										"storage_device": schema.StringAttribute{
-											MarkdownDescription: "Storage device and device unit .",
+											MarkdownDescription: "Storage Device. Storage device and device unit.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(64),
@@ -4866,7 +4872,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"username": schema.StringAttribute{
-													MarkdownDescription: "Username to connect to the HPE storage management IP .",
+													MarkdownDescription: "Username to connect to the HPE storage management IP.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
@@ -4886,7 +4892,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -4928,7 +4934,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -5037,7 +5043,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Optional:            true,
 														},
 														"storage_driver_name": schema.StringAttribute{
-															MarkdownDescription: "[Enum: ontap-nas|ontap-nas-economy|ontap-nas-flexgroup] Configuration of Backend Name . Possible values are `ontap-nas`, `ontap-nas-economy`, `ontap-nas-flexgroup`.",
+															MarkdownDescription: "[Enum: ontap-nas|ontap-nas-economy|ontap-nas-flexgroup] Storage Backend Driver. Configuration of Backend Name. Possible values are `ontap-nas`, `ontap-nas-economy`, `ontap-nas-flexgroup`.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.OneOf("ontap-nas", "ontap-nas-economy", "ontap-nas-flexgroup"),
@@ -5062,7 +5068,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															},
 														},
 														"username": schema.StringAttribute{
-															MarkdownDescription: "Username to connect to the cluster/SVM .",
+															MarkdownDescription: "Username. Username to connect to the cluster/SVM.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 256),
@@ -5095,7 +5101,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -5137,7 +5143,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -5389,7 +5395,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Optional:            true,
 														},
 														"storage_driver_name": schema.StringAttribute{
-															MarkdownDescription: "[Enum: ontap-san|ontap-san-economy|ontap-nas-flexgroup] Configuration of Backend Name . Possible values are `ontap-san`, `ontap-san-economy`, `ontap-nas-flexgroup`.",
+															MarkdownDescription: "[Enum: ontap-san|ontap-san-economy|ontap-nas-flexgroup] Storage Backend Driver. Configuration of Backend Name. Possible values are `ontap-san`, `ontap-san-economy`, `ontap-nas-flexgroup`.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.OneOf("ontap-san", "ontap-san-economy", "ontap-nas-flexgroup"),
@@ -5417,7 +5423,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															},
 														},
 														"username": schema.StringAttribute{
-															MarkdownDescription: "Username to connect to the cluster/SVM .",
+															MarkdownDescription: "Username. Username to connect to the cluster/SVM.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 256),
@@ -5437,7 +5443,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -5482,7 +5488,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -5628,7 +5634,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																				},
 																				"location": schema.StringAttribute{
-																					MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																					MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthBetween(4, 131072),
@@ -5670,7 +5676,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																				},
 																				"location": schema.StringAttribute{
-																					MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																					MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthBetween(4, 131072),
@@ -5834,7 +5840,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"san_type": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: ISCSI|FC] Block volume access protocol, either ISCSI or FC . Possible values are `ISCSI`, `FC`.",
+																	MarkdownDescription: "[Enum: ISCSI|FC] Block volume access protocol, either ISCSI or FC. Possible values are `ISCSI`, `FC`.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.OneOf("ISCSI", "FC"),
@@ -5843,7 +5849,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															},
 															Blocks: map[string]schema.Block{
 																"flash_arrays": schema.ListNestedBlock{
-																	MarkdownDescription: "For FlashArrays you must set the 'mgmt_endpoint' and 'api_token' .",
+																	MarkdownDescription: "For FlashArrays you must set the 'mgmt_endpoint' and 'api_token'.",
 																	NestedObject: schema.NestedBlockObject{
 																		Attributes: map[string]schema.Attribute{
 																			"labels": schema.MapAttribute{
@@ -5880,7 +5886,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																								Optional:            true,
 																							},
 																							"location": schema.StringAttribute{
-																								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																								Optional:            true,
 																								Validators: []validator.String{
 																									stringvalidator.LengthBetween(4, 131072),
@@ -5932,7 +5938,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															},
 															Blocks: map[string]schema.Block{
 																"flash_blades": schema.ListNestedBlock{
-																	MarkdownDescription: "For FlashBlades you must set the 'mgmt_endpoint', 'api_token' and nfs_endpoint .",
+																	MarkdownDescription: "For FlashBlades you must set the 'mgmt_endpoint', 'api_token' and nfs_endpoint.",
 																	NestedObject: schema.NestedBlockObject{
 																		Attributes: map[string]schema.Attribute{
 																			"labels": schema.MapAttribute{
@@ -5984,7 +5990,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																								Optional:            true,
 																							},
 																							"location": schema.StringAttribute{
-																								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																								Optional:            true,
 																								Validators: []validator.String{
 																									stringvalidator.LengthBetween(4, 131072),
@@ -6033,7 +6039,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"storage_interfaces": schema.ListNestedBlock{
-								MarkdownDescription: "Configure storage interfaces for this App Stack site .",
+								MarkdownDescription: "Configure storage interfaces for this App Stack site.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
@@ -6052,7 +6058,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Configuration parameter for storage interface.",
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
-													MarkdownDescription: "Interface configuration for the ethernet device .",
+													MarkdownDescription: "Interface configuration for the ethernet device.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -6111,7 +6117,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															MarkdownDescription: "Configuration parameter for automatic from start.",
 														},
 														"dhcp_networks": schema.ListNestedBlock{
-															MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses .",
+															MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"dgw_address": schema.StringAttribute{
@@ -6217,7 +6223,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			MarkdownDescription: "IPV6DnsList.",
 																			Attributes: map[string]schema.Attribute{
 																				"dns_list": schema.ListAttribute{
-																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers .",
+																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
 																					Optional:            true,
 																					ElementType:         types.StringType,
 																					Validators: []validator.List{
@@ -6266,7 +6272,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			MarkdownDescription: "Configuration parameter for automatic from start.",
 																		},
 																		"dhcp_networks": schema.ListNestedBlock{
-																			MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses .",
+																			MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"network_prefix": schema.StringAttribute{
@@ -6371,7 +6377,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"ip_address": schema.StringAttribute{
-																	MarkdownDescription: "IP address of the interface and prefix length .",
+																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
@@ -6408,7 +6414,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"ip_address": schema.StringAttribute{
-																	MarkdownDescription: "IP address of the interface and prefix length .",
+																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
@@ -6558,7 +6564,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						MarkdownDescription: "BGP Configuration. BGP configuration parameters.",
 						Attributes: map[string]schema.Attribute{
 							"asn": schema.Int64Attribute{
-								MarkdownDescription: "ASN. Autonomous System Number .",
+								MarkdownDescription: "ASN. Autonomous System Number.",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.AtLeast(1),
@@ -6583,21 +6589,21 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "BFD. BFD parameters.",
 											Attributes: map[string]schema.Attribute{
 												"multiplier": schema.Int64Attribute{
-													MarkdownDescription: "Specify Number of missed packets to bring session down' .",
+													MarkdownDescription: "Specify Number of missed packets to bring session down'.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(2, 255),
 													},
 												},
 												"receive_interval_milliseconds": schema.Int64Attribute{
-													MarkdownDescription: "BFD receive interval timer, in milliseconds .",
+													MarkdownDescription: "BFD receive interval timer, in milliseconds.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(300, 60000),
 													},
 												},
 												"transmit_interval_milliseconds": schema.Int64Attribute{
-													MarkdownDescription: "BFD transmit interval timer, in milliseconds .",
+													MarkdownDescription: "BFD transmit interval timer, in milliseconds.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(300, 60000),
@@ -6628,7 +6634,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"asn": schema.Int64Attribute{
-													MarkdownDescription: "Autonomous System Number for BGP peer .",
+													MarkdownDescription: "ASN. Autonomous System Number for BGP peer.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.AtLeast(1),
@@ -6770,7 +6776,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"interfaces": schema.ListNestedBlock{
-															MarkdownDescription: "List of network interfaces.",
+															MarkdownDescription: "Interface List. List of network interfaces.",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"name": schema.StringAttribute{
@@ -6859,7 +6865,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 															},
 															"object_refs": schema.ListNestedBlock{
-																MarkdownDescription: "Select route policy to apply.",
+																MarkdownDescription: "BGP routing policy. Select route policy to apply.",
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"kind": schema.StringAttribute{
@@ -6994,7 +7000,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"interface_name": schema.StringAttribute{
-									MarkdownDescription: "Name of SR-IOV physical interface .",
+									MarkdownDescription: "Name of physical interface. Name of SR-IOV physical interface.",
 									Optional:            true,
 								},
 								"number_of_vfio_vfs": schema.Int64Attribute{
@@ -7002,7 +7008,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									Optional:            true,
 								},
 								"number_of_vfs": schema.Int64Attribute{
-									MarkdownDescription: "Total number of virtual functions .",
+									MarkdownDescription: "Total number of virtual functions. Total number of virtual functions.",
 									Optional:            true,
 								},
 							},
@@ -7356,9 +7362,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					CustomNetworkConfigActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -7382,9 +7385,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					CustomNetworkConfigActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -7407,9 +7407,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -7456,9 +7453,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -7472,9 +7466,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -7905,9 +7896,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								if !InterfacesItem.TunnelInterface.Tunnel.Namespace.IsNull() && !InterfacesItem.TunnelInterface.Tunnel.Namespace.IsUnknown() {
 									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceTunnelMap["namespace"] = InterfacesItem.TunnelInterface.Tunnel.Namespace.ValueString()
 								}
-								if !InterfacesItem.TunnelInterface.Tunnel.Tenant.IsNull() && !InterfacesItem.TunnelInterface.Tunnel.Tenant.IsUnknown() {
-									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceTunnelMap["tenant"] = InterfacesItem.TunnelInterface.Tunnel.Tenant.ValueString()
-								}
 								CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceMap["tunnel"] = CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceTunnelMap
 							}
 							InterfacesItemMap["tunnel_interface"] = CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceMap
@@ -7995,20 +7983,11 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -8082,20 +8061,11 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -8130,9 +8100,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.IsNull() && !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.IsUnknown() {
 					CustomNetworkConfigSloConfigDcClusterGroupMap["namespace"] = data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.ValueString()
-				}
-				if !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.IsNull() && !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.IsUnknown() {
-					CustomNetworkConfigSloConfigDcClusterGroupMap["tenant"] = data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.ValueString()
 				}
 				CustomNetworkConfigSloConfigMap["dc_cluster_group"] = CustomNetworkConfigSloConfigDcClusterGroupMap
 			}
@@ -8198,20 +8165,11 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -8285,20 +8243,11 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -8402,20 +8351,11 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												var InterfaceList []map[string]interface{}
 												for _, InterfaceItem := range InterfaceElems {
 													InterfaceItemMap := make(map[string]interface{})
-													if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-														InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-													}
 													if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 														InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 													}
 													if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 														InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-													}
-													if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-														InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-													}
-													if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-														InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 													}
 													InterfaceList = append(InterfaceList, InterfaceItemMap)
 												}
@@ -9732,9 +9672,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 		if !data.K8SCluster.Namespace.IsNull() && !data.K8SCluster.Namespace.IsUnknown() {
 			K8SClusterMap["namespace"] = data.K8SCluster.Namespace.ValueString()
 		}
-		if !data.K8SCluster.Tenant.IsNull() && !data.K8SCluster.Tenant.IsUnknown() {
-			K8SClusterMap["tenant"] = data.K8SCluster.Tenant.ValueString()
-		}
 		createReq.Spec["k8s_cluster"] = K8SClusterMap
 	}
 	if data.KubernetesUpgradeDrain != nil {
@@ -9877,9 +9814,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 								if !PeersItem.External.Interface.Namespace.IsNull() && !PeersItem.External.Interface.Namespace.IsUnknown() {
 									LocalControlPlaneBGPConfigPeersExternalInterfaceMap["namespace"] = PeersItem.External.Interface.Namespace.ValueString()
 								}
-								if !PeersItem.External.Interface.Tenant.IsNull() && !PeersItem.External.Interface.Tenant.IsUnknown() {
-									LocalControlPlaneBGPConfigPeersExternalInterfaceMap["tenant"] = PeersItem.External.Interface.Tenant.ValueString()
-								}
 								LocalControlPlaneBGPConfigPeersExternalMap["interface"] = LocalControlPlaneBGPConfigPeersExternalInterfaceMap
 							}
 							if PeersItem.External.InterfaceList != nil {
@@ -9897,9 +9831,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
 												InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
-											}
-											if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
-												InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
 											}
 											InterfacesList = append(InterfacesList, InterfacesItemMap)
 										}
@@ -9986,20 +9917,11 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												var ObjectRefsList []map[string]interface{}
 												for _, ObjectRefsItem := range ObjectRefsElems {
 													ObjectRefsItemMap := make(map[string]interface{})
-													if !ObjectRefsItem.Kind.IsNull() && !ObjectRefsItem.Kind.IsUnknown() {
-														ObjectRefsItemMap["kind"] = ObjectRefsItem.Kind.ValueString()
-													}
 													if !ObjectRefsItem.Name.IsNull() && !ObjectRefsItem.Name.IsUnknown() {
 														ObjectRefsItemMap["name"] = ObjectRefsItem.Name.ValueString()
 													}
 													if !ObjectRefsItem.Namespace.IsNull() && !ObjectRefsItem.Namespace.IsUnknown() {
 														ObjectRefsItemMap["namespace"] = ObjectRefsItem.Namespace.ValueString()
-													}
-													if !ObjectRefsItem.Tenant.IsNull() && !ObjectRefsItem.Tenant.IsUnknown() {
-														ObjectRefsItemMap["tenant"] = ObjectRefsItem.Tenant.ValueString()
-													}
-													if !ObjectRefsItem.Uid.IsNull() && !ObjectRefsItem.Uid.IsUnknown() {
-														ObjectRefsItemMap["uid"] = ObjectRefsItem.Uid.ValueString()
 													}
 													ObjectRefsList = append(ObjectRefsList, ObjectRefsItemMap)
 												}
@@ -10038,9 +9960,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 		}
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
-		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
 		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
@@ -10120,9 +10039,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 		if !data.UsbPolicy.Namespace.IsNull() && !data.UsbPolicy.Namespace.IsUnknown() {
 			UsbPolicyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
 		}
-		if !data.UsbPolicy.Tenant.IsNull() && !data.UsbPolicy.Tenant.IsUnknown() {
-			UsbPolicyMap["tenant"] = data.UsbPolicy.Tenant.ValueString()
-		}
 		createReq.Spec["usb_policy"] = UsbPolicyMap
 	}
 	if !data.WorkerNodes.IsNull() && !data.WorkerNodes.IsUnknown() {
@@ -10143,11 +10059,28 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetVoltstackSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -16132,6 +16065,16 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read VoltstackSite: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -22163,6 +22106,20 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.VoltstackSite{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -22170,6 +22127,7 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -22387,9 +22345,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
 						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
-						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
 					CustomNetworkConfigActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
@@ -22413,9 +22368,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					CustomNetworkConfigActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -22438,9 +22390,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -22487,9 +22436,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -22503,9 +22449,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = CustomNetworkConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -22936,9 +22879,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								if !InterfacesItem.TunnelInterface.Tunnel.Namespace.IsNull() && !InterfacesItem.TunnelInterface.Tunnel.Namespace.IsUnknown() {
 									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceTunnelMap["namespace"] = InterfacesItem.TunnelInterface.Tunnel.Namespace.ValueString()
 								}
-								if !InterfacesItem.TunnelInterface.Tunnel.Tenant.IsNull() && !InterfacesItem.TunnelInterface.Tunnel.Tenant.IsUnknown() {
-									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceTunnelMap["tenant"] = InterfacesItem.TunnelInterface.Tunnel.Tenant.ValueString()
-								}
 								CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceMap["tunnel"] = CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceTunnelMap
 							}
 							InterfacesItemMap["tunnel_interface"] = CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceMap
@@ -23026,20 +22966,11 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -23113,20 +23044,11 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -23161,9 +23083,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.IsNull() && !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.IsUnknown() {
 					CustomNetworkConfigSloConfigDcClusterGroupMap["namespace"] = data.CustomNetworkConfig.SloConfig.DcClusterGroup.Namespace.ValueString()
-				}
-				if !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.IsNull() && !data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.IsUnknown() {
-					CustomNetworkConfigSloConfigDcClusterGroupMap["tenant"] = data.CustomNetworkConfig.SloConfig.DcClusterGroup.Tenant.ValueString()
 				}
 				CustomNetworkConfigSloConfigMap["dc_cluster_group"] = CustomNetworkConfigSloConfigDcClusterGroupMap
 			}
@@ -23229,20 +23148,11 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -23316,20 +23226,11 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 													var InterfaceList []map[string]interface{}
 													for _, InterfaceItem := range InterfaceElems {
 														InterfaceItemMap := make(map[string]interface{})
-														if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-															InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-														}
 														if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 															InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 														}
 														if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 															InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-														}
-														if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-															InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-														}
-														if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-															InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 														}
 														InterfaceList = append(InterfaceList, InterfaceItemMap)
 													}
@@ -23433,20 +23334,11 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												var InterfaceList []map[string]interface{}
 												for _, InterfaceItem := range InterfaceElems {
 													InterfaceItemMap := make(map[string]interface{})
-													if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-														InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-													}
 													if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 														InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 													}
 													if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 														InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-													}
-													if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-														InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-													}
-													if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-														InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 													}
 													InterfaceList = append(InterfaceList, InterfaceItemMap)
 												}
@@ -24763,9 +24655,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 		if !data.K8SCluster.Namespace.IsNull() && !data.K8SCluster.Namespace.IsUnknown() {
 			K8SClusterMap["namespace"] = data.K8SCluster.Namespace.ValueString()
 		}
-		if !data.K8SCluster.Tenant.IsNull() && !data.K8SCluster.Tenant.IsUnknown() {
-			K8SClusterMap["tenant"] = data.K8SCluster.Tenant.ValueString()
-		}
 		apiResource.Spec["k8s_cluster"] = K8SClusterMap
 	}
 	if data.KubernetesUpgradeDrain != nil {
@@ -24908,9 +24797,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 								if !PeersItem.External.Interface.Namespace.IsNull() && !PeersItem.External.Interface.Namespace.IsUnknown() {
 									LocalControlPlaneBGPConfigPeersExternalInterfaceMap["namespace"] = PeersItem.External.Interface.Namespace.ValueString()
 								}
-								if !PeersItem.External.Interface.Tenant.IsNull() && !PeersItem.External.Interface.Tenant.IsUnknown() {
-									LocalControlPlaneBGPConfigPeersExternalInterfaceMap["tenant"] = PeersItem.External.Interface.Tenant.ValueString()
-								}
 								LocalControlPlaneBGPConfigPeersExternalMap["interface"] = LocalControlPlaneBGPConfigPeersExternalInterfaceMap
 							}
 							if PeersItem.External.InterfaceList != nil {
@@ -24928,9 +24814,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
 												InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
-											}
-											if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
-												InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
 											}
 											InterfacesList = append(InterfacesList, InterfacesItemMap)
 										}
@@ -25017,20 +24900,11 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												var ObjectRefsList []map[string]interface{}
 												for _, ObjectRefsItem := range ObjectRefsElems {
 													ObjectRefsItemMap := make(map[string]interface{})
-													if !ObjectRefsItem.Kind.IsNull() && !ObjectRefsItem.Kind.IsUnknown() {
-														ObjectRefsItemMap["kind"] = ObjectRefsItem.Kind.ValueString()
-													}
 													if !ObjectRefsItem.Name.IsNull() && !ObjectRefsItem.Name.IsUnknown() {
 														ObjectRefsItemMap["name"] = ObjectRefsItem.Name.ValueString()
 													}
 													if !ObjectRefsItem.Namespace.IsNull() && !ObjectRefsItem.Namespace.IsUnknown() {
 														ObjectRefsItemMap["namespace"] = ObjectRefsItem.Namespace.ValueString()
-													}
-													if !ObjectRefsItem.Tenant.IsNull() && !ObjectRefsItem.Tenant.IsUnknown() {
-														ObjectRefsItemMap["tenant"] = ObjectRefsItem.Tenant.ValueString()
-													}
-													if !ObjectRefsItem.Uid.IsNull() && !ObjectRefsItem.Uid.IsUnknown() {
-														ObjectRefsItemMap["uid"] = ObjectRefsItem.Uid.ValueString()
 													}
 													ObjectRefsList = append(ObjectRefsList, ObjectRefsItemMap)
 												}
@@ -25069,9 +24943,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 		}
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
-		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
 		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
@@ -25151,9 +25022,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 		if !data.UsbPolicy.Namespace.IsNull() && !data.UsbPolicy.Namespace.IsUnknown() {
 			UsbPolicyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
 		}
-		if !data.UsbPolicy.Tenant.IsNull() && !data.UsbPolicy.Tenant.IsUnknown() {
-			UsbPolicyMap["tenant"] = data.UsbPolicy.Tenant.ValueString()
-		}
 		apiResource.Spec["usb_policy"] = UsbPolicyMap
 	}
 	if !data.WorkerNodes.IsNull() && !data.WorkerNodes.IsUnknown() {
@@ -25170,6 +25038,14 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 
 	_, err := r.client.UpdateVoltstackSite(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of voltstack_site %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update VoltstackSite: %s", err))
 		return
 	}
@@ -25187,10 +25063,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -25203,7 +25075,27 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["address"].(string); ok && v != "" {
+		data.Address = types.StringValue(v)
+	} else if data.Address.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Address = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

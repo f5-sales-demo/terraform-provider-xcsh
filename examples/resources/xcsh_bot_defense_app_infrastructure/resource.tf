@@ -16,7 +16,4 @@ terraform {
 resource "xcsh_bot_defense_app_infrastructure" "example" {
   name      = "example-bot-defense-app-infrastructure"
   namespace = "staging"
-
-  environment_type = "PRODUCTION"
-  traffic_type     = "WEB"
 }

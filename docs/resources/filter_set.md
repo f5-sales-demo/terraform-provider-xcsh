@@ -113,7 +113,7 @@ A [`filter_expression_field`](#filter-fields-filter-expression-field) block (wit
 
 A [`string_field`](#filter-fields-string-field) block (within [`filter_fields`](#filter-fields)) supports the following:
 
-<a id="filter-fields-string-field-field-values"></a>&#x2022; [`field_values`](#filter-fields-string-field-field-values) - Optional List<br>String Value(s)
+<a id="filter-fields-string-field-field-values"></a>&#x2022; [`field_values`](#filter-fields-string-field-field-values) - Optional List<br>String Value(s). Field specification or configuration
 
 #### Timeouts
 

@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -25,6 +26,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1464,7 +1466,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"values": schema.ListAttribute{
-											MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242 .",
+											MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242.",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -1484,7 +1486,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"values": schema.ListAttribute{
-											MarkdownDescription: "IPv6 Addresses. A valid IPv6 address, for example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334 .",
+											MarkdownDescription: "IPv6 Addresses. A valid IPv6 address, for example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -1506,7 +1508,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "AFSDB Value. .",
+											MarkdownDescription: "AFSDB Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"hostname": schema.StringAttribute{
@@ -1595,7 +1597,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "DS Value.",
+											MarkdownDescription: "DS Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"ds_key_algorithm": schema.StringAttribute{
@@ -1668,7 +1670,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "CERT Value. .",
+											MarkdownDescription: "CERT Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"algorithm": schema.StringAttribute{
@@ -1679,7 +1681,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"cert_key_tag": schema.Int64Attribute{
-														MarkdownDescription: "Key Tag.",
+														MarkdownDescription: "Key Tag. Tag for categorization and filtering",
 														Optional:            true,
 														Validators: []validator.Int64{
 															int64validator.Between(0, 65535),
@@ -1693,7 +1695,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"certificate": schema.StringAttribute{
-														MarkdownDescription: "Certificate in base 64 format.",
+														MarkdownDescription: "Certificate. Certificate in base 64 format.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 4096),
@@ -1736,7 +1738,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "DS Value.",
+											MarkdownDescription: "DS Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"ds_key_algorithm": schema.StringAttribute{
@@ -1807,7 +1809,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"value": schema.StringAttribute{
-											MarkdownDescription: "EUI48 Identifier. A valid eui48 identifier, for example: 01-23-45-67-89-ab .",
+											MarkdownDescription: "EUI48 Identifier. A valid eui48 identifier, for example: 01-23-45-67-89-ab.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(17, 17),
@@ -1826,7 +1828,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"value": schema.StringAttribute{
-											MarkdownDescription: "EUI64 Identifier. A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef .",
+											MarkdownDescription: "EUI64 Identifier. A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(23, 23),
@@ -1891,11 +1893,11 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "LOC Value.",
+											MarkdownDescription: "LOC Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"altitude": schema.Int64Attribute{
-														MarkdownDescription: "Altitude. Altitude in meters .",
+														MarkdownDescription: "Altitude. Altitude in meters.",
 														Optional:            true,
 													},
 													"horizontal_precision": schema.Int64Attribute{
@@ -1903,7 +1905,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														Optional:            true,
 													},
 													"latitude_degree": schema.Int64Attribute{
-														MarkdownDescription: "Latitude degree, an integer between 0 and 90, including 0 and 90 .",
+														MarkdownDescription: "Latitude degree, an integer between 0 and 90, including 0 and 90.",
 														Optional:            true,
 														Validators: []validator.Int64{
 															int64validator.Between(0, 90),
@@ -1932,7 +1934,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														Optional:            true,
 													},
 													"longitude_degree": schema.Int64Attribute{
-														MarkdownDescription: "Longitude degree, an integer between 0 and 180, including 0 and 180 .",
+														MarkdownDescription: "Longitude degree, an integer between 0 and 180, including 0 and 180.",
 														Optional:            true,
 														Validators: []validator.Int64{
 															int64validator.Between(0, 180),
@@ -1978,7 +1980,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "MX Record Value. .",
+											MarkdownDescription: "MX Record Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"domain": schema.StringAttribute{
@@ -2013,7 +2015,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "NAPTR Value. .",
+											MarkdownDescription: "NAPTR Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"flags": schema.StringAttribute{
@@ -2071,7 +2073,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"values": schema.ListAttribute{
-											MarkdownDescription: "Name Servers. .",
+											MarkdownDescription: "Name Servers. Configuration parameter for values",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -2091,7 +2093,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"values": schema.ListAttribute{
-											MarkdownDescription: "Domain Name. .",
+											MarkdownDescription: "Domain Name. Configuration parameter for values",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -2113,7 +2115,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "SRV Value.",
+											MarkdownDescription: "SRV Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"port": schema.Int64Attribute{
@@ -2162,7 +2164,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "SSHFP Value. .",
+											MarkdownDescription: "SSHFP Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"algorithm": schema.StringAttribute{
@@ -2216,7 +2218,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
-											MarkdownDescription: "TLSA Value. .",
+											MarkdownDescription: "TLSA Value. Configuration parameter for values",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"certificate_association_data": schema.StringAttribute{
@@ -2263,7 +2265,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"values": schema.ListAttribute{
-											MarkdownDescription: "Text.",
+											MarkdownDescription: "Text. Configuration parameter for values",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -2342,7 +2344,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"values": schema.ListAttribute{
-														MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242 .",
+														MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242.",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{
@@ -2362,7 +2364,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"values": schema.ListAttribute{
-														MarkdownDescription: "IPv6 Addresses. A valid IPv6 address, for example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334 .",
+														MarkdownDescription: "IPv6 Addresses. A valid IPv6 address, for example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334.",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{
@@ -2384,7 +2386,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "AFSDB Value. .",
+														MarkdownDescription: "AFSDB Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"hostname": schema.StringAttribute{
@@ -2473,7 +2475,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "DS Value.",
+														MarkdownDescription: "DS Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"ds_key_algorithm": schema.StringAttribute{
@@ -2546,7 +2548,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "CERT Value. .",
+														MarkdownDescription: "CERT Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"algorithm": schema.StringAttribute{
@@ -2557,7 +2559,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																	},
 																},
 																"cert_key_tag": schema.Int64Attribute{
-																	MarkdownDescription: "Key Tag.",
+																	MarkdownDescription: "Key Tag. Tag for categorization and filtering",
 																	Optional:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(0, 65535),
@@ -2571,7 +2573,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																	},
 																},
 																"certificate": schema.StringAttribute{
-																	MarkdownDescription: "Certificate in base 64 format.",
+																	MarkdownDescription: "Certificate. Certificate in base 64 format.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 4096),
@@ -2614,7 +2616,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "DS Value.",
+														MarkdownDescription: "DS Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"ds_key_algorithm": schema.StringAttribute{
@@ -2685,7 +2687,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"value": schema.StringAttribute{
-														MarkdownDescription: "EUI48 Identifier. A valid eui48 identifier, for example: 01-23-45-67-89-ab .",
+														MarkdownDescription: "EUI48 Identifier. A valid eui48 identifier, for example: 01-23-45-67-89-ab.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(17, 17),
@@ -2704,7 +2706,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"value": schema.StringAttribute{
-														MarkdownDescription: "EUI64 Identifier. A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef .",
+														MarkdownDescription: "EUI64 Identifier. A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(23, 23),
@@ -2769,11 +2771,11 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "LOC Value.",
+														MarkdownDescription: "LOC Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"altitude": schema.Int64Attribute{
-																	MarkdownDescription: "Altitude. Altitude in meters .",
+																	MarkdownDescription: "Altitude. Altitude in meters.",
 																	Optional:            true,
 																},
 																"horizontal_precision": schema.Int64Attribute{
@@ -2781,7 +2783,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																	Optional:            true,
 																},
 																"latitude_degree": schema.Int64Attribute{
-																	MarkdownDescription: "Latitude degree, an integer between 0 and 90, including 0 and 90 .",
+																	MarkdownDescription: "Latitude degree, an integer between 0 and 90, including 0 and 90.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(0, 90),
@@ -2810,7 +2812,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																	Optional:            true,
 																},
 																"longitude_degree": schema.Int64Attribute{
-																	MarkdownDescription: "Longitude degree, an integer between 0 and 180, including 0 and 180 .",
+																	MarkdownDescription: "Longitude degree, an integer between 0 and 180, including 0 and 180.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
 																		int64validator.Between(0, 180),
@@ -2856,7 +2858,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "MX Record Value. .",
+														MarkdownDescription: "MX Record Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"domain": schema.StringAttribute{
@@ -2891,7 +2893,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "NAPTR Value. .",
+														MarkdownDescription: "NAPTR Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"flags": schema.StringAttribute{
@@ -2949,7 +2951,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"values": schema.ListAttribute{
-														MarkdownDescription: "Name Servers. .",
+														MarkdownDescription: "Name Servers. Configuration parameter for values",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{
@@ -2969,7 +2971,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"values": schema.ListAttribute{
-														MarkdownDescription: "Domain Name. .",
+														MarkdownDescription: "Domain Name. Configuration parameter for values",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{
@@ -2991,7 +2993,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "SRV Value.",
+														MarkdownDescription: "SRV Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
@@ -3040,7 +3042,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "SSHFP Value. .",
+														MarkdownDescription: "SSHFP Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"algorithm": schema.StringAttribute{
@@ -3094,7 +3096,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
-														MarkdownDescription: "TLSA Value. .",
+														MarkdownDescription: "TLSA Value. Configuration parameter for values",
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"certificate_association_data": schema.StringAttribute{
@@ -3141,7 +3143,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"values": schema.ListAttribute{
-														MarkdownDescription: "Text.",
+														MarkdownDescription: "Text. Configuration parameter for values",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{
@@ -3202,7 +3204,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 				MarkdownDescription: "SecondaryDNSCreateSpecType.",
 				Attributes: map[string]schema.Attribute{
 					"primary_servers": schema.ListAttribute{
-						MarkdownDescription: "DNS Primary Server IP. .",
+						MarkdownDescription: "Configuration parameter for primary servers.",
 						Optional:            true,
 						ElementType:         types.StringType,
 						Validators: []validator.List{
@@ -3237,7 +3239,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -3671,9 +3673,6 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 							}
 							if !DefaultRrSetGroupItem.LBRecord.Value.Namespace.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Namespace.IsUnknown() {
 								PrimaryDefaultRrSetGroupLBRecordValueMap["namespace"] = DefaultRrSetGroupItem.LBRecord.Value.Namespace.ValueString()
-							}
-							if !DefaultRrSetGroupItem.LBRecord.Value.Tenant.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Tenant.IsUnknown() {
-								PrimaryDefaultRrSetGroupLBRecordValueMap["tenant"] = DefaultRrSetGroupItem.LBRecord.Value.Tenant.ValueString()
 							}
 							PrimaryDefaultRrSetGroupLBRecordMap["value"] = PrimaryDefaultRrSetGroupLBRecordValueMap
 						}
@@ -4256,9 +4255,6 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 										if !RrSetItem.LBRecord.Value.Namespace.IsNull() && !RrSetItem.LBRecord.Value.Namespace.IsUnknown() {
 											PrimaryRrSetGroupRrSetLBRecordValueMap["namespace"] = RrSetItem.LBRecord.Value.Namespace.ValueString()
 										}
-										if !RrSetItem.LBRecord.Value.Tenant.IsNull() && !RrSetItem.LBRecord.Value.Tenant.IsUnknown() {
-											PrimaryRrSetGroupRrSetLBRecordValueMap["tenant"] = RrSetItem.LBRecord.Value.Tenant.ValueString()
-										}
 										PrimaryRrSetGroupRrSetLBRecordMap["value"] = PrimaryRrSetGroupRrSetLBRecordValueMap
 									}
 									RrSetItemMap["lb_record"] = PrimaryRrSetGroupRrSetLBRecordMap
@@ -4615,11 +4611,28 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetDNSZone(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -6949,6 +6962,16 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSZone: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -9325,6 +9348,20 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.DNSZone{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -9332,6 +9369,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -9652,9 +9690,6 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 							}
 							if !DefaultRrSetGroupItem.LBRecord.Value.Namespace.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Namespace.IsUnknown() {
 								PrimaryDefaultRrSetGroupLBRecordValueMap["namespace"] = DefaultRrSetGroupItem.LBRecord.Value.Namespace.ValueString()
-							}
-							if !DefaultRrSetGroupItem.LBRecord.Value.Tenant.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Tenant.IsUnknown() {
-								PrimaryDefaultRrSetGroupLBRecordValueMap["tenant"] = DefaultRrSetGroupItem.LBRecord.Value.Tenant.ValueString()
 							}
 							PrimaryDefaultRrSetGroupLBRecordMap["value"] = PrimaryDefaultRrSetGroupLBRecordValueMap
 						}
@@ -10237,9 +10272,6 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 										if !RrSetItem.LBRecord.Value.Namespace.IsNull() && !RrSetItem.LBRecord.Value.Namespace.IsUnknown() {
 											PrimaryRrSetGroupRrSetLBRecordValueMap["namespace"] = RrSetItem.LBRecord.Value.Namespace.ValueString()
 										}
-										if !RrSetItem.LBRecord.Value.Tenant.IsNull() && !RrSetItem.LBRecord.Value.Tenant.IsUnknown() {
-											PrimaryRrSetGroupRrSetLBRecordValueMap["tenant"] = RrSetItem.LBRecord.Value.Tenant.ValueString()
-										}
 										PrimaryRrSetGroupRrSetLBRecordMap["value"] = PrimaryRrSetGroupRrSetLBRecordValueMap
 									}
 									RrSetItemMap["lb_record"] = PrimaryRrSetGroupRrSetLBRecordMap
@@ -10592,6 +10624,14 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 
 	_, err := r.client.UpdateDNSZone(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of dns_zone %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update DNSZone: %s", err))
 		return
 	}
@@ -10609,10 +10649,6 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -10622,6 +10658,19 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 	fetched, fetchErr := r.client.GetDNSZone(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSZone after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

@@ -6,22 +6,15 @@ Srv6_network_slice creates a new object in the storage backend for metadata.name
 ## Required
 
 - name
-- namespace
-- connect_to_access_networks
-- connect_to_enterprise_networks
-- connect_to_internet
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_srv6_network_slice" "example" {
   name      = "example-srv6-network-slice"
-  namespace = "staging"
+  namespace = "system"
 
-  sid_prefixes                   = ["example-value"]
-  connect_to_access_networks     = true
-  connect_to_enterprise_networks = true
-  connect_to_internet            = true
+  sid_prefixes = ["example-value"]
 }
 ```
 

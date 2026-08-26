@@ -12,6 +12,9 @@ package provider
 
 import (
 	"context"
+	{{- if .HasConcurrencyToken}}
+	"errors"
+	{{- end}}
 	"fmt"
 	"strings"
 	"time"
@@ -57,6 +60,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	{{- if .HasConcurrencyToken}}
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	{{- end}}
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -399,12 +405,33 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create {{.TitleCase}}: %s", err))
 		return
 	}
+{{- if .HasConcurrencyToken}}
+
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.Get{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.{{.ConcurrencyTokenGoName}})
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+{{- end}}
 
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	{{- if .HasConcurrencyToken}}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	{{- end}}
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -476,6 +503,18 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err))
 		return
 	}
+{{- if .HasConcurrencyToken}}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.{{.ConcurrencyTokenGoName}})
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+{{- end}}
 
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
@@ -576,6 +615,17 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 	if resp.Diagnostics.HasError() {
 		return
 	}
+{{- if .UpdateDisabled}}
+
+	// The released operation/concurrency contracts do not classify this object
+	// as safely replaceable. Every configurable field requires replacement; fail
+	// closed without a PUT if Update is nevertheless invoked.
+	resp.Diagnostics.AddError(
+		"Update Not Supported",
+		"This API object does not expose a refreshable configuration token and cannot be updated safely. Replace the Terraform resource instead.",
+	)
+	return
+{{- else}}
 
 	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
 	resp.Diagnostics.Append(diags...)
@@ -585,6 +635,22 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
+{{- if .HasConcurrencyToken}}
+
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+{{- end}}
 {{ renderPreflights .Preflights "r" }}
 	apiResource := &client.{{.TitleCase}}{
 		Metadata: client.Metadata{
@@ -593,6 +659,9 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		},
 		Spec: make(map[string]interface{}),
 	}
+{{- if .HasConcurrencyToken}}
+	apiResource.{{.ConcurrencyTokenGoName}} = concurrencyToken
+{{- end}}
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -682,6 +751,16 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 
 	_, err := r.client.Update{{.TitleCase}}(ctx, apiResource)
 	if err != nil {
+		{{- if .HasConcurrencyToken}}
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of {{.Name}} %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
+		{{- end}}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update {{.TitleCase}}: %s", err))
 		return
 	}
@@ -699,10 +778,12 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
+{{- if not .HasConcurrencyToken}}
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
+{{- end}}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -714,6 +795,21 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read {{.TitleCase}} after update: %s", fetchErr))
 		return
 	}
+{{- if .HasConcurrencyToken}}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.{{.ConcurrencyTokenGoName}})
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+{{- end}}
 
 {{renderFetchedComputedFieldsCode .Attributes "\t"}}
 
@@ -732,6 +828,7 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 {{renderSpecUnmarshalCode .Attributes "\t" .TitleCase}}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+{{- end}}
 }
 
 func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
@@ -882,6 +979,9 @@ import (
 type {{.TitleCase}} struct {
 	Metadata Metadata               ` + "`" + `json:"metadata"` + "`" + `
 	Spec     map[string]interface{} ` + "`" + `json:"spec"` + "`" + `
+{{- if .HasConcurrencyToken}}
+	{{.ConcurrencyTokenGoName}} string ` + "`" + `json:"{{.ConcurrencyTokenJSONName}},omitempty"` + "`" + `
+{{- end}}
 {{- if .ExposeUID}}
 	SystemMetadata *{{.TitleCase}}SystemMetadata ` + "`" + `json:"system_metadata,omitempty"` + "`" + `
 {{- end}}

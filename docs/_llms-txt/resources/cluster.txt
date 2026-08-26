@@ -7,11 +7,6 @@ Cluster will create the object in the storage backend for namespace metadata.nam
 
 - name
 - namespace
-- connection_timeout
-- endpoint_selection
-- fallback_policy
-- http_idle_timeout
-- loadbalancer_algorithm
 
 ## Minimal Valid Config
 
@@ -19,12 +14,6 @@ Cluster will create the object in the storage backend for namespace metadata.nam
 resource "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
-
-  connection_timeout     = 1
-  endpoint_selection     = "DISTRIBUTED"
-  fallback_policy        = "NO_FALLBACK"
-  http_idle_timeout      = 1
-  loadbalancer_algorithm = "ROUND_ROBIN"
 }
 ```
 

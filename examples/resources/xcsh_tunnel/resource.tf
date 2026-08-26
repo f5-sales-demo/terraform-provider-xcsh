@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_tunnel" "example" {
   name      = "example-tunnel"
   namespace = "staging"
-
-  tunnel_type = "IPSEC_PSK"
 }

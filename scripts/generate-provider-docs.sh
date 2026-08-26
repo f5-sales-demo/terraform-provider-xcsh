@@ -209,8 +209,12 @@ fi
 
 echo "::group::Generate and transform provider documentation"
 tfplugindocs generate --provider-name xcsh
-go test tools/transform-docs.go tools/transform-docs_test.go
 go run tools/transform-docs.go
+# The exhaustive documentation assertions inspect the transformed files. Run
+# them after the first transformation pass; running them against tfplugindocs'
+# raw nested-schema output rejects a valid fresh generation before the
+# transformer has had a chance to add stable anchors and flattened paths.
+go test tools/transform-docs.go tools/transform-docs_test.go
 
 # A transformer that converges only after a second run makes generated output
 # depend on repository history. Snapshot the first pass, run it again, and fail

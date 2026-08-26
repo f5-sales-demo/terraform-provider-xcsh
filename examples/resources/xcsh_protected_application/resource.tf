@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_protected_application" "example" {
   name      = "example-protected-application"
   namespace = "staging"
-
-  region = "US"
 }

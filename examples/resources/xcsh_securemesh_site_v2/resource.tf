@@ -15,5 +15,5 @@ terraform {
 # Basic SecuremeshSiteV2 configuration
 resource "xcsh_securemesh_site_v2" "example" {
   name      = "example-securemesh-site-v2"
-  namespace = "staging"
+  namespace = "system"
 }

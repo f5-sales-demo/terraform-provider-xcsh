@@ -6,6 +6,8 @@
 package main
 
 import (
+	"os"
+	"regexp"
 	"strings"
 	"testing"
 )
@@ -105,5 +107,45 @@ func TestDescriptionDeduplicationPreservesCollapsedSection(t *testing.T) {
 	}
 	if !strings.Contains(first, "\n---\n\n## Common Types\n") {
 		t.Fatalf("applyDescriptionDeduplication() lost the Common Types separator: %q", first)
+	}
+}
+
+func TestSecuremeshSiteV2DocumentationIsExhaustiveAndCurrent(t *testing.T) {
+	content, err := os.ReadFile("../docs/resources/securemesh_site_v2.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	document := string(content)
+
+	for _, required := range []string{
+		`namespace = "system"`,
+		"[`aws`]", "[`azure`]", "[`baremetal`]", "[`equinix`]", "[`gcp`]",
+		"[`kvm`]", "[`nutanix`]", "[`oci`]", "[`openshift_virtualization`]",
+		"[`openstack`]", "[`vmware`]", "[`segment_network`]", "[`is_management`]",
+		"[`is_primary`]",
+	} {
+		if !strings.Contains(document, required) {
+			t.Errorf("SecureMesh v2 documentation is missing %q", required)
+		}
+	}
+
+	for _, removed := range []string{
+		"resource_version", "private_adn", "[`rseries`]", `<a id="log-receiver"></a>`,
+	} {
+		if strings.Contains(document, removed) {
+			t.Errorf("SecureMesh v2 documentation contains removed field %q", removed)
+		}
+	}
+
+	anchors := regexp.MustCompile(`<a id="([^"]+)"></a>`).FindAllStringSubmatch(document, -1)
+	seen := make(map[string]struct{}, len(anchors))
+	for _, match := range anchors {
+		if _, duplicate := seen[match[1]]; duplicate {
+			t.Errorf("SecureMesh v2 documentation contains duplicate anchor %q", match[1])
+		}
+		seen[match[1]] = struct{}{}
+	}
+	if len(seen) < 100 {
+		t.Errorf("SecureMesh v2 documentation collapsed to %d unique field anchors", len(seen))
 	}
 }

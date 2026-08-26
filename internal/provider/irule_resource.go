@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -21,6 +22,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -84,14 +86,14 @@ func (r *IruleResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				},
 			},
 			"description_spec": schema.StringAttribute{
-				MarkdownDescription: "Specify Description for iRule .",
+				MarkdownDescription: "Description for iRule. Specify Description for iRule.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 				},
 			},
 			"irule": schema.StringAttribute{
-				MarkdownDescription: "Www.internal.example.f5.com')} DNS::drop} irule content .",
+				MarkdownDescription: "Www.internal.example.f5.com')} DNS::drop} irule content.",
 				Required:            true,
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(24576),
@@ -104,7 +106,7 @@ func (r *IruleResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
-				Required:            true,
+				Optional:            true,
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
@@ -269,11 +271,28 @@ func (r *IruleResource) Create(ctx context.Context, req resource.CreateRequest, 
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetIrule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -340,6 +359,16 @@ func (r *IruleResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Irule: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -453,6 +482,20 @@ func (r *IruleResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.Irule{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -460,6 +503,7 @@ func (r *IruleResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -513,6 +557,14 @@ func (r *IruleResource) Update(ctx context.Context, req resource.UpdateRequest, 
 
 	_, err := r.client.UpdateIrule(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of irule %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update Irule: %s", err))
 		return
 	}
@@ -530,10 +582,6 @@ func (r *IruleResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -543,6 +591,19 @@ func (r *IruleResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	fetched, fetchErr := r.client.GetIrule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Irule after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

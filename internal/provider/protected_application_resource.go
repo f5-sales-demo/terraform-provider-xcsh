@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -24,6 +25,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1287,7 +1289,11 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 			},
 			"region": schema.StringAttribute{
 				MarkdownDescription: "[Enum: US|EU|ASIA|CA] Defines a selection for Bot Defense region - US: US United States of America - EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada. Possible values are `US`, `EU`, `ASIA`, `CA`. Defaults to `US`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("US", "EU", "ASIA", "CA"),
 				},
@@ -1545,7 +1551,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 													},
 												},
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name. Name of the header .",
+													MarkdownDescription: "Name. Name of the header.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 63),
@@ -1566,7 +1572,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						},
 					},
 					"protected_endpoints": schema.ListNestedBlock{
-						MarkdownDescription: "List of protected endpoints (max 128 items) .",
+						MarkdownDescription: "List of protected endpoints (max 128 items).",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"http_methods": schema.ListAttribute{
@@ -1686,7 +1692,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											Optional:            true,
 										},
 										"path": schema.StringAttribute{
-											MarkdownDescription: "Path. URI Path .",
+											MarkdownDescription: "Path. URI Path",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -1740,7 +1746,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Redirect. Redirect.",
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
-													MarkdownDescription: "URI location for redirect response .",
+													MarkdownDescription: "Location. URI location for redirect response.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(512),
@@ -1841,7 +1847,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Redirect. Redirect.",
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
-													MarkdownDescription: "URI location for redirect response .",
+													MarkdownDescription: "Location. URI location for redirect response.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(512),
@@ -1880,7 +1886,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"headers": schema.ListNestedBlock{
-											MarkdownDescription: "List of HTTP header name and value pairs .",
+											MarkdownDescription: "List of HTTP header name and value pairs.",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact": schema.StringAttribute{
@@ -1891,7 +1897,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 														},
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Name. Name of the header .",
+														MarkdownDescription: "Name. Name of the header.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -1970,7 +1976,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						MarkdownDescription: "Configuration parameter for aws configuration id selector.",
 						Attributes: map[string]schema.Attribute{
 							"ids": schema.ListAttribute{
-								MarkdownDescription: "Add AWS CloudFront distribution ID, e.g. ABCDEFGHI0JKLM .",
+								MarkdownDescription: "Add AWS CloudFront distribution ID, e.g. ABCDEFGHI0JKLM.",
 								Optional:            true,
 								ElementType:         types.StringType,
 								Validators: []validator.List{
@@ -1983,7 +1989,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						MarkdownDescription: "Distribution Tag List. CloudFront distribution tag list.",
 						Attributes: map[string]schema.Attribute{
 							"tags": schema.MapAttribute{
-								MarkdownDescription: "List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match .",
+								MarkdownDescription: "List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match.",
 								Optional:            true,
 								ElementType:         types.StringType,
 							},
@@ -2219,7 +2225,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 													},
 												},
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name. Name of the header .",
+													MarkdownDescription: "Name. Name of the header.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 63),
@@ -2240,7 +2246,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						},
 					},
 					"protected_endpoints": schema.ListNestedBlock{
-						MarkdownDescription: "List of protected endpoints (max 128 items) .",
+						MarkdownDescription: "List of protected endpoints (max 128 items).",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"http_methods": schema.ListAttribute{
@@ -2252,7 +2258,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 									},
 								},
 								"path": schema.StringAttribute{
-									MarkdownDescription: "Accepts wildcards * to match multiple characters or ? To match a single character .",
+									MarkdownDescription: "Accepts wildcards * to match multiple characters or ? To match a single character.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
@@ -2613,7 +2619,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Redirect. Redirect.",
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
-													MarkdownDescription: "URI location for redirect response .",
+													MarkdownDescription: "Location. URI location for redirect response.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(512),
@@ -2714,7 +2720,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Redirect. Redirect.",
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
-													MarkdownDescription: "URI location for redirect response .",
+													MarkdownDescription: "Location. URI location for redirect response.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(512),
@@ -2753,7 +2759,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"headers": schema.ListNestedBlock{
-											MarkdownDescription: "List of HTTP header name and value pairs .",
+											MarkdownDescription: "List of HTTP header name and value pairs.",
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact": schema.StringAttribute{
@@ -2764,7 +2770,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 														},
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Name. Name of the header .",
+														MarkdownDescription: "Name. Name of the header.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -3983,11 +3989,28 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetProtectedApplication(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -6249,6 +6272,16 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ProtectedApplication: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -8557,6 +8590,20 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.ProtectedApplication{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -8564,6 +8611,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -9646,6 +9694,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 
 	_, err := r.client.UpdateProtectedApplication(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of protected_application %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update ProtectedApplication: %s", err))
 		return
 	}
@@ -9663,10 +9719,6 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -9679,7 +9731,27 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["region"].(string); ok && v != "" {
+		data.Region = types.StringValue(v)
+	} else if data.Region.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Region = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

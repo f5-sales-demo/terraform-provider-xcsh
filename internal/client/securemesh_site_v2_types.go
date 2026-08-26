@@ -10,8 +10,9 @@ import (
 
 // SecuremeshSiteV2 represents a F5XC SecuremeshSiteV2
 type SecuremeshSiteV2 struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateSecuremeshSiteV2 creates a new SecuremeshSiteV2

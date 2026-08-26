@@ -4,6 +4,7 @@ package provider_test
 
 import (
 	"fmt"
+	"os"
 	"strings"
 	"testing"
 
@@ -78,6 +79,34 @@ func TestAccSecuremeshSiteV2Resource_basic(t *testing.T) {
 	})
 }
 
+func TestAccSecuremeshSiteV2Resource_segmentVRF(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	segmentName := os.Getenv("XCSH_TEST_SEGMENT_NAME")
+	if segmentName == "" {
+		t.Skip("XCSH_TEST_SEGMENT_NAME must name an existing system Segment")
+	}
+	rName := acctest.RandomName("tf-acc-test-smsite-v2-segment")
+	resourceName := "xcsh_securemesh_site_v2.test"
+
+	resource.Test(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_securemesh_site_v2"),
+		Steps: []resource.TestStep{{
+			Config: testAccSecuremeshSiteV2ResourceConfig_segmentVRF(rName, segmentName),
+			Check: resource.ComposeAggregateTestCheckFunc(
+				acctest.CheckResourceExists(resourceName),
+				resource.TestCheckResourceAttr(resourceName, "namespace", "system"),
+				resource.TestCheckResourceAttr(resourceName, "segment_vrf.#", "1"),
+				resource.TestCheckResourceAttr(resourceName, "segment_vrf.0.segment_network.name", segmentName),
+				resource.TestCheckResourceAttr(resourceName, "segment_vrf.0.segment_network.namespace", "system"),
+			),
+		}},
+	})
+}
+
 func testAccSecuremeshSiteV2ImportStateIdFunc(resourceName string) resource.ImportStateIdFunc {
 	return func(s *terraform.State) (string, error) {
 		rs, ok := s.RootModule().Resources[resourceName]
@@ -110,6 +139,40 @@ resource "xcsh_securemesh_site_v2" "test" {
 %[3]s  baremetal {
     not_managed {}
   }
+
+  disable_ha {}
+  no_network_policy {}
+  no_forward_proxy {}
+  logs_streaming_disabled {}
+  block_all_services {}
 }
 `, name, description, topLabelsStr.String()))
+}
+
+func testAccSecuremeshSiteV2ResourceConfig_segmentVRF(name, segmentName string) string {
+	return acctest.ConfigCompose(
+		acctest.ProviderConfig(),
+		fmt.Sprintf(`
+resource "xcsh_securemesh_site_v2" "test" {
+  name      = %[1]q
+  namespace = "system"
+
+  baremetal {
+    not_managed {}
+  }
+
+  disable_ha {}
+  no_network_policy {}
+  no_forward_proxy {}
+  logs_streaming_disabled {}
+  block_all_services {}
+
+  segment_vrf {
+    segment_network {
+      name      = %[2]q
+      namespace = "system"
+    }
+  }
+}
+`, name, segmentName))
 }

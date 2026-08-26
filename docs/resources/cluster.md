@@ -32,12 +32,6 @@ terraform {
 resource "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
-
-  connection_timeout     = 1
-  endpoint_selection     = "DISTRIBUTED"
-  fallback_policy        = "NO_FALLBACK"
-  http_idle_timeout      = 1
-  loadbalancer_algorithm = "ROUND_ROBIN"
 }
 ```
 
@@ -72,7 +66,7 @@ resource "xcsh_cluster" "example" {
 
 <a id="circuit-breaker"></a>&#x2022; [`circuit_breaker`](#circuit-breaker) - Optional Block<br>CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly<br>See [Circuit Breaker](#circuit-breaker) below for details.
 
-<a id="connection-timeout"></a>&#x2022; [`connection_timeout`](#connection-timeout) - Required Number  Defaults to `2`  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The seconds
+<a id="connection-timeout"></a>&#x2022; [`connection_timeout`](#connection-timeout) - Optional Number  Defaults to `2`  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The seconds
 
 <a id="default-subset"></a>&#x2022; [`default_subset`](#default-subset) - Optional Block<br>List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists
 
@@ -80,21 +74,21 @@ resource "xcsh_cluster" "example" {
 &#x2022; <a id="disable-proxy-protocol"></a>[`disable_proxy_protocol`](#disable-proxy-protocol) - Optional Block<br>Configuration parameter for disable proxy protocol
 <br><br>&#x2022; <a id="proxy-protocol-v1"></a>[`proxy_protocol_v1`](#proxy-protocol-v1) - Optional Block<br>Configuration parameter for proxy protocol v1
 
-<a id="endpoint-selection"></a>&#x2022; [`endpoint_selection`](#endpoint-selection) - Required String  Defaults to `DISTRIBUTED`<br>Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`<br>[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider
+<a id="endpoint-selection"></a>&#x2022; [`endpoint_selection`](#endpoint-selection) - Optional String  Defaults to `DISTRIBUTED`<br>Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`<br>[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider
 only local endpoints for load balancing Enable this policy to load balance ONLY among locally discovered endpoints Prefer the local endpoints for
 
 <a id="endpoint-subsets"></a>&#x2022; [`endpoint_subsets`](#endpoint-subsets) - Optional Block<br>Configure endpoint groups based on metadata labels for traffic routing. Supports weighted distribution and session affinity across labeled endpoints<br>See [Endpoint Subsets](#endpoint-subsets) below for details.
 
 <a id="endpoints"></a>&#x2022; [`endpoints`](#endpoints) - Optional Block<br>List of endpoints for this cluster<br>See [Endpoints](#endpoints) below for details.
 
-<a id="fallback-policy"></a>&#x2022; [`fallback_policy`](#fallback-policy) - Required String  Defaults to `NO_FALLBACK`<br>Possible values are `NO_FALLBACK`, `ANY_ENDPOINT`, `DEFAULT_SUBSET`<br>[Enum: NO_FALLBACK|ANY_ENDPOINT|DEFAULT_SUBSET] Enumeration for SubsetFallbackPolicy if subset match is not found. The request fails as if the cluster had no endpoint matching the subset policy Any cluster
+<a id="fallback-policy"></a>&#x2022; [`fallback_policy`](#fallback-policy) - Optional String  Defaults to `NO_FALLBACK`<br>Possible values are `NO_FALLBACK`, `ANY_ENDPOINT`, `DEFAULT_SUBSET`<br>[Enum: NO_FALLBACK|ANY_ENDPOINT|DEFAULT_SUBSET] Enumeration for SubsetFallbackPolicy if subset match is not found. The request fails as if the cluster had no endpoint matching the subset policy Any cluster
 endpoint may be selected if the cluster had no endpoint matching the subset policy Load balancing is done over endpoints matching
 
 <a id="health-checks"></a>&#x2022; [`health_checks`](#health-checks) - Optional Block<br>Health check configuration for backend monitoring<br>See [Health Checks](#health-checks) below for details.
 
-<a id="http-idle-timeout"></a>&#x2022; [`http_idle_timeout`](#http-idle-timeout) - Required Number<br>The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+<a id="http-idle-timeout"></a>&#x2022; [`http_idle_timeout`](#http-idle-timeout) - Optional Number<br>The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
 
-<a id="loadbalancer-algorithm"></a>&#x2022; [`loadbalancer_algorithm`](#loadbalancer-algorithm) - Required String  Defaults to `ROUND_ROBIN`<br>Possible values are `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `LB_OVERRIDE`<br>[Enum: ROUND_ROBIN|LEAST_REQUEST|RING_HASH|RANDOM|LB_OVERRIDE] Different load balancing algorithms supported When a connection to an endpoint in an upstream cluster
+<a id="loadbalancer-algorithm"></a>&#x2022; [`loadbalancer_algorithm`](#loadbalancer-algorithm) - Optional String  Defaults to `ROUND_ROBIN`<br>Possible values are `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `LB_OVERRIDE`<br>[Enum: ROUND_ROBIN|LEAST_REQUEST|RING_HASH|RANDOM|LB_OVERRIDE] Different load balancing algorithms supported When a connection to an endpoint in an upstream cluster
 is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in
 
 -> **One of the following:**

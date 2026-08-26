@@ -15,5 +15,5 @@ terraform {
 # Basic NetworkPolicyView configuration
 resource "xcsh_network_policy_view" "example" {
   name      = "example-network-policy-view"
-  namespace = "staging"
+  namespace = "system"
 }

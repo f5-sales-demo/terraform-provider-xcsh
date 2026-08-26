@@ -117,7 +117,7 @@ A [`peer_ip_address`](#gre-gre-parameters-peer-ip-address) block (within [`gre.g
 
 A [`segment`](#gre-gre-parameters-segment) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
 
-<a id="gre-gre-parameters-segment-refs"></a>&#x2022; [`refs`](#gre-gre-parameters-segment-refs) - Optional Block<br>Reference to Segment Object<br>See [Refs](#gre-gre-parameters-segment-refs) below.
+<a id="gre-gre-parameters-segment-refs"></a>&#x2022; [`refs`](#gre-gre-parameters-segment-refs) - Optional Block<br>Segment. Reference to Segment Object<br>See [Refs](#gre-gre-parameters-segment-refs) below.
 
 #### Gre Gre Parameters Segment Refs
 
@@ -251,7 +251,7 @@ A [`peer_ip_address`](#address-7bfa30) block (within [`ipsec.ipsec_tunnel_parame
 
 A [`segment`](#ipsec-ipsec-tunnel-parameters-segment) block (within [`ipsec.ipsec_tunnel_parameters`](#ipsec-ipsec-tunnel-parameters)) supports the following:
 
-<a id="refs-349f3e"></a>&#x2022; [`refs`](#refs-349f3e) - Optional Block<br>Reference to Segment Object<br>See [Refs](#refs-349f3e) below.
+<a id="refs-349f3e"></a>&#x2022; [`refs`](#refs-349f3e) - Optional Block<br>Segment. Reference to Segment Object<br>See [Refs](#refs-349f3e) below.
 
 #### Ipsec Ipsec Tunnel Parameters Segment Refs
 

@@ -34,7 +34,6 @@ resource "xcsh_address_allocator" "example" {
   namespace = "staging"
 
   address_pool = ["example-value"]
-  mode         = "LOCAL"
 }
 ```
 
@@ -66,7 +65,7 @@ resource "xcsh_address_allocator" "example" {
 
 <a id="address-pool"></a>&#x2022; [`address_pool`](#address-pool) - Required List<br>Address pool from which the allocator carves out subnets or addresses to its clients
 
-<a id="mode"></a>&#x2022; [`mode`](#mode) - Required String  Defaults to `LOCAL`<br>Possible values are `LOCAL`, `GLOBAL_PER_SITE_NODE`<br>[Enum: LOCAL|GLOBAL_PER_SITE_NODE] Mode of the address allocator Address allocator is for VERs within the local cluster or site Allocation is per site and then per node
+<a id="mode"></a>&#x2022; [`mode`](#mode) - Optional String  Defaults to `LOCAL`<br>Possible values are `LOCAL`, `GLOBAL_PER_SITE_NODE`<br>[Enum: LOCAL|GLOBAL_PER_SITE_NODE] Mode of the address allocator Address allocator is for VERs within the local cluster or site Allocation is per site and then per node
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

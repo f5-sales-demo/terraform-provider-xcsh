@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -26,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1475,21 +1477,21 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "[OneOf: aws_cloud_watch_receiver, azure_event_hubs_receiver, azure_receiver, datadog_receiver, gcp_bucket_receiver, http_receiver, kafka_receiver, new_relic_receiver, qradar_receiver, s3_receiver, splunk_receiver, sumo_logic_receiver] AWS Cloudwatch Logs Configuration for Global Log Receiver.",
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
-						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name . Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
+						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name. Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.OneOf("ap-northeast-1", "ap-southeast-1", "eu-central-1", "eu-west-1", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-2", "ca-central-1", "af-south-1", "ap-east-1", "ap-south-1", "ap-northeast-2", "ap-southeast-2", "eu-south-1", "eu-north-1", "eu-west-2", "me-south-1", "us-west-1", "ap-southeast-3"),
 						},
 					},
 					"group_name": schema.StringAttribute{
-						MarkdownDescription: "The group name of the target Cloudwatch Logs stream .",
+						MarkdownDescription: "The group name of the target Cloudwatch Logs stream.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(3, 512),
 						},
 					},
 					"stream_name": schema.StringAttribute{
-						MarkdownDescription: "The stream name of the target Cloudwatch Logs stream. Note that there can only be one writer to a log stream at a time .",
+						MarkdownDescription: "The stream name of the target Cloudwatch Logs stream. Note that there can only be one writer to a log stream at a time.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(3, 512),
@@ -1582,14 +1584,14 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "Azure Event Hubs Configuration for Global Log Receiver.",
 				Attributes: map[string]schema.Attribute{
 					"instance": schema.StringAttribute{
-						MarkdownDescription: "Event Hubs Instance name into which logs should be stored .",
+						MarkdownDescription: "Event Hubs Instance name into which logs should be stored.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(3, 63),
 						},
 					},
 					"namespace": schema.StringAttribute{
-						MarkdownDescription: "Event Hubs Namespace is namespace with instance into which logs should be stored .",
+						MarkdownDescription: "Event Hubs Namespace is namespace with instance into which logs should be stored.",
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.String{
@@ -1613,7 +1615,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -1649,7 +1651,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "Azure Blob Configuration for Global Log Receiver.",
 				Attributes: map[string]schema.Attribute{
 					"container_name": schema.StringAttribute{
-						MarkdownDescription: "Container Name is the name of the container into which logs should be stored .",
+						MarkdownDescription: "Container Name is the name of the container into which logs should be stored.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(3, 63),
@@ -1718,7 +1720,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -1848,7 +1850,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -1932,7 +1934,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -1978,7 +1980,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "GCP Bucket Configuration for Global Log Receiver.",
 				Attributes: map[string]schema.Attribute{
 					"bucket": schema.StringAttribute{
-						MarkdownDescription: "GCP Bucket Name. GCP Bucket Name .",
+						MarkdownDescription: "GCP Bucket Name. GCP Bucket Name.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(3, 128),
@@ -2091,7 +2093,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "Configuration parameter for http receiver.",
 				Attributes: map[string]schema.Attribute{
 					"uri": schema.StringAttribute{
-						MarkdownDescription: "HTTP URI is the URI of the HTTP endpoint to send logs to, .",
+						MarkdownDescription: "HTTP URI is the URI of the HTTP endpoint to send logs to,.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
@@ -2123,7 +2125,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 												Optional:            true,
 											},
 											"location": schema.StringAttribute{
-												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(4, 131072),
@@ -2174,7 +2176,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 												Optional:            true,
 											},
 											"location": schema.StringAttribute{
-												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(4, 131072),
@@ -2309,7 +2311,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -2352,7 +2354,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "Kafka Configuration for Global Log Receiver.",
 				Attributes: map[string]schema.Attribute{
 					"bootstrap_servers": schema.ListAttribute{
-						MarkdownDescription: "List of host:port pairs of the Kafka brokers .",
+						MarkdownDescription: "List of host:port pairs of the Kafka brokers.",
 						Optional:            true,
 						ElementType:         types.StringType,
 						Validators: []validator.List{
@@ -2360,7 +2362,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						},
 					},
 					"kafka_topic": schema.StringAttribute{
-						MarkdownDescription: "The Kafka topic name to write events to .",
+						MarkdownDescription: "The Kafka topic name to write events to.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(3, 255),
@@ -2471,7 +2473,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -2526,7 +2528,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -2571,7 +2573,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "Namespace List. Namespace List.",
 				Attributes: map[string]schema.Attribute{
 					"namespaces": schema.ListAttribute{
-						MarkdownDescription: "List of namespaces to stream logs for .",
+						MarkdownDescription: "Namespaces. List of namespaces to stream logs for.",
 						Optional:            true,
 						ElementType:         types.StringType,
 						Validators: []validator.List{
@@ -2584,7 +2586,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "Configuration parameter for qradar receiver.",
 				Attributes: map[string]schema.Attribute{
 					"uri": schema.StringAttribute{
-						MarkdownDescription: "Log Source Collector URL is the URL of the IBM QRadar Log Source Collector to send logs to, .",
+						MarkdownDescription: "Log Source Collector URL is the URL of the IBM QRadar Log Source Collector to send logs to,.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
@@ -2695,7 +2697,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -2750,14 +2752,14 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "S3 Configuration for Global Log Receiver.",
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
-						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name . Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
+						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name. Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.OneOf("ap-northeast-1", "ap-southeast-1", "eu-central-1", "eu-west-1", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-2", "ca-central-1", "af-south-1", "ap-east-1", "ap-south-1", "ap-northeast-2", "ap-southeast-2", "eu-south-1", "eu-north-1", "eu-west-2", "me-south-1", "us-west-1", "ap-southeast-3"),
 						},
 					},
 					"bucket": schema.StringAttribute{
-						MarkdownDescription: "S3 Bucket Name. S3 Bucket Name .",
+						MarkdownDescription: "S3 Bucket Name. S3 Bucket Name.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(3, 128),
@@ -2873,7 +2875,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "Configuration for Splunk HEC Logs endpoint.",
 				Attributes: map[string]schema.Attribute{
 					"endpoint": schema.StringAttribute{
-						MarkdownDescription: "Splunk HEC Logs Endpoint. Splunk HEC Logs Endpoint, (Note: must not contain `/services/collector`) .",
+						MarkdownDescription: "Splunk HEC Logs Endpoint. Splunk HEC Logs Endpoint, (Note: must not contain `/services/collector`)",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(1, 1024),
@@ -2945,7 +2947,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -3026,7 +3028,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -3081,7 +3083,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -3254,9 +3256,6 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			}
 			if !data.AWSCloudWatchReceiver.AWSCred.Namespace.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Namespace.IsUnknown() {
 				AWSCloudWatchReceiverAWSCredMap["namespace"] = data.AWSCloudWatchReceiver.AWSCred.Namespace.ValueString()
-			}
-			if !data.AWSCloudWatchReceiver.AWSCred.Tenant.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Tenant.IsUnknown() {
-				AWSCloudWatchReceiverAWSCredMap["tenant"] = data.AWSCloudWatchReceiver.AWSCred.Tenant.ValueString()
 			}
 			AWSCloudWatchReceiverMap["aws_cred"] = AWSCloudWatchReceiverAWSCredMap
 		}
@@ -3622,9 +3621,6 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			}
 			if !data.GCPBucketReceiver.GCPCred.Namespace.IsNull() && !data.GCPBucketReceiver.GCPCred.Namespace.IsUnknown() {
 				GCPBucketReceiverGCPCredMap["namespace"] = data.GCPBucketReceiver.GCPCred.Namespace.ValueString()
-			}
-			if !data.GCPBucketReceiver.GCPCred.Tenant.IsNull() && !data.GCPBucketReceiver.GCPCred.Tenant.IsUnknown() {
-				GCPBucketReceiverGCPCredMap["tenant"] = data.GCPBucketReceiver.GCPCred.Tenant.ValueString()
 			}
 			GCPBucketReceiverMap["gcp_cred"] = GCPBucketReceiverGCPCredMap
 		}
@@ -4090,9 +4086,6 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			if !data.S3Receiver.AWSCred.Namespace.IsNull() && !data.S3Receiver.AWSCred.Namespace.IsUnknown() {
 				S3ReceiverAWSCredMap["namespace"] = data.S3Receiver.AWSCred.Namespace.ValueString()
 			}
-			if !data.S3Receiver.AWSCred.Tenant.IsNull() && !data.S3Receiver.AWSCred.Tenant.IsUnknown() {
-				S3ReceiverAWSCredMap["tenant"] = data.S3Receiver.AWSCred.Tenant.ValueString()
-			}
 			S3ReceiverMap["aws_cred"] = S3ReceiverAWSCredMap
 		}
 		if !data.S3Receiver.AWSRegion.IsNull() && !data.S3Receiver.AWSRegion.IsUnknown() {
@@ -4326,11 +4319,28 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetGlobalLogReceiver(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -6961,6 +6971,16 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read GlobalLogReceiver: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -9638,6 +9658,20 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.GlobalLogReceiver{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -9645,6 +9679,7 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -9701,9 +9736,6 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			}
 			if !data.AWSCloudWatchReceiver.AWSCred.Namespace.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Namespace.IsUnknown() {
 				AWSCloudWatchReceiverAWSCredMap["namespace"] = data.AWSCloudWatchReceiver.AWSCred.Namespace.ValueString()
-			}
-			if !data.AWSCloudWatchReceiver.AWSCred.Tenant.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Tenant.IsUnknown() {
-				AWSCloudWatchReceiverAWSCredMap["tenant"] = data.AWSCloudWatchReceiver.AWSCred.Tenant.ValueString()
 			}
 			AWSCloudWatchReceiverMap["aws_cred"] = AWSCloudWatchReceiverAWSCredMap
 		}
@@ -10069,9 +10101,6 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			}
 			if !data.GCPBucketReceiver.GCPCred.Namespace.IsNull() && !data.GCPBucketReceiver.GCPCred.Namespace.IsUnknown() {
 				GCPBucketReceiverGCPCredMap["namespace"] = data.GCPBucketReceiver.GCPCred.Namespace.ValueString()
-			}
-			if !data.GCPBucketReceiver.GCPCred.Tenant.IsNull() && !data.GCPBucketReceiver.GCPCred.Tenant.IsUnknown() {
-				GCPBucketReceiverGCPCredMap["tenant"] = data.GCPBucketReceiver.GCPCred.Tenant.ValueString()
 			}
 			GCPBucketReceiverMap["gcp_cred"] = GCPBucketReceiverGCPCredMap
 		}
@@ -10537,9 +10566,6 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			if !data.S3Receiver.AWSCred.Namespace.IsNull() && !data.S3Receiver.AWSCred.Namespace.IsUnknown() {
 				S3ReceiverAWSCredMap["namespace"] = data.S3Receiver.AWSCred.Namespace.ValueString()
 			}
-			if !data.S3Receiver.AWSCred.Tenant.IsNull() && !data.S3Receiver.AWSCred.Tenant.IsUnknown() {
-				S3ReceiverAWSCredMap["tenant"] = data.S3Receiver.AWSCred.Tenant.ValueString()
-			}
 			S3ReceiverMap["aws_cred"] = S3ReceiverAWSCredMap
 		}
 		if !data.S3Receiver.AWSRegion.IsNull() && !data.S3Receiver.AWSRegion.IsUnknown() {
@@ -10769,6 +10795,14 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 
 	_, err := r.client.UpdateGlobalLogReceiver(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of global_log_receiver %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update GlobalLogReceiver: %s", err))
 		return
 	}
@@ -10786,10 +10820,6 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -10799,6 +10829,19 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	fetched, fetchErr := r.client.GetGlobalLogReceiver(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read GlobalLogReceiver after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

@@ -7,7 +7,6 @@ IRule in a given namespace. If one already exists it will give an error
 
 - name
 - namespace
-- description
 - description_spec
 - irule
 
@@ -20,7 +19,6 @@ resource "xcsh_irule" "example" {
 
   description_spec = "example-value"
   irule            = "example-value"
-  description      = "example-value"
 }
 ```
 

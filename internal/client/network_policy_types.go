@@ -10,8 +10,9 @@ import (
 
 // NetworkPolicy represents a F5XC NetworkPolicy
 type NetworkPolicy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateNetworkPolicy creates a new NetworkPolicy

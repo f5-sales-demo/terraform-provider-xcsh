@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_trusted_ca_list" "example" {
   name      = "example-trusted-ca-list"
   namespace = "staging"
-
-  trusted_ca_url = "example-value"
 }

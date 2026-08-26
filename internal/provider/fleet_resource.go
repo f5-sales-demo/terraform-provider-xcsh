@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -19,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -26,6 +28,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -49,42 +52,6 @@ type FleetResource struct {
 
 // FleetEmptyModel represents empty nested blocks
 type FleetEmptyModel struct {
-}
-
-// FleetPerformanceEnhancementModeModel represents performance_enhancement_mode block
-type FleetPerformanceEnhancementModeModel struct {
-	PerfModeL3Enhanced *FleetPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *FleetPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
-}
-
-// FleetPerformanceEnhancementModeModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModeModel
-var FleetPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
-	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
-}
-
-// FleetPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
-type FleetPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *FleetEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *FleetEmptyModel `tfsdk:"no_jumbo"`
-}
-
-// FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModePerfModeL3EnhancedModel
-var FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
-	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-}
-
-// FleetPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
-type FleetPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *FleetEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *FleetEmptyModel `tfsdk:"jumbo_enabled"`
-}
-
-// FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModePerfModeL7EnhancedModel
-var FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
-	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetBlockedServicesModel represents blocked_services block
@@ -375,6 +342,42 @@ var FleetOutsideVirtualNetworkModelAttrTypes = map[string]attr.Type{
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
 	"uid":       types.StringType,
+}
+
+// FleetPerformanceEnhancementModeModel represents performance_enhancement_mode block
+type FleetPerformanceEnhancementModeModel struct {
+	PerfModeL3Enhanced *FleetPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
+	PerfModeL7Enhanced *FleetPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
+}
+
+// FleetPerformanceEnhancementModeModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModeModel
+var FleetPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
+	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
+}
+
+// FleetPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
+type FleetPerformanceEnhancementModePerfModeL3EnhancedModel struct {
+	Jumbo   *FleetEmptyModel `tfsdk:"jumbo"`
+	NoJumbo *FleetEmptyModel `tfsdk:"no_jumbo"`
+}
+
+// FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModePerfModeL3EnhancedModel
+var FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// FleetPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type FleetPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *FleetEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *FleetEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModePerfModeL7EnhancedModel
+var FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetSriovInterfacesModel represents sriov_interfaces block
@@ -1530,7 +1533,6 @@ type FleetResourceModel struct {
 	OperatingSystemVersion           types.String                          `tfsdk:"operating_system_version"`
 	VolterraSoftwareVersion          types.String                          `tfsdk:"volterra_software_version"`
 	Timeouts                         timeouts.Value                        `tfsdk:"timeouts"`
-	PerformanceEnhancementMode       *FleetPerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	AllowAllUsb                      *FleetEmptyModel                      `tfsdk:"allow_all_usb"`
 	BlockedServices                  types.List                            `tfsdk:"blocked_services"`
 	BondDeviceList                   *FleetBondDeviceListModel             `tfsdk:"bond_device_list"`
@@ -1561,6 +1563,7 @@ type FleetResourceModel struct {
 	NoStorageInterfaces              *FleetEmptyModel                      `tfsdk:"no_storage_interfaces"`
 	NoStorageStaticRoutes            *FleetEmptyModel                      `tfsdk:"no_storage_static_routes"`
 	OutsideVirtualNetwork            types.List                            `tfsdk:"outside_virtual_network"`
+	PerformanceEnhancementMode       *FleetPerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	SriovInterfaces                  *FleetSriovInterfacesModel            `tfsdk:"sriov_interfaces"`
 	StorageClassList                 *FleetStorageClassListModel           `tfsdk:"storage_class_list"`
 	StorageDeviceList                *FleetStorageDeviceListModel          `tfsdk:"storage_device_list"`
@@ -1628,18 +1631,30 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"enable_default_fleet_config_download": schema.BoolAttribute{
 				MarkdownDescription: "Enable default fleet config, It must be set for storage config and GPU config.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 			"operating_system_version": schema.StringAttribute{
 				MarkdownDescription: "Desired Operating System version that is applied to all sites that are member of the fleet. Current Operating System version can be overridden via site config.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 				},
 			},
 			"volterra_software_version": schema.StringAttribute{
 				MarkdownDescription: "F5XC software version is human readable string matching released set of version components. The given software version is applied to all sites that are member of the fleet. Current software installed can be overridden via site config.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 				},
@@ -1652,36 +1667,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Update: true,
 				Delete: true,
 			}),
-			"performance_enhancement_mode": schema.SingleNestedBlock{
-				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
-				Attributes:          map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"no_jumbo": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
-					},
-					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo_disabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"jumbo_enabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
-					},
-				},
-			},
 			"allow_all_usb": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: allow_all_usb, deny_all_usb, usb_policy] Configuration parameter for allow all usb.",
 			},
@@ -1715,11 +1700,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
-						MarkdownDescription: "Bond Devices. List of bond devices .",
+						MarkdownDescription: "Bond Devices. List of bond devices.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"devices": schema.ListAttribute{
-									MarkdownDescription: "Ethernet devices that will make up this bond .",
+									MarkdownDescription: "Ethernet devices that will make up this bond.",
 									Optional:            true,
 									ElementType:         types.StringType,
 									Validators: []validator.List{
@@ -1727,21 +1712,21 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 								},
 								"link_polling_interval": schema.Int64Attribute{
-									MarkdownDescription: "Link polling interval in milliseconds .",
+									MarkdownDescription: "Link Polling Interval. Link polling interval in milliseconds.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(500, 5000),
 									},
 								},
 								"link_up_delay": schema.Int64Attribute{
-									MarkdownDescription: "Milliseconds wait before link is declared up .",
+									MarkdownDescription: "Milliseconds wait before link is declared up.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(0, 1000),
 									},
 								},
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
+									MarkdownDescription: "Bond Device Name. Name for the Bond. Ex 'bond0'",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 64),
@@ -2001,7 +1986,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"interfaces": schema.ListNestedBlock{
-						MarkdownDescription: "Add all interfaces belonging to this fleet .",
+						MarkdownDescription: "Add all interfaces belonging to this fleet.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -2223,6 +2208,36 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 				},
 			},
+			"performance_enhancement_mode": schema.SingleNestedBlock{
+				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Attributes:          map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
+						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"no_jumbo": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
+					},
+					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
+						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"jumbo_enabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
+					},
+				},
+			},
 			"sriov_interfaces": schema.SingleNestedBlock{
 				MarkdownDescription: "List of all custom SR-IOV interfaces configuration.",
 				Attributes:          map[string]schema.Attribute{},
@@ -2232,7 +2247,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"interface_name": schema.StringAttribute{
-									MarkdownDescription: "Name of SR-IOV physical interface .",
+									MarkdownDescription: "Name of physical interface. Name of SR-IOV physical interface.",
 									Optional:            true,
 								},
 								"number_of_vfio_vfs": schema.Int64Attribute{
@@ -2240,7 +2255,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Optional:            true,
 								},
 								"number_of_vfs": schema.Int64Attribute{
-									MarkdownDescription: "Total number of virtual functions .",
+									MarkdownDescription: "Total number of virtual functions. Total number of virtual functions.",
 									Optional:            true,
 								},
 							},
@@ -2469,7 +2484,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									ElementType:         types.StringType,
 								},
 								"storage_device": schema.StringAttribute{
-									MarkdownDescription: "Storage device and device unit .",
+									MarkdownDescription: "Storage Device. Storage device and device unit.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(64),
@@ -2513,7 +2528,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 										},
 										"username": schema.StringAttribute{
-											MarkdownDescription: "Username to connect to the HPE storage management IP .",
+											MarkdownDescription: "Username to connect to the HPE storage management IP.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -2533,7 +2548,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -2575,7 +2590,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -2684,7 +2699,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Optional:            true,
 												},
 												"storage_driver_name": schema.StringAttribute{
-													MarkdownDescription: "[Enum: ontap-nas|ontap-nas-economy|ontap-nas-flexgroup] Configuration of Backend Name . Possible values are `ontap-nas`, `ontap-nas-economy`, `ontap-nas-flexgroup`.",
+													MarkdownDescription: "[Enum: ontap-nas|ontap-nas-economy|ontap-nas-flexgroup] Storage Backend Driver. Configuration of Backend Name. Possible values are `ontap-nas`, `ontap-nas-economy`, `ontap-nas-flexgroup`.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.OneOf("ontap-nas", "ontap-nas-economy", "ontap-nas-flexgroup"),
@@ -2709,7 +2724,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 												},
 												"username": schema.StringAttribute{
-													MarkdownDescription: "Username to connect to the cluster/SVM .",
+													MarkdownDescription: "Username. Username to connect to the cluster/SVM.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
@@ -2742,7 +2757,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2784,7 +2799,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -3036,7 +3051,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Optional:            true,
 												},
 												"storage_driver_name": schema.StringAttribute{
-													MarkdownDescription: "[Enum: ontap-san|ontap-san-economy|ontap-nas-flexgroup] Configuration of Backend Name . Possible values are `ontap-san`, `ontap-san-economy`, `ontap-nas-flexgroup`.",
+													MarkdownDescription: "[Enum: ontap-san|ontap-san-economy|ontap-nas-flexgroup] Storage Backend Driver. Configuration of Backend Name. Possible values are `ontap-san`, `ontap-san-economy`, `ontap-nas-flexgroup`.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.OneOf("ontap-san", "ontap-san-economy", "ontap-nas-flexgroup"),
@@ -3064,7 +3079,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 												},
 												"username": schema.StringAttribute{
-													MarkdownDescription: "Username to connect to the cluster/SVM .",
+													MarkdownDescription: "Username. Username to connect to the cluster/SVM.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
@@ -3084,7 +3099,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -3129,7 +3144,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -3275,7 +3290,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -3317,7 +3332,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -3481,7 +3496,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															},
 														},
 														"san_type": schema.StringAttribute{
-															MarkdownDescription: "[Enum: ISCSI|FC] Block volume access protocol, either ISCSI or FC . Possible values are `ISCSI`, `FC`.",
+															MarkdownDescription: "[Enum: ISCSI|FC] Block volume access protocol, either ISCSI or FC. Possible values are `ISCSI`, `FC`.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.OneOf("ISCSI", "FC"),
@@ -3490,7 +3505,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 													Blocks: map[string]schema.Block{
 														"flash_arrays": schema.ListNestedBlock{
-															MarkdownDescription: "For FlashArrays you must set the 'mgmt_endpoint' and 'api_token' .",
+															MarkdownDescription: "For FlashArrays you must set the 'mgmt_endpoint' and 'api_token'.",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"labels": schema.MapAttribute{
@@ -3527,7 +3542,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																						Optional:            true,
 																					},
 																					"location": schema.StringAttribute{
-																						MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																						MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																						Optional:            true,
 																						Validators: []validator.String{
 																							stringvalidator.LengthBetween(4, 131072),
@@ -3579,7 +3594,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 													Blocks: map[string]schema.Block{
 														"flash_blades": schema.ListNestedBlock{
-															MarkdownDescription: "For FlashBlades you must set the 'mgmt_endpoint', 'api_token' and nfs_endpoint .",
+															MarkdownDescription: "For FlashBlades you must set the 'mgmt_endpoint', 'api_token' and nfs_endpoint.",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"labels": schema.MapAttribute{
@@ -3631,7 +3646,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																						Optional:            true,
 																					},
 																					"location": schema.StringAttribute{
-																						MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																						MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																						Optional:            true,
 																						Validators: []validator.String{
 																							stringvalidator.LengthBetween(4, 131072),
@@ -3680,7 +3695,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"interfaces": schema.ListNestedBlock{
-						MarkdownDescription: "Add all interfaces belonging to this fleet .",
+						MarkdownDescription: "Add all interfaces belonging to this fleet.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -3718,7 +3733,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"storage_routes": schema.ListNestedBlock{
-						MarkdownDescription: "List of storage static routes .",
+						MarkdownDescription: "List of Static Routes. List of storage static routes.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"attrs": schema.ListAttribute{
@@ -3816,7 +3831,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 								},
 								"subnets": schema.ListNestedBlock{
-									MarkdownDescription: "Subnets. List of route prefixes .",
+									MarkdownDescription: "Subnets. List of route prefixes.",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
@@ -4027,30 +4042,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	if !data.FleetLabel.IsNull() && !data.FleetLabel.IsUnknown() {
 		createReq.Spec["fleet_label"] = data.FleetLabel.ValueString()
 	}
-	if data.PerformanceEnhancementMode != nil {
-		PerformanceEnhancementModeMap := make(map[string]interface{})
-		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
-		}
-		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
-		}
-		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
-	}
 	if data.AllowAllUsb != nil {
 		createReq.Spec["allow_all_usb"] = map[string]interface{}{}
 	}
@@ -4131,9 +4122,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !data.DcClusterGroup.Namespace.IsNull() && !data.DcClusterGroup.Namespace.IsUnknown() {
 			DcClusterGroupMap["namespace"] = data.DcClusterGroup.Namespace.ValueString()
 		}
-		if !data.DcClusterGroup.Tenant.IsNull() && !data.DcClusterGroup.Tenant.IsUnknown() {
-			DcClusterGroupMap["tenant"] = data.DcClusterGroup.Tenant.ValueString()
-		}
 		createReq.Spec["dc_cluster_group"] = DcClusterGroupMap
 	}
 	if data.DcClusterGroupInside != nil {
@@ -4143,9 +4131,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 		if !data.DcClusterGroupInside.Namespace.IsNull() && !data.DcClusterGroupInside.Namespace.IsUnknown() {
 			DcClusterGroupInsideMap["namespace"] = data.DcClusterGroupInside.Namespace.ValueString()
-		}
-		if !data.DcClusterGroupInside.Tenant.IsNull() && !data.DcClusterGroupInside.Tenant.IsUnknown() {
-			DcClusterGroupInsideMap["tenant"] = data.DcClusterGroupInside.Tenant.ValueString()
 		}
 		createReq.Spec["dc_cluster_group_inside"] = DcClusterGroupInsideMap
 	}
@@ -4184,20 +4169,11 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 								var InterfaceList []map[string]interface{}
 								for _, InterfaceItem := range InterfaceElems {
 									InterfaceItemMap := make(map[string]interface{})
-									if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-										InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-									}
 									if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 										InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 									}
 									if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 										InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-									}
-									if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-										InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-									}
-									if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-										InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 									}
 									InterfaceList = append(InterfaceList, InterfaceItemMap)
 								}
@@ -4258,20 +4234,11 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			var InsideVirtualNetworkList []map[string]interface{}
 			for _, InsideVirtualNetworkItem := range InsideVirtualNetworkElems {
 				InsideVirtualNetworkItemMap := make(map[string]interface{})
-				if !InsideVirtualNetworkItem.Kind.IsNull() && !InsideVirtualNetworkItem.Kind.IsUnknown() {
-					InsideVirtualNetworkItemMap["kind"] = InsideVirtualNetworkItem.Kind.ValueString()
-				}
 				if !InsideVirtualNetworkItem.Name.IsNull() && !InsideVirtualNetworkItem.Name.IsUnknown() {
 					InsideVirtualNetworkItemMap["name"] = InsideVirtualNetworkItem.Name.ValueString()
 				}
 				if !InsideVirtualNetworkItem.Namespace.IsNull() && !InsideVirtualNetworkItem.Namespace.IsUnknown() {
 					InsideVirtualNetworkItemMap["namespace"] = InsideVirtualNetworkItem.Namespace.ValueString()
-				}
-				if !InsideVirtualNetworkItem.Tenant.IsNull() && !InsideVirtualNetworkItem.Tenant.IsUnknown() {
-					InsideVirtualNetworkItemMap["tenant"] = InsideVirtualNetworkItem.Tenant.ValueString()
-				}
-				if !InsideVirtualNetworkItem.Uid.IsNull() && !InsideVirtualNetworkItem.Uid.IsUnknown() {
-					InsideVirtualNetworkItemMap["uid"] = InsideVirtualNetworkItem.Uid.ValueString()
 				}
 				InsideVirtualNetworkList = append(InsideVirtualNetworkList, InsideVirtualNetworkItemMap)
 			}
@@ -4293,9 +4260,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 					}
 					if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
 						InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
-					}
-					if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
-						InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
 					}
 					InterfacesList = append(InterfacesList, InterfacesItemMap)
 				}
@@ -4335,9 +4299,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
@@ -4351,20 +4312,11 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			var NetworkConnectorsList []map[string]interface{}
 			for _, NetworkConnectorsItem := range NetworkConnectorsElems {
 				NetworkConnectorsItemMap := make(map[string]interface{})
-				if !NetworkConnectorsItem.Kind.IsNull() && !NetworkConnectorsItem.Kind.IsUnknown() {
-					NetworkConnectorsItemMap["kind"] = NetworkConnectorsItem.Kind.ValueString()
-				}
 				if !NetworkConnectorsItem.Name.IsNull() && !NetworkConnectorsItem.Name.IsUnknown() {
 					NetworkConnectorsItemMap["name"] = NetworkConnectorsItem.Name.ValueString()
 				}
 				if !NetworkConnectorsItem.Namespace.IsNull() && !NetworkConnectorsItem.Namespace.IsUnknown() {
 					NetworkConnectorsItemMap["namespace"] = NetworkConnectorsItem.Namespace.ValueString()
-				}
-				if !NetworkConnectorsItem.Tenant.IsNull() && !NetworkConnectorsItem.Tenant.IsUnknown() {
-					NetworkConnectorsItemMap["tenant"] = NetworkConnectorsItem.Tenant.ValueString()
-				}
-				if !NetworkConnectorsItem.Uid.IsNull() && !NetworkConnectorsItem.Uid.IsUnknown() {
-					NetworkConnectorsItemMap["uid"] = NetworkConnectorsItem.Uid.ValueString()
 				}
 				NetworkConnectorsList = append(NetworkConnectorsList, NetworkConnectorsItemMap)
 			}
@@ -4379,20 +4331,11 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			var NetworkFirewallList []map[string]interface{}
 			for _, NetworkFirewallItem := range NetworkFirewallElems {
 				NetworkFirewallItemMap := make(map[string]interface{})
-				if !NetworkFirewallItem.Kind.IsNull() && !NetworkFirewallItem.Kind.IsUnknown() {
-					NetworkFirewallItemMap["kind"] = NetworkFirewallItem.Kind.ValueString()
-				}
 				if !NetworkFirewallItem.Name.IsNull() && !NetworkFirewallItem.Name.IsUnknown() {
 					NetworkFirewallItemMap["name"] = NetworkFirewallItem.Name.ValueString()
 				}
 				if !NetworkFirewallItem.Namespace.IsNull() && !NetworkFirewallItem.Namespace.IsUnknown() {
 					NetworkFirewallItemMap["namespace"] = NetworkFirewallItem.Namespace.ValueString()
-				}
-				if !NetworkFirewallItem.Tenant.IsNull() && !NetworkFirewallItem.Tenant.IsUnknown() {
-					NetworkFirewallItemMap["tenant"] = NetworkFirewallItem.Tenant.ValueString()
-				}
-				if !NetworkFirewallItem.Uid.IsNull() && !NetworkFirewallItem.Uid.IsUnknown() {
-					NetworkFirewallItemMap["uid"] = NetworkFirewallItem.Uid.ValueString()
 				}
 				NetworkFirewallList = append(NetworkFirewallList, NetworkFirewallItemMap)
 			}
@@ -4422,25 +4365,40 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			var OutsideVirtualNetworkList []map[string]interface{}
 			for _, OutsideVirtualNetworkItem := range OutsideVirtualNetworkElems {
 				OutsideVirtualNetworkItemMap := make(map[string]interface{})
-				if !OutsideVirtualNetworkItem.Kind.IsNull() && !OutsideVirtualNetworkItem.Kind.IsUnknown() {
-					OutsideVirtualNetworkItemMap["kind"] = OutsideVirtualNetworkItem.Kind.ValueString()
-				}
 				if !OutsideVirtualNetworkItem.Name.IsNull() && !OutsideVirtualNetworkItem.Name.IsUnknown() {
 					OutsideVirtualNetworkItemMap["name"] = OutsideVirtualNetworkItem.Name.ValueString()
 				}
 				if !OutsideVirtualNetworkItem.Namespace.IsNull() && !OutsideVirtualNetworkItem.Namespace.IsUnknown() {
 					OutsideVirtualNetworkItemMap["namespace"] = OutsideVirtualNetworkItem.Namespace.ValueString()
 				}
-				if !OutsideVirtualNetworkItem.Tenant.IsNull() && !OutsideVirtualNetworkItem.Tenant.IsUnknown() {
-					OutsideVirtualNetworkItemMap["tenant"] = OutsideVirtualNetworkItem.Tenant.ValueString()
-				}
-				if !OutsideVirtualNetworkItem.Uid.IsNull() && !OutsideVirtualNetworkItem.Uid.IsUnknown() {
-					OutsideVirtualNetworkItemMap["uid"] = OutsideVirtualNetworkItem.Uid.ValueString()
-				}
 				OutsideVirtualNetworkList = append(OutsideVirtualNetworkList, OutsideVirtualNetworkItemMap)
 			}
 			createReq.Spec["outside_virtual_network"] = OutsideVirtualNetworkList
 		}
+	}
+	if data.PerformanceEnhancementMode != nil {
+		PerformanceEnhancementModeMap := make(map[string]interface{})
+		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
+		}
+		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
+		}
+		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
 	if data.SriovInterfaces != nil {
 		SriovInterfacesMap := make(map[string]interface{})
@@ -5406,9 +5364,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
 						InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
 					}
-					if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
-						InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
-					}
 					InterfacesList = append(InterfacesList, InterfacesItemMap)
 				}
 				StorageInterfaceListMap["interfaces"] = InterfacesList
@@ -5447,20 +5402,11 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 								var InterfaceList []map[string]interface{}
 								for _, InterfaceItem := range InterfaceElems {
 									InterfaceItemMap := make(map[string]interface{})
-									if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-										InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-									}
 									if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 										InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 									}
 									if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 										InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-									}
-									if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-										InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-									}
-									if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-										InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 									}
 									InterfaceList = append(InterfaceList, InterfaceItemMap)
 								}
@@ -5538,9 +5484,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !data.UsbPolicy.Namespace.IsNull() && !data.UsbPolicy.Namespace.IsUnknown() {
 			UsbPolicyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
 		}
-		if !data.UsbPolicy.Tenant.IsNull() && !data.UsbPolicy.Tenant.IsUnknown() {
-			UsbPolicyMap["tenant"] = data.UsbPolicy.Tenant.ValueString()
-		}
 		createReq.Spec["usb_policy"] = UsbPolicyMap
 	}
 	if !data.EnableDefaultFleetConfigDownload.IsNull() && !data.EnableDefaultFleetConfigDownload.IsUnknown() {
@@ -5559,11 +5502,28 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetFleet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -5578,66 +5538,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		data.FleetLabel = types.StringValue(v)
 	} else {
 		data.FleetLabel = types.StringNull()
-	}
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
 	}
 	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
 		data.AllowAllUsb = &FleetEmptyModel{}
@@ -6337,6 +6237,66 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 	} else {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
@@ -8575,10 +8535,15 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["enable_default_fleet_config_download"].(bool); ok {
-		data.EnableDefaultFleetConfigDownload = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.EnableDefaultFleetConfigDownload.IsNull() && !data.EnableDefaultFleetConfigDownload.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.EnableDefaultFleetConfigDownload = types.BoolNull()
+		if v, ok := apiResource.Spec["enable_default_fleet_config_download"].(bool); ok {
+			data.EnableDefaultFleetConfigDownload = types.BoolValue(v)
+		} else {
+			data.EnableDefaultFleetConfigDownload = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["operating_system_version"].(string); ok && v != "" {
 		data.OperatingSystemVersion = types.StringValue(v)
@@ -8636,6 +8601,16 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Fleet: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -8716,66 +8691,6 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	} else {
 		data.FleetLabel = types.StringNull()
 	}
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
 		data.AllowAllUsb = &FleetEmptyModel{}
 	}
@@ -9474,6 +9389,66 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		}
 	} else {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
@@ -11712,10 +11687,15 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["enable_default_fleet_config_download"].(bool); ok {
-		data.EnableDefaultFleetConfigDownload = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.EnableDefaultFleetConfigDownload.IsNull() && !data.EnableDefaultFleetConfigDownload.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.EnableDefaultFleetConfigDownload = types.BoolNull()
+		if v, ok := apiResource.Spec["enable_default_fleet_config_download"].(bool); ok {
+			data.EnableDefaultFleetConfigDownload = types.BoolValue(v)
+		} else {
+			data.EnableDefaultFleetConfigDownload = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["operating_system_version"].(string); ok && v != "" {
 		data.OperatingSystemVersion = types.StringValue(v)
@@ -11755,6 +11735,20 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.Fleet{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -11762,6 +11756,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -11808,30 +11803,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	// Marshal spec fields from Terraform state to API struct
 	if !data.FleetLabel.IsNull() && !data.FleetLabel.IsUnknown() {
 		apiResource.Spec["fleet_label"] = data.FleetLabel.ValueString()
-	}
-	if data.PerformanceEnhancementMode != nil {
-		PerformanceEnhancementModeMap := make(map[string]interface{})
-		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
-		}
-		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
-		}
-		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
 	if data.AllowAllUsb != nil {
 		apiResource.Spec["allow_all_usb"] = map[string]interface{}{}
@@ -11913,9 +11884,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !data.DcClusterGroup.Namespace.IsNull() && !data.DcClusterGroup.Namespace.IsUnknown() {
 			DcClusterGroupMap["namespace"] = data.DcClusterGroup.Namespace.ValueString()
 		}
-		if !data.DcClusterGroup.Tenant.IsNull() && !data.DcClusterGroup.Tenant.IsUnknown() {
-			DcClusterGroupMap["tenant"] = data.DcClusterGroup.Tenant.ValueString()
-		}
 		apiResource.Spec["dc_cluster_group"] = DcClusterGroupMap
 	}
 	if data.DcClusterGroupInside != nil {
@@ -11925,9 +11893,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 		if !data.DcClusterGroupInside.Namespace.IsNull() && !data.DcClusterGroupInside.Namespace.IsUnknown() {
 			DcClusterGroupInsideMap["namespace"] = data.DcClusterGroupInside.Namespace.ValueString()
-		}
-		if !data.DcClusterGroupInside.Tenant.IsNull() && !data.DcClusterGroupInside.Tenant.IsUnknown() {
-			DcClusterGroupInsideMap["tenant"] = data.DcClusterGroupInside.Tenant.ValueString()
 		}
 		apiResource.Spec["dc_cluster_group_inside"] = DcClusterGroupInsideMap
 	}
@@ -11966,20 +11931,11 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								var InterfaceList []map[string]interface{}
 								for _, InterfaceItem := range InterfaceElems {
 									InterfaceItemMap := make(map[string]interface{})
-									if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-										InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-									}
 									if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 										InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 									}
 									if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 										InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-									}
-									if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-										InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-									}
-									if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-										InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 									}
 									InterfaceList = append(InterfaceList, InterfaceItemMap)
 								}
@@ -12040,20 +11996,11 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			var InsideVirtualNetworkList []map[string]interface{}
 			for _, InsideVirtualNetworkItem := range InsideVirtualNetworkElems {
 				InsideVirtualNetworkItemMap := make(map[string]interface{})
-				if !InsideVirtualNetworkItem.Kind.IsNull() && !InsideVirtualNetworkItem.Kind.IsUnknown() {
-					InsideVirtualNetworkItemMap["kind"] = InsideVirtualNetworkItem.Kind.ValueString()
-				}
 				if !InsideVirtualNetworkItem.Name.IsNull() && !InsideVirtualNetworkItem.Name.IsUnknown() {
 					InsideVirtualNetworkItemMap["name"] = InsideVirtualNetworkItem.Name.ValueString()
 				}
 				if !InsideVirtualNetworkItem.Namespace.IsNull() && !InsideVirtualNetworkItem.Namespace.IsUnknown() {
 					InsideVirtualNetworkItemMap["namespace"] = InsideVirtualNetworkItem.Namespace.ValueString()
-				}
-				if !InsideVirtualNetworkItem.Tenant.IsNull() && !InsideVirtualNetworkItem.Tenant.IsUnknown() {
-					InsideVirtualNetworkItemMap["tenant"] = InsideVirtualNetworkItem.Tenant.ValueString()
-				}
-				if !InsideVirtualNetworkItem.Uid.IsNull() && !InsideVirtualNetworkItem.Uid.IsUnknown() {
-					InsideVirtualNetworkItemMap["uid"] = InsideVirtualNetworkItem.Uid.ValueString()
 				}
 				InsideVirtualNetworkList = append(InsideVirtualNetworkList, InsideVirtualNetworkItemMap)
 			}
@@ -12075,9 +12022,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					}
 					if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
 						InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
-					}
-					if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
-						InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
 					}
 					InterfacesList = append(InterfacesList, InterfacesItemMap)
 				}
@@ -12117,9 +12061,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
@@ -12133,20 +12074,11 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			var NetworkConnectorsList []map[string]interface{}
 			for _, NetworkConnectorsItem := range NetworkConnectorsElems {
 				NetworkConnectorsItemMap := make(map[string]interface{})
-				if !NetworkConnectorsItem.Kind.IsNull() && !NetworkConnectorsItem.Kind.IsUnknown() {
-					NetworkConnectorsItemMap["kind"] = NetworkConnectorsItem.Kind.ValueString()
-				}
 				if !NetworkConnectorsItem.Name.IsNull() && !NetworkConnectorsItem.Name.IsUnknown() {
 					NetworkConnectorsItemMap["name"] = NetworkConnectorsItem.Name.ValueString()
 				}
 				if !NetworkConnectorsItem.Namespace.IsNull() && !NetworkConnectorsItem.Namespace.IsUnknown() {
 					NetworkConnectorsItemMap["namespace"] = NetworkConnectorsItem.Namespace.ValueString()
-				}
-				if !NetworkConnectorsItem.Tenant.IsNull() && !NetworkConnectorsItem.Tenant.IsUnknown() {
-					NetworkConnectorsItemMap["tenant"] = NetworkConnectorsItem.Tenant.ValueString()
-				}
-				if !NetworkConnectorsItem.Uid.IsNull() && !NetworkConnectorsItem.Uid.IsUnknown() {
-					NetworkConnectorsItemMap["uid"] = NetworkConnectorsItem.Uid.ValueString()
 				}
 				NetworkConnectorsList = append(NetworkConnectorsList, NetworkConnectorsItemMap)
 			}
@@ -12161,20 +12093,11 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			var NetworkFirewallList []map[string]interface{}
 			for _, NetworkFirewallItem := range NetworkFirewallElems {
 				NetworkFirewallItemMap := make(map[string]interface{})
-				if !NetworkFirewallItem.Kind.IsNull() && !NetworkFirewallItem.Kind.IsUnknown() {
-					NetworkFirewallItemMap["kind"] = NetworkFirewallItem.Kind.ValueString()
-				}
 				if !NetworkFirewallItem.Name.IsNull() && !NetworkFirewallItem.Name.IsUnknown() {
 					NetworkFirewallItemMap["name"] = NetworkFirewallItem.Name.ValueString()
 				}
 				if !NetworkFirewallItem.Namespace.IsNull() && !NetworkFirewallItem.Namespace.IsUnknown() {
 					NetworkFirewallItemMap["namespace"] = NetworkFirewallItem.Namespace.ValueString()
-				}
-				if !NetworkFirewallItem.Tenant.IsNull() && !NetworkFirewallItem.Tenant.IsUnknown() {
-					NetworkFirewallItemMap["tenant"] = NetworkFirewallItem.Tenant.ValueString()
-				}
-				if !NetworkFirewallItem.Uid.IsNull() && !NetworkFirewallItem.Uid.IsUnknown() {
-					NetworkFirewallItemMap["uid"] = NetworkFirewallItem.Uid.ValueString()
 				}
 				NetworkFirewallList = append(NetworkFirewallList, NetworkFirewallItemMap)
 			}
@@ -12204,25 +12127,40 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			var OutsideVirtualNetworkList []map[string]interface{}
 			for _, OutsideVirtualNetworkItem := range OutsideVirtualNetworkElems {
 				OutsideVirtualNetworkItemMap := make(map[string]interface{})
-				if !OutsideVirtualNetworkItem.Kind.IsNull() && !OutsideVirtualNetworkItem.Kind.IsUnknown() {
-					OutsideVirtualNetworkItemMap["kind"] = OutsideVirtualNetworkItem.Kind.ValueString()
-				}
 				if !OutsideVirtualNetworkItem.Name.IsNull() && !OutsideVirtualNetworkItem.Name.IsUnknown() {
 					OutsideVirtualNetworkItemMap["name"] = OutsideVirtualNetworkItem.Name.ValueString()
 				}
 				if !OutsideVirtualNetworkItem.Namespace.IsNull() && !OutsideVirtualNetworkItem.Namespace.IsUnknown() {
 					OutsideVirtualNetworkItemMap["namespace"] = OutsideVirtualNetworkItem.Namespace.ValueString()
 				}
-				if !OutsideVirtualNetworkItem.Tenant.IsNull() && !OutsideVirtualNetworkItem.Tenant.IsUnknown() {
-					OutsideVirtualNetworkItemMap["tenant"] = OutsideVirtualNetworkItem.Tenant.ValueString()
-				}
-				if !OutsideVirtualNetworkItem.Uid.IsNull() && !OutsideVirtualNetworkItem.Uid.IsUnknown() {
-					OutsideVirtualNetworkItemMap["uid"] = OutsideVirtualNetworkItem.Uid.ValueString()
-				}
 				OutsideVirtualNetworkList = append(OutsideVirtualNetworkList, OutsideVirtualNetworkItemMap)
 			}
 			apiResource.Spec["outside_virtual_network"] = OutsideVirtualNetworkList
 		}
+	}
+	if data.PerformanceEnhancementMode != nil {
+		PerformanceEnhancementModeMap := make(map[string]interface{})
+		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
+		}
+		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
+		}
+		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
 	if data.SriovInterfaces != nil {
 		SriovInterfacesMap := make(map[string]interface{})
@@ -13188,9 +13126,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !InterfacesItem.Namespace.IsNull() && !InterfacesItem.Namespace.IsUnknown() {
 						InterfacesItemMap["namespace"] = InterfacesItem.Namespace.ValueString()
 					}
-					if !InterfacesItem.Tenant.IsNull() && !InterfacesItem.Tenant.IsUnknown() {
-						InterfacesItemMap["tenant"] = InterfacesItem.Tenant.ValueString()
-					}
 					InterfacesList = append(InterfacesList, InterfacesItemMap)
 				}
 				StorageInterfaceListMap["interfaces"] = InterfacesList
@@ -13229,20 +13164,11 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								var InterfaceList []map[string]interface{}
 								for _, InterfaceItem := range InterfaceElems {
 									InterfaceItemMap := make(map[string]interface{})
-									if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-										InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-									}
 									if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 										InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 									}
 									if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 										InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-									}
-									if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-										InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-									}
-									if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-										InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 									}
 									InterfaceList = append(InterfaceList, InterfaceItemMap)
 								}
@@ -13320,9 +13246,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !data.UsbPolicy.Namespace.IsNull() && !data.UsbPolicy.Namespace.IsUnknown() {
 			UsbPolicyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
 		}
-		if !data.UsbPolicy.Tenant.IsNull() && !data.UsbPolicy.Tenant.IsUnknown() {
-			UsbPolicyMap["tenant"] = data.UsbPolicy.Tenant.ValueString()
-		}
 		apiResource.Spec["usb_policy"] = UsbPolicyMap
 	}
 	if !data.EnableDefaultFleetConfigDownload.IsNull() && !data.EnableDefaultFleetConfigDownload.IsUnknown() {
@@ -13337,6 +13260,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 
 	_, err := r.client.UpdateFleet(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of fleet %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update Fleet: %s", err))
 		return
 	}
@@ -13354,10 +13285,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -13370,7 +13297,41 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["enable_default_fleet_config_download"].(bool); ok {
+		data.EnableDefaultFleetConfigDownload = types.BoolValue(v)
+	} else if data.EnableDefaultFleetConfigDownload.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.EnableDefaultFleetConfigDownload = types.BoolNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["operating_system_version"].(string); ok && v != "" {
+		data.OperatingSystemVersion = types.StringValue(v)
+	} else if data.OperatingSystemVersion.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.OperatingSystemVersion = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["volterra_software_version"].(string); ok && v != "" {
+		data.VolterraSoftwareVersion = types.StringValue(v)
+	} else if data.VolterraSoftwareVersion.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.VolterraSoftwareVersion = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
@@ -13380,66 +13341,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		data.FleetLabel = types.StringValue(v)
 	} else {
 		data.FleetLabel = types.StringNull()
-	}
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
 	}
 	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
 		data.AllowAllUsb = &FleetEmptyModel{}
@@ -14139,6 +14040,66 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 	} else {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &FleetPerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *FleetPerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["sriov_interfaces"].(map[string]interface{}); ok && (isImport || data.SriovInterfaces != nil) {
 		data.SriovInterfaces = &FleetSriovInterfacesModel{
@@ -16377,10 +16338,15 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["enable_default_fleet_config_download"].(bool); ok {
-		data.EnableDefaultFleetConfigDownload = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.EnableDefaultFleetConfigDownload.IsNull() && !data.EnableDefaultFleetConfigDownload.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.EnableDefaultFleetConfigDownload = types.BoolNull()
+		if v, ok := apiResource.Spec["enable_default_fleet_config_download"].(bool); ok {
+			data.EnableDefaultFleetConfigDownload = types.BoolValue(v)
+		} else {
+			data.EnableDefaultFleetConfigDownload = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["operating_system_version"].(string); ok && v != "" {
 		data.OperatingSystemVersion = types.StringValue(v)

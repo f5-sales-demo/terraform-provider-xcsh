@@ -10,8 +10,9 @@ import (
 
 // NfvService represents a F5XC NfvService
 type NfvService struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateNfvService creates a new NfvService

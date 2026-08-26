@@ -149,7 +149,7 @@ An [`origin_servers`](#origin-pools-pools-origin-servers) block (within [`origin
 
 <a id="port-f4479e"></a>&#x2022; [`lb_port`](#port-f4479e) - Optional Block<br>Enable this option
 
-<a id="servers-9d7450"></a>&#x2022; [`origin_servers`](#servers-9d7450) - Optional Block<br>List of origin servers for Proxy<br>See [Origin Servers](#servers-9d7450) below.
+<a id="servers-9d7450"></a>&#x2022; [`origin_servers`](#servers-9d7450) - Optional Block<br>List of Origin Servers. List of origin servers for Proxy<br>See [Origin Servers](#servers-9d7450) below.
 
 <a id="origin-pools-pools-origin-servers-port"></a>&#x2022; [`port`](#origin-pools-pools-origin-servers-port) - Optional Number<br>Endpoint service is available on this port
 

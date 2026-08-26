@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
   namespace = "system"
-
-  transport_type = "UDP"
 }

@@ -32,8 +32,6 @@ terraform {
 resource "xcsh_proxy" "example" {
   name      = "example-proxy"
   namespace = "staging"
-
-  connection_timeout = 1
 }
 ```
 
@@ -64,7 +62,7 @@ resource "xcsh_proxy" "example" {
 -> **One of the following:**
 &#x2022; <a id="active-forward-proxy-policies"></a>[`active_forward_proxy_policies`](#active-forward-proxy-policies) - Optional Block<br>Ordered List of Forward Proxy Policies active<br>See [Active Forward Proxy Policies](#active-forward-proxy-policies) below for details.
 
-<a id="connection-timeout"></a>&#x2022; [`connection_timeout`](#connection-timeout) - Required Number  Defaults to `2000`  Specified in milliseconds<br>The timeout for new network connections to upstream server.  The (2 seconds)
+<a id="connection-timeout"></a>&#x2022; [`connection_timeout`](#connection-timeout) - Optional Number  Defaults to `2000`  Specified in milliseconds<br>The timeout for new network connections to upstream server.  The (2 seconds)
 
 -> **One of the following:**
 &#x2022; <a id="do-not-advertise"></a>[`do_not_advertise`](#do-not-advertise) - Optional Block<br>Configuration parameter for do not advertise

@@ -31,11 +31,7 @@ terraform {
 # Basic WorkloadFlavor configuration
 resource "xcsh_workload_flavor" "example" {
   name      = "example-workload-flavor"
-  namespace = "staging"
-
-  ephemeral_storage = "example-value"
-  memory            = "example-value"
-  vcpus             = 1
+  namespace = "shared"
 }
 ```
 
@@ -51,8 +47,6 @@ resource "xcsh_workload_flavor" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Workload Flavor. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Workload Flavor is created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -61,15 +55,17 @@ resource "xcsh_workload_flavor" "example" {
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Workload Flavor. The F5 XC API restricts this resource to the shared namespace; it defaults to that value and may be omitted
+
 ### Spec Argument Reference
 
-<a id="ephemeral-storage"></a>&#x2022; [`ephemeral_storage`](#ephemeral-storage) - Required String<br>Ephemeral storage in MiB (mebibyte) allocated for the workload_flavor
+<a id="ephemeral-storage"></a>&#x2022; [`ephemeral_storage`](#ephemeral-storage) - Optional String<br>Ephemeral storage in MiB (mebibyte) allocated for the workload_flavor
 
-<a id="memory"></a>&#x2022; [`memory`](#memory) - Required String<br>Memory in MiB (mebibyte) allocated for the workload_flavor
+<a id="memory"></a>&#x2022; [`memory`](#memory) - Optional String<br>Memory in MiB (mebibyte) allocated for the workload_flavor
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="vcpus"></a>&#x2022; [`vcpus`](#vcpus) - Required Number<br>Number of vCPUs allocated for the workload_flavor. Each vCPU is a thread on a CPU core
+<a id="vcpus"></a>&#x2022; [`vcpus`](#vcpus) - Optional Number<br>Number of vCPUs allocated for the workload_flavor. Each vCPU is a thread on a CPU core
 
 ### Attributes Reference
 

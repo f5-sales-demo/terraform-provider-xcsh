@@ -40,6 +40,8 @@ type Server struct {
 	errorResponses map[string]*ErrorResponse
 	// requestLog records all requests for verification
 	requestLog []RequestRecord
+	// resourceVersion issues opaque, monotonically advancing config-object tokens.
+	resourceVersion uint64
 }
 
 // RequestRecord stores information about a request for verification
@@ -157,7 +159,26 @@ func (s *Server) ClearErrorResponse(path string) {
 func (s *Server) SetResource(path string, resource interface{}) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
+	s.ensureResourceVersionLocked(path, resource)
 	s.resources[path] = resource
+}
+
+// AdvanceResourceVersion simulates a no-spec-change out-of-band write. It is
+// used to prove that a provider plan holding the previous token fails closed.
+func (s *Server) AdvanceResourceVersion(path string) (string, bool) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	resource, found := s.resources[path]
+	if !found || !isConfigObjectPath(path) {
+		return "", false
+	}
+	object, ok := resource.(map[string]interface{})
+	if !ok {
+		return "", false
+	}
+	token := s.nextResourceVersionLocked()
+	object["resource_version"] = token
+	return token, true
 }
 
 // GetResource retrieves a resource from the mock server
@@ -198,6 +219,7 @@ func (s *Server) Reset() {
 	s.errorResponses = make(map[string]*ErrorResponse)
 	s.requestLog = make([]RequestRecord, 0)
 	s.responseDelay = 0
+	s.resourceVersion = 0
 }
 
 // handleRequest is the main request handler
@@ -391,7 +413,7 @@ func (s *Server) handlePost(w http.ResponseWriter, r *http.Request, path string)
 	}
 
 	// Create response with system metadata and resource-specific defaults
-	response := s.buildResponse(requestBody, namespace, resourceType)
+	response := s.buildResponse(requestBody, namespace, resourceType, isConfigObjectPath(path))
 	s.resources[resourcePath] = response
 	s.mu.Unlock()
 
@@ -414,14 +436,30 @@ func (s *Server) handlePut(w http.ResponseWriter, r *http.Request, path string) 
 
 	s.mu.Lock()
 	// Check if resource exists
-	if _, exists := s.resources[path]; !exists {
+	existing, exists := s.resources[path]
+	if !exists {
 		s.mu.Unlock()
 		s.writeErrorResponse(w, http.StatusNotFound, "NOT_FOUND", fmt.Sprintf("Resource not found: %s", path))
 		return
 	}
+	if isConfigObjectPath(path) {
+		existingObject, existingOK := existing.(map[string]interface{})
+		requestToken, requestOK := requestBody["resource_version"].(string)
+		existingToken, existingTokenOK := existingObject["resource_version"].(string)
+		if !existingOK || !existingTokenOK || existingToken == "" || !requestOK || requestToken == "" {
+			s.mu.Unlock()
+			s.writeErrorResponse(w, http.StatusBadRequest, "INVALID_RESOURCE_VERSION", "Config-object replace requires resource_version")
+			return
+		}
+		if requestToken != existingToken {
+			s.mu.Unlock()
+			s.writeErrorResponse(w, http.StatusConflict, "STALE_RESOURCE_VERSION", "Config object changed after it was read")
+			return
+		}
+	}
 
 	// Update resource with resource-specific defaults
-	response := s.buildResponse(requestBody, namespace, resourceType)
+	response := s.buildResponse(requestBody, namespace, resourceType, isConfigObjectPath(path))
 	s.resources[path] = response
 	s.mu.Unlock()
 
@@ -459,7 +497,7 @@ func extractNamespaceFromPath(path string) string {
 }
 
 // buildResponse creates a standard F5 XC API response from a request body
-func (s *Server) buildResponse(requestBody map[string]interface{}, namespace string, resourceType string) map[string]interface{} {
+func (s *Server) buildResponse(requestBody map[string]interface{}, namespace string, resourceType string, configObject bool) map[string]interface{} {
 	response := make(map[string]interface{})
 	tenant := "mock-tenant"
 
@@ -504,8 +542,40 @@ func (s *Server) buildResponse(requestBody map[string]interface{}, namespace str
 		"creator_id":             "mock-server",
 		"tenant":                 tenant,
 	}
+	if configObject {
+		response["resource_version"] = s.nextResourceVersionLocked()
+	}
 
 	return response
+}
+
+func isConfigObjectPath(path string) bool {
+	// The controller exposes replaceable config objects through several API
+	// families, including /api/config, /api/web, and /api/register. The default
+	// mock CRUD handler only serves object-style endpoints; action and status
+	// endpoints are intercepted by handleSpecialEndpoints before reaching it.
+	// Version every default /api object so generated resources exercise the same
+	// server-assigned concurrency-token lifecycle regardless of envelope family.
+	return strings.HasPrefix(path, "/api/")
+}
+
+func (s *Server) nextResourceVersionLocked() string {
+	s.resourceVersion++
+	return fmt.Sprintf("mock-rv-%d", s.resourceVersion)
+}
+
+func (s *Server) ensureResourceVersionLocked(path string, resource interface{}) {
+	if !isConfigObjectPath(path) {
+		return
+	}
+	object, ok := resource.(map[string]interface{})
+	if !ok {
+		return
+	}
+	if token, ok := object["resource_version"].(string); ok && token != "" {
+		return
+	}
+	object["resource_version"] = s.nextResourceVersionLocked()
 }
 
 // applyResourceDefaults adds computed default values based on resource type

@@ -32,8 +32,6 @@ terraform {
 resource "xcsh_alert_gen_policy" "example" {
   name      = "example-alert-gen-policy"
   namespace = "staging"
-
-  alert_status = "ALERT_ACTIVE"
 }
 ```
 
@@ -61,7 +59,7 @@ resource "xcsh_alert_gen_policy" "example" {
 
 ### Spec Argument Reference
 
-<a id="alert-status"></a>&#x2022; [`alert_status`](#alert-status) - Required String  Defaults to `ALERT_ACTIVE`<br>Possible values are `ALERT_ACTIVE`, `ALERT_INACTIVE`<br>[Enum: ALERT_ACTIVE|ALERT_INACTIVE] Alert Status. List of alert statuses Active Inactive
+<a id="alert-status"></a>&#x2022; [`alert_status`](#alert-status) - Optional String  Defaults to `ALERT_ACTIVE`<br>Possible values are `ALERT_ACTIVE`, `ALERT_INACTIVE`<br>[Enum: ALERT_ACTIVE|ALERT_INACTIVE] Alert Status. List of alert statuses Active Inactive
 
 <a id="details"></a>&#x2022; [`details`](#details) - Optional Block<br>Notification Details. Notification Details<br>See [Details](#details) below for details.
 
@@ -81,7 +79,7 @@ A [`details`](#details) block supports the following:
 
 <a id="details-alert-message"></a>&#x2022; [`alert_message`](#details-alert-message) - Optional String<br>Alert Message. Alert Message
 
-<a id="details-alert-message-details"></a>&#x2022; [`alert_message_details`](#details-alert-message-details) - Optional String<br>Detailed message of the alert
+<a id="details-alert-message-details"></a>&#x2022; [`alert_message_details`](#details-alert-message-details) - Optional String<br>Alert Message Details. Detailed message of the alert
 
 <a id="details-alert-name"></a>&#x2022; [`alert_name`](#details-alert-name) - Optional String<br>Alert Name. Alert Name
 

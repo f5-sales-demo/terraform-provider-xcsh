@@ -37,6 +37,7 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/parity"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/registration"
 	resourcePkg "github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
@@ -66,6 +67,7 @@ var (
 	resourceReferencedByMap = make(map[string][]string)                      // resourceName -> resources that depend on it
 	resourceCategoryMap     = make(map[string]string)                        // resourceName -> category
 	operationCatalog        *openapi.OperationCatalog
+	concurrencyInventory    *openapi.ConcurrencyInventory
 )
 
 // schemaCache and rawSpecCache are aliases for the canonical caches in the schema package.
@@ -201,6 +203,11 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("❌ Error parsing api-catalog.json: %v\n", err)
 		os.Exit(1)
 	}
+	concurrencyInventory, err = openapi.ParseConcurrencyInventoryFromDir(specDir)
+	if err != nil {
+		fmt.Printf("❌ Error parsing concurrency_contracts.json: %v\n", err)
+		os.Exit(1)
+	}
 	// Parse the index.json to get domain information
 	index, err := openapi.ParseIndexFromDir(specDir)
 	if err != nil {
@@ -221,6 +228,14 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 
 	if err := openapi.ValidateSpecVersions(expectedVersion, index.Version, operationCatalog.Version); err != nil {
 		fmt.Printf("❌ Version check failed: %v\n", err)
+		os.Exit(1)
+	}
+	if err := openapi.ValidateSpecVersions(expectedVersion, index.Version, concurrencyInventory.Version); err != nil {
+		fmt.Printf("❌ Concurrency inventory version check failed: %v\n", err)
+		os.Exit(1)
+	}
+	if err := generateSMSv2ParityMatrix(specDir); err != nil {
+		fmt.Printf("❌ SMSv2 parity validation failed: %v\n", err)
 		os.Exit(1)
 	}
 
@@ -244,8 +259,14 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("❌ api-catalog.json does not match the OpenAPI domain specs: %v\n", err)
 		os.Exit(1)
 	}
+	if err := concurrencyInventory.ValidateAgainstCatalog(operationCatalog); err != nil {
+		fmt.Printf("❌ concurrency_contracts.json does not match api-catalog.json: %v\n", err)
+		os.Exit(1)
+	}
 	fmt.Printf("📋 Loaded exact API operation contract: %d identities + %d exclusions\n",
 		len(operationCatalog.APIOperations), len(operationCatalog.APIExclusions))
+	fmt.Printf("📋 Loaded concurrency contract: %d covered resources + %d evidence-backed exclusions\n",
+		concurrencyInventory.CoveredCount, concurrencyInventory.ExcludedCount)
 
 	results := []GenerationResult{}
 	successCount := 0
@@ -366,6 +387,39 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	return results, successCount, failCount
 }
 
+func generateSMSv2ParityMatrix(specDirectory string) error {
+	legacy, err := parity.LoadLegacy("tools/legacy-smsv2-v0.11.49.json")
+	if err != nil {
+		return err
+	}
+	current, err := parity.LoadCurrent(filepath.Join(specDirectory, "smsv2_parity_manifest.json"))
+	if err != nil {
+		return err
+	}
+	providerChoices := make([]string, 0, len(current.ChoiceGroups["spec.provider_choice"]))
+	for _, path := range current.ChoiceGroups["spec.provider_choice"] {
+		providerChoices = append(providerChoices, strings.TrimPrefix(path, "spec."))
+	}
+	if strings.Join(providerChoices, "\x00") != strings.Join(codegen.SecuremeshSiteV2ProviderChoices, "\x00") {
+		return fmt.Errorf("SMSv2 generated example variants %v do not match provider choice contract %v",
+			codegen.SecuremeshSiteV2ProviderChoices, providerChoices)
+	}
+	matrix, err := parity.BuildSMSv2Matrix(legacy, current)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("📋 SMSv2 parity: %d legacy paths classified, %d current-only, zero gaps\n",
+		matrix.ClassifiedLegacy, matrix.Classification["current_only"])
+	if dryRun {
+		return nil
+	}
+	data, err := json.MarshalIndent(matrix, "", "  ")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile("tools/smsv2-parity-matrix.json", append(data, '\n'), 0o644)
+}
+
 // processV2Resource processes a single resource from a v2 domain spec
 func processV2Resource(domainFile string, resource openapi.ExtractedResource, domainInfo *openapi.DomainSpecInfo) GenerationResult {
 	if verbose {
@@ -373,24 +427,47 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 			resource.Name, resource.Category, resource.RequiresTier)
 	}
 
+	// Path-shape discovery also sees plural-looking bulk commands (for example
+	// CSD /domains). Reject those before schema/profile lookup, where related
+	// child schemas could otherwise look like an ambiguous parent resource.
+	if !operationCatalog.HasResourceIdentity(resource.Name) {
+		if verbose {
+			fmt.Printf("      ⏭️  Skipping non-resource path candidate %s: no apiOperations identity\n", resource.Name)
+		}
+		return GenerationResult{ResourceName: resource.Name, Success: false}
+	}
+
+	spec, err := parseOpenAPISpec(domainFile)
+	if err != nil {
+		return GenerationResult{ResourceName: resource.Name, Success: false, Error: err.Error()}
+	}
+	resolvedOperations, err := operationCatalog.ResolveResource(spec, resource.Name)
+	if err != nil {
+		if errors.Is(err, openapi.ErrResourceNotManageable) {
+			if verbose {
+				fmt.Printf("      ⏭️  Skipping non-manageable API candidate %s: %v\n", resource.Name, err)
+			}
+			return GenerationResult{ResourceName: resource.Name, Success: false}
+		}
+		return GenerationResult{ResourceName: resource.Name, Success: false, Error: err.Error()}
+	}
+
 	// Read namespace profile from enriched spec.
 	// Priority: per-schema profile > info-level profile > domain-level profile
 	if domainInfo.Spec != nil {
 		var profileSpec *openapi.NamespaceProfileSpec
 
-		// 1. Check the per-schema profile on the resource's spec schema. There is no
-		//    schema keyed by the bare resource name — the accurate per-resource profile
-		//    lives on its CreateSpecType/GetSpecType (mirror the extraction lookup).
-		for _, pat := range []string{
-			resource.Name + "CreateSpecType",
-			"schema" + resource.Name + "CreateSpecType",
-			resource.Name + "GetSpecType",
-			resource.Name,
-		} {
-			if schema, ok := domainInfo.Spec.Components.Schemas[pat]; ok && schema.XF5XCNamespaceProfile != nil {
-				profileSpec = schema.XF5XCNamespaceProfile
-				break
-			}
+		// 1. Check the per-schema profile on the envelope that corresponds to the
+		//    exact lifecycle. A read-only root such as site must not search the
+		//    create envelopes of aws_vpc_site, gcp_vpc_site, and sibling views.
+		resolved, _, found, resolveErr := schema.ResolveNamespaceProfileSchema(
+			domainInfo.Spec.Components.Schemas, resource.Name, resolvedOperations.HasCreate,
+		)
+		if resolveErr != nil {
+			return GenerationResult{ResourceName: resource.Name, Success: false, Error: resolveErr.Error()}
+		}
+		if found && resolved.XF5XCNamespaceProfile != nil {
+			profileSpec = resolved.XF5XCNamespaceProfile
 		}
 
 		// 2. Fall back to info-level profile
@@ -682,10 +759,28 @@ func generateResourceFromSchema(resourceName string, schemaName string, specFile
 	// Extract resource schema using the resource name we have
 	resource, err := schema.ExtractResourceSchema(spec, resourceName, extractAPIPath)
 	if err != nil {
-		if verbose {
-			fmt.Printf("  ⏭️  Skipping %s: %v\n", resourceName, err)
+		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+	}
+	resolved, err := operationCatalog.ResolveResource(spec, resourceName)
+	if err != nil {
+		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+	}
+	replaceNeedsToken := false
+	updateDisabled := resolved.Replace == nil
+	if resolved.Replace != nil {
+		covered, exclusion, classifyErr := concurrencyInventory.ClassifyReplace(*resolved.Replace)
+		if classifyErr != nil {
+			return GenerationResult{ResourceName: resourceName, Success: false, Error: classifyErr.Error()}
 		}
-		return GenerationResult{ResourceName: resourceName, Success: false}
+		replaceNeedsToken = covered
+		updateDisabled = exclusion != nil
+	}
+	if err := schema.ValidateGeneratedConcurrencyCoverage(resource, replaceNeedsToken); err != nil {
+		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+	}
+	if updateDisabled {
+		schema.ForceReplaceForCreateDeleteOnly(resource.Attributes)
+		resource.UpdateDisabled = true
 	}
 
 	// Count attributes and blocks

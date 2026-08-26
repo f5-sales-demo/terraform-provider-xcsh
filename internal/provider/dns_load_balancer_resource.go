@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -27,6 +28,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -409,7 +411,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
-						MarkdownDescription: "Rules to perform load balancing .",
+						MarkdownDescription: "Load Balancing Rules. Rules to perform load balancing.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"score": schema.Int64Attribute{
@@ -750,9 +752,6 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !data.FallbackPool.Namespace.IsNull() && !data.FallbackPool.Namespace.IsUnknown() {
 			FallbackPoolMap["namespace"] = data.FallbackPool.Namespace.ValueString()
 		}
-		if !data.FallbackPool.Tenant.IsNull() && !data.FallbackPool.Tenant.IsUnknown() {
-			FallbackPoolMap["tenant"] = data.FallbackPool.Tenant.ValueString()
-		}
 		createReq.Spec["fallback_pool"] = FallbackPoolMap
 	}
 	if data.ResponseCache != nil {
@@ -810,20 +809,11 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 								var AsnSetsList []map[string]interface{}
 								for _, AsnSetsItem := range AsnSetsElems {
 									AsnSetsItemMap := make(map[string]interface{})
-									if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-										AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-									}
 									if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 										AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 									}
 									if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 										AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-									}
-									if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-										AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-									}
-									if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-										AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 									}
 									AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 								}
@@ -851,9 +841,6 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !RulesItem.GeoLocationSet.Namespace.IsNull() && !RulesItem.GeoLocationSet.Namespace.IsUnknown() {
 							RuleListRulesGeoLocationSetMap["namespace"] = RulesItem.GeoLocationSet.Namespace.ValueString()
-						}
-						if !RulesItem.GeoLocationSet.Tenant.IsNull() && !RulesItem.GeoLocationSet.Tenant.IsUnknown() {
-							RuleListRulesGeoLocationSetMap["tenant"] = RulesItem.GeoLocationSet.Tenant.ValueString()
 						}
 						RulesItemMap["geo_location_set"] = RuleListRulesGeoLocationSetMap
 					}
@@ -885,20 +872,11 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 								var PrefixSetsList []map[string]interface{}
 								for _, PrefixSetsItem := range PrefixSetsElems {
 									PrefixSetsItemMap := make(map[string]interface{})
-									if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-										PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-									}
 									if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 										PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 									}
 									if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 										PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-									}
-									if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-										PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-									}
-									if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-										PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 									}
 									PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 								}
@@ -914,9 +892,6 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !RulesItem.Pool.Namespace.IsNull() && !RulesItem.Pool.Namespace.IsUnknown() {
 							RuleListRulesPoolMap["namespace"] = RulesItem.Pool.Namespace.ValueString()
-						}
-						if !RulesItem.Pool.Tenant.IsNull() && !RulesItem.Pool.Tenant.IsUnknown() {
-							RuleListRulesPoolMap["tenant"] = RulesItem.Pool.Tenant.ValueString()
 						}
 						RulesItemMap["pool"] = RuleListRulesPoolMap
 					}
@@ -940,11 +915,28 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetDNSLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1368,6 +1360,16 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSLoadBalancer: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1838,6 +1840,20 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.DNSLoadBalancer{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -1845,6 +1861,7 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -1896,9 +1913,6 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		}
 		if !data.FallbackPool.Namespace.IsNull() && !data.FallbackPool.Namespace.IsUnknown() {
 			FallbackPoolMap["namespace"] = data.FallbackPool.Namespace.ValueString()
-		}
-		if !data.FallbackPool.Tenant.IsNull() && !data.FallbackPool.Tenant.IsUnknown() {
-			FallbackPoolMap["tenant"] = data.FallbackPool.Tenant.ValueString()
 		}
 		apiResource.Spec["fallback_pool"] = FallbackPoolMap
 	}
@@ -1957,20 +1971,11 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 								var AsnSetsList []map[string]interface{}
 								for _, AsnSetsItem := range AsnSetsElems {
 									AsnSetsItemMap := make(map[string]interface{})
-									if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-										AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-									}
 									if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 										AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 									}
 									if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 										AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-									}
-									if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-										AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-									}
-									if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-										AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 									}
 									AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 								}
@@ -1998,9 +2003,6 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !RulesItem.GeoLocationSet.Namespace.IsNull() && !RulesItem.GeoLocationSet.Namespace.IsUnknown() {
 							RuleListRulesGeoLocationSetMap["namespace"] = RulesItem.GeoLocationSet.Namespace.ValueString()
-						}
-						if !RulesItem.GeoLocationSet.Tenant.IsNull() && !RulesItem.GeoLocationSet.Tenant.IsUnknown() {
-							RuleListRulesGeoLocationSetMap["tenant"] = RulesItem.GeoLocationSet.Tenant.ValueString()
 						}
 						RulesItemMap["geo_location_set"] = RuleListRulesGeoLocationSetMap
 					}
@@ -2032,20 +2034,11 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 								var PrefixSetsList []map[string]interface{}
 								for _, PrefixSetsItem := range PrefixSetsElems {
 									PrefixSetsItemMap := make(map[string]interface{})
-									if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-										PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-									}
 									if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 										PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 									}
 									if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 										PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-									}
-									if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-										PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-									}
-									if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-										PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 									}
 									PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 								}
@@ -2061,9 +2054,6 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !RulesItem.Pool.Namespace.IsNull() && !RulesItem.Pool.Namespace.IsUnknown() {
 							RuleListRulesPoolMap["namespace"] = RulesItem.Pool.Namespace.ValueString()
-						}
-						if !RulesItem.Pool.Tenant.IsNull() && !RulesItem.Pool.Tenant.IsUnknown() {
-							RuleListRulesPoolMap["tenant"] = RulesItem.Pool.Tenant.ValueString()
 						}
 						RulesItemMap["pool"] = RuleListRulesPoolMap
 					}
@@ -2083,6 +2073,14 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 
 	_, err := r.client.UpdateDNSLoadBalancer(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of dns_load_balancer %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update DNSLoadBalancer: %s", err))
 		return
 	}
@@ -2100,10 +2098,6 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2113,6 +2107,19 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	fetched, fetchErr := r.client.GetDNSLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSLoadBalancer after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

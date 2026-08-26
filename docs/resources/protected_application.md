@@ -32,8 +32,6 @@ terraform {
 resource "xcsh_protected_application" "example" {
   name      = "example-protected-application"
   namespace = "staging"
-
-  region = "US"
 }
 ```
 
@@ -70,7 +68,7 @@ resource "xcsh_protected_application" "example" {
 <br><br>&#x2022; <a id="f5-big-ip"></a>[`f5_big_ip`](#f5-big-ip) - Optional Block<br>Enable this option
 <br><br>&#x2022; <a id="salesforce-commerce-connector"></a>[`salesforce_commerce_connector`](#salesforce-commerce-connector) - Optional Block<br>Configuration parameter for salesforce commerce connector
 
-<a id="region"></a>&#x2022; [`region`](#region) - Required String  Defaults to `US`<br>Possible values are `US`, `EU`, `ASIA`, `CA`<br>[Enum: US|EU|ASIA|CA] Defines a selection for Bot Defense region - US: US United States of America - EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada
+<a id="region"></a>&#x2022; [`region`](#region) - Optional String  Defaults to `US`<br>Possible values are `US`, `EU`, `ASIA`, `CA`<br>[Enum: US|EU|ASIA|CA] Defines a selection for Bot Defense region - US: US United States of America - EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 
@@ -339,7 +337,7 @@ A [`continue`](#continue-2ef7b8) block (within [`cloudflare.protected_endpoints.
 
 A [`redirect`](#redirect-5bdb5d) block (within [`cloudflare.protected_endpoints.web_client`](#client-56c7ff)) supports the following:
 
-<a id="location-075fa1"></a>&#x2022; [`location`](#location-075fa1) - Optional String<br>URI location for redirect response
+<a id="location-075fa1"></a>&#x2022; [`location`](#location-075fa1) - Optional String<br>Location. URI location for redirect response
 
 <a id="status-ed3b4f"></a>&#x2022; [`status`](#status-ed3b4f) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`, `SeeOther`, `NotModified`,
 `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`, `ExpectationFailed`, `MisdirectedRequest`,
@@ -795,7 +793,7 @@ A [`continue`](#continue-323756) block (within [`cloudfront.protected_endpoints.
 
 A [`redirect`](#redirect-45ea8e) block (within [`cloudfront.protected_endpoints.web_client`](#client-12f7d2)) supports the following:
 
-<a id="location-b0b41e"></a>&#x2022; [`location`](#location-b0b41e) - Optional String<br>URI location for redirect response
+<a id="location-b0b41e"></a>&#x2022; [`location`](#location-b0b41e) - Optional String<br>Location. URI location for redirect response
 
 <a id="status-fd06bf"></a>&#x2022; [`status`](#status-fd06bf) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`, `SeeOther`, `NotModified`,
 `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`, `ExpectationFailed`, `MisdirectedRequest`,

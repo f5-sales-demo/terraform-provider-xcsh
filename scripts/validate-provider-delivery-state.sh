@@ -131,9 +131,11 @@ jq -e '
   (.target_commit | test("^[0-9a-f]{40}$")) and
   (.assets | keys | sort) == [
     "api-catalog.json",
+    "concurrency_contracts.json",
     ("f5xc-api-specs-" + .release_tag + ".zip"),
     "index.json", "minimal-export-defaults.json", "openapi.json",
-    "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json"
+    "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json",
+    "smsv2_parity_manifest.json", "upstream-contract-removals.json"
   ] and
   ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
 ' "$pin" >/dev/null || fail "spec release pin is malformed"

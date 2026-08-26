@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -17,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -24,6 +26,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1572,7 +1575,11 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"connection_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The timeout for new network connections to upstream server. This is specified in milliseconds. The  (2 seconds). Defaults to `2000`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.AtMost(1800000),
 				},
@@ -1590,7 +1597,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"forward_proxy_policies": schema.ListNestedBlock{
-						MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -1774,7 +1781,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name of the cookie in Cookie header.",
+													MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
@@ -1805,7 +1812,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -1874,7 +1881,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -1940,7 +1947,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 												},
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name of the cookie in Cookie header.",
+													MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
@@ -2016,7 +2023,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2085,7 +2092,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2251,7 +2258,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name of the cookie in Cookie header.",
+													MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
@@ -2282,7 +2289,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2351,7 +2358,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2417,7 +2424,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 												},
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Name of the cookie in Cookie header.",
+													MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 256),
@@ -2493,7 +2500,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2562,7 +2569,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2605,7 +2612,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										MarkdownDescription: "Enable this option",
 									},
 									"tls_certificates": schema.ListNestedBlock{
-										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -2649,7 +2656,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -2810,7 +2817,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 												Attributes: map[string]schema.Attribute{
 													"xfcc_header_elements": schema.ListAttribute{
-														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 														Optional:            true,
 														ElementType:         types.StringType,
 													},
@@ -2968,7 +2975,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
-											MarkdownDescription: "Name of the cookie in Cookie header.",
+											MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -2999,7 +3006,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -3068,7 +3075,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -3134,7 +3141,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 										},
 										"name": schema.StringAttribute{
-											MarkdownDescription: "Name of the cookie in Cookie header.",
+											MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -3210,7 +3217,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -3279,7 +3286,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -3333,7 +3340,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
-						MarkdownDescription: "Where should this load balancer be available .",
+						MarkdownDescription: "Where should this load balancer be available.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -3505,7 +3512,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												Optional:            true,
 											},
 											"location": schema.StringAttribute{
-												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(4, 131072),
@@ -3548,7 +3555,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"interception_rules": schema.ListNestedBlock{
-								MarkdownDescription: "List of ordered rules to enable or disable for TLS interception .",
+								MarkdownDescription: "List of ordered rules to enable or disable for TLS interception.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3738,9 +3745,6 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 					}
 					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-					}
-					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 					}
 					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
@@ -4585,9 +4589,6 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.IsUnknown() {
 							DynamicProxyHTTPSProxyTLSParamsUseMtlsCRLMap["namespace"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.IsUnknown() {
-							DynamicProxyHTTPSProxyTLSParamsUseMtlsCRLMap["tenant"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.ValueString()
-						}
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["crl"] = DynamicProxyHTTPSProxyTLSParamsUseMtlsCRLMap
 					}
 					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL != nil {
@@ -4600,9 +4601,6 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							DynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAMap["namespace"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							DynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAMap["tenant"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["trusted_ca"] = DynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAMap
 					}
@@ -5036,9 +5034,6 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 								SiteVirtualSitesAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								SiteVirtualSitesAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
-							}
 							SiteVirtualSitesAdvertiseWhereSiteMap["site"] = SiteVirtualSitesAdvertiseWhereSiteSiteMap
 						}
 						AdvertiseWhereItemMap["site"] = SiteVirtualSitesAdvertiseWhereSiteMap
@@ -5058,9 +5053,6 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 								SiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								SiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
 							SiteVirtualSitesAdvertiseWhereVirtualSiteMap["virtual_site"] = SiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
@@ -5190,11 +5182,28 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetProxy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -8375,6 +8384,16 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Proxy: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -11602,6 +11621,20 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.Proxy{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -11609,6 +11642,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -11668,9 +11702,6 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					}
 					if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 						ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
-					}
-					if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-						ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
 					}
 					ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 				}
@@ -12515,9 +12546,6 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.IsUnknown() {
 							DynamicProxyHTTPSProxyTLSParamsUseMtlsCRLMap["namespace"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.IsUnknown() {
-							DynamicProxyHTTPSProxyTLSParamsUseMtlsCRLMap["tenant"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.CRL.Tenant.ValueString()
-						}
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["crl"] = DynamicProxyHTTPSProxyTLSParamsUseMtlsCRLMap
 					}
 					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL != nil {
@@ -12530,9 +12558,6 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							DynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAMap["namespace"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							DynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAMap["tenant"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["trusted_ca"] = DynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAMap
 					}
@@ -12966,9 +12991,6 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 								SiteVirtualSitesAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								SiteVirtualSitesAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
-							}
 							SiteVirtualSitesAdvertiseWhereSiteMap["site"] = SiteVirtualSitesAdvertiseWhereSiteSiteMap
 						}
 						AdvertiseWhereItemMap["site"] = SiteVirtualSitesAdvertiseWhereSiteMap
@@ -12988,9 +13010,6 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 								SiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								SiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
 							SiteVirtualSitesAdvertiseWhereVirtualSiteMap["virtual_site"] = SiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
@@ -13116,6 +13135,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 
 	_, err := r.client.UpdateProxy(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of proxy %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update Proxy: %s", err))
 		return
 	}
@@ -13133,10 +13160,6 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -13149,7 +13172,27 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["connection_timeout"].(float64); ok {
+		data.ConnectionTimeout = types.Int64Value(int64(v))
+	} else if data.ConnectionTimeout.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ConnectionTimeout = types.Int64Null()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

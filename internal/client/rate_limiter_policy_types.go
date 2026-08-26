@@ -10,8 +10,9 @@ import (
 
 // RateLimiterPolicy represents a F5XC RateLimiterPolicy
 type RateLimiterPolicy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateRateLimiterPolicy creates a new RateLimiterPolicy

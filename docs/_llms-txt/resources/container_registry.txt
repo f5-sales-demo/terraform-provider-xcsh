@@ -7,7 +7,6 @@ Container image registry configuration
 
 - name
 - namespace
-- email
 - registry
 - user_name
 
@@ -20,7 +19,6 @@ resource "xcsh_container_registry" "example" {
 
   registry  = "example-value"
   user_name = "example-value"
-  email     = "example-value"
 }
 ```
 

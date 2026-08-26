@@ -16,8 +16,4 @@ terraform {
 resource "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
-
-  domains              = ["example-value"]
-  dns_volterra_managed = true
-  idle_timeout         = 1
 }

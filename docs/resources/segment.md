@@ -31,7 +31,7 @@ terraform {
 # Basic Segment configuration
 resource "xcsh_segment" "example" {
   name      = "example-segment"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 
@@ -47,13 +47,13 @@ resource "xcsh_segment" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Segment. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Segment is created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the Segment. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
 
 ### Spec Argument Reference
 

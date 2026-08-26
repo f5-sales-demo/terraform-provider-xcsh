@@ -31,7 +31,7 @@ terraform {
 # Basic K8SPodSecurityAdmission configuration
 resource "xcsh_k8s_pod_security_admission" "example" {
   name      = "example-k8s-pod-security-admission"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 
@@ -47,8 +47,6 @@ resource "xcsh_k8s_pod_security_admission" "example" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the K8S Pod Security Admission. Must be unique within the namespace
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the K8S Pod Security Admission is created
-
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
@@ -57,9 +55,11 @@ resource "xcsh_k8s_pod_security_admission" "example" {
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
 
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace for the K8S Pod Security Admission. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted
+
 ### Spec Argument Reference
 
-<a id="pod-security-admission-specs"></a>&#x2022; [`pod_security_admission_specs`](#pod-security-admission-specs) - Optional Block<br>K8S Pod Security Admission<br>See [Pod Security Admission Specs](#pod-security-admission-specs) below for details.
+<a id="pod-security-admission-specs"></a>&#x2022; [`pod_security_admission_specs`](#pod-security-admission-specs) - Optional Block<br>K8S Pod Security Admission. Uniform Resource Identifier<br>See [Pod Security Admission Specs](#pod-security-admission-specs) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

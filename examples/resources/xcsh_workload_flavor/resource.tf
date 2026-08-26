@@ -15,9 +15,5 @@ terraform {
 # Basic WorkloadFlavor configuration
 resource "xcsh_workload_flavor" "example" {
   name      = "example-workload-flavor"
-  namespace = "staging"
-
-  ephemeral_storage = "example-value"
-  memory            = "example-value"
-  vcpus             = 1
+  namespace = "shared"
 }

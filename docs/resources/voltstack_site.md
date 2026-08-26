@@ -34,8 +34,6 @@ resource "xcsh_voltstack_site" "example" {
   namespace = "staging"
 
   volterra_certified_hw = "example-value"
-  worker_nodes          = ["example-value"]
-  address               = "example-value"
 }
 ```
 
@@ -63,7 +61,7 @@ resource "xcsh_voltstack_site" "example" {
 
 ### Spec Argument Reference
 
-<a id="address"></a>&#x2022; [`address`](#address) - Required String<br>Site's geographical address that can be used to determine its latitude and longitude
+<a id="address"></a>&#x2022; [`address`](#address) - Optional String<br>Site's geographical address that can be used to determine its latitude and longitude
 
 -> **One of the following:**
 &#x2022; <a id="allow-all-usb"></a>[`allow_all_usb`](#allow-all-usb) - Optional Block<br>Configuration parameter for allow all usb
@@ -118,7 +116,7 @@ resource "xcsh_voltstack_site" "example" {
 &#x2022; <a id="log-receiver"></a>[`log_receiver`](#log-receiver) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
 <br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Block<br>Enable this option
 
-<a id="master-node-configuration"></a>&#x2022; [`master_node_configuration`](#master-node-configuration) - Optional Block<br>Configuration of master nodes
+<a id="master-node-configuration"></a>&#x2022; [`master_node_configuration`](#master-node-configuration) - Optional Block<br>Master Nodes. Configuration of master nodes
 
 <a id="no-bond-devices"></a>&#x2022; [`no_bond_devices`](#no-bond-devices) - Optional Block<br>Configuration parameter for no bond devices
 
@@ -139,7 +137,7 @@ configuration for upto 7
 
 <a id="volterra-certified-hw"></a>&#x2022; [`volterra_certified_hw`](#volterra-certified-hw) - Required String<br>Name for generic server certified hardware to form this App Stack site
 
-<a id="worker-nodes"></a>&#x2022; [`worker_nodes`](#worker-nodes) - Required List<br>Worker Nodes. Names of worker nodes
+<a id="worker-nodes"></a>&#x2022; [`worker_nodes`](#worker-nodes) - Optional List<br>Worker Nodes. Names of worker nodes
 
 ### Attributes Reference
 
@@ -186,11 +184,11 @@ A [`bond_devices`](#bond-device-list-bond-devices) block (within [`bond_device_l
 
 <a id="bond-device-list-bond-devices-lacp"></a>&#x2022; [`lacp`](#bond-device-list-bond-devices-lacp) - Optional Block<br>LACP parameters. LACP parameters for the bond device<br>See [Lacp](#bond-device-list-bond-devices-lacp) below.
 
-<a id="interval-0b4c96"></a>&#x2022; [`link_polling_interval`](#interval-0b4c96) - Optional Number<br>Link polling interval in milliseconds
+<a id="interval-0b4c96"></a>&#x2022; [`link_polling_interval`](#interval-0b4c96) - Optional Number<br>Link Polling Interval. Link polling interval in milliseconds
 
 <a id="delay-b1200b"></a>&#x2022; [`link_up_delay`](#delay-b1200b) - Optional Number<br>Milliseconds wait before link is declared up
 
-<a id="bond-device-list-bond-devices-name"></a>&#x2022; [`name`](#bond-device-list-bond-devices-name) - Optional String<br>Name for the Bond. Ex 'bond0'
+<a id="bond-device-list-bond-devices-name"></a>&#x2022; [`name`](#bond-device-list-bond-devices-name) - Optional String<br>Bond Device Name. Name for the Bond. Ex 'bond0'
 
 #### Bond Device List Bond Devices Lacp
 
@@ -298,7 +296,7 @@ An [`active_network_policies`](#policies-e8cb6b) block (within [`custom_network_
 
 A [`global_network_list`](#list-452116) block (within [`custom_network_config`](#custom-network-config)) supports the following:
 
-<a id="connections-1d58e6"></a>&#x2022; [`global_network_connections`](#connections-1d58e6) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-1d58e6) below.
+<a id="connections-1d58e6"></a>&#x2022; [`global_network_connections`](#connections-1d58e6) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-1d58e6) below.
 
 #### Custom Network Config Global Network List Global Network Connections
 
@@ -1036,7 +1034,7 @@ An [`external`](#external-a31b05) block (within [`local_control_plane.bgp_config
 
 <a id="ipv6-b7bcf7"></a>&#x2022; [`address_ipv6`](#ipv6-b7bcf7) - Optional String<br>Specify peer IPv6 address
 
-<a id="asn-85f2ad"></a>&#x2022; [`asn`](#asn-85f2ad) - Optional Number<br>Autonomous System Number for BGP peer
+<a id="asn-85f2ad"></a>&#x2022; [`asn`](#asn-85f2ad) - Optional Number<br>ASN. Autonomous System Number for BGP peer
 
 <a id="gateway-546434"></a>&#x2022; [`default_gateway`](#gateway-546434) - Optional Block<br>Configuration parameter for default gateway
 
@@ -1168,11 +1166,11 @@ A [`sriov_interfaces`](#sriov-interfaces) block supports the following:
 
 A [`sriov_interface`](#sriov-interfaces-sriov-interface) block (within [`sriov_interfaces`](#sriov-interfaces)) supports the following:
 
-<a id="name-6aa533"></a>&#x2022; [`interface_name`](#name-6aa533) - Optional String<br>Name of SR-IOV physical interface
+<a id="name-6aa533"></a>&#x2022; [`interface_name`](#name-6aa533) - Optional String<br>Name of physical interface. Name of SR-IOV physical interface
 
 <a id="vfs-4b661e"></a>&#x2022; [`number_of_vfio_vfs`](#vfs-4b661e) - Optional Number<br>Number of virtual functions reserved for VNFs and DPDK-based CNFs
 
-<a id="vfs-bf237a"></a>&#x2022; [`number_of_vfs`](#vfs-bf237a) - Optional Number<br>Total number of virtual functions
+<a id="vfs-bf237a"></a>&#x2022; [`number_of_vfs`](#vfs-bf237a) - Optional Number<br>Total number of virtual functions. Total number of virtual functions
 
 #### Sw
 
