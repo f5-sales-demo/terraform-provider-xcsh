@@ -753,7 +753,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 	})
 	writeJSON("smsv2_parity_manifest.json", map[string]any{
 		"version": version, "resource": "securemesh_site_v2", "path_count": 1,
-		"paths":                     map[string]any{"spec.segment_vrf[].segment_network": map[string]string{"type": "object"}},
+		"paths":                     []map[string]string{{"path": "spec.segment_vrf[].segment_network", "type": "object"}},
 		"choice_groups":             map[string]any{"spec.provider_choice": []string{"spec.baremetal"}},
 		"deprecated_exclusions":     []string{"spec.log_receiver", "spec.private_adn", "spec.rseries"},
 		"current_platform_removals": []string{"spec.segment_vrf[].segment_config.nameserver_v6", "spec.segment_vrf[].segment_config.secondary_nameserver_v6"},

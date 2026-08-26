@@ -119,6 +119,11 @@ def main() -> None:
         fail("concurrency exclusion lacks evidence-backed identity and reason")
 
     paths = parity.get("paths")
+    path_names = (
+        [item.get("path") for item in paths if isinstance(item, dict)]
+        if isinstance(paths, list)
+        else []
+    )
     choice_groups = parity.get("choice_groups")
     removals = {
         "spec.segment_vrf[].segment_config.nameserver_v6",
@@ -127,14 +132,17 @@ def main() -> None:
     if (
         parity.get("version") != version
         or parity.get("resource") != "securemesh_site_v2"
-        or not isinstance(paths, dict)
-        or parity.get("path_count") != len(paths)
+        or not isinstance(paths, list)
+        or len(path_names) != len(paths)
+        or not all(isinstance(path, str) and path for path in path_names)
+        or len(set(path_names)) != len(path_names)
+        or parity.get("path_count") != len(path_names)
         or not isinstance(choice_groups, dict)
         or set(parity.get("deprecated_exclusions", []))
         != {"spec.log_receiver", "spec.private_adn", "spec.rseries"}
         or set(parity.get("current_platform_removals", [])) != removals
-        or "spec.segment_vrf[].segment_network" not in paths
-        or any(path in paths for path in removals)
+        or "spec.segment_vrf[].segment_network" not in path_names
+        or any(path in path_names for path in removals)
     ):
         fail("SMSv2 nested parity manifest is incomplete")
 
