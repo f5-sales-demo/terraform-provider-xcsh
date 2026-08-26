@@ -67,6 +67,7 @@ var (
 	resourceReferencedByMap = make(map[string][]string)                      // resourceName -> resources that depend on it
 	resourceCategoryMap     = make(map[string]string)                        // resourceName -> category
 	operationCatalog        *openapi.OperationCatalog
+	concurrencyInventory    *openapi.ConcurrencyInventory
 )
 
 // schemaCache and rawSpecCache are aliases for the canonical caches in the schema package.
@@ -202,6 +203,11 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("❌ Error parsing api-catalog.json: %v\n", err)
 		os.Exit(1)
 	}
+	concurrencyInventory, err = openapi.ParseConcurrencyInventoryFromDir(specDir)
+	if err != nil {
+		fmt.Printf("❌ Error parsing concurrency_contracts.json: %v\n", err)
+		os.Exit(1)
+	}
 	// Parse the index.json to get domain information
 	index, err := openapi.ParseIndexFromDir(specDir)
 	if err != nil {
@@ -222,6 +228,10 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 
 	if err := openapi.ValidateSpecVersions(expectedVersion, index.Version, operationCatalog.Version); err != nil {
 		fmt.Printf("❌ Version check failed: %v\n", err)
+		os.Exit(1)
+	}
+	if err := openapi.ValidateSpecVersions(expectedVersion, index.Version, concurrencyInventory.Version); err != nil {
+		fmt.Printf("❌ Concurrency inventory version check failed: %v\n", err)
 		os.Exit(1)
 	}
 	if err := generateSMSv2ParityMatrix(specDir); err != nil {
@@ -249,8 +259,14 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("❌ api-catalog.json does not match the OpenAPI domain specs: %v\n", err)
 		os.Exit(1)
 	}
+	if err := concurrencyInventory.ValidateAgainstCatalog(operationCatalog); err != nil {
+		fmt.Printf("❌ concurrency_contracts.json does not match api-catalog.json: %v\n", err)
+		os.Exit(1)
+	}
 	fmt.Printf("📋 Loaded exact API operation contract: %d identities + %d exclusions\n",
 		len(operationCatalog.APIOperations), len(operationCatalog.APIExclusions))
+	fmt.Printf("📋 Loaded concurrency contract: %d covered resources + %d evidence-backed exclusions\n",
+		concurrencyInventory.CoveredCount, concurrencyInventory.ExcludedCount)
 
 	results := []GenerationResult{}
 	successCount := 0
@@ -411,23 +427,47 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 			resource.Name, resource.Category, resource.RequiresTier)
 	}
 
+	// Path-shape discovery also sees plural-looking bulk commands (for example
+	// CSD /domains). Reject those before schema/profile lookup, where related
+	// child schemas could otherwise look like an ambiguous parent resource.
+	if !operationCatalog.HasResourceIdentity(resource.Name) {
+		if verbose {
+			fmt.Printf("      ⏭️  Skipping non-resource path candidate %s: no apiOperations identity\n", resource.Name)
+		}
+		return GenerationResult{ResourceName: resource.Name, Success: false}
+	}
+
+	spec, err := parseOpenAPISpec(domainFile)
+	if err != nil {
+		return GenerationResult{ResourceName: resource.Name, Success: false, Error: err.Error()}
+	}
+	resolvedOperations, err := operationCatalog.ResolveResource(spec, resource.Name)
+	if err != nil {
+		if errors.Is(err, openapi.ErrResourceNotManageable) {
+			if verbose {
+				fmt.Printf("      ⏭️  Skipping non-manageable API candidate %s: %v\n", resource.Name, err)
+			}
+			return GenerationResult{ResourceName: resource.Name, Success: false}
+		}
+		return GenerationResult{ResourceName: resource.Name, Success: false, Error: err.Error()}
+	}
+
 	// Read namespace profile from enriched spec.
 	// Priority: per-schema profile > info-level profile > domain-level profile
 	if domainInfo.Spec != nil {
 		var profileSpec *openapi.NamespaceProfileSpec
 
-		// 1. Check the per-schema profile on the resource's spec schema. There is no
-		//    schema keyed by the bare resource name — the accurate per-resource profile
-		//    lives on its CreateSpecType/GetSpecType (mirror the extraction lookup).
-		for _, suffix := range []string{"CreateSpecType", "GetSpecType"} {
-			resolved, _, found, resolveErr := schema.ResolveEnvelopeSchemaFromSchemas(domainInfo.Spec.Components.Schemas, resource.Name, suffix)
-			if resolveErr != nil {
-				return GenerationResult{ResourceName: resource.Name, Success: false, Error: resolveErr.Error()}
-			}
-			if found && resolved.XF5XCNamespaceProfile != nil {
-				profileSpec = resolved.XF5XCNamespaceProfile
-				break
-			}
+		// 1. Check the per-schema profile on the envelope that corresponds to the
+		//    exact lifecycle. A read-only root such as site must not search the
+		//    create envelopes of aws_vpc_site, gcp_vpc_site, and sibling views.
+		resolved, _, found, resolveErr := schema.ResolveNamespaceProfileSchema(
+			domainInfo.Spec.Components.Schemas, resource.Name, resolvedOperations.HasCreate,
+		)
+		if resolveErr != nil {
+			return GenerationResult{ResourceName: resource.Name, Success: false, Error: resolveErr.Error()}
+		}
+		if found && resolved.XF5XCNamespaceProfile != nil {
+			profileSpec = resolved.XF5XCNamespaceProfile
 		}
 
 		// 2. Fall back to info-level profile
@@ -725,8 +765,22 @@ func generateResourceFromSchema(resourceName string, schemaName string, specFile
 	if err != nil {
 		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
 	}
-	if err := schema.ValidateGeneratedConcurrencyCoverage(resource, resolved.Replace != nil); err != nil {
+	replaceNeedsToken := false
+	replaceExcluded := false
+	if resolved.Replace != nil {
+		covered, exclusion, classifyErr := concurrencyInventory.ClassifyReplace(*resolved.Replace)
+		if classifyErr != nil {
+			return GenerationResult{ResourceName: resourceName, Success: false, Error: classifyErr.Error()}
+		}
+		replaceNeedsToken = covered
+		replaceExcluded = exclusion != nil
+	}
+	if err := schema.ValidateGeneratedConcurrencyCoverage(resource, replaceNeedsToken); err != nil {
 		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+	}
+	if replaceExcluded {
+		schema.ForceReplaceForCreateDeleteOnly(resource.Attributes)
+		resource.ReplaceExcluded = true
 	}
 
 	// Count attributes and blocks

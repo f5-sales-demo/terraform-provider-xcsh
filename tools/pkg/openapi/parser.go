@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 	"sync"
 )
@@ -232,20 +233,50 @@ func BuildReferencedByMap(depMap map[string]*ResourceDependencies) map[string][]
 	return result
 }
 
-// FindDomainSpecFiles finds all domain specification files in a v2 spec directory.
-// Returns paths to all .json files in the domains/ subdirectory.
+// FindDomainSpecFiles returns only the OpenAPI domain documents named by index.json.
+// Release bundles may also carry contract manifests in domains/; globbing every JSON
+// file would try to parse those non-OpenAPI assets as specifications.
 func FindDomainSpecFiles(specDir string) ([]string, error) {
 	domainsDir := filepath.Join(specDir, "domains")
 	if !dirExists(domainsDir) {
 		return nil, fmt.Errorf("domains directory not found: %s", domainsDir)
 	}
 
-	pattern := filepath.Join(domainsDir, "*.json")
-	files, err := filepath.Glob(pattern)
+	index, err := ParseIndexFromDir(specDir)
 	if err != nil {
-		return nil, fmt.Errorf("globbing domain files: %w", err)
+		return nil, fmt.Errorf("reading domain inventory: %w", err)
+	}
+	if len(index.Specifications) == 0 {
+		return nil, fmt.Errorf("index lists no OpenAPI domain specifications")
 	}
 
+	files := make([]string, 0, len(index.Specifications))
+	seen := make(map[string]struct{}, len(index.Specifications))
+	for _, domain := range index.Specifications {
+		name := domain.File
+		if name == "" && domain.Name != "" {
+			name = domain.Name + ".json"
+		}
+		if name == "" || filepath.Base(name) != name || filepath.Ext(name) != ".json" {
+			return nil, fmt.Errorf("index contains invalid domain file %q", name)
+		}
+		if _, exists := seen[name]; exists {
+			return nil, fmt.Errorf("index contains duplicate domain file %q", name)
+		}
+		seen[name] = struct{}{}
+
+		path := filepath.Join(domainsDir, name)
+		info, err := os.Stat(path)
+		if err != nil {
+			return nil, fmt.Errorf("indexed domain file %q is unavailable: %w", name, err)
+		}
+		if !info.Mode().IsRegular() {
+			return nil, fmt.Errorf("indexed domain file %q is not a regular file", name)
+		}
+		files = append(files, path)
+	}
+
+	sort.Strings(files)
 	return files, nil
 }
 

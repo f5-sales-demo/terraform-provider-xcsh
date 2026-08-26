@@ -2046,6 +2046,39 @@ func TestConcurrencyTokenGenerationIsClientOnlyAndPrivate(t *testing.T) {
 	}
 }
 
+func TestExcludedReplaceGeneratesForceReplacementAndNoPut(t *testing.T) {
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "zz_enrollment_probe",
+		TitleCase:          "ZZEnrollmentProbe",
+		Description:        "Probe.",
+		HasNamespaceInPath: true,
+		APIPath:            "/api/register/namespaces/%s/probes",
+		APIPathItem:        "/api/register/namespaces/%s/probes/%s",
+		ReplaceExcluded:    true,
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true, PlanModifier: "RequiresReplace"},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", Required: true, PlanModifier: "RequiresReplace"},
+			{Name: "value", GoName: "Value", TfsdkTag: "value", Type: "string", Optional: true, PlanModifier: "RequiresReplace"},
+			{Name: "id", GoName: "ID", TfsdkTag: "id", Type: "string", Computed: true},
+		},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatal(err)
+	}
+	content, err := os.ReadFile(filepath.Join(dir, "zz_enrollment_probe_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	source := string(content)
+	if !strings.Contains(source, "Update Not Supported") {
+		t.Fatal("excluded Replace does not fail closed")
+	}
+	if strings.Contains(source, "UpdateZZEnrollmentProbe(ctx") {
+		t.Fatal("excluded Replace generated a PUT client call")
+	}
+}
+
 func TestRenderMarshalOmitsComputedOnlyNestedFields(t *testing.T) {
 	attrs := []openapi.TerraformAttribute{{
 		Name: "interfaces", GoName: "Interfaces", TfsdkTag: "interfaces", JsonName: "interfaces",

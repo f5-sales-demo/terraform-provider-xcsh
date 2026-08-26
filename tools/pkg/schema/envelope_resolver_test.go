@@ -45,3 +45,29 @@ func TestResolveEnvelopeSchemaFullyQualifiedFallback(t *testing.T) {
 		t.Fatalf("ResolveEnvelopeSchema() = key %q, found %v, err %v; want %q", gotKey, found, err, key)
 	}
 }
+
+func TestResolveNamespaceProfileSchemaReadOnlyIgnoresRelatedCreateEnvelopes(t *testing.T) {
+	schemas := map[string]openapi.Schema{
+		"schemasiteGetSpecType":           {Type: "object"},
+		"viewsaws_vpc_siteCreateSpecType": {Type: "object"},
+		"viewsgcp_vpc_siteCreateSpecType": {Type: "object"},
+	}
+
+	_, gotKey, found, err := ResolveNamespaceProfileSchema(schemas, "site", false)
+	if err != nil || !found || gotKey != "schemasiteGetSpecType" {
+		t.Fatalf("ResolveNamespaceProfileSchema() = key %q, found %v, err %v; want read-only site envelope", gotKey, found, err)
+	}
+}
+
+func TestResolveNamespaceProfileSchemaMutableRejectsAmbiguousCreateEnvelopes(t *testing.T) {
+	schemas := map[string]openapi.Schema{
+		"one.probeCreateSpecType": {Type: "object"},
+		"two.probeCreateSpecType": {Type: "object"},
+		"probeGetSpecType":        {Type: "object"},
+	}
+
+	_, _, _, err := ResolveNamespaceProfileSchema(schemas, "probe", true)
+	if err == nil || !strings.Contains(err.Error(), "ambiguous") {
+		t.Fatalf("mutable profile resolution accepted ambiguous create envelopes: %v", err)
+	}
+}

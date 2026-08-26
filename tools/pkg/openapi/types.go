@@ -260,6 +260,10 @@ type ResourceTemplate struct {
 	HasConcurrencyToken      bool
 	ConcurrencyTokenJSONName string
 	ConcurrencyTokenGoName   string
+	// ReplaceExcluded marks an evidence-backed non-config-object Replace. All
+	// practitioner-settable fields then require replacement, and Update fails
+	// closed without sending a PUT if the framework invokes it unexpectedly.
+	ReplaceExcluded bool
 
 	// ---- Action-resource fields (x-f5xc-action) ----
 	// IsAction marks this template as an action-style resource: Create issues the

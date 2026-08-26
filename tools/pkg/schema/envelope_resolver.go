@@ -17,6 +17,20 @@ func ResolveEnvelopeSchema(spec *openapi.Spec, resourceName, suffix string) (ope
 	return ResolveEnvelopeSchemaFromSchemas(spec.Components.Schemas, resourceName, suffix)
 }
 
+// ResolveNamespaceProfileSchema selects only an envelope that can describe the
+// provider surface being generated. Read-only API identities must not search
+// CreateSpecType: a domain document may contain many related child-resource
+// create envelopes whose names all end in the read-only parent's name.
+func ResolveNamespaceProfileSchema(schemas map[string]openapi.Schema, resourceName string, hasCreate bool) (openapi.Schema, string, bool, error) {
+	if hasCreate {
+		resolved, key, found, err := ResolveEnvelopeSchemaFromSchemas(schemas, resourceName, "CreateSpecType")
+		if err != nil || found {
+			return resolved, key, found, err
+		}
+	}
+	return ResolveEnvelopeSchemaFromSchemas(schemas, resourceName, "GetSpecType")
+}
+
 // ResolveEnvelopeSchemaFromSchemas is the map-based form used by audits that
 // combine schemas from all released domain documents.
 func ResolveEnvelopeSchemaFromSchemas(schemas map[string]openapi.Schema, resourceName, suffix string) (openapi.Schema, string, bool, error) {
