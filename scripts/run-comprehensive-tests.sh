@@ -178,12 +178,12 @@ run_mock_tests() {
   local output_file="$OUTPUT_DIR/test-output-mock.json"
 
   if [[ "$DRY_RUN" == "true" ]]; then
-    log_info "[DRY-RUN] Would run: XCSH_MOCK_MODE=1 go test -json -parallel $PARALLEL -timeout ${TIMEOUT}m -run 'TestMock.*' ./internal/provider/..."
+    log_info "[DRY-RUN] Would run: TF_ACC=1 XCSH_MOCK_MODE=1 go test -json -parallel $PARALLEL -timeout ${TIMEOUT}m -run 'TestMock.*' ./internal/provider/..."
     return 0
   fi
 
   # Mock tests run in parallel - no rate limiting needed for local tests
-  XCSH_MOCK_MODE=1 go test -json \
+  TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
     -parallel "$PARALLEL" \
     -timeout "${TIMEOUT}m" \
     -run 'TestMock.*' \
