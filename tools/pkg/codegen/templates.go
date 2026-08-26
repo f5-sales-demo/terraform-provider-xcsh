@@ -745,7 +745,7 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
 			resp.Diagnostics.AddError(
 				"Stale Configuration",
-				"F5 XC rejected the update because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.",
+				fmt.Sprintf("F5 XC rejected the update of {{.Name}} %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
 			)
 			return
 		}

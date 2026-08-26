@@ -221,14 +221,17 @@ func TestDownloadSpecsActionUsesPinnedReleaseAndRetainsCatalog(t *testing.T) {
 	}
 	tagCommit := strings.Repeat("a", 40)
 	writeSpecReleasePin(t, tmp, "v2.1.208", tagCommit, map[string]string{
-		"api-catalog.json":             fileSHA256(t, catalog),
-		"f5xc-api-specs-v2.1.208.zip":  fileSHA256(t, bundle),
-		"index.json":                   fileSHA256(t, index),
-		"minimal-export-defaults.json": fileSHA256(t, minimal),
-		"openapi.json":                 fileSHA256(t, openapi),
-		"smsv2-contract-manifest.json": smsv2Assets["smsv2-contract-manifest.json"],
-		"smsv2-contract.json":          smsv2Assets["smsv2-contract.json"],
-		"smsv2-evidence-receipt.json":  smsv2Assets["smsv2-evidence-receipt.json"],
+		"api-catalog.json":                fileSHA256(t, catalog),
+		"concurrency_contracts.json":      smsv2Assets["concurrency_contracts.json"],
+		"f5xc-api-specs-v2.1.208.zip":     fileSHA256(t, bundle),
+		"index.json":                      fileSHA256(t, index),
+		"minimal-export-defaults.json":    fileSHA256(t, minimal),
+		"openapi.json":                    fileSHA256(t, openapi),
+		"smsv2-contract-manifest.json":    smsv2Assets["smsv2-contract-manifest.json"],
+		"smsv2-contract.json":             smsv2Assets["smsv2-contract.json"],
+		"smsv2-evidence-receipt.json":     smsv2Assets["smsv2-evidence-receipt.json"],
+		"smsv2_parity_manifest.json":      smsv2Assets["smsv2_parity_manifest.json"],
+		"upstream-contract-removals.json": smsv2Assets["upstream-contract-removals.json"],
 	})
 	logPath := filepath.Join(tmp, "gh.log")
 	stub := `#!/usr/bin/env bash
@@ -242,6 +245,9 @@ case "$*" in
   *releases/assets/206*) cat "$SMSV2_MANIFEST_FILE" ;;
   *releases/assets/207*) cat "$SMSV2_CONTRACT_FILE" ;;
   *releases/assets/208*) cat "$SMSV2_EVIDENCE_FILE" ;;
+  *releases/assets/209*) cat "$CONCURRENCY_FILE" ;;
+  *releases/assets/210*) cat "$PARITY_FILE" ;;
+  *releases/assets/211*) cat "$REMOVALS_FILE" ;;
   *commits/v2.1.208*) printf '%s\n' "$TAG_COMMIT" ;;
   *releases/tags/v2.1.208*)
     bundle_sha=$(shasum -a 256 "$BUNDLE_ZIP" | awk '{print $1}')
@@ -252,6 +258,9 @@ case "$*" in
     manifest_sha=$(shasum -a 256 "$SMSV2_MANIFEST_FILE" | cut -d " " -f1)
     contract_sha=$(shasum -a 256 "$SMSV2_CONTRACT_FILE" | cut -d " " -f1)
     evidence_sha=$(shasum -a 256 "$SMSV2_EVIDENCE_FILE" | cut -d " " -f1)
+    concurrency_sha=$(shasum -a 256 "$CONCURRENCY_FILE" | cut -d " " -f1)
+    parity_sha=$(shasum -a 256 "$PARITY_FILE" | cut -d " " -f1)
+    removals_sha=$(shasum -a 256 "$REMOVALS_FILE" | cut -d " " -f1)
     jq -cn \
       --arg bundle_sha "$bundle_sha" \
       --arg catalog_sha "$catalog_sha" \
@@ -261,7 +270,10 @@ case "$*" in
       --arg openapi_sha "$openapi_sha" \
       --arg manifest_sha "$manifest_sha" \
       --arg contract_sha "$contract_sha" \
-      --arg evidence_sha "$evidence_sha" '
+      --arg evidence_sha "$evidence_sha" \
+      --arg concurrency_sha "$concurrency_sha" \
+      --arg parity_sha "$parity_sha" \
+      --arg removals_sha "$removals_sha" '
       {tag_name: "v2.1.208", draft: false, prerelease: false, immutable: true, assets: [
         {id: 202, name: "api-catalog.json", digest: ("sha256:" + $catalog_sha)},
         {id: 101, name: "f5xc-api-specs-v2.1.208.zip", digest: ("sha256:" + $bundle_sha)},
@@ -270,7 +282,10 @@ case "$*" in
         {id: 205, name: "openapi.json", digest: ("sha256:" + $openapi_sha)},
         {id: 206, name: "smsv2-contract-manifest.json", digest: ("sha256:" + $manifest_sha)},
         {id: 207, name: "smsv2-contract.json", digest: ("sha256:" + $contract_sha)},
-        {id: 208, name: "smsv2-evidence-receipt.json", digest: ("sha256:" + $evidence_sha)}
+        {id: 208, name: "smsv2-evidence-receipt.json", digest: ("sha256:" + $evidence_sha)},
+        {id: 209, name: "concurrency_contracts.json", digest: ("sha256:" + $concurrency_sha)},
+        {id: 210, name: "smsv2_parity_manifest.json", digest: ("sha256:" + $parity_sha)},
+        {id: 211, name: "upstream-contract-removals.json", digest: ("sha256:" + $removals_sha)}
       ], body: ("<!-- publication-receipt:" + ({
         assets: {
           "api-catalog.json": ("sha256:" + $catalog_sha),
@@ -280,7 +295,10 @@ case "$*" in
           "openapi.json": ("sha256:" + $openapi_sha),
           "smsv2-contract-manifest.json": ("sha256:" + $manifest_sha),
           "smsv2-contract.json": ("sha256:" + $contract_sha),
-          "smsv2-evidence-receipt.json": ("sha256:" + $evidence_sha)
+          "smsv2-evidence-receipt.json": ("sha256:" + $evidence_sha),
+          "concurrency_contracts.json": ("sha256:" + $concurrency_sha),
+          "smsv2_parity_manifest.json": ("sha256:" + $parity_sha),
+          "upstream-contract-removals.json": ("sha256:" + $removals_sha)
         }, commit: $commit, version: "2.1.208"
       } | tojson) + " -->")}' ;;
   *) echo "unexpected gh invocation: $*" >&2; exit 9 ;;
@@ -306,6 +324,9 @@ esac
 		"SMSV2_MANIFEST_FILE=" + filepath.Join(tmp, "smsv2-contract-manifest.json"),
 		"SMSV2_CONTRACT_FILE=" + filepath.Join(tmp, "smsv2-contract.json"),
 		"SMSV2_EVIDENCE_FILE=" + filepath.Join(tmp, "smsv2-evidence-receipt.json"),
+		"CONCURRENCY_FILE=" + filepath.Join(tmp, "concurrency_contracts.json"),
+		"PARITY_FILE=" + filepath.Join(tmp, "smsv2_parity_manifest.json"),
+		"REMOVALS_FILE=" + filepath.Join(tmp, "upstream-contract-removals.json"),
 		"TAG_COMMIT=" + tagCommit,
 	}
 	cmd := exec.Command("bash", "--noprofile", "--norc", "-eo", "pipefail", "-c", script)
@@ -337,14 +358,17 @@ esac
 
 	writeSymlinkSpecBundle(t, bundle)
 	writeSpecReleasePin(t, tmp, "v2.1.208", tagCommit, map[string]string{
-		"api-catalog.json":             fileSHA256(t, catalog),
-		"f5xc-api-specs-v2.1.208.zip":  fileSHA256(t, bundle),
-		"index.json":                   fileSHA256(t, index),
-		"minimal-export-defaults.json": fileSHA256(t, minimal),
-		"openapi.json":                 fileSHA256(t, openapi),
-		"smsv2-contract-manifest.json": smsv2Assets["smsv2-contract-manifest.json"],
-		"smsv2-contract.json":          smsv2Assets["smsv2-contract.json"],
-		"smsv2-evidence-receipt.json":  smsv2Assets["smsv2-evidence-receipt.json"],
+		"api-catalog.json":                fileSHA256(t, catalog),
+		"concurrency_contracts.json":      smsv2Assets["concurrency_contracts.json"],
+		"f5xc-api-specs-v2.1.208.zip":     fileSHA256(t, bundle),
+		"index.json":                      fileSHA256(t, index),
+		"minimal-export-defaults.json":    fileSHA256(t, minimal),
+		"openapi.json":                    fileSHA256(t, openapi),
+		"smsv2-contract-manifest.json":    smsv2Assets["smsv2-contract-manifest.json"],
+		"smsv2-contract.json":             smsv2Assets["smsv2-contract.json"],
+		"smsv2-evidence-receipt.json":     smsv2Assets["smsv2-evidence-receipt.json"],
+		"smsv2_parity_manifest.json":      smsv2Assets["smsv2_parity_manifest.json"],
+		"upstream-contract-removals.json": smsv2Assets["upstream-contract-removals.json"],
 	})
 	sentinel := filepath.Join(specDir, "existing-bundle-must-survive")
 	if err := os.WriteFile(sentinel, []byte("preserve\n"), 0o600); err != nil {
@@ -582,6 +606,7 @@ func testSpecReleaseMetadata(
 	digests := testSpecAssetDigests("v2.1.208", digestOverrides)
 	names := []string{
 		"api-catalog.json",
+		"concurrency_contracts.json",
 		"f5xc-api-specs-v2.1.208.zip",
 		"index.json",
 		"minimal-export-defaults.json",
@@ -589,6 +614,8 @@ func testSpecReleaseMetadata(
 		"smsv2-contract-manifest.json",
 		"smsv2-contract.json",
 		"smsv2-evidence-receipt.json",
+		"smsv2_parity_manifest.json",
+		"upstream-contract-removals.json",
 	}
 	assets := make([]map[string]any, 0, len(names))
 	for id, name := range names {
@@ -623,14 +650,17 @@ func testSpecReleaseMetadata(
 func testSpecAssetDigests(tag string, overrides map[string]string) map[string]string {
 	bundle := "f5xc-api-specs-" + tag + ".zip"
 	digests := map[string]string{
-		"api-catalog.json":             strings.Repeat("0", 64),
-		bundle:                         strings.Repeat("0", 64),
-		"index.json":                   strings.Repeat("0", 64),
-		"minimal-export-defaults.json": strings.Repeat("0", 64),
-		"openapi.json":                 strings.Repeat("0", 64),
-		"smsv2-contract-manifest.json": strings.Repeat("0", 64),
-		"smsv2-contract.json":          strings.Repeat("0", 64),
-		"smsv2-evidence-receipt.json":  strings.Repeat("0", 64),
+		"api-catalog.json":                strings.Repeat("0", 64),
+		"concurrency_contracts.json":      strings.Repeat("0", 64),
+		bundle:                            strings.Repeat("0", 64),
+		"index.json":                      strings.Repeat("0", 64),
+		"minimal-export-defaults.json":    strings.Repeat("0", 64),
+		"openapi.json":                    strings.Repeat("0", 64),
+		"smsv2-contract-manifest.json":    strings.Repeat("0", 64),
+		"smsv2-contract.json":             strings.Repeat("0", 64),
+		"smsv2-evidence-receipt.json":     strings.Repeat("0", 64),
+		"smsv2_parity_manifest.json":      strings.Repeat("0", 64),
+		"upstream-contract-removals.json": strings.Repeat("0", 64),
 	}
 	for name, digest := range overrides {
 		digests[name] = digest
@@ -715,9 +745,26 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 	}
 	writeJSON("smsv2-contract.json", contract)
 	writeJSON("smsv2-evidence-receipt.json", evidence)
+	version := strings.TrimPrefix(tag, "v")
+	writeJSON("concurrency_contracts.json", map[string]any{
+		"version": version, "eligible_count": 1, "covered_count": 1, "excluded_count": 0,
+		"resources":  []map[string]any{{"api_identity": "ves.io.schema.views.securemesh_site_v2", "token": "resource_version", "get": map[string]string{"schema": "securemesh_site_v2GetResponse"}, "replace": map[string]string{"schema": "securemesh_site_v2ReplaceRequest"}}},
+		"exclusions": []any{},
+	})
+	writeJSON("smsv2_parity_manifest.json", map[string]any{
+		"version": version, "resource": "securemesh_site_v2", "path_count": 1,
+		"paths":                     map[string]any{"spec.segment_vrf[].segment_network": map[string]string{"type": "object"}},
+		"choice_groups":             map[string]any{"spec.provider_choice": []string{"spec.baremetal"}},
+		"deprecated_exclusions":     []string{"spec.log_receiver", "spec.private_adn", "spec.rseries"},
+		"current_platform_removals": []string{"spec.segment_vrf[].segment_config.nameserver_v6", "spec.segment_vrf[].segment_config.secondary_nameserver_v6"},
+	})
+	writeJSON("upstream-contract-removals.json", map[string]any{"version": version, "removals": []any{}})
 	assets := map[string]string{"smsv2-contract.json": fileSHA256(t, filepath.Join(root, "smsv2-contract.json")), "smsv2-evidence-receipt.json": fileSHA256(t, filepath.Join(root, "smsv2-evidence-receipt.json"))}
 	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-ce-automation/v1", "contract_version": "fixture", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
 	assets["smsv2-contract-manifest.json"] = fileSHA256(t, filepath.Join(root, "smsv2-contract-manifest.json"))
+	for _, name := range []string{"concurrency_contracts.json", "smsv2_parity_manifest.json", "upstream-contract-removals.json"} {
+		assets[name] = fileSHA256(t, filepath.Join(root, name))
+	}
 	return assets
 }
 

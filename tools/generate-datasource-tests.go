@@ -68,6 +68,10 @@ var resourceConfigs = map[string]string{
 	"rate_limiter_policy":       "",
 
 	"sensitive_data_policy": "",
+	"securemesh_site_v2": `
+  baremetal {
+    not_managed {}
+  }`,
 
 	"trusted_ca_list": "",
 	"virtual_k8s":     "",
@@ -640,6 +644,7 @@ var systemNamespaceResources = map[string]bool{
 	"filter_set":          true,
 	"origin_pool":         true,
 	"app_firewall":        true,
+	"securemesh_site_v2":  true,
 }
 
 func toStructName(name string) string {
@@ -688,7 +693,11 @@ func {{.TestFuncName}}(t *testing.T) {
 	resourceName := "{{.ResourceName}}.test"
 	dataSourceName := "data.{{.ResourceName}}.test"
 
+{{- if .RunSequential}}
+	testCase := resource.TestCase{
+{{- else}}
 	resource.ParallelTest(t, resource.TestCase{
+{{- end}}
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
 {{- if and .NeedsNamespace (not .IsNamespace) (not .UseSystemNamespace)}}
@@ -716,7 +725,12 @@ func {{.TestFuncName}}(t *testing.T) {
 				),
 			},
 		},
+{{- if .RunSequential}}
+	}
+	acctest.RunWithMockOrReal(t, testCase, nil)
+{{- else}}
 	})
+{{- end}}
 }
 {{end}}
 {{- if .IsNamespace}}
@@ -872,6 +886,7 @@ data "{{.ResourceName}}" "test" {
 			NeedsNamespace     bool
 			IsNamespace        bool
 			UseSystemNamespace bool
+			RunSequential      bool
 			ResourceConfig     string
 			Skip               bool
 			SkipReason         string
@@ -888,6 +903,7 @@ data "{{.ResourceName}}" "test" {
 			NeedsNamespace:     config.NeedsNamespace,
 			IsNamespace:        config.IsNamespace,
 			UseSystemNamespace: systemNamespaceResources[resourceName],
+			RunSequential:      resourceName == "securemesh_site_v2",
 			ResourceConfig:     config.ResourceConfig,
 			Skip:               config.Skip,
 			SkipReason:         config.SkipReason,

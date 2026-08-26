@@ -5,19 +5,23 @@ package provider
 import "testing"
 
 func TestConcurrencyTokenPrivateStateRoundTrip(t *testing.T) {
-	raw, err := encodeConcurrencyToken("opaque-token")
-	if err != nil {
-		t.Fatalf("encodeConcurrencyToken: %v", err)
-	}
-	if string(raw) == "opaque-token" {
-		t.Fatal("private-state value must be valid JSON, not an unquoted raw token")
-	}
-	got, err := decodeConcurrencyToken(raw)
-	if err != nil {
-		t.Fatalf("decodeConcurrencyToken: %v", err)
-	}
-	if got != "opaque-token" {
-		t.Fatalf("decoded token = %q, want opaque-token", got)
+	for _, token := range []string{"current-token", "advanced:v2/opaque==", "opaque-世界"} {
+		t.Run(token, func(t *testing.T) {
+			raw, err := encodeConcurrencyToken(token)
+			if err != nil {
+				t.Fatalf("encodeConcurrencyToken: %v", err)
+			}
+			if string(raw) == token {
+				t.Fatal("private-state value must be valid JSON, not an unquoted raw token")
+			}
+			got, err := decodeConcurrencyToken(raw)
+			if err != nil {
+				t.Fatalf("decodeConcurrencyToken: %v", err)
+			}
+			if got != token {
+				t.Fatalf("decoded token = %q, want %q", got, token)
+			}
+		})
 	}
 }
 

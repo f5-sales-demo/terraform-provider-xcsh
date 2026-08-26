@@ -21,7 +21,10 @@ import (
 	schemapkg "github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
 
-const RemovedMinimumConfigurationPromotion = "minimum_configuration_promotion_removed"
+const (
+	RemovedMinimumConfigurationPromotion = "minimum_configuration_promotion_removed"
+	VerifiedSingleNamespaceDefault       = "verified_single_namespace_default"
+)
 
 type Requirement string
 
@@ -174,23 +177,14 @@ func loadSchemas(specDir string) (map[string]openapi.Schema, error) {
 }
 
 func findCreateSchema(schemas map[string]openapi.Schema, resource string) (openapi.Schema, error) {
-	for _, name := range []string{resource + "CreateSpecType", "schema" + resource + "CreateSpecType", "views" + resource + "CreateSpecType"} {
-		if schema, ok := schemas[name]; ok {
-			return schema, nil
-		}
+	resolved, _, found, err := schemapkg.ResolveEnvelopeSchemaFromSchemas(schemas, resource, "CreateSpecType")
+	if err != nil {
+		return openapi.Schema{}, err
 	}
-	suffix := strings.ToLower(resource + "CreateSpecType")
-	matches := make([]string, 0, 1)
-	for name := range schemas {
-		if strings.HasSuffix(strings.ToLower(name), suffix) {
-			matches = append(matches, name)
-		}
+	if !found {
+		return openapi.Schema{}, fmt.Errorf("resource %s has no CreateSpecType schema", resource)
 	}
-	sort.Strings(matches)
-	if len(matches) != 1 {
-		return openapi.Schema{}, fmt.Errorf("resource %s has %d matching CreateSpecType schemas", resource, len(matches))
-	}
-	return schemas[matches[0]], nil
+	return resolved, nil
 }
 
 func terraformName(property string) string {
@@ -284,6 +278,15 @@ func Compare(baselineProviderDir, candidateProviderDir, baselineSpecDir, candida
 			candidateCreate, createErr := findCreateSchema(candidateSchemas, resource)
 			if createErr != nil {
 				return Report{}, createErr
+			}
+			if attribute == "namespace" && candidateCreate.XF5XCNamespaceProfile != nil &&
+				candidateCreate.XF5XCNamespaceProfile.Constraint != nil &&
+				candidateCreate.XF5XCNamespaceProfile.Constraint.Enforced &&
+				len(candidateCreate.XF5XCNamespaceProfile.Constraint.Allowed) == 1 {
+				transitions = append(transitions, Transition{
+					Resource: resource, Attribute: attribute, Reason: VerifiedSingleNamespaceDefault,
+				})
+				continue
 			}
 			if !minimumConfigurationContains(baselineCreate, attribute) {
 				return Report{}, fmt.Errorf("unexpected Required-to-Optional transition %s.%s: absent from baseline minimum configuration", resource, attribute)

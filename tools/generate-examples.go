@@ -74,6 +74,13 @@ func main() {
 			failed++
 			continue
 		}
+		if name == "securemesh_site_v2" {
+			if err := codegen.WriteSecuremeshSiteV2Examples("."); err != nil {
+				fmt.Fprintf(os.Stderr, "❌ %s variants: %v\n", name, err)
+				failed++
+				continue
+			}
+		}
 		generated++
 	}
 

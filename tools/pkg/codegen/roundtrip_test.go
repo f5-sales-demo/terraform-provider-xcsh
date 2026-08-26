@@ -1,9 +1,9 @@
 package codegen
 
 import (
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 	"strings"
 	"testing"
-	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
 func TestMapRoundTrip(t *testing.T) {

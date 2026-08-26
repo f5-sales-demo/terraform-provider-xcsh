@@ -9,7 +9,7 @@ import (
 
 // concurrencyTokenPrivateKey stores the last server-returned optimistic-
 // concurrency token. The value stays outside Terraform configuration and schema state.
-const concurrencyTokenPrivateKey = "f5xcConcurrencyToken"
+const concurrencyTokenPrivateKey = "f5xcConcurrencyToken" //nolint:unused // Used by conditionally generated resources.
 
 // encodeConcurrencyToken produces valid JSON because terraform-plugin-framework
 // requires private-state values to be JSON and UTF-8 safe.

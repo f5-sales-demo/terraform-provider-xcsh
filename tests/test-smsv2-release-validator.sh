@@ -21,6 +21,20 @@ jq -n '{
     aws_ce_create:"available",runtime_status:"unavailable",tgw_connect:"unavailable"
   }}}
 }' >"$work/smsv2-contract.json"
+jq -n '{
+  version:"9.9.9",eligible_count:1,covered_count:1,excluded_count:1,
+  resources:[{api_identity:"ves.io.schema.probe.API",get:{schema:"probeGetResponse"},replace:{schema:"probeReplaceRequest"},token:"resource_version"}],
+  exclusions:[{api_identity:"ves.io.schema.command.API",reason:"command endpoint"}]
+}' >"$work/concurrency_contracts.json"
+jq -n '{
+  version:"9.9.9",resource:"securemesh_site_v2",path_count:1,
+  paths:{"spec.segment_vrf[].segment_network":{type:"object"}},choice_groups:{},
+  deprecated_exclusions:["spec.log_receiver","spec.private_adn","spec.rseries"],
+  current_platform_removals:[
+    "spec.segment_vrf[].segment_config.nameserver_v6",
+    "spec.segment_vrf[].segment_config.secondary_nameserver_v6"
+  ]
+}' >"$work/smsv2_parity_manifest.json"
 contract_sha="sha256:$(sha256sum "$work/smsv2-contract.json" | awk '{print $1}')"
 evidence_sha="sha256:$(sha256sum "$work/smsv2-evidence-receipt.json" | awk '{print $1}')"
 jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" '{
@@ -34,7 +48,8 @@ jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --a
 python3 "$validator" "$work" "$tag" "$commit"
 naive="$work/naive"
 mkdir "$naive"
-cp "$work/smsv2-contract.json" "$work/smsv2-evidence-receipt.json" "$work/smsv2-contract-manifest.json" "$naive/"
+cp "$work/smsv2-contract.json" "$work/smsv2-evidence-receipt.json" "$work/smsv2-contract-manifest.json" \
+  "$work/concurrency_contracts.json" "$work/smsv2_parity_manifest.json" "$naive/"
 jq '.observed_at = "2026-08-01T12:00:00"' "$naive/smsv2-evidence-receipt.json" >"$naive/evidence.json"
 mv "$naive/evidence.json" "$naive/smsv2-evidence-receipt.json"
 naive_evidence_sha="sha256:$(sha256sum "$naive/smsv2-evidence-receipt.json" | awk '{print $1}')"

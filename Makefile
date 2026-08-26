@@ -289,9 +289,9 @@ release-prep: fmt lint test docs
 # leaving them out is why 143 examples and 91 docs drifted unnoticed (#1397).
 verify-generate: generate
 	@echo "Verifying no uncommitted changes from generation..."
-	@if [ -n "$$(git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs)" ]; then \
+	@if [ -n "$$(git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs tools/smsv2-parity-matrix.json)" ]; then \
 		echo "Error: Generated files have uncommitted changes"; \
-		git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs; \
+		git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs tools/smsv2-parity-matrix.json; \
 		exit 1; \
 	fi
 	@echo "All generated files are up to date"

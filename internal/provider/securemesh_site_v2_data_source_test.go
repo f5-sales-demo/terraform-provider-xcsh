@@ -15,20 +15,15 @@ func TestAccSecuremeshSiteV2DataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-acc-test-v2")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	rName := acctest.RandomName("tf-acc-test")
 	resourceName := "xcsh_securemesh_site_v2.test"
 	dataSourceName := "data.xcsh_securemesh_site_v2.test"
-
 	testCase := resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccSecuremeshSiteV2DataSourceConfig_basic(nsName, rName),
+				Config: testAccSecuremeshSiteV2DataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -37,29 +32,19 @@ func TestAccSecuremeshSiteV2DataSource_basic(t *testing.T) {
 			},
 		},
 	}
-
-	acctest.RunWithMockOrReal(t, testCase, func(mockCfg *acctest.MockTestConfig) {
-		mockCfg.SetupNamespaceMock(nsName)
-	})
+	acctest.RunWithMockOrReal(t, testCase, nil)
 }
 
-func testAccSecuremeshSiteV2DataSourceConfig_basic(nsName, name string) string {
+func testAccSecuremeshSiteV2DataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_securemesh_site_v2" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "system"
+  baremetal {
+    not_managed {}
+  }
 }
 
 data "xcsh_securemesh_site_v2" "test" {
@@ -67,5 +52,5 @@ data "xcsh_securemesh_site_v2" "test" {
   name       = xcsh_securemesh_site_v2.test.name
   namespace  = xcsh_securemesh_site_v2.test.namespace
 }
-`, nsName, name))
+`, name))
 }

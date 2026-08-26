@@ -109,3 +109,37 @@ func TestCompareRejectsUntracedOrStillRequiredTransition(t *testing.T) {
 		})
 	}
 }
+
+func TestCompareClassifiesVerifiedSingleNamespaceDefault(t *testing.T) {
+	baselineProvider := filepath.Join(t.TempDir(), "provider")
+	candidateProvider := filepath.Join(t.TempDir(), "provider")
+	baselineSpecs := t.TempDir()
+	candidateSpecs := t.TempDir()
+	provider := func(required bool) string {
+		mode := "Optional: true"
+		if required {
+			mode = "Required: true"
+		}
+		return `package provider
+import "github.com/hashicorp/terraform-plugin-framework/resource/schema"
+func (r *ProbeResource) Schema() {
+  _ = schema.Schema{Attributes: map[string]schema.Attribute{
+    "namespace": schema.StringAttribute{` + mode + `},
+  }}
+}`
+	}
+	baselineSpec := `{"openapi":"3.0.0","info":{"version":"1"},"paths":{},"components":{"schemas":{"probeCreateSpecType":{"type":"object","properties":{}}}}}`
+	candidateSpec := `{"openapi":"3.0.0","info":{"version":"2"},"paths":{},"components":{"schemas":{"viewsprobeCreateSpecType":{"type":"object","x-f5xc-namespace-profile":{"constraint":{"allowed":["system"],"enforced":true}},"properties":{}}}}}`
+	writeFixture(t, filepath.Join(baselineProvider, "probe_resource.go"), provider(true))
+	writeFixture(t, filepath.Join(candidateProvider, "probe_resource.go"), provider(false))
+	writeFixture(t, filepath.Join(baselineSpecs, "domains", "probe.json"), baselineSpec)
+	writeFixture(t, filepath.Join(candidateSpecs, "domains", "probe.json"), candidateSpec)
+
+	report, err := Compare(baselineProvider, candidateProvider, baselineSpecs, candidateSpecs, Report{})
+	if err != nil {
+		t.Fatalf("Compare: %v", err)
+	}
+	if len(report.Transitions) != 1 || report.Transitions[0].Reason != VerifiedSingleNamespaceDefault {
+		t.Fatalf("unexpected transitions: %+v", report.Transitions)
+	}
+}

@@ -182,6 +182,29 @@ func TestExtractResourceSchema_ConcurrencyTokenContract(t *testing.T) {
 	}
 }
 
+func TestValidateGeneratedConcurrencyCoverage(t *testing.T) {
+	for _, tc := range []struct {
+		name       string
+		hasReplace bool
+		hasToken   bool
+		wantError  bool
+	}{
+		{name: "mutable covered", hasReplace: true, hasToken: true},
+		{name: "mutable missing token", hasReplace: true, wantError: true},
+		{name: "create delete only", hasReplace: false},
+		{name: "token without replace", hasToken: true, wantError: true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			err := ValidateGeneratedConcurrencyCoverage(&openapi.ResourceTemplate{
+				Name: "probe", HasConcurrencyToken: tc.hasToken,
+			}, tc.hasReplace)
+			if (err != nil) != tc.wantError {
+				t.Fatalf("ValidateGeneratedConcurrencyCoverage() error = %v, wantError %v", err, tc.wantError)
+			}
+		})
+	}
+}
+
 func TestExtractResourceSchema_RejectsInvalidConcurrencyTokenContract(t *testing.T) {
 	tests := map[string]func(*openapi.Spec){
 		"missing replace token": func(spec *openapi.Spec) {
@@ -211,6 +234,13 @@ func TestExtractResourceSchema_RejectsInvalidConcurrencyTokenContract(t *testing
 			replace := spec.Components.Schemas["token_probeReplaceRequest"]
 			replace.Properties["resource_version"] = concurrencyTokenSchema(true, "update")
 			spec.Components.Schemas["token_probeReplaceRequest"] = replace
+		},
+		"additional echo operation": func(spec *openapi.Spec) {
+			for _, envelope := range []string{"token_probeGetResponse", "token_probeReplaceRequest"} {
+				candidate := spec.Components.Schemas[envelope]
+				candidate.Properties["resource_version"] = concurrencyTokenSchema(true, "replace", "create")
+				spec.Components.Schemas[envelope] = candidate
+			}
 		},
 		"create declares token": func(spec *openapi.Spec) {
 			create := spec.Components.Schemas["token_probeCreateRequest"]

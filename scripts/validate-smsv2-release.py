@@ -50,6 +50,8 @@ def main() -> None:
     try:
         contract = json.loads((directory / "smsv2-contract.json").read_text())
         evidence = json.loads((directory / "smsv2-evidence-receipt.json").read_text())
+        concurrency = json.loads((directory / "concurrency_contracts.json").read_text())
+        parity = json.loads((directory / "smsv2_parity_manifest.json").read_text())
     except (OSError, json.JSONDecodeError) as error:
         fail(f"malformed SMSv2 asset: {error}")
     aws = contract.get("providers", {}).get("aws", {})
@@ -93,6 +95,48 @@ def main() -> None:
         item.get("sanitized") is True and item.get("redaction") for item in receipts
     ):
         fail("evidence receipt is not sanitized")
+
+    version = tag.removeprefix("v")
+    resources = concurrency.get("resources")
+    exclusions = concurrency.get("exclusions")
+    if (
+        concurrency.get("version") != version
+        or not isinstance(resources, list)
+        or concurrency.get("eligible_count") != len(resources)
+        or concurrency.get("covered_count") != len(resources)
+        or not isinstance(exclusions, list)
+        or concurrency.get("excluded_count") != len(exclusions)
+    ):
+        fail("provider-wide concurrency inventory is incomplete")
+    if not all(
+        item.get("token") == "resource_version"
+        and item.get("get", {}).get("schema")
+        and item.get("replace", {}).get("schema")
+        for item in resources
+    ):
+        fail("provider-wide concurrency inventory contains an invalid resource")
+    if not all(item.get("api_identity") and item.get("reason") for item in exclusions):
+        fail("concurrency exclusion lacks evidence-backed identity and reason")
+
+    paths = parity.get("paths")
+    choice_groups = parity.get("choice_groups")
+    removals = {
+        "spec.segment_vrf[].segment_config.nameserver_v6",
+        "spec.segment_vrf[].segment_config.secondary_nameserver_v6",
+    }
+    if (
+        parity.get("version") != version
+        or parity.get("resource") != "securemesh_site_v2"
+        or not isinstance(paths, dict)
+        or parity.get("path_count") != len(paths)
+        or not isinstance(choice_groups, dict)
+        or set(parity.get("deprecated_exclusions", []))
+        != {"spec.log_receiver", "spec.private_adn", "spec.rseries"}
+        or set(parity.get("current_platform_removals", [])) != removals
+        or "spec.segment_vrf[].segment_network" not in paths
+        or any(path in paths for path in removals)
+    ):
+        fail("SMSv2 nested parity manifest is incomplete")
 
 
 if __name__ == "__main__":

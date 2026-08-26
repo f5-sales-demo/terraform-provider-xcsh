@@ -1991,6 +1991,7 @@ func TestConcurrencyTokenGenerationIsClientOnlyAndPrivate(t *testing.T) {
 		"encodeConcurrencyToken(apiResource.ResourceVersion)",
 		"apiResource.ResourceVersion = concurrencyToken",
 		"Stale Configuration",
+		"update of zz_token_probe",
 		"Refresh Required Before Update",
 	} {
 		if !strings.Contains(resourceSource, want) {
@@ -2007,6 +2008,9 @@ func TestConcurrencyTokenGenerationIsClientOnlyAndPrivate(t *testing.T) {
 	put := strings.Index(update, "r.client.UpdateZZTokenProbe(ctx, apiResource)")
 	if privateRead < 0 || put < 0 || privateRead > put {
 		t.Fatal("Update must read the prior private token before PUT")
+	}
+	if got := strings.Count(update, "r.client.UpdateZZTokenProbe(ctx, apiResource)"); got != 1 {
+		t.Fatalf("generated conflict path can execute %d PUT calls, want exactly one", got)
 	}
 	if strings.Count(update[:put], "GetZZTokenProbe(ctx") != 0 {
 		t.Fatal("token-bearing Update must not refresh the object/token immediately before PUT")

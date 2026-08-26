@@ -30,31 +30,6 @@ func concurrencyTokenGoName(contract *concurrencyTokenContract) string {
 	return contract.GoName
 }
 
-func findEnvelopeSchema(spec *openapi.Spec, resourceName, suffix string) (openapi.Schema, bool, error) {
-	candidates := []string{resourceName + suffix, "schema" + resourceName + suffix, "views" + resourceName + suffix}
-	for _, key := range candidates {
-		if schema, ok := spec.Components.Schemas[key]; ok {
-			return schema, true, nil
-		}
-	}
-
-	wantedSuffix := strings.ToLower(resourceName + suffix)
-	matches := make([]string, 0, 1)
-	for key := range spec.Components.Schemas {
-		if strings.HasSuffix(strings.ToLower(key), wantedSuffix) {
-			matches = append(matches, key)
-		}
-	}
-	sort.Strings(matches)
-	if len(matches) > 1 {
-		return openapi.Schema{}, false, fmt.Errorf("%s has ambiguous %s envelopes: %s", resourceName, suffix, strings.Join(matches, ", "))
-	}
-	if len(matches) == 1 {
-		return spec.Components.Schemas[matches[0]], true, nil
-	}
-	return openapi.Schema{}, false, nil
-}
-
 func envelopeConcurrencyToken(schema openapi.Schema) (string, openapi.Schema, bool, error) {
 	names := make([]string, 0, 1)
 	for name, property := range schema.Properties {
@@ -83,12 +58,10 @@ func validateConcurrencyField(resourceName, envelopeName, fieldName string, fiel
 	if !contract.ServerAssigned {
 		return fmt.Errorf("%s %s concurrency token %q must declare server_assigned=true", resourceName, envelopeName, fieldName)
 	}
-	for _, operation := range contract.EchoOnOperations {
-		if operation == "replace" {
-			return nil
-		}
+	if len(contract.EchoOnOperations) != 1 || contract.EchoOnOperations[0] != "replace" {
+		return fmt.Errorf("%s %s concurrency token %q must declare echo_on_operations=[replace]", resourceName, envelopeName, fieldName)
 	}
-	return fmt.Errorf("%s %s concurrency token %q must echo on replace", resourceName, envelopeName, fieldName)
+	return nil
 }
 
 func normalizedOperations(operations []string) string {
@@ -101,11 +74,11 @@ func normalizedOperations(operations []string) string {
 // concurrency contract. A declaration on only one envelope is an error: generating
 // a client that can read but not echo the token (or vice versa) would make writes unsafe.
 func ExtractConcurrencyTokenContract(spec *openapi.Spec, resourceName string) (*concurrencyTokenContract, error) {
-	getSchema, getFound, err := findEnvelopeSchema(spec, resourceName, "GetResponse")
+	getSchema, _, getFound, err := ResolveEnvelopeSchema(spec, resourceName, "GetResponse")
 	if err != nil {
 		return nil, err
 	}
-	replaceSchema, replaceFound, err := findEnvelopeSchema(spec, resourceName, "ReplaceRequest")
+	replaceSchema, _, replaceFound, err := ResolveEnvelopeSchema(spec, resourceName, "ReplaceRequest")
 	if err != nil {
 		return nil, err
 	}
@@ -138,7 +111,7 @@ func ExtractConcurrencyTokenContract(spec *openapi.Spec, resourceName string) (*
 	}
 
 	for _, createEnvelope := range []string{"CreateRequest", "CreateSpecType"} {
-		createSchema, found, findErr := findEnvelopeSchema(spec, resourceName, createEnvelope)
+		createSchema, _, found, findErr := ResolveEnvelopeSchema(spec, resourceName, createEnvelope)
 		if findErr != nil {
 			return nil, findErr
 		}
@@ -152,4 +125,17 @@ func ExtractConcurrencyTokenContract(spec *openapi.Spec, resourceName string) (*
 	}
 
 	return &concurrencyTokenContract{JSONName: getName, GoName: naming.ToResourceTypeName(getName)}, nil
+}
+
+// ValidateGeneratedConcurrencyCoverage fails generation when a mutable resource
+// would emit an unconditional replace or when a read-only/create-delete resource
+// unexpectedly carries a replace token contract.
+func ValidateGeneratedConcurrencyCoverage(resource *openapi.ResourceTemplate, hasReplace bool) error {
+	if hasReplace && !resource.HasConcurrencyToken {
+		return fmt.Errorf("%s has a Replace operation without a validated concurrency token contract", resource.Name)
+	}
+	if !hasReplace && resource.HasConcurrencyToken {
+		return fmt.Errorf("%s declares a concurrency token without a Replace operation", resource.Name)
+	}
+	return nil
 }
