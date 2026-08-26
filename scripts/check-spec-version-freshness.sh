@@ -29,6 +29,14 @@ if command -v gh >/dev/null 2>&1; then
 
   echo "Latest upstream api-specs release: $LATEST_RELEASE"
   if [ "$CURRENT_VERSION" != "$LATEST_RELEASE" ]; then
+    if [ "${ALLOW_RECOVERY_INFRASTRUCTURE:-false}" = "true" ]; then
+      [ ! -f "$PENDING_DELIVERY_FILE" ] || {
+        echo "::error::Pending delivery requires exact pending-delivery recovery validation"
+        exit 1
+      }
+      echo "::notice::Allowing delivery-infrastructure recovery with no pending delivery"
+      exit 0
+    fi
     if [ "${ALLOW_PENDING_DELIVERY:-false}" = "true" ]; then
       [ -f "$PENDING_DELIVERY_FILE" ] || {
         echo "::error::Pending-delivery recovery was requested without a pending delivery"

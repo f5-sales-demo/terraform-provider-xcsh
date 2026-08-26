@@ -93,7 +93,20 @@ ALLOW_PENDING_DELIVERY=true run_test "Exact Pending Recovery" \
   "Allowing workflow-only recovery for exact pending delivery" \
   "$pending_file"
 
-# Test 4: A forged pending identity remains a hard failure.
+# Test 4: Recovery infrastructure may repair a completed delivery while the pin is stale.
+ALLOW_RECOVERY_INFRASTRUCTURE=true run_test "Completed Delivery Infrastructure Recovery" \
+  "echo 'v1.2.4'; exit 0" \
+  0 \
+  "Allowing delivery-infrastructure recovery with no pending delivery"
+
+# Test 5: Recovery infrastructure cannot bypass an extant pending delivery.
+ALLOW_RECOVERY_INFRASTRUCTURE=true run_test "Pending Delivery Requires Exact Recovery" \
+  "echo 'v1.2.4'; exit 0" \
+  1 \
+  "Pending delivery requires exact pending-delivery recovery validation" \
+  "$pending_file"
+
+# Test 6: A forged pending identity remains a hard failure.
 jq '.delivery_id = ("0" * 64)' "$pending_file" >"$TEMP_DIR/forged-pending.json"
 ALLOW_PENDING_DELIVERY=true run_test "Forged Pending Recovery" \
   "echo 'v1.2.4'; exit 0" \
@@ -101,21 +114,21 @@ ALLOW_PENDING_DELIVERY=true run_test "Forged Pending Recovery" \
   "Pending delivery ID is not canonical" \
   "$TEMP_DIR/forged-pending.json"
 
-# Test 5: API Failure
+# Test 7: API Failure
 echo "v1.2.3" >"$SPEC_FILE"
 run_test "API Failure" \
   "echo 'API Error'; exit 1" \
   2 \
   "Could not query upstream releases from GitHub API"
 
-# Test 6: Malformed Tag (Null/Empty)
+# Test 8: Malformed Tag (Null/Empty)
 echo "v1.2.3" >"$SPEC_FILE"
 run_test "Malformed Tag" \
   "echo 'null'; exit 0" \
   2 \
   "Could not query upstream releases from GitHub API or received invalid/empty tag"
 
-# Test 7: Missing gh CLI
+# Test 9: Missing gh CLI
 rm -f "$TEMP_DIR/gh"
 echo "v1.2.3" >"$SPEC_FILE"
 cp "$SCRIPT_UNDER_TEST" "$TEMP_DIR/check_no_gh.sh"

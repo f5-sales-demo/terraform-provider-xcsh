@@ -559,6 +559,80 @@ func TestRegenerationCommitRequiresExactPendingAttestation(t *testing.T) {
 			t.Fatalf("unattested exact subject bypassed build/test: %s", outputs)
 		}
 	})
+
+	t.Run("durable receipt merge is accepted only with exact pull request attestation", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		runReleaseTestCommand(t, fixture.repo, fixture.env, fixture.script)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "tools")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "chore: receipt published spec delivery (#43)")
+		mergeCommit := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+		writeReleaseTestJSON(t, fixture.regenPR, []map[string]any{{
+			"number":           43,
+			"state":            "closed",
+			"merged_at":        "2026-08-01T12:00:00Z",
+			"merge_commit_sha": mergeCommit,
+			"title":            "chore: receipt published spec delivery",
+			"base": map[string]any{
+				"ref": "main", "repo": map[string]any{"full_name": dispatchTarget},
+			},
+			"head": map[string]any{
+				"ref":  "spec-delivery-receipt/" + fixture.deliveryID,
+				"repo": map[string]any{"full_name": dispatchTarget},
+			},
+		}})
+		output := filepath.Join(fixture.repo, "attestation-output")
+		env := append(append([]string{}, fixture.env...), "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+		result, runErr := runWorkflowScript(fixture.repo, script, env)
+		if runErr != nil {
+			t.Fatalf("exact durable receipt merge was rejected: %v\n%s", runErr, result)
+		}
+		outputs, readErr := os.ReadFile(output) //nolint:gosec // isolated fixture
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		if strings.TrimSpace(string(outputs)) != "is_regeneration=false" ||
+			!strings.Contains(result, "Detected exact durable delivery receipt merge") {
+			t.Fatalf("durable receipt merge was not classified as metadata-only:\n%s\n%s", outputs, result)
+		}
+	})
+
+	t.Run("unattested durable receipt merge fails closed", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		runReleaseTestCommand(t, fixture.repo, fixture.env, fixture.script)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "tools")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "chore: receipt published spec delivery (#43)")
+		writeReleaseTestJSON(t, fixture.regenPR, []map[string]any{})
+		output := filepath.Join(fixture.repo, "attestation-output")
+		env := append(append([]string{}, fixture.env...), "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+		result, runErr := runWorkflowScript(fixture.repo, script, env)
+		if runErr == nil || !strings.Contains(result, "Receipt merge has no exact pull request attestation") {
+			t.Fatalf("unattested durable receipt merge was accepted: err=%v\n%s", runErr, result)
+		}
+	})
+
+	t.Run("attested receipt merge with an extra change fails closed", func(t *testing.T) {
+		fixture := newReceiptFixture(t, false, false)
+		runReleaseTestCommand(t, fixture.repo, fixture.env, fixture.script)
+		writeReleaseTestFile(t, fixture.repo, "unexpected.txt", "not receipt metadata\n", 0o600)
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "add", ".")
+		runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "chore: receipt published spec delivery (#43)")
+		mergeCommit := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+		writeReleaseTestJSON(t, fixture.regenPR, []map[string]any{{
+			"number": 43, "state": "closed", "merged_at": "2026-08-01T12:00:00Z",
+			"merge_commit_sha": mergeCommit, "title": "chore: receipt published spec delivery",
+			"base": map[string]any{"ref": "main", "repo": map[string]any{"full_name": dispatchTarget}},
+			"head": map[string]any{
+				"ref":  "spec-delivery-receipt/" + fixture.deliveryID,
+				"repo": map[string]any{"full_name": dispatchTarget},
+			},
+		}})
+		output := filepath.Join(fixture.repo, "attestation-output")
+		env := append(append([]string{}, fixture.env...), "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+		result, runErr := runWorkflowScript(fixture.repo, script, env)
+		if runErr == nil || !strings.Contains(result, "outside the exact durable receipt set") {
+			t.Fatalf("receipt merge with an extra change was accepted: err=%v\n%s", runErr, result)
+		}
+	})
 }
 
 func TestOnMergeProcessingPrioritizesExactRegenerationIdentity(t *testing.T) {
