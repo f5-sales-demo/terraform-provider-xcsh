@@ -10,8 +10,6 @@ import (
 	"strings"
 	"time"
 
-	"regexp"
-
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
@@ -26,6 +24,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
@@ -1760,7 +1759,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"exclude_attack_type_contexts": schema.ListNestedBlock{
-								MarkdownDescription: "Attack Types to be excluded for the defined match criteria.",
+								MarkdownDescription: "Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"context": schema.StringAttribute{
@@ -1771,7 +1770,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 											},
 										},
 										"context_name": schema.StringAttribute{
-											MarkdownDescription: "Relevant only for contexts: Header, Cookie and Parameter. Name of the Context that the WAF Exclusion Rules will check. Wildcard matching can be used by prefixing or suffixing the context name with an wildcard asterisk (*).",
+											MarkdownDescription: "Parameter, cookie, or header name selected by context. For a parameter-scoped WAF exception, set context to CONTEXT_PARAMETER and name only the intended parameter.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(128),

@@ -10,8 +10,6 @@ import (
 	"strings"
 	"time"
 
-	"regexp"
-
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
@@ -27,6 +25,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
@@ -4514,7 +4513,6 @@ var HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigModelAttrTypes = map[st
 // HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel represents header_transformation block
 type HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *HTTPLoadBalancerEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *HTTPLoadBalancerEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *HTTPLoadBalancerEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *HTTPLoadBalancerEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -4522,7 +4520,6 @@ type HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationMo
 // HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel
 var HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -5792,7 +5789,6 @@ var HTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTyp
 // HTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type HTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *HTTPLoadBalancerEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *HTTPLoadBalancerEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *HTTPLoadBalancerEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *HTTPLoadBalancerEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -5800,7 +5796,6 @@ type HTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTrans
 // HTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for HTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var HTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -6182,7 +6177,6 @@ var HTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMode
 // HTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type HTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *HTTPLoadBalancerEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *HTTPLoadBalancerEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *HTTPLoadBalancerEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *HTTPLoadBalancerEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -6190,7 +6184,6 @@ type HTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHea
 // HTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for HTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var HTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -10884,12 +10877,12 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"api_rate_limit": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: api_rate_limit, disable_rate_limit, rate_limit; Default: disable_rate_limit] APIRateLimit.",
+				MarkdownDescription: "[OneOf: api_rate_limit, disable_rate_limit, rate_limit; Default: disable_rate_limit] Path- or API-group-scoped rate limiting. Define server_url_rules or api_endpoint_rules and choose inline_rate_limiter for an inline limit, or ref_rate_limiter for a stored rate-limiter reference.",
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"api_endpoint_rules": schema.ListNestedBlock{
-						MarkdownDescription: "Sets of rules for a specific endpoints. Order is matter as it uses first match policy. For creating rule that contain a whole domain or group of endpoints, please use the server URL rules above.",
+						MarkdownDescription: "Ordered endpoint-specific rate-limit rules. Each rule must choose exactly one rate_limiter_choice: inline_rate_limiter or ref_rate_limiter.",
 						Validators:          []validator.List{validators.RequiredListObjectAttributes("api_endpoint_path")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -11984,7 +11977,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Enable this option",
 					},
 					"server_url_rules": schema.ListNestedBlock{
-						MarkdownDescription: "Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below.",
+						MarkdownDescription: "Ordered domain or base-path rules for path-scoped rate limiting. Each rule must choose exactly one rate_limiter_choice: inline_rate_limiter or ref_rate_limiter.",
 						Validators:          []validator.List{validators.RequiredListObjectAttributes("base_path")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -12204,7 +12197,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"inline_rate_limiter": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inline rate limiter.",
+									MarkdownDescription: "Inline rate-limiter settings for this domain, base-path, or endpoint rule. Select this field as the required rate_limiter_choice when no stored rate-limiter object is used.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("threshold")},
 									Attributes: map[string]schema.Attribute{
 										"threshold": schema.Int64Attribute{
@@ -12706,10 +12699,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 										Blocks: map[string]schema.Block{
 											"enforcement_block": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
 											},
 											"enforcement_report": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
 											},
 										},
 									},
@@ -12720,7 +12713,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										MarkdownDescription: "Enable this option",
 									},
 									"validation_mode_active": schema.SingleNestedBlock{
-										MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of request.",
+										MarkdownDescription: "Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403.",
 										Validators:          []validator.Object{validators.RequiredObjectAttributes("request_validation_properties")},
 										Attributes: map[string]schema.Attribute{
 											"request_validation_properties": schema.ListAttribute{
@@ -12734,10 +12727,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 										Blocks: map[string]schema.Block{
 											"enforcement_block": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
 											},
 											"enforcement_report": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
 											},
 										},
 									},
@@ -12929,10 +12922,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 													Blocks: map[string]schema.Block{
 														"enforcement_block": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
 														},
 														"enforcement_report": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
 														},
 													},
 												},
@@ -12943,7 +12936,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													MarkdownDescription: "Enable this option",
 												},
 												"validation_mode_active": schema.SingleNestedBlock{
-													MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of request.",
+													MarkdownDescription: "Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403.",
 													Validators:          []validator.Object{validators.RequiredObjectAttributes("request_validation_properties")},
 													Attributes: map[string]schema.Attribute{
 														"request_validation_properties": schema.ListAttribute{
@@ -12957,10 +12950,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 													Blocks: map[string]schema.Block{
 														"enforcement_block": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
 														},
 														"enforcement_report": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
 														},
 													},
 												},
@@ -15699,16 +15692,13 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"default_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"legacy_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 											},
 											"preserve_case_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 											},
 											"proper_case_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 											},
 										},
 									},
@@ -17567,16 +17557,13 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"default_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"legacy_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 											},
 											"preserve_case_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 											},
 											"proper_case_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 											},
 										},
 									},
@@ -18108,16 +18095,13 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"default_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"legacy_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 											},
 											"preserve_case_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 											},
 											"proper_case_header_transformation": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 											},
 										},
 									},
@@ -20065,7 +20049,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "Enable this option",
 			},
 			"rate_limit": schema.SingleNestedBlock{
-				MarkdownDescription: "RateLimitConfigType.",
+				MarkdownDescription: "Load-balancer-wide per-client rate limiting. The counter applies across every path; use api_rate_limit rules when only selected paths such as /login should be limited.",
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -22364,7 +22348,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"exclude_attack_type_contexts": schema.ListNestedBlock{
-													MarkdownDescription: "Attack Types to be excluded for the defined match criteria.",
+													MarkdownDescription: "Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
 															"context": schema.StringAttribute{
@@ -22375,7 +22359,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																},
 															},
 															"context_name": schema.StringAttribute{
-																MarkdownDescription: "Relevant only for contexts: Header, Cookie and Parameter. Name of the Context that the WAF Exclusion Rules will check. Wildcard matching can be used by prefixing or suffixing the context name with an wildcard asterisk (*).",
+																MarkdownDescription: "Parameter, cookie, or header name selected by context. For a parameter-scoped WAF exception, set context to CONTEXT_PARAMETER and name only the intended parameter.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthAtMost(128),
@@ -27326,9 +27310,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
 						DefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 					}
-					if data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
-						DefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-					}
 					if data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 						DefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 					}
@@ -28381,9 +28362,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 						HTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 					}
-					if data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-						HTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-					}
 					if data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 						HTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 					}
@@ -28718,9 +28696,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					HTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 					if data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 						HTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-					}
-					if data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-						HTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 					}
 					if data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 						HTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -41347,15 +41322,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													}
 													return nil
 												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.Http1Config != nil && data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation != nil {
-														return data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
 												PreserveCaseHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
 													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.Http1Config != nil && data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation != nil {
 														return data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -43776,15 +43742,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 													}
 													return nil
 												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.HTTPS != nil && data.HTTPS.HTTPProtocolOptions != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-														return data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
 												PreserveCaseHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
 													if !isImport && data.HTTPS != nil && data.HTTPS.HTTPProtocolOptions != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 														return data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -44572,15 +44529,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 														return data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 													}
 													if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.HTTPProtocolOptions != nil && data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-														return data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 														return &HTTPLoadBalancerEmptyModel{}
 													}
 													return nil
@@ -61049,15 +60997,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 													}
 													return nil
 												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.Http1Config != nil && data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation != nil {
-														return data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
 												PreserveCaseHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
 													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.Http1Config != nil && data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation != nil {
 														return data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -63478,15 +63417,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 													}
 													return nil
 												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.HTTPS != nil && data.HTTPS.HTTPProtocolOptions != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-														return data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
 												PreserveCaseHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
 													if !isImport && data.HTTPS != nil && data.HTTPS.HTTPProtocolOptions != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 														return data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -64274,15 +64204,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 														return data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 													}
 													if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.HTTPProtocolOptions != nil && data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-														return data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 														return &HTTPLoadBalancerEmptyModel{}
 													}
 													return nil
@@ -75826,9 +75747,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
 						DefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 					}
-					if data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
-						DefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-					}
 					if data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 						DefaultPoolAdvancedOptionsHttp1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 					}
@@ -76881,9 +76799,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 						HTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 					}
-					if data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-						HTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-					}
 					if data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 						HTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 					}
@@ -77218,9 +77133,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					HTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 					if data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 						HTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-					}
-					if data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-						HTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 					}
 					if data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 						HTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -89874,15 +89786,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													}
 													return nil
 												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.Http1Config != nil && data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation != nil {
-														return data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
 												PreserveCaseHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
 													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.Http1Config != nil && data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation != nil {
 														return data.DefaultPool.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -92303,15 +92206,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 													}
 													return nil
 												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.HTTPS != nil && data.HTTPS.HTTPProtocolOptions != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-														return data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
 												PreserveCaseHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
 													if !isImport && data.HTTPS != nil && data.HTTPS.HTTPProtocolOptions != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 														return data.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -93099,15 +92993,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 														return data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 													}
 													if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-														return &HTTPLoadBalancerEmptyModel{}
-													}
-													return nil
-												}(),
-												LegacyHeaderTransformation: func() *HTTPLoadBalancerEmptyModel {
-													if !isImport && data.HTTPSAutoCert != nil && data.HTTPSAutoCert.HTTPProtocolOptions != nil && data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-														return data.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-													}
-													if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 														return &HTTPLoadBalancerEmptyModel{}
 													}
 													return nil

@@ -560,7 +560,8 @@ A [`waf_action`](#waf-action) block supports the following:
 
 An [`app_firewall_detection_control`](#control-b9f62f) block (within [`waf_action`](#waf-action)) supports the following:
 
-<a id="contexts-69b36c"></a>&#x2022; [`exclude_attack_type_contexts`](#contexts-69b36c) - Optional Block<br>Attack Types to be excluded for the defined match criteria<br>See [Exclude Attack Type Contexts](#contexts-69b36c) below.
+<a id="contexts-69b36c"></a>&#x2022; [`exclude_attack_type_contexts`](#contexts-69b36c) - Optional Block<br>Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected<br>See [Exclude Attack Type
+Contexts](#contexts-69b36c) below.
 
 <a id="contexts-08d37e"></a>&#x2022; [`exclude_bot_name_contexts`](#contexts-08d37e) - Optional Block<br>Bot Names to be excluded for the defined match criteria<br>See [Exclude Bot Name Contexts](#contexts-08d37e) below.
 

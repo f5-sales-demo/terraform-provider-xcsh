@@ -10,8 +10,6 @@ import (
 	"strings"
 	"time"
 
-	"regexp"
-
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
@@ -25,6 +23,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
@@ -119,7 +118,6 @@ type VirtualNetworkResourceModel struct {
 	Disable                types.Bool                `tfsdk:"disable"`
 	Labels                 types.Map                 `tfsdk:"labels"`
 	ID                     types.String              `tfsdk:"id"`
-	LegacyType             types.String              `tfsdk:"legacy_type"`
 	Timeouts               timeouts.Value            `tfsdk:"timeouts"`
 	GlobalNetwork          *VirtualNetworkEmptyModel `tfsdk:"global_network"`
 	SiteLocalInsideNetwork *VirtualNetworkEmptyModel `tfsdk:"site_local_inside_network"`
@@ -183,17 +181,6 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
-			"legacy_type": schema.StringAttribute{
-				MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
-				Optional:            true,
-				Computed:            true,
-				PlanModifiers: []planmodifier.String{
-					stringplanmodifier.UseStateForUnknown(),
-				},
-				Validators: []validator.String{
-					stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE", "VIRTUAL_NETWORK_PER_SITE", "VIRTUAL_NETWORK_PUBLIC", "VIRTUAL_NETWORK_GLOBAL", "VIRTUAL_NETWORK_SITE_SERVICE", "VIRTUAL_NETWORK_VER_INTERNAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE", "VIRTUAL_NETWORK_IP_AUTO", "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK", "VIRTUAL_NETWORK_SRV6_NETWORK", "VIRTUAL_NETWORK_IP_FABRIC", "VIRTUAL_NETWORK_SEGMENT", "VIRTUAL_NETWORK_MANAGEMENT"),
-				},
-			},
 		},
 		Blocks: map[string]schema.Block{
 			"timeouts": timeouts.Block(ctx, timeouts.Opts{
@@ -203,13 +190,13 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 				Delete: true,
 			}),
 			"global_network": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: global_network, legacy_type, site_local_inside_network, site_local_network] Configuration parameter for global network.",
+				MarkdownDescription: "[OneOf: global_network, site_local_inside_network, site_local_network] Select the global virtual-network scope for connectivity across participating sites.",
 			},
 			"site_local_inside_network": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
+				MarkdownDescription: "Select the site-local inside network for site-internal connectivity.",
 			},
 			"site_local_network": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
+				MarkdownDescription: "Select a site-local virtual network when connectivity must remain within one site.",
 			},
 			"static_routes": schema.ListNestedBlock{
 				MarkdownDescription: "List of static routes on the virtual network.",
@@ -512,9 +499,6 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 			createReq.Spec["static_routes"] = StaticRoutesList
 		}
 	}
-	if !data.LegacyType.IsNull() && !data.LegacyType.IsUnknown() {
-		createReq.Spec["legacy_type"] = data.LegacyType.ValueString()
-	}
 
 	apiResource, err := r.client.CreateVirtualNetwork(ctx, createReq)
 	if err != nil {
@@ -715,11 +699,6 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 		}
 	} else {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
-	}
-	if v, ok := apiResource.Spec["legacy_type"].(string); ok && v != "" {
-		data.LegacyType = types.StringValue(v)
-	} else {
-		data.LegacyType = types.StringNull()
 	}
 
 	tflog.Trace(ctx, "created VirtualNetwork resource")
@@ -1014,11 +993,6 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 	} else {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["legacy_type"].(string); ok && v != "" {
-		data.LegacyType = types.StringValue(v)
-	} else {
-		data.LegacyType = types.StringNull()
-	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
 	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
@@ -1196,9 +1170,6 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 			apiResource.Spec["static_routes"] = StaticRoutesList
 		}
 	}
-	if !data.LegacyType.IsNull() && !data.LegacyType.IsUnknown() {
-		apiResource.Spec["legacy_type"] = data.LegacyType.ValueString()
-	}
 
 	_, err := r.client.UpdateVirtualNetwork(ctx, apiResource)
 	if err != nil {
@@ -1253,13 +1224,6 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 	}
 
 	// Set computed fields from API response
-	if v, ok := fetched.Spec["legacy_type"].(string); ok && v != "" {
-		data.LegacyType = types.StringValue(v)
-	} else if data.LegacyType.IsUnknown() {
-		// API didn't return value and plan was unknown - set to null
-		data.LegacyType = types.StringNull()
-	}
-	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
@@ -1426,11 +1390,6 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 		}
 	} else {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
-	}
-	if v, ok := apiResource.Spec["legacy_type"].(string); ok && v != "" {
-		data.LegacyType = types.StringValue(v)
-	} else {
-		data.LegacyType = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
