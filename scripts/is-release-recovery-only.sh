@@ -10,8 +10,10 @@ while IFS= read -r path; do
   .github/workflows/* | \
     tools/validate_workflows_test.go | \
     tools/generate-all-schemas.go | \
-    tools/pkg/codegen/* | \
-    tools/pkg/schema/* | \
+    tools/pkg/codegen/codegen_test.go | \
+    tools/pkg/codegen/generate.go | \
+    tools/pkg/schema/scan.go | \
+    tools/pkg/schema/scan_test.go | \
     internal/acctest/release_integrity_test.go | \
     scripts/generate-provider-docs.sh | \
     scripts/check-spec-version-freshness.sh | \

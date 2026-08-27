@@ -94,7 +94,7 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 		allowed bool
 	}{
 		{
-			name: "exact recovery infrastructure",
+			name: "exact recovery implementation and infrastructure",
 			paths: strings.Join([]string{
 				".github/workflows/on-merge.yml",
 				".github/workflows/ci.yml",
@@ -128,9 +128,11 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 		},
 		{name: "empty", paths: "", allowed: false},
 		{name: "substantive", paths: "internal/provider/provider.go\n", allowed: false},
+		{name: "unlisted codegen file", paths: "tools/pkg/codegen/unrelated.go\n", allowed: false},
+		{name: "unlisted schema file", paths: "tools/pkg/schema/unrelated.go\n", allowed: false},
 		{
 			name:    "mixed substantive",
-			paths:   ".github/workflows/on-merge.yml\ninternal/provider/provider.go\n",
+			paths:   "tools/pkg/codegen/generate.go\ninternal/provider/provider.go\n",
 			allowed: false,
 		},
 	}

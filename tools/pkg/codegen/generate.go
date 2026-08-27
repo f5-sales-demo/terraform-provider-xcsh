@@ -107,6 +107,10 @@ func formatGeneratedSource(filename string, source []byte) ([]byte, error) {
 // outputDir is the directory where the file will be written (e.g. "internal/provider").
 func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) error {
 	outputPath := filepath.Join(outputDir, resource.Name+"_resource.go")
+	// Derive every conditional plan-modifier flag at the renderer boundary. This
+	// gives direct callers the same final-IR guarantee as generator orchestration
+	// and removes both stale-positive and stale-negative template state.
+	schema.RefreshResourcePlanModifierUsage(resource)
 
 	// Create template with custom functions
 	funcMap := template.FuncMap{
