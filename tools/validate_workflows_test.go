@@ -208,6 +208,123 @@ func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
 	}
 }
 
+func TestProviderRegenerationBuildIsMemoryBounded(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_generate-provider.yml"))
+	if err != nil {
+		t.Fatalf("read provider regeneration workflow: %v", err)
+	}
+	workflow := string(content)
+	for _, fragment := range []string{
+		`GOGC: "10"`,
+		`GOMEMLIMIT: 4GiB`,
+		`GOMAXPROCS: "1"`,
+		`go build -p 1 -gcflags='all=-N -l' -v ./...`,
+	} {
+		if !strings.Contains(workflow, fragment) {
+			t.Errorf("provider regeneration memory contract is missing %q", fragment)
+		}
+	}
+}
+
+func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
+	workflowDir := filepath.Join("..", ".github", "workflows")
+	expectedImageJobs := map[string][]string{
+		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.12`},
+		"acc-tests.yml/compare-results":       {`test "$(go env GOVERSION)" = go1.25.12`},
+		"acc-tests.yml/mock-tests":            {`test "$(go env GOVERSION)" = go1.25.12`},
+		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.12`},
+		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.12`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"ci.yml/validate-mock-fixtures":       {`test "$(go env GOVERSION)" = go1.25.12`},
+		"discover-defaults.yml/discover":      {`test "$(go env GOVERSION)" = go1.25.12`},
+		"on-merge.yml/create-regeneration-pr": {`test "$(go env GOVERSION)" = go1.25.12`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"security-audit.yml/govulncheck":      {`test "$(go env GOVERSION)" = go1.25.12`, "mod golang.org/x/vuln v1.6.0"},
+	}
+	entries, err := filepath.Glob(filepath.Join(workflowDir, "*.y*ml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	foundManagedJob := false
+	for _, path := range entries {
+		content, err := os.ReadFile(path)
+		if err != nil {
+			t.Fatal(err)
+		}
+		var workflow workflowDocument
+		if err := yaml.Unmarshal(content, &workflow); err != nil {
+			t.Fatalf("parse %s: %v", filepath.Base(path), err)
+		}
+		for jobID, job := range workflow.Jobs {
+			runsOn, _ := stringSlice(job["runs-on"])
+			if !slicesContain(runsOn, "managed-socketless") {
+				continue
+			}
+			foundManagedJob = true
+			jobBytes, err := yaml.Marshal(job)
+			if err != nil {
+				t.Fatalf("marshal %s/%s: %v", filepath.Base(path), jobID, err)
+			}
+			jobText := string(jobBytes)
+			jobKey := filepath.Base(path) + "/" + jobID
+			if strings.Contains(jobText, "actions/setup-go@") {
+				t.Errorf("%s/%s downloads Go instead of using the immutable runner toolchain", filepath.Base(path), jobID)
+			}
+			for _, tool := range []string{"tfplugindocs", "govulncheck"} {
+				if strings.Contains(jobText, "go install") && strings.Contains(jobText, tool) {
+					t.Errorf("%s/%s installs image-resident %s at runtime", filepath.Base(path), jobID, tool)
+				}
+			}
+			if fragments, ok := expectedImageJobs[jobKey]; ok {
+				for _, fragment := range fragments {
+					if !strings.Contains(jobText, fragment) {
+						t.Errorf("%s does not verify immutable image contract %q", jobKey, fragment)
+					}
+				}
+				delete(expectedImageJobs, jobKey)
+			}
+		}
+	}
+	if !foundManagedJob {
+		t.Fatal("no managed-socketless jobs were inspected")
+	}
+	if len(expectedImageJobs) != 0 {
+		t.Fatalf("immutable image jobs were not inspected: %v", expectedImageJobs)
+	}
+}
+
+func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
+	hostedContracts := map[string][]string{
+		"_build-test.yml": {
+			"runs-on: ubuntu-latest",
+			"actions/setup-go@",
+		},
+		"_generate-docs.yml": {
+			"runs-on: ubuntu-latest",
+			"actions/setup-go@",
+			"go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0",
+		},
+		"_generate-provider.yml": {
+			"runs-on: ubuntu-latest",
+			"actions/setup-go@",
+		},
+		"_tag-release.yml": {
+			"runs-on: ubuntu-latest",
+			"actions/setup-go@",
+			"go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0",
+		},
+	}
+	for filename, fragments := range hostedContracts {
+		content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", filename))
+		if err != nil {
+			t.Fatalf("read %s: %v", filename, err)
+		}
+		for _, fragment := range fragments {
+			if !strings.Contains(string(content), fragment) {
+				t.Errorf("%s no longer preserves hosted-runner contract %q", filename, fragment)
+			}
+		}
+	}
+}
+
 var protectedJobs = []jobContract{
 	{"acc-tests.yml", "mock-tests", canonicalManagedSocketlessRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
 	{"acc-tests.yml", "real-api-tests", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},

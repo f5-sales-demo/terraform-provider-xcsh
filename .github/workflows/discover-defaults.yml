@@ -95,11 +95,10 @@ jobs:
           token: ${{ secrets.REPO_SYNC_TOKEN }}
           persist-credentials: false
 
-      - name: Set up Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: go.mod
-          cache: true
+      - name: Verify immutable Go toolchain
+        run: |
+          go version
+          test "$(go env GOVERSION)" = go1.25.12
 
       - name: Verify API credentials
         env:
