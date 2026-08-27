@@ -1283,6 +1283,8 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"master_node_configuration": schema.ListNestedBlock{
 				MarkdownDescription: "Master Nodes. Configuration of master nodes.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
@@ -1306,7 +1308,8 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"blocked_services": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: blocked_services, default_blocked_services; Default: default_blocked_services] Disable node local services on this site.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
@@ -1337,10 +1340,13 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"bond_device_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: bond_device_list, no_bond_devices; Default: no_bond_devices] Bond Devices List. List of bond devices for this fleet.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("bond_devices")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
 						MarkdownDescription: "Bond Devices. List of bond devices.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"devices": schema.ListAttribute{
@@ -1379,6 +1385,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								},
 								"lacp": schema.SingleNestedBlock{
 									MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 									Attributes: map[string]schema.Attribute{
 										"rate": schema.Int64Attribute{
 											MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -1396,6 +1403,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"coordinates": schema.SingleNestedBlock{
 				MarkdownDescription: "Coordinates of the site which provides the site physical location.",
+
 				Attributes: map[string]schema.Attribute{
 					"latitude": schema.Int64Attribute{
 						MarkdownDescription: "Latitude. Latitude of the site location.",
@@ -1409,6 +1417,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"custom_network_config": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_network_config, default_network_config; Default: default_network_config] SmsNetworkConfiguration.",
+
 				Attributes: map[string]schema.Attribute{
 					"tunnel_dead_timeout": schema.Int64Attribute{
 						MarkdownDescription: "Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used.",
@@ -1428,10 +1437,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				Blocks: map[string]schema.Block{
 					"active_enhanced_firewall_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("enhanced_firewall_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1466,10 +1477,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"active_forward_proxy_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1504,10 +1517,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"active_network_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for active network policies.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("network_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1554,6 +1569,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
@@ -1567,6 +1583,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"global_vn": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1603,6 +1620,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"global_vn": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1640,6 +1658,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"interface_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Configure network interfaces for this Secure Mesh site.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("interfaces")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"interfaces": schema.ListNestedBlock{
@@ -1668,6 +1687,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 										},
 										"dedicated_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for dedicated interface.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Name of the device for which interface is configured. Use wwan0 for 4G/LTE.",
@@ -1680,7 +1700,10 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(16384),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 512, Maximum: 16384},
+														),
 													},
 												},
 												"node": schema.StringAttribute{
@@ -1718,6 +1741,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 										},
 										"dedicated_management_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for dedicated management interface.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Name of the device for which interface is configured.",
@@ -1730,7 +1754,10 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(16384),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 512, Maximum: 16384},
+														),
 													},
 												},
 												"node": schema.StringAttribute{
@@ -1749,6 +1776,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 										},
 										"ethernet_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for ethernet interface.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Interface configuration for the ethernet device.",
@@ -1761,7 +1789,10 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(16384),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 512, Maximum: 16384},
+														),
 													},
 												},
 												"node": schema.StringAttribute{
@@ -1795,6 +1826,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												},
 												"dhcp_server": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for dhcp server.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 													Attributes: map[string]schema.Attribute{
 														"fixed_ip_map": schema.MapAttribute{
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
@@ -1914,6 +1946,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	Blocks: map[string]schema.Block{
 																		"configured_list": schema.SingleNestedBlock{
 																			MarkdownDescription: "IPV6DnsList.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																			Attributes: map[string]schema.Attribute{
 																				"dns_list": schema.ListAttribute{
 																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -1950,6 +1983,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																},
 																"stateful": schema.SingleNestedBlock{
 																	MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																	Attributes: map[string]schema.Attribute{
 																		"fixed_ip_map": schema.MapAttribute{
 																			MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -2060,6 +2094,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"node_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for a node.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 															Attributes: map[string]schema.Attribute{
 																"default_gw": schema.StringAttribute{
 																	MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -2097,6 +2132,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"node_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for a node.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 															Attributes: map[string]schema.Attribute{
 																"default_gw": schema.StringAttribute{
 																	MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -2168,6 +2204,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"dc_cluster_group": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2207,10 +2244,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"static_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static Routes. List of static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -2303,10 +2342,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"static_v6_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static v6 routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -2427,6 +2468,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"dc_cluster_group": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2466,10 +2508,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"static_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static Routes. List of static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -2562,10 +2606,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"static_v6_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static v6 routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -2674,13 +2720,15 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -2710,6 +2758,8 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"log_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: log_receiver, logs_streaming_disabled] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2746,7 +2796,8 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enable_offline_survivability_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for enable offline survivability mode.",
@@ -2758,6 +2809,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+
 				Attributes: map[string]schema.Attribute{
 					"operating_system_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
@@ -2775,7 +2827,8 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
@@ -2805,6 +2858,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+
 				Attributes: map[string]schema.Attribute{
 					"volterra_software_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",

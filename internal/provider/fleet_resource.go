@@ -1672,6 +1672,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"blocked_services": schema.ListNestedBlock{
 				MarkdownDescription: "Disable node local services on this site.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"network_type": schema.StringAttribute{
@@ -1697,10 +1698,13 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"bond_device_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: bond_device_list, no_bond_devices; Default: no_bond_devices] Bond Devices List. List of bond devices for this fleet.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("bond_devices")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
 						MarkdownDescription: "Bond Devices. List of bond devices.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"devices": schema.ListAttribute{
@@ -1739,6 +1743,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"lacp": schema.SingleNestedBlock{
 									MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 									Attributes: map[string]schema.Attribute{
 										"rate": schema.Int64Attribute{
 											MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -1756,6 +1761,8 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"dc_cluster_group": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dc_cluster_group, dc_cluster_group_inside, no_dc_cluster_group; Default: no_dc_cluster_group] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1786,6 +1793,8 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"dc_cluster_group_inside": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1828,7 +1837,8 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"device_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Add device for all interfaces belonging to this fleet.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"devices": schema.ListNestedBlock{
 						MarkdownDescription: "Configuration for all devices in the fleet. Examples of devices are - network interfaces, cameras, scanners etc. Configuration a device is applied on VER node if the VER node is member of this fleet and has an corresponding interface/device.",
@@ -1853,6 +1863,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							Blocks: map[string]schema.Block{
 								"network_device": schema.SingleNestedBlock{
 									MarkdownDescription: "Represents physical network interface. The 'interface' reference points to a Network Interface object. Attributes such as Labels, MTU from Network Interface must be applied to the device.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("interface")},
 									Attributes: map[string]schema.Attribute{
 										"use": schema.StringAttribute{
 											MarkdownDescription: "[Enum: NETWORK_INTERFACE_USE_REGULAR|NETWORK_INTERFACE_USE_OUTSIDE|NETWORK_INTERFACE_USE_INSIDE] Defines how the device is used If networking device is owned by VER, it is available for users to configure as required If networking device is owned by VER, it is included in bootstrap config and member of outside network. If networking device is owned by VER, it is included in bootstrap config.. Possible values are `NETWORK_INTERFACE_USE_REGULAR`, `NETWORK_INTERFACE_USE_OUTSIDE`, `NETWORK_INTERFACE_USE_INSIDE`. Defaults to `NETWORK_INTERFACE_USE_REGULAR`.",
@@ -1922,6 +1933,8 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"enable_vgpu": schema.SingleNestedBlock{
 				MarkdownDescription: "Licensing configuration for NVIDIA vGPU.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("server_port")},
+
 				Attributes: map[string]schema.Attribute{
 					"feature_type": schema.StringAttribute{
 						MarkdownDescription: "[Enum: UNLICENSED|VGPU|VWS|VCS] Set feature to be enabled Operate with a degraded vGPU performance Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation Enable NVIDIA Virtual Compute Server. Possible values are `UNLICENSED`, `VGPU`, `VWS`, `VCS`. Defaults to `UNLICENSED`.",
@@ -1948,6 +1961,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"inside_virtual_network": schema.ListNestedBlock{
 				MarkdownDescription: "Default inside (site local) virtual network for the fleet.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -1983,10 +1997,13 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"interface_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Add all interfaces belonging to this fleet.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("interfaces")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"interfaces": schema.ListNestedBlock{
 						MarkdownDescription: "Add all interfaces belonging to this fleet.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -2021,13 +2038,15 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -2057,6 +2076,8 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"log_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: log_receiver, logs_streaming_disabled] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2090,6 +2111,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"network_connectors": schema.ListNestedBlock{
 				MarkdownDescription: "Network Connector defines connection between two virtual networks in a given site. Fleet defines one or more such network connectors. The network connectors configuration is applied on all sites that are member of the fleet.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -2125,6 +2147,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"network_firewall": schema.ListNestedBlock{
 				MarkdownDescription: "Network Firewall defines firewall to be applied for the virtual networks in the fleet. The network firewall configuration is applied on all sites that are member of the fleet. Constraints The Network Firewall is applied on Virtual Networks of type site local network and site local inside network.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -2175,6 +2198,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"outside_virtual_network": schema.ListNestedBlock{
 				MarkdownDescription: "Default outside (site local) virtual network for the fleet.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -2210,7 +2234,8 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
@@ -2240,10 +2265,12 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"sriov_interfaces": schema.SingleNestedBlock{
 				MarkdownDescription: "List of all custom SR-IOV interfaces configuration.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"sriov_interface": schema.ListNestedBlock{
 						MarkdownDescription: "Use custom SR-IOV interfaces Configuration.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("interface_name", "number_of_vfs")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"interface_name": schema.StringAttribute{
@@ -2265,10 +2292,12 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"storage_class_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Add additional custom storage classes in Kubernetes for this fleet.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"storage_classes": schema.ListNestedBlock{
 						MarkdownDescription: "List of Storage Classes. List of custom storage classes.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_class_name", "storage_device")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"advanced_storage_parameters": schema.MapAttribute{
@@ -2460,7 +2489,10 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											MarkdownDescription: "Enable IOPS limitation. It must be between 100 and 100 million. If value is 0, IOPS limit is not defined.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.AtMost(100000000),
+												validators.Int64RangeSetValidator(
+													validators.Int64Range{Minimum: 0, Maximum: 0},
+													validators.Int64Range{Minimum: 100, Maximum: 100000000},
+												),
 											},
 										},
 									},
@@ -2472,10 +2504,12 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"storage_device_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Add additional custom storage classes in Kubernetes for this fleet.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"storage_devices": schema.ListNestedBlock{
 						MarkdownDescription: "List of Storage Devices. List of custom storage devices.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_device")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"advanced_advanced_parameters": schema.MapAttribute{
@@ -2497,6 +2531,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"hpe_storage": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for hpe storage.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("api_server_port", "username")},
 									Attributes: map[string]schema.Attribute{
 										"api_server_port": schema.Int64Attribute{
 											MarkdownDescription: "Storage server Port. Enter Storage Server Port.",
@@ -2542,6 +2577,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2562,6 +2598,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2584,6 +2621,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2604,6 +2642,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2628,6 +2667,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Blocks: map[string]schema.Block{
 										"netapp_backend_ontap_nas": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration of storage backend for NetApp ONTAP NAS.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
 											Attributes: map[string]schema.Attribute{
 												"auto_export_policy": schema.BoolAttribute{
 													MarkdownDescription: "Policy configuration for this feature.",
@@ -2751,6 +2791,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2771,6 +2812,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2793,6 +2835,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2813,6 +2856,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2985,6 +3029,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"netapp_backend_ontap_san": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration of storage backend for NetApp ONTAP SAN.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
 											Attributes: map[string]schema.Attribute{
 												"client_certificate": schema.StringAttribute{
 													MarkdownDescription: "Please Enter Base64-encoded value of client certificate. Used for certificate-based auth.",
@@ -3093,6 +3138,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3113,6 +3159,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3138,6 +3185,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3158,6 +3206,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3284,6 +3333,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3304,6 +3354,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3326,6 +3377,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3346,6 +3398,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3437,6 +3490,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"pure_service_orchestrator": schema.SingleNestedBlock{
 									MarkdownDescription: "Device configuration for Pure Storage Service Orchestrator.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_id")},
 									Attributes: map[string]schema.Attribute{
 										"cluster_id": schema.StringAttribute{
 											MarkdownDescription: "ClusterID is added as a prefix for all volumes created by this PSO installation. ClusterID is also used to identify the volumes used by the datastore, pso-db. ClusterID MUST BE UNIQUE for multiple K8s clusters running on top of the same storage arrays.",
@@ -3461,6 +3515,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"flash_array": schema.SingleNestedBlock{
 													MarkdownDescription: "Specify what storage flash arrays should be managed the plugin.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("default_fs_type", "flash_arrays", "iscsi_login_timeout", "san_type")},
 													Attributes: map[string]schema.Attribute{
 														"default_fs_opt": schema.StringAttribute{
 															MarkdownDescription: "Block volume default mkfs OPTIONS. Not recommended to change!",
@@ -3536,6 +3591,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																		Blocks: map[string]schema.Block{
 																			"blindfold_secret_info": schema.SingleNestedBlock{
 																				MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																				Attributes: map[string]schema.Attribute{
 																					"decryption_provider": schema.StringAttribute{
 																						MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3556,6 +3612,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																			},
 																			"clear_secret_info": schema.SingleNestedBlock{
 																				MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																				Attributes: map[string]schema.Attribute{
 																					"provider_ref": schema.StringAttribute{
 																						MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3579,6 +3636,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"flash_blade": schema.SingleNestedBlock{
 													MarkdownDescription: "Specify what storage flash blades should be managed the plugin.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("flash_blades")},
 													Attributes: map[string]schema.Attribute{
 														"enable_snapshot_directory": schema.BoolAttribute{
 															MarkdownDescription: "Enable Snapshot Directory. Enable/Disable FlashBlade snapshots.",
@@ -3640,6 +3698,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																		Blocks: map[string]schema.Block{
 																			"blindfold_secret_info": schema.SingleNestedBlock{
 																				MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																				Attributes: map[string]schema.Attribute{
 																					"decryption_provider": schema.StringAttribute{
 																						MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3660,6 +3719,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																			},
 																			"clear_secret_info": schema.SingleNestedBlock{
 																				MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																				Attributes: map[string]schema.Attribute{
 																					"provider_ref": schema.StringAttribute{
 																						MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3692,10 +3752,13 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"storage_interface_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Add all interfaces belonging to this fleet.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("interfaces")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"interfaces": schema.ListNestedBlock{
 						MarkdownDescription: "Add all interfaces belonging to this fleet.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -3730,10 +3793,13 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"storage_static_routes": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for storage static routes.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_routes")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"storage_routes": schema.ListNestedBlock{
 						MarkdownDescription: "List of Static Routes. List of storage static routes.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("subnets")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"attrs": schema.ListAttribute{
@@ -3885,6 +3951,8 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"usb_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

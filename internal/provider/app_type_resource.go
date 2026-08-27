@@ -160,13 +160,15 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 			}),
 			"business_logic_markup_setting": schema.SingleNestedBlock{
 				MarkdownDescription: "Settings specifying how API Discovery will be performed.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_spec": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
 					},
 					"discovered_api_settings": schema.SingleNestedBlock{
 						MarkdownDescription: "Discovered API Settings. Configure Discovered API Settings.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("purge_duration_for_inactive_discovered_apis")},
 						Attributes: map[string]schema.Attribute{
 							"purge_duration_for_inactive_discovered_apis": schema.Int64Attribute{
 								MarkdownDescription: "Inactive discovered API will be deleted after configured duration.",
@@ -184,6 +186,7 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"features": schema.ListNestedBlock{
 				MarkdownDescription: "Features. List of various AI/ML features enabled.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"type": schema.StringAttribute{

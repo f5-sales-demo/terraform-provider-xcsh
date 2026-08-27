@@ -334,18 +334,23 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"aws": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: aws, gcp] Amazon Web Services(AWS) CloudLink Provider. CloudLink for AWS Cloud Provider.",
+
 				Attributes: map[string]schema.Attribute{
 					"custom_asn": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [] F5XC will use custom ASN to create a Direct Connect Gateway.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.AtMost(4294967294),
+							validators.Int64RangeSetValidator(
+								validators.Int64Range{Minimum: 64512, Maximum: 65534},
+								validators.Int64Range{Minimum: 4200000000, Maximum: 4294967294},
+							),
 						},
 					},
 				},
 				Blocks: map[string]schema.Block{
 					"aws_cred": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -376,10 +381,12 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"byoc": schema.SingleNestedBlock{
 						MarkdownDescription: "Bring Your Own Connections. List of Bring You Own Connection.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("connections")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"connections": schema.ListNestedBlock{
 								MarkdownDescription: "List of Bring You Own Connections. These AWS Direct Connect connections are not managed by F5XC but will be used for connecting sites and REs.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("bgp_asn", "connection_id", "region", "vlan")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"bgp_asn": schema.Int64Attribute{
@@ -437,6 +444,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -457,6 +465,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -475,6 +484,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 										},
 										"ipv4": schema.SingleNestedBlock{
 											MarkdownDescription: "Configure BGP IPv4 peering for endpoints.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_router_peer_address", "router_peer_address")},
 											Attributes: map[string]schema.Attribute{
 												"aws_router_peer_address": schema.StringAttribute{
 													MarkdownDescription: "The BGP peer IP configured on the AWS endpoint.",
@@ -488,6 +498,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 										},
 										"metadata": schema.SingleNestedBlock{
 											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Human readable description.",
@@ -520,6 +531,8 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"enabled": schema.SingleNestedBlock{
 				MarkdownDescription: "CloudLink ADN Network Config.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("cloudlink_network_name")},
+
 				Attributes: map[string]schema.Attribute{
 					"cloudlink_network_name": schema.StringAttribute{
 						MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
@@ -532,14 +545,17 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"gcp": schema.SingleNestedBlock{
 				MarkdownDescription: "Google Cloud Platform (GCP) CloudLink Provider. CloudLink for GCP Cloud Provider.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"byoc": schema.SingleNestedBlock{
 						MarkdownDescription: "GCP Bring Your Own Connections. List of GCP Bring You Own Connections.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("connections")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"connections": schema.ListNestedBlock{
 								MarkdownDescription: "Each 'Bring Your Own Connection' represents a virtual connection that the customer has provisioned in the Cloud (.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("interconnect_attachment_name", "region")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"interconnect_attachment_name": schema.StringAttribute{
@@ -567,6 +583,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 									Blocks: map[string]schema.Block{
 										"metadata": schema.SingleNestedBlock{
 											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Human readable description.",
@@ -594,6 +611,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"gcp_cred": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

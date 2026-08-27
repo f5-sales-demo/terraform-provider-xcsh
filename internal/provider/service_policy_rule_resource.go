@@ -830,6 +830,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"api_group_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Matcher specifies a list of values for matching an input string. The match is considered successful if the input value is present in the list. The result of the match is inverted if invert_matcher is true.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("match")},
+
 				Attributes: map[string]schema.Attribute{
 					"invert_matcher": schema.BoolAttribute{
 						MarkdownDescription: "Invert String Matcher. Invert the match result.",
@@ -847,6 +849,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"arg_matchers": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for all POST args that need to be matched. The criteria for matching each arg are described in individual instances of ArgMatcherType. The actual arg values are extracted from the request API as a list of strings for each arg selector name.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"invert_matcher": schema.BoolAttribute{
@@ -902,6 +906,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"asn_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("as_numbers")},
+
 				Attributes: map[string]schema.Attribute{
 					"as_numbers": schema.ListAttribute{
 						MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
@@ -915,7 +921,9 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"asn_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Match any AS number contained in the list of bgp_asn_sets.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("asn_sets")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"asn_sets": schema.ListNestedBlock{
 						MarkdownDescription: "List of references to bgp_asn_set objects.",
@@ -956,6 +964,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"body_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+
 				Attributes: map[string]schema.Attribute{
 					"exact_values": schema.ListAttribute{
 						MarkdownDescription: "List of exact values to match the input against.",
@@ -985,7 +994,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"bot_action": schema.SingleNestedBlock{
 				MarkdownDescription: "Modify Bot protection behavior for a matching request. The modification could be to entirely skip Bot processing.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bot_skip_processing": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -997,6 +1007,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"client_name_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+
 				Attributes: map[string]schema.Attribute{
 					"exact_values": schema.ListAttribute{
 						MarkdownDescription: "List of exact values to match the input against.",
@@ -1018,6 +1029,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"client_selector": schema.SingleNestedBlock{
 				MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
+
 				Attributes: map[string]schema.Attribute{
 					"expressions": schema.ListAttribute{
 						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -1031,6 +1044,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"cookie_matchers": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"invert_matcher": schema.BoolAttribute{
@@ -1086,6 +1101,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"domain_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+
 				Attributes: map[string]schema.Attribute{
 					"exact_values": schema.ListAttribute{
 						MarkdownDescription: "List of exact values to match the input against.",
@@ -1107,6 +1123,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"headers": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"invert_matcher": schema.BoolAttribute{
@@ -1162,6 +1180,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"http_method": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true.",
+
 				Attributes: map[string]schema.Attribute{
 					"invert_matcher": schema.BoolAttribute{
 						MarkdownDescription: "Invert Method Matcher. Invert the match result.",
@@ -1179,6 +1198,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"ip_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("prefix_sets")},
+
 				Attributes: map[string]schema.Attribute{
 					"invert_matcher": schema.BoolAttribute{
 						MarkdownDescription: "Invert IP Matcher. Invert the match result.",
@@ -1225,6 +1246,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"ip_prefix_list": schema.SingleNestedBlock{
 				MarkdownDescription: "List of IP Prefix strings to match against.",
+
 				Attributes: map[string]schema.Attribute{
 					"invert_match": schema.BoolAttribute{
 						MarkdownDescription: "Invert Match Result. Invert the match result.",
@@ -1242,6 +1264,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"ip_threat_category_list": schema.SingleNestedBlock{
 				MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_threat_categories")},
+
 				Attributes: map[string]schema.Attribute{
 					"ip_threat_categories": schema.ListAttribute{
 						MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
@@ -1255,6 +1279,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"ja4_tls_fingerprint": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ja4_tls_fingerprint, tls_fingerprint_matcher] Extended version of JA3 that includes additional fields for more comprehensive fingerprinting of SSL/TLS clients and potentially has a different structure and length.",
+
 				Attributes: map[string]schema.Attribute{
 					"exact_values": schema.ListAttribute{
 						MarkdownDescription: "List of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint against.",
@@ -1268,6 +1293,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"jwt_claims": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"invert_matcher": schema.BoolAttribute{
@@ -1323,6 +1350,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"label_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
+
 				Attributes: map[string]schema.Attribute{
 					"keys": schema.ListAttribute{
 						MarkdownDescription: "The list of label key names that have to match.",
@@ -1336,7 +1364,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"mum_action": schema.SingleNestedBlock{
 				MarkdownDescription: "Modify behavior for a matching request. The modification could be to entirely skip processing.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"default": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -1348,6 +1377,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"path": schema.SingleNestedBlock{
 				MarkdownDescription: "Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
+
 				Attributes: map[string]schema.Attribute{
 					"encoded_path_matcher": schema.BoolAttribute{
 						MarkdownDescription: "Match against the encoded, escaped path.",
@@ -1401,6 +1431,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"query_params": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query..",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("key")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"invert_matcher": schema.BoolAttribute{
@@ -1456,6 +1488,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"request_constraints": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for request constraints.",
+
 				Attributes: map[string]schema.Attribute{
 					"max_cookie_count_exceeds": schema.Int64Attribute{
 						MarkdownDescription: "Match on the Count for all Cookies that exceed this value. Exclusive with [max_cookie_count_none]",
@@ -1593,17 +1626,20 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"segment_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Configure source and destination segment for policy.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"dst_any": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
 					},
 					"dst_segments": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for dst segments.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("segments")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"segments": schema.ListNestedBlock{
 								MarkdownDescription: "Segments. Select list of segments.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1644,10 +1680,12 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"src_segments": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for src segments.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("segments")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"segments": schema.ListNestedBlock{
 								MarkdownDescription: "Segments. Select list of segments.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1684,6 +1722,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"tls_fingerprint_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+
 				Attributes: map[string]schema.Attribute{
 					"classes": schema.ListAttribute{
 						MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -1713,7 +1752,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"waf_action": schema.SingleNestedBlock{
 				MarkdownDescription: "Modify App Firewall behavior for a matching request. The modification could either be to entirely skip firewall processing or to customize the firewall rules to be applied as defined by App Firewall Rule Control settings.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"app_firewall_detection_control": schema.SingleNestedBlock{
 						MarkdownDescription: "Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria.",
@@ -1749,6 +1789,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"exclude_bot_name_contexts": schema.ListNestedBlock{
 								MarkdownDescription: "Bot Names to be excluded for the defined match criteria.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("bot_name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"bot_name": schema.StringAttribute{
@@ -1760,6 +1801,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"exclude_signature_contexts": schema.ListNestedBlock{
 								MarkdownDescription: "Signature IDs to be excluded for the defined match criteria.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("signature_id")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"context": schema.StringAttribute{
@@ -1826,6 +1868,8 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"port_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true. Server applies default when omitted.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
+
 				Attributes: map[string]schema.Attribute{
 					"invert_matcher": schema.BoolAttribute{
 						MarkdownDescription: "Invert Port Matcher. Invert the match result.",

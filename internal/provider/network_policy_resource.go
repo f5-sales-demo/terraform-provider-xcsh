@@ -458,7 +458,8 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 			}),
 			"endpoint": schema.SingleNestedBlock{
 				MarkdownDescription: "Shape of the endpoint choices for a view.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"any": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -468,6 +469,7 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"label_selector": schema.SingleNestedBlock{
 						MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 						Attributes: map[string]schema.Attribute{
 							"expressions": schema.ListAttribute{
 								MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -499,7 +501,8 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"rules": schema.SingleNestedBlock{
 				MarkdownDescription: "Rule Choice. Shape of Rule Choice.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"egress_rules": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered list of rules applied to connections from policy endpoints.",
@@ -607,6 +610,7 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"label_selector": schema.SingleNestedBlock{
 									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 									Attributes: map[string]schema.Attribute{
 										"expressions": schema.ListAttribute{
 											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -620,6 +624,7 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -782,6 +787,7 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"label_selector": schema.SingleNestedBlock{
 									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 									Attributes: map[string]schema.Attribute{
 										"expressions": schema.ListAttribute{
 											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -795,6 +801,7 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",

@@ -20,7 +20,9 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  enable_ip_reputation {}
+  enable_ip_reputation {
+    ip_threat_categories = ["SPAM_SOURCES"]
+  }
 
   advertise_on_public_default_vip {}
 }

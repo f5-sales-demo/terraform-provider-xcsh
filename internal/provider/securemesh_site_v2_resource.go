@@ -4650,10 +4650,13 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"active_enhanced_firewall_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_enhanced_firewall_policies, no_network_policy; Default: no_network_policy] List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("enhanced_firewall_policies")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enhanced_firewall_policies": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -4688,10 +4691,13 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"active_forward_proxy_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_forward_proxy_policies, no_forward_proxy; Default: no_forward_proxy] Ordered List of Forward Proxy Policies active.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"forward_proxy_policies": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -4726,6 +4732,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"admin_user_credentials": schema.SingleNestedBlock{
 				MarkdownDescription: "Setup user credentials to manage access to nodes belonging to the site. When configured, 'admin' user will be setup and customers can access these nodes via either the node local WebUI or via SSH to access shell/CLI Ensure 'Node Local Services' are enabled to allow for required access.",
+
 				Attributes: map[string]schema.Attribute{
 					"ssh_key": schema.StringAttribute{
 						MarkdownDescription: "Provided Public SSH key can be used for accessing nodes of the site. When provided, customers can SSH to the nodes of this Customer Edge site using admin as the user.",
@@ -4742,6 +4749,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -4762,6 +4770,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -4782,7 +4791,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"aws": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: aws, azure, baremetal, equinix, gcp, kvm, nutanix, oci, openshift_virtualization, openstack, vmware] AWS Provider Type. AWS Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -4843,7 +4853,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -4864,6 +4877,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -4901,6 +4915,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -4918,6 +4933,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -4961,6 +4977,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -4997,6 +5014,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -5102,6 +5120,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -5137,6 +5156,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -5160,6 +5180,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -5189,7 +5210,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"azure": schema.SingleNestedBlock{
 				MarkdownDescription: "Azure Provider Type. Azure Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -5250,7 +5272,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -5271,6 +5296,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -5308,6 +5334,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -5325,6 +5352,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -5368,6 +5396,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -5404,6 +5433,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -5509,6 +5539,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -5544,6 +5575,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -5567,6 +5599,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -5596,7 +5629,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"baremetal": schema.SingleNestedBlock{
 				MarkdownDescription: "Baremetal Provider Type. Baremetal Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -5657,7 +5691,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -5678,6 +5715,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -5715,6 +5753,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -5732,6 +5771,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -5775,6 +5815,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -5811,6 +5852,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -5916,6 +5958,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -5951,6 +5994,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -5974,6 +6018,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -6006,7 +6051,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"blocked_services": schema.SingleNestedBlock{
 				MarkdownDescription: "Disable node local services on this site.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
@@ -6037,6 +6083,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"custom_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_proxy, f5_proxy] Configuration parameter for custom proxy.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("proxy_ip_address", "proxy_port")},
+
 				Attributes: map[string]schema.Attribute{
 					"proxy_ip_address": schema.StringAttribute{
 						MarkdownDescription: "Specify the IPv4 Address of the internal Enterprise Proxy.",
@@ -6071,6 +6119,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -6091,6 +6140,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -6111,6 +6161,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"custom_proxy_bypass": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_proxy_bypass, no_proxy_bypass; Default: no_proxy_bypass] Configuration parameter for custom proxy bypass.",
+
 				Attributes: map[string]schema.Attribute{
 					"proxy_bypass": schema.ListAttribute{
 						MarkdownDescription: "Proxy Bypass. List of domains to bypass the proxy.",
@@ -6124,6 +6175,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"dc_cluster_group_sli": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dc_cluster_group_sli, no_s2s_connectivity_sli; Default: no_s2s_connectivity_sli] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -6154,6 +6207,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"dc_cluster_group_slo": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dc_cluster_group_slo, no_s2s_connectivity_slo, site_mesh_group_on_slo; Default: no_s2s_connectivity_slo] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -6199,7 +6254,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"dns_ntp_config": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify DNS and NTP servers that will be used by the nodes in this Customer Edge site.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"custom_dns": schema.SingleNestedBlock{
 						MarkdownDescription: "DNS Servers. DNS Servers.",
@@ -6252,7 +6308,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"equinix": schema.SingleNestedBlock{
 				MarkdownDescription: "Equinix Provider Type. Equinix Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -6313,7 +6370,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -6334,6 +6394,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -6371,6 +6432,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -6388,6 +6450,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -6431,6 +6494,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -6467,6 +6531,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -6572,6 +6637,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -6607,6 +6673,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -6630,6 +6697,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -6662,7 +6730,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"gcp": schema.SingleNestedBlock{
 				MarkdownDescription: "GCP Provider Type. GCP Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -6723,7 +6792,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -6744,6 +6816,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -6781,6 +6854,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -6798,6 +6872,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -6841,6 +6916,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -6877,6 +6953,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -6982,6 +7059,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -7017,6 +7095,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -7040,6 +7119,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -7069,7 +7149,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"kvm": schema.SingleNestedBlock{
 				MarkdownDescription: "KVM Provider Type. KVM Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -7130,7 +7211,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -7151,6 +7235,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -7188,6 +7273,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -7205,6 +7291,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -7248,6 +7335,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -7284,6 +7372,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -7389,6 +7478,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -7424,6 +7514,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -7447,6 +7538,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -7476,6 +7568,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"load_balancing": schema.SingleNestedBlock{
 				MarkdownDescription: "Section contains settings on the site that relate to Load Balancing functionality.",
+
 				Attributes: map[string]schema.Attribute{
 					"vip_vrrp_mode": schema.StringAttribute{
 						MarkdownDescription: "[Enum: VIP_VRRP_INVALID|VIP_VRRP_ENABLE|VIP_VRRP_DISABLE] VRRP advertisement mode for VIP Invalid VRRP mode. Possible values are `VIP_VRRP_INVALID`, `VIP_VRRP_ENABLE`, `VIP_VRRP_DISABLE`. Defaults to `VIP_VRRP_INVALID`.",
@@ -7488,7 +7581,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"local_vrf": schema.SingleNestedBlock{
 				MarkdownDescription: "There can be two local VRFs on each site. The Site Local Outside (SLO) local VRF is used to connect WAN side workloads to this site and to connect the site to F5 Distributed Cloud for management. All sites are required to have an SLO local VRF.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"default_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -7538,10 +7632,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"static_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Configuration parameter for static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -7634,10 +7730,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"static_v6_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static v6 routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -7772,10 +7870,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"static_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Configuration parameter for static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -7868,10 +7968,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"static_v6_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static v6 routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -7968,10 +8070,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"log_receiver_with_net": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: log_receiver_with_net, logs_streaming_disabled] Select log receiver for logs streaming with network option.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"log_receiver": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -8028,7 +8132,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"nutanix": schema.SingleNestedBlock{
 				MarkdownDescription: "Nutanix Provider Type. Nutanix Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -8089,7 +8194,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -8110,6 +8218,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -8147,6 +8256,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -8164,6 +8274,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -8207,6 +8318,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -8243,6 +8355,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -8348,6 +8461,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -8383,6 +8497,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -8406,6 +8521,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -8435,7 +8551,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"oci": schema.SingleNestedBlock{
 				MarkdownDescription: "OCI Provider Type. OCI Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -8496,7 +8613,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -8517,6 +8637,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -8554,6 +8675,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -8571,6 +8693,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -8614,6 +8737,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -8650,6 +8774,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -8755,6 +8880,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -8790,6 +8916,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -8813,6 +8940,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -8842,7 +8970,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enable_offline_survivability_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for enable offline survivability mode.",
@@ -8854,7 +8983,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"openshift_virtualization": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for openshift virtualization.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -8915,7 +9045,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -8936,6 +9069,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -8973,6 +9107,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -8990,6 +9125,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -9033,6 +9169,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -9069,6 +9206,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -9174,6 +9312,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -9209,6 +9348,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -9232,6 +9372,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -9261,7 +9402,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"openstack": schema.SingleNestedBlock{
 				MarkdownDescription: "Openstack Provider Type. Openstack Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -9322,7 +9464,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -9343,6 +9488,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -9380,6 +9526,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -9397,6 +9544,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -9440,6 +9588,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -9476,6 +9625,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -9581,6 +9731,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -9616,6 +9767,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -9639,6 +9791,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",
@@ -9668,7 +9821,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
@@ -9698,7 +9852,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"re_select": schema.SingleNestedBlock{
 				MarkdownDescription: "Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s).",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"geo_proximity": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for geo proximity.",
@@ -9723,6 +9878,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"segment_vrf": schema.ListNestedBlock{
 				MarkdownDescription: "The Segment VRF is valid across all Sites of a Tenant. These are identified with a Segment name. Though these VRFs are across all Sites of a Tenant, there are some configurations that are valid per Site that can be configured here.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
@@ -9755,10 +9911,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								},
 								"static_routes": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for static routes.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"static_routes": schema.ListNestedBlock{
 											MarkdownDescription: "Configuration parameter for static routes.",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"attrs": schema.ListAttribute{
@@ -9851,10 +10009,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								},
 								"static_v6_routes": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for static v6 routes.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"static_routes": schema.ListNestedBlock{
 											MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"attrs": schema.ListAttribute{
@@ -9985,13 +10145,15 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"site_mesh_group_on_slo": schema.SingleNestedBlock{
 				MarkdownDescription: "Select how the site mesh group will be connected. By default, public IPs of the control nodes of the site will be used.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"no_site_mesh_group": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
 					},
 					"site_mesh_group": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -10030,7 +10192,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"software_settings": schema.SingleNestedBlock{
 				MarkdownDescription: "Select OS and Software version for the site. All nodes in the site will run the same OS and Software version. These settings cannot be changed after the site is created.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"os": schema.SingleNestedBlock{
 						MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
@@ -10070,7 +10233,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"upgrade_settings": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for upgrade settings.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
@@ -10081,6 +10245,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"enable_upgrade_drain": schema.SingleNestedBlock{
 								MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
 								Attributes: map[string]schema.Attribute{
 									"drain_max_unavailable_node_count": schema.Int64Attribute{
 										MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -10112,7 +10277,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"vmware": schema.SingleNestedBlock{
 				MarkdownDescription: "VMware Provider Type. VMware Provider Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
 						MarkdownDescription: "Section will show nodes associated with this site.",
@@ -10173,7 +10339,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.AtMost(16384),
+															validators.Int64RangeSetValidator(
+																validators.Int64Range{Minimum: 0, Maximum: 0},
+																validators.Int64Range{Minimum: 512, Maximum: 16384},
+															),
 														},
 													},
 													"name": schema.StringAttribute{
@@ -10194,6 +10363,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -10231,6 +10401,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"lacp": schema.SingleNestedBlock{
 																MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 																Attributes: map[string]schema.Attribute{
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -10248,6 +10419,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -10291,6 +10463,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6DnsList.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																				Attributes: map[string]schema.Attribute{
 																					"dns_list": schema.ListAttribute{
 																						MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -10327,6 +10500,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -10432,6 +10606,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Configure Static IP parameters for a node.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 														Attributes: map[string]schema.Attribute{
 															"default_gw": schema.StringAttribute{
 																MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -10467,6 +10642,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"node_static_ip": schema.SingleNestedBlock{
 																MarkdownDescription: "Configure Static IP parameters for a node.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 																Attributes: map[string]schema.Attribute{
 																	"default_gw": schema.StringAttribute{
 																		MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -10490,6 +10666,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"vlan_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for vlan interface.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select a parent interface from the dropdown.",

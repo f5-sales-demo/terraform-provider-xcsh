@@ -233,7 +233,8 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 			}),
 			"user_defined_api_discovery_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Rules are evaluated sequentially, top to bottom. If no rules are added, all traffic will be discovered or ignored based on the selection in the 'Default Behaviour of the Rule Set' field.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"discovery_rules": schema.ListNestedBlock{
 						MarkdownDescription: "Define rules to include or exclude endpoints by path, domain, or header. Rules run top to bottom; unmatched endpoints follow the default action. Defaults to `[]`. Server applies default when omitted.",
@@ -245,6 +246,7 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -288,6 +290,7 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 										},
 										"http_header_criteria": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for http header criteria.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("field_name", "value")},
 											Attributes: map[string]schema.Attribute{
 												"field_name": schema.StringAttribute{
 													MarkdownDescription: "HTTP Header Name. Human-readable name for the resource",
@@ -346,6 +349,8 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 			},
 			"custom_auth_types": schema.ListNestedBlock{
 				MarkdownDescription: "Select your custom authentication types to be detected in the API discovery. Defaults to `[]`. Server applies default when omitted.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("parameter_name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"parameter_name": schema.StringAttribute{

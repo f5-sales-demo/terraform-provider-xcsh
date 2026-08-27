@@ -299,6 +299,8 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"app_type_settings": schema.ListNestedBlock{
 				MarkdownDescription: "List of settings to enable for each AppType, given instance of AppType Exist in this Namespace.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("app_type_ref")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
@@ -428,6 +430,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"include_failed_login_activity": schema.SingleNestedBlock{
 											MarkdownDescription: "When enabled, the system monitors persistent failed login attempts from a user. A failed login is detected if a request results in a response code of 401. These settings specify how to use failed login activity to determine suspicious behavior.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("login_failures_threshold")},
 											Attributes: map[string]schema.Attribute{
 												"login_failures_threshold": schema.Int64Attribute{
 													MarkdownDescription: "The number of failed logins beyond which the system will flag this user as malicious.",
@@ -440,6 +443,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"include_forbidden_activity": schema.SingleNestedBlock{
 											MarkdownDescription: "When L7 policy rules are set up to disallow certain types of requests, the system monitors persistent attempts from a user to send requests which result in policy denies. These settings specify how to use disallowed request activity from a user to determine suspicious behavior.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("forbidden_requests_threshold")},
 											Attributes: map[string]schema.Attribute{
 												"forbidden_requests_threshold": schema.Int64Attribute{
 													MarkdownDescription: "The number of forbidden requests beyond which the system will flag this user as malicious.",
@@ -470,6 +474,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"include_non_existent_url_activity_custom": schema.SingleNestedBlock{
 											MarkdownDescription: "Non-existent URL Custom Activity Setting.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("nonexistent_requests_threshold")},
 											Attributes: map[string]schema.Attribute{
 												"nonexistent_requests_threshold": schema.Int64Attribute{
 													MarkdownDescription: "The percentage of non-existent requests beyond which the system will flag this user as malicious.",

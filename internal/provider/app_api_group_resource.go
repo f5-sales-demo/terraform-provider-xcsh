@@ -212,6 +212,8 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"elements": schema.ListNestedBlock{
 				MarkdownDescription: "List of API group elements with methods and path regex for matching requests.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("methods", "path_regex")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"methods": schema.ListAttribute{
@@ -234,10 +236,12 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"bigip_virtual_server": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: bigip_virtual_server, cdn_loadbalancer, http_loadbalancer] Set the scope of the API Group to a specific BIG-IP Virtual Server.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bigip_virtual_server": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -270,10 +274,12 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"cdn_loadbalancer": schema.SingleNestedBlock{
 				MarkdownDescription: "Set the scope of the API Group to a specific CDN Loadbalancer.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"cdn_loadbalancer": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -306,10 +312,12 @@ func (r *AppAPIGroupResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"http_loadbalancer": schema.SingleNestedBlock{
 				MarkdownDescription: "Set the scope of the API Group to a specific HTTP Loadbalancer.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"http_loadbalancer": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

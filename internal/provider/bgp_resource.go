@@ -463,6 +463,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			}),
 			"peers": schema.ListNestedBlock{
 				MarkdownDescription: "Peers. List of peers.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"label": schema.StringAttribute{
@@ -476,6 +477,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 						},
 						"bfd_enabled": schema.SingleNestedBlock{
 							MarkdownDescription: "BFD. BFD parameters.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("multiplier", "receive_interval_milliseconds", "transmit_interval_milliseconds")},
 							Attributes: map[string]schema.Attribute{
 								"multiplier": schema.Int64Attribute{
 									MarkdownDescription: "Specify Number of missed packets to bring session down'.",
@@ -505,6 +507,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 						},
 						"external": schema.SingleNestedBlock{
 							MarkdownDescription: "External BGP Peer. External BGP Peer parameters.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("asn", "port")},
 							Attributes: map[string]schema.Attribute{
 								"address": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [default_gateway disable external_connector from_site subnet_begin_offset subnet_end_offset] Specify IPv4 peer address.",
@@ -632,6 +635,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								},
 								"interface": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -662,10 +666,12 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								},
 								"interface_list": schema.SingleNestedBlock{
 									MarkdownDescription: "Interface List. List of network interfaces.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("interfaces")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"interfaces": schema.ListNestedBlock{
 											MarkdownDescription: "Interface List. List of network interfaces.",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
@@ -705,6 +711,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 						},
 						"metadata": schema.SingleNestedBlock{
 							MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 							Attributes: map[string]schema.Attribute{
 								"description_spec": schema.StringAttribute{
 									MarkdownDescription: "Description. Human readable description.",
@@ -734,6 +741,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 							Blocks: map[string]schema.Block{
 								"route_policy": schema.ListNestedBlock{
 									MarkdownDescription: "Policy configuration for this feature.",
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("object_refs")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
@@ -801,6 +809,8 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			},
 			"bgp_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for bgp parameters.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("asn")},
+
 				Attributes: map[string]schema.Attribute{
 					"asn": schema.Int64Attribute{
 						MarkdownDescription: "ASN. Autonomous System Number.",
@@ -829,10 +839,12 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "VirtualSiteSiteRefSelector defines a union of reference to site or reference to virtual_site It used to refer site or a group of sites indicated by virtual site.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
@@ -888,6 +900,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",

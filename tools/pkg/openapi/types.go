@@ -140,6 +140,13 @@ type Schema struct {
 	XF5xcWireName string `json:"x-f5xc-wire-name"`
 }
 
+// Int64RangeSpan is one inclusive interval in a possibly discontinuous integer
+// constraint. Multiple spans are ordered and non-overlapping in generator IR.
+type Int64RangeSpan struct {
+	Minimum int64
+	Maximum int64
+}
+
 // TerraformAttribute represents an attribute in a Terraform resource schema.
 type TerraformAttribute struct {
 	Name               string
@@ -149,6 +156,7 @@ type TerraformAttribute struct {
 	ElementType        string
 	Description        string
 	Required           bool
+	CreateRequired     bool // Required when the containing optional block is configured.
 	Optional           bool
 	Computed           bool
 	Sensitive          bool
@@ -190,6 +198,9 @@ type TerraformAttribute struct {
 	// value), so an int64 field with minimum:0 still emits a range validator.
 	HasMinimum bool
 	HasMaximum bool
+	// Int64RangeSpans preserves range-set rules such as "0,512-16384" without
+	// widening the gap into a single minimum/maximum interval.
+	Int64RangeSpans []Int64RangeSpan
 }
 
 // ResourceTemplate contains data for generating a Terraform resource.
@@ -362,6 +373,9 @@ type GenerationResult struct {
 	Success      bool
 	Error        string
 	FilePath     string
+	// Attributes carries the generated Terraform schema IR for validations that
+	// must run after extraction (for example SMSv2 legacy parity).
+	Attributes []TerraformAttribute
 
 	// ---- SP-1 additions: generation metrics ----
 	AttrCount  int  // Number of attributes generated

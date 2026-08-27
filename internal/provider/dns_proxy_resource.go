@@ -688,6 +688,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			}),
 			"cache_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "DNS Cache specifies cache configuration.",
+
 				Attributes: map[string]schema.Attribute{
 					"cache_size": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [disable_cache_profile] cache size.",
@@ -705,7 +706,8 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_ddos_mitigation": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -717,6 +719,8 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"irules": schema.ListNestedBlock{
 				MarkdownDescription: "OPTIONS for attaching iRules to DNS proxy.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
@@ -749,7 +753,8 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"lb_algorithm": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for lb algorithm.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"round_robin": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for round robin.",
@@ -758,10 +763,13 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"origin_servers": schema.SingleNestedBlock{
 				MarkdownDescription: "List of origin Servers for the DNS proxy.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("origin_servers")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"health_checks": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for health checks.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check", "healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 						Attributes: map[string]schema.Attribute{
 							"healthy_threshold": schema.Int64Attribute{
 								MarkdownDescription: "Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy.",
@@ -800,6 +808,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"dns_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "DNS health check reports healthy if DNS query is successful and response header and answer matches the given value.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("expected_response", "query_name")},
 											Attributes: map[string]schema.Attribute{
 												"expected_rcode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: DNS_RES_RCODE_NOERROR|DNS_RES_RCODE_ANY] Expected DNS Response Rcode Type - DNS_RES_RCODE_NOERROR: Rcode NOERROR - DNS_RES_RCODE_ANY: RCODE ANY. Possible values are `DNS_RES_RCODE_NOERROR`, `DNS_RES_RCODE_ANY`. Defaults to `DNS_RES_RCODE_NOERROR`.",
@@ -847,6 +856,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"tcp_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("expected_response", "send_payload")},
 											Attributes: map[string]schema.Attribute{
 												"expected_response": schema.StringAttribute{
 													MarkdownDescription: "Specifies a regular expression pattern which will be matched against response payload.",
@@ -902,6 +912,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -932,6 +943,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 												"virtual_site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1007,6 +1019,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"public_name": schema.SingleNestedBlock{
 									MarkdownDescription: "Specify origin server with public DNS name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_name")},
 									Attributes: map[string]schema.Attribute{
 										"dns_name": schema.StringAttribute{
 											MarkdownDescription: "DNS Name. DNS Name",
@@ -1019,7 +1032,10 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.AtMost(604800),
+												validators.Int64RangeSetValidator(
+													validators.Int64Range{Minimum: 0, Maximum: 0},
+													validators.Int64Range{Minimum: 10, Maximum: 604800},
+												),
 											},
 										},
 									},
@@ -1030,6 +1046,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"refs": schema.ListNestedBlock{
 											MarkdownDescription: "Site References. Reference to one or more sites.",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
@@ -1069,6 +1086,8 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"protocol_inspection": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1099,10 +1118,12 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"proxy_advertisement": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for proxy advertisement.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_custom": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines a way to advertise a VIP on specific sites.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("advertise_where")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
@@ -1131,6 +1152,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"public_ip": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1183,6 +1205,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1245,6 +1268,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 												"virtual_network": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1289,6 +1313,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"virtual_site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1341,6 +1366,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"virtual_site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1377,6 +1403,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1407,6 +1434,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 												"virtual_site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1448,6 +1476,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"public_ip": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

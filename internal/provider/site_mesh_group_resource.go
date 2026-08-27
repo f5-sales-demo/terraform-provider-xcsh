@@ -221,6 +221,8 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"bfd_enabled": schema.SingleNestedBlock{
 				MarkdownDescription: "BFD. BFD parameters.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("multiplier", "receive_interval_milliseconds", "transmit_interval_milliseconds")},
+
 				Attributes: map[string]schema.Attribute{
 					"multiplier": schema.Int64Attribute{
 						MarkdownDescription: "Specify Number of missed packets to bring session down'.",
@@ -253,7 +255,8 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"full_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: full_mesh, hub_mesh, spoke_mesh] Full Mesh. Details of Full Mesh Group Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"control_and_data_plane_mesh": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -265,7 +268,8 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"hub_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "Hub Full Mesh. Details of Hub Full Mesh Group Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"control_and_data_plane_mesh": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -277,7 +281,8 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"spoke_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "Spoke. Details of Spoke Mesh Group Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"control_and_data_plane_mesh": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -287,6 +292,7 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"hub_mesh_group": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -319,6 +325,7 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"virtual_site": schema.ListNestedBlock{
 				MarkdownDescription: "Set of sites for which this mesh group config is valid. If 'Type' is Spoke, then it gives set of spoke sites. If 'Type' is Hub, then it gives set of hub sites.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{

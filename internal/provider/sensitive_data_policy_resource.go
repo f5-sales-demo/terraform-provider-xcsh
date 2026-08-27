@@ -176,11 +176,13 @@ func (r *SensitiveDataPolicyResource) Schema(ctx context.Context, req resource.S
 			}),
 			"custom_data_types": schema.ListNestedBlock{
 				MarkdownDescription: "Select your custom data types to be monitored in the API discovery. Defaults to `[]`. Server applies default when omitted.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
 						"custom_data_type_ref": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

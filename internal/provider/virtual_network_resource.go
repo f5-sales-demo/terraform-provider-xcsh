@@ -213,6 +213,8 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"static_routes": schema.ListNestedBlock{
 				MarkdownDescription: "List of static routes on the virtual network.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"attrs": schema.ListAttribute{

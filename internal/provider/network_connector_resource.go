@@ -339,6 +339,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"enable_forward_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the..",
+
 				Attributes: map[string]schema.Attribute{
 					"connection_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for new network connections to upstream server. This is specified in milliseconds. The  (2 seconds). Defaults to `2000`.",
@@ -389,6 +390,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 						Blocks: map[string]schema.Block{
 							"custom_certificate": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for custom certificate.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificate_url")},
 								Attributes: map[string]schema.Attribute{
 									"certificate_url": schema.StringAttribute{
 										MarkdownDescription: "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
@@ -405,6 +407,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 								Blocks: map[string]schema.Block{
 									"custom_hash_algorithms": schema.SingleNestedBlock{
 										MarkdownDescription: "Specifies the hash algorithms to be used.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 										Attributes: map[string]schema.Attribute{
 											"hash_algorithms": schema.ListAttribute{
 												MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -425,6 +428,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -445,6 +449,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -471,6 +476,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"policy": schema.SingleNestedBlock{
 								MarkdownDescription: "Policy to enable or disable TLS interception.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("interception_rules")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"interception_rules": schema.ListNestedBlock{
@@ -527,10 +533,12 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"sli_to_global_dr": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: sli_to_global_dr, sli_to_slo_snat, slo_to_global_dr] Global network reference for direct connection.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"global_vn": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -563,7 +571,8 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"sli_to_slo_snat": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for sli to slo snat.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"default_gw_snat": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for default gw snat.",
@@ -575,10 +584,12 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"slo_to_global_dr": schema.SingleNestedBlock{
 				MarkdownDescription: "Global network reference for direct connection.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"global_vn": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

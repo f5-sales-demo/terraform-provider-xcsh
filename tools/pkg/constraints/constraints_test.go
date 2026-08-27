@@ -287,3 +287,38 @@ func TestParse_Format(t *testing.T) {
 		}())
 	}
 }
+
+func TestParseInt64RangeSpans(t *testing.T) {
+	spans, err := ParseInt64RangeSpans(map[string]string{
+		"ves.io.schema.rules.uint32.ranges": "512-16384,0",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := []Int64RangeSpan{{Minimum: 0, Maximum: 0}, {Minimum: 512, Maximum: 16384}}
+	if !reflect.DeepEqual(spans, want) {
+		t.Fatalf("spans = %#v, want %#v", spans, want)
+	}
+}
+
+func TestParseInt64RangeSpansRejectsMalformedContract(t *testing.T) {
+	for _, value := range []string{"", "512-0", "0,broken", "1-2-3"} {
+		t.Run(value, func(t *testing.T) {
+			_, err := ParseInt64RangeSpans(map[string]string{
+				"ves.io.schema.rules.uint32.ranges": value,
+			})
+			if err == nil {
+				t.Fatalf("ParseInt64RangeSpans(%q) succeeded, want an error", value)
+			}
+		})
+	}
+}
+
+func TestParseInt64RangeSpansAbsent(t *testing.T) {
+	spans, err := ParseInt64RangeSpans(map[string]string{
+		"ves.io.schema.rules.uint32.maximum": "16384",
+	})
+	if err != nil || spans != nil {
+		t.Fatalf("spans=%#v err=%v, want nil, nil", spans, err)
+	}
+}

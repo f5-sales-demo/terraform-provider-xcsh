@@ -8207,6 +8207,8 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 			}),
 			"job": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: job, service, simple_service, stateful_service] Jobs are used for running batch processing tasks and run to completion. Jobs are generally used for tasks like report generation, billing, parallel data processing, ETL processing, etc.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("containers")},
+
 				Attributes: map[string]schema.Attribute{
 					"num_replicas": schema.Int64Attribute{
 						MarkdownDescription: "Number of replicas of the batch job to spawn per site.",
@@ -8247,6 +8249,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"file": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration File. Configuration File for the workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name", "volume_name")},
 											Attributes: map[string]schema.Attribute{
 												"data": schema.StringAttribute{
 													MarkdownDescription: "Data. File data",
@@ -8273,6 +8276,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"mount": schema.SingleNestedBlock{
 													MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 													Attributes: map[string]schema.Attribute{
 														"mode": schema.StringAttribute{
 															MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -8306,6 +8310,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"containers": schema.ListNestedBlock{
 						MarkdownDescription: "Containers. Containers to use for the job.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -8346,6 +8351,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"custom_flavor": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -8379,6 +8385,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"image": schema.SingleNestedBlock{
 									MarkdownDescription: "ImageType configures the image to use, how to pull the image, and the associated secrets to use if any.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "Name is a container image which are usually given a name such as alpine, ubuntu, or quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is not specified, the Docker public registry is assumed.",
@@ -8398,6 +8405,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"container_registry": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -8433,6 +8441,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"liveness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -8473,6 +8482,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"exec_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("command")},
 											Attributes: map[string]schema.Attribute{
 												"command": schema.ListAttribute{
 													MarkdownDescription: "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..",
@@ -8486,6 +8496,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 											Attributes: map[string]schema.Attribute{
 												"headers": schema.MapAttribute{
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
@@ -8560,6 +8571,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"readiness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -8600,6 +8612,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"exec_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("command")},
 											Attributes: map[string]schema.Attribute{
 												"command": schema.ListAttribute{
 													MarkdownDescription: "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..",
@@ -8613,6 +8626,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 											Attributes: map[string]schema.Attribute{
 												"headers": schema.MapAttribute{
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
@@ -8700,10 +8714,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_ce_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Customer sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
 										MarkdownDescription: "Which customer sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -8738,10 +8754,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_ce_virtual_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Customer virtual sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("virtual_site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
 										MarkdownDescription: "Which customer virtual sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -8776,10 +8794,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_re_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Regional Edge sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
 										MarkdownDescription: "Which regional edge sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -8814,10 +8834,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_re_virtual_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Regional Edge virtual sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("virtual_site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
 										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -8867,6 +8889,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"empty_dir": schema.SingleNestedBlock{
 									MarkdownDescription: "Volume containing a temporary directory whose lifetime is the same as a replica of a workload.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("size_limit")},
 									Attributes: map[string]schema.Attribute{
 										"size_limit": schema.Int64Attribute{
 											MarkdownDescription: "Size Limit (in GiB). Configuration parameter for size limit",
@@ -8876,6 +8899,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -8904,6 +8928,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"host_path": schema.SingleNestedBlock{
 									MarkdownDescription: "Volume containing a host mapped path into the workload.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 									Attributes: map[string]schema.Attribute{
 										"path": schema.StringAttribute{
 											MarkdownDescription: "Path. Path of the directory on the host.",
@@ -8916,6 +8941,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -8948,6 +8974,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -8974,6 +9001,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"storage": schema.SingleNestedBlock{
 											MarkdownDescription: "Persistent storage configuration is used to configure Persistent Volume Claim (PVC).",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size")},
 											Attributes: map[string]schema.Attribute{
 												"access_mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: ACCESS_MODE_READ_WRITE_ONCE|ACCESS_MODE_READ_WRITE_MANY|ACCESS_MODE_READ_ONLY_MANY] Persistence storage access mode is used to configure access mode for persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host - ACCESS_MODE_READ_WRITE_MANY: Read Write Many Read Write Many is used.. Possible values are `ACCESS_MODE_READ_WRITE_ONCE`, `ACCESS_MODE_READ_WRITE_MANY`, `ACCESS_MODE_READ_ONLY_MANY`. Defaults to `ACCESS_MODE_READ_WRITE_ONCE`.",
@@ -9009,6 +9037,8 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"service": schema.SingleNestedBlock{
 				MarkdownDescription: "Service does not maintain per replica state, however it can be configured to use persistent storage that is shared amongst all the replicas. Replicas of a service are fungible and do not have a stable network identity or storage. Common examples of services are web servers, application servers..",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("containers")},
+
 				Attributes: map[string]schema.Attribute{
 					"num_replicas": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [scale_to_zero] Number of replicas of service to spawn per site.",
@@ -9025,6 +9055,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"advertise_custom": schema.SingleNestedBlock{
 								MarkdownDescription: "Advertise this workload via loadbalancer on specific sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("advertise_where", "ports")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"advertise_where": schema.ListNestedBlock{
@@ -9054,6 +9085,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"site": schema.SingleNestedBlock{
 															MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9098,6 +9130,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"virtual_site": schema.SingleNestedBlock{
 															MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9134,6 +9167,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"site": schema.SingleNestedBlock{
 															MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9164,6 +9198,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"virtual_site": schema.SingleNestedBlock{
 															MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9204,6 +9239,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"http_loadbalancer": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for http loadbalancer.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
 													Attributes: map[string]schema.Attribute{
 														"domains": schema.ListAttribute{
 															MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -9374,10 +9410,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_cert_params": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for tls cert params.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"certificates": schema.ListNestedBlock{
 																			MarkdownDescription: "Select one or more certificates with any domain names.",
+																			Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
@@ -9417,6 +9455,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																					Attributes: map[string]schema.Attribute{
 																						"cipher_suites": schema.ListAttribute{
 																							MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -9468,6 +9507,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"crl": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9501,6 +9541,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"trusted_ca": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9534,6 +9575,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"xfcc_options": schema.SingleNestedBlock{
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
 																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -9548,6 +9590,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_parameters": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for tls parameters.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"no_mtls": schema.SingleNestedBlock{
@@ -9555,6 +9598,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_certificates": schema.ListNestedBlock{
 																			MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+																			Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"certificate_url": schema.StringAttribute{
@@ -9572,6 +9616,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"custom_hash_algorithms": schema.SingleNestedBlock{
 																						MarkdownDescription: "Specifies the hash algorithms to be used.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 																						Attributes: map[string]schema.Attribute{
 																							"hash_algorithms": schema.ListAttribute{
 																								MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -9592,6 +9637,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"blindfold_secret_info": schema.SingleNestedBlock{
 																								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																								Attributes: map[string]schema.Attribute{
 																									"decryption_provider": schema.StringAttribute{
 																										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -9612,6 +9658,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"clear_secret_info": schema.SingleNestedBlock{
 																								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																								Attributes: map[string]schema.Attribute{
 																									"provider_ref": schema.StringAttribute{
 																										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -9640,6 +9687,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																					Attributes: map[string]schema.Attribute{
 																						"cipher_suites": schema.ListAttribute{
 																							MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -9691,6 +9739,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"crl": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9724,6 +9773,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"trusted_ca": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9757,6 +9807,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"xfcc_options": schema.SingleNestedBlock{
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
 																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -9894,6 +9945,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"custom_security": schema.SingleNestedBlock{
 																			MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																			Attributes: map[string]schema.Attribute{
 																				"cipher_suites": schema.ListAttribute{
 																					MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -9945,6 +9997,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"crl": schema.SingleNestedBlock{
 																			MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																			Attributes: map[string]schema.Attribute{
 																				"name": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -9978,6 +10031,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"trusted_ca": schema.SingleNestedBlock{
 																			MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																			Attributes: map[string]schema.Attribute{
 																				"name": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -10011,6 +10065,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"xfcc_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																			Attributes: map[string]schema.Attribute{
 																				"xfcc_header_elements": schema.ListAttribute{
 																					MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -10044,6 +10099,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"route_ref": schema.SingleNestedBlock{
 																						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																						Attributes: map[string]schema.Attribute{
 																							"name": schema.StringAttribute{
 																								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -10088,6 +10144,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"headers": schema.ListNestedBlock{
 																						MarkdownDescription: "Headers. List of (key, value) headers.",
+																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																						NestedObject: schema.NestedBlockObject{
 																							Attributes: map[string]schema.Attribute{
 																								"exact": schema.StringAttribute{
@@ -10174,6 +10231,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"route_direct_response": schema.SingleNestedBlock{
 																						MarkdownDescription: "Send this direct response in case of route match action is direct response.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("response_code")},
 																						Attributes: map[string]schema.Attribute{
 																							"response_body_encoded": schema.StringAttribute{
 																								MarkdownDescription: "Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML.",
@@ -10207,6 +10265,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"headers": schema.ListNestedBlock{
 																						MarkdownDescription: "Headers. List of (key, value) headers.",
+																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																						NestedObject: schema.NestedBlockObject{
 																							Attributes: map[string]schema.Attribute{
 																								"exact": schema.StringAttribute{
@@ -10407,6 +10466,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port of the workload.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Name. Name of the Port.",
@@ -10420,6 +10480,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"info": schema.SingleNestedBlock{
 															MarkdownDescription: "Port Information. Port information.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -10479,10 +10540,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"multi_ports": schema.SingleNestedBlock{
 										MarkdownDescription: "Multiple Ports. Multiple ports.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
 												MarkdownDescription: "Ports. Ports to advertise.",
+												Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
@@ -10497,6 +10560,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"info": schema.SingleNestedBlock{
 															MarkdownDescription: "Port Information. Port information.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -10537,6 +10601,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"info": schema.SingleNestedBlock{
 												MarkdownDescription: "Port Information. Port information.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 												Attributes: map[string]schema.Attribute{
 													"port": schema.Int64Attribute{
 														MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -10576,6 +10641,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"multi_ports": schema.SingleNestedBlock{
 										MarkdownDescription: "Advertise Multiple Ports. Advertise multiple ports.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
@@ -10585,6 +10651,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"http_loadbalancer": schema.SingleNestedBlock{
 															MarkdownDescription: "Configuration parameter for http loadbalancer.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
 															Attributes: map[string]schema.Attribute{
 																"domains": schema.ListAttribute{
 																	MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -10755,10 +10822,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_cert_params": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for tls cert params.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"certificates": schema.ListNestedBlock{
 																					MarkdownDescription: "Select one or more certificates with any domain names.",
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"name": schema.StringAttribute{
@@ -10798,6 +10867,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"custom_security": schema.SingleNestedBlock{
 																							MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																							Attributes: map[string]schema.Attribute{
 																								"cipher_suites": schema.ListAttribute{
 																									MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -10849,6 +10919,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"crl": schema.SingleNestedBlock{
 																							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																							Attributes: map[string]schema.Attribute{
 																								"name": schema.StringAttribute{
 																									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -10882,6 +10953,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"trusted_ca": schema.SingleNestedBlock{
 																							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																							Attributes: map[string]schema.Attribute{
 																								"name": schema.StringAttribute{
 																									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -10915,6 +10987,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"xfcc_options": schema.SingleNestedBlock{
 																							MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																							Attributes: map[string]schema.Attribute{
 																								"xfcc_header_elements": schema.ListAttribute{
 																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -10929,6 +11002,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_parameters": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for tls parameters.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"no_mtls": schema.SingleNestedBlock{
@@ -10936,6 +11010,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"tls_certificates": schema.ListNestedBlock{
 																					MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"certificate_url": schema.StringAttribute{
@@ -10953,6 +11028,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"custom_hash_algorithms": schema.SingleNestedBlock{
 																								MarkdownDescription: "Specifies the hash algorithms to be used.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 																								Attributes: map[string]schema.Attribute{
 																									"hash_algorithms": schema.ListAttribute{
 																										MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -10973,6 +11049,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																								Blocks: map[string]schema.Block{
 																									"blindfold_secret_info": schema.SingleNestedBlock{
 																										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																										Attributes: map[string]schema.Attribute{
 																											"decryption_provider": schema.StringAttribute{
 																												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -10993,6 +11070,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																									},
 																									"clear_secret_info": schema.SingleNestedBlock{
 																										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																										Attributes: map[string]schema.Attribute{
 																											"provider_ref": schema.StringAttribute{
 																												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -11021,6 +11099,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"custom_security": schema.SingleNestedBlock{
 																							MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																							Attributes: map[string]schema.Attribute{
 																								"cipher_suites": schema.ListAttribute{
 																									MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -11072,6 +11151,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"crl": schema.SingleNestedBlock{
 																							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																							Attributes: map[string]schema.Attribute{
 																								"name": schema.StringAttribute{
 																									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -11105,6 +11185,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"trusted_ca": schema.SingleNestedBlock{
 																							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																							Attributes: map[string]schema.Attribute{
 																								"name": schema.StringAttribute{
 																									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -11138,6 +11219,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"xfcc_options": schema.SingleNestedBlock{
 																							MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																							Attributes: map[string]schema.Attribute{
 																								"xfcc_header_elements": schema.ListAttribute{
 																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -11275,6 +11357,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																					Attributes: map[string]schema.Attribute{
 																						"cipher_suites": schema.ListAttribute{
 																							MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -11326,6 +11409,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"crl": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -11359,6 +11443,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"trusted_ca": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -11392,6 +11477,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"xfcc_options": schema.SingleNestedBlock{
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
 																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -11425,6 +11511,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"route_ref": schema.SingleNestedBlock{
 																								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																								Attributes: map[string]schema.Attribute{
 																									"name": schema.StringAttribute{
 																										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -11469,6 +11556,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"headers": schema.ListNestedBlock{
 																								MarkdownDescription: "Headers. List of (key, value) headers.",
+																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																								NestedObject: schema.NestedBlockObject{
 																									Attributes: map[string]schema.Attribute{
 																										"exact": schema.StringAttribute{
@@ -11555,6 +11643,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"route_direct_response": schema.SingleNestedBlock{
 																								MarkdownDescription: "Send this direct response in case of route match action is direct response.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("response_code")},
 																								Attributes: map[string]schema.Attribute{
 																									"response_body_encoded": schema.StringAttribute{
 																										MarkdownDescription: "Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML.",
@@ -11588,6 +11677,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"headers": schema.ListNestedBlock{
 																								MarkdownDescription: "Headers. List of (key, value) headers.",
+																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																								NestedObject: schema.NestedBlockObject{
 																									Attributes: map[string]schema.Attribute{
 																										"exact": schema.StringAttribute{
@@ -11788,6 +11878,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"port": schema.SingleNestedBlock{
 															MarkdownDescription: "Port. Port of the workload.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "Name. Name of the Port.",
@@ -11801,6 +11892,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"info": schema.SingleNestedBlock{
 																	MarkdownDescription: "Port Information. Port information.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 																	Attributes: map[string]schema.Attribute{
 																		"port": schema.Int64Attribute{
 																			MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -11860,6 +11952,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"http_loadbalancer": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for http loadbalancer.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
 												Attributes: map[string]schema.Attribute{
 													"domains": schema.ListAttribute{
 														MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -12030,10 +12123,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_cert_params": schema.SingleNestedBlock{
 																MarkdownDescription: "Configuration parameter for tls cert params.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"certificates": schema.ListNestedBlock{
 																		MarkdownDescription: "Select one or more certificates with any domain names.",
+																		Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"name": schema.StringAttribute{
@@ -12073,6 +12168,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"custom_security": schema.SingleNestedBlock{
 																				MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																				Attributes: map[string]schema.Attribute{
 																					"cipher_suites": schema.ListAttribute{
 																						MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -12124,6 +12220,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"crl": schema.SingleNestedBlock{
 																				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -12157,6 +12254,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"trusted_ca": schema.SingleNestedBlock{
 																				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -12190,6 +12288,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"xfcc_options": schema.SingleNestedBlock{
 																				MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																				Attributes: map[string]schema.Attribute{
 																					"xfcc_header_elements": schema.ListAttribute{
 																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -12204,6 +12303,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_parameters": schema.SingleNestedBlock{
 																MarkdownDescription: "Configuration parameter for tls parameters.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"no_mtls": schema.SingleNestedBlock{
@@ -12211,6 +12311,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"tls_certificates": schema.ListNestedBlock{
 																		MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+																		Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"certificate_url": schema.StringAttribute{
@@ -12228,6 +12329,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"custom_hash_algorithms": schema.SingleNestedBlock{
 																					MarkdownDescription: "Specifies the hash algorithms to be used.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 																					Attributes: map[string]schema.Attribute{
 																						"hash_algorithms": schema.ListAttribute{
 																							MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -12248,6 +12350,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"blindfold_secret_info": schema.SingleNestedBlock{
 																							MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																							Attributes: map[string]schema.Attribute{
 																								"decryption_provider": schema.StringAttribute{
 																									MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -12268,6 +12371,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"clear_secret_info": schema.SingleNestedBlock{
 																							MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																							Attributes: map[string]schema.Attribute{
 																								"provider_ref": schema.StringAttribute{
 																									MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -12296,6 +12400,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"custom_security": schema.SingleNestedBlock{
 																				MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																				Attributes: map[string]schema.Attribute{
 																					"cipher_suites": schema.ListAttribute{
 																						MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -12347,6 +12452,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"crl": schema.SingleNestedBlock{
 																				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -12380,6 +12486,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"trusted_ca": schema.SingleNestedBlock{
 																				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -12413,6 +12520,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"xfcc_options": schema.SingleNestedBlock{
 																				MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																				Attributes: map[string]schema.Attribute{
 																					"xfcc_header_elements": schema.ListAttribute{
 																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -12550,6 +12658,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																Blocks: map[string]schema.Block{
 																	"custom_security": schema.SingleNestedBlock{
 																		MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																		Attributes: map[string]schema.Attribute{
 																			"cipher_suites": schema.ListAttribute{
 																				MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -12601,6 +12710,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																Blocks: map[string]schema.Block{
 																	"crl": schema.SingleNestedBlock{
 																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																		Attributes: map[string]schema.Attribute{
 																			"name": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -12634,6 +12744,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"trusted_ca": schema.SingleNestedBlock{
 																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																		Attributes: map[string]schema.Attribute{
 																			"name": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -12667,6 +12778,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"xfcc_options": schema.SingleNestedBlock{
 																		MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																		Attributes: map[string]schema.Attribute{
 																			"xfcc_header_elements": schema.ListAttribute{
 																				MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -12700,6 +12812,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"route_ref": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -12744,6 +12857,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"headers": schema.ListNestedBlock{
 																					MarkdownDescription: "Headers. List of (key, value) headers.",
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"exact": schema.StringAttribute{
@@ -12830,6 +12944,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"route_direct_response": schema.SingleNestedBlock{
 																					MarkdownDescription: "Send this direct response in case of route match action is direct response.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("response_code")},
 																					Attributes: map[string]schema.Attribute{
 																						"response_body_encoded": schema.StringAttribute{
 																							MarkdownDescription: "Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML.",
@@ -12863,6 +12978,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"headers": schema.ListNestedBlock{
 																					MarkdownDescription: "Headers. List of (key, value) headers.",
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"exact": schema.StringAttribute{
@@ -13067,6 +13183,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												Blocks: map[string]schema.Block{
 													"info": schema.SingleNestedBlock{
 														MarkdownDescription: "Port Information. Port information.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 														Attributes: map[string]schema.Attribute{
 															"port": schema.Int64Attribute{
 																MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -13154,6 +13271,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"file": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration File. Configuration File for the workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name", "volume_name")},
 											Attributes: map[string]schema.Attribute{
 												"data": schema.StringAttribute{
 													MarkdownDescription: "Data. File data",
@@ -13180,6 +13298,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"mount": schema.SingleNestedBlock{
 													MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 													Attributes: map[string]schema.Attribute{
 														"mode": schema.StringAttribute{
 															MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -13213,6 +13332,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"containers": schema.ListNestedBlock{
 						MarkdownDescription: "Containers. Containers to use for service.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -13253,6 +13373,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"custom_flavor": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -13286,6 +13407,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"image": schema.SingleNestedBlock{
 									MarkdownDescription: "ImageType configures the image to use, how to pull the image, and the associated secrets to use if any.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "Name is a container image which are usually given a name such as alpine, ubuntu, or quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is not specified, the Docker public registry is assumed.",
@@ -13305,6 +13427,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"container_registry": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -13340,6 +13463,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"liveness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -13380,6 +13504,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"exec_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("command")},
 											Attributes: map[string]schema.Attribute{
 												"command": schema.ListAttribute{
 													MarkdownDescription: "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..",
@@ -13393,6 +13518,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 											Attributes: map[string]schema.Attribute{
 												"headers": schema.MapAttribute{
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
@@ -13467,6 +13593,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"readiness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -13507,6 +13634,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"exec_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("command")},
 											Attributes: map[string]schema.Attribute{
 												"command": schema.ListAttribute{
 													MarkdownDescription: "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..",
@@ -13520,6 +13648,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 											Attributes: map[string]schema.Attribute{
 												"headers": schema.MapAttribute{
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
@@ -13607,10 +13736,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_ce_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Customer sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
 										MarkdownDescription: "Which customer sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -13645,10 +13776,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_ce_virtual_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Customer virtual sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("virtual_site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
 										MarkdownDescription: "Which customer virtual sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -13683,10 +13816,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_re_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Regional Edge sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
 										MarkdownDescription: "Which regional edge sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -13721,10 +13856,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_re_virtual_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Regional Edge virtual sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("virtual_site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
 										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -13777,6 +13914,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"empty_dir": schema.SingleNestedBlock{
 									MarkdownDescription: "Volume containing a temporary directory whose lifetime is the same as a replica of a workload.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("size_limit")},
 									Attributes: map[string]schema.Attribute{
 										"size_limit": schema.Int64Attribute{
 											MarkdownDescription: "Size Limit (in GiB). Configuration parameter for size limit",
@@ -13786,6 +13924,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -13814,6 +13953,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"host_path": schema.SingleNestedBlock{
 									MarkdownDescription: "Volume containing a host mapped path into the workload.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 									Attributes: map[string]schema.Attribute{
 										"path": schema.StringAttribute{
 											MarkdownDescription: "Path. Path of the directory on the host.",
@@ -13826,6 +13966,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -13858,6 +13999,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -13884,6 +14026,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"storage": schema.SingleNestedBlock{
 											MarkdownDescription: "Persistent storage configuration is used to configure Persistent Volume Claim (PVC).",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size")},
 											Attributes: map[string]schema.Attribute{
 												"access_mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: ACCESS_MODE_READ_WRITE_ONCE|ACCESS_MODE_READ_WRITE_MANY|ACCESS_MODE_READ_ONLY_MANY] Persistence storage access mode is used to configure access mode for persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host - ACCESS_MODE_READ_WRITE_MANY: Read Write Many Read Write Many is used.. Possible values are `ACCESS_MODE_READ_WRITE_ONCE`, `ACCESS_MODE_READ_WRITE_MANY`, `ACCESS_MODE_READ_ONLY_MANY`. Defaults to `ACCESS_MODE_READ_WRITE_ONCE`.",
@@ -13919,6 +14062,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"simple_service": schema.SingleNestedBlock{
 				MarkdownDescription: "SimpleService is a service having one container and one replica that is deployed on all Regional Edges and advertised on Internet via HTTP loadbalancer on default VIP.",
+
 				Attributes: map[string]schema.Attribute{
 					"scale_to_zero": schema.BoolAttribute{
 						MarkdownDescription: "Scale down replicas of the service to zero.",
@@ -13956,6 +14100,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"file": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration File. Configuration File for the workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name", "volume_name")},
 											Attributes: map[string]schema.Attribute{
 												"data": schema.StringAttribute{
 													MarkdownDescription: "Data. File data",
@@ -13982,6 +14127,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"mount": schema.SingleNestedBlock{
 													MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 													Attributes: map[string]schema.Attribute{
 														"mode": schema.StringAttribute{
 															MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -14015,6 +14161,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"container": schema.SingleNestedBlock{
 						MarkdownDescription: "ContainerType configures the container information.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"args": schema.ListAttribute{
 								MarkdownDescription: "Arguments to the entrypoint. Overrides the docker image's CMD.",
@@ -14054,6 +14201,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"custom_flavor": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -14087,6 +14235,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"image": schema.SingleNestedBlock{
 								MarkdownDescription: "ImageType configures the image to use, how to pull the image, and the associated secrets to use if any.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "Name is a container image which are usually given a name such as alpine, ubuntu, or quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is not specified, the Docker public registry is assumed.",
@@ -14106,6 +14255,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"container_registry": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -14141,6 +14291,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"liveness_check": schema.SingleNestedBlock{
 								MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 								Attributes: map[string]schema.Attribute{
 									"healthy_threshold": schema.Int64Attribute{
 										MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -14181,6 +14332,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"exec_health_check": schema.SingleNestedBlock{
 										MarkdownDescription: "ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("command")},
 										Attributes: map[string]schema.Attribute{
 											"command": schema.ListAttribute{
 												MarkdownDescription: "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..",
@@ -14194,6 +14346,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 									"http_health_check": schema.SingleNestedBlock{
 										MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 										Attributes: map[string]schema.Attribute{
 											"headers": schema.MapAttribute{
 												MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
@@ -14268,6 +14421,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"readiness_check": schema.SingleNestedBlock{
 								MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 								Attributes: map[string]schema.Attribute{
 									"healthy_threshold": schema.Int64Attribute{
 										MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -14308,6 +14462,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"exec_health_check": schema.SingleNestedBlock{
 										MarkdownDescription: "ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("command")},
 										Attributes: map[string]schema.Attribute{
 											"command": schema.ListAttribute{
 												MarkdownDescription: "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..",
@@ -14321,6 +14476,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 									"http_health_check": schema.SingleNestedBlock{
 										MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 										Attributes: map[string]schema.Attribute{
 											"headers": schema.MapAttribute{
 												MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
@@ -14403,6 +14559,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"enabled": schema.SingleNestedBlock{
 						MarkdownDescription: "Persistent storage volume configuration for the workload.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "Name. Name of the volume.",
@@ -14419,6 +14576,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"mount": schema.SingleNestedBlock{
 										MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 										Attributes: map[string]schema.Attribute{
 											"mode": schema.StringAttribute{
 												MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -14445,6 +14603,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 									"storage": schema.SingleNestedBlock{
 										MarkdownDescription: "Persistent storage configuration is used to configure Persistent Volume Claim (PVC).",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size")},
 										Attributes: map[string]schema.Attribute{
 											"access_mode": schema.StringAttribute{
 												MarkdownDescription: "[Enum: ACCESS_MODE_READ_WRITE_ONCE|ACCESS_MODE_READ_WRITE_MANY|ACCESS_MODE_READ_ONLY_MANY] Persistence storage access mode is used to configure access mode for persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host - ACCESS_MODE_READ_WRITE_MANY: Read Write Many Read Write Many is used.. Possible values are `ACCESS_MODE_READ_WRITE_ONCE`, `ACCESS_MODE_READ_WRITE_MANY`, `ACCESS_MODE_READ_ONLY_MANY`. Defaults to `ACCESS_MODE_READ_WRITE_ONCE`.",
@@ -14477,6 +14636,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"simple_advertise": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for simple advertise.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("domains", "service_port")},
 						Attributes: map[string]schema.Attribute{
 							"domains": schema.ListAttribute{
 								MarkdownDescription: "List of Domains (host/authority header) that will be matched to Load Balancer. Wildcard hosts are supported in the suffix or prefix form Supported Domains and search order: 1. Exact Domain names: www.example.com. 2.",
@@ -14499,6 +14659,8 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"stateful_service": schema.SingleNestedBlock{
 				MarkdownDescription: "StatefulService maintains per replica state and each replica has its own persistent storage. Each replica has a unique network identity and stable storage. Stateful service are used for distributed stateful applications like cassandra, mongodb, redis, etc.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("containers", "persistent_volumes")},
+
 				Attributes: map[string]schema.Attribute{
 					"num_replicas": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [scale_to_zero] Number of replicas of service to spawn per site.",
@@ -14515,6 +14677,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"advertise_custom": schema.SingleNestedBlock{
 								MarkdownDescription: "Advertise this workload via loadbalancer on specific sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("advertise_where", "ports")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"advertise_where": schema.ListNestedBlock{
@@ -14544,6 +14707,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"site": schema.SingleNestedBlock{
 															MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -14588,6 +14752,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"virtual_site": schema.SingleNestedBlock{
 															MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -14624,6 +14789,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"site": schema.SingleNestedBlock{
 															MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -14654,6 +14820,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"virtual_site": schema.SingleNestedBlock{
 															MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -14694,6 +14861,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"http_loadbalancer": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for http loadbalancer.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
 													Attributes: map[string]schema.Attribute{
 														"domains": schema.ListAttribute{
 															MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -14864,10 +15032,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_cert_params": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for tls cert params.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"certificates": schema.ListNestedBlock{
 																			MarkdownDescription: "Select one or more certificates with any domain names.",
+																			Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
@@ -14907,6 +15077,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																					Attributes: map[string]schema.Attribute{
 																						"cipher_suites": schema.ListAttribute{
 																							MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -14958,6 +15129,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"crl": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -14991,6 +15163,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"trusted_ca": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -15024,6 +15197,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"xfcc_options": schema.SingleNestedBlock{
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
 																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -15038,6 +15212,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_parameters": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for tls parameters.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"no_mtls": schema.SingleNestedBlock{
@@ -15045,6 +15220,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_certificates": schema.ListNestedBlock{
 																			MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+																			Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"certificate_url": schema.StringAttribute{
@@ -15062,6 +15238,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"custom_hash_algorithms": schema.SingleNestedBlock{
 																						MarkdownDescription: "Specifies the hash algorithms to be used.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 																						Attributes: map[string]schema.Attribute{
 																							"hash_algorithms": schema.ListAttribute{
 																								MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -15082,6 +15259,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"blindfold_secret_info": schema.SingleNestedBlock{
 																								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																								Attributes: map[string]schema.Attribute{
 																									"decryption_provider": schema.StringAttribute{
 																										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -15102,6 +15280,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"clear_secret_info": schema.SingleNestedBlock{
 																								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																								Attributes: map[string]schema.Attribute{
 																									"provider_ref": schema.StringAttribute{
 																										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -15130,6 +15309,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																					Attributes: map[string]schema.Attribute{
 																						"cipher_suites": schema.ListAttribute{
 																							MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -15181,6 +15361,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"crl": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -15214,6 +15395,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"trusted_ca": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -15247,6 +15429,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"xfcc_options": schema.SingleNestedBlock{
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
 																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -15384,6 +15567,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"custom_security": schema.SingleNestedBlock{
 																			MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																			Attributes: map[string]schema.Attribute{
 																				"cipher_suites": schema.ListAttribute{
 																					MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -15435,6 +15619,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"crl": schema.SingleNestedBlock{
 																			MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																			Attributes: map[string]schema.Attribute{
 																				"name": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -15468,6 +15653,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"trusted_ca": schema.SingleNestedBlock{
 																			MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																			Attributes: map[string]schema.Attribute{
 																				"name": schema.StringAttribute{
 																					MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -15501,6 +15687,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"xfcc_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																			Attributes: map[string]schema.Attribute{
 																				"xfcc_header_elements": schema.ListAttribute{
 																					MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -15534,6 +15721,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"route_ref": schema.SingleNestedBlock{
 																						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																						Attributes: map[string]schema.Attribute{
 																							"name": schema.StringAttribute{
 																								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -15578,6 +15766,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"headers": schema.ListNestedBlock{
 																						MarkdownDescription: "Headers. List of (key, value) headers.",
+																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																						NestedObject: schema.NestedBlockObject{
 																							Attributes: map[string]schema.Attribute{
 																								"exact": schema.StringAttribute{
@@ -15664,6 +15853,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"route_direct_response": schema.SingleNestedBlock{
 																						MarkdownDescription: "Send this direct response in case of route match action is direct response.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("response_code")},
 																						Attributes: map[string]schema.Attribute{
 																							"response_body_encoded": schema.StringAttribute{
 																								MarkdownDescription: "Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML.",
@@ -15697,6 +15887,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"headers": schema.ListNestedBlock{
 																						MarkdownDescription: "Headers. List of (key, value) headers.",
+																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																						NestedObject: schema.NestedBlockObject{
 																							Attributes: map[string]schema.Attribute{
 																								"exact": schema.StringAttribute{
@@ -15897,6 +16088,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port of the workload.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Name. Name of the Port.",
@@ -15910,6 +16102,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"info": schema.SingleNestedBlock{
 															MarkdownDescription: "Port Information. Port information.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -15969,10 +16162,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"multi_ports": schema.SingleNestedBlock{
 										MarkdownDescription: "Multiple Ports. Multiple ports.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
 												MarkdownDescription: "Ports. Ports to advertise.",
+												Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
@@ -15987,6 +16182,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"info": schema.SingleNestedBlock{
 															MarkdownDescription: "Port Information. Port information.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -16027,6 +16223,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"info": schema.SingleNestedBlock{
 												MarkdownDescription: "Port Information. Port information.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 												Attributes: map[string]schema.Attribute{
 													"port": schema.Int64Attribute{
 														MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -16066,6 +16263,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"multi_ports": schema.SingleNestedBlock{
 										MarkdownDescription: "Advertise Multiple Ports. Advertise multiple ports.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
@@ -16075,6 +16273,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"http_loadbalancer": schema.SingleNestedBlock{
 															MarkdownDescription: "Configuration parameter for http loadbalancer.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
 															Attributes: map[string]schema.Attribute{
 																"domains": schema.ListAttribute{
 																	MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -16245,10 +16444,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_cert_params": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for tls cert params.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"certificates": schema.ListNestedBlock{
 																					MarkdownDescription: "Select one or more certificates with any domain names.",
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"name": schema.StringAttribute{
@@ -16288,6 +16489,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"custom_security": schema.SingleNestedBlock{
 																							MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																							Attributes: map[string]schema.Attribute{
 																								"cipher_suites": schema.ListAttribute{
 																									MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -16339,6 +16541,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"crl": schema.SingleNestedBlock{
 																							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																							Attributes: map[string]schema.Attribute{
 																								"name": schema.StringAttribute{
 																									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -16372,6 +16575,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"trusted_ca": schema.SingleNestedBlock{
 																							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																							Attributes: map[string]schema.Attribute{
 																								"name": schema.StringAttribute{
 																									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -16405,6 +16609,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"xfcc_options": schema.SingleNestedBlock{
 																							MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																							Attributes: map[string]schema.Attribute{
 																								"xfcc_header_elements": schema.ListAttribute{
 																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -16419,6 +16624,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_parameters": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for tls parameters.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"no_mtls": schema.SingleNestedBlock{
@@ -16426,6 +16632,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"tls_certificates": schema.ListNestedBlock{
 																					MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"certificate_url": schema.StringAttribute{
@@ -16443,6 +16650,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"custom_hash_algorithms": schema.SingleNestedBlock{
 																								MarkdownDescription: "Specifies the hash algorithms to be used.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 																								Attributes: map[string]schema.Attribute{
 																									"hash_algorithms": schema.ListAttribute{
 																										MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -16463,6 +16671,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																								Blocks: map[string]schema.Block{
 																									"blindfold_secret_info": schema.SingleNestedBlock{
 																										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																										Attributes: map[string]schema.Attribute{
 																											"decryption_provider": schema.StringAttribute{
 																												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -16483,6 +16692,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																									},
 																									"clear_secret_info": schema.SingleNestedBlock{
 																										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																										Attributes: map[string]schema.Attribute{
 																											"provider_ref": schema.StringAttribute{
 																												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -16511,6 +16721,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"custom_security": schema.SingleNestedBlock{
 																							MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																							Attributes: map[string]schema.Attribute{
 																								"cipher_suites": schema.ListAttribute{
 																									MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -16562,6 +16773,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"crl": schema.SingleNestedBlock{
 																							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																							Attributes: map[string]schema.Attribute{
 																								"name": schema.StringAttribute{
 																									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -16595,6 +16807,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"trusted_ca": schema.SingleNestedBlock{
 																							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																							Attributes: map[string]schema.Attribute{
 																								"name": schema.StringAttribute{
 																									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -16628,6 +16841,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"xfcc_options": schema.SingleNestedBlock{
 																							MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																							Attributes: map[string]schema.Attribute{
 																								"xfcc_header_elements": schema.ListAttribute{
 																									MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -16765,6 +16979,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																					Attributes: map[string]schema.Attribute{
 																						"cipher_suites": schema.ListAttribute{
 																							MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -16816,6 +17031,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"crl": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -16849,6 +17065,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"trusted_ca": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -16882,6 +17099,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"xfcc_options": schema.SingleNestedBlock{
 																					MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																					Attributes: map[string]schema.Attribute{
 																						"xfcc_header_elements": schema.ListAttribute{
 																							MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -16915,6 +17133,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"route_ref": schema.SingleNestedBlock{
 																								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																								Attributes: map[string]schema.Attribute{
 																									"name": schema.StringAttribute{
 																										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -16959,6 +17178,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"headers": schema.ListNestedBlock{
 																								MarkdownDescription: "Headers. List of (key, value) headers.",
+																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																								NestedObject: schema.NestedBlockObject{
 																									Attributes: map[string]schema.Attribute{
 																										"exact": schema.StringAttribute{
@@ -17045,6 +17265,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"route_direct_response": schema.SingleNestedBlock{
 																								MarkdownDescription: "Send this direct response in case of route match action is direct response.",
+																								Validators:          []validator.Object{validators.RequiredObjectAttributes("response_code")},
 																								Attributes: map[string]schema.Attribute{
 																									"response_body_encoded": schema.StringAttribute{
 																										MarkdownDescription: "Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML.",
@@ -17078,6 +17299,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"headers": schema.ListNestedBlock{
 																								MarkdownDescription: "Headers. List of (key, value) headers.",
+																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																								NestedObject: schema.NestedBlockObject{
 																									Attributes: map[string]schema.Attribute{
 																										"exact": schema.StringAttribute{
@@ -17278,6 +17500,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"port": schema.SingleNestedBlock{
 															MarkdownDescription: "Port. Port of the workload.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 															Attributes: map[string]schema.Attribute{
 																"name": schema.StringAttribute{
 																	MarkdownDescription: "Name. Name of the Port.",
@@ -17291,6 +17514,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"info": schema.SingleNestedBlock{
 																	MarkdownDescription: "Port Information. Port information.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 																	Attributes: map[string]schema.Attribute{
 																		"port": schema.Int64Attribute{
 																			MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -17350,6 +17574,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"http_loadbalancer": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for http loadbalancer.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
 												Attributes: map[string]schema.Attribute{
 													"domains": schema.ListAttribute{
 														MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -17520,10 +17745,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_cert_params": schema.SingleNestedBlock{
 																MarkdownDescription: "Configuration parameter for tls cert params.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"certificates": schema.ListNestedBlock{
 																		MarkdownDescription: "Select one or more certificates with any domain names.",
+																		Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"name": schema.StringAttribute{
@@ -17563,6 +17790,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"custom_security": schema.SingleNestedBlock{
 																				MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																				Attributes: map[string]schema.Attribute{
 																					"cipher_suites": schema.ListAttribute{
 																						MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -17614,6 +17842,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"crl": schema.SingleNestedBlock{
 																				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -17647,6 +17876,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"trusted_ca": schema.SingleNestedBlock{
 																				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -17680,6 +17910,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"xfcc_options": schema.SingleNestedBlock{
 																				MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																				Attributes: map[string]schema.Attribute{
 																					"xfcc_header_elements": schema.ListAttribute{
 																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -17694,6 +17925,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_parameters": schema.SingleNestedBlock{
 																MarkdownDescription: "Configuration parameter for tls parameters.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"no_mtls": schema.SingleNestedBlock{
@@ -17701,6 +17933,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"tls_certificates": schema.ListNestedBlock{
 																		MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+																		Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"certificate_url": schema.StringAttribute{
@@ -17718,6 +17951,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"custom_hash_algorithms": schema.SingleNestedBlock{
 																					MarkdownDescription: "Specifies the hash algorithms to be used.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 																					Attributes: map[string]schema.Attribute{
 																						"hash_algorithms": schema.ListAttribute{
 																							MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -17738,6 +17972,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"blindfold_secret_info": schema.SingleNestedBlock{
 																							MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																							Attributes: map[string]schema.Attribute{
 																								"decryption_provider": schema.StringAttribute{
 																									MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -17758,6 +17993,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						},
 																						"clear_secret_info": schema.SingleNestedBlock{
 																							MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																							Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																							Attributes: map[string]schema.Attribute{
 																								"provider_ref": schema.StringAttribute{
 																									MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -17786,6 +18022,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"custom_security": schema.SingleNestedBlock{
 																				MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																				Attributes: map[string]schema.Attribute{
 																					"cipher_suites": schema.ListAttribute{
 																						MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -17837,6 +18074,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"crl": schema.SingleNestedBlock{
 																				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -17870,6 +18108,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"trusted_ca": schema.SingleNestedBlock{
 																				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
 																						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -17903,6 +18142,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"xfcc_options": schema.SingleNestedBlock{
 																				MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																				Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																				Attributes: map[string]schema.Attribute{
 																					"xfcc_header_elements": schema.ListAttribute{
 																						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -18040,6 +18280,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																Blocks: map[string]schema.Block{
 																	"custom_security": schema.SingleNestedBlock{
 																		MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 																		Attributes: map[string]schema.Attribute{
 																			"cipher_suites": schema.ListAttribute{
 																				MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -18091,6 +18332,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																Blocks: map[string]schema.Block{
 																	"crl": schema.SingleNestedBlock{
 																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																		Attributes: map[string]schema.Attribute{
 																			"name": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -18124,6 +18366,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"trusted_ca": schema.SingleNestedBlock{
 																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																		Attributes: map[string]schema.Attribute{
 																			"name": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -18157,6 +18400,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"xfcc_options": schema.SingleNestedBlock{
 																		MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 																		Attributes: map[string]schema.Attribute{
 																			"xfcc_header_elements": schema.ListAttribute{
 																				MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -18190,6 +18434,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"route_ref": schema.SingleNestedBlock{
 																					MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																					Attributes: map[string]schema.Attribute{
 																						"name": schema.StringAttribute{
 																							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -18234,6 +18479,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"headers": schema.ListNestedBlock{
 																					MarkdownDescription: "Headers. List of (key, value) headers.",
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"exact": schema.StringAttribute{
@@ -18320,6 +18566,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"route_direct_response": schema.SingleNestedBlock{
 																					MarkdownDescription: "Send this direct response in case of route match action is direct response.",
+																					Validators:          []validator.Object{validators.RequiredObjectAttributes("response_code")},
 																					Attributes: map[string]schema.Attribute{
 																						"response_body_encoded": schema.StringAttribute{
 																							MarkdownDescription: "Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML.",
@@ -18353,6 +18600,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"headers": schema.ListNestedBlock{
 																					MarkdownDescription: "Headers. List of (key, value) headers.",
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"exact": schema.StringAttribute{
@@ -18557,6 +18805,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												Blocks: map[string]schema.Block{
 													"info": schema.SingleNestedBlock{
 														MarkdownDescription: "Port Information. Port information.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
 														Attributes: map[string]schema.Attribute{
 															"port": schema.Int64Attribute{
 																MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -18644,6 +18893,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"file": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration File. Configuration File for the workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name", "volume_name")},
 											Attributes: map[string]schema.Attribute{
 												"data": schema.StringAttribute{
 													MarkdownDescription: "Data. File data",
@@ -18670,6 +18920,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"mount": schema.SingleNestedBlock{
 													MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 													Attributes: map[string]schema.Attribute{
 														"mode": schema.StringAttribute{
 															MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -18703,6 +18954,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"containers": schema.ListNestedBlock{
 						MarkdownDescription: "Containers. Containers to use for service.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -18743,6 +18995,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"custom_flavor": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -18776,6 +19029,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"image": schema.SingleNestedBlock{
 									MarkdownDescription: "ImageType configures the image to use, how to pull the image, and the associated secrets to use if any.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "Name is a container image which are usually given a name such as alpine, ubuntu, or quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is not specified, the Docker public registry is assumed.",
@@ -18795,6 +19049,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"container_registry": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -18830,6 +19085,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"liveness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -18870,6 +19126,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"exec_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("command")},
 											Attributes: map[string]schema.Attribute{
 												"command": schema.ListAttribute{
 													MarkdownDescription: "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..",
@@ -18883,6 +19140,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 											Attributes: map[string]schema.Attribute{
 												"headers": schema.MapAttribute{
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
@@ -18957,6 +19215,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"readiness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -18997,6 +19256,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"exec_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "ExecHealthCheckType describes a health check based on 'run in container' action. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("command")},
 											Attributes: map[string]schema.Attribute{
 												"command": schema.ListAttribute{
 													MarkdownDescription: "Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to..",
@@ -19010,6 +19270,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"http_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "HTTPHealthCheckType describes a health check based on HTTP GET requests.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 											Attributes: map[string]schema.Attribute{
 												"headers": schema.MapAttribute{
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
@@ -19097,10 +19358,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_ce_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Customer sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
 										MarkdownDescription: "Which customer sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -19135,10 +19398,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_ce_virtual_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Customer virtual sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("virtual_site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
 										MarkdownDescription: "Which customer virtual sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -19173,10 +19438,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_re_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Regional Edge sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"site": schema.ListNestedBlock{
 										MarkdownDescription: "Which regional edge sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -19211,10 +19478,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"deploy_re_virtual_sites": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines a way to deploy a workload on specific Regional Edge virtual sites.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("virtual_site")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"virtual_site": schema.ListNestedBlock{
 										MarkdownDescription: "Which regional edge virtual sites should this workload be deployed.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -19251,6 +19520,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"persistent_volumes": schema.ListNestedBlock{
 						MarkdownDescription: "Persistent storage configuration for the service.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -19268,6 +19538,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -19294,6 +19565,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"storage": schema.SingleNestedBlock{
 											MarkdownDescription: "Persistent storage configuration is used to configure Persistent Volume Claim (PVC).",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size")},
 											Attributes: map[string]schema.Attribute{
 												"access_mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: ACCESS_MODE_READ_WRITE_ONCE|ACCESS_MODE_READ_WRITE_MANY|ACCESS_MODE_READ_ONLY_MANY] Persistence storage access mode is used to configure access mode for persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host - ACCESS_MODE_READ_WRITE_MANY: Read Write Many Read Write Many is used.. Possible values are `ACCESS_MODE_READ_WRITE_ONCE`, `ACCESS_MODE_READ_WRITE_MANY`, `ACCESS_MODE_READ_ONLY_MANY`. Defaults to `ACCESS_MODE_READ_WRITE_ONCE`.",
@@ -19343,6 +19615,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"empty_dir": schema.SingleNestedBlock{
 									MarkdownDescription: "Volume containing a temporary directory whose lifetime is the same as a replica of a workload.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("size_limit")},
 									Attributes: map[string]schema.Attribute{
 										"size_limit": schema.Int64Attribute{
 											MarkdownDescription: "Size Limit (in GiB). Configuration parameter for size limit",
@@ -19352,6 +19625,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",
@@ -19380,6 +19654,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"host_path": schema.SingleNestedBlock{
 									MarkdownDescription: "Volume containing a host mapped path into the workload.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 									Attributes: map[string]schema.Attribute{
 										"path": schema.StringAttribute{
 											MarkdownDescription: "Path. Path of the directory on the host.",
@@ -19392,6 +19667,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"mount": schema.SingleNestedBlock{
 											MarkdownDescription: "Volume mount describes how volume is mounted inside a workload.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("mount_path")},
 											Attributes: map[string]schema.Attribute{
 												"mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: VOLUME_MOUNT_READ_ONLY|VOLUME_MOUNT_READ_WRITE] Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode. Possible values are `VOLUME_MOUNT_READ_ONLY`, `VOLUME_MOUNT_READ_WRITE`. Defaults to `VOLUME_MOUNT_READ_ONLY`.",

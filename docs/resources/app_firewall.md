@@ -232,6 +232,7 @@ resource "xcsh_app_firewall" "test" {
   default_anonymization {}
 
   detection_settings {
+    violations_view {}
     default_violation_settings {}
     default_bot_setting {}
     enable_suppression {}

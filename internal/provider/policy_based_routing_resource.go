@@ -447,6 +447,8 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 			}),
 			"forwarding_class_list": schema.ListNestedBlock{
 				MarkdownDescription: "Ordered list of forwarding Class to be used if source application match and no rule match.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
@@ -479,10 +481,12 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 			},
 			"forward_proxy_pbr": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: forward_proxy_pbr, network_pbr] Configuration parameter for forward proxy pbr.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"forward_proxy_pbr_rules": schema.ListNestedBlock{
 						MarkdownDescription: "L3/L4 routing rules. Network(L3/L4) routing policy rules.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("forwarding_class_list")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
@@ -494,6 +498,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 								},
 								"forwarding_class_list": schema.ListNestedBlock{
 									MarkdownDescription: "Ordered list of forwarding Class to be used if no rule match.",
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
@@ -586,6 +591,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 								},
 								"ip_prefix_set": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -616,6 +622,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 								},
 								"label_selector": schema.SingleNestedBlock{
 									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 									Attributes: map[string]schema.Attribute{
 										"expressions": schema.ListAttribute{
 											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -629,6 +636,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -700,13 +708,15 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 			},
 			"network_pbr": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for network pbr.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"any": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
 					},
 					"label_selector": schema.SingleNestedBlock{
 						MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 						Attributes: map[string]schema.Attribute{
 							"expressions": schema.ListAttribute{
 								MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -720,6 +730,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 					},
 					"network_pbr_rules": schema.ListNestedBlock{
 						MarkdownDescription: "L3/L4 Destination Routing Rules. Network(L3/L4) routing policy rule.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("forwarding_class_list")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{
@@ -755,6 +766,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 								},
 								"forwarding_class_list": schema.ListNestedBlock{
 									MarkdownDescription: "Ordered list of forwarding Class to be used if rule match.",
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
@@ -828,6 +840,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",

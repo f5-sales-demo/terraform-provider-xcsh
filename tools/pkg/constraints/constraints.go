@@ -2,7 +2,22 @@
 
 package constraints
 
-import "regexp"
+import (
+	"fmt"
+	"regexp"
+	"sort"
+	"strconv"
+	"strings"
+)
+
+var int64RangeSpanPattern = regexp.MustCompile(`^(-?[0-9]+)(?:-(-?[0-9]+))?$`)
+
+// Int64RangeSpan is one inclusive interval parsed from an upstream numeric
+// range-set rule.
+type Int64RangeSpan struct {
+	Minimum int64
+	Maximum int64
+}
 
 // Parsed represents extracted x-f5xc-constraints data.
 type Parsed struct {
@@ -99,4 +114,74 @@ func Parse(raw map[string]interface{}) *Parsed {
 	}
 
 	return p
+}
+
+// ParseInt64RangeSpans parses any ves.io numeric `.ranges` validation rule into
+// a canonical ordered set of inclusive intervals. Overlapping and adjacent
+// intervals are merged; malformed or descending intervals fail closed.
+func ParseInt64RangeSpans(rules map[string]string) ([]Int64RangeSpan, error) {
+	keys := make([]string, 0)
+	for key := range rules {
+		if strings.HasSuffix(key, ".ranges") {
+			keys = append(keys, key)
+		}
+	}
+	if len(keys) == 0 {
+		return nil, nil
+	}
+	sort.Strings(keys)
+
+	spans := make([]Int64RangeSpan, 0)
+	for _, key := range keys {
+		value := strings.TrimSpace(rules[key])
+		if value == "" {
+			return nil, fmt.Errorf("%s is empty", key)
+		}
+		for _, rawSpan := range strings.Split(value, ",") {
+			rawSpan = strings.TrimSpace(rawSpan)
+			matches := int64RangeSpanPattern.FindStringSubmatch(rawSpan)
+			if matches == nil {
+				return nil, fmt.Errorf("%s contains malformed range %q", key, rawSpan)
+			}
+			minimum, err := strconv.ParseInt(matches[1], 10, 64)
+			if err != nil {
+				return nil, fmt.Errorf("%s minimum %q: %w", key, matches[1], err)
+			}
+			maximum := minimum
+			if matches[2] != "" {
+				maximum, err = strconv.ParseInt(matches[2], 10, 64)
+				if err != nil {
+					return nil, fmt.Errorf("%s maximum %q: %w", key, matches[2], err)
+				}
+			}
+			if maximum < minimum {
+				return nil, fmt.Errorf("%s contains descending range %q", key, rawSpan)
+			}
+			spans = append(spans, Int64RangeSpan{Minimum: minimum, Maximum: maximum})
+		}
+	}
+
+	sort.Slice(spans, func(i, j int) bool {
+		if spans[i].Minimum == spans[j].Minimum {
+			return spans[i].Maximum < spans[j].Maximum
+		}
+		return spans[i].Minimum < spans[j].Minimum
+	})
+	merged := make([]Int64RangeSpan, 0, len(spans))
+	for _, span := range spans {
+		if len(merged) == 0 {
+			merged = append(merged, span)
+			continue
+		}
+		last := &merged[len(merged)-1]
+		adjacent := last.Maximum != int64(^uint64(0)>>1) && span.Minimum == last.Maximum+1
+		if span.Minimum <= last.Maximum || adjacent {
+			if span.Maximum > last.Maximum {
+				last.Maximum = span.Maximum
+			}
+			continue
+		}
+		merged = append(merged, span)
+	}
+	return merged, nil
 }

@@ -230,10 +230,13 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 			}),
 			"active_enhanced_firewall_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_enhanced_firewall_policies, active_network_policies, disable_network_policy; Default: disable_network_policy] List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("enhanced_firewall_policies")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enhanced_firewall_policies": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -268,10 +271,13 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"active_fast_acls": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_fast_acls, disable_fast_acl; Default: disable_fast_acl] Configuration parameter for active fast acls.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("fast_acls")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"fast_acls": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Fast ACL(s) active for this network firewall.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -306,10 +312,13 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"active_forward_proxy_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_forward_proxy_policies, disable_forward_proxy_policy; Default: disable_forward_proxy_policy] Ordered List of Forward Proxy Policies active.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"forward_proxy_policies": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -344,10 +353,13 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"active_network_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for active network policies.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("network_policies")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"network_policies": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{

@@ -233,6 +233,8 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 			}),
 			"cloud_hosted": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: cloud_hosted, data_center_hosted] F5 Hosted. Infra F5 Hosted.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("egress", "infra_host_name", "ingress")},
+
 				Attributes: map[string]schema.Attribute{
 					"infra_host_name": schema.StringAttribute{
 						MarkdownDescription: "Infra Host Name. Infra Host Name.",
@@ -252,6 +254,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 				Blocks: map[string]schema.Block{
 					"egress": schema.ListNestedBlock{
 						MarkdownDescription: "Egress. Egress",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_address")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"ip_address": schema.StringAttribute{
@@ -305,6 +308,8 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 			},
 			"data_center_hosted": schema.SingleNestedBlock{
 				MarkdownDescription: "F5 Hosted. Infra F5 Hosted.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("egress", "infra_host_name", "ingress")},
+
 				Attributes: map[string]schema.Attribute{
 					"infra_host_name": schema.StringAttribute{
 						MarkdownDescription: "Infra Host Name. Infra Host Name.",
@@ -324,6 +329,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 				Blocks: map[string]schema.Block{
 					"egress": schema.ListNestedBlock{
 						MarkdownDescription: "Egress. Egress",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_address")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"ip_address": schema.StringAttribute{

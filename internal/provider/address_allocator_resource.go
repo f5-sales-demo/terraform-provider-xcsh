@@ -177,6 +177,8 @@ func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"address_allocation_scheme": schema.SingleNestedBlock{
 				MarkdownDescription: "Decides the scheme to be used to allocate addresses from the configured address pool.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("allocation_unit")},
+
 				Attributes: map[string]schema.Attribute{
 					"allocation_unit": schema.Int64Attribute{
 						MarkdownDescription: "Prefix length indicating the size of each allocated subnet. For example, if this is specified as 30, subnets of /30 will be allocated from the given address pool.",

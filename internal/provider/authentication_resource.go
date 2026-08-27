@@ -304,6 +304,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"cookie_params": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies different cookie related config parameters for authentication.",
+
 				Attributes: map[string]schema.Attribute{
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client side after which client will not be setting the cookie as part of the request.",
@@ -330,6 +331,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 				Blocks: map[string]schema.Block{
 					"auth_hmac": schema.SingleNestedBlock{
 						MarkdownDescription: "HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("prim_key_expiry", "sec_key_expiry")},
 						Attributes: map[string]schema.Attribute{
 							"prim_key_expiry": schema.StringAttribute{
 								MarkdownDescription: "HMAC Primary Key Expiry. Primary HMAC Key Expiry time.",
@@ -347,6 +349,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -367,6 +370,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"clear_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 										Attributes: map[string]schema.Attribute{
 											"provider_ref": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -389,6 +393,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -409,6 +414,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"clear_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 										Attributes: map[string]schema.Attribute{
 											"provider_ref": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -434,6 +440,8 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"oidc_auth": schema.SingleNestedBlock{
 				MarkdownDescription: "OIDCAuthType.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("oidc_client_id")},
+
 				Attributes: map[string]schema.Attribute{
 					"oidc_client_id": schema.StringAttribute{
 						MarkdownDescription: "Client ID used while sending the Authorization Request to OIDC server.",
@@ -457,6 +465,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -477,6 +486,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -495,6 +505,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"oidc_auth_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for oidc auth params.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("auth_endpoint_url", "end_session_endpoint_url", "token_endpoint_url")},
 						Attributes: map[string]schema.Attribute{
 							"auth_endpoint_url": schema.StringAttribute{
 								MarkdownDescription: "URL of the authorization server's authorization endpoint.",

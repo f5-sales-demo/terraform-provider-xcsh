@@ -173,7 +173,9 @@ func (r *MaliciousUserMitigationResource) Schema(ctx context.Context, req resour
 			}),
 			"mitigation_type": schema.SingleNestedBlock{
 				MarkdownDescription: "Settings that specify the actions to be taken when malicious users are determined to be at different threat levels. User's activity is monitored and continuously analyzed for malicious behavior. From this analysis, a threat-level is assigned to each user. Server applies default when omitted.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
 						MarkdownDescription: "Define the threat levels and the corresponding mitigation actions to be taken.",

@@ -1314,6 +1314,8 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 			},
 			"cloudflare": schema.SingleNestedBlock{
 				MarkdownDescription: "Bot Defense policy configuration for Cloudflare.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("protected_endpoints")},
+
 				Attributes: map[string]schema.Attribute{
 					"continue_mitigation_action_hdr": schema.StringAttribute{
 						MarkdownDescription: "Case-insensitive HTTP header name for Continue Mitigation Action when add header selected.",
@@ -1346,6 +1348,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"js_insertion_rules": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines custom JavaScript insertion rules for Bot Defense Policy.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
 						Attributes: map[string]schema.Attribute{
 							"javascript_location": schema.StringAttribute{
 								MarkdownDescription: "[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED: JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`.",
@@ -1396,6 +1399,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"metadata": schema.SingleNestedBlock{
 											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Human readable description.",
@@ -1500,6 +1504,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"metadata": schema.SingleNestedBlock{
 											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Human readable description.",
@@ -1541,6 +1546,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								Blocks: map[string]schema.Block{
 									"headers": schema.ListNestedBlock{
 										MarkdownDescription: "List of headers that can be used to identify mobile traffic.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -1573,6 +1579,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"protected_endpoints": schema.ListNestedBlock{
 						MarkdownDescription: "List of protected endpoints (max 128 items).",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("http_methods")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"http_methods": schema.ListAttribute{
@@ -1623,6 +1630,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -1686,6 +1694,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"path": schema.SingleNestedBlock{
 									MarkdownDescription: "Path. URI Path",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
 									Attributes: map[string]schema.Attribute{
 										"caseinsensitive": schema.BoolAttribute{
 											MarkdownDescription: "Should path be searched case insensitive;.",
@@ -1744,6 +1753,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"redirect": schema.SingleNestedBlock{
 											MarkdownDescription: "Redirect. Redirect.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
 													MarkdownDescription: "Location. URI location for redirect response.",
@@ -1845,6 +1855,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"redirect_web": schema.SingleNestedBlock{
 											MarkdownDescription: "Redirect. Redirect.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
 													MarkdownDescription: "Location. URI location for redirect response.",
@@ -1883,10 +1894,12 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 							Blocks: map[string]schema.Block{
 								"http_header": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for http header.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("headers")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"headers": schema.ListNestedBlock{
 											MarkdownDescription: "List of HTTP header name and value pairs.",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact": schema.StringAttribute{
@@ -1917,6 +1930,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -1941,6 +1955,8 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 			},
 			"cloudfront": schema.SingleNestedBlock{
 				MarkdownDescription: "Bot Defense policy configuration for AWS Cloudfront.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("protected_endpoints")},
+
 				Attributes: map[string]schema.Attribute{
 					"continue_mitigation_action_hdr": schema.StringAttribute{
 						MarkdownDescription: "Case-insensitive HTTP header name for Continue Mitigation Action when add header selected.",
@@ -1974,6 +1990,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 				Blocks: map[string]schema.Block{
 					"aws_configuration_id_selector": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for aws configuration id selector.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ids")},
 						Attributes: map[string]schema.Attribute{
 							"ids": schema.ListAttribute{
 								MarkdownDescription: "Add AWS CloudFront distribution ID, e.g. ABCDEFGHI0JKLM.",
@@ -1987,6 +2004,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"aws_configuration_tag_selector": schema.SingleNestedBlock{
 						MarkdownDescription: "Distribution Tag List. CloudFront distribution tag list.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tags")},
 						Attributes: map[string]schema.Attribute{
 							"tags": schema.MapAttribute{
 								MarkdownDescription: "List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match.",
@@ -2006,6 +2024,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"js_insertion_rules": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines custom JavaScript insertion rules for Bot Defense Policy.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
 						Attributes: map[string]schema.Attribute{
 							"javascript_location": schema.StringAttribute{
 								MarkdownDescription: "[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED: JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`.",
@@ -2063,6 +2082,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"metadata": schema.SingleNestedBlock{
 											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Human readable description.",
@@ -2167,6 +2187,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"metadata": schema.SingleNestedBlock{
 											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Human readable description.",
@@ -2215,6 +2236,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								Blocks: map[string]schema.Block{
 									"headers": schema.ListNestedBlock{
 										MarkdownDescription: "List of headers that can be used to identify mobile traffic.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -2247,6 +2269,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"protected_endpoints": schema.ListNestedBlock{
 						MarkdownDescription: "List of protected endpoints (max 128 items).",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("http_methods", "path")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"http_methods": schema.ListAttribute{
@@ -2509,6 +2532,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -2617,6 +2641,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"redirect": schema.SingleNestedBlock{
 											MarkdownDescription: "Redirect. Redirect.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
 													MarkdownDescription: "Location. URI location for redirect response.",
@@ -2718,6 +2743,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"redirect_web": schema.SingleNestedBlock{
 											MarkdownDescription: "Redirect. Redirect.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
 													MarkdownDescription: "Location. URI location for redirect response.",
@@ -2756,10 +2782,12 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 							Blocks: map[string]schema.Block{
 								"http_header": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for http header.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("headers")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"headers": schema.ListNestedBlock{
 											MarkdownDescription: "List of HTTP header name and value pairs.",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact": schema.StringAttribute{
@@ -2790,6 +2818,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",

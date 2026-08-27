@@ -340,6 +340,8 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			}),
 			"fallback_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -370,7 +372,8 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"response_cache": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for response cache.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"default_response_cache_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for default response cache parameters.",
@@ -380,6 +383,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"response_cache_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for response cache parameters.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("cache_cidr_ipv6")},
 						Attributes: map[string]schema.Attribute{
 							"cache_cidr_ipv4": schema.Int64Attribute{
 								MarkdownDescription: "Length of CIDR masks used to group IPv4 clients.",
@@ -408,10 +412,13 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"rule_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Load Balancing Rule List. List of the Load Balancing Rules.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
 						MarkdownDescription: "Load Balancing Rules. Rules to perform load balancing.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("score")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"score": schema.Int64Attribute{
@@ -425,6 +432,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							Blocks: map[string]schema.Block{
 								"asn_list": schema.SingleNestedBlock{
 									MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("as_numbers")},
 									Attributes: map[string]schema.Attribute{
 										"as_numbers": schema.ListAttribute{
 											MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
@@ -438,6 +446,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"asn_matcher": schema.SingleNestedBlock{
 									MarkdownDescription: "Match any AS number contained in the list of bgp_asn_sets.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("asn_sets")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"asn_sets": schema.ListNestedBlock{
@@ -479,6 +488,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"geo_location_label_selector": schema.SingleNestedBlock{
 									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 									Attributes: map[string]schema.Attribute{
 										"expressions": schema.ListAttribute{
 											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -492,6 +502,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"geo_location_set": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -539,6 +550,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"ip_prefix_set": schema.SingleNestedBlock{
 									MarkdownDescription: "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("prefix_sets")},
 									Attributes: map[string]schema.Attribute{
 										"invert_matcher": schema.BoolAttribute{
 											MarkdownDescription: "Invert IP Matcher. Invert the match result.",
@@ -585,6 +597,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"pool": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
