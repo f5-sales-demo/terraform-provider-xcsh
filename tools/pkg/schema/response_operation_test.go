@@ -38,7 +38,7 @@ func TestExtractResponseOperationSchemaBindsPathQueryAndBody(t *testing.T) {
 	if state := inputs["state"]; state == nil || !state.Attribute.Required || len(state.Bindings) != 1 || state.Bindings[0].Location != "body" {
 		t.Fatalf("state input = %+v", state)
 	}
-	if limit := inputs["limit"]; limit == nil || !limit.Attribute.Optional || len(limit.Bindings) != 1 || limit.Bindings[0].Location != "query" {
+	if limit := inputs["limit"]; limit == nil || !limit.Attribute.Optional || limit.Attribute.Computed || len(limit.Bindings) != 1 || limit.Bindings[0].Location != "query" {
 		t.Fatalf("limit input = %+v", limit)
 	}
 
@@ -49,6 +49,24 @@ func TestExtractResponseOperationSchemaBindsPathQueryAndBody(t *testing.T) {
 	items := responses["items"]
 	if items == nil || !items.IsBlock || items.NestedBlockType != "list" || len(items.NestedAttributes) != 2 {
 		t.Fatalf("items response = %+v, want typed referenced list", items)
+	}
+}
+
+func TestExtractResponseOperationSchemaActionForceDefaultsFalse(t *testing.T) {
+	spec := responseOperationProbeSpec()
+	request := spec.Components.Schemas["probeRequest"]
+	request.Properties["force"] = openapi.Schema{Type: "boolean"}
+	spec.Components.Schemas["probeRequest"] = request
+	result, err := ExtractResponseOperationSchema(spec, openapi.ResolvedResponseOperation{
+		Name: "site_upgrade_os", Role: "action", Method: "POST", Path: "/api/register/namespaces/{namespace}/probe",
+		OperationID: "ves.io.schema.probe.CustomAPI.List", RequestSchema: "probeRequest", ResponseSchema: "probeResponse",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	force := operationInputsByTag(result.Inputs)["force"]
+	if force == nil || !force.Attribute.Optional || force.Attribute.Required || force.Attribute.Computed || force.Attribute.Default != false || !strings.Contains(force.Attribute.Description, "Defaults to `false`") {
+		t.Fatalf("force contract = %+v, want optional default false and never computed", force)
 	}
 }
 

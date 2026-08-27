@@ -2,7 +2,7 @@
 
 //go:build ignore
 
-// Command generate-examples generates Terraform examples for every resource and data source.
+// Command generate-examples generates Terraform examples for every resource, data source, and action.
 //
 // It is spec-free: examples are derived from the committed generated provider schema
 // (internal/provider/*_resource.go and *_data_source.go), NOT from the OpenAPI specs. This
@@ -50,10 +50,12 @@ var (
 func main() {
 	resFiles, _ := filepath.Glob(filepath.Join(providerDir, "*_resource.go"))
 	dsFiles, _ := filepath.Glob(filepath.Join(providerDir, "*_data_source.go"))
+	actionFiles, _ := filepath.Glob(filepath.Join(providerDir, "*_action.go"))
 
 	resourceKeep := map[string]bool{}
 	dataSourceKeep := map[string]bool{}
-	var generated, failed int
+	actionKeep := map[string]bool{}
+	var generatedResources, generatedDataSources, generatedActions, failed int
 
 	for _, f := range resFiles {
 		name := strings.TrimSuffix(filepath.Base(f), "_resource.go")
@@ -67,9 +69,15 @@ func main() {
 			failed++
 			continue
 		}
-		ns := codegen.ExampleNamespace(rt, name)
-		if err := codegen.WriteResourceExample(rt, name, "examples", ns); err != nil {
-			fmt.Fprintf(os.Stderr, "❌ %s: %v\n", name, err)
+		var writeErr error
+		if isResponseOperationFile(f) {
+			writeErr = codegen.WriteResponseOperationExample(rt, name, "examples", "resource")
+		} else {
+			ns := codegen.ExampleNamespace(rt, name)
+			writeErr = codegen.WriteResourceExample(rt, name, "examples", ns)
+		}
+		if writeErr != nil {
+			fmt.Fprintf(os.Stderr, "❌ %s: %v\n", name, writeErr)
 			failed++
 			continue
 		}
@@ -80,7 +88,7 @@ func main() {
 				continue
 			}
 		}
-		generated++
+		generatedResources++
 	}
 
 	for _, f := range dsFiles {
@@ -95,22 +103,58 @@ func main() {
 			failed++
 			continue
 		}
-		ns := codegen.ExampleNamespace(rt, name)
-		if err := codegen.WriteDataSourceExample(name, "examples", ns); err != nil {
+		var writeErr error
+		if isResponseOperationFile(f) {
+			rt, err = parseResourceSchema(f, name)
+			if err == nil {
+				writeErr = codegen.WriteResponseOperationExample(rt, name, "examples", "data_source")
+			}
+		} else {
+			ns := codegen.ExampleNamespace(rt, name)
+			writeErr = codegen.WriteDataSourceExample(name, "examples", ns)
+		}
+		if err != nil || writeErr != nil {
+			if err == nil {
+				err = writeErr
+			}
 			fmt.Fprintf(os.Stderr, "❌ %s (data source): %v\n", name, err)
 			failed++
+			continue
 		}
+		generatedDataSources++
 	}
 
-	pruneOrphanExampleDirs(resourceKeep, dataSourceKeep)
+	for _, f := range actionFiles {
+		name := strings.TrimSuffix(filepath.Base(f), "_action.go")
+		actionKeep[name] = true
+		rt, err := parseResourceSchema(f, name)
+		if err == nil {
+			err = codegen.WriteResponseOperationExample(rt, name, "examples", "action")
+		}
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "❌ %s (action): %v\n", name, err)
+			failed++
+			continue
+		}
+		generatedActions++
+	}
+
+	pruneOrphanExampleDirs(resourceKeep, dataSourceKeep, actionKeep)
 	formatExamples()
 
-	fmt.Printf("\n=== Example generation ===\nGenerated: %d resource examples, %d data-source lookups\n", generated, len(dsFiles))
+	fmt.Printf("\n=== Example generation ===\nGenerated: %d resource examples, %d data-source lookups, %d actions\n", generatedResources, generatedDataSources, generatedActions)
 	if failed > 0 {
 		fmt.Fprintf(os.Stderr, "❌ %d example(s) failed\n", failed)
 		os.Exit(1)
 	}
 	fmt.Println("✅ All examples generated (schema-driven, from committed provider)")
+}
+
+func isResponseOperationFile(path string) bool {
+	data, err := os.ReadFile(path) //nolint:gosec // generated file under internal/provider
+	return err == nil && strings.Contains(string(data), "Source: F5 XC enriched API response-operation contract") ||
+		err == nil && strings.Contains(string(data), "Source: F5 XC enriched API issuance contract") ||
+		err == nil && strings.Contains(string(data), "Source: F5 XC enriched API action contract")
 }
 
 // correspondingResourceTemplate returns the committed resource schema that governs a
@@ -291,13 +335,14 @@ func firstMarkdownDescription(content string) string {
 // pruneOrphanExampleDirs removes xcsh_-prefixed example dirs with no matching
 // provider file on the same surface. A read-only API keeps its data-source
 // example but must not preserve a stale resource example with the same name.
-func pruneOrphanExampleDirs(resourceKeep, dataSourceKeep map[string]bool) {
+func pruneOrphanExampleDirs(resourceKeep, dataSourceKeep, actionKeep map[string]bool) {
 	for _, surface := range []struct {
 		sub  string
 		keep map[string]bool
 	}{
 		{sub: "resources", keep: resourceKeep},
 		{sub: "data-sources", keep: dataSourceKeep},
+		{sub: "actions", keep: actionKeep},
 	} {
 		matches, _ := filepath.Glob(filepath.Join("examples", surface.sub, "xcsh_*"))
 		for _, dir := range matches {

@@ -738,6 +738,41 @@ func TestRenderResourceExampleHCL(t *testing.T) {
 	}
 }
 
+func TestRenderResponseOperationExampleHCL(t *testing.T) {
+	rt := &openapi.ResourceTemplate{Attributes: []openapi.TerraformAttribute{
+		{TfsdkTag: "namespace", Type: "string", Required: true},
+		{TfsdkTag: "name", Type: "string", Required: true},
+		{TfsdkTag: "version", Type: "string", Required: true},
+		{TfsdkTag: "force", Type: "bool"},
+	}}
+	got := RenderResponseOperationExampleHCL(rt, "site_upgrade_sw", "action")
+	for _, want := range []string{
+		`required_version = ">= 1.14"`,
+		`action "xcsh_site_upgrade_sw" "example"`,
+		"  config {",
+		`namespace = "example-value"`,
+		`name = "example-value"`,
+		`version = "example-value"`,
+		"convergence is asynchronous",
+		"does not reconcile a site's pinned software_settings",
+	} {
+		if !strings.Contains(got, want) {
+			t.Errorf("expected action example to contain %q, got:\n%s", want, got)
+		}
+	}
+	if strings.Contains(got, "force =") {
+		t.Errorf("optional force must be omitted so its false default is exercised, got:\n%s", got)
+	}
+
+	data := RenderResponseOperationExampleHCL(&openapi.ResourceTemplate{Attributes: []openapi.TerraformAttribute{
+		{TfsdkTag: "provider_ref", Type: "string", Required: true},
+		{TfsdkTag: "image_download_url", Type: "string", Computed: true},
+	}}, "site_image", "data_source")
+	if !strings.Contains(data, `provider_ref = "example-value"`) || strings.Contains(data, "image_download_url =") {
+		t.Fatalf("response data-source example did not follow required/computed schema:\n%s", data)
+	}
+}
+
 // An unconfigured (null or empty) nested list block must be preserved as null on normal
 // Read/Create so a server-managed list the user never configured does not drift the plan
 // ("Provider produced inconsistent result after apply"). Import still reads the API.

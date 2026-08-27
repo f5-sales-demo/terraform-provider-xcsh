@@ -87,8 +87,13 @@ func TestGenerateResponseOperationEveryRole(t *testing.T) {
 					t.Error("generated action declares an unused response value")
 				}
 			}
-			if test.role == "issuance" && !strings.Contains(text, `"id": schema.StringAttribute{`) {
-				t.Error("generated issuance schema is missing its computed id")
+			if test.role == "issuance" {
+				if !strings.Contains(text, `"id": schema.StringAttribute{`) {
+					t.Error("generated issuance schema is missing its computed id")
+				}
+				if !strings.Contains(text, `AddError("Update Not Supported"`) {
+					t.Error("generated issuance is missing the canonical fail-closed update stub")
+				}
 			}
 			if test.role != "action" && (!strings.Contains(text, "Sensitive:") || !strings.Contains(text, "true")) {
 				t.Errorf("generated %s lost sensitive response propagation", test.role)
@@ -144,6 +149,14 @@ func responseOperationTemplate(role string) *openapi.ResponseOperationTemplate {
 			{Attribute: openapi.TerraformAttribute{Name: "name", GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string", Required: true, EnumValues: []string{"v1", "v2"}}, Bindings: []openapi.OperationBinding{{Location: "path", Name: "name"}, {Location: "body", Name: "name"}}},
 			{Attribute: openapi.TerraformAttribute{Name: "force", GoName: "Force", TfsdkTag: "force", JsonName: "force", Type: "bool", Optional: true, Default: falseValue}, Bindings: []openapi.OperationBinding{{Location: "body", Name: "force"}}},
 		},
-		ResponseAttributes: []openapi.TerraformAttribute{{Name: "secret", GoName: "Secret", TfsdkTag: "secret", JsonName: "secret", Type: "string", Computed: true, Sensitive: true, IsSpecField: true}},
+		ResponseAttributes: []openapi.TerraformAttribute{
+			{Name: "secret", GoName: "Secret", TfsdkTag: "secret", JsonName: "secret", Type: "string", Computed: true, Sensitive: true, IsSpecField: true},
+			{Name: "details", GoName: "Details", TfsdkTag: "details", JsonName: "details", IsBlock: true, NestedBlockType: "single", Computed: true, IsSpecField: true, NestedAttributes: []openapi.TerraformAttribute{
+				{Name: "value", GoName: "Value", TfsdkTag: "value", JsonName: "value", Type: "string", Computed: true, IsSpecField: true},
+			}},
+			{Name: "items", GoName: "Items", TfsdkTag: "items", JsonName: "items", IsBlock: true, NestedBlockType: "list", Computed: true, IsSpecField: true, NestedAttributes: []openapi.TerraformAttribute{
+				{Name: "name", GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string", Computed: true, IsSpecField: true},
+			}},
+		},
 	}
 }

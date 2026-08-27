@@ -77,6 +77,14 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 		if attr.IsBlock || !supportedResponseOperationInput(attr) {
 			return fmt.Errorf("response operation %s input %q has unsupported %s shape", operation.Name, name, location)
 		}
+		// Operation inputs are practitioner configuration, never response-owned
+		// computed values. The one exception below is namespace with a provider
+		// default, which must be Optional+Computed so the default can enter state.
+		attr.Computed = false
+		if !isRequired {
+			attr.Required = false
+			attr.Optional = true
+		}
 		if operation.Name == "site_image" && name == "provider" {
 			attr.GoName = "ProviderRef"
 			attr.TfsdkTag = "provider_ref"
@@ -90,7 +98,11 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 		if operation.Role == "action" && name == "force" {
 			attr.Required = false
 			attr.Optional = true
+			attr.Computed = false
 			attr.Default = false
+			if !strings.Contains(strings.ToLower(attr.Description), "default") {
+				attr.Description = strings.TrimSpace(attr.Description) + " Defaults to `false`."
+			}
 		}
 		existing := inputsByTag[attr.TfsdkTag]
 		if existing == nil {

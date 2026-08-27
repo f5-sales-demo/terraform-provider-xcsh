@@ -1342,7 +1342,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"rule_list": schema.SingleNestedBlock{
-				MarkdownDescription: "List of rules. The order of evaluation of the rules depends on the rule combining algorithm.",
+				MarkdownDescription: "Ordered service-policy rules for non-geographic predicates and actions. Do not use country_list for a geo-only rule here: the platform adds match-all any_ip and any_asn selectors on readback, so the rule can match all traffic. Use deny_list or allow_list with country_list for geographic source..",
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -2369,7 +2369,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"exclude_attack_type_contexts": schema.ListNestedBlock{
-															MarkdownDescription: "Attack Types to be excluded for the defined match criteria.",
+															MarkdownDescription: "Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected.",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"context": schema.StringAttribute{
@@ -2380,7 +2380,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 																		},
 																	},
 																	"context_name": schema.StringAttribute{
-																		MarkdownDescription: "Relevant only for contexts: Header, Cookie and Parameter. Name of the Context that the WAF Exclusion Rules will check. Wildcard matching can be used by prefixing or suffixing the context name with an wildcard asterisk (*).",
+																		MarkdownDescription: "Parameter, cookie, or header name selected by context. For a parameter-scoped WAF exception, set context to CONTEXT_PARAMETER and name only the intended parameter.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(128),

@@ -11,6 +11,7 @@
 // Version Detection Rules:
 //   - Protocol 6.0 (terraform-plugin-framework): Terraform 1.0+
 //   - Provider-defined functions: Terraform 1.8+
+//   - Provider actions: Terraform 1.14+
 //   - Write-only attributes: Terraform 1.11+ (future)
 
 package main
@@ -113,6 +114,11 @@ func calculateMinimumVersion(projectRoot string) VersionInfo {
 			MinVersion: "1.8",
 			Detected:   hasProviderFunctions(projectRoot),
 		},
+		{
+			Feature:    "Provider actions",
+			MinVersion: "1.14",
+			Detected:   hasProviderActions(projectRoot),
+		},
 		// Future: Add more feature detection
 		// {
 		// 	Feature:    "Write-only attributes",
@@ -133,6 +139,11 @@ func calculateMinimumVersion(projectRoot string) VersionInfo {
 		MinimumVersion: minVersion,
 		Requirements:   requirements,
 	}
+}
+
+func hasProviderActions(projectRoot string) bool {
+	matches, err := filepath.Glob(filepath.Join(projectRoot, "internal", "provider", "*_action.go"))
+	return err == nil && len(matches) > 0
 }
 
 // hasProviderFunctions checks if the provider implements provider-defined functions

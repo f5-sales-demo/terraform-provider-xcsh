@@ -752,7 +752,6 @@ var BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMod
 // BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *BigIPHTTPProxyEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *BigIPHTTPProxyEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *BigIPHTTPProxyEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *BigIPHTTPProxyEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -760,7 +759,6 @@ type BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHe
 // BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -1142,7 +1140,6 @@ var BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *BigIPHTTPProxyEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *BigIPHTTPProxyEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *BigIPHTTPProxyEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *BigIPHTTPProxyEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -1150,7 +1147,6 @@ type BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnable
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -2309,16 +2305,13 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"default_header_transformation": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
-													},
-													"legacy_header_transformation": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
+														MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 													},
 													"preserve_case_header_transformation": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
+														MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 													},
 													"proper_case_header_transformation": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
+														MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 													},
 												},
 											},
@@ -2837,16 +2830,13 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"default_header_transformation": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
-													},
-													"legacy_header_transformation": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
+														MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 													},
 													"preserve_case_header_transformation": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
+														MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 													},
 													"proper_case_header_transformation": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
+														MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 													},
 												},
 											},
@@ -3644,9 +3634,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-						}
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
@@ -3981,9 +3968,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-						}
-						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -5288,15 +5272,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																}
 																return nil
 															}(),
-															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																}
-																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
-																}
-																return nil
-															}(),
 															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
 																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -6087,15 +6062,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
-																}
-																return nil
-															}(),
-															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																}
-																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																	return &BigIPHTTPProxyEmptyModel{}
 																}
 																return nil
@@ -7671,15 +7637,6 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																}
 																return nil
 															}(),
-															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																}
-																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
-																}
-																return nil
-															}(),
 															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
 																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -8470,15 +8427,6 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
-																}
-																return nil
-															}(),
-															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																}
-																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																	return &BigIPHTTPProxyEmptyModel{}
 																}
 																return nil
@@ -9383,9 +9331,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-						}
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
@@ -9720,9 +9665,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-						}
-						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -11047,15 +10989,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																}
 																return nil
 															}(),
-															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																}
-																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
-																}
-																return nil
-															}(),
 															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
 																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -11846,15 +11779,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
-																}
-																return nil
-															}(),
-															LegacyHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																}
-																if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																	return &BigIPHTTPProxyEmptyModel{}
 																}
 																return nil

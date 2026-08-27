@@ -100,6 +100,44 @@ func RenderDataSourceExampleHCL(resourceName, namespaceVal string) string {
 	return sb.String()
 }
 
+// RenderResponseOperationExampleHCL renders a minimal valid example for a
+// catalog-owned response operation. Unlike CRUD resources and lookup data
+// sources, these surfaces do not necessarily expose name or namespace. Their
+// required top-level attributes are therefore the complete source of truth.
+func RenderResponseOperationExampleHCL(rt *openapi.ResourceTemplate, resourceName, surface string) string {
+	human := humanizeResourceName(resourceName)
+	var sb strings.Builder
+	sb.WriteString(fmt.Sprintf("# %s %s Example\n\n", human, humanizeResourceName(surface)))
+	sb.WriteString("terraform {\n  required_version = \">= 1.14\"\n\n  required_providers {\n    xcsh = {\n      source  = \"f5-sales-demo/xcsh\"\n      version = \">= 0.1.0\"\n    }\n  }\n}\n\n")
+
+	indent := "  "
+	switch surface {
+	case "resource":
+		sb.WriteString(fmt.Sprintf("resource \"xcsh_%s\" \"example\" {\n", resourceName))
+	case "data_source":
+		sb.WriteString(fmt.Sprintf("data \"xcsh_%s\" \"example\" {\n", resourceName))
+	case "action":
+		sb.WriteString(fmt.Sprintf("# The API accepts this upgrade request immediately; convergence is asynchronous.\n"))
+		sb.WriteString("# This action does not reconcile a site's pinned software_settings.\n")
+		sb.WriteString(fmt.Sprintf("action \"xcsh_%s\" \"example\" {\n  config {\n", resourceName))
+		indent = "    "
+	default:
+		return ""
+	}
+
+	for _, attr := range rt.Attributes {
+		if attr.IsBlock || !attr.Required {
+			continue
+		}
+		sb.WriteString(fmt.Sprintf("%s%s = %s\n", indent, attr.TfsdkTag, exampleValue(attr)))
+	}
+	if surface == "action" {
+		sb.WriteString("  }\n")
+	}
+	sb.WriteString("}\n")
+	return sb.String()
+}
+
 // exampleValue synthesizes a schema-valid HCL value for a required attribute.
 func exampleValue(attr openapi.TerraformAttribute) string {
 	switch attr.Type {
@@ -157,6 +195,28 @@ func WriteDataSourceExample(resourceName, examplesRoot, namespaceVal string) err
 		return err
 	}
 	return os.WriteFile(filepath.Join(dir, "data-source.tf"), []byte(RenderDataSourceExampleHCL(resourceName, namespaceVal)), 0o644)
+}
+
+// WriteResponseOperationExample writes the canonical example for a response
+// operation surface. Terraform-plugin-docs requires action examples at
+// examples/actions/xcsh_<name>/action.tf.
+func WriteResponseOperationExample(rt *openapi.ResourceTemplate, resourceName, examplesRoot, surface string) error {
+	var subdir, filename string
+	switch surface {
+	case "resource":
+		subdir, filename = "resources", "resource.tf"
+	case "data_source":
+		subdir, filename = "data-sources", "data-source.tf"
+	case "action":
+		subdir, filename = "actions", "action.tf"
+	default:
+		return fmt.Errorf("unsupported response-operation example surface %q", surface)
+	}
+	dir := filepath.Join(examplesRoot, subdir, "xcsh_"+resourceName)
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return err
+	}
+	return os.WriteFile(filepath.Join(dir, filename), []byte(RenderResponseOperationExampleHCL(rt, resourceName, surface)), 0o644)
 }
 
 func humanizeResourceName(name string) string {

@@ -131,7 +131,6 @@ var ClusterHttp1ConfigModelAttrTypes = map[string]attr.Type{
 // ClusterHttp1ConfigHeaderTransformationModel represents header_transformation block
 type ClusterHttp1ConfigHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *ClusterEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *ClusterEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *ClusterEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *ClusterEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -139,7 +138,6 @@ type ClusterHttp1ConfigHeaderTransformationModel struct {
 // ClusterHttp1ConfigHeaderTransformationModelAttrTypes defines the attribute types for ClusterHttp1ConfigHeaderTransformationModel
 var ClusterHttp1ConfigHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -739,16 +737,13 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"default_header_transformation": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"legacy_header_transformation": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
+								MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 							},
 							"preserve_case_header_transformation": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
+								MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 							},
 							"proper_case_header_transformation": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
+								MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 							},
 						},
 					},
@@ -1385,9 +1380,6 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			if data.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
 				Http1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 			}
-			if data.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
-				Http1ConfigHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-			}
 			if data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 				Http1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 			}
@@ -1940,15 +1932,6 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
-							}
-							return nil
-						}(),
-						LegacyHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
-								return data.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-							}
-							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil
@@ -2947,15 +2930,6 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 							}
 							return nil
 						}(),
-						LegacyHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
-								return data.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-							}
-							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
-							}
-							return nil
-						}(),
 						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
 							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
 								return data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -3792,9 +3766,6 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			if data.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
 				Http1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 			}
-			if data.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
-				Http1ConfigHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-			}
 			if data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 				Http1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 			}
@@ -4416,15 +4387,6 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
-							}
-							return nil
-						}(),
-						LegacyHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
-								return data.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-							}
-							if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 								return &ClusterEmptyModel{}
 							}
 							return nil

@@ -7,6 +7,7 @@ import (
 	"context"
 	"os"
 
+	"github.com/hashicorp/terraform-plugin-framework/action"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
@@ -20,6 +21,7 @@ import (
 
 // Ensure XCSHProvider satisfies various provider interfaces.
 var _ provider.Provider = &XCSHProvider{}
+var _ provider.ProviderWithActions = &XCSHProvider{}
 
 // XCSHProvider defines the provider implementation.
 type XCSHProvider struct {
@@ -207,6 +209,7 @@ func (p *XCSHProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 	// Make the client available during DataSource and Resource type Configure methods
 	resp.DataSourceData = c
 	resp.ResourceData = c
+	resp.ActionData = c
 }
 
 func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource {
@@ -320,6 +323,7 @@ func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource
 		NewSensitiveDataPolicyResource,
 		NewServicePolicyResource,
 		NewServicePolicyRuleResource,
+		NewSiteCloudInitResource,
 		NewSiteMeshGroupResource,
 		NewSrv6NetworkSliceResource,
 		NewSubnetResource,
@@ -472,8 +476,12 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewServicePolicySetDataSource,
 		NewShapeBotDefenseInstanceDataSource,
 		NewSiteDataSource,
+		NewSiteImageDataSource,
 		NewSiteMeshGroupDataSource,
 		NewSiteRegistrationDataSource,
+		NewSiteRegistrationsBySiteDataSource,
+		NewSiteRegistrationsByStateDataSource,
+		NewSiteRegistrationsDataSource,
 		NewSrv6NetworkSliceDataSource,
 		NewSubnetDataSource,
 		NewTCPLoadBalancerDataSource,
@@ -493,6 +501,13 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewWAFExclusionPolicyDataSource,
 		NewWorkloadDataSource,
 		NewWorkloadFlavorDataSource,
+	}
+}
+
+func (p *XCSHProvider) Actions(ctx context.Context) []func() action.Action {
+	return []func() action.Action{
+		NewSiteUpgradeOSAction,
+		NewSiteUpgradeSwAction,
 	}
 }
 

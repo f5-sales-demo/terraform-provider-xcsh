@@ -144,9 +144,13 @@ func renderResponseOperationSchemaMap(attributes []openapi.TerraformAttribute, i
 			}
 			fmt.Fprintf(&result, "%s\t%q: schema.%s{\n", indent, attribute.TfsdkTag, typeName)
 			fmt.Fprintf(&result, "%s\t\tMarkdownDescription: %q,\n", indent, description)
-			fmt.Fprintf(&result, "%s\t\tNestedObject: schema.NestedAttributeObject{\n", indent)
-			result.WriteString(renderResponseOperationSchemaMap(attribute.NestedAttributes, indent+"\t\t\t", false))
-			fmt.Fprintf(&result, "%s\t\t},\n", indent)
+			if attribute.NestedBlockType == "list" {
+				fmt.Fprintf(&result, "%s\t\tNestedObject: schema.NestedAttributeObject{\n", indent)
+				result.WriteString(renderResponseOperationSchemaMap(attribute.NestedAttributes, indent+"\t\t\t", false))
+				fmt.Fprintf(&result, "%s\t\t},\n", indent)
+			} else {
+				result.WriteString(renderResponseOperationSchemaMap(attribute.NestedAttributes, indent+"\t\t", false))
+			}
 			renderResponseOperationFlags(&result, attribute, indent+"\t\t", false)
 			fmt.Fprintf(&result, "%s\t},\n", indent)
 			continue
@@ -526,7 +530,7 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) { var data {{.TitleCase}}ResourceModel; resp.Diagnostics.Append(req.State.Get(ctx, &data)...); if !resp.Diagnostics.HasError() { resp.Diagnostics.Append(resp.State.Set(ctx, &data)...) } }
-func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) { resp.Diagnostics.AddError("Unexpected Update", "All issuance inputs require replacement.") }
+func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) { resp.Diagnostics.AddError("Update Not Supported", "All issuance inputs require replacement.") }
 func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {}
 `
 

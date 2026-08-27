@@ -902,7 +902,6 @@ var WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTP
 // WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -910,7 +909,6 @@ type WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTT
 // WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -1292,7 +1290,6 @@ var WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAuto
 // WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -1300,7 +1297,6 @@ type WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAut
 // WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -1926,7 +1922,6 @@ var WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalan
 // WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -1934,7 +1929,6 @@ type WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBala
 // WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -2316,7 +2310,6 @@ var WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalan
 // WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -2324,7 +2317,6 @@ type WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBala
 // WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -2852,7 +2844,6 @@ var WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTT
 // WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -2860,7 +2851,6 @@ type WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHT
 // WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -3242,7 +3232,6 @@ var WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAut
 // WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -3250,7 +3239,6 @@ type WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAu
 // WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -4858,7 +4846,6 @@ var WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerH
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -4866,7 +4853,6 @@ type WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancer
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -5248,7 +5234,6 @@ var WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerH
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -5256,7 +5241,6 @@ type WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancer
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadStatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -5882,7 +5866,6 @@ var WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPL
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -5890,7 +5873,6 @@ type WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTP
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -6272,7 +6254,6 @@ var WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPL
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -6280,7 +6261,6 @@ type WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTP
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -6808,7 +6788,6 @@ var WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancer
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -6816,7 +6795,6 @@ type WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalance
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -7198,7 +7176,6 @@ var WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancer
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *WorkloadEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *WorkloadEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *WorkloadEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *WorkloadEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -7206,7 +7183,6 @@ type WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalance
 // WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var WorkloadStatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -9379,16 +9355,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"default_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
-																						},
-																						"legacy_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																						},
 																						"preserve_case_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																						},
 																						"proper_case_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																						},
 																					},
 																				},
@@ -9907,16 +9880,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"default_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
-																						},
-																						"legacy_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																						},
 																						"preserve_case_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																						},
 																						"proper_case_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																						},
 																					},
 																				},
@@ -10791,16 +10761,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							Attributes:          map[string]schema.Attribute{},
 																							Blocks: map[string]schema.Block{
 																								"default_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
-																								},
-																								"legacy_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																								},
 																								"preserve_case_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																								},
 																								"proper_case_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																								},
 																							},
 																						},
@@ -11319,16 +11286,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							Attributes:          map[string]schema.Attribute{},
 																							Blocks: map[string]schema.Block{
 																								"default_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
-																								},
-																								"legacy_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																								},
 																								"preserve_case_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																								},
 																								"proper_case_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																								},
 																							},
 																						},
@@ -12092,16 +12056,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"default_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
-																					},
-																					"legacy_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																					},
 																					"preserve_case_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																					},
 																					"proper_case_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																					},
 																				},
 																			},
@@ -12620,16 +12581,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"default_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
-																					},
-																					"legacy_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																					},
 																					"preserve_case_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																					},
 																					"proper_case_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																					},
 																				},
 																			},
@@ -15001,16 +14959,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"default_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
-																						},
-																						"legacy_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																						},
 																						"preserve_case_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																						},
 																						"proper_case_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																						},
 																					},
 																				},
@@ -15529,16 +15484,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"default_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
-																						},
-																						"legacy_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																						},
 																						"preserve_case_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																						},
 																						"proper_case_header_transformation": schema.SingleNestedBlock{
-																							MarkdownDescription: "Enable this option",
+																							MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																						},
 																					},
 																				},
@@ -16413,16 +16365,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							Attributes:          map[string]schema.Attribute{},
 																							Blocks: map[string]schema.Block{
 																								"default_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
-																								},
-																								"legacy_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																								},
 																								"preserve_case_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																								},
 																								"proper_case_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																								},
 																							},
 																						},
@@ -16941,16 +16890,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							Attributes:          map[string]schema.Attribute{},
 																							Blocks: map[string]schema.Block{
 																								"default_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
-																								},
-																								"legacy_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																								},
 																								"preserve_case_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																								},
 																								"proper_case_header_transformation": schema.SingleNestedBlock{
-																									MarkdownDescription: "Enable this option",
+																									MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																								},
 																							},
 																						},
@@ -17714,16 +17660,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"default_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
-																					},
-																					"legacy_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																					},
 																					"preserve_case_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																					},
 																					"proper_case_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																					},
 																				},
 																			},
@@ -18242,16 +18185,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"default_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
-																					},
-																					"legacy_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 																					},
 																					"preserve_case_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 																					},
 																					"proper_case_header_transformation": schema.SingleNestedBlock{
-																						MarkdownDescription: "Enable this option",
+																						MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 																					},
 																				},
 																			},
@@ -20462,9 +20402,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 												}
-												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 												}
@@ -20799,9 +20736,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-												}
-												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -21346,9 +21280,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 													}
-													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-													}
 													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 													}
@@ -21683,9 +21614,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-													}
-													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 													}
 													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -22160,9 +22088,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 										}
-										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-										}
 										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 										}
@@ -22497,9 +22422,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-										}
-										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 										}
 										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -23863,9 +23785,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 												}
-												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 												}
@@ -24200,9 +24119,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-												}
-												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -24747,9 +24663,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 													}
-													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-													}
 													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 													}
@@ -25084,9 +24997,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-													}
-													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 													}
 													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -25561,9 +25471,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 										}
-										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-										}
 										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 										}
@@ -25898,9 +25805,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-										}
-										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 										}
 										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -28208,15 +28112,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																														}
 																														return nil
 																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
 																													PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -29007,15 +28902,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																														}
 																														if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																															return &WorkloadEmptyModel{}
 																														}
 																														return nil
@@ -30272,15 +30158,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	}
 																																	return nil
 																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
 																																PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -31071,15 +30948,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																																	}
 																																	if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																																		return &WorkloadEmptyModel{}
 																																	}
 																																	return nil
@@ -32178,15 +32046,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																												}
 																												return nil
 																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
 																											PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -32977,15 +32836,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																												}
 																												if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																													return &WorkloadEmptyModel{}
 																												}
 																												return nil
@@ -36020,15 +35870,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																														}
 																														return nil
 																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
 																													PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -36819,15 +36660,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																														}
 																														if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																															return &WorkloadEmptyModel{}
 																														}
 																														return nil
@@ -38084,15 +37916,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																	}
 																																	return nil
 																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
 																																PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -38883,15 +38706,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																																	}
 																																	if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																																		return &WorkloadEmptyModel{}
 																																	}
 																																	return nil
@@ -39990,15 +39804,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																												}
 																												return nil
 																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
 																											PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -40789,15 +40594,6 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																												}
 																												if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																													return &WorkloadEmptyModel{}
 																												}
 																												return nil
@@ -44253,15 +44049,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																														}
 																														return nil
 																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
 																													PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -45052,15 +44839,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																														}
 																														if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																															return &WorkloadEmptyModel{}
 																														}
 																														return nil
@@ -46317,15 +46095,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	}
 																																	return nil
 																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
 																																PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -47116,15 +46885,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																																	}
 																																	if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																																		return &WorkloadEmptyModel{}
 																																	}
 																																	return nil
@@ -48223,15 +47983,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																												}
 																												return nil
 																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
 																											PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -49022,15 +48773,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																												}
 																												if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																													return &WorkloadEmptyModel{}
 																												}
 																												return nil
@@ -52065,15 +51807,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																														}
 																														return nil
 																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
 																													PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -52864,15 +52597,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																														}
 																														if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																															return &WorkloadEmptyModel{}
 																														}
 																														return nil
@@ -54129,15 +53853,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																	}
 																																	return nil
 																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
 																																PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -54928,15 +54643,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																																	}
 																																	if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																																		return &WorkloadEmptyModel{}
 																																	}
 																																	return nil
@@ -56035,15 +55741,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																												}
 																												return nil
 																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
 																											PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -56834,15 +56531,6 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																												}
 																												if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																													return &WorkloadEmptyModel{}
 																												}
 																												return nil
@@ -59511,9 +59199,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 												}
-												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 												}
@@ -59848,9 +59533,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-												}
-												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 													ServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -60395,9 +60077,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 													}
-													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-													}
 													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 													}
@@ -60732,9 +60411,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-													}
-													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 													}
 													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 														ServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -61209,9 +60885,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 										}
-										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-										}
 										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 										}
@@ -61546,9 +61219,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-										}
-										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 										}
 										if data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 											ServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -62912,9 +62582,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 												}
-												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-												}
 												if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 												}
@@ -63249,9 +62916,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-												}
-												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 												}
 												if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 													StatefulServiceAdvertiseOptionsAdvertiseCustomPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -63796,9 +63460,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 													}
-													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-													}
 													if PortsItem.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 													}
@@ -64133,9 +63794,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 													StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-													}
-													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 													}
 													if PortsItem.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 														StatefulServiceAdvertiseOptionsAdvertiseOnPublicMultiPortsPortsHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -64610,9 +64268,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 										}
-										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-										}
 										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 										}
@@ -64947,9 +64602,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-										}
-										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 										}
 										if data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 											StatefulServiceAdvertiseOptionsAdvertiseOnPublicPortHTTPLoadBalancerHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -67277,15 +66929,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																														}
 																														return nil
 																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
 																													PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -68076,15 +67719,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																														}
 																														if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																															return &WorkloadEmptyModel{}
 																														}
 																														return nil
@@ -69341,15 +68975,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	}
 																																	return nil
 																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
 																																PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -70140,15 +69765,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																																	}
 																																	if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																																		return &WorkloadEmptyModel{}
 																																	}
 																																	return nil
@@ -71247,15 +70863,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																												}
 																												return nil
 																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
 																											PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -72046,15 +71653,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																												}
 																												if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.Service != nil && data.Service.AdvertiseOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.Service.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																													return &WorkloadEmptyModel{}
 																												}
 																												return nil
@@ -75089,15 +74687,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																														}
 																														return nil
 																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
 																													PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -75888,15 +75477,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																														}
 																														if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																															return &WorkloadEmptyModel{}
-																														}
-																														return nil
-																													}(),
-																													LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																														if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																															return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																														}
-																														if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																															return &WorkloadEmptyModel{}
 																														}
 																														return nil
@@ -77153,15 +76733,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																	}
 																																	return nil
 																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
 																																PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -77952,15 +77523,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																																	}
 																																	if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																																		return &WorkloadEmptyModel{}
-																																	}
-																																	return nil
-																																}(),
-																																LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																																	if !isImport && len(PortsExisting) > PortsIdx && PortsExisting[PortsIdx].HTTPLoadBalancer != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																																		return PortsExisting[PortsIdx].HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																																	}
-																																	if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																																		return &WorkloadEmptyModel{}
 																																	}
 																																	return nil
@@ -79059,15 +78621,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																												}
 																												return nil
 																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
 																											PreserveCaseHeaderTransformation: func() *WorkloadEmptyModel {
 																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -79858,15 +79411,6 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																												}
 																												if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																													return &WorkloadEmptyModel{}
-																												}
-																												return nil
-																											}(),
-																											LegacyHeaderTransformation: func() *WorkloadEmptyModel {
-																												if !isImport && data.StatefulService != nil && data.StatefulService.AdvertiseOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-																													return data.StatefulService.AdvertiseOptions.AdvertiseOnPublic.Port.HTTPLoadBalancer.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-																												}
-																												if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 																													return &WorkloadEmptyModel{}
 																												}
 																												return nil
