@@ -21,8 +21,8 @@ parse_version() {
   local prefix=$1
   local version=${2#v}
 
-  [[ "$version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]] \
-    || fail "version must be vMAJOR.MINOR.PATCH: $2"
+  [[ "$version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]] ||
+    fail "version must be vMAJOR.MINOR.PATCH: $2"
   printf -v "${prefix}_major" '%d' "$((10#${BASH_REMATCH[1]}))"
   printf -v "${prefix}_minor" '%d' "$((10#${BASH_REMATCH[2]}))"
   printf -v "${prefix}_patch" '%d' "$((10#${BASH_REMATCH[3]}))"
@@ -31,9 +31,9 @@ parse_version() {
 parse_version current "$1"
 parse_version incoming "$2"
 
-if ((incoming_major < current_major)) \
-  || ((incoming_major == current_major && incoming_minor < current_minor)) \
-  || ((incoming_major == current_major && incoming_minor == current_minor && incoming_patch <= current_patch)); then
+if ((incoming_major < current_major)) ||
+  ((incoming_major == current_major && incoming_minor < current_minor)) ||
+  ((incoming_major == current_major && incoming_minor == current_minor && incoming_patch <= current_patch)); then
   fail "incoming version $2 must be newer than current version $1"
 fi
 
