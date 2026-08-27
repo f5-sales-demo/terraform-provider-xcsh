@@ -23,6 +23,10 @@ import (
 // outputDir is the directory where the file will be written (e.g. "internal/provider").
 func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) error {
 	outputPath := filepath.Join(outputDir, resource.Name+"_resource.go")
+	// Lifecycle classification can add RequiresReplace after extraction. Derive
+	// every conditional plan-modifier import from the final IR so clean renders
+	// never depend on goimports package discovery to repair a stale template flag.
+	schema.SyncPlanModifierUsage(resource)
 
 	// Create template with custom functions
 	funcMap := template.FuncMap{

@@ -540,6 +540,42 @@ func TestResourceTemplate_MetadataLabelsMapNotImportSuppressed_Issue1244(t *test
 	}
 }
 
+func TestGenerateResourceFileSynchronizesPlanModifierImportsFromFinalIR(t *testing.T) {
+	resource := &openapi.ResourceTemplate{
+		Name:        "zz_plan_modifier_import_probe",
+		TitleCase:   "ZzPlanModifierImportProbe",
+		Description: "Probe.",
+		APIPath:     "/api/config/namespaces/%s/zz_plan_modifier_import_probes",
+		APIPathItem: "/api/config/namespaces/%s/zz_plan_modifier_import_probes/%s",
+		Attributes: []openapi.TerraformAttribute{
+			{
+				Name: "items", GoName: "Items", TfsdkTag: "items", JsonName: "items",
+				Type: "list", ElementType: "string", Required: true, PlanModifier: "RequiresReplace",
+			},
+		},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(resource, dir); err != nil {
+		t.Fatalf("GenerateResourceFile: %v", err)
+	}
+	if !resource.UsesListPlanModifier {
+		t.Fatal("final list plan-modifier usage did not replace the stale template flag")
+	}
+	body, err := os.ReadFile(filepath.Join(dir, "zz_plan_modifier_import_probe_resource.go"))
+	if err != nil {
+		t.Fatalf("read generated resource: %v", err)
+	}
+	generated := string(body)
+	for _, want := range []string{
+		`"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"`,
+		"listplanmodifier.RequiresReplace()",
+	} {
+		if !strings.Contains(generated, want) {
+			t.Errorf("generated resource is missing %q:\n%s", want, generated)
+		}
+	}
+}
+
 // A suppressed server-computed LIST block nested inside another block (e.g.
 // app_firewall detection_settings.violations_view — the server materializes the
 // full violation catalog whenever detection_settings is set) must not be populated

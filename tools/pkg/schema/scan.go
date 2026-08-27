@@ -172,3 +172,15 @@ func ScanPlanModifierUsage(attributes []openapi.TerraformAttribute) (usesBool, u
 	}
 	return
 }
+
+// SyncPlanModifierUsage derives resource-template import flags from the final
+// attribute IR. Call this immediately before rendering because lifecycle
+// classification may add plan modifiers after schema extraction.
+func SyncPlanModifierUsage(resource *openapi.ResourceTemplate) {
+	usesBool, usesInt64, usesString, usesList, usesMap := ScanPlanModifierUsage(resource.Attributes)
+	resource.UsesBoolPlanModifier = usesBool
+	resource.UsesInt64PlanModifier = usesInt64
+	resource.UsesStringPlanModifier = usesString
+	resource.UsesListPlanModifier = usesList
+	resource.UsesMapPlanModifier = usesMap
+}
