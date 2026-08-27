@@ -1624,6 +1624,7 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 			Steps           []struct {
 				Name            string            `yaml:"name"`
 				Env             map[string]string `yaml:"env"`
+				Run             string            `yaml:"run"`
 				Uses            string            `yaml:"uses"`
 				With            map[string]any    `yaml:"with"`
 				ContinueOnError any               `yaml:"continue-on-error"`
@@ -1689,19 +1690,25 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 		t.Fatalf("acceptance mode is not reported and gated with the same event-aware expression")
 	}
 	setupGoCount := 0
+	verifiedImageGo := map[string]bool{}
 	for jobName, job := range workflow.Jobs {
 		for _, step := range job.Steps {
-			if !strings.HasPrefix(step.Uses, "actions/setup-go@") {
-				continue
+			if strings.HasPrefix(step.Uses, "actions/setup-go@") {
+				setupGoCount++
 			}
-			setupGoCount++
-			if step.With["go-version-file"] != "go.mod" {
-				t.Fatalf("acceptance job %s does not resolve Go from go.mod: %+v", jobName, step.With)
+			if step.Name == "Verify immutable Go toolchain" &&
+				strings.Contains(step.Run, `test "$(go env GOVERSION)" = go1.25.12`) {
+				verifiedImageGo[jobName] = true
 			}
 		}
 	}
-	if setupGoCount != 4 {
-		t.Fatalf("acceptance workflow setup-go step count = %d, want 4", setupGoCount)
+	if setupGoCount != 0 {
+		t.Fatalf("acceptance workflow downloads Go in %d managed-socketless jobs", setupGoCount)
+	}
+	for _, jobName := range []string{"mock-tests", "real-api-tests", "cleanup", "compare-results"} {
+		if !verifiedImageGo[jobName] {
+			t.Errorf("acceptance job %s does not verify the immutable Go 1.25.12 image toolchain", jobName)
+		}
 	}
 	for _, line := range strings.Split(workflowText, "\n") {
 		trimmed := strings.TrimSpace(line)
