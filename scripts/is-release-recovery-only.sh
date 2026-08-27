@@ -9,6 +9,11 @@ while IFS= read -r path; do
   case "$path" in
   .github/workflows/* | \
     tools/validate_workflows_test.go | \
+    tools/generate-all-schemas.go | \
+    tools/pkg/codegen/codegen_test.go | \
+    tools/pkg/codegen/generate.go | \
+    tools/pkg/schema/scan.go | \
+    tools/pkg/schema/scan_test.go | \
     internal/acctest/release_integrity_test.go | \
     scripts/generate-provider-docs.sh | \
     scripts/check-spec-version-freshness.sh | \
@@ -19,10 +24,6 @@ while IFS= read -r path; do
     scripts/validate-provider-delivery-state.sh | \
     scripts/is-pending-delivery-active.sh | \
     scripts/is-release-recovery-only.sh | \
-    tools/pkg/codegen/codegen_test.go | \
-    tools/pkg/codegen/generate.go | \
-    tools/pkg/schema/scan.go | \
-    tools/pkg/schema/scan_test.go | \
     tools/provider-publication-receipts.json | \
     tools/spec-deliveries.json | \
     tools/spec-pending-delivery.json | \

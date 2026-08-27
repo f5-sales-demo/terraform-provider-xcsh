@@ -8,25 +8,109 @@ package codegen
 import (
 	"bytes"
 	"fmt"
+	"go/ast"
+	"go/format"
+	"go/parser"
+	"go/token"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"text/template"
 
-	"golang.org/x/tools/imports"
+	"golang.org/x/tools/go/ast/astutil"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
 
+type generatedImport struct {
+	path  string
+	alias string
+}
+
+// generatedSelectorImports contains packages that render helpers may reference
+// conditionally. Imports are derived mechanically from selector expressions in
+// the rendered source, rather than from package discovery in the local module
+// cache. This keeps generation identical on a cold immutable runner and a warm
+// hosted runner.
+var generatedSelectorImports = map[string]generatedImport{
+	"attr":              {path: "github.com/hashicorp/terraform-plugin-framework/attr"},
+	"boolplanmodifier":  {path: "github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"},
+	"int64planmodifier": {path: "github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"},
+	"listplanmodifier":  {path: "github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"},
+	"mapplanmodifier":   {path: "github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"},
+	"stringdefault":     {path: "github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"},
+	"int64validator":    {path: "github.com/hashicorp/terraform-plugin-framework-validators/int64validator"},
+	"listvalidator":     {path: "github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"},
+	"stringvalidator":   {path: "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"},
+	"regexp":            {path: "regexp"},
+	"errors":            {path: "errors"},
+	"xcsherrors":        {path: "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors", alias: "xcsherrors"},
+}
+
+func formatGeneratedSource(filename string, source []byte) ([]byte, error) {
+	fileset := token.NewFileSet()
+	file, err := parser.ParseFile(fileset, filename, source, parser.ParseComments)
+	if err != nil {
+		return nil, err
+	}
+
+	imported := make(map[string]struct{}, len(file.Imports))
+	for _, spec := range file.Imports {
+		name := ""
+		if spec.Name != nil {
+			name = spec.Name.Name
+		} else if path, unquoteErr := strconv.Unquote(spec.Path.Value); unquoteErr == nil {
+			name = filepath.Base(path)
+		}
+		if name != "" {
+			imported[name] = struct{}{}
+		}
+	}
+
+	used := make(map[string]struct{})
+	ast.Inspect(file, func(node ast.Node) bool {
+		selector, ok := node.(*ast.SelectorExpr)
+		if !ok {
+			return true
+		}
+		identifier, ok := selector.X.(*ast.Ident)
+		if ok {
+			used[identifier.Name] = struct{}{}
+		}
+		return true
+	})
+
+	for name, dependency := range generatedSelectorImports {
+		if _, referenced := used[name]; !referenced {
+			continue
+		}
+		if _, present := imported[name]; present {
+			continue
+		}
+		if dependency.alias == "" {
+			astutil.AddImport(fileset, file, dependency.path)
+		} else {
+			astutil.AddNamedImport(fileset, file, dependency.alias, dependency.path)
+		}
+	}
+
+	var formatted bytes.Buffer
+	if err := format.Node(&formatted, fileset, file); err != nil {
+		return nil, err
+	}
+	return formatted.Bytes(), nil
+}
+
 // GenerateResourceFile generates the Terraform resource Go file for a single resource.
 // outputDir is the directory where the file will be written (e.g. "internal/provider").
 func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) error {
 	outputPath := filepath.Join(outputDir, resource.Name+"_resource.go")
-	// Lifecycle classification can add RequiresReplace after extraction. Derive
-	// every conditional plan-modifier import from the final IR so clean renders
-	// never depend on goimports package discovery to repair a stale template flag.
-	schema.SyncPlanModifierUsage(resource)
+	// Derive every conditional plan-modifier flag at the renderer boundary. This
+	// gives direct callers the same final-IR guarantee as generator orchestration
+	// and removes both stale-positive and stale-negative template state.
+	schema.RefreshResourcePlanModifierUsage(resource)
 
 	// Create template with custom functions
 	funcMap := template.FuncMap{
@@ -67,7 +151,7 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 	}
 
 	// Format the generated code with gofmt
-	formatted, err := imports.Process(outputPath, buf.Bytes(), nil)
+	formatted, err := formatGeneratedSource(outputPath, buf.Bytes())
 	if err != nil {
 		// If formatting fails, write unformatted code with warning
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", outputPath, err)
@@ -101,7 +185,7 @@ func GenerateClientTypes(resource *openapi.ResourceTemplate, clientDir string) e
 	}
 
 	// Format the generated code with gofmt
-	formatted, err := imports.Process(outputPath, buf.Bytes(), nil)
+	formatted, err := formatGeneratedSource(outputPath, buf.Bytes())
 	if err != nil {
 		// If formatting fails, write unformatted code with warning
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", outputPath, err)
@@ -125,7 +209,7 @@ func GenerateReadOnlyDataSource(resource *openapi.ResourceTemplate, outputDir st
 		return fmt.Errorf("template execute error: %w", err)
 	}
 
-	formatted, err := imports.Process(outputPath, buf.Bytes(), nil)
+	formatted, err := formatGeneratedSource(outputPath, buf.Bytes())
 	if err != nil {
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", outputPath, err)
 		formatted = buf.Bytes()
@@ -148,7 +232,7 @@ func GenerateReadOnlyClientTypes(resource *openapi.ResourceTemplate, clientDir s
 		return fmt.Errorf("template execute error: %w", err)
 	}
 
-	formatted, err := imports.Process(outputPath, buf.Bytes(), nil)
+	formatted, err := formatGeneratedSource(outputPath, buf.Bytes())
 	if err != nil {
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", outputPath, err)
 		formatted = buf.Bytes()
@@ -172,7 +256,7 @@ func GenerateActionResource(resource *openapi.ResourceTemplate, outputDir, clien
 	if err := rtmpl.Execute(&rbuf, resource); err != nil {
 		return fmt.Errorf("action resource template execute error: %w", err)
 	}
-	rformatted, err := imports.Process(resourcePath, rbuf.Bytes(), nil)
+	rformatted, err := formatGeneratedSource(resourcePath, rbuf.Bytes())
 	if err != nil {
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", resourcePath, err)
 		rformatted = rbuf.Bytes()
@@ -191,7 +275,7 @@ func GenerateActionResource(resource *openapi.ResourceTemplate, outputDir, clien
 	if err := ctmpl.Execute(&cbuf, resource); err != nil {
 		return fmt.Errorf("action client template execute error: %w", err)
 	}
-	cformatted, err := imports.Process(clientPath, cbuf.Bytes(), nil)
+	cformatted, err := formatGeneratedSource(clientPath, cbuf.Bytes())
 	if err != nil {
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", clientPath, err)
 		cformatted = cbuf.Bytes()
@@ -216,7 +300,7 @@ func GenerateDataSource(resource *openapi.ResourceTemplate, outputDir string) er
 	}
 
 	// Format the generated code with gofmt
-	formatted, err := imports.Process(outputPath, buf.Bytes(), nil)
+	formatted, err := formatGeneratedSource(outputPath, buf.Bytes())
 	if err != nil {
 		// If formatting fails, write unformatted code with warning
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", outputPath, err)

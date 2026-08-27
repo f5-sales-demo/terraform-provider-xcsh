@@ -58,6 +58,41 @@ func TestEscapeGoString(t *testing.T) {
 	}
 }
 
+func TestGenerateResourceFilePreservesExplicitPlanModifierImports(t *testing.T) {
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "zz_plan_modifier_import_probe",
+		TitleCase:          "ZzPlanModifierImportProbe",
+		Description:        "Probe.",
+		APIPath:            "/api/config/namespaces/%s/zz_plan_modifier_import_probes",
+		APIPathItem:        "/api/config/namespaces/%s/zz_plan_modifier_import_probes/%s",
+		HasNamespaceInPath: true,
+		Attributes: []openapi.TerraformAttribute{
+			{
+				Name: "ranges", GoName: "Ranges", TfsdkTag: "ranges", JsonName: "ranges",
+				Type: "list", ElementType: "string", Required: true, PlanModifier: "RequiresReplace",
+			},
+		},
+	}
+
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatalf("GenerateResourceFile: %v", err)
+	}
+	content, err := os.ReadFile(filepath.Join(dir, "zz_plan_modifier_import_probe_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	generated := string(content)
+	for _, want := range []string{
+		"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier",
+		"listplanmodifier.RequiresReplace()",
+	} {
+		if !strings.Contains(generated, want) {
+			t.Fatalf("generated resource is missing %q:\n%s", want, generated)
+		}
+	}
+}
+
 func TestRegexLiteral(t *testing.T) {
 	tests := []struct {
 		name     string
@@ -542,11 +577,12 @@ func TestResourceTemplate_MetadataLabelsMapNotImportSuppressed_Issue1244(t *test
 
 func TestGenerateResourceFileSynchronizesPlanModifierImportsFromFinalIR(t *testing.T) {
 	resource := &openapi.ResourceTemplate{
-		Name:        "zz_plan_modifier_import_probe",
-		TitleCase:   "ZzPlanModifierImportProbe",
-		Description: "Probe.",
-		APIPath:     "/api/config/namespaces/%s/zz_plan_modifier_import_probes",
-		APIPathItem: "/api/config/namespaces/%s/zz_plan_modifier_import_probes/%s",
+		Name:                 "zz_plan_modifier_import_probe",
+		TitleCase:            "ZzPlanModifierImportProbe",
+		Description:          "Probe.",
+		APIPath:              "/api/config/namespaces/%s/zz_plan_modifier_import_probes",
+		APIPathItem:          "/api/config/namespaces/%s/zz_plan_modifier_import_probes/%s",
+		UsesBoolPlanModifier: true,
 		Attributes: []openapi.TerraformAttribute{
 			{
 				Name: "items", GoName: "Items", TfsdkTag: "items", JsonName: "items",
@@ -558,8 +594,8 @@ func TestGenerateResourceFileSynchronizesPlanModifierImportsFromFinalIR(t *testi
 	if err := GenerateResourceFile(resource, dir); err != nil {
 		t.Fatalf("GenerateResourceFile: %v", err)
 	}
-	if !resource.UsesListPlanModifier {
-		t.Fatal("final list plan-modifier usage did not replace the stale template flag")
+	if !resource.UsesListPlanModifier || resource.UsesBoolPlanModifier {
+		t.Fatalf("final plan-modifier usage did not replace stale template flags: %+v", resource)
 	}
 	body, err := os.ReadFile(filepath.Join(dir, "zz_plan_modifier_import_probe_resource.go"))
 	if err != nil {
@@ -573,6 +609,9 @@ func TestGenerateResourceFileSynchronizesPlanModifierImportsFromFinalIR(t *testi
 		if !strings.Contains(generated, want) {
 			t.Errorf("generated resource is missing %q:\n%s", want, generated)
 		}
+	}
+	if strings.Contains(generated, "boolplanmodifier") {
+		t.Fatalf("generated resource retained a stale bool plan-modifier import:\n%s", generated)
 	}
 }
 
