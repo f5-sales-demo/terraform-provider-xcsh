@@ -36,11 +36,11 @@ func (a *SiteUpgradeSwAction) Schema(ctx context.Context, req action.SchemaReque
 	resp.Schema = schema.Schema{MarkdownDescription: "Upgrade Site SW version.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
-				MarkdownDescription: "NameSite name.",
+				MarkdownDescription: "Name. Site name.",
 				Required:            true,
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "NamespaceSite namespace.",
+				MarkdownDescription: "Namespace. Site namespace.",
 				Required:            true,
 			},
 			"version": schema.StringAttribute{

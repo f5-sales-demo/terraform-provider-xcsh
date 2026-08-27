@@ -58,7 +58,7 @@ func (r *SiteCloudInitResource) Schema(ctx context.Context, req resource.SchemaR
 				PlanModifiers:       []planmodifier.Bool{boolplanmodifier.RequiresReplace()},
 			},
 			"cloud_init_config": schema.StringAttribute{
-				MarkdownDescription: "Complete cloud-init containing the site-scoped one-time node token.",
+				MarkdownDescription: "Complete cloud-init containing the site-scoped one-time node token. This sensitive value is stored in Terraform state; protect state access accordingly.",
 				Computed:            true,
 				Sensitive:           true,
 			},

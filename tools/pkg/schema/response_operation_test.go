@@ -32,6 +32,9 @@ func TestExtractResponseOperationSchemaBindsPathQueryAndBody(t *testing.T) {
 	if namespace == nil || namespace.Attribute.Required || !namespace.Attribute.Optional || namespace.Attribute.StringDefault != "system" {
 		t.Fatalf("namespace default contract = %+v", namespace)
 	}
+	if namespace.Attribute.Description != "Namespace. Site namespace." {
+		t.Fatalf("namespace description = %q, want sentence boundary preserved", namespace.Attribute.Description)
+	}
 	if len(namespace.Bindings) != 2 || namespace.Bindings[0].Location != "path" || namespace.Bindings[1].Location != "body" {
 		t.Fatalf("namespace bindings = %+v, want path and body", namespace.Bindings)
 	}
@@ -43,7 +46,7 @@ func TestExtractResponseOperationSchemaBindsPathQueryAndBody(t *testing.T) {
 	}
 
 	responses := terraformAttributesByTag(result.ResponseAttributes)
-	if secret := responses["secret"]; secret == nil || !secret.Computed || !secret.Sensitive {
+	if secret := responses["secret"]; secret == nil || !secret.Computed || !secret.Sensitive || !strings.Contains(secret.Description, "stored in Terraform state") {
 		t.Fatalf("secret response = %+v, want sensitive computed", secret)
 	}
 	items := responses["items"]
@@ -153,7 +156,11 @@ func responseOperationProbeSpec() *openapi.Spec {
 					"operationId":            "ves.io.schema.probe.CustomAPI.List",
 					"x-f5xc-required-fields": []interface{}{"namespace", "state"},
 					"parameters": []interface{}{
-						map[string]interface{}{"name": "namespace", "in": "path", "required": true, "schema": map[string]interface{}{"type": "string"}},
+						map[string]interface{}{
+							"name": "namespace", "in": "path", "required": true,
+							"description": "Namespace\n\nx-required\nSite namespace.",
+							"schema":      map[string]interface{}{"type": "string"},
+						},
 						map[string]interface{}{"name": "limit", "in": "query", "schema": map[string]interface{}{"type": "integer", "format": "int64"}},
 					},
 					"requestBody": map[string]interface{}{"content": map[string]interface{}{

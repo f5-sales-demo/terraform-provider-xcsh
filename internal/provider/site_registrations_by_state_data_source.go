@@ -1270,7 +1270,7 @@ func (d *SiteRegistrationsByStateDataSource) Schema(ctx context.Context, req dat
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "NamespaceRegistration namespace, only 'system' namespaces is accepted.",
+				MarkdownDescription: "Namespace. Registration namespace, only 'system' namespaces is accepted.",
 				Optional:            true,
 				Computed:            true,
 			},

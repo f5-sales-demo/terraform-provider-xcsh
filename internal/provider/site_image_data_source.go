@@ -38,12 +38,12 @@ func (d *SiteImageDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				Required:            true,
 			},
 			"image_download_url": schema.StringAttribute{
-				MarkdownDescription: "Signed URL for the requested Customer Edge image.",
+				MarkdownDescription: "Signed URL for the requested Customer Edge image. This sensitive value is stored in Terraform state; protect state access accordingly.",
 				Computed:            true,
 				Sensitive:           true,
 			},
 			"image_md5_download_url": schema.StringAttribute{
-				MarkdownDescription: "Signed URL for the requested Customer Edge image MD5 checksum.",
+				MarkdownDescription: "Signed URL for the requested Customer Edge image MD5 checksum. This sensitive value is stored in Terraform state; protect state access accordingly.",
 				Computed:            true,
 				Sensitive:           true,
 			},

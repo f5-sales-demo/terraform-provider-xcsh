@@ -247,6 +247,14 @@ func decodeOperationParameterSchema(parameter map[string]interface{}) (openapi.S
 	}
 	if property.Description == "" {
 		property.Description, _ = parameter["description"].(string)
+		// F5 path parameters commonly encode a display label, an x-required
+		// marker, and the useful sentence on separate lines. Clean() removes
+		// the marker; preserve a sentence boundary so "Name" and "Site name"
+		// do not collapse into "NameSite name".
+		property.Description = strings.ReplaceAll(property.Description, "\r\n\r\nx-required\r\n", ". ")
+		property.Description = strings.ReplaceAll(property.Description, "\n\nx-required\n", ". ")
+		property.Description = strings.ReplaceAll(property.Description, "\r\nx-required\r\n", ". ")
+		property.Description = strings.ReplaceAll(property.Description, "\nx-required\n", ". ")
 	}
 	return property, nil
 }
@@ -276,6 +284,9 @@ func markResponseAttributeComputed(attr *openapi.TerraformAttribute) {
 	attr.Optional = false
 	attr.Computed = true
 	attr.PlanModifier = ""
+	if attr.Sensitive && !strings.Contains(strings.ToLower(attr.Description), "terraform state") {
+		attr.Description = strings.TrimSpace(attr.Description) + " This sensitive value is stored in Terraform state; protect state access accordingly."
+	}
 	for index := range attr.NestedAttributes {
 		markResponseAttributeComputed(&attr.NestedAttributes[index])
 	}

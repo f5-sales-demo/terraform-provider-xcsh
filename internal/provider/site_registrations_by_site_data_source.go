@@ -1263,11 +1263,11 @@ func (d *SiteRegistrationsBySiteDataSource) Schema(ctx context.Context, req data
 	resp.Schema = schema.Schema{MarkdownDescription: "List all registration in site.",
 		Attributes: map[string]schema.Attribute{
 			"site_name": schema.StringAttribute{
-				MarkdownDescription: "SiteNameSite name to be used for registration filtering.",
+				MarkdownDescription: "SiteName. Site name to be used for registration filtering.",
 				Required:            true,
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "NamespaceRegistration namespace, only 'system' namespaces is accepted.",
+				MarkdownDescription: "Namespace. Registration namespace, only 'system' namespaces is accepted.",
 				Optional:            true,
 				Computed:            true,
 			},

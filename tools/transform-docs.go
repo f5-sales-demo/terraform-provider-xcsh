@@ -1253,6 +1253,15 @@ func transformDoc(filePath string) error {
 	}
 
 	contentStr := string(content)
+	if strings.Contains(filepath.ToSlash(filePath), "docs/resources/") && strings.Contains(contentStr, "## Import") {
+		supportsImport, err := resourceDocumentationSupportsImport(filePath)
+		if err != nil {
+			return err
+		}
+		if !supportsImport {
+			contentStr = removeImportSection(contentStr)
+		}
+	}
 	// Normalize generated prose before deciding which transformation path to use
 	// and before calculating any content-derived anchors.
 	contentStr = normalizeDocumentProse(contentStr, filePath)
@@ -2040,6 +2049,29 @@ func transformDoc(filePath string) error {
 	result = docfmt.NormalizeMarkdownSpacing(result)
 
 	return os.WriteFile(filePath, []byte(result), 0644)
+}
+
+// resourceDocumentationSupportsImport keeps generated documentation aligned
+// with the provider interface instead of assuming every managed surface is
+// importable. Create-once issuance resources deliberately omit
+// ResourceWithImportState and must not advertise a generic import command.
+func resourceDocumentationSupportsImport(filePath string) (bool, error) {
+	resourceName := strings.TrimSuffix(filepath.Base(filePath), ".md")
+	providerPath := filepath.Join("internal", "provider", resourceName+"_resource.go")
+	content, err := os.ReadFile(providerPath)
+	if err != nil {
+		return false, fmt.Errorf("inspect import contract for %s: %w", resourceName, err)
+	}
+	return strings.Contains(string(content), "ResourceWithImportState"), nil
+}
+
+func removeImportSection(content string) string {
+	marker := "\n## Import\n"
+	index := strings.Index(content, marker)
+	if index < 0 {
+		return content
+	}
+	return strings.TrimRight(content[:index], "\n") + "\n"
 }
 
 // fixBareURLs wraps bare URLs in backticks for MD034 compliance
