@@ -481,6 +481,20 @@ func (c *Client) Post(ctx context.Context, path string, data, result interface{}
 	return nil
 }
 
+// PostLenient performs a POST request like Post, but sanitizes raw control
+// characters before decoding collection responses that embed registration
+// certificates or logs.
+func (c *Client) PostLenient(ctx context.Context, path string, data, result interface{}) error {
+	body, err := c.doRequest(ctx, http.MethodPost, path, data)
+	if err != nil {
+		return err
+	}
+	if result != nil && len(body) > 0 {
+		return json.Unmarshal(sanitizeControlChars(body), result)
+	}
+	return nil
+}
+
 // Put performs a PUT request
 func (c *Client) Put(ctx context.Context, path string, data, result interface{}) error {
 	body, err := c.doRequest(ctx, http.MethodPut, path, data)

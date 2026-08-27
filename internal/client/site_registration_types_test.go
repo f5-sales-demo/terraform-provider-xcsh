@@ -31,7 +31,8 @@ const registrationsBySiteOneItem = `{
         "token": "0d2c8f4a-0000-0000-0000-000000000000",
         "infra": {
           "provider": "AZURE",
-          "hostname": "f5-xc-ce-vm-01"
+          "hostname": "f5-xc-ce-vm-01",
+          "instance_id": "/subscriptions/example/resourceGroups/demo/providers/Microsoft.Compute/virtualMachines/f5-xc-ce-vm-01"
         },
         "passport": {
           "cluster_name": "ar-bgp-eastus01",
@@ -97,6 +98,9 @@ func TestListRegistrationsBySite_OneItem(t *testing.T) {
 	}
 	if item.GetSpec.Infra.Provider != "AZURE" {
 		t.Errorf("GetSpec.Infra.Provider = %q, want %q", item.GetSpec.Infra.Provider, "AZURE")
+	}
+	if item.GetSpec.Infra.InstanceID != "/subscriptions/example/resourceGroups/demo/providers/Microsoft.Compute/virtualMachines/f5-xc-ce-vm-01" {
+		t.Errorf("GetSpec.Infra.InstanceID = %q, want the live infrastructure identity", item.GetSpec.Infra.InstanceID)
 	}
 	if item.Object.Status.CurrentState != "ONLINE" {
 		t.Errorf("Object.Status.CurrentState = %q, want %q", item.Object.Status.CurrentState, "ONLINE")

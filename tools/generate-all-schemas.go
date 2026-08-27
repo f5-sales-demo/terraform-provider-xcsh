@@ -166,14 +166,15 @@ func main() {
 			if r.Error != "" {
 				// A failed resource is not an orphan. Preserve every existing
 				// generated surface until a successful run can classify it.
-				generatedFiles[r.ResourceName] = registration.GeneratedFileSet{Resource: true, DataSource: true, Client: true}
+				generatedFiles[r.ResourceName] = registration.GeneratedFileSet{Resource: true, DataSource: true, Action: true, Client: true}
 				continue
 			}
 			if r.Success {
 				generatedFiles[r.ResourceName] = registration.GeneratedFileSet{
-					Resource:   !r.IsReadOnly,
-					DataSource: !r.IsAction,
-					Client:     true,
+					Resource:   !r.IsReadOnly && !r.IsTerraformAction,
+					DataSource: !r.IsAction && !r.IsTerraformAction,
+					Action:     r.IsTerraformAction,
+					Client:     !r.IsResponseOperation,
 				}
 			}
 		}
@@ -308,11 +309,10 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		}
 
 		if len(domainInfo.Resources) == 0 {
-			fmt.Printf("   ⏭️  No resources found in domain\n")
-			continue
+			fmt.Printf("   ⏭️  No CRUD resources found in domain\n")
+		} else {
+			fmt.Printf("   📦 Found %d resources\n", len(domainInfo.Resources))
 		}
-
-		fmt.Printf("   📦 Found %d resources\n", len(domainInfo.Resources))
 
 		// Process each resource in the domain
 		for _, resource := range domainInfo.Resources {
@@ -347,34 +347,61 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		// action-style resources (Create=action POST, Read=sibling object Get,
 		// Delete=no-op, no Update, no data source) that the CRUD discovery above
 		// does not produce. Guard names against the already-processed set.
-		if actionSpec, aerr := parseOpenAPISpec(domainFile); aerr == nil {
-			actions, catalogErr := operationCatalog.ActionsForSpec(actionSpec)
-			if catalogErr != nil {
-				fmt.Printf("   ❌ Action catalog mismatch: %v\n", catalogErr)
-				results = append(results, GenerationResult{ResourceName: domainName, Success: false, Error: catalogErr.Error()})
+		actionSpec, aerr := parseOpenAPISpec(domainFile)
+		if aerr != nil {
+			results = append(results, GenerationResult{ResourceName: domainName, Success: false, Error: aerr.Error()})
+			failCount++
+			continue
+		}
+		actions, catalogErr := operationCatalog.ActionsForSpec(actionSpec)
+		if catalogErr != nil {
+			fmt.Printf("   ❌ Action catalog mismatch: %v\n", catalogErr)
+			results = append(results, GenerationResult{ResourceName: domainName, Success: false, Error: catalogErr.Error()})
+			failCount++
+			continue
+		}
+		for _, act := range actions {
+			if resourcePkg.IsResourceSkipped(act.ResourceName, verbose) {
+				skipCount++
+				continue
+			}
+			if processedResources[act.ResourceName] {
+				if verbose {
+					fmt.Printf("      ⏭️  Skipping duplicate action: %s (already processed)\n", act.ResourceName)
+				}
+				skipCount++
+				continue
+			}
+			processedResources[act.ResourceName] = true
+			result := processV2Action(domainFile, act)
+			results = append(results, result)
+			if result.Success {
+				successCount++
+			} else if result.Error != "" {
+				failCount++
+			}
+		}
+
+		responseOperations, responseErr := operationCatalog.ResponseOperationsForSpec(actionSpec)
+		if responseErr != nil {
+			fmt.Printf("   ❌ Response-operation catalog mismatch: %v\n", responseErr)
+			results = append(results, GenerationResult{ResourceName: domainName, Success: false, Error: responseErr.Error()})
+			failCount++
+			continue
+		}
+		for _, operation := range responseOperations {
+			if processedResources[operation.Name] {
+				results = append(results, GenerationResult{ResourceName: operation.Name, Success: false, Error: "Terraform response-operation name collides with another generated surface"})
 				failCount++
 				continue
 			}
-			for _, act := range actions {
-				if resourcePkg.IsResourceSkipped(act.ResourceName, verbose) {
-					skipCount++
-					continue
-				}
-				if processedResources[act.ResourceName] {
-					if verbose {
-						fmt.Printf("      ⏭️  Skipping duplicate action: %s (already processed)\n", act.ResourceName)
-					}
-					skipCount++
-					continue
-				}
-				processedResources[act.ResourceName] = true
-				result := processV2Action(domainFile, act)
-				results = append(results, result)
-				if result.Success {
-					successCount++
-				} else if result.Error != "" {
-					failCount++
-				}
+			processedResources[operation.Name] = true
+			result := processV2ResponseOperation(actionSpec, operation)
+			results = append(results, result)
+			if result.Success {
+				successCount++
+			} else if result.Error != "" {
+				failCount++
 			}
 		}
 	}
@@ -385,6 +412,34 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	}
 
 	return results, successCount, failCount
+}
+
+func processV2ResponseOperation(spec *openapi.Spec, operation openapi.ResolvedResponseOperation) GenerationResult {
+	tmpl, err := schema.ExtractResponseOperationSchema(spec, operation)
+	if err != nil {
+		return GenerationResult{ResourceName: operation.Name, Success: false, Error: err.Error()}
+	}
+	if !dryRun {
+		if err := codegen.GenerateResponseOperation(tmpl, outputDir); err != nil {
+			return GenerationResult{ResourceName: operation.Name, Success: false, Error: err.Error()}
+		}
+	}
+	result := GenerationResult{
+		ResourceName: operation.Name, Success: true, IsResponseOperation: true,
+		AttrCount: len(tmpl.Inputs) + len(tmpl.ResponseAttributes),
+	}
+	switch operation.Role {
+	case "query", "collection":
+		result.IsReadOnly = true
+	case "issuance":
+		result.IsAction = true // resource-only; no data-source companion
+	case "action":
+		result.IsTerraformAction = true
+	default:
+		return GenerationResult{ResourceName: operation.Name, Success: false, Error: fmt.Sprintf("unsupported response-operation role %q", operation.Role)}
+	}
+	fmt.Printf("✅ %s: %s response operation\n", operation.Name, operation.Role)
+	return result
 }
 
 func generateSMSv2ParityMatrix(specDirectory string) error {

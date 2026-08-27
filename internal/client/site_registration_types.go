@@ -25,8 +25,9 @@ type RegistrationPassport struct {
 // tenant-wide (several sites report the same hostname), so it is only a
 // within-site discriminator.
 type RegistrationInfra struct {
-	Provider string `json:"provider,omitempty"`
-	Hostname string `json:"hostname,omitempty"`
+	Provider   string `json:"provider,omitempty"`
+	Hostname   string `json:"hostname,omitempty"`
+	InstanceID string `json:"instance_id,omitempty"`
 }
 
 // RegistrationGetSpec is the registration's spec view.

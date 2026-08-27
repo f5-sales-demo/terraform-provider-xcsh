@@ -111,6 +111,7 @@ type Schema struct {
 	XF5XCDisplayOrder      int                    `json:"x-f5xc-displayorder"`
 	XF5XCUniqueness        string                 `json:"x-f5xc-uniqueness"`
 	XF5XCTerraformResource string                 `json:"x-f5xc-terraform-resource"`
+	XF5XCSensitive         bool                   `json:"x-f5xc-sensitive"`
 
 	// ---- SP-1 additions: operation-level extensions ----
 	XF5XCDangerLevel          string                 `json:"x-f5xc-danger-level"`
@@ -284,6 +285,37 @@ type ResourceTemplate struct {
 	ActionDerivedFields []ActionDerivedField
 }
 
+// OperationBinding describes one wire destination for a Terraform input. One
+// input can intentionally populate multiple destinations, such as namespace in
+// both a path placeholder and a POST body.
+type OperationBinding struct {
+	Location string
+	Name     string
+}
+
+// ResponseOperationInput combines one practitioner-facing attribute with all
+// exact path, query, and body bindings published by OpenAPI.
+type ResponseOperationInput struct {
+	Attribute TerraformAttribute
+	Bindings  []OperationBinding
+}
+
+// ResponseOperationTemplate is the common IR for generated non-CRUD surfaces.
+type ResponseOperationTemplate struct {
+	Name               string
+	Role               string
+	TitleCase          string
+	Method             string
+	APIPath            string
+	OperationID        string
+	RequestSchema      string
+	ResponseSchema     string
+	Description        string
+	Inputs             []ResponseOperationInput
+	ResponseAttributes []TerraformAttribute
+	ResponseIsScalar   bool
+}
+
 // ActionDerivedField declares one server-derived field of an action request
 // body: a value the API demands but will only accept as the exact object it
 // already holds, so it can never be a Terraform attribute.
@@ -336,6 +368,13 @@ type GenerationResult struct {
 	BlockCount int  // Number of nested blocks generated
 	IsReadOnly bool // True if only GetSpecType found (data source only, no resource)
 	IsAction   bool // True if this is an action-style resource (x-f5xc-action)
+	// IsTerraformAction distinguishes Terraform 1.14+ first-class actions from
+	// the older create-once action-style resources represented by IsAction.
+	IsTerraformAction bool
+	// IsResponseOperation marks a catalog-owned non-CRUD surface. These surfaces
+	// own no generated client type file because they decode through the common
+	// response-operation IR.
+	IsResponseOperation bool
 }
 
 // IsRef returns true if the schema is a reference to another schema.
