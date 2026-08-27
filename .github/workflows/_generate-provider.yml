@@ -70,8 +70,10 @@ jobs:
         # ./... so hand-written packages the root binary does not import — above
         # all internal/acctest — are compiled against the freshly regenerated
         # code. See #1351: `go build .` verified nothing about them.
-        # Generated provider packages are large enough to exhaust the runner
-        # when Go compiles packages concurrently with optimizations enabled.
+        # Generated provider packages are large enough to exhaust the hosted
+        # runner when Go compiles packages concurrently with optimizations on.
+        # Keep this verification equivalent to the proven constrained-runner
+        # acceptance build so a regeneration can finish its release chain.
         env:
           GOGC: "10"
           GOMEMLIMIT: 4GiB
