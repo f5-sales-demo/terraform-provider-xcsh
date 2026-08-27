@@ -14,7 +14,7 @@ terraform {
 # Look up an existing ProtocolPolicer by name
 data "xcsh_protocol_policer" "example" {
   name      = "example-protocol-policer"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "protocol_policer_id" {

@@ -30,7 +30,7 @@ terraform {
 # Look up an existing K8SPodSecurityAdmission by name
 data "xcsh_k8s_pod_security_admission" "example" {
   name      = "example-k8s-pod-security-admission"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "k8s_pod_security_admission_id" {

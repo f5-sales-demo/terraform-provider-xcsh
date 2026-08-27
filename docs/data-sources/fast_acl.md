@@ -30,7 +30,7 @@ terraform {
 # Look up an existing FastACL by name
 data "xcsh_fast_acl" "example" {
   name      = "example-fast-acl"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "fast_acl_id" {

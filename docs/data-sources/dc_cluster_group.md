@@ -30,7 +30,7 @@ terraform {
 # Look up an existing DcClusterGroup by name
 data "xcsh_dc_cluster_group" "example" {
   name      = "example-dc-cluster-group"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "dc_cluster_group_id" {

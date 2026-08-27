@@ -30,7 +30,7 @@ terraform {
 # Look up an existing WorkloadFlavor by name
 data "xcsh_workload_flavor" "example" {
   name      = "example-workload-flavor"
-  namespace = "staging"
+  namespace = "shared"
 }
 
 output "workload_flavor_id" {

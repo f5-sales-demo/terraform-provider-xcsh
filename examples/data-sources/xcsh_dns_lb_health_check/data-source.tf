@@ -14,7 +14,7 @@ terraform {
 # Look up an existing DNSLBHealthCheck by name
 data "xcsh_dns_lb_health_check" "example" {
   name      = "example-dns-lb-health-check"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "dns_lb_health_check_id" {

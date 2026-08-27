@@ -30,7 +30,7 @@ terraform {
 # Look up an existing VirtualNetwork by name
 data "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "virtual_network_id" {

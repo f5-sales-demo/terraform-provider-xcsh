@@ -30,7 +30,7 @@ terraform {
 # Look up an existing SecuremeshSiteV2 by name
 data "xcsh_securemesh_site_v2" "example" {
   name      = "example-securemesh-site-v2"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "securemesh_site_v2_id" {
