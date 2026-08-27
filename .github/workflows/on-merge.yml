@@ -395,8 +395,9 @@ jobs:
           echo "Changed files:"
           echo "$CHANGED"
           PENDING_DELIVERY=false
-          if echo "$CHANGED" | grep -qx 'tools/spec-pending-delivery.json' || \
-            [ "$PENDING_RESUME" = "true" ]; then
+          if printf '%s\n' "$CHANGED" | \
+            scripts/is-pending-delivery-active.sh \
+              tools/spec-pending-delivery.json "$PENDING_RESUME"; then
             PENDING_DELIVERY=true
           fi
           echo "pending_delivery=$PENDING_DELIVERY" >> "$GITHUB_OUTPUT"
