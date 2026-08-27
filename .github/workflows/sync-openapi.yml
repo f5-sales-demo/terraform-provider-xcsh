@@ -24,7 +24,6 @@ permissions: {}
 
 env:
   SPEC_DIR: docs/specifications/api
-  PR_TITLE: "feat: update F5 Distributed Cloud OpenAPI specifications"
   ENRICHED_REPO: f5-sales-demo/api-specs-enriched
   # Manual recovery requires an exact tag. repository_dispatch uses its validated
   # release_tag/version contract; neither path ever resolves a mutable latest.
@@ -232,6 +231,16 @@ jobs:
             }
           fi
           echo "spec_version=$SPEC_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Classify provider release semantics
+        if: steps.dispatch_contract.outputs.process == 'true'
+        id: release_semantics
+        env:
+          CURRENT_SPEC_VERSION_FILE: tools/spec-version.txt
+          INCOMING_SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
+        run: |
+          scripts/classify-spec-release-semantics.sh \
+            "$(<"$CURRENT_SPEC_VERSION_FILE")" "$INCOMING_SPEC_VERSION"
 
       - name: Download OpenAPI specs
         if: steps.dispatch_contract.outputs.process == 'true'
@@ -519,6 +528,8 @@ jobs:
         env:
           BRANCH_NAME: ${{ steps.dispatch_contract.outputs.branch }}
           GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+          BREAKING_FOOTER: ${{ steps.release_semantics.outputs.breaking_footer }}
+          PR_TITLE: ${{ steps.release_semantics.outputs.pr_title }}
           REPOSITORY: ${{ github.repository }}
           SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
         run: |
@@ -544,6 +555,8 @@ jobs:
 
           Spec Format: ${SPEC_INFO}
           Source: ${SOURCE_URL}
+
+          ${BREAKING_FOOTER}
 
           When this PR merges, the on-merge workflow will:
           1. Regenerate provider code from the new specs
@@ -600,6 +613,8 @@ jobs:
           BRANCH_NAME: ${{ steps.dispatch_contract.outputs.branch }}
           GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
           ISSUE_NUMBER: ${{ steps.issue.outputs.number }}
+          BREAKING_FOOTER: ${{ steps.release_semantics.outputs.breaking_footer }}
+          PR_TITLE: ${{ steps.release_semantics.outputs.pr_title }}
           SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
         run: |
           set -euo pipefail
@@ -651,6 +666,8 @@ jobs:
 
           - ✅ OpenAPI specs downloaded successfully
           - ✅ All specs validated
+
+          ${BREAKING_FOOTER}
 
           ---
           🤖 Generated with [Claude Code](https://claude.com/claude-code)
