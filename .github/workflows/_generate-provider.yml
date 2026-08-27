@@ -82,9 +82,9 @@ jobs:
 
       - name: Vet to verify
         # Type-checks _test.go files, which go build skips (#1351).
-        # Vet compiles the same large package graph as build. Keep it serial and
-        # under the same proven GC/memory ceiling so the hosted runner survives
-        # long enough to report the complete analysis result.
+        # Vet compiles the same large package graph as build. Keeping this step
+        # serial and under the same GC/memory ceiling prevents the ARC runner
+        # service from terminating it after a successful constrained build.
         env:
           GOGC: "10"
           GOMEMLIMIT: 4GiB
