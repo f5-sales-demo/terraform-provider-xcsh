@@ -219,6 +219,7 @@ func TestProviderRegenerationBuildIsMemoryBounded(t *testing.T) {
 		`GOMEMLIMIT: 4GiB`,
 		`GOMAXPROCS: "1"`,
 		`go build -p 1 -gcflags='all=-N -l' -v ./...`,
+		`go vet -p 1 ./...`,
 	} {
 		if !strings.Contains(workflow, fragment) {
 			t.Errorf("provider regeneration memory contract is missing %q", fragment)
