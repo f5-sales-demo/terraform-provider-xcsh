@@ -412,6 +412,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(1024),
+					validators.IPValidator(),
 				},
 			},
 			"port": schema.Int64Attribute{
@@ -465,6 +466,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 			}),
 			"public_ip": schema.ListNestedBlock{
 				MarkdownDescription: "Optional. Public VIP to advertise This field is mutually exclusive with where and address fields.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -500,6 +502,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"tls_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS configuration for downstream connections.",
+
 				Attributes: map[string]schema.Attribute{
 					"xfcc_header_elements": schema.ListAttribute{
 						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are defined, the header will not be added. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -540,6 +543,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -557,6 +561,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
 											MarkdownDescription: "Specifies the hash algorithms to be used.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 											Attributes: map[string]schema.Attribute{
 												"hash_algorithms": schema.ListAttribute{
 													MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -577,6 +582,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -597,6 +603,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -692,10 +699,12 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
@@ -751,6 +760,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"virtual_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a network configuration object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"ref": schema.ListNestedBlock{
@@ -792,6 +802,7 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",

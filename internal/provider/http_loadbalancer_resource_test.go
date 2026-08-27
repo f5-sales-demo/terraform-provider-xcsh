@@ -3,7 +3,10 @@
 package provider_test
 
 import (
+	"encoding/json"
 	"fmt"
+	"net/http"
+	"reflect"
 	"regexp"
 	"testing"
 
@@ -14,7 +17,98 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/tfjsonpath"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/mocks"
 )
+
+// TestMockHTTPLoadBalancerResource_httpsAutoCertAdvertiseCustomVirtualSite
+// pins the exact wire contract from #773. The nested virtual_site reference
+// must remain inside advertise_where[].virtual_site while https_auto_cert is
+// serialized as its own empty marker object.
+func TestMockHTTPLoadBalancerResource_httpsAutoCertAdvertiseCustomVirtualSite(t *testing.T) {
+	acctest.SkipIfNoMockMode(t)
+	mockCfg := acctest.SetupMockTest(t)
+	defer mockCfg.Cleanup()
+
+	const name = "tf-acc-test-lb-exact-body"
+	const namespace = "default"
+	const virtualSite = "tf-acc-test-vsite-exact-body"
+	resource.Test(t, resource.TestCase{
+		ProtoV6ProviderFactories: mockCfg.ProtoV6ProviderFactories(),
+		Steps: []resource.TestStep{{
+			Config: acctest.ConfigCompose(
+				mockCfg.MockProviderConfig(),
+				testAccHTTPLoadBalancerConfig_httpsAutoCertVirtualSite(name, namespace, virtualSite),
+			),
+			Check: checkHTTPLoadBalancerExactCreateRequest(mockCfg.Server, name, namespace, virtualSite),
+		}},
+	})
+}
+
+// TestAccHTTPLoadBalancerResource_httpsAutoCertAdvertiseCustomVirtualSite
+// performs disposable create/read/destroy coverage for the same #773 contract.
+func TestAccHTTPLoadBalancerResource_httpsAutoCertAdvertiseCustomVirtualSite(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	name := acctest.RandomName("tf-acc-test-lb-vsite")
+	virtualSite := acctest.RandomName("tf-acc-test-vsite")
+	namespace := acctest.RandomName("tf-acc-test-ns")
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_http_loadbalancer"),
+		ExternalProviders: map[string]resource.ExternalProvider{
+			"time": {Source: "hashicorp/time"},
+		},
+		Steps: []resource.TestStep{{
+			Config: testAccHTTPLoadBalancerConfig_liveHTTPSAutoCertVirtualSite(name, namespace, virtualSite),
+			Check: resource.ComposeAggregateTestCheckFunc(
+				acctest.CheckResourceExists("xcsh_http_loadbalancer.test"),
+				resource.TestCheckResourceAttr("xcsh_http_loadbalancer.test", "advertise_custom.advertise_where.0.virtual_site.virtual_site.name", virtualSite),
+			),
+		}},
+	})
+}
+
+func checkHTTPLoadBalancerExactCreateRequest(server *mocks.Server, name, namespace, virtualSite string) resource.TestCheckFunc {
+	return func(*terraform.State) error {
+		path := fmt.Sprintf("/api/config/namespaces/%s/http_loadbalancers", namespace)
+		var actual map[string]interface{}
+		for _, request := range server.GetRequestLog() {
+			if request.Method == http.MethodPost && request.Path == path {
+				if err := json.Unmarshal([]byte(request.Body), &actual); err != nil {
+					return fmt.Errorf("decode create request: %w", err)
+				}
+				break
+			}
+		}
+		if actual == nil {
+			return fmt.Errorf("no POST request recorded for %s", path)
+		}
+		expected := map[string]interface{}{
+			"metadata": map[string]interface{}{"name": name, "namespace": namespace},
+			"spec": map[string]interface{}{
+				"domains":         []interface{}{"test.example.com"},
+				"https_auto_cert": map[string]interface{}{},
+				"advertise_custom": map[string]interface{}{
+					"advertise_where": []interface{}{map[string]interface{}{
+						"virtual_site": map[string]interface{}{
+							"network":      "SITE_NETWORK_INSIDE_AND_OUTSIDE",
+							"virtual_site": map[string]interface{}{"name": virtualSite, "namespace": namespace},
+						},
+						"use_default_port": map[string]interface{}{},
+					}},
+				},
+			},
+		}
+		if !reflect.DeepEqual(actual, expected) {
+			actualJSON, _ := json.MarshalIndent(actual, "", "  ")
+			expectedJSON, _ := json.MarshalIndent(expected, "", "  ")
+			return fmt.Errorf("create request mismatch\nactual: %s\nexpected: %s", actualJSON, expectedJSON)
+		}
+		return nil
+	}
+}
 
 // =============================================================================
 // TEST: Basic http_loadbalancer creation
@@ -541,6 +635,80 @@ resource "xcsh_http_loadbalancer" "test" {
 `, name)
 }
 
+func testAccHTTPLoadBalancerConfig_httpsAutoCertVirtualSite(name, namespace, virtualSite string) string {
+	return fmt.Sprintf(`
+resource "xcsh_http_loadbalancer" "test" {
+  name      = %[1]q
+  namespace = %[2]q
+  domains   = ["test.example.com"]
+
+  https_auto_cert {}
+
+  advertise_custom {
+    advertise_where {
+      virtual_site {
+        network = "SITE_NETWORK_INSIDE_AND_OUTSIDE"
+        virtual_site {
+          name      = %[3]q
+          namespace = %[2]q
+        }
+      }
+      use_default_port {}
+    }
+  }
+}
+`, name, namespace, virtualSite)
+}
+
+func testAccHTTPLoadBalancerConfig_liveHTTPSAutoCertVirtualSite(name, namespace, virtualSite string) string {
+	return acctest.ConfigCompose(
+		acctest.ProviderConfig(),
+		fmt.Sprintf(`
+resource "xcsh_namespace" "test" {
+  name = %[2]q
+}
+
+resource "time_sleep" "wait_for_namespace" {
+  depends_on      = [xcsh_namespace.test]
+  create_duration = "5s"
+}
+
+resource "xcsh_virtual_site" "test" {
+  depends_on = [time_sleep.wait_for_namespace]
+  name       = %[3]q
+  namespace  = xcsh_namespace.test.name
+  site_type  = "CUSTOMER_EDGE"
+
+  site_selector {
+    expressions = ["site_type=customer_edge"]
+  }
+}
+
+resource "xcsh_http_loadbalancer" "test" {
+  depends_on = [xcsh_virtual_site.test]
+  name       = %[1]q
+  namespace  = xcsh_namespace.test.name
+  domains    = ["test.example.com"]
+
+  https_auto_cert {}
+
+  advertise_custom {
+    advertise_where {
+      virtual_site {
+        network = "SITE_NETWORK_INSIDE_AND_OUTSIDE"
+        virtual_site {
+          name      = xcsh_virtual_site.test.name
+          namespace = xcsh_namespace.test.name
+        }
+      }
+      use_default_port {}
+    }
+  }
+}
+`, name, namespace, virtualSite),
+	)
+}
+
 func testAccHTTPLoadBalancerConfig_withLabelsSystem(name string) string {
 	return fmt.Sprintf(`
 resource "xcsh_http_loadbalancer" "test" {
@@ -991,7 +1159,9 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  enable_ip_reputation {}
+  enable_ip_reputation {
+    ip_threat_categories = ["SPAM_SOURCES"]
+  }
 
   advertise_on_public_default_vip {}
 }

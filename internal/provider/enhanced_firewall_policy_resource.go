@@ -439,6 +439,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 			}),
 			"allowed_destinations": schema.SingleNestedBlock{
 				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+
 				Attributes: map[string]schema.Attribute{
 					"prefix": schema.ListAttribute{
 						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
@@ -452,6 +453,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 			},
 			"allowed_sources": schema.SingleNestedBlock{
 				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+
 				Attributes: map[string]schema.Attribute{
 					"prefix": schema.ListAttribute{
 						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
@@ -465,6 +467,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 			},
 			"denied_destinations": schema.SingleNestedBlock{
 				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+
 				Attributes: map[string]schema.Attribute{
 					"prefix": schema.ListAttribute{
 						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
@@ -478,6 +481,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 			},
 			"denied_sources": schema.SingleNestedBlock{
 				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+
 				Attributes: map[string]schema.Attribute{
 					"prefix": schema.ListAttribute{
 						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
@@ -494,7 +498,9 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 			},
 			"rule_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Custom Enhanced Firewall Policy Rules. Custom Enhanced Firewall Policy Rules.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Enhanced Firewall Policy Rules.",
@@ -552,6 +558,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 								},
 								"destination_aws_vpc_ids": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for destination aws vpc ids.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("vpc_id")},
 									Attributes: map[string]schema.Attribute{
 										"vpc_id": schema.ListAttribute{
 											MarkdownDescription: "AWS VPC List. List of VPC Identifiers in AWS.",
@@ -606,6 +613,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 								},
 								"destination_label_selector": schema.SingleNestedBlock{
 									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 									Attributes: map[string]schema.Attribute{
 										"expressions": schema.ListAttribute{
 											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -636,6 +644,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 									Blocks: map[string]schema.Block{
 										"nfv_service": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -687,6 +696,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -732,6 +742,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 								},
 								"source_aws_vpc_ids": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for source aws vpc ids.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("vpc_id")},
 									Attributes: map[string]schema.Attribute{
 										"vpc_id": schema.ListAttribute{
 											MarkdownDescription: "AWS VPC List. List of VPC Identifiers in AWS.",
@@ -786,6 +797,7 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 								},
 								"source_label_selector": schema.SingleNestedBlock{
 									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 									Attributes: map[string]schema.Attribute{
 										"expressions": schema.ListAttribute{
 											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",

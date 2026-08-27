@@ -153,6 +153,7 @@ func (r *CloudElasticIPResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"site_ref": schema.ListNestedBlock{
 				MarkdownDescription: "Site to which this cloud elastic IP object is attached.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{

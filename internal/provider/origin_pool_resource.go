@@ -1047,6 +1047,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"origin_servers": schema.ListNestedBlock{
 				MarkdownDescription: "Origin Servers. List of origin servers in this pool.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"labels": schema.MapAttribute{
@@ -1058,6 +1059,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					Blocks: map[string]schema.Block{
 						"cbip_service": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with Classic BIG-IP Service (Virtual Server).",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("service_name")},
 							Attributes: map[string]schema.Attribute{
 								"service_name": schema.StringAttribute{
 									MarkdownDescription: "Name of the discovered Classic BIG-IP virtual server to be used as origin.",
@@ -1067,6 +1069,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"consul_service": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with HashiCorp Consul service name and site information.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("service_name")},
 							Attributes: map[string]schema.Attribute{
 								"service_name": schema.StringAttribute{
 									MarkdownDescription: "Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID.",
@@ -1086,6 +1089,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1116,6 +1120,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"virtual_site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1176,6 +1181,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							Blocks: map[string]schema.Block{
 								"endpoint": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1234,6 +1240,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1264,6 +1271,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"virtual_site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1342,6 +1350,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"segment": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1376,6 +1385,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1406,6 +1416,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"virtual_site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1462,6 +1473,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"private_name": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with private or public DNS name and site information.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_name")},
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{
 									MarkdownDescription: "DNS Name. DNS Name",
@@ -1475,7 +1487,10 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 									Optional:            true,
 									Validators: []validator.Int64{
-										int64validator.AtMost(604800),
+										validators.Int64RangeSetValidator(
+											validators.Int64Range{Minimum: 0, Maximum: 0},
+											validators.Int64Range{Minimum: 10, Maximum: 604800},
+										),
 									},
 								},
 							},
@@ -1488,6 +1503,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"segment": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1522,6 +1538,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1552,6 +1569,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"virtual_site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1621,6 +1639,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"public_name": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with public DNS name.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_name")},
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{
 									MarkdownDescription: "DNS Name. DNS Name",
@@ -1633,7 +1652,10 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 									Optional:            true,
 									Validators: []validator.Int64{
-										int64validator.AtMost(604800),
+										validators.Int64RangeSetValidator(
+											validators.Int64Range{Minimum: 0, Maximum: 0},
+											validators.Int64Range{Minimum: 10, Maximum: 604800},
+										),
 									},
 								},
 							},
@@ -1653,6 +1675,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							Blocks: map[string]schema.Block{
 								"virtual_network": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1685,6 +1708,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"vn_private_name": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with DNS name on Virtual Network.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_name")},
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{
 									MarkdownDescription: "DNS Name. DNS Name",
@@ -1698,6 +1722,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							Blocks: map[string]schema.Block{
 								"private_network": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1733,6 +1758,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"advanced_options": schema.SingleNestedBlock{
 				MarkdownDescription: "Configure Advanced OPTIONS for origin pool.",
+
 				Attributes: map[string]schema.Attribute{
 					"connection_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for new network connections to endpoints in the cluster. This is specified in milliseconds. The default value is 2 seconds. Server applies default when omitted. Recommended: `2000`.",
@@ -1838,6 +1864,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"enable_subsets": schema.SingleNestedBlock{
 						MarkdownDescription: "Configure subset OPTIONS for origin pool.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("endpoint_subsets")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"any_endpoint": schema.SingleNestedBlock{
@@ -1854,6 +1881,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"endpoint_subsets": schema.ListNestedBlock{
 								MarkdownDescription: "List of subset class. Subsets class is defined using list of keys. Every unique combination of values of these keys form a subset within the class.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("keys")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"keys": schema.ListAttribute{
@@ -1967,7 +1995,8 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"upstream_conn_pool_reuse_type": schema.SingleNestedBlock{
 				MarkdownDescription: "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_conn_pool_reuse": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable conn pool reuse.",
@@ -1979,6 +2008,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"use_tls": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS Parameters for Origin Servers. Upstream TLS Parameters.",
+
 				Attributes: map[string]schema.Attribute{
 					"max_session_keys": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
@@ -2017,6 +2047,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"custom_security": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 								Attributes: map[string]schema.Attribute{
 									"cipher_suites": schema.ListAttribute{
 										MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -2055,10 +2086,12 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"use_mtls": schema.SingleNestedBlock{
 						MarkdownDescription: "MTLS Certificate. MTLS Client Certificate.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2076,6 +2109,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
 											MarkdownDescription: "Specifies the hash algorithms to be used.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 											Attributes: map[string]schema.Attribute{
 												"hash_algorithms": schema.ListAttribute{
 													MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -2096,6 +2130,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2116,6 +2151,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2142,6 +2178,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"use_mtls_obj": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2184,6 +2221,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"trusted_ca": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2221,6 +2259,8 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"healthcheck": schema.ListNestedBlock{
 				MarkdownDescription: "Reference to healthcheck configuration objects. Defaults to `[]`. Server applies default when omitted.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{

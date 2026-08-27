@@ -1475,6 +1475,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"aws_cloud_watch_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: aws_cloud_watch_receiver, azure_event_hubs_receiver, azure_receiver, datadog_receiver, gcp_bucket_receiver, http_receiver, kafka_receiver, new_relic_receiver, qradar_receiver, s3_receiver, splunk_receiver, sumo_logic_receiver] AWS Cloudwatch Logs Configuration for Global Log Receiver.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_region", "group_name", "stream_name")},
+
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
 						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name. Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
@@ -1501,6 +1503,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"aws_cred": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1582,6 +1585,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"azure_event_hubs_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Azure Event Hubs Configuration for Global Log Receiver.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("instance", "namespace")},
+
 				Attributes: map[string]schema.Attribute{
 					"instance": schema.StringAttribute{
 						MarkdownDescription: "Event Hubs Instance name into which logs should be stored.",
@@ -1609,6 +1614,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1629,6 +1635,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1649,6 +1656,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"azure_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Azure Blob Configuration for Global Log Receiver.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("container_name")},
+
 				Attributes: map[string]schema.Attribute{
 					"container_name": schema.StringAttribute{
 						MarkdownDescription: "Container Name is the name of the container into which logs should be stored.",
@@ -1714,6 +1723,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1734,6 +1744,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1774,6 +1785,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"datadog_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Datadog Configuration. Configuration for Datadog endpoint.",
+
 				Attributes: map[string]schema.Attribute{
 					"endpoint": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [site] Datadog Endpoint,.",
@@ -1844,6 +1856,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1864,6 +1877,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1928,6 +1942,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1948,6 +1963,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1978,6 +1994,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"gcp_bucket_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "GCP Bucket Configuration for Global Log Receiver.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("bucket")},
+
 				Attributes: map[string]schema.Attribute{
 					"bucket": schema.StringAttribute{
 						MarkdownDescription: "GCP Bucket Name. GCP Bucket Name.",
@@ -2059,6 +2077,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"gcp_cred": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2091,6 +2110,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"http_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for http receiver.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("uri")},
+
 				Attributes: map[string]schema.Attribute{
 					"uri": schema.StringAttribute{
 						MarkdownDescription: "HTTP URI is the URI of the HTTP endpoint to send logs to,.",
@@ -2119,6 +2140,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2139,6 +2161,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 									},
 									"clear_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 										Attributes: map[string]schema.Attribute{
 											"provider_ref": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2170,6 +2193,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2190,6 +2214,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 									},
 									"clear_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 										Attributes: map[string]schema.Attribute{
 											"provider_ref": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2305,6 +2330,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2325,6 +2351,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2352,6 +2379,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"kafka_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Kafka Configuration for Global Log Receiver.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("bootstrap_servers", "kafka_topic")},
+
 				Attributes: map[string]schema.Attribute{
 					"bootstrap_servers": schema.ListAttribute{
 						MarkdownDescription: "List of host:port pairs of the Kafka brokers.",
@@ -2467,6 +2496,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2487,6 +2517,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2514,7 +2545,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"new_relic_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for new relic receiver.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"api_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
@@ -2522,6 +2554,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2542,6 +2575,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2571,6 +2605,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"ns_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Namespace List. Namespace List.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("namespaces")},
+
 				Attributes: map[string]schema.Attribute{
 					"namespaces": schema.ListAttribute{
 						MarkdownDescription: "Namespaces. List of namespaces to stream logs for.",
@@ -2584,6 +2620,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"qradar_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for qradar receiver.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("uri")},
+
 				Attributes: map[string]schema.Attribute{
 					"uri": schema.StringAttribute{
 						MarkdownDescription: "Log Source Collector URL is the URL of the IBM QRadar Log Source Collector to send logs to,.",
@@ -2691,6 +2729,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2711,6 +2750,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2738,7 +2778,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"request_logs": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration for request logs with sampling choice. Allows selection between sampled (default) or unsampled (full) request logs.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"sampled": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
@@ -2750,6 +2791,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"s3_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "S3 Configuration for Global Log Receiver.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_region", "bucket")},
+
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
 						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name. Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
@@ -2769,6 +2812,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"aws_cred": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2873,6 +2917,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"splunk_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration for Splunk HEC Logs endpoint.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("endpoint")},
+
 				Attributes: map[string]schema.Attribute{
 					"endpoint": schema.StringAttribute{
 						MarkdownDescription: "Splunk HEC Logs Endpoint. Splunk HEC Logs Endpoint, (Note: must not contain `/services/collector`)",
@@ -2941,6 +2987,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2961,6 +3008,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3022,6 +3070,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3042,6 +3091,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3069,7 +3119,8 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"sumo_logic_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for sumo logic receiver.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"url": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
@@ -3077,6 +3128,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3097,6 +3149,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",

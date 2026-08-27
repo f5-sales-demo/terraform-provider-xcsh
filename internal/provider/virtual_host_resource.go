@@ -1321,6 +1321,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"advertise_policies": schema.ListNestedBlock{
 				MarkdownDescription: "Advertise Policy allows you to define networks or sites where you want a VIP for this virtual host to be advertised. Each Policy rule can have different parameters, like TLS configuration, ports, optionally IP address to be used for VIP. If advertise policy is not specified then no VIP is..",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -1356,6 +1357,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"authentication": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: authentication, no_authentication; Default: no_authentication] Authentication related information. This allows to configure the URL to redirect after the authentication Authentication Object Reference, configuration of cookie params etc.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("auth_config")},
+
 				Attributes: map[string]schema.Attribute{
 					"redirect_url": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [redirect_dynamic] user can provide a URL for e.g https://abc.xyz.com where user gets redirected. This URL configured here must match with the redirect URL configured with the OIDC provider.",
@@ -1429,6 +1432,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						Blocks: map[string]schema.Block{
 							"auth_hmac": schema.SingleNestedBlock{
 								MarkdownDescription: "HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("prim_key_expiry", "sec_key_expiry")},
 								Attributes: map[string]schema.Attribute{
 									"prim_key_expiry": schema.StringAttribute{
 										MarkdownDescription: "HMAC Primary Key Expiry. Primary HMAC Key Expiry time.",
@@ -1446,6 +1450,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1466,6 +1471,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1488,6 +1494,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1508,6 +1515,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1541,6 +1549,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"buffer_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config.",
+
 				Attributes: map[string]schema.Attribute{
 					"disabled": schema.BoolAttribute{
 						MarkdownDescription: "Disable buffering for a particular route. This is useful when virtual-host has buffering, but we need to disable it on a specific route. The value of this field is ignored for virtual-host.",
@@ -1557,6 +1566,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"captcha_challenge": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: captcha_challenge, js_challenge, no_challenge; Default: no_challenge] Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect..",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("cookie_expiry")},
+
 				Attributes: map[string]schema.Attribute{
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
@@ -1576,7 +1587,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"coalescing_options": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"default_coalescing": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for default coalescing.",
@@ -1588,6 +1600,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"compression_params": schema.SingleNestedBlock{
 				MarkdownDescription: "Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("content_length")},
+
 				Attributes: map[string]schema.Attribute{
 					"content_length": schema.Int64Attribute{
 						MarkdownDescription: "Minimum response length, in bytes, which will trigger compression. The. Defaults to `30`.",
@@ -1616,6 +1630,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"cors_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5..",
+
 				Attributes: map[string]schema.Attribute{
 					"allow_credentials": schema.BoolAttribute{
 						MarkdownDescription: "Specifies whether the resource allows credentials.",
@@ -1664,13 +1679,15 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"csrf_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"all_load_balancer_domains": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for all load balancer domains.",
 					},
 					"custom_domain_list": schema.SingleNestedBlock{
 						MarkdownDescription: "List of domain names used for Host header matching.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
 						Attributes: map[string]schema.Attribute{
 							"domains": schema.ListAttribute{
 								MarkdownDescription: "List of domain names that will be matched to loadbalancer. These domains are not used for SNI match. Wildcard names are supported in the suffix or prefix form.",
@@ -1698,6 +1715,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"dynamic_reverse_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "In this mode of proxy, virtual host will resolve the destination endpoint dynamically. The dynamic resolution is done using a predefined field in the request. This predefined field depends on the ProxyType configured on the Virtual Host.",
+
 				Attributes: map[string]schema.Attribute{
 					"connection_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for new network connections to upstream server. This is specified in milliseconds. The  (2 seconds). Defaults to `2000`.",
@@ -1761,7 +1779,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"http_protocol_options": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"http_protocol_enable_v1_only": schema.SingleNestedBlock{
 						MarkdownDescription: "HTTP/1.1 Protocol OPTIONS for downstream connections.",
@@ -1797,6 +1816,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"js_challenge": schema.SingleNestedBlock{
 				MarkdownDescription: "Enables loadbalancer to perform client browser compatibility test by redirecting to a page with Javascript. With this feature enabled, only clients that are capable of executing Javascript(mostly browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do..",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("cookie_expiry", "js_script_delay")},
+
 				Attributes: map[string]schema.Attribute{
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
@@ -1838,6 +1859,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"rate_limiter_allowed_prefixes": schema.ListNestedBlock{
 				MarkdownDescription: "References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -1873,6 +1895,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"request_cookies_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
@@ -1901,6 +1925,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
 									MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 									Attributes: map[string]schema.Attribute{
 										"decryption_provider": schema.StringAttribute{
 											MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1921,6 +1946,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"clear_secret_info": schema.SingleNestedBlock{
 									MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 									Attributes: map[string]schema.Attribute{
 										"provider_ref": schema.StringAttribute{
 											MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1942,6 +1968,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"request_headers_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"append": schema.BoolAttribute{
@@ -1970,6 +1998,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
 									MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 									Attributes: map[string]schema.Attribute{
 										"decryption_provider": schema.StringAttribute{
 											MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1990,6 +2019,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"clear_secret_info": schema.SingleNestedBlock{
 									MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 									Attributes: map[string]schema.Attribute{
 										"provider_ref": schema.StringAttribute{
 											MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2011,6 +2041,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"response_cookies_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"add_domain": schema.StringAttribute{
@@ -2112,6 +2144,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
 									MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 									Attributes: map[string]schema.Attribute{
 										"decryption_provider": schema.StringAttribute{
 											MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2132,6 +2165,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"clear_secret_info": schema.SingleNestedBlock{
 									MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 									Attributes: map[string]schema.Attribute{
 										"provider_ref": schema.StringAttribute{
 											MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2153,6 +2187,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"response_headers_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"append": schema.BoolAttribute{
@@ -2181,6 +2217,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
 									MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 									Attributes: map[string]schema.Attribute{
 										"decryption_provider": schema.StringAttribute{
 											MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2201,6 +2238,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"clear_secret_info": schema.SingleNestedBlock{
 									MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 									Attributes: map[string]schema.Attribute{
 										"provider_ref": schema.StringAttribute{
 											MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2222,6 +2260,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"retry_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Retry policy configuration for route destination.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("retry_condition")},
+
 				Attributes: map[string]schema.Attribute{
 					"num_retries": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the allowed number of retries. Retries can be done any number of times. An exponential back-off algorithm is used between each retry. Defaults to `1`.",
@@ -2275,6 +2315,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"routes": schema.ListNestedBlock{
 				MarkdownDescription: "HTTP routing rules that match incoming requests based on path, headers, or query parameters and forward them to appropriate backend origin pools.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -2310,6 +2351,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"sensitive_data_policy": schema.ListNestedBlock{
 				MarkdownDescription: "Policy configuration for this feature.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -2345,6 +2387,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"slow_ddos_mitigation": schema.SingleNestedBlock{
 				MarkdownDescription: "'Slow and low' attacks tie up server resources, leaving none available for servicing requests from actual users.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("request_headers_timeout")},
+
 				Attributes: map[string]schema.Attribute{
 					"request_headers_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The amount of time the client has to send only the headers on the request stream before the stream is cancelled. The  milliseconds. This setting provides protection against Slowloris attacks. Defaults to `10000`.",
@@ -2369,6 +2413,8 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"tls_cert_params": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: tls_cert_params, tls_parameters] Certificate Parameters for authentication, TLS ciphers, and trust store.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+
 				Attributes: map[string]schema.Attribute{
 					"cipher_suites": schema.ListAttribute{
 						MarkdownDescription: "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256..",
@@ -2508,6 +2554,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"tls_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS configuration for downstream connections.",
+
 				Attributes: map[string]schema.Attribute{
 					"xfcc_header_elements": schema.ListAttribute{
 						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are defined, the header will not be added. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -2548,6 +2595,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2565,6 +2613,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
 											MarkdownDescription: "Specifies the hash algorithms to be used.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 											Attributes: map[string]schema.Attribute{
 												"hash_algorithms": schema.ListAttribute{
 													MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -2585,6 +2634,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2605,6 +2655,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2700,6 +2751,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"user_identification": schema.ListNestedBlock{
 				MarkdownDescription: "Reference to user_identification object. The rules in the user_identification object are evaluated to determine the user identifier to be rate limited.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -2735,10 +2787,12 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"waf_type": schema.SingleNestedBlock{
 				MarkdownDescription: "WAF instance will be pointing to an app_firewall object.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"app_firewall": schema.SingleNestedBlock{
 						MarkdownDescription: "List of references to the app_firewall configuration objects.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("app_firewall")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"app_firewall": schema.ListNestedBlock{

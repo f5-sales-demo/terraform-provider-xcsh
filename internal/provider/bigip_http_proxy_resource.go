@@ -1326,7 +1326,8 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"advanced_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines various advanced Profile OPTIONS for a Loadbalancer.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_spec": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -1338,7 +1339,8 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_ddos_mitigation": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -1350,10 +1352,12 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"irules": schema.SingleNestedBlock{
 				MarkdownDescription: "IRules Configuration for downstream connections.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"irules": schema.ListNestedBlock{
 						MarkdownDescription: "OPTIONS for attaching iRules to BIG-IP HTTP Proxy.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -1388,7 +1392,8 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"lb_algorithm": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for lb algorithm.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"round_robin": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for round robin.",
@@ -1397,10 +1402,12 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"origin_pools": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for origin pools.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"pools": schema.ListNestedBlock{
 						MarkdownDescription: "Origin Pools. List of Origin Pools.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -1426,6 +1433,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							Blocks: map[string]schema.Block{
 								"origin_servers": schema.SingleNestedBlock{
 									MarkdownDescription: "List of origin Servers for the BIG-IP HTTP Proxy.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("origin_servers")},
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [automatic_port lb_port] Endpoint service is available on this port.",
@@ -1441,6 +1449,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										},
 										"health_checks": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for health checks.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check", "healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
 											Attributes: map[string]schema.Attribute{
 												"healthy_threshold": schema.Int64Attribute{
 													MarkdownDescription: "Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy.",
@@ -1482,6 +1491,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"tcp_health_check": schema.SingleNestedBlock{
 																MarkdownDescription: "Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("expected_response", "send_payload")},
 																Attributes: map[string]schema.Attribute{
 																	"expected_response": schema.StringAttribute{
 																		MarkdownDescription: "Specifies a regular expression pattern which will be matched against response payload.",
@@ -1540,6 +1550,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																Blocks: map[string]schema.Block{
 																	"site": schema.SingleNestedBlock{
 																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																		Attributes: map[string]schema.Attribute{
 																			"name": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1570,6 +1581,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																	},
 																	"virtual_site": schema.SingleNestedBlock{
 																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																		Attributes: map[string]schema.Attribute{
 																			"name": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1648,6 +1660,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"segment": schema.SingleNestedBlock{
 																MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																Attributes: map[string]schema.Attribute{
 																	"name": schema.StringAttribute{
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1682,6 +1695,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																Blocks: map[string]schema.Block{
 																	"site": schema.SingleNestedBlock{
 																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																		Attributes: map[string]schema.Attribute{
 																			"name": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1712,6 +1726,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																	},
 																	"virtual_site": schema.SingleNestedBlock{
 																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 																		Attributes: map[string]schema.Attribute{
 																			"name": schema.StringAttribute{
 																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1781,6 +1796,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 													"public_name": schema.SingleNestedBlock{
 														MarkdownDescription: "Specify origin server with public DNS name.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_name")},
 														Attributes: map[string]schema.Attribute{
 															"dns_name": schema.StringAttribute{
 																MarkdownDescription: "DNS Name. DNS Name",
@@ -1793,7 +1809,10 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.AtMost(604800),
+																	validators.Int64RangeSetValidator(
+																		validators.Int64Range{Minimum: 0, Maximum: 0},
+																		validators.Int64Range{Minimum: 10, Maximum: 604800},
+																	),
 																},
 															},
 														},
@@ -1810,10 +1829,12 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"proxy_advertisement": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for proxy advertisement.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_custom": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines a way to advertise a VIP on specific sites.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("advertise_where")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
@@ -1842,6 +1863,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"public_ip": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1894,6 +1916,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1956,6 +1979,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												},
 												"virtual_network": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2000,6 +2024,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"virtual_site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2052,6 +2077,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"virtual_site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2088,6 +2114,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2118,6 +2145,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												},
 												"virtual_site": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2160,6 +2188,8 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"proxy_config": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP/HTTPS Load Balancer. HTTP/HTTPS Load balancer.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+
 				Attributes: map[string]schema.Attribute{
 					"domains": schema.ListAttribute{
 						MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: ``.",
@@ -2310,10 +2340,12 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"tls_cert_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for tls cert params.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"certificates": schema.ListNestedBlock{
 										MarkdownDescription: "Select one or more certificates with any domain names.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -2353,6 +2385,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
 												MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 												Attributes: map[string]schema.Attribute{
 													"cipher_suites": schema.ListAttribute{
 														MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -2404,6 +2437,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Blocks: map[string]schema.Block{
 											"crl": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2437,6 +2471,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 											"trusted_ca": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2470,6 +2505,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 											"xfcc_options": schema.SingleNestedBlock{
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 												Attributes: map[string]schema.Attribute{
 													"xfcc_header_elements": schema.ListAttribute{
 														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -2484,6 +2520,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"tls_parameters": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for tls parameters.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"no_mtls": schema.SingleNestedBlock{
@@ -2491,6 +2528,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"tls_certificates": schema.ListNestedBlock{
 										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -2508,6 +2546,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"custom_hash_algorithms": schema.SingleNestedBlock{
 													MarkdownDescription: "Specifies the hash algorithms to be used.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 													Attributes: map[string]schema.Attribute{
 														"hash_algorithms": schema.ListAttribute{
 															MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -2528,6 +2567,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2548,6 +2588,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2576,6 +2617,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
 												MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 												Attributes: map[string]schema.Attribute{
 													"cipher_suites": schema.ListAttribute{
 														MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -2627,6 +2669,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Blocks: map[string]schema.Block{
 											"crl": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2660,6 +2703,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 											"trusted_ca": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2693,6 +2737,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 											"xfcc_options": schema.SingleNestedBlock{
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 												Attributes: map[string]schema.Attribute{
 													"xfcc_header_elements": schema.ListAttribute{
 														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -2830,6 +2875,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 										Attributes: map[string]schema.Attribute{
 											"cipher_suites": schema.ListAttribute{
 												MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -2881,6 +2927,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 								Blocks: map[string]schema.Block{
 									"crl": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2914,6 +2961,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"trusted_ca": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2947,6 +2995,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"xfcc_options": schema.SingleNestedBlock{
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
 												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",

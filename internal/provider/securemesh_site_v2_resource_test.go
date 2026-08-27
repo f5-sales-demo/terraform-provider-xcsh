@@ -5,6 +5,7 @@ package provider_test
 import (
 	"fmt"
 	"os"
+	"regexp"
 	"strings"
 	"testing"
 
@@ -76,6 +77,64 @@ func TestAccSecuremeshSiteV2Resource_basic(t *testing.T) {
 
 	acctest.RunWithMockOrReal(t, testCase, func(mockCfg *acctest.MockTestConfig) {
 		// Mock setup if applicable
+	})
+}
+
+func TestMockSecuremeshSiteV2Resource_upgradeDrainConditionalRequiredness(t *testing.T) {
+	acctest.SkipIfNoMockMode(t)
+	mockCfg := acctest.SetupMockTest(t)
+	defer mockCfg.Cleanup()
+
+	base := `
+resource "xcsh_securemesh_site_v2" "test" {
+  name      = "tf-acc-test-smsite-v2-requiredness"
+  namespace = "system"
+
+  baremetal {
+    not_managed {}
+  }
+  disable_ha {}
+  no_network_policy {}
+  no_forward_proxy {}
+  logs_streaming_disabled {}
+  block_all_services {}
+}
+`
+	missingNestedRequired := `
+resource "xcsh_securemesh_site_v2" "test" {
+  name      = "tf-acc-test-smsite-v2-requiredness"
+  namespace = "system"
+
+  baremetal {
+    not_managed {}
+  }
+  disable_ha {}
+  no_network_policy {}
+  no_forward_proxy {}
+  logs_streaming_disabled {}
+  block_all_services {}
+
+  upgrade_settings {
+    kubernetes_upgrade_drain {
+      enable_upgrade_drain {}
+    }
+  }
+}
+`
+	resource.Test(t, resource.TestCase{
+		ProtoV6ProviderFactories: mockCfg.ProtoV6ProviderFactories(),
+		Steps: []resource.TestStep{
+			{
+				Config:             acctest.ConfigCompose(mockCfg.MockProviderConfig(), base),
+				PlanOnly:           true,
+				ExpectNonEmptyPlan: true,
+			},
+			{
+				Config:      acctest.ConfigCompose(mockCfg.MockProviderConfig(), missingNestedRequired),
+				PlanOnly:    true,
+				ExpectError: regexp.MustCompile(`(?is)(drain_node_timeout.*required|required.*drain_node_timeout)`),
+			},
+		},
 	})
 }
 

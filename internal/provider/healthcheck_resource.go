@@ -198,6 +198,12 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
+				Validators: []validator.Int64{
+					validators.Int64RangeSetValidator(
+						validators.Int64Range{Minimum: 0, Maximum: 0},
+						validators.Int64Range{Minimum: 10, Maximum: 50},
+					),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{
@@ -209,6 +215,8 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"http_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: http_health_check, tcp_health_check, udp_icmp_health_check] Healthy if 'GET' method on URL 'HTTP(s)://<host>/<path>' with optional '<header>' returns success. 'host' is not used for DNS resolution. It is used as HTTP Header in the request.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
+
 				Attributes: map[string]schema.Attribute{
 					"expected_response": schema.StringAttribute{
 						MarkdownDescription: "Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format. If left empty, then response body is not considered for evaluating health check status. Server applies default when omitted.",
@@ -285,6 +293,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"tcp_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "Healthy if TCP connection is successful and response payload matches <expected_response>.",
+
 				Attributes: map[string]schema.Attribute{
 					"expected_response": schema.StringAttribute{
 						MarkdownDescription: "Raw bytes expected in the request. Describes the encoding of the payload bytes in the payload. Hex encoded payload.",

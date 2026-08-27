@@ -186,6 +186,8 @@ func (r *APICrawlerResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"domains": schema.ListNestedBlock{
 				MarkdownDescription: "API Crawler. API Crawler Configuration.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("domain")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"domain": schema.StringAttribute{
@@ -215,6 +217,7 @@ func (r *APICrawlerResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"blindfold_secret_info": schema.SingleNestedBlock{
 											MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 											Attributes: map[string]schema.Attribute{
 												"decryption_provider": schema.StringAttribute{
 													MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -235,6 +238,7 @@ func (r *APICrawlerResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"clear_secret_info": schema.SingleNestedBlock{
 											MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 											Attributes: map[string]schema.Attribute{
 												"provider_ref": schema.StringAttribute{
 													MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",

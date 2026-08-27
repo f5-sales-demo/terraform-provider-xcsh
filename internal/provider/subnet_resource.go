@@ -201,6 +201,7 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			}),
 			"site_subnet_params": schema.ListNestedBlock{
 				MarkdownDescription: "Site Subnet Parameters. Configure subnet parameters per site.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
@@ -209,6 +210,7 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 						},
 						"site": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -262,10 +264,12 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			},
 			"connect_to_layer2": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: connect_to_layer2, connect_to_slo, isolated_nw] Configuration parameter for connect to layer2.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"layer2_intf_ref": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

@@ -170,6 +170,8 @@ func (r *IKEPhase2ProfileResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"dh_group_set": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dh_group_set, disable_pfs; Default: disable_pfs] Choose the acceptable Diffie Hellman(DH) Group or Groups that you are willing to accept as part of this profile.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("dh_groups")},
+
 				Attributes: map[string]schema.Attribute{
 					"dh_groups": schema.ListAttribute{
 						MarkdownDescription: "[Enum: DH_GROUP_DEFAULT|DH_GROUP_14|DH_GROUP_15|DH_GROUP_16|DH_GROUP_17|DH_GROUP_18|DH_GROUP_19|DH_GROUP_20|DH_GROUP_21|DH_GROUP_26] Choose the acceptable Diffie Hellman(DH) Group or Groups that you are willing to accept as part of this profile. Possible values are `DH_GROUP_DEFAULT`, `DH_GROUP_14`, `DH_GROUP_15`, `DH_GROUP_16`, `DH_GROUP_17`, `DH_GROUP_18`, `DH_GROUP_19`, `DH_GROUP_20`, `DH_GROUP_21`, `DH_GROUP_26`. Defaults to `DH_GROUP_DEFAULT`.",
@@ -183,6 +185,8 @@ func (r *IKEPhase2ProfileResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"ike_keylifetime_hours": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ike_keylifetime_hours, ike_keylifetime_minutes, use_default_keylifetime; Default: use_default_keylifetime] Configuration parameter for ike keylifetime hours.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
+
 				Attributes: map[string]schema.Attribute{
 					"duration": schema.Int64Attribute{
 						MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -195,6 +199,8 @@ func (r *IKEPhase2ProfileResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"ike_keylifetime_minutes": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ike keylifetime minutes.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
+
 				Attributes: map[string]schema.Attribute{
 					"duration": schema.Int64Attribute{
 						MarkdownDescription: "Duration. Configuration parameter for duration",

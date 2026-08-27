@@ -1278,6 +1278,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"aws_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Setup AWS services VPC, transit gateway and site.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_region", "az_nodes", "instance_type", "ssh_key")},
+
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
 						MarkdownDescription: "AWS Region of your services VPC, where F5XC site will be deployed.",
@@ -1333,6 +1335,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1353,6 +1356,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1371,6 +1375,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"aws_cred": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1401,6 +1406,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"az_nodes": schema.ListNestedBlock{
 						MarkdownDescription: "Only Single AZ or Three AZ(s) nodes are supported currently.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"aws_az_name": schema.StringAttribute{
@@ -1423,6 +1429,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"subnet_param": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("ipv4")},
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
 													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
@@ -1446,6 +1453,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"subnet_param": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("ipv4")},
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
 													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
@@ -1472,6 +1480,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"subnet_param": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("ipv4")},
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
 													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
@@ -1511,6 +1520,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"enable_encryption": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for enable encryption.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("kms_key_id")},
 						Attributes: map[string]schema.Attribute{
 							"kms_key_id": schema.StringAttribute{
 								MarkdownDescription: "AWS KMS Key to be used to encrypt the disk attached to the VM.",
@@ -1580,6 +1590,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"new_vpc": schema.SingleNestedBlock{
 						MarkdownDescription: "AWS VPC Parameters. Parameters to create new AWS VPC.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4")},
 						Attributes: map[string]schema.Attribute{
 							"name_tag": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VPC Name.",
@@ -1607,6 +1618,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"tgw_cidr": schema.SingleNestedBlock{
 						MarkdownDescription: "Parameters for creating a new cloud subnet.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ipv4")},
 						Attributes: map[string]schema.Attribute{
 							"ipv4": schema.StringAttribute{
 								MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
@@ -1621,7 +1633,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"blocked_services": schema.SingleNestedBlock{
 				MarkdownDescription: "Disable node local services on this site.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
@@ -1652,6 +1665,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"coordinates": schema.SingleNestedBlock{
 				MarkdownDescription: "Coordinates of the site which provides the site physical location.",
+
 				Attributes: map[string]schema.Attribute{
 					"latitude": schema.Int64Attribute{
 						MarkdownDescription: "Latitude. Latitude of the site location.",
@@ -1665,6 +1679,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"custom_dns": schema.SingleNestedBlock{
 				MarkdownDescription: "Custom DNS is the configured for specify CE site.",
+
 				Attributes: map[string]schema.Attribute{
 					"inside_nameserver": schema.StringAttribute{
 						MarkdownDescription: "Optional DNS server IP to be used for name resolution in inside network.",
@@ -1692,6 +1707,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"direct_connect_enabled": schema.SingleNestedBlock{
 				MarkdownDescription: "Direct Connect Configuration. Direct Connect Configuration.",
+
 				Attributes: map[string]schema.Attribute{
 					"custom_asn": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [auto_asn] Custom Autonomous System Number.",
@@ -1711,6 +1727,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"site_registration_over_direct_connect": schema.SingleNestedBlock{
 								MarkdownDescription: "CloudLink ADN Network Config.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("cloudlink_network_name")},
 								Attributes: map[string]schema.Attribute{
 									"cloudlink_network_name": schema.StringAttribute{
 										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
@@ -1726,6 +1743,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"vif_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Hosted VIF Config. List of Hosted VIF Config.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("vif_id")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"other_region": schema.StringAttribute{
@@ -1759,13 +1777,15 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -1795,6 +1815,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"log_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: log_receiver, logs_streaming_disabled] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1828,7 +1850,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enable_offline_survivability_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for enable offline survivability mode.",
@@ -1840,6 +1863,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+
 				Attributes: map[string]schema.Attribute{
 					"operating_system_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
@@ -1857,7 +1881,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
@@ -1887,10 +1912,12 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"private_connectivity": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for private connectivity.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"cloud_link": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1929,6 +1956,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+
 				Attributes: map[string]schema.Attribute{
 					"volterra_software_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
@@ -1946,7 +1974,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"tgw_security": schema.SingleNestedBlock{
 				MarkdownDescription: "Security Configuration for transit gateway.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"active_east_west_service_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "Active service policies for the east-west proxy.",
@@ -1954,6 +1983,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"service_policies": schema.ListNestedBlock{
 								MarkdownDescription: "List of references to service_policy objects.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1988,10 +2018,12 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"active_enhanced_firewall_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("enhanced_firewall_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2026,10 +2058,12 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"active_forward_proxy_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2064,10 +2098,12 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"active_network_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for active network policies.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("network_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2119,7 +2155,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"vn_config": schema.SingleNestedBlock{
 				MarkdownDescription: "Virtual Network Configuration. Virtual Network Configuration.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"allowed_vip_port": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
@@ -2127,6 +2164,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
 								MarkdownDescription: "Custom Ports. List of Custom port.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("port_ranges")},
 								Attributes: map[string]schema.Attribute{
 									"port_ranges": schema.StringAttribute{
 										MarkdownDescription: "Port Ranges. Port Ranges.",
@@ -2157,6 +2195,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
 								MarkdownDescription: "Custom Ports. List of Custom port.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("port_ranges")},
 								Attributes: map[string]schema.Attribute{
 									"port_ranges": schema.StringAttribute{
 										MarkdownDescription: "Port Ranges. Port Ranges.",
@@ -2183,6 +2222,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"dc_cluster_group_inside_vn": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2213,6 +2253,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"dc_cluster_group_outside_vn": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2243,6 +2284,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
@@ -2256,6 +2298,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											Blocks: map[string]schema.Block{
 												"global_vn": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2292,6 +2335,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											Blocks: map[string]schema.Block{
 												"global_vn": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2329,6 +2373,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"inside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for inside static routes.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("static_route_list")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
@@ -2343,6 +2388,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"custom_static_route": schema.SingleNestedBlock{
 											MarkdownDescription: "Defines a static route, configuring a list of prefixes and a next-hop to be used for them.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnets")},
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
 													MarkdownDescription: "[Enum: ROUTE_ATTR_NO_OP|ROUTE_ATTR_ADVERTISE|ROUTE_ATTR_INSTALL_HOST|ROUTE_ATTR_INSTALL_FORWARDING|ROUTE_ATTR_MERGE_ONLY] List of route attributes associated with the static route. Possible values are `ROUTE_ATTR_NO_OP`, `ROUTE_ATTR_ADVERTISE`, `ROUTE_ATTR_INSTALL_HOST`, `ROUTE_ATTR_INSTALL_FORWARDING`, `ROUTE_ATTR_MERGE_ONLY`. Defaults to `ROUTE_ATTR_NO_OP`.",
@@ -2507,6 +2553,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"outside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for outside static routes.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("static_route_list")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
@@ -2521,6 +2568,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"custom_static_route": schema.SingleNestedBlock{
 											MarkdownDescription: "Defines a static route, configuring a list of prefixes and a next-hop to be used for them.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnets")},
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
 													MarkdownDescription: "[Enum: ROUTE_ATTR_NO_OP|ROUTE_ATTR_ADVERTISE|ROUTE_ATTR_INSTALL_HOST|ROUTE_ATTR_INSTALL_FORWARDING|ROUTE_ATTR_MERGE_ONLY] List of route attributes associated with the static route. Possible values are `ROUTE_ATTR_NO_OP`, `ROUTE_ATTR_ADVERTISE`, `ROUTE_ATTR_INSTALL_HOST`, `ROUTE_ATTR_INSTALL_FORWARDING`, `ROUTE_ATTR_MERGE_ONLY`. Defaults to `ROUTE_ATTR_NO_OP`.",
@@ -2681,7 +2729,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"vpc_attachments": schema.SingleNestedBlock{
 				MarkdownDescription: "Spoke VPCs to be attached to the AWS TGW Site.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"vpc_list": schema.ListNestedBlock{
 						MarkdownDescription: "List of VPC attachments to transit gateway.",

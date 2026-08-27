@@ -172,6 +172,7 @@ func (r *BotInfrastructureResource) Schema(ctx context.Context, req resource.Sch
 			}),
 			"create_cloud_hosted": schema.SingleNestedBlock{
 				MarkdownDescription: "F5 Cloud Hosted.",
+
 				Attributes: map[string]schema.Attribute{
 					"ip_addresses": schema.ListAttribute{
 						MarkdownDescription: "Only traffic from these IP addresses is allowed to access this Bot Defense infrastructure.",
@@ -182,6 +183,7 @@ func (r *BotInfrastructureResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"production": schema.SingleNestedBlock{
 						MarkdownDescription: "Production.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("region_1", "region_2")},
 						Attributes: map[string]schema.Attribute{
 							"region_1": schema.StringAttribute{
 								MarkdownDescription: "Active-Active Infrastructure configuration where traffic is routed equally between the two regions.",
@@ -195,6 +197,7 @@ func (r *BotInfrastructureResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"testing": schema.SingleNestedBlock{
 						MarkdownDescription: "Testing",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("region_1")},
 						Attributes: map[string]schema.Attribute{
 							"region_1": schema.StringAttribute{
 								MarkdownDescription: "Active-Passive Infrastructure configuration where traffic is routed to a single region.",

@@ -346,6 +346,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 			}),
 			"psp_spec": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: psp_spec, yaml] Pod Security Policy Specification. Form based pod security specification.",
+
 				Attributes: map[string]schema.Attribute{
 					"allow_privilege_escalation": schema.BoolAttribute{
 						MarkdownDescription: "Pod can request to privilege escalation.",
@@ -431,6 +432,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 				Blocks: map[string]schema.Block{
 					"allowed_capabilities": schema.SingleNestedBlock{
 						MarkdownDescription: "List of capabilities that docker container has.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("capabilities")},
 						Attributes: map[string]schema.Attribute{
 							"capabilities": schema.ListAttribute{
 								MarkdownDescription: "List of capabilities that docker container has.",
@@ -444,6 +446,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 					},
 					"allowed_host_paths": schema.ListNestedBlock{
 						MarkdownDescription: "Restrict list of host paths, default all host paths are allowed.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("path_prefix")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"path_prefix": schema.StringAttribute{
@@ -462,6 +465,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 					},
 					"default_capabilities": schema.SingleNestedBlock{
 						MarkdownDescription: "List of capabilities that docker container has.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("capabilities")},
 						Attributes: map[string]schema.Attribute{
 							"capabilities": schema.ListAttribute{
 								MarkdownDescription: "List of capabilities that docker container has.",
@@ -475,6 +479,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 					},
 					"drop_capabilities": schema.SingleNestedBlock{
 						MarkdownDescription: "List of capabilities that docker container has.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("capabilities")},
 						Attributes: map[string]schema.Attribute{
 							"capabilities": schema.ListAttribute{
 								MarkdownDescription: "List of capabilities that docker container has.",
@@ -488,6 +493,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 					},
 					"fs_group_strategy_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for fs group strategy options.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("rule")},
 						Attributes: map[string]schema.Attribute{
 							"rule": schema.StringAttribute{
 								MarkdownDescription: "Rule indicated how the FS group ID range is used.",
@@ -500,6 +506,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 						Blocks: map[string]schema.Block{
 							"id_ranges": schema.ListNestedBlock{
 								MarkdownDescription: "ID Ranges. List of range of ID(s)",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("max_id", "min_id")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"max_id": schema.Int64Attribute{
@@ -550,6 +557,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 					},
 					"run_as_group": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for run as group.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("rule")},
 						Attributes: map[string]schema.Attribute{
 							"rule": schema.StringAttribute{
 								MarkdownDescription: "Rule indicated how the FS group ID range is used.",
@@ -562,6 +570,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 						Blocks: map[string]schema.Block{
 							"id_ranges": schema.ListNestedBlock{
 								MarkdownDescription: "ID Ranges. List of range of ID(s)",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("max_id", "min_id")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"max_id": schema.Int64Attribute{
@@ -585,6 +594,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 					},
 					"run_as_user": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for run as user.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("rule")},
 						Attributes: map[string]schema.Attribute{
 							"rule": schema.StringAttribute{
 								MarkdownDescription: "Rule indicated how the FS group ID range is used.",
@@ -597,6 +607,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 						Blocks: map[string]schema.Block{
 							"id_ranges": schema.ListNestedBlock{
 								MarkdownDescription: "ID Ranges. List of range of ID(s)",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("max_id", "min_id")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"max_id": schema.Int64Attribute{
@@ -620,6 +631,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 					},
 					"supplemental_groups": schema.SingleNestedBlock{
 						MarkdownDescription: "ID(User,Group,FSGroup) Strategy. ID ranges and rules.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("rule")},
 						Attributes: map[string]schema.Attribute{
 							"rule": schema.StringAttribute{
 								MarkdownDescription: "Rule indicated how the FS group ID range is used.",
@@ -632,6 +644,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 						Blocks: map[string]schema.Block{
 							"id_ranges": schema.ListNestedBlock{
 								MarkdownDescription: "ID Ranges. List of range of ID(s)",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("max_id", "min_id")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"max_id": schema.Int64Attribute{

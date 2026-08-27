@@ -514,6 +514,8 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 			}),
 			"protocol_policer": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -544,7 +546,8 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"re_acl": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: re_acl, site_acl] Fast ACL for RE. Fast ACL definition for RE.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"all_public_vips": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
@@ -696,6 +699,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -753,6 +757,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 					},
 					"selected_tenant_vip": schema.SingleNestedBlock{
 						MarkdownDescription: "Specific Tenant VIP. Select various tenant public VIP(s)",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("public_ip_refs")},
 						Attributes: map[string]schema.Attribute{
 							"default_tenant_vip": schema.BoolAttribute{
 								MarkdownDescription: "Include tenant VIP in list of specific VIP(s).",
@@ -762,6 +767,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 						Blocks: map[string]schema.Block{
 							"public_ip_refs": schema.ListNestedBlock{
 								MarkdownDescription: "Select Public VIP(s). Select additional public VIP(s)",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -798,7 +804,8 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"site_acl": schema.SingleNestedBlock{
 				MarkdownDescription: "Fast ACL for Site. Fast ACL definition for Site.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"all_services": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for all services.",
@@ -947,6 +954,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",

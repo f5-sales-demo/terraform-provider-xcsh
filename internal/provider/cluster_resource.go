@@ -595,6 +595,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"circuit_breaker": schema.SingleNestedBlock{
 				MarkdownDescription: "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
+
 				Attributes: map[string]schema.Attribute{
 					"connection_limit": schema.Int64Attribute{
 						MarkdownDescription: "The maximum number of connections that loadbalancer will establish to all hosts in an upstream cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single connection to each host. Remove endpoint out of load balancing decision, if number of connections..",
@@ -641,6 +642,8 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"endpoint_subsets": schema.ListNestedBlock{
 				MarkdownDescription: "Configure endpoint groups based on metadata labels for traffic routing. Supports weighted distribution and session affinity across labeled endpoints.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("keys")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"keys": schema.ListAttribute{
@@ -656,6 +659,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"endpoints": schema.ListNestedBlock{
 				MarkdownDescription: "List of endpoints for this cluster.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -691,6 +695,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"health_checks": schema.ListNestedBlock{
 				MarkdownDescription: "Health check configuration for backend monitoring.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -726,7 +731,8 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"http1_config": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP/1.1 Protocol OPTIONS for upstream connections.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"header_transformation": schema.SingleNestedBlock{
 						MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
@@ -750,6 +756,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"http2_options": schema.SingleNestedBlock{
 				MarkdownDescription: "Http2 Protocol OPTIONS for upstream connections.",
+
 				Attributes: map[string]schema.Attribute{
 					"enabled": schema.BoolAttribute{
 						MarkdownDescription: "Enable/disable HTTP2 Protocol for upstream connections.",
@@ -765,6 +772,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"outlier_detection": schema.SingleNestedBlock{
 				MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.",
+
 				Attributes: map[string]schema.Attribute{
 					"base_ejection_time": schema.Int64Attribute{
 						MarkdownDescription: "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail.",
@@ -811,6 +819,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"tls_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS configuration for upstream connections.",
+
 				Attributes: map[string]schema.Attribute{
 					"max_session_keys": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
@@ -830,6 +839,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Blocks: map[string]schema.Block{
 					"cert_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Certificate Parameters for authentication, TLS ciphers, and trust store.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 						Attributes: map[string]schema.Attribute{
 							"cipher_suites": schema.ListAttribute{
 								MarkdownDescription: "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256..",
@@ -979,6 +989,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -996,6 +1007,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
 											MarkdownDescription: "Specifies the hash algorithms to be used.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 											Attributes: map[string]schema.Attribute{
 												"hash_algorithms": schema.ListAttribute{
 													MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -1016,6 +1028,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1036,6 +1049,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1140,7 +1154,8 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"upstream_conn_pool_reuse_type": schema.SingleNestedBlock{
 				MarkdownDescription: "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_conn_pool_reuse": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable conn pool reuse.",

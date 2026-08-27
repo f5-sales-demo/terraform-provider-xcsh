@@ -352,7 +352,8 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			}),
 			"local_ip": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines the OPTIONS to select local IP address and virtual network for tunnel object OPTIONS available are - 1. Local Interface - Network Interface from which IP address and network will be selected 2. IP Address - IP address and network can be configured explicitly.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"intf": schema.SingleNestedBlock{
 						MarkdownDescription: "Provides the local interface to pick up source IP and network for transporting encapsulated packet.",
@@ -455,7 +456,8 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			},
 			"params": schema.SingleNestedBlock{
 				MarkdownDescription: "Tunnel configuration parameters for supported encapsulation 1. IPsec is supported with PSK for which PSK can be configured.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"ipsec": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration for IPsec encapsulation are: 1. PSK - pre shared key to be used by IKE.",
@@ -467,6 +469,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -487,6 +490,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 									},
 									"clear_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 										Attributes: map[string]schema.Attribute{
 											"provider_ref": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -509,7 +513,8 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			},
 			"remote_ip": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines the OPTIONS to select remote IP address for tunnel object OPTIONS available are - 1. IP Address - Specifies the remote IP to which tunnel has to be connected 2. Remote endpoint - Is a map of IP address on per ver node basis.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"endpoints": schema.SingleNestedBlock{
 						MarkdownDescription: "Provides a map of ver node name to remote node attributes Ver node should use these attributes to configure as remote tunnel.",

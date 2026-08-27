@@ -236,6 +236,7 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 			}),
 			"waf_exclusion_rules": schema.ListNestedBlock{
 				MarkdownDescription: "WAF Exclusion Rules. An ordered list of rules.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"exact_value": schema.StringAttribute{
@@ -320,6 +321,7 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 								},
 								"exclude_bot_name_contexts": schema.ListNestedBlock{
 									MarkdownDescription: "Bot Names to be excluded for the defined match criteria.",
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("bot_name")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"bot_name": schema.StringAttribute{
@@ -331,6 +333,7 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 								},
 								"exclude_signature_contexts": schema.ListNestedBlock{
 									MarkdownDescription: "Signature IDs to be excluded for the defined match criteria.",
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("signature_id")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"context": schema.StringAttribute{
@@ -389,6 +392,7 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 						},
 						"metadata": schema.SingleNestedBlock{
 							MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 							Attributes: map[string]schema.Attribute{
 								"description_spec": schema.StringAttribute{
 									MarkdownDescription: "Description. Human readable description.",

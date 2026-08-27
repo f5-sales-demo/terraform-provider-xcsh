@@ -3,6 +3,7 @@
 package schema
 
 import (
+	"reflect"
 	"strings"
 	"testing"
 
@@ -288,7 +289,7 @@ func TestConvertToTerraformAttribute_RequiredForCreate(t *testing.T) {
 	}
 }
 
-func TestConvertToTerraformAttribute_RequiredForCreate_NestedIgnored(t *testing.T) {
+func TestConvertToTerraformAttribute_RequiredForCreate_Nested(t *testing.T) {
 	schema := openapi.Schema{
 		Type:             "string",
 		Description:      "A nested field",
@@ -296,8 +297,23 @@ func TestConvertToTerraformAttribute_RequiredForCreate_NestedIgnored(t *testing.
 	}
 	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{}}}
 	attr := ConvertToTerraformAttributeWithDepth("nested_field", schema, false, "", spec, 1, "parent.nested_field")
-	if attr.Required {
-		t.Error("x-f5xc-required-for.create should NOT set Required at depth > 0")
+	if attr.Required || !attr.Optional || !attr.CreateRequired {
+		t.Fatalf("nested create-required field must be conditionally required, got Required=%v Optional=%v CreateRequired=%v", attr.Required, attr.Optional, attr.CreateRequired)
+	}
+}
+
+func TestConvertToTerraformAttribute_DiscontinuousInt64Ranges(t *testing.T) {
+	schema := openapi.Schema{
+		Type: "integer",
+		XValidationRules: map[string]string{
+			"ves.io.schema.rules.uint32.ranges": "0,512-16384",
+		},
+	}
+	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{}}}
+	attr := ConvertToTerraformAttribute("mtu", schema, false, "", spec)
+	want := []openapi.Int64RangeSpan{{Minimum: 0, Maximum: 0}, {Minimum: 512, Maximum: 16384}}
+	if !reflect.DeepEqual(attr.Int64RangeSpans, want) {
+		t.Fatalf("Int64RangeSpans=%#v, want %#v (conversion error %q)", attr.Int64RangeSpans, want, attr.ConversionError)
 	}
 }
 

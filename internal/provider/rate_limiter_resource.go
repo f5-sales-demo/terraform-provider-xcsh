@@ -214,6 +214,8 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"limits": schema.ListNestedBlock{
 				MarkdownDescription: "List of RateLimitValues that specifies the total number of allowed requests for each specified period.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("total_number")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"burst_multiplier": schema.Int64Attribute{
@@ -302,6 +304,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"user_identification": schema.ListNestedBlock{
 				MarkdownDescription: "Reference to user_identification object. The rules in the user_identification object are evaluated to determine the user identifier to be rate limited. Defaults to `[]`. Server applies default when omitted.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{

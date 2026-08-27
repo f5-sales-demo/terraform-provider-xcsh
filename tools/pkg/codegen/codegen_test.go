@@ -1745,6 +1745,68 @@ func TestRenderNestedAttributes_Int64MinZero(t *testing.T) {
 	}
 }
 
+func TestResourceTemplate_TopLevelFormatAndZeroBoundValidators(t *testing.T) {
+	tmpl := &openapi.ResourceTemplate{
+		Name: "zz_top_level_validator_probe", TitleCase: "TopLevelValidatorProbe",
+		Description: "Probe.", APIPath: "/api/config/zz_top_level_validator_probes",
+		APIPathItem:             "/api/config/zz_top_level_validator_probes/%s",
+		HasInt64RangeValidators: true,
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "address", GoName: "Address", TfsdkTag: "address", JsonName: "address", Type: "string", Optional: true, Format: "ipv4", IsSpecField: true},
+			{Name: "count", GoName: "Count", TfsdkTag: "count", JsonName: "count", Type: "int64", Optional: true, HasMinimum: true, Minimum: 0, HasMaximum: true, Maximum: 10, IsSpecField: true},
+		},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatal(err)
+	}
+	data, err := os.ReadFile(filepath.Join(dir, "zz_top_level_validator_probe_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	got := string(data)
+	for _, want := range []string{"validators.IPv4Validator()", "int64validator.Between(0, 10)"} {
+		if !strings.Contains(got, want) {
+			t.Fatalf("rendered top-level schema missing %q:\n%s", want, got)
+		}
+	}
+}
+
+func TestRenderNestedAttributes_DiscontinuousInt64Range(t *testing.T) {
+	got := RenderNestedAttributes([]openapi.TerraformAttribute{{
+		Name: "mtu", GoName: "MTU", TfsdkTag: "mtu", JsonName: "mtu", Type: "int64", Optional: true,
+		Int64RangeSpans: []openapi.Int64RangeSpan{{Minimum: 0, Maximum: 0}, {Minimum: 512, Maximum: 16384}},
+	}}, "\t")
+	for _, want := range []string{
+		"validators.Int64RangeSetValidator(",
+		"validators.Int64Range{Minimum: 0, Maximum: 0}",
+		"validators.Int64Range{Minimum: 512, Maximum: 16384}",
+	} {
+		if !strings.Contains(got, want) {
+			t.Fatalf("rendered nested schema missing %q:\n%s", want, got)
+		}
+	}
+}
+
+func TestRenderConditionalRequiredValidators(t *testing.T) {
+	child := openapi.TerraformAttribute{TfsdkTag: "required_child", CreateRequired: true}
+	for _, test := range []struct {
+		name  string
+		block openapi.TerraformAttribute
+		want  string
+	}{
+		{"single", openapi.TerraformAttribute{NestedBlockType: "single", NestedAttributes: []openapi.TerraformAttribute{child}}, `Validators: []validator.Object{validators.RequiredObjectAttributes("required_child")}`},
+		{"list", openapi.TerraformAttribute{NestedBlockType: "list", NestedAttributes: []openapi.TerraformAttribute{child}}, `Validators: []validator.List{validators.RequiredListObjectAttributes("required_child")}`},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			got := RenderConditionalRequiredValidators(test.block, "\t")
+			if !strings.Contains(got, test.want) {
+				t.Fatalf("got %q, want %q", got, test.want)
+			}
+		})
+	}
+}
+
 // #1391: the discovery-label filter is a convergence device for the resource Read. It
 // must be driven by FiltersDiscoveredSiteLabels there, and must never be switched on in
 // a data source: a data source cannot propose deleting a label, so filtering there buys

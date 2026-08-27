@@ -202,6 +202,8 @@ func (r *K8SClusterRoleResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"k8s_cluster_role_selector": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: k8s_cluster_role_selector, policy_rule_list, yaml] Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
+
 				Attributes: map[string]schema.Attribute{
 					"expressions": schema.ListAttribute{
 						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -215,7 +217,9 @@ func (r *K8SClusterRoleResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"policy_rule_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Policy Rule List. List of rules for role permissions.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("policy_rule")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"policy_rule": schema.ListNestedBlock{
 						MarkdownDescription: "Policy Rules. List of rules for role permissions.",
@@ -224,6 +228,7 @@ func (r *K8SClusterRoleResource) Schema(ctx context.Context, req resource.Schema
 							Blocks: map[string]schema.Block{
 								"non_resource_url_list": schema.SingleNestedBlock{
 									MarkdownDescription: "Permissions for URL(s) that do not represent K8s resource.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("urls", "verbs")},
 									Attributes: map[string]schema.Attribute{
 										"urls": schema.ListAttribute{
 											MarkdownDescription: "Allowed URL(s) that do not represent any K8s resource. URL can be suffix or regex.",
@@ -245,6 +250,7 @@ func (r *K8SClusterRoleResource) Schema(ctx context.Context, req resource.Schema
 								},
 								"resource_list": schema.SingleNestedBlock{
 									MarkdownDescription: "List of resources in terms of API groups/resource types/resource instances and verbs allowed.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("api_groups", "resource_types", "verbs")},
 									Attributes: map[string]schema.Attribute{
 										"api_groups": schema.ListAttribute{
 											MarkdownDescription: "Allowed list of API group that contains resources, all resources of a given API group.",

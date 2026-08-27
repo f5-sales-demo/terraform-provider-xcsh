@@ -175,13 +175,15 @@ func (r *ProtocolInspectionResource) Schema(ctx context.Context, req resource.Sc
 			}),
 			"enable_disable_compliance_checks": schema.SingleNestedBlock{
 				MarkdownDescription: "Enable Disable Compliance Checks Choice.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_compliance_checks": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable compliance checks.",
 					},
 					"enable_compliance_checks": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -214,7 +216,8 @@ func (r *ProtocolInspectionResource) Schema(ctx context.Context, req resource.Sc
 			},
 			"enable_disable_signatures": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for enable disable signatures.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_signature": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable signature.",

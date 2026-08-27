@@ -309,6 +309,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"receivers": schema.ListNestedBlock{
 				MarkdownDescription: "List of Alert Receivers where the alerts will be sent.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -344,6 +345,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"routes": schema.ListNestedBlock{
 				MarkdownDescription: "Set of routes to match the incoming alert. The routes are evaluated in the specified order and terminates on the first match.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"alertname": schema.StringAttribute{
@@ -482,6 +484,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"notification_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+
 				Attributes: map[string]schema.Attribute{
 					"group_interval": schema.StringAttribute{
 						MarkdownDescription: "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval..",

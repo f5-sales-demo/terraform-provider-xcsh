@@ -232,6 +232,7 @@ func (r *NetworkPolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			}),
 			"advanced_action": schema.SingleNestedBlock{
 				MarkdownDescription: "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
+
 				Attributes: map[string]schema.Attribute{
 					"action": schema.StringAttribute{
 						MarkdownDescription: "[Enum: NOLOG|LOG] Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-. Possible values are `NOLOG`, `LOG`. Defaults to `NOLOG`.",
@@ -244,7 +245,8 @@ func (r *NetworkPolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"ip_prefix_set": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ip_prefix_set, prefix, prefix_selector] List of references to ip_prefix_set objects.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"ref": schema.ListNestedBlock{
 						MarkdownDescription: "List of references to ip_prefix_set objects.",
@@ -285,6 +287,7 @@ func (r *NetworkPolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"label_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
+
 				Attributes: map[string]schema.Attribute{
 					"keys": schema.ListAttribute{
 						MarkdownDescription: "The list of label key names that have to match.",
@@ -298,6 +301,7 @@ func (r *NetworkPolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"prefix": schema.SingleNestedBlock{
 				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+
 				Attributes: map[string]schema.Attribute{
 					"prefix": schema.ListAttribute{
 						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
@@ -311,6 +315,8 @@ func (r *NetworkPolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"prefix_selector": schema.SingleNestedBlock{
 				MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
+
 				Attributes: map[string]schema.Attribute{
 					"expressions": schema.ListAttribute{
 						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",

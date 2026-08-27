@@ -559,6 +559,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 			}),
 			"email": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: email, opsgenie, pagerduty, slack, sms, webhook] Email Configuration.",
+
 				Attributes: map[string]schema.Attribute{
 					"email": schema.StringAttribute{
 						MarkdownDescription: "Email. Email ID of the user.",
@@ -571,6 +572,8 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"opsgenie": schema.SingleNestedBlock{
 				MarkdownDescription: "OpsGenie configuration to send alert notifications.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
+
 				Attributes: map[string]schema.Attribute{
 					"url": schema.StringAttribute{
 						MarkdownDescription: "API URL. URL to send API requests to.",
@@ -587,6 +590,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -607,6 +611,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -627,6 +632,8 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"pagerduty": schema.SingleNestedBlock{
 				MarkdownDescription: "PagerDuty configuration to send alert notifications.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
+
 				Attributes: map[string]schema.Attribute{
 					"url": schema.StringAttribute{
 						MarkdownDescription: "Pager Duty URL. URL to send API requests to.",
@@ -643,6 +650,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -663,6 +671,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -683,6 +692,8 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"slack": schema.SingleNestedBlock{
 				MarkdownDescription: "Slack configuration to send alert notifications.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("channel")},
+
 				Attributes: map[string]schema.Attribute{
 					"channel": schema.StringAttribute{
 						MarkdownDescription: "Channel or user to send notifications to.",
@@ -699,6 +710,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -719,6 +731,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -739,6 +752,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"sms": schema.SingleNestedBlock{
 				MarkdownDescription: "SMS Configuration.",
+
 				Attributes: map[string]schema.Attribute{
 					"contact_number": schema.StringAttribute{
 						MarkdownDescription: "Contact number of the user in ITU E.164 format [+][country code][subscriber number including area code].",
@@ -748,7 +762,8 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"webhook": schema.SingleNestedBlock{
 				MarkdownDescription: "Webhook configuration to send alert notifications.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"http_config": schema.SingleNestedBlock{
 						MarkdownDescription: "HTTP Configuration. Configuration for HTTP endpoint.",
@@ -773,6 +788,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -793,6 +809,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -813,6 +830,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"basic_auth": schema.SingleNestedBlock{
 								MarkdownDescription: "Authorization parameters to access HTPP alert Receiver Endpoint.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("user_name")},
 								Attributes: map[string]schema.Attribute{
 									"user_name": schema.StringAttribute{
 										MarkdownDescription: "User Name. HTTP Basic Auth User Name.",
@@ -829,6 +847,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -849,6 +868,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1003,6 +1023,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1023,6 +1044,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
