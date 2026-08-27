@@ -10,6 +10,8 @@ import (
 	"os"
 	"sort"
 	"strings"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
 type LegacyManifest struct {
@@ -68,6 +70,7 @@ type FieldSemantics struct {
 	Default       interface{} `json:"default,omitempty"`
 	ConflictsWith []string    `json:"conflicts_with"`
 	WireKey       string      `json:"wire_key"`
+	Generated     bool        `json:"generated,omitempty"`
 }
 
 type MatrixEntry struct {
@@ -86,6 +89,7 @@ type Matrix struct {
 	LegacySourceSHA  string         `json:"legacy_source_sha256"`
 	LegacyPathCount  int            `json:"legacy_path_count"`
 	CurrentPathCount int            `json:"current_path_count"`
+	GeneratedPaths   int            `json:"generated_path_count,omitempty"`
 	ClassifiedLegacy int            `json:"classified_legacy_paths"`
 	Unclassified     []string       `json:"unclassified_legacy_paths"`
 	Classification   map[string]int `json:"classification_counts"`
@@ -126,6 +130,19 @@ func load(path string, value interface{}) error {
 }
 
 func BuildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest) (*Matrix, error) {
+	return buildSMSv2Matrix(legacy, current, nil)
+}
+
+// BuildSMSv2MatrixFromTerraform builds the matrix with practitioner-facing
+// semantics from the generated Terraform attribute IR. The current manifest
+// remains the authoritative API field inventory, but cannot falsely claim
+// required/current parity for a field the generator emitted as optional.
+func BuildSMSv2MatrixFromTerraform(legacy *LegacyManifest, current *CurrentManifest, attrs []openapi.TerraformAttribute) (*Matrix, error) {
+	generated := flattenTerraformAttributes(attrs)
+	return buildSMSv2Matrix(legacy, current, generated)
+}
+
+func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generated map[string]openapi.TerraformAttribute) (*Matrix, error) {
 	currentByPath := make(map[string]CurrentField, len(current.Paths))
 	conflicts := make(map[string][]string)
 	for _, members := range current.ChoiceGroups {
@@ -153,9 +170,16 @@ func BuildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest) (*Matrix
 		Unclassified:     make([]string, 0),
 		Entries:          make([]MatrixEntry, 0, len(legacy.Paths)+len(current.Paths)),
 	}
+	if generated != nil {
+		for path := range generated {
+			if path != "metadata.id" && path != "metadata.uid" {
+				matrix.GeneratedPaths++
+			}
+		}
+	}
 	consumedCurrent := make(map[string]bool, len(current.Paths))
 	for _, field := range legacy.Paths {
-		entry := classifyLegacyField(field, currentByPath, conflicts)
+		entry := classifyLegacyField(field, currentByPath, conflicts, generated)
 		if entry.Classification == "" {
 			matrix.Unclassified = append(matrix.Unclassified, field.Path)
 			continue
@@ -171,11 +195,19 @@ func BuildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest) (*Matrix
 		if field.Path == "metadata" || field.Path == "spec" || consumedCurrent[field.Path] {
 			continue
 		}
+		classification := "current_only"
+		reason := "capability added after legacy v0.11.49"
+		if generated != nil {
+			if _, present := generated[field.Path]; !present {
+				classification = "source_only_not_generated"
+				reason = "current API field is not present in the generated Terraform schema"
+			}
+		}
 		entry := MatrixEntry{
 			CurrentPath:    terraformPath(field.Path),
-			Classification: "current_only",
-			Reason:         "capability added after legacy v0.11.49",
-			Current:        currentSemantics(field, conflicts[field.Path]),
+			Classification: classification,
+			Reason:         reason,
+			Current:        resolvedCurrentSemantics(field, conflicts[field.Path], generated),
 		}
 		matrix.Classification[entry.Classification]++
 		matrix.Entries = append(matrix.Entries, entry)
@@ -192,7 +224,7 @@ func BuildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest) (*Matrix
 	return matrix, nil
 }
 
-func classifyLegacyField(field LegacyField, current map[string]CurrentField, conflicts map[string][]string) MatrixEntry {
+func classifyLegacyField(field LegacyField, current map[string]CurrentField, conflicts map[string][]string, generated map[string]openapi.TerraformAttribute) MatrixEntry {
 	entry := MatrixEntry{LegacyPath: field.Path, Legacy: legacySemantics(field)}
 	if field.Deprecated || hasPathPrefix(field.Path, "log_receiver") || hasPathPrefix(field.Path, "private_adn") || hasPathPrefix(field.Path, "rseries") {
 		entry.Classification = "deprecated_exclusion"
@@ -206,8 +238,12 @@ func classifyLegacyField(field LegacyField, current map[string]CurrentField, con
 	}
 	if currentField, found := current[target]; found {
 		entry.CurrentPath = terraformPath(target)
-		entry.Current = currentSemantics(currentField, conflicts[target])
-		if classification != "" {
+		entry.Current = resolvedCurrentSemantics(currentField, conflicts[target], generated)
+		_, generatedFieldPresent := generated[target]
+		if generated != nil && !generatedFieldPresent {
+			entry.Classification = "generator_gap"
+			entry.Reason = "legacy capability exists in the current API but is absent from the generated Terraform schema"
+		} else if classification != "" {
 			entry.Classification = classification
 			entry.Reason = reason
 		} else if semanticallyEqual(entry.Legacy, entry.Current) {
@@ -296,7 +332,75 @@ func currentSemantics(field CurrentField, conflicts []string) *FieldSemantics {
 		Type: fieldType, Cardinality: field.Cardinality, Required: required, Optional: optional,
 		Computed: computed, ForceNew: field.Path == "metadata.name" || field.Path == "metadata.namespace",
 		Default: defaultValue, ConflictsWith: append([]string(nil), conflicts...), WireKey: field.WireKey,
+		Generated: true,
 	}
+}
+
+func resolvedCurrentSemantics(field CurrentField, conflicts []string, generated map[string]openapi.TerraformAttribute) *FieldSemantics {
+	semantics := currentSemantics(field, conflicts)
+	if generated == nil {
+		return semantics
+	}
+	attr := generated[field.Path]
+	if _, ok := generated[field.Path]; !ok {
+		semantics.Required = false
+		semantics.Optional = false
+		semantics.Computed = false
+		semantics.ForceNew = false
+		semantics.Default = nil
+		semantics.Generated = false
+		return semantics
+	}
+	semantics.Required = attr.Required || attr.CreateRequired
+	semantics.Optional = attr.Optional && !attr.CreateRequired
+	semantics.Computed = attr.Computed
+	semantics.ForceNew = attr.PlanModifier == "RequiresReplace"
+	semantics.Default = attr.Default
+	if attr.StringDefault != "" {
+		semantics.Default = attr.StringDefault
+	}
+	if attr.JsonName != "" {
+		semantics.WireKey = attr.JsonName
+	}
+	return semantics
+}
+
+func flattenTerraformAttributes(attrs []openapi.TerraformAttribute) map[string]openapi.TerraformAttribute {
+	result := make(map[string]openapi.TerraformAttribute)
+	metadata := map[string]bool{
+		"annotations": true, "description": true, "disable": true,
+		"labels": true, "name": true, "namespace": true,
+	}
+	var walk func([]openapi.TerraformAttribute, string)
+	walk = func(fields []openapi.TerraformAttribute, prefix string) {
+		for _, attr := range fields {
+			name := attr.TfsdkTag
+			if name == "" {
+				name = attr.Name
+			}
+			if name == "" {
+				continue
+			}
+			path := name
+			if prefix == "" {
+				if metadata[name] && !attr.IsSpecField {
+					path = "metadata." + name
+				} else {
+					path = "spec." + name
+				}
+			} else {
+				path = prefix + "." + name
+			}
+			if attr.Type == "list" || (attr.IsBlock && attr.NestedBlockType == "list") {
+				path += "[]"
+			}
+			result[path] = attr
+			childPrefix := path
+			walk(attr.NestedAttributes, childPrefix)
+		}
+	}
+	walk(attrs, "")
+	return result
 }
 
 func normalizeLegacyType(fieldType, cardinality string) (string, string) {
@@ -310,8 +414,14 @@ func normalizeLegacyType(fieldType, cardinality string) (string, string) {
 }
 
 func semanticallyEqual(left, right *FieldSemantics) bool {
-	leftJSON, _ := json.Marshal(left)
-	rightJSON, _ := json.Marshal(right)
+	leftCopy, rightCopy := *left, *right
+	// Generated is reporting provenance, not practitioner-facing field
+	// semantics; do not let it turn otherwise equal legacy/current contracts
+	// into a modernization.
+	leftCopy.Generated = false
+	rightCopy.Generated = false
+	leftJSON, _ := json.Marshal(&leftCopy)
+	rightJSON, _ := json.Marshal(&rightCopy)
 	return string(leftJSON) == string(rightJSON)
 }
 

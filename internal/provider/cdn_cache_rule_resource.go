@@ -358,6 +358,8 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 			}),
 			"cache_rules": schema.SingleNestedBlock{
 				MarkdownDescription: "Cache Rule. This defines a CDN Cache Rule.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("rule_expression_list", "rule_name")},
+
 				Attributes: map[string]schema.Attribute{
 					"rule_name": schema.StringAttribute{
 						MarkdownDescription: "Rule Name. Name of the Cache Rule.",
@@ -377,6 +379,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 						Blocks: map[string]schema.Block{
 							"scheme_proxy_host_request_uri": schema.SingleNestedBlock{
 								MarkdownDescription: "Cache TTL Enable Props. Cache TTL Enable Values.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("cache_ttl")},
 								Attributes: map[string]schema.Attribute{
 									"cache_override": schema.BoolAttribute{
 										MarkdownDescription: "Cache Override. Honour Cache Override.",
@@ -394,6 +397,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 							},
 							"scheme_proxy_host_uri": schema.SingleNestedBlock{
 								MarkdownDescription: "Cache TTL Enable Props. Cache TTL Enable Values.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("cache_ttl")},
 								Attributes: map[string]schema.Attribute{
 									"cache_override": schema.BoolAttribute{
 										MarkdownDescription: "Cache Override. Honour Cache Override.",
@@ -413,6 +417,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 					},
 					"rule_expression_list": schema.ListNestedBlock{
 						MarkdownDescription: "Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("cache_rule_expression", "expression_name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"expression_name": schema.StringAttribute{
@@ -491,6 +496,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 											},
 											"cookie_matcher": schema.ListNestedBlock{
 												MarkdownDescription: "List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name.",
+												Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
@@ -601,6 +607,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 											},
 											"query_parameters": schema.ListNestedBlock{
 												MarkdownDescription: "Query Parameters. List of (key, value) query parameters.",
+												Validators:          []validator.List{validators.RequiredListObjectAttributes("key")},
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"key": schema.StringAttribute{

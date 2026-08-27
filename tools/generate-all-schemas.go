@@ -234,11 +234,6 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("❌ Concurrency inventory version check failed: %v\n", err)
 		os.Exit(1)
 	}
-	if err := generateSMSv2ParityMatrix(specDir); err != nil {
-		fmt.Printf("❌ SMSv2 parity validation failed: %v\n", err)
-		os.Exit(1)
-	}
-
 	// Build global maps from index.json for metadata enrichment
 	resourceTierMap = openapi.BuildResourceTierMap(index)
 	resourceDependencyMap = openapi.BuildResourceDependencyMap(index)
@@ -276,6 +271,7 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	// Track processed resources to avoid duplicates across domain files
 	// Some resources (like service_policy) appear in multiple domain specs
 	processedResources := make(map[string]bool)
+	var smsv2Attributes []openapi.TerraformAttribute
 
 	// Build a map of domain metadata from index for quick lookup
 	domainMetadata := make(map[string]openapi.DomainMetadata)
@@ -336,6 +332,9 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 			// The v2 domain spec contains all resources, so we process each individually
 			result := processV2Resource(domainFile, resource, domainInfo)
 			results = append(results, result)
+			if result.ResourceName == "securemesh_site_v2" && result.Success {
+				smsv2Attributes = result.Attributes
+			}
 			if result.Success {
 				successCount++
 			} else if result.Error != "" {
@@ -383,11 +382,19 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	if skipCount > 0 {
 		fmt.Printf("\n⏭️  Skipped %d duplicate resources across domain files\n", skipCount)
 	}
+	if len(smsv2Attributes) == 0 {
+		fmt.Println("❌ SMSv2 parity validation failed: generated securemesh_site_v2 schema was not produced")
+		os.Exit(1)
+	}
+	if err := generateSMSv2ParityMatrix(specDir, smsv2Attributes); err != nil {
+		fmt.Printf("❌ SMSv2 parity validation failed: %v\n", err)
+		os.Exit(1)
+	}
 
 	return results, successCount, failCount
 }
 
-func generateSMSv2ParityMatrix(specDirectory string) error {
+func generateSMSv2ParityMatrix(specDirectory string, attrs []openapi.TerraformAttribute) error {
 	legacy, err := parity.LoadLegacy("tools/legacy-smsv2-v0.11.49.json")
 	if err != nil {
 		return err
@@ -404,12 +411,12 @@ func generateSMSv2ParityMatrix(specDirectory string) error {
 		return fmt.Errorf("SMSv2 generated example variants %v do not match provider choice contract %v",
 			codegen.SecuremeshSiteV2ProviderChoices, providerChoices)
 	}
-	matrix, err := parity.BuildSMSv2Matrix(legacy, current)
+	matrix, err := parity.BuildSMSv2MatrixFromTerraform(legacy, current, attrs)
 	if err != nil {
 		return err
 	}
-	fmt.Printf("📋 SMSv2 parity: %d legacy paths classified, %d current-only, zero gaps\n",
-		matrix.ClassifiedLegacy, matrix.Classification["current_only"])
+	fmt.Printf("📋 SMSv2 parity: %d legacy paths classified, %d current-only, %d generated gaps, zero unclassified\n",
+		matrix.ClassifiedLegacy, matrix.Classification["current_only"], matrix.Classification["generator_gap"])
 	if dryRun {
 		return nil
 	}
@@ -817,6 +824,7 @@ func generateResourceFromSchema(resourceName string, schemaName string, specFile
 		Success:      true,
 		AttrCount:    attrCount,
 		BlockCount:   blockCount,
+		Attributes:   resource.Attributes,
 	}
 }
 

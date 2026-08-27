@@ -161,6 +161,8 @@ func (r *VirtualK8SResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"default_flavor_ref": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -197,6 +199,7 @@ func (r *VirtualK8SResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"vsite_refs": schema.ListNestedBlock{
 				MarkdownDescription: "Reference to virtual-sites Default virtual-site of the Virtual K8s object. If no virtual-site is specified in the Kubernetes API resource object annotations via F5 XC/virtual-sites, then this virtual-site is used select sites on which to instantiate the Kubernetes API resource object.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{

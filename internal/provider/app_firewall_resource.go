@@ -368,6 +368,8 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"allowed_response_codes": schema.SingleNestedBlock{
 				MarkdownDescription: "List of HTTP response status codes that are allowed.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("response_code")},
+
 				Attributes: map[string]schema.Attribute{
 					"response_code": schema.ListAttribute{
 						MarkdownDescription: "List of HTTP response status codes that are allowed.",
@@ -384,6 +386,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"blocking_page": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: blocking_page, use_default_blocking_page; Default: use_default_blocking_page] Custom Blocking Response Page. Custom blocking response page body.",
+
 				Attributes: map[string]schema.Attribute{
 					"blocking_page": schema.StringAttribute{
 						MarkdownDescription: "Define the content of the response page (e.g., an HTML document or a JSON object), use the {{request_id}} placeholder to provide users with a unique identifier to be able to trace the blocked request in the logs. The maximum allowed size of response body is 4096 bytes after base64 encoding..",
@@ -403,6 +406,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"bot_protection_setting": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: bot_protection_setting, default_bot_setting; Default: default_bot_setting] Configuration parameter for bot protection setting.",
+
 				Attributes: map[string]schema.Attribute{
 					"good_bot_action": schema.StringAttribute{
 						MarkdownDescription: "[Enum: BLOCK|REPORT|IGNORE] Action to be performed on the request Log and block Log only Disable detection. Possible values are `BLOCK`, `REPORT`, `IGNORE`. Defaults to `BLOCK`.",
@@ -429,7 +433,9 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"custom_anonymization": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_anonymization, default_anonymization, disable_anonymization; Default: default_anonymization] Anonymization settings which is a list of HTTP headers, parameters and cookies.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("anonymization_config")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"anonymization_config": schema.ListNestedBlock{
 						MarkdownDescription: "List of HTTP headers, cookies and query parameters whose values will be masked.",
@@ -438,6 +444,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 							Blocks: map[string]schema.Block{
 								"cookie": schema.SingleNestedBlock{
 									MarkdownDescription: "Configure anonymization for HTTP Cookies.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("cookie_name")},
 									Attributes: map[string]schema.Attribute{
 										"cookie_name": schema.StringAttribute{
 											MarkdownDescription: "Masks the cookie value. The setting does not mask the cookie name. Wildcard matching can be used by prefixing or suffixing the cookie name with a wildcard asterisk (*), or by using only an asterisk to match any cookie name.",
@@ -450,6 +457,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"http_header": schema.SingleNestedBlock{
 									MarkdownDescription: "Configure anonymization for HTTP Headers.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("header_name")},
 									Attributes: map[string]schema.Attribute{
 										"header_name": schema.StringAttribute{
 											MarkdownDescription: "Masks the HTTP header value. The setting does not mask the HTTP header name. Wildcard matching can be used by prefixing or suffixing the HTTP header name with a wildcard asterisk (*), or by using only an asterisk to match any HTTP header name.",
@@ -459,6 +467,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"query_parameter": schema.SingleNestedBlock{
 									MarkdownDescription: "Configure anonymization for HTTP Parameters.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("query_param_name")},
 									Attributes: map[string]schema.Attribute{
 										"query_param_name": schema.StringAttribute{
 											MarkdownDescription: "Masks the query parameter value. The setting does not mask the query parameter name. Wildcard matching can be used by prefixing or suffixing the query parameter name with a wildcard asterisk (*), or by using only an asterisk to match any query parameter name.",
@@ -476,7 +485,9 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"detection_settings": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies detection settings to be used by WAF.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("violations_view")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bot_protection_setting": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for bot protection setting.",
@@ -531,6 +542,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 						Blocks: map[string]schema.Block{
 							"attack_type_settings": schema.SingleNestedBlock{
 								MarkdownDescription: "Specifies attack-type settings to be used by WAF.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("disabled_attack_types")},
 								Attributes: map[string]schema.Attribute{
 									"disabled_attack_types": schema.ListAttribute{
 										MarkdownDescription: "[Enum: ATTACK_TYPE_NONE|ATTACK_TYPE_NON_BROWSER_CLIENT|ATTACK_TYPE_OTHER_APPLICATION_ATTACKS|ATTACK_TYPE_TROJAN_BACKDOOR_SPYWARE|ATTACK_TYPE_DETECTION_EVASION|ATTACK_TYPE_VULNERABILITY_SCAN|ATTACK_TYPE_ABUSE_OF_FUNCTIONALITY|ATTACK_TYPE_AUTHENTICATION_AUTHORIZATION_ATTACKS|ATTACK_TYPE_BUFFER_OVERFLOW|ATTACK_TYPE_PREDICTABLE_RESOURCE_LOCATION|ATTACK_TYPE_INFORMATION_LEAKAGE|ATTACK_TYPE_DIRECTORY_INDEXING|ATTACK_TYPE_PATH_TRAVERSAL|ATTACK_TYPE_XPATH_INJECTION|ATTACK_TYPE_LDAP_INJECTION|ATTACK_TYPE_SERVER_SIDE_CODE_INJECTION|ATTACK_TYPE_COMMAND_EXECUTION|ATTACK_TYPE_SQL_INJECTION|ATTACK_TYPE_CROSS_SITE_SCRIPTING|ATTACK_TYPE_DENIAL_OF_SERVICE|ATTACK_TYPE_HTTP_PARSER_ATTACK|ATTACK_TYPE_SESSION_HIJACKING|ATTACK_TYPE_HTTP_RESPONSE_SPLITTING|ATTACK_TYPE_FORCEFUL_BROWSING|ATTACK_TYPE_REMOTE_FILE_INCLUDE|ATTACK_TYPE_MALICIOUS_FILE_UPLOAD|ATTACK_TYPE_GRAPHQL_PARSER_ATTACK] List of Attack Types that will be ignored and not trigger a detection. Possible values are `ATTACK_TYPE_NONE`, `ATTACK_TYPE_NON_BROWSER_CLIENT`, `ATTACK_TYPE_OTHER_APPLICATION_ATTACKS`, `ATTACK_TYPE_TROJAN_BACKDOOR_SPYWARE`, `ATTACK_TYPE_DETECTION_EVASION`, `ATTACK_TYPE_VULNERABILITY_SCAN`, `ATTACK_TYPE_ABUSE_OF_FUNCTIONALITY`, `ATTACK_TYPE_AUTHENTICATION_AUTHORIZATION_ATTACKS`, `ATTACK_TYPE_BUFFER_OVERFLOW`, `ATTACK_TYPE_PREDICTABLE_RESOURCE_LOCATION`, `ATTACK_TYPE_INFORMATION_LEAKAGE`, `ATTACK_TYPE_DIRECTORY_INDEXING`, `ATTACK_TYPE_PATH_TRAVERSAL`, `ATTACK_TYPE_XPATH_INJECTION`, `ATTACK_TYPE_LDAP_INJECTION`, `ATTACK_TYPE_SERVER_SIDE_CODE_INJECTION`, `ATTACK_TYPE_COMMAND_EXECUTION`, `ATTACK_TYPE_SQL_INJECTION`, `ATTACK_TYPE_CROSS_SITE_SCRIPTING`, `ATTACK_TYPE_DENIAL_OF_SERVICE`, `ATTACK_TYPE_HTTP_PARSER_ATTACK`, `ATTACK_TYPE_SESSION_HIJACKING`, `ATTACK_TYPE_HTTP_RESPONSE_SPLITTING`, `ATTACK_TYPE_FORCEFUL_BROWSING`, `ATTACK_TYPE_REMOTE_FILE_INCLUDE`, `ATTACK_TYPE_MALICIOUS_FILE_UPLOAD`, `ATTACK_TYPE_GRAPHQL_PARSER_ATTACK`. Defaults to `ATTACK_TYPE_NONE`.",
@@ -558,6 +570,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"stage_new_and_updated_signatures": schema.SingleNestedBlock{
 						MarkdownDescription: "Attack Signatures staging configuration.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("staging_period")},
 						Attributes: map[string]schema.Attribute{
 							"staging_period": schema.Int64Attribute{
 								MarkdownDescription: "Define staging period in days. The default staging period is 7 days and the max supported staging period is 20 days.",
@@ -570,6 +583,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"stage_new_signatures": schema.SingleNestedBlock{
 						MarkdownDescription: "Attack Signatures staging configuration.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("staging_period")},
 						Attributes: map[string]schema.Attribute{
 							"staging_period": schema.Int64Attribute{
 								MarkdownDescription: "Define staging period in days. The default staging period is 7 days and the max supported staging period is 20 days.",
@@ -582,6 +596,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"violation_settings": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies violation settings to be used by WAF.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("disabled_violation_types")},
 						Attributes: map[string]schema.Attribute{
 							"disabled_violation_types": schema.ListAttribute{
 								MarkdownDescription: "[Enum: VIOL_NONE|VIOL_FILETYPE|VIOL_METHOD|VIOL_MANDATORY_HEADER|VIOL_HTTP_RESPONSE_STATUS|VIOL_REQUEST_MAX_LENGTH|VIOL_FILE_UPLOAD|VIOL_FILE_UPLOAD_IN_BODY|VIOL_XML_MALFORMED|VIOL_JSON_MALFORMED|VIOL_ASM_COOKIE_MODIFIED|VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS|VIOL_HTTP_PROTOCOL_BAD_HOST_HEADER_VALUE|VIOL_HTTP_PROTOCOL_UNPARSABLE_REQUEST_CONTENT|VIOL_HTTP_PROTOCOL_NULL_IN_REQUEST|VIOL_HTTP_PROTOCOL_BAD_HTTP_VERSION|VIOL_HTTP_PROTOCOL_SEVERAL_CONTENT_LENGTH_HEADERS|VIOL_EVASION_DIRECTORY_TRAVERSALS|VIOL_MALFORMED_REQUEST|VIOL_EVASION_MULTIPLE_DECODING|VIOL_DATA_GUARD|VIOL_EVASION_APACHE_WHITESPACE|VIOL_COOKIE_MODIFIED|VIOL_EVASION_IIS_UNICODE_CODEPOINTS|VIOL_EVASION_IIS_BACKSLASHES|VIOL_EVASION_PERCENT_U_DECODING|VIOL_EVASION_BARE_BYTE_DECODING|VIOL_EVASION_BAD_UNESCAPE|VIOL_HTTP_PROTOCOL_BODY_IN_GET_OR_HEAD_REQUEST|VIOL_ENCODING|VIOL_COOKIE_MALFORMED|VIOL_GRAPHQL_FORMAT|VIOL_GRAPHQL_MALFORMED|VIOL_GRAPHQL_INTROSPECTION_QUERY] Disabled Violations. List of violations to be excluded. Possible values are `VIOL_NONE`, `VIOL_FILETYPE`, `VIOL_METHOD`, `VIOL_MANDATORY_HEADER`, `VIOL_HTTP_RESPONSE_STATUS`, `VIOL_REQUEST_MAX_LENGTH`, `VIOL_FILE_UPLOAD`, `VIOL_FILE_UPLOAD_IN_BODY`, `VIOL_XML_MALFORMED`, `VIOL_JSON_MALFORMED`, `VIOL_ASM_COOKIE_MODIFIED`, `VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS`, `VIOL_HTTP_PROTOCOL_BAD_HOST_HEADER_VALUE`, `VIOL_HTTP_PROTOCOL_UNPARSABLE_REQUEST_CONTENT`, `VIOL_HTTP_PROTOCOL_NULL_IN_REQUEST`, `VIOL_HTTP_PROTOCOL_BAD_HTTP_VERSION`, `VIOL_HTTP_PROTOCOL_SEVERAL_CONTENT_LENGTH_HEADERS`, `VIOL_EVASION_DIRECTORY_TRAVERSALS`, `VIOL_MALFORMED_REQUEST`, `VIOL_EVASION_MULTIPLE_DECODING`, `VIOL_DATA_GUARD`, `VIOL_EVASION_APACHE_WHITESPACE`, `VIOL_COOKIE_MODIFIED`, `VIOL_EVASION_IIS_UNICODE_CODEPOINTS`, `VIOL_EVASION_IIS_BACKSLASHES`, `VIOL_EVASION_PERCENT_U_DECODING`, `VIOL_EVASION_BARE_BYTE_DECODING`, `VIOL_EVASION_BAD_UNESCAPE`, `VIOL_HTTP_PROTOCOL_BODY_IN_GET_OR_HEAD_REQUEST`, `VIOL_ENCODING`, `VIOL_COOKIE_MALFORMED`, `VIOL_GRAPHQL_FORMAT`, `VIOL_GRAPHQL_MALFORMED`, `VIOL_GRAPHQL_INTROSPECTION_QUERY`. Defaults to `VIOL_NONE`.",
@@ -631,7 +646,8 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"enable_ai_enhancements": schema.SingleNestedBlock{
 				MarkdownDescription: "Actions complimented by the additional intelligence of the F5 AI Powered Risk-based analysis.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"mitigate_high_medium_risk_action": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",

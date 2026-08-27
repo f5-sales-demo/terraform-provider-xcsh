@@ -193,6 +193,8 @@ func (r *IKEPhase1ProfileResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"ike_keylifetime_hours": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ike_keylifetime_hours, ike_keylifetime_minutes, use_default_keylifetime; Default: use_default_keylifetime] Configuration parameter for ike keylifetime hours.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
+
 				Attributes: map[string]schema.Attribute{
 					"duration": schema.Int64Attribute{
 						MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -205,6 +207,8 @@ func (r *IKEPhase1ProfileResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"ike_keylifetime_minutes": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ike keylifetime minutes.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
+
 				Attributes: map[string]schema.Attribute{
 					"duration": schema.Int64Attribute{
 						MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -220,6 +224,8 @@ func (r *IKEPhase1ProfileResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"reauth_timeout_days": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for reauth timeout days.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
+
 				Attributes: map[string]schema.Attribute{
 					"duration": schema.Int64Attribute{
 						MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -232,6 +238,8 @@ func (r *IKEPhase1ProfileResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"reauth_timeout_hours": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for reauth timeout hours.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
+
 				Attributes: map[string]schema.Attribute{
 					"duration": schema.Int64Attribute{
 						MarkdownDescription: "Duration. Configuration parameter for duration",

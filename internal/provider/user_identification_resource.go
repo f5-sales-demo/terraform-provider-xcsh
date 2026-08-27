@@ -162,6 +162,7 @@ func (r *UserIdentificationResource) Schema(ctx context.Context, req resource.Sc
 			}),
 			"rules": schema.ListNestedBlock{
 				MarkdownDescription: "Ordered list of rules that are evaluated sequentially against the input fields extracted from an API request in order to determine a user identifier. Evaluation of the rules is terminated once a user identifier has been extracted.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"cookie_name": schema.StringAttribute{

@@ -101,6 +101,40 @@ resource "xcsh_http_loadbalancer" "test" {
 }
 ```
 
+### Https Auto Cert Virtual Site example
+
+```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+resource "xcsh_http_loadbalancer" "test" {
+  name      = "example"
+  namespace = "example-value"
+  domains   = ["test.example.com"]
+
+  https_auto_cert {}
+
+  advertise_custom {
+    advertise_where {
+      virtual_site {
+        network = "SITE_NETWORK_INSIDE_AND_OUTSIDE"
+        virtual_site {
+          name      = "example-description"
+          namespace = "example-value"
+        }
+      }
+      use_default_port {}
+    }
+  }
+}
+```
+
 ### Https Auto Cert example
 
 ```hcl
@@ -152,7 +186,9 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  enable_ip_reputation {}
+  enable_ip_reputation {
+    ip_threat_categories = ["SPAM_SOURCES"]
+  }
 
   advertise_on_public_default_vip {}
 }
@@ -243,6 +279,65 @@ resource "xcsh_http_loadbalancer" "test" {
   least_active {}
 
   advertise_on_public_default_vip {}
+}
+```
+
+### Live Https Auto Cert Virtual Site example
+
+```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "= 0.13.1"
+    }
+  }
+}
+
+resource "xcsh_namespace" "test" {
+  name = "example-value"
+}
+
+resource "time_sleep" "wait_for_namespace" {
+  depends_on      = [xcsh_namespace.test]
+  create_duration = "5s"
+}
+
+resource "xcsh_virtual_site" "test" {
+  depends_on = [time_sleep.wait_for_namespace]
+  name       = "example-description"
+  namespace  = xcsh_namespace.test.name
+  site_type  = "CUSTOMER_EDGE"
+
+  site_selector {
+    expressions = ["site_type=customer_edge"]
+  }
+}
+
+resource "xcsh_http_loadbalancer" "test" {
+  depends_on = [xcsh_virtual_site.test]
+  name       = "example"
+  namespace  = xcsh_namespace.test.name
+  domains    = ["test.example.com"]
+
+  https_auto_cert {}
+
+  advertise_custom {
+    advertise_where {
+      virtual_site {
+        network = "SITE_NETWORK_INSIDE_AND_OUTSIDE"
+        virtual_site {
+          name      = xcsh_virtual_site.test.name
+          namespace = xcsh_namespace.test.name
+        }
+      }
+      use_default_port {}
+    }
+  }
 }
 ```
 

@@ -345,6 +345,8 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"a_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: a_pool, aaaa_pool, cname_pool, mx_pool, srv_pool] Pool for A Record.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("max_answers", "members")},
+
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
@@ -360,6 +362,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"health_check": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -390,6 +393,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"members": schema.ListNestedBlock{
 						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_endpoint")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"disable_spec": schema.BoolAttribute{
@@ -432,6 +436,8 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"aaaa_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "Pool for AAAA Record.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("max_answers", "members")},
+
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
@@ -444,6 +450,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				Blocks: map[string]schema.Block{
 					"members": schema.ListNestedBlock{
 						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_endpoint")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"disable_spec": schema.BoolAttribute{
@@ -486,13 +493,16 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"cname_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "Pool for CNAME Record.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("members")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_health_check": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable health check.",
 					},
 					"health_check": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -523,6 +533,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"members": schema.ListNestedBlock{
 						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("domain")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"domain": schema.StringAttribute{
@@ -564,6 +575,8 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"mx_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "Pool for MX Record.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("max_answers", "members")},
+
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
@@ -576,6 +589,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				Blocks: map[string]schema.Block{
 					"members": schema.ListNestedBlock{
 						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("domain")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"domain": schema.StringAttribute{
@@ -613,6 +627,8 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"srv_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "Pool for SRV Record.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("max_answers", "members")},
+
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
@@ -625,6 +641,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				Blocks: map[string]schema.Block{
 					"members": schema.ListNestedBlock{
 						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("port", "priority", "target", "weight")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"final_translation": schema.BoolAttribute{

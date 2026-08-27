@@ -199,6 +199,8 @@ func (r *CertificateResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"certificate_chain": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -229,6 +231,8 @@ func (r *CertificateResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"custom_hash_algorithms": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_hash_algorithms, disable_ocsp_stapling, use_system_defaults; Default: use_system_defaults] Specifies the hash algorithms to be used.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
+
 				Attributes: map[string]schema.Attribute{
 					"hash_algorithms": schema.ListAttribute{
 						MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -245,10 +249,12 @@ func (r *CertificateResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"private_key": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blindfold_secret_info": schema.SingleNestedBlock{
 						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 						Attributes: map[string]schema.Attribute{
 							"decryption_provider": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -269,6 +275,7 @@ func (r *CertificateResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"clear_secret_info": schema.SingleNestedBlock{
 						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 						Attributes: map[string]schema.Attribute{
 							"provider_ref": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",

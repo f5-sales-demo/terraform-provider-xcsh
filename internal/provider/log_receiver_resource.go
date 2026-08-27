@@ -243,6 +243,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"syslog": schema.SingleNestedBlock{
 				MarkdownDescription: "Syslog Server Configuration. Configuration for syslog server.",
+
 				Attributes: map[string]schema.Attribute{
 					"syslog_rfc5424": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [] Select RFC5424 syslog format and maximum message length.",
@@ -255,6 +256,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 				Blocks: map[string]schema.Block{
 					"tcp_server": schema.SingleNestedBlock{
 						MarkdownDescription: "TCP Server name and Port Number. Name and port number for a TCP server.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("port", "server_name")},
 						Attributes: map[string]schema.Attribute{
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Port Number. Port number used for communication.",
@@ -274,6 +276,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"tls_server": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS config for client of discovery service.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("server_name")},
 						Attributes: map[string]schema.Attribute{
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [default_https_port default_syslog_tls_port] Custom port number used for communication.",
@@ -325,6 +328,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -345,6 +349,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -370,6 +375,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"udp_server": schema.SingleNestedBlock{
 						MarkdownDescription: "UDP Server Name and Port Number. Name and port number for a UDP server.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("port", "server_name")},
 						Attributes: map[string]schema.Attribute{
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Port Number. Port number used for communication.",

@@ -192,6 +192,7 @@ func (r *ForwardingClassResource) Schema(ctx context.Context, req resource.Schem
 			}),
 			"dscp": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dscp, no_marking, tos_value; Default: no_marking] DSCP Marking setting. DSCP marking setting as per RFC 2475.",
+
 				Attributes: map[string]schema.Attribute{
 					"drop_precedence": schema.StringAttribute{
 						MarkdownDescription: "[Enum: DSCP_AF_LOW|DSCP_AF_MEDIUM|DSCP_AF_HIGH|DSCP_AF_POLICER] DSCP Assured forwarding drop precedence DSCP Low drop precedence DSCP Low drop precedence DSCP Low drop precedence DSCP drop precedence value is taken from output of policer. Possible values are `DSCP_AF_LOW`, `DSCP_AF_MEDIUM`, `DSCP_AF_HIGH`, `DSCP_AF_POLICER`.",
@@ -220,6 +221,8 @@ func (r *ForwardingClassResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"policer": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

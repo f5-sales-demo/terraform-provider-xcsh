@@ -196,6 +196,8 @@ func (r *ProtocolPolicerResource) Schema(ctx context.Context, req resource.Schem
 			}),
 			"protocol_policer": schema.ListNestedBlock{
 				MarkdownDescription: "List of L4 protocol match condition and associated traffic rate limits.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("policer")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{

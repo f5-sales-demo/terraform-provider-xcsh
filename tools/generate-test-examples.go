@@ -23,7 +23,7 @@ var formatStringRegex = regexp.MustCompile("return\\s+(?:acctest\\.ConfigCompose
 var simpleReturnRegex = regexp.MustCompile("return\\s+fmt\\.Sprintf\\(`([^`]+)`")
 
 const (
-	expectedNamedExampleCount = 79
+	expectedNamedExampleCount = 81
 	xcshProviderSource        = "f5-sales-demo/xcsh"
 	xcshVersionConstraint     = ">= 0.1.0"
 	timeProviderVersion       = "0.13.1"
@@ -383,14 +383,13 @@ func toExampleFilename(name string) string {
 	name = strings.TrimSuffix(name, "System")
 	name = strings.TrimSuffix(name, "_system")
 
-	acronyms := map[string]string{
-		"WAF": "waf", "TLS": "tls", "TCP": "tcp", "UDP": "udp",
-		"HTTP": "http", "HTTPS": "https", "DNS": "dns", "API": "api",
-		"IP": "ip", "SSL": "ssl", "SNI": "sni", "ICMP": "icmp",
-	}
+	// Keep overlapping initialisms longest-first so HTTPS is not partially
+	// rewritten as HttpS by a nondeterministic map iteration.
+	acronyms := []string{"HTTPS", "HTTP", "ICMP", "WAF", "TLS", "TCP", "UDP", "DNS", "API", "SSL", "SNI", "IP"}
 
-	for acr, lower := range acronyms {
-		name = strings.ReplaceAll(name, acr, strings.ToUpper(lower[:1])+lower[1:])
+	for _, acronym := range acronyms {
+		lower := strings.ToLower(acronym)
+		name = strings.ReplaceAll(name, acronym, strings.ToUpper(lower[:1])+lower[1:])
 	}
 
 	result := ""

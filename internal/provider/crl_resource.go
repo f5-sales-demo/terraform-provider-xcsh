@@ -167,6 +167,7 @@ func (r *CRLResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			}),
 			"http_access": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for http access.",
+
 				Attributes: map[string]schema.Attribute{
 					"path": schema.StringAttribute{
 						MarkdownDescription: "CRL File path. CRL file location.",

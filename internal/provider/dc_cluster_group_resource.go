@@ -140,7 +140,8 @@ func (r *DcClusterGroupResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"type": schema.SingleNestedBlock{
 				MarkdownDescription: "DC Cluster Group Mesh Type. Details of DC Cluster Group Mesh Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"control_and_data_plane_mesh": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",

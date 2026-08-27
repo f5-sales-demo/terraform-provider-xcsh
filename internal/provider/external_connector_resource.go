@@ -413,6 +413,8 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 			}),
 			"ce_site_reference": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -443,10 +445,12 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"gre": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: gre, ipsec] GRE. External Connector with GRE tunnel.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"gre_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "GRE configuration parameters required for GRE Connection type.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tunnel_eps", "tunnel_mtu")},
 						Attributes: map[string]schema.Attribute{
 							"tunnel_mtu": schema.Int64Attribute{
 								MarkdownDescription: "Configure MTU for the GRE tunnel interface.",
@@ -472,6 +476,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"segment": schema.SingleNestedBlock{
 								MarkdownDescription: "Segment Reference Type. Reference to Segment Object.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("refs")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"refs": schema.ListNestedBlock{
@@ -519,6 +524,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"tunnel_eps": schema.ListNestedBlock{
 								MarkdownDescription: "Configure tunnel parameters, source, destination, IP addresses.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("interface", "local_tunnel_ip", "node", "remote_tunnel_ip")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"interface": schema.StringAttribute{
@@ -546,7 +552,8 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"ipsec": schema.SingleNestedBlock{
 				MarkdownDescription: "IPsec. External Connector with IPsec tunnel.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"ike_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "IKE configuration parameters required for IPsec Connection type.",
@@ -562,6 +569,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"dpd_keep_alive_timer": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for dpd keep alive timer.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("timeout")},
 								Attributes: map[string]schema.Attribute{
 									"timeout": schema.Int64Attribute{
 										MarkdownDescription: "Keepalive Timer. Operation timeout duration",
@@ -574,6 +582,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"ike_phase1_profile": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -604,6 +613,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"ike_phase2_profile": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -680,6 +690,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"ipsec_tunnel_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "In this section, we will configure the tunnel parameters, source, destination, IP addresses, and segment.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("psk", "tunnel_eps", "tunnel_mtu")},
 						Attributes: map[string]schema.Attribute{
 							"psk": schema.StringAttribute{
 								MarkdownDescription: "The IKE pre-shared key (PSK) is required to ensure the IKE peers can authenticate one another within IKE phase 1 negotiation.",
@@ -709,6 +720,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"segment": schema.SingleNestedBlock{
 								MarkdownDescription: "Segment Reference Type. Reference to Segment Object.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("refs")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"refs": schema.ListNestedBlock{
@@ -756,6 +768,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"tunnel_eps": schema.ListNestedBlock{
 								MarkdownDescription: "Configure tunnel parameters, local and remote IP addresses.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("interface", "local_tunnel_ip", "node", "remote_tunnel_ip")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"interface": schema.StringAttribute{

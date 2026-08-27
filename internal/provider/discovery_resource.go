@@ -599,7 +599,8 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"discovery_consul": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: discovery_consul, discovery_k8s] Discovery configuration for Hashicorp Consul.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"access_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Hashicorp Consul API server information.",
@@ -607,6 +608,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 						Blocks: map[string]schema.Block{
 							"connection_info": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration details to access discovery service REST API.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("api_server")},
 								Attributes: map[string]schema.Attribute{
 									"api_server": schema.StringAttribute{
 										MarkdownDescription: "API server must be a fully qualified domain string and port specified as host:port pair.",
@@ -649,6 +651,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
 														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 														Attributes: map[string]schema.Attribute{
 															"decryption_provider": schema.StringAttribute{
 																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -669,6 +672,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 													},
 													"clear_secret_info": schema.SingleNestedBlock{
 														MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 														Attributes: map[string]schema.Attribute{
 															"provider_ref": schema.StringAttribute{
 																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -707,6 +711,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -727,6 +732,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -763,7 +769,8 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"discovery_k8s": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for discovery k8s.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"access_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for access info.",
@@ -771,6 +778,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 						Blocks: map[string]schema.Block{
 							"connection_info": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration details to access discovery service REST API.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("api_server")},
 								Attributes: map[string]schema.Attribute{
 									"api_server": schema.StringAttribute{
 										MarkdownDescription: "API server must be a fully qualified domain string and port specified as host:port pair.",
@@ -813,6 +821,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
 														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 														Attributes: map[string]schema.Attribute{
 															"decryption_provider": schema.StringAttribute{
 																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -833,6 +842,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 													},
 													"clear_secret_info": schema.SingleNestedBlock{
 														MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 														Attributes: map[string]schema.Attribute{
 															"provider_ref": schema.StringAttribute{
 																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -862,6 +872,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -882,6 +893,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 									},
 									"clear_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 										Attributes: map[string]schema.Attribute{
 											"provider_ref": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -908,6 +920,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"namespace_mapping": schema.SingleNestedBlock{
 						MarkdownDescription: "Select the mapping between K8s namespaces from which services will be discovered and App Namespace to which the discovered services will be shared.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("items")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"items": schema.ListNestedBlock{
@@ -947,6 +960,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 							"dns_delegation": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for dns delegation.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("subdomain")},
 								Attributes: map[string]schema.Attribute{
 									"dns_mode": schema.StringAttribute{
 										MarkdownDescription: "[Enum: CORE_DNS|KUBE_DNS] Two modes are possible CoreDNS: Whether external K8s cluster is running core-DNS KubeDNS: External K8s cluster is running kube-DNS. Possible values are `CORE_DNS`, `KUBE_DNS`. Defaults to `CORE_DNS`.",
@@ -966,6 +980,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 							"publish": schema.SingleNestedBlock{
 								MarkdownDescription: "K8SPublishType.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("namespace")},
 								Attributes: map[string]schema.Attribute{
 									"namespace": schema.StringAttribute{
 										MarkdownDescription: "The namespace where the service/endpoints need to be created if it's not included in the domain. The external K8s administrator needs to ensure that the namespace exists.",
@@ -992,10 +1007,12 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
@@ -1051,6 +1068,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"virtual_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a network configuration object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"ref": schema.ListNestedBlock{
@@ -1092,6 +1110,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",

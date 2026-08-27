@@ -389,13 +389,17 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	if schema.XVesValidationRules[etldRule] == "true" || schema.XValidationRules[etldRule] == "true" {
 		attr.ETLDPlusOne = true
 	}
-	// x-ves-required and x-f5xc-required-for.create are additional Required signals, but only
-	// apply at depth 0 (top-level resource spec attributes). For nested
-	// attributes inside optional blocks, Required: true causes Terraform
-	// Plugin Framework to fail validation even when the block is absent.
+	// x-ves-required remains a top-level compatibility signal. The enriched
+	// create-required contract is safe and necessary at every nesting depth:
+	// Terraform validates a required nested attribute only when its optional
+	// parent block is configured.
 	if depth == 0 && (schema.XVesRequired == "true" || schema.XF5XCRequiredFor.Create) {
 		attr.Required = true
 		attr.Optional = false
+	} else if depth > 0 && schema.XF5XCRequiredFor.Create {
+		attr.Required = false
+		attr.Optional = true
+		attr.CreateRequired = true
 	}
 	// OpenAPI readOnly fields are returned by the server but are never accepted as
 	// practitioner configuration. Keep them in state as Computed-only attributes.
@@ -571,6 +575,20 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		}
 	}
 
+	if attr.Type == "int64" {
+		spans, err := constraints.ParseInt64RangeSpans(attr.ValidationRules)
+		if err != nil {
+			attr.ConversionError = fmt.Sprintf("invalid numeric range set for %s: %v", fieldPath, err)
+		} else {
+			for _, span := range spans {
+				attr.Int64RangeSpans = append(attr.Int64RangeSpans, openapi.Int64RangeSpan{
+					Minimum: span.Minimum,
+					Maximum: span.Maximum,
+				})
+			}
+		}
+	}
+
 	// For optional scalar attributes (string, bool, int64), mark as computed with
 	// UseStateForUnknown to prevent drift from API defaults. The API may return
 	// default values for optional fields that weren't set in the config, causing
@@ -603,13 +621,9 @@ func ExtractNestedAttributes(schema openapi.Schema, spec *openapi.Spec, depth in
 	}
 
 	// Build the required set from the parent schema's "required" array.
-	// Note: x-required / x-ves-required enrichment overrides are intentionally
-	// restricted to depth 0 (see ConvertToTerraformAttributeWithDepth) so they
-	// do not cascade here and cause "Missing required argument" errors when the
-	// parent block is omitted from configuration. The OpenAPI spec's own
-	// "required" array at nested levels is preserved here because it reflects
-	// genuine schema constraints (e.g., a sub-object that truly requires certain
-	// fields when the block is present).
+	// x-ves-required remains restricted to depth 0; enriched
+	// x-f5xc-required-for.create and OpenAPI required arrays propagate so a field
+	// is required whenever its optional parent block is configured.
 	requiredSet := make(map[string]bool)
 	for _, r := range schema.Required {
 		requiredSet[r] = true
@@ -622,8 +636,8 @@ func ExtractNestedAttributes(schema openapi.Schema, spec *openapi.Spec, depth in
 			nestedPath = parentPath + "." + propName
 		}
 		// Pass the required status from the parent schema's "required" array.
-		// x-required/x-ves-required overrides are guarded at depth==0 so they
-		// will not fire here.
+		// x-ves-required remains depth-0-only; enriched create-required metadata
+		// is evaluated by the converter at every depth.
 		attr := ConvertToTerraformAttributeWithDepth(propName, propSchema, requiredSet[propName], "", spec, depth, nestedPath)
 
 		// Mark 'namespace', 'tenant', 'uid', and 'kind' fields as Computed in nested Object Reference blocks.

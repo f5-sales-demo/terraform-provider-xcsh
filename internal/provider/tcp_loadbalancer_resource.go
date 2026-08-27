@@ -919,10 +919,13 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			}),
 			"active_service_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_service_policies, no_service_policies, service_policies_from_namespace; Default: no_service_policies] Configuration parameter for active service policies.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("policies")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"policies": schema.ListNestedBlock{
 						MarkdownDescription: "Service Policies is a sequential engine where policies (and rules within the policy) are evaluated one after the other. It's important to define the correct order (policies evaluated from top to bottom in the list) for service policies, to GET the intended result. For each request, its..",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -957,7 +960,9 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"advertise_custom": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: advertise_custom, advertise_on_public, advertise_on_public_default_vip, do_not_advertise; Default: advertise_on_public_default_vip] Defines a way to advertise a VIP on specific sites.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("advertise_where")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
 						MarkdownDescription: "Where should this load balancer be available.",
@@ -985,6 +990,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									Blocks: map[string]schema.Block{
 										"public_ip": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1037,6 +1043,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1099,6 +1106,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"virtual_network": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1143,6 +1151,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									Blocks: map[string]schema.Block{
 										"virtual_site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1195,6 +1204,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									Blocks: map[string]schema.Block{
 										"virtual_site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1231,6 +1241,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1261,6 +1272,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"virtual_site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1298,10 +1310,12 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"advertise_on_public": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"public_ip": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1358,6 +1372,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"origin_pools_weights": schema.ListNestedBlock{
 				MarkdownDescription: "Origin pools and weights used for this load balancer.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"priority": schema.Int64Attribute{
@@ -1375,6 +1390,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					Blocks: map[string]schema.Block{
 						"cluster": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1408,6 +1424,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						},
 						"pool": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1444,14 +1461,17 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"tls_tcp": schema.SingleNestedBlock{
 				MarkdownDescription: "Choice for selecting TLS over TCP proxy with bring your own certificates.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"tls_cert_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for tls cert params.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Select one or more certificates with any domain names.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1491,6 +1511,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 										Attributes: map[string]schema.Attribute{
 											"cipher_suites": schema.ListAttribute{
 												MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -1542,6 +1563,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Blocks: map[string]schema.Block{
 									"crl": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1575,6 +1597,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 									"trusted_ca": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1608,6 +1631,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 									"xfcc_options": schema.SingleNestedBlock{
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
 												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -1622,6 +1646,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"tls_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for tls parameters.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"no_mtls": schema.SingleNestedBlock{
@@ -1629,6 +1654,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -1646,6 +1672,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
 											MarkdownDescription: "Specifies the hash algorithms to be used.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 											Attributes: map[string]schema.Attribute{
 												"hash_algorithms": schema.ListAttribute{
 													MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -1666,6 +1693,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1686,6 +1714,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1714,6 +1743,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 										Attributes: map[string]schema.Attribute{
 											"cipher_suites": schema.ListAttribute{
 												MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -1765,6 +1795,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Blocks: map[string]schema.Block{
 									"crl": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1798,6 +1829,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 									"trusted_ca": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 										Attributes: map[string]schema.Attribute{
 											"name": schema.StringAttribute{
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1831,6 +1863,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 									"xfcc_options": schema.SingleNestedBlock{
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
 												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -1847,7 +1880,8 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"tls_tcp_auto_cert": schema.SingleNestedBlock{
 				MarkdownDescription: "Choice for selecting TLS over TCP proxy with automatic certificates.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"no_mtls": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -1858,6 +1892,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						Blocks: map[string]schema.Block{
 							"custom_security": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 								Attributes: map[string]schema.Attribute{
 									"cipher_suites": schema.ListAttribute{
 										MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -1909,6 +1944,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						Blocks: map[string]schema.Block{
 							"crl": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1942,6 +1978,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"trusted_ca": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1975,6 +2012,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"xfcc_options": schema.SingleNestedBlock{
 								MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 								Attributes: map[string]schema.Attribute{
 									"xfcc_header_elements": schema.ListAttribute{
 										MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",

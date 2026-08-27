@@ -153,7 +153,7 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 					stringvalidator.OneOf({{enumValuesLiteral .EnumValues}}),
 {{- end}}
 				},
-{{- else if and (eq .Type "string") (or (gt .MinLength 0) (gt .MaxLength 0) (ne .Pattern "") (gt (len .EnumValues) 0) .ETLDPlusOne)}}
+{{- else if and (eq .Type "string") (or (gt .MinLength 0) (gt .MaxLength 0) (ne .Pattern "") (gt (len .EnumValues) 0) .ETLDPlusOne (eq .Format "ipv4") (eq .Format "ipv6") (eq .Format "ip") (eq .Format "cidr") (eq .Format "mac-address"))}}
 				Validators: []validator.String{
 {{- if and (gt .MinLength 0) (gt .MaxLength 0)}}
 					stringvalidator.LengthBetween({{.MinLength}}, {{.MaxLength}}),
@@ -171,6 +171,17 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- if .ETLDPlusOne}}
 					validators.ETLDPlusOneValidator(),
 {{- end}}
+{{- if eq .Format "ipv4"}}
+					validators.IPv4Validator(),
+{{- else if eq .Format "ipv6"}}
+					validators.IPv6Validator(),
+{{- else if eq .Format "ip"}}
+					validators.IPValidator(),
+{{- else if eq .Format "cidr"}}
+					validators.CIDRValidator(),
+{{- else if eq .Format "mac-address"}}
+					validators.MACValidator(),
+{{- end}}
 				},
 {{- else if and (or (eq .Type "list") (eq .Type "set")) (or (gt .MinItems 0) (gt .MaxItems 0))}}
 				Validators: []validator.List{
@@ -181,6 +192,14 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- else}}
 					listvalidator.SizeAtLeast({{.MinItems}}),
 {{- end}}
+				},
+{{- else if and (eq .Type "int64") (gt (len .Int64RangeSpans) 0)}}
+				Validators: []validator.Int64{
+					validators.Int64RangeSetValidator(
+{{- range .Int64RangeSpans}}
+						validators.Int64Range{Minimum: {{.Minimum}}, Maximum: {{.Maximum}}},
+{{- end}}
+					),
 				},
 {{- else if and (eq .Type "int64") (or .HasMinimum .HasMaximum)}}
 				Validators: []validator.Int64{
@@ -208,6 +227,7 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- if .IsBlock}}
 			"{{.TfsdkTag}}": schema.{{if eq .NestedBlockType "single"}}SingleNestedBlock{{else if eq .NestedBlockType "list"}}ListNestedBlock{{else}}SingleNestedBlock{{end}}{
 				MarkdownDescription: "{{.Description}}",
+{{renderConditionalRequired . "\t\t\t\t"}}
 {{- if eq .NestedBlockType "list"}}
 				NestedObject: schema.NestedBlockObject{
 {{- if .NestedAttributes}}

@@ -217,6 +217,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"rules": schema.ListNestedBlock{
 				MarkdownDescription: "BGP Routing policy is composed of one or more rules. Note that the order of rules is critical as rules are applied top to bottom.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
@@ -242,6 +243,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 								},
 								"community": schema.SingleNestedBlock{
 									MarkdownDescription: "BGP Community list. List of BGP communities.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("community")},
 									Attributes: map[string]schema.Attribute{
 										"community": schema.ListAttribute{
 											MarkdownDescription: "Unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value.",
@@ -269,6 +271,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 							Blocks: map[string]schema.Block{
 								"community": schema.SingleNestedBlock{
 									MarkdownDescription: "BGP Community list. List of BGP communities.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("community")},
 									Attributes: map[string]schema.Attribute{
 										"community": schema.ListAttribute{
 											MarkdownDescription: "Unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value.",
@@ -282,6 +285,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 								},
 								"ip_prefixes": schema.SingleNestedBlock{
 									MarkdownDescription: "List of IP prefix and prefix length range match condition.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("prefixes")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"prefixes": schema.ListNestedBlock{

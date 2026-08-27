@@ -541,6 +541,8 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 			}),
 			"infra": schema.SingleNestedBlock{
 				MarkdownDescription: "InfraMetadata stores information about instance infrastructure.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("hostname", "interfaces")},
+
 				Attributes: map[string]schema.Attribute{
 					"availability_zone": schema.StringAttribute{
 						MarkdownDescription: "Availability Zone is a high-availability offering that protects your applications and data from datacenter failures.",
@@ -597,6 +599,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 				Blocks: map[string]schema.Block{
 					"bond_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Bond device configuration for VPM registration.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("interfaces", "name")},
 						Attributes: map[string]schema.Attribute{
 							"interfaces": schema.ListAttribute{
 								MarkdownDescription: "Member Interfaces. Configuration parameter for interfaces",
@@ -1082,6 +1085,8 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 			},
 			"passport": schema.SingleNestedBlock{
 				MarkdownDescription: "Passport stores information about identification and node configuration provided by CE during registration. It can be manually updated by user during approval.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_name", "cluster_type", "latitude", "longitude")},
+
 				Attributes: map[string]schema.Attribute{
 					"cluster_name": schema.StringAttribute{
 						MarkdownDescription: "Cluster Name. Human-readable name for the resource",

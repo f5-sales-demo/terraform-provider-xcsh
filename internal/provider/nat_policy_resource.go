@@ -473,6 +473,8 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"rules": schema.ListNestedBlock{
 				MarkdownDescription: "List of rules to apply under the NAT Policy. Rule that matches first would be applied.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
@@ -504,6 +506,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 									Blocks: map[string]schema.Block{
 										"elastic_ips": schema.SingleNestedBlock{
 											MarkdownDescription: "List of references to Cloud Elastic IP Object.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("refs")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"refs": schema.ListNestedBlock{
@@ -562,6 +565,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 						},
 						"cloud_connect": schema.SingleNestedBlock{
 							MarkdownDescription: "Configuration parameter for cloud connect.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("refs")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"refs": schema.ListNestedBlock{
@@ -800,6 +804,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 						},
 						"segment": schema.SingleNestedBlock{
 							MarkdownDescription: "Segment Reference Type. Reference to Segment Object.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("refs")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"refs": schema.ListNestedBlock{
@@ -885,7 +890,9 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"site": schema.SingleNestedBlock{
 				MarkdownDescription: "Site Reference Type. Reference to Site Object.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("refs")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"refs": schema.ListNestedBlock{
 						MarkdownDescription: "Site. Reference to Site Object.",

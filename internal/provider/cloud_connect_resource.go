@@ -365,7 +365,8 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 			}),
 			"aws_provider": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: aws_provider, azure_vnet_site] Configuration parameter for aws provider.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"aws_tgw_site": schema.SingleNestedBlock{
 						MarkdownDescription: "AWS TGW Site Type. Cloud Connect AWS TGW Site Type.",
@@ -373,6 +374,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 						Blocks: map[string]schema.Block{
 							"cred": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -403,6 +405,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 							},
 							"site": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -437,6 +440,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 								Blocks: map[string]schema.Block{
 									"vpc_list": schema.ListNestedBlock{
 										MarkdownDescription: "VPC List. Collection of items or values",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("vpc_id")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"vpc_id": schema.StringAttribute{
@@ -450,10 +454,12 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 											Blocks: map[string]schema.Block{
 												"custom_routing": schema.SingleNestedBlock{
 													MarkdownDescription: "AWS Route Table List. AWS Route Table List.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("route_tables")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"route_tables": schema.ListNestedBlock{
 															MarkdownDescription: "List of route tables. Route Tables.",
+															Validators:          []validator.List{validators.RequiredListObjectAttributes("static_routes")},
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"route_table_id": schema.StringAttribute{
@@ -512,10 +518,12 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 			},
 			"azure_vnet_site": schema.SingleNestedBlock{
 				MarkdownDescription: "Azure VNet Site Type. Cloud Connect Azure VNet Site Type.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -550,6 +558,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 						Blocks: map[string]schema.Block{
 							"vnet_list": schema.ListNestedBlock{
 								MarkdownDescription: "VNet List. Collection of items or values",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("subscription_id", "vnet_id")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"subscription_id": schema.StringAttribute{
@@ -570,10 +579,12 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 									Blocks: map[string]schema.Block{
 										"custom_routing": schema.SingleNestedBlock{
 											MarkdownDescription: "List Azure Route Table with Static Route.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("route_tables")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"route_tables": schema.ListNestedBlock{
 													MarkdownDescription: "List of route tables with static routes. Route Tables with static routes.",
+													Validators:          []validator.List{validators.RequiredListObjectAttributes("static_routes")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
 															"route_table_id": schema.StringAttribute{
@@ -630,6 +641,8 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 			},
 			"segment": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

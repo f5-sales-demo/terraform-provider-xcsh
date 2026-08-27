@@ -588,6 +588,8 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"dedicated_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dedicated_interface, dedicated_management_interface, ethernet_interface, layer2_interface, tunnel_interface] Configuration parameter for dedicated interface.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+
 				Attributes: map[string]schema.Attribute{
 					"device": schema.StringAttribute{
 						MarkdownDescription: "Name of the device for which interface is configured. Use wwan0 for 4G/LTE.",
@@ -600,7 +602,10 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.AtMost(16384),
+							validators.Int64RangeSetValidator(
+								validators.Int64Range{Minimum: 0, Maximum: 0},
+								validators.Int64Range{Minimum: 512, Maximum: 16384},
+							),
 						},
 					},
 					"node": schema.StringAttribute{
@@ -638,6 +643,8 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"dedicated_management_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for dedicated management interface.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+
 				Attributes: map[string]schema.Attribute{
 					"device": schema.StringAttribute{
 						MarkdownDescription: "Name of the device for which interface is configured.",
@@ -650,7 +657,10 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.AtMost(16384),
+							validators.Int64RangeSetValidator(
+								validators.Int64Range{Minimum: 0, Maximum: 0},
+								validators.Int64Range{Minimum: 512, Maximum: 16384},
+							),
 						},
 					},
 					"node": schema.StringAttribute{
@@ -669,6 +679,8 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"ethernet_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ethernet interface.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+
 				Attributes: map[string]schema.Attribute{
 					"device": schema.StringAttribute{
 						MarkdownDescription: "Interface configuration for the ethernet device.",
@@ -681,7 +693,10 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.AtMost(16384),
+							validators.Int64RangeSetValidator(
+								validators.Int64Range{Minimum: 0, Maximum: 0},
+								validators.Int64Range{Minimum: 512, Maximum: 16384},
+							),
 						},
 					},
 					"node": schema.StringAttribute{
@@ -715,6 +730,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"dhcp_server": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for dhcp server.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 						Attributes: map[string]schema.Attribute{
 							"fixed_ip_map": schema.MapAttribute{
 								MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
@@ -834,6 +850,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 										Blocks: map[string]schema.Block{
 											"configured_list": schema.SingleNestedBlock{
 												MarkdownDescription: "IPV6DnsList.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 												Attributes: map[string]schema.Attribute{
 													"dns_list": schema.ListAttribute{
 														MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -870,6 +887,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 									},
 									"stateful": schema.SingleNestedBlock{
 										MarkdownDescription: "DHCPIPV6 Stateful Server.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 										Attributes: map[string]schema.Attribute{
 											"fixed_ip_map": schema.MapAttribute{
 												MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -980,6 +998,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"node_static_ip": schema.SingleNestedBlock{
 								MarkdownDescription: "Configure Static IP parameters for a node.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 								Attributes: map[string]schema.Attribute{
 									"default_gw": schema.StringAttribute{
 										MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -1017,6 +1036,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"node_static_ip": schema.SingleNestedBlock{
 								MarkdownDescription: "Configure Static IP parameters for a node.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 								Attributes: map[string]schema.Attribute{
 									"default_gw": schema.StringAttribute{
 										MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -1048,10 +1068,12 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"layer2_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for layer2 interface.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"l2sriov_interface": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for l2sriov interface.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 						Attributes: map[string]schema.Attribute{
 							"device": schema.StringAttribute{
 								MarkdownDescription: "Ethernet Device. Physical ethernet interface.",
@@ -1076,6 +1098,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"l2vlan_interface": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for l2vlan interface.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("device", "vlan_id")},
 						Attributes: map[string]schema.Attribute{
 							"device": schema.StringAttribute{
 								MarkdownDescription: "Ethernet Device. Physical ethernet interface.",
@@ -1095,6 +1118,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"l2vlan_slo_interface": schema.SingleNestedBlock{
 						MarkdownDescription: "Layer2 Site Local Outside VLAN Interface Configuration.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("vlan_id")},
 						Attributes: map[string]schema.Attribute{
 							"vlan_id": schema.Int64Attribute{
 								MarkdownDescription: "VLAN ID. VLAN ID",
@@ -1109,12 +1133,16 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"tunnel_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for tunnel interface.",
+
 				Attributes: map[string]schema.Attribute{
 					"mtu": schema.Int64Attribute{
 						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.AtMost(16384),
+							validators.Int64RangeSetValidator(
+								validators.Int64Range{Minimum: 0, Maximum: 0},
+								validators.Int64Range{Minimum: 512, Maximum: 16384},
+							),
 						},
 					},
 					"node": schema.StringAttribute{
@@ -1155,6 +1183,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"node_static_ip": schema.SingleNestedBlock{
 								MarkdownDescription: "Configure Static IP parameters for a node.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 								Attributes: map[string]schema.Attribute{
 									"default_gw": schema.StringAttribute{
 										MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -1178,6 +1207,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"tunnel": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

@@ -326,6 +326,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(1024),
+					validators.IPValidator(),
 				},
 			},
 			"port": schema.Int64Attribute{
@@ -360,6 +361,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 			}),
 			"dns_name_advanced": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies name and TTL used for DNS resolution.",
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
@@ -379,6 +381,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"service_info": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies whether endpoint service is discovered by name or labels.",
+
 				Attributes: map[string]schema.Attribute{
 					"discovery_type": schema.StringAttribute{
 						MarkdownDescription: "[Enum: INVALID_DISCOVERY|K8S|CONSUL|CLASSIC_BIGIP|THIRD_PARTY|NGINX_ONE] Specifies the type of discovery Invalid Discovery mechanism Discover from Kubernetes cluster Discover from Consul service Discover from Classic BIG-IP Clusters Discover for Third Party Application Discover from NGINX One. Possible values are `INVALID_DISCOVERY`, `K8S`, `CONSUL`, `CLASSIC_BIGIP`, `THIRD_PARTY`, `NGINX_ONE`. Defaults to `INVALID_DISCOVERY`.",
@@ -398,6 +401,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				Blocks: map[string]schema.Block{
 					"service_selector": schema.SingleNestedBlock{
 						MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
 						Attributes: map[string]schema.Attribute{
 							"expressions": schema.ListAttribute{
 								MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -413,7 +417,8 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"snat_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"no_snat_pool": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for no snat pool.",
@@ -435,10 +440,12 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
@@ -494,6 +501,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"virtual_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a network configuration object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"ref": schema.ListNestedBlock{
@@ -535,6 +543,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",

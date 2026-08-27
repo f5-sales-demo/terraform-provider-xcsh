@@ -352,7 +352,9 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"cluster_wide_app_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: cluster_wide_app_list, no_cluster_wide_apps; Default: no_cluster_wide_apps] Cluster Wide Application List. List of cluster wide applications.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_wide_apps")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"cluster_wide_apps": schema.ListNestedBlock{
 						MarkdownDescription: "Cluster Wide Application List. List of cluster wide applications.",
@@ -365,6 +367,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"local_domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters required to enable local access.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("local_domain")},
 											Attributes: map[string]schema.Attribute{
 												"local_domain": schema.StringAttribute{
 													MarkdownDescription: "ArgoCD will be accessible at <site name>.<local domain>.",
@@ -391,6 +394,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -411,6 +415,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -450,6 +455,8 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"insecure_registry_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: insecure_registry_list, no_insecure_registries; Default: no_insecure_registries] Docker Insecure Registry List. List of docker insecure registries.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("insecure_registries")},
+
 				Attributes: map[string]schema.Attribute{
 					"insecure_registries": schema.ListAttribute{
 						MarkdownDescription: "List of docker insecure registries in format 'example.com:5000'.",
@@ -463,6 +470,8 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"local_access_config": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: local_access_config, no_local_access; Default: no_local_access] Parameters required to enable local access.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("local_domain")},
+
 				Attributes: map[string]schema.Attribute{
 					"local_domain": schema.StringAttribute{
 						MarkdownDescription: "Local K8s API server will be accessible at <site name>.<local domain>.",
@@ -487,10 +496,13 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"use_custom_cluster_role_bindings": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: use_custom_cluster_role_bindings, use_default_cluster_role_bindings; Default: use_default_cluster_role_bindings] List of active cluster role binding list for a K8s cluster.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_role_bindings")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"cluster_role_bindings": schema.ListNestedBlock{
 						MarkdownDescription: "List of active cluster role binding list for a K8s cluster.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -525,10 +537,13 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"use_custom_cluster_role_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: use_custom_cluster_role_list, use_default_cluster_roles; Default: use_default_cluster_roles] List of active cluster role list for a K8s cluster.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_roles")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"cluster_roles": schema.ListNestedBlock{
 						MarkdownDescription: "List of active cluster role list for a K8s cluster.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -563,6 +578,8 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"use_custom_pod_security_admission": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: use_custom_pod_security_admission, use_default_pod_security_admission; Default: use_default_pod_security_admission] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -593,10 +610,13 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"use_custom_psp_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: use_custom_psp_list, use_default_psp; Default: use_default_psp] List of active Pod security policies for a K8s cluster.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("pod_security_policies")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"pod_security_policies": schema.ListNestedBlock{
 						MarkdownDescription: "List of active Pod security policies for a K8s cluster.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{

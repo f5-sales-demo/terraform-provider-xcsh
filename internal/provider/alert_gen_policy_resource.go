@@ -152,6 +152,8 @@ func (r *AlertGenPolicyResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"details": schema.SingleNestedBlock{
 				MarkdownDescription: "Notification Details. Notification Details.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("alert_message", "alert_message_details", "alert_name")},
+
 				Attributes: map[string]schema.Attribute{
 					"alert_message": schema.StringAttribute{
 						MarkdownDescription: "Alert Message. Alert Message.",

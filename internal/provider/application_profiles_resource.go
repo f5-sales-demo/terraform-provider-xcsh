@@ -1448,7 +1448,8 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			}),
 			"advanced_tcp_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for advanced tcp profile.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_tcp_advanced_profile": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable tcp advanced profile.",
@@ -1460,7 +1461,8 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_ddos_mitigation": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
@@ -1472,6 +1474,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			},
 			"irules": schema.ListNestedBlock{
 				MarkdownDescription: "OPTIONS for attaching iRules to BIG-IP Proxy.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -1507,6 +1510,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			},
 			"virtual_server": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies configuration related to virtual server.",
+
 				Attributes: map[string]schema.Attribute{
 					"connection_limit": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the maximum number of concurrent connections allowed for the virtual server. Setting this to 0 turns off connection limits. The.",

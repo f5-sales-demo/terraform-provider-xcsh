@@ -275,6 +275,7 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 			}),
 			"rules": schema.ListNestedBlock{
 				MarkdownDescription: "Configure key/value or regex match rules to enable the platform to detect this custom data type in the API request or response.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
@@ -299,6 +300,7 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"exact_values": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for exact values.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("exact_values")},
 									Attributes: map[string]schema.Attribute{
 										"exact_values": schema.ListAttribute{
 											MarkdownDescription: "Exact Values. List of exact values to match.",
@@ -334,6 +336,7 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"exact_values": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for exact values.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("exact_values")},
 											Attributes: map[string]schema.Attribute{
 												"exact_values": schema.ListAttribute{
 													MarkdownDescription: "Exact Values. List of exact values to match.",
@@ -365,6 +368,7 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 									Blocks: map[string]schema.Block{
 										"exact_values": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for exact values.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("exact_values")},
 											Attributes: map[string]schema.Attribute{
 												"exact_values": schema.ListAttribute{
 													MarkdownDescription: "Exact Values. List of exact values to match.",
@@ -398,6 +402,7 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"exact_values": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for exact values.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("exact_values")},
 									Attributes: map[string]schema.Attribute{
 										"exact_values": schema.ListAttribute{
 											MarkdownDescription: "Exact Values. List of exact values to match.",

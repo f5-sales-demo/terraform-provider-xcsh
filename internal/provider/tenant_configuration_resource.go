@@ -248,6 +248,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 			}),
 			"brute_force_detection": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for brute force detection.",
+
 				Attributes: map[string]schema.Attribute{
 					"max_login_failures": schema.Int64Attribute{
 						MarkdownDescription: "How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes.",
@@ -260,6 +261,8 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 			},
 			"password_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Policy configuration for this feature.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("minimum_length")},
+
 				Attributes: map[string]schema.Attribute{
 					"digits": schema.Int64Attribute{
 						MarkdownDescription: "The number of digits required to be in the password string.",
@@ -315,6 +318,8 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 			},
 			"tenant_details": schema.SingleNestedBlock{
 				MarkdownDescription: "BasicConfiguration.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("display_name")},
+
 				Attributes: map[string]schema.Attribute{
 					"display_name": schema.StringAttribute{
 						MarkdownDescription: "Changes the tenant name displayed during login without affecting your company’s domain name.",
@@ -327,7 +332,8 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 			},
 			"user_session_expiration": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines all session-related expiration for user sessions within a tenant's environment. Relationship between session_expiry and cookie_expiry: - session_expiry defines the 'absolute maximum duration' of a session and enforces RE-authentication after this time. - cookie_expiry defines the..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"absolute_timeout": schema.SingleNestedBlock{
 						MarkdownDescription: "Represents the session expiration duration.",
@@ -335,6 +341,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"hours": schema.SingleNestedBlock{
 								MarkdownDescription: "Represents the session duration in hours.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
 								Attributes: map[string]schema.Attribute{
 									"duration": schema.Int64Attribute{
 										MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -347,6 +354,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 							},
 							"minutes": schema.SingleNestedBlock{
 								MarkdownDescription: "Represents the session duration in minutes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
 								Attributes: map[string]schema.Attribute{
 									"duration": schema.Int64Attribute{
 										MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -365,6 +373,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"hours": schema.SingleNestedBlock{
 								MarkdownDescription: "Represents the cookie duration in hours.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
 								Attributes: map[string]schema.Attribute{
 									"duration": schema.Int64Attribute{
 										MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -377,6 +386,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 							},
 							"minutes": schema.SingleNestedBlock{
 								MarkdownDescription: "Represents the cookie duration in minutes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
 								Attributes: map[string]schema.Attribute{
 									"duration": schema.Int64Attribute{
 										MarkdownDescription: "Duration. Configuration parameter for duration",

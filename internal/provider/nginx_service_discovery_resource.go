@@ -207,10 +207,12 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 			}),
 			"discovery_target": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for discovery target.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"config_sync_group": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for config sync group.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("config_sync_group")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"config_sync_group": schema.ListNestedBlock{
@@ -252,6 +254,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 					},
 					"nginx_instance": schema.SingleNestedBlock{
 						MarkdownDescription: "NGINXInstance Reference. Select new NGINX Instance.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("nginx_instance")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"nginx_instance": schema.ListNestedBlock{
@@ -295,6 +298,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 			},
 			"server_block_filters": schema.ListNestedBlock{
 				MarkdownDescription: "Filters discovered server blocks based on server name, domain and ports. Atleast, one field should be populated for each filter. X-textBlockContent: If no filters are specified, all server blocks will be discovered by default.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name_regex": schema.StringAttribute{

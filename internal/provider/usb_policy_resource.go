@@ -143,6 +143,7 @@ func (r *UsbPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"allowed_devices": schema.ListNestedBlock{
 				MarkdownDescription: "Allowed USB devices. List of allowed USB devices.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"b_device_class": schema.StringAttribute{

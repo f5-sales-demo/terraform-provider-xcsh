@@ -253,6 +253,7 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"port": schema.ListNestedBlock{
 				MarkdownDescription: "Source Ports. L4 port numbers to match.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"user_defined": schema.Int64Attribute{
@@ -275,6 +276,7 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"action": schema.SingleNestedBlock{
 				MarkdownDescription: "FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic.",
+
 				Attributes: map[string]schema.Attribute{
 					"simple_action": schema.StringAttribute{
 						MarkdownDescription: "[Enum: DENY|ALLOW] FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic. Possible values are `DENY`, `ALLOW`. Defaults to `DENY`.",
@@ -371,7 +373,8 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"ip_prefix_set": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ip_prefix_set, prefix] List of references to ip_prefix_set objects.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"ref": schema.ListNestedBlock{
 						MarkdownDescription: "List of references to ip_prefix_set objects.",
@@ -412,6 +415,7 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"prefix": schema.SingleNestedBlock{
 				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+
 				Attributes: map[string]schema.Attribute{
 					"prefix": schema.ListAttribute{
 						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",

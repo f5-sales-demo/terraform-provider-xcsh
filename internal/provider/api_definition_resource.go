@@ -182,6 +182,8 @@ func (r *APIDefinitionResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"api_inventory_exclusion_list": schema.ListNestedBlock{
 				MarkdownDescription: "List of API Endpoints excluded from the API Inventory. Defaults to `[]`. Server applies default when omitted.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("path")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"method": schema.StringAttribute{
@@ -203,6 +205,8 @@ func (r *APIDefinitionResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"api_inventory_inclusion_list": schema.ListNestedBlock{
 				MarkdownDescription: "List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added to the API Inventory using this list. Defaults to `[]`. Server applies default when omitted.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("path")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"method": schema.StringAttribute{
@@ -224,6 +228,8 @@ func (r *APIDefinitionResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"non_api_endpoints": schema.ListNestedBlock{
 				MarkdownDescription: "API Discovery Exclusion List. List of Non-API Endpoints. Defaults to `[]`. Server applies default when omitted.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("path")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"method": schema.StringAttribute{

@@ -948,6 +948,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			}),
 			"routes": schema.ListNestedBlock{
 				MarkdownDescription: "List of routes to match for incoming request.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"disable_location_add": schema.BoolAttribute{
@@ -990,6 +991,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					Blocks: map[string]schema.Block{
 						"bot_defense_javascript_injection": schema.SingleNestedBlock{
 							MarkdownDescription: "Bot Defense Javascript Injection Configuration for inline bot defense deployments.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("javascript_tags")},
 							Attributes: map[string]schema.Attribute{
 								"javascript_location": schema.StringAttribute{
 									MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
@@ -1002,6 +1004,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							Blocks: map[string]schema.Block{
 								"javascript_tags": schema.ListNestedBlock{
 									MarkdownDescription: "Select Add item to configure your javascript tag. If adding both Bot Adv and Fraud, the Bot Javascript should be added first.",
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("javascript_url")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"javascript_url": schema.StringAttribute{
@@ -1060,6 +1063,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"headers": schema.ListNestedBlock{
 										MarkdownDescription: "Headers. List of (key, value) headers.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -1146,6 +1150,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"query_params": schema.ListNestedBlock{
 										MarkdownDescription: "Query Parameters. List of (key, value) query parameters.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("key")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -1174,6 +1179,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"request_cookies_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream.",
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
@@ -1202,6 +1208,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1222,6 +1229,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1243,6 +1251,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"request_headers_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"append": schema.BoolAttribute{
@@ -1271,6 +1280,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1291,6 +1301,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1312,6 +1323,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"response_cookies_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream.",
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"add_domain": schema.StringAttribute{
@@ -1413,6 +1425,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1433,6 +1446,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1454,6 +1468,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"response_headers_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"append": schema.BoolAttribute{
@@ -1482,6 +1497,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 												Attributes: map[string]schema.Attribute{
 													"decryption_provider": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1502,6 +1518,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 											"clear_secret_info": schema.SingleNestedBlock{
 												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 												Attributes: map[string]schema.Attribute{
 													"provider_ref": schema.StringAttribute{
 														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1523,6 +1540,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"route_destination": schema.SingleNestedBlock{
 							MarkdownDescription: "List of destination to choose if the route is match.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("destinations")},
 							Attributes: map[string]schema.Attribute{
 								"auto_host_rewrite": schema.BoolAttribute{
 									MarkdownDescription: "Exclusive with [host_rewrite] Indicates that during forwarding, the host header will be swapped with the hostname of the upstream host chosen by the cluster.",
@@ -1631,6 +1649,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"custom_domain_list": schema.SingleNestedBlock{
 											MarkdownDescription: "List of domain names used for Host header matching.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
 											Attributes: map[string]schema.Attribute{
 												"domains": schema.ListAttribute{
 													MarkdownDescription: "List of domain names that will be matched to loadbalancer. These domains are not used for SNI match. Wildcard names are supported in the suffix or prefix form.",
@@ -1649,6 +1668,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"destinations": schema.ListNestedBlock{
 									MarkdownDescription: "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured.",
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("cluster")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"priority": schema.Int64Attribute{
@@ -1737,6 +1757,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"cookie": schema.SingleNestedBlock{
 												MarkdownDescription: "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets..",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced.",
@@ -1786,6 +1807,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"mirror_policy": schema.SingleNestedBlock{
 									MarkdownDescription: "MirrorPolicy is used for shadowing traffic from one cluster to another. The approach used is 'fire and forget', meaning it will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"cluster": schema.ListNestedBlock{
@@ -1825,6 +1847,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"percent": schema.SingleNestedBlock{
 											MarkdownDescription: "Fraction used where sampling percentages are needed. Example sampled requests.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("numerator")},
 											Attributes: map[string]schema.Attribute{
 												"denominator": schema.StringAttribute{
 													MarkdownDescription: "[Enum: HUNDRED|TEN_THOUSAND|MILLION] Denominator used in fraction where sampling percentages are needed. Example sampled requests Use hundred as denominator Use ten thousand as denominator Use million as denominator. Possible values are `HUNDRED`, `TEN_THOUSAND`, `MILLION`. Defaults to `HUNDRED`.",
@@ -1885,6 +1908,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"retry_policy": schema.SingleNestedBlock{
 									MarkdownDescription: "Retry policy configuration for route destination.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("retry_condition")},
 									Attributes: map[string]schema.Attribute{
 										"num_retries": schema.Int64Attribute{
 											MarkdownDescription: "Specifies the allowed number of retries. Retries can be done any number of times. An exponential back-off algorithm is used between each retry. Defaults to `1`.",
@@ -1958,6 +1982,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"route_direct_response": schema.SingleNestedBlock{
 							MarkdownDescription: "Send this direct response in case of route match action is direct response.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("response_code")},
 							Attributes: map[string]schema.Attribute{
 								"response_body_encoded": schema.StringAttribute{
 									MarkdownDescription: "Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML.",
@@ -2038,6 +2063,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"waf_exclusion_policy": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2072,6 +2098,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							Blocks: map[string]schema.Block{
 								"app_firewall": schema.SingleNestedBlock{
 									MarkdownDescription: "List of references to the app_firewall configuration objects.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("app_firewall")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"app_firewall": schema.ListNestedBlock{

@@ -25,7 +25,7 @@ resource "xcsh_rate_limiter" "test" {
   }
 }`
 
-	got := cleanConfig(input)
+	got := cleanConfig("fixture", input)
 	for _, want := range []string{
 		"healthy_threshold   = 3",
 		"unhealthy_threshold = 2",
@@ -98,11 +98,11 @@ func TestRenderExamplesHasExpectedSelection(t *testing.T) {
 	}
 
 	wantCounts := map[string]int{
-		"xcsh_http_loadbalancer":         15,
+		"xcsh_http_loadbalancer":         17,
 		"xcsh_tcp_loadbalancer":          6,
 		"xcsh_healthcheck":               13,
 		"xcsh_app_firewall":              11,
-		"xcsh_origin_pool":               6,
+		"xcsh_origin_pool":               7,
 		"xcsh_rate_limiter":              7,
 		"xcsh_service_policy":            4,
 		"xcsh_user_identification":       8,
@@ -131,6 +131,7 @@ func TestRenderExamplesHasExpectedSelection(t *testing.T) {
 	}
 
 	for _, suffix := range []string{
+		"xcsh_http_loadbalancer/live-https-auto-cert-virtual-site.tf",
 		"xcsh_healthcheck/thresholds.tf",
 		"xcsh_healthcheck/with-jitter.tf",
 		"xcsh_rate_limiter/unit.tf",

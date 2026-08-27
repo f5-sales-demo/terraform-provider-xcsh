@@ -1431,6 +1431,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 			}),
 			"primary": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: primary, secondary] PrimaryDNSCreateSpecType.",
+
 				Attributes: map[string]schema.Attribute{
 					"allow_http_lb_managed_records": schema.BoolAttribute{
 						MarkdownDescription: "Option to allow user-created HTTP, TCP, and CDN load balancer related resource records to be automatically managed in a protected RRset.",
@@ -1440,6 +1441,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Blocks: map[string]schema.Block{
 					"default_rr_set_group": schema.ListNestedBlock{
 						MarkdownDescription: "Add and manage DNS resource record sets part of Default set group.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("ttl")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"description_spec": schema.StringAttribute{
@@ -1457,6 +1459,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 							Blocks: map[string]schema.Block{
 								"a_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNSAResourceRecord. A Records",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1477,6 +1480,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"aaaa_record": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for aaaa record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "AAAA Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1497,6 +1501,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"afsdb_record": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for afsdb record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "AFSDB Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1509,6 +1514,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "AFSDB Value. Configuration parameter for values",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("hostname")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"hostname": schema.StringAttribute{
@@ -1586,6 +1592,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"cds_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNS CDS Record. DNS CDS Record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "CDS Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1598,6 +1605,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "DS Value. Configuration parameter for values",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"ds_key_algorithm": schema.StringAttribute{
@@ -1618,6 +1626,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"sha1_digest": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for sha1 digest.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 														Attributes: map[string]schema.Attribute{
 															"digest": schema.StringAttribute{
 																MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -1630,6 +1639,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													},
 													"sha256_digest": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for sha256 digest.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 														Attributes: map[string]schema.Attribute{
 															"digest": schema.StringAttribute{
 																MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -1642,6 +1652,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													},
 													"sha384_digest": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for sha384 digest.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 														Attributes: map[string]schema.Attribute{
 															"digest": schema.StringAttribute{
 																MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -1659,6 +1670,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"cert_record": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for cert record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "CERT Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1671,6 +1683,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "CERT Value. Configuration parameter for values",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("cert_key_tag", "certificate")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"algorithm": schema.StringAttribute{
@@ -1708,6 +1721,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"cname_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNSCNAMEResourceRecord.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "CName Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1727,6 +1741,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"ds_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNS DS Record. DNS DS Record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "DS Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1739,6 +1754,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "DS Value. Configuration parameter for values",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"ds_key_algorithm": schema.StringAttribute{
@@ -1759,6 +1775,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"sha1_digest": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for sha1 digest.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 														Attributes: map[string]schema.Attribute{
 															"digest": schema.StringAttribute{
 																MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -1771,6 +1788,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													},
 													"sha256_digest": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for sha256 digest.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 														Attributes: map[string]schema.Attribute{
 															"digest": schema.StringAttribute{
 																MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -1783,6 +1801,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													},
 													"sha384_digest": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for sha384 digest.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 														Attributes: map[string]schema.Attribute{
 															"digest": schema.StringAttribute{
 																MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -1800,6 +1819,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"eui48_record": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for eui48 record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("value")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "EUI48 Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1819,6 +1839,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"eui64_record": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for eui64 record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("value")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "EUI64 Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1850,6 +1871,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"value": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -1882,6 +1904,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"loc_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNS LOC Record. DNS LOC Record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "LOC Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -1894,6 +1917,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "LOC Value. Configuration parameter for values",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("altitude", "latitude_degree", "longitude_degree")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"altitude": schema.Int64Attribute{
@@ -1969,6 +1993,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"mx_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNSMXResourceRecord.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "MX Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2004,6 +2029,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"naptr_record": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for naptr record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "NAPTR Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2016,6 +2042,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "NAPTR Value. Configuration parameter for values",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("flags", "order", "preference")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"flags": schema.StringAttribute{
@@ -2064,6 +2091,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"ns_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNSNSResourceRecord.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "NS Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2084,6 +2112,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"ptr_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNSPTRResourceRecord.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "PTR Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2104,6 +2133,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"srv_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNSSRVResourceRecord.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name", "values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "SRV Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2153,6 +2183,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"sshfp_record": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for sshfp record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "SSHFP Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2178,6 +2209,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"sha1_fingerprint": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for sha1 fingerprint.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("fingerprint")},
 														Attributes: map[string]schema.Attribute{
 															"fingerprint": schema.StringAttribute{
 																MarkdownDescription: "The 'fingerprint' is the DS key and the actual contents of the DS record.",
@@ -2190,6 +2222,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													},
 													"sha256_fingerprint": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for sha256 fingerprint.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("fingerprint")},
 														Attributes: map[string]schema.Attribute{
 															"fingerprint": schema.StringAttribute{
 																MarkdownDescription: "The 'fingerprint' is the DS key and the actual contents of the DS record.",
@@ -2207,6 +2240,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"tlsa_record": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for tlsa record.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "TLSA Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2219,6 +2253,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "TLSA Value. Configuration parameter for values",
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_association_data")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"certificate_association_data": schema.StringAttribute{
@@ -2256,6 +2291,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"txt_record": schema.SingleNestedBlock{
 									MarkdownDescription: "DNSTXTResourceRecord.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "TXT Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2299,6 +2335,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 							Blocks: map[string]schema.Block{
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Human readable description.",
@@ -2318,6 +2355,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"rr_set": schema.ListNestedBlock{
 									MarkdownDescription: "Resource Record Sets. Collection of DNS resource record sets.",
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("ttl")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"description_spec": schema.StringAttribute{
@@ -2335,6 +2373,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 										Blocks: map[string]schema.Block{
 											"a_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNSAResourceRecord. A Records",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2355,6 +2394,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"aaaa_record": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for aaaa record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "AAAA Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2375,6 +2415,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"afsdb_record": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for afsdb record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "AFSDB Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2387,6 +2428,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "AFSDB Value. Configuration parameter for values",
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("hostname")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"hostname": schema.StringAttribute{
@@ -2464,6 +2506,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"cds_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNS CDS Record. DNS CDS Record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "CDS Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2476,6 +2519,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "DS Value. Configuration parameter for values",
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"ds_key_algorithm": schema.StringAttribute{
@@ -2496,6 +2540,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 															Blocks: map[string]schema.Block{
 																"sha1_digest": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for sha1 digest.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 																	Attributes: map[string]schema.Attribute{
 																		"digest": schema.StringAttribute{
 																			MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -2508,6 +2553,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																},
 																"sha256_digest": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for sha256 digest.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 																	Attributes: map[string]schema.Attribute{
 																		"digest": schema.StringAttribute{
 																			MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -2520,6 +2566,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																},
 																"sha384_digest": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for sha384 digest.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 																	Attributes: map[string]schema.Attribute{
 																		"digest": schema.StringAttribute{
 																			MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -2537,6 +2584,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"cert_record": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for cert record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "CERT Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2549,6 +2597,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "CERT Value. Configuration parameter for values",
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("cert_key_tag", "certificate")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"algorithm": schema.StringAttribute{
@@ -2586,6 +2635,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"cname_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNSCNAMEResourceRecord.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "CName Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2605,6 +2655,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"ds_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNS DS Record. DNS DS Record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "DS Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2617,6 +2668,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "DS Value. Configuration parameter for values",
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"ds_key_algorithm": schema.StringAttribute{
@@ -2637,6 +2689,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 															Blocks: map[string]schema.Block{
 																"sha1_digest": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for sha1 digest.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 																	Attributes: map[string]schema.Attribute{
 																		"digest": schema.StringAttribute{
 																			MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -2649,6 +2702,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																},
 																"sha256_digest": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for sha256 digest.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 																	Attributes: map[string]schema.Attribute{
 																		"digest": schema.StringAttribute{
 																			MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -2661,6 +2715,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																},
 																"sha384_digest": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for sha384 digest.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("digest")},
 																	Attributes: map[string]schema.Attribute{
 																		"digest": schema.StringAttribute{
 																			MarkdownDescription: "The 'digest' is the DS key and the actual contents of the DS record.",
@@ -2678,6 +2733,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"eui48_record": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for eui48 record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("value")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "EUI48 Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2697,6 +2753,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"eui64_record": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for eui64 record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("value")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "EUI64 Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2728,6 +2785,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"value": schema.SingleNestedBlock{
 														MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 														Attributes: map[string]schema.Attribute{
 															"name": schema.StringAttribute{
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2760,6 +2818,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"loc_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNS LOC Record. DNS LOC Record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "LOC Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2772,6 +2831,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "LOC Value. Configuration parameter for values",
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("altitude", "latitude_degree", "longitude_degree")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"altitude": schema.Int64Attribute{
@@ -2847,6 +2907,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"mx_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNSMXResourceRecord.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "MX Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2882,6 +2943,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"naptr_record": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for naptr record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "NAPTR Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2894,6 +2956,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "NAPTR Value. Configuration parameter for values",
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("flags", "order", "preference")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"flags": schema.StringAttribute{
@@ -2942,6 +3005,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"ns_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNSNSResourceRecord.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "NS Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2962,6 +3026,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"ptr_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNSPTRResourceRecord.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "PTR Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -2982,6 +3047,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"srv_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNSSRVResourceRecord.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name", "values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "SRV Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -3031,6 +3097,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"sshfp_record": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for sshfp record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "SSHFP Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -3056,6 +3123,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 															Blocks: map[string]schema.Block{
 																"sha1_fingerprint": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for sha1 fingerprint.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("fingerprint")},
 																	Attributes: map[string]schema.Attribute{
 																		"fingerprint": schema.StringAttribute{
 																			MarkdownDescription: "The 'fingerprint' is the DS key and the actual contents of the DS record.",
@@ -3068,6 +3136,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																},
 																"sha256_fingerprint": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for sha256 fingerprint.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("fingerprint")},
 																	Attributes: map[string]schema.Attribute{
 																		"fingerprint": schema.StringAttribute{
 																			MarkdownDescription: "The 'fingerprint' is the DS key and the actual contents of the DS record.",
@@ -3085,6 +3154,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"tlsa_record": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for tlsa record.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "TLSA Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -3097,6 +3167,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "TLSA Value. Configuration parameter for values",
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_association_data")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"certificate_association_data": schema.StringAttribute{
@@ -3134,6 +3205,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 											"txt_record": schema.SingleNestedBlock{
 												MarkdownDescription: "DNSTXTResourceRecord.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("values")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "TXT Record name, please provide only the specific subdomain or record name without the base domain.",
@@ -3160,6 +3232,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 					},
 					"soa_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for soa parameters.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("refresh", "retry")},
 						Attributes: map[string]schema.Attribute{
 							"expire": schema.Int64Attribute{
 								MarkdownDescription: "Expire value indicates when secondary nameservers should stop answering request for this zone if primary does not respond.",
@@ -3202,6 +3275,8 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"secondary": schema.SingleNestedBlock{
 				MarkdownDescription: "SecondaryDNSCreateSpecType.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_servers")},
+
 				Attributes: map[string]schema.Attribute{
 					"primary_servers": schema.ListAttribute{
 						MarkdownDescription: "Configuration parameter for primary servers.",
@@ -3233,6 +3308,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3253,6 +3329,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
 								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",

@@ -155,6 +155,7 @@ func (r *DataGroupResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"address_records": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: address_records, integer_records, string_records] Address Record. Data group with address record List.",
+
 				Attributes: map[string]schema.Attribute{
 					"records": schema.MapAttribute{
 						MarkdownDescription: "Address records. Configuration parameter for records",
@@ -165,6 +166,7 @@ func (r *DataGroupResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"integer_records": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for integer records.",
+
 				Attributes: map[string]schema.Attribute{
 					"records": schema.MapAttribute{
 						MarkdownDescription: "Integer records. Configuration parameter for records",
@@ -175,6 +177,7 @@ func (r *DataGroupResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"string_records": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for string records.",
+
 				Attributes: map[string]schema.Attribute{
 					"records": schema.MapAttribute{
 						MarkdownDescription: "String records. Configuration parameter for records",

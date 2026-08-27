@@ -188,6 +188,8 @@ func (r *FilterSetResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"filter_fields": schema.ListNestedBlock{
 				MarkdownDescription: "List of fields and their values selected by the user.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("field_id")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"field_id": schema.StringAttribute{
@@ -207,6 +209,7 @@ func (r *FilterSetResource) Schema(ctx context.Context, req resource.SchemaReque
 							Blocks: map[string]schema.Block{
 								"absolute": schema.SingleNestedBlock{
 									MarkdownDescription: "Date range is for selecting a date range.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("end_date", "start_date")},
 									Attributes: map[string]schema.Attribute{
 										"end_date": schema.StringAttribute{
 											MarkdownDescription: "End Date. Contains end date.",
@@ -222,6 +225,7 @@ func (r *FilterSetResource) Schema(ctx context.Context, req resource.SchemaReque
 						},
 						"filter_expression_field": schema.SingleNestedBlock{
 							MarkdownDescription: "Filter Expression Field.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("expression")},
 							Attributes: map[string]schema.Attribute{
 								"expression": schema.StringAttribute{
 									MarkdownDescription: "Expression is a Kubernetes style label expression for selections, but differs in that it allows special characters in the keys and values.",
@@ -231,6 +235,7 @@ func (r *FilterSetResource) Schema(ctx context.Context, req resource.SchemaReque
 						},
 						"string_field": schema.SingleNestedBlock{
 							MarkdownDescription: "Filter String Field.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("field_values")},
 							Attributes: map[string]schema.Attribute{
 								"field_values": schema.ListAttribute{
 									MarkdownDescription: "String Value(s). Field specification or configuration",

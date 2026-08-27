@@ -3023,6 +3023,8 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			}),
 			"master_node_configuration": schema.ListNestedBlock{
 				MarkdownDescription: "Master Nodes. Configuration of master nodes.",
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
@@ -3049,7 +3051,8 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"blocked_services": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: blocked_services, default_blocked_services; Default: default_blocked_services] Disable node local services on this site.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
@@ -3080,10 +3083,13 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"bond_device_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: bond_device_list, no_bond_devices; Default: no_bond_devices] Bond Devices List. List of bond devices for this fleet.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("bond_devices")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
 						MarkdownDescription: "Bond Devices. List of bond devices.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"devices": schema.ListAttribute{
@@ -3122,6 +3128,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"lacp": schema.SingleNestedBlock{
 									MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
 									Attributes: map[string]schema.Attribute{
 										"rate": schema.Int64Attribute{
 											MarkdownDescription: "Interval in seconds to transmit LACP packets.",
@@ -3139,6 +3146,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"coordinates": schema.SingleNestedBlock{
 				MarkdownDescription: "Coordinates of the site which provides the site physical location.",
+
 				Attributes: map[string]schema.Attribute{
 					"latitude": schema.Int64Attribute{
 						MarkdownDescription: "Latitude. Latitude of the site location.",
@@ -3152,6 +3160,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"custom_dns": schema.SingleNestedBlock{
 				MarkdownDescription: "Custom DNS is the configured for specify CE site.",
+
 				Attributes: map[string]schema.Attribute{
 					"inside_nameserver": schema.StringAttribute{
 						MarkdownDescription: "Optional DNS server IP to be used for name resolution in inside network.",
@@ -3173,6 +3182,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"custom_network_config": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_network_config, default_network_config; Default: default_network_config] VssNetworkConfiguration.",
+
 				Attributes: map[string]schema.Attribute{
 					"bgp_peer_address": schema.StringAttribute{
 						MarkdownDescription: "Optional BGP peer address that can be used as parameter for BGP configuration when BGP is configured to fetch BGP peer address from site Object. This can be used to change peer address per site in fleet.",
@@ -3232,10 +3242,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"active_enhanced_firewall_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("enhanced_firewall_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3270,10 +3282,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"active_forward_proxy_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3308,10 +3322,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"active_network_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for active network policies.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("network_policies")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
 								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3358,6 +3374,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
@@ -3371,6 +3388,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Blocks: map[string]schema.Block{
 												"global_vn": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -3407,6 +3425,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Blocks: map[string]schema.Block{
 												"global_vn": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -3444,6 +3463,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"interface_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Configure network interfaces for this App Stack site.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("interfaces")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"interfaces": schema.ListNestedBlock{
@@ -3467,6 +3487,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"dedicated_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for dedicated interface.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Name of the device for which interface is configured. Use wwan0 for 4G/LTE.",
@@ -3479,7 +3500,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(16384),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 512, Maximum: 16384},
+														),
 													},
 												},
 												"node": schema.StringAttribute{
@@ -3517,6 +3541,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"dedicated_management_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for dedicated management interface.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Name of the device for which interface is configured.",
@@ -3529,7 +3554,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(16384),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 512, Maximum: 16384},
+														),
 													},
 												},
 												"node": schema.StringAttribute{
@@ -3548,6 +3576,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"ethernet_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for ethernet interface.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Interface configuration for the ethernet device.",
@@ -3560,7 +3589,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(16384),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 512, Maximum: 16384},
+														),
 													},
 												},
 												"node": schema.StringAttribute{
@@ -3594,6 +3626,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"dhcp_server": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for dhcp server.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 													Attributes: map[string]schema.Attribute{
 														"fixed_ip_map": schema.MapAttribute{
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
@@ -3713,6 +3746,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Blocks: map[string]schema.Block{
 																		"configured_list": schema.SingleNestedBlock{
 																			MarkdownDescription: "IPV6DnsList.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																			Attributes: map[string]schema.Attribute{
 																				"dns_list": schema.ListAttribute{
 																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -3749,6 +3783,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"stateful": schema.SingleNestedBlock{
 																	MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																	Attributes: map[string]schema.Attribute{
 																		"fixed_ip_map": schema.MapAttribute{
 																			MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -3859,6 +3894,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"node_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for a node.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 															Attributes: map[string]schema.Attribute{
 																"default_gw": schema.StringAttribute{
 																	MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -3896,6 +3932,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"node_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for a node.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 															Attributes: map[string]schema.Attribute{
 																"default_gw": schema.StringAttribute{
 																	MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -3935,7 +3972,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(16384),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 512, Maximum: 16384},
+														),
 													},
 												},
 												"node": schema.StringAttribute{
@@ -3976,6 +4016,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"node_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for a node.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 															Attributes: map[string]schema.Attribute{
 																"default_gw": schema.StringAttribute{
 																	MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -3999,6 +4040,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"tunnel": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -4055,10 +4097,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"static_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static Routes. List of static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4151,10 +4195,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"static_v6_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static v6 routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4253,6 +4299,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"dc_cluster_group": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -4295,10 +4342,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"static_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static Routes. List of static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4391,10 +4440,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"static_v6_routes": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for static v6 routes.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4497,7 +4548,8 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"custom_storage_config": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_storage_config, default_storage_config; Default: default_storage_config] VssStorageConfiguration.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"default_storage_class": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for default storage class.",
@@ -4513,10 +4565,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for static routes.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("static_routes")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_routes": schema.ListNestedBlock{
 								MarkdownDescription: "Static Routes. List of static routes.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"attrs": schema.ListAttribute{
@@ -4613,6 +4667,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"storage_classes": schema.ListNestedBlock{
 								MarkdownDescription: "List of Storage Classes. List of custom storage classes.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_class_name", "storage_device")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"advanced_storage_parameters": schema.MapAttribute{
@@ -4804,7 +4859,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Enable IOPS limitation. It must be between 100 and 100 million. If value is 0, IOPS limit is not defined.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(100000000),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 100, Maximum: 100000000},
+														),
 													},
 												},
 											},
@@ -4820,6 +4878,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"storage_devices": schema.ListNestedBlock{
 								MarkdownDescription: "List of Storage Devices. List of custom storage devices.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_device")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"advanced_advanced_parameters": schema.MapAttribute{
@@ -4841,6 +4900,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"hpe_storage": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for hpe storage.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("api_server_port", "username")},
 											Attributes: map[string]schema.Attribute{
 												"api_server_port": schema.Int64Attribute{
 													MarkdownDescription: "Storage server Port. Enter Storage Server Port.",
@@ -4886,6 +4946,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -4906,6 +4967,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -4928,6 +4990,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -4948,6 +5011,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -4972,6 +5036,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Blocks: map[string]schema.Block{
 												"netapp_backend_ontap_nas": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration of storage backend for NetApp ONTAP NAS.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
 													Attributes: map[string]schema.Attribute{
 														"auto_export_policy": schema.BoolAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
@@ -5095,6 +5160,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5115,6 +5181,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5137,6 +5204,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5157,6 +5225,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5329,6 +5398,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"netapp_backend_ontap_san": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration of storage backend for NetApp ONTAP SAN.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
 													Attributes: map[string]schema.Attribute{
 														"client_certificate": schema.StringAttribute{
 															MarkdownDescription: "Please Enter Base64-encoded value of client certificate. Used for certificate-based auth.",
@@ -5437,6 +5507,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5457,6 +5528,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5482,6 +5554,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5502,6 +5575,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
 																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5628,6 +5702,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Blocks: map[string]schema.Block{
 																		"blindfold_secret_info": schema.SingleNestedBlock{
 																			MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																			Attributes: map[string]schema.Attribute{
 																				"decryption_provider": schema.StringAttribute{
 																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5648,6 +5723,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		},
 																		"clear_secret_info": schema.SingleNestedBlock{
 																			MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																			Attributes: map[string]schema.Attribute{
 																				"provider_ref": schema.StringAttribute{
 																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5670,6 +5746,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Blocks: map[string]schema.Block{
 																		"blindfold_secret_info": schema.SingleNestedBlock{
 																			MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																			Attributes: map[string]schema.Attribute{
 																				"decryption_provider": schema.StringAttribute{
 																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5690,6 +5767,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		},
 																		"clear_secret_info": schema.SingleNestedBlock{
 																			MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																			Attributes: map[string]schema.Attribute{
 																				"provider_ref": schema.StringAttribute{
 																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5781,6 +5859,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"pure_service_orchestrator": schema.SingleNestedBlock{
 											MarkdownDescription: "Device configuration for Pure Storage Service Orchestrator.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_id")},
 											Attributes: map[string]schema.Attribute{
 												"cluster_id": schema.StringAttribute{
 													MarkdownDescription: "ClusterID is added as a prefix for all volumes created by this PSO installation. ClusterID is also used to identify the volumes used by the datastore, pso-db. ClusterID MUST BE UNIQUE for multiple K8s clusters running on top of the same storage arrays.",
@@ -5805,6 +5884,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"flash_array": schema.SingleNestedBlock{
 															MarkdownDescription: "Specify what storage flash arrays should be managed the plugin.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("default_fs_type", "flash_arrays", "iscsi_login_timeout", "san_type")},
 															Attributes: map[string]schema.Attribute{
 																"default_fs_opt": schema.StringAttribute{
 																	MarkdownDescription: "Block volume default mkfs OPTIONS. Not recommended to change!",
@@ -5880,6 +5960,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																				Blocks: map[string]schema.Block{
 																					"blindfold_secret_info": schema.SingleNestedBlock{
 																						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																						Attributes: map[string]schema.Attribute{
 																							"decryption_provider": schema.StringAttribute{
 																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5900,6 +5981,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					},
 																					"clear_secret_info": schema.SingleNestedBlock{
 																						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																						Attributes: map[string]schema.Attribute{
 																							"provider_ref": schema.StringAttribute{
 																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5923,6 +6005,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"flash_blade": schema.SingleNestedBlock{
 															MarkdownDescription: "Specify what storage flash blades should be managed the plugin.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("flash_blades")},
 															Attributes: map[string]schema.Attribute{
 																"enable_snapshot_directory": schema.BoolAttribute{
 																	MarkdownDescription: "Enable Snapshot Directory. Enable/Disable FlashBlade snapshots.",
@@ -5984,6 +6067,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																				Blocks: map[string]schema.Block{
 																					"blindfold_secret_info": schema.SingleNestedBlock{
 																						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 																						Attributes: map[string]schema.Attribute{
 																							"decryption_provider": schema.StringAttribute{
 																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -6004,6 +6088,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					},
 																					"clear_secret_info": schema.SingleNestedBlock{
 																						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																						Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 																						Attributes: map[string]schema.Attribute{
 																							"provider_ref": schema.StringAttribute{
 																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -6036,6 +6121,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"storage_interface_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Configure storage interfaces for this App Stack site.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_interfaces")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"storage_interfaces": schema.ListNestedBlock{
@@ -6056,6 +6142,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"storage_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for storage interface.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Interface configuration for the ethernet device.",
@@ -6068,7 +6155,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(16384),
+														validators.Int64RangeSetValidator(
+															validators.Int64Range{Minimum: 0, Maximum: 0},
+															validators.Int64Range{Minimum: 512, Maximum: 16384},
+														),
 													},
 												},
 												"node": schema.StringAttribute{
@@ -6102,6 +6192,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"dhcp_server": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for dhcp server.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 													Attributes: map[string]schema.Attribute{
 														"fixed_ip_map": schema.MapAttribute{
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
@@ -6221,6 +6312,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Blocks: map[string]schema.Block{
 																		"configured_list": schema.SingleNestedBlock{
 																			MarkdownDescription: "IPV6DnsList.",
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_list")},
 																			Attributes: map[string]schema.Attribute{
 																				"dns_list": schema.ListAttribute{
 																					MarkdownDescription: "List of IPv6 Addresses acting as DNS servers.",
@@ -6257,6 +6349,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"stateful": schema.SingleNestedBlock{
 																	MarkdownDescription: "DHCPIPV6 Stateful Server.",
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 																	Attributes: map[string]schema.Attribute{
 																		"fixed_ip_map": schema.MapAttribute{
 																			MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -6367,6 +6460,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"node_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for a node.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 															Attributes: map[string]schema.Attribute{
 																"default_gw": schema.StringAttribute{
 																	MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -6404,6 +6498,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"node_static_ip": schema.SingleNestedBlock{
 															MarkdownDescription: "Configure Static IP parameters for a node.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("ip_address")},
 															Attributes: map[string]schema.Attribute{
 																"default_gw": schema.StringAttribute{
 																	MarkdownDescription: "Default Gateway. IP address of the default gateway.",
@@ -6466,6 +6561,8 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"enable_vgpu": schema.SingleNestedBlock{
 				MarkdownDescription: "Licensing configuration for NVIDIA vGPU.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("server_port")},
+
 				Attributes: map[string]schema.Attribute{
 					"feature_type": schema.StringAttribute{
 						MarkdownDescription: "[Enum: UNLICENSED|VGPU|VWS|VCS] Set feature to be enabled Operate with a degraded vGPU performance Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation Enable NVIDIA Virtual Compute Server. Possible values are `UNLICENSED`, `VGPU`, `VWS`, `VCS`. Defaults to `UNLICENSED`.",
@@ -6492,6 +6589,8 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"k8s_cluster": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: k8s_cluster, no_k8s_cluster; Default: no_k8s_cluster] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -6522,13 +6621,15 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"disable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -6558,10 +6659,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"local_control_plane": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: local_control_plane, no_local_control_plane; Default: no_local_control_plane] Enable local control plane for L3VPN, SRV6, EVPN etc.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"bgp_config": schema.SingleNestedBlock{
 						MarkdownDescription: "BGP Configuration. BGP configuration parameters.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("asn")},
 						Attributes: map[string]schema.Attribute{
 							"asn": schema.Int64Attribute{
 								MarkdownDescription: "ASN. Autonomous System Number.",
@@ -6587,6 +6690,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"bfd_enabled": schema.SingleNestedBlock{
 											MarkdownDescription: "BFD. BFD parameters.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("multiplier", "receive_interval_milliseconds", "transmit_interval_milliseconds")},
 											Attributes: map[string]schema.Attribute{
 												"multiplier": schema.Int64Attribute{
 													MarkdownDescription: "Specify Number of missed packets to bring session down'.",
@@ -6616,6 +6720,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"external": schema.SingleNestedBlock{
 											MarkdownDescription: "External BGP Peer. External BGP Peer parameters.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("asn", "port")},
 											Attributes: map[string]schema.Attribute{
 												"address": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [default_gateway disable external_connector from_site subnet_begin_offset subnet_end_offset] Specify IPv4 peer address.",
@@ -6743,6 +6848,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"interface": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -6773,10 +6879,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"interface_list": schema.SingleNestedBlock{
 													MarkdownDescription: "Interface List. List of network interfaces.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("interfaces")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"interfaces": schema.ListNestedBlock{
 															MarkdownDescription: "Interface List. List of network interfaces.",
+															Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"name": schema.StringAttribute{
@@ -6816,6 +6924,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"metadata": schema.SingleNestedBlock{
 											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Human readable description.",
@@ -6845,6 +6954,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Blocks: map[string]schema.Block{
 												"route_policy": schema.ListNestedBlock{
 													MarkdownDescription: "Policy configuration for this feature.",
+													Validators:          []validator.List{validators.RequiredListObjectAttributes("object_refs")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -6922,6 +7032,8 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"log_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: log_receiver, logs_streaming_disabled] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -6964,7 +7076,8 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enable_offline_survivability_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for enable offline survivability mode.",
@@ -6976,6 +7089,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+
 				Attributes: map[string]schema.Attribute{
 					"operating_system_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
@@ -6993,10 +7107,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"sriov_interfaces": schema.SingleNestedBlock{
 				MarkdownDescription: "List of all custom SR-IOV interfaces configuration.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"sriov_interface": schema.ListNestedBlock{
 						MarkdownDescription: "Use custom SR-IOV interfaces Configuration.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("interface_name", "number_of_vfs")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"interface_name": schema.StringAttribute{
@@ -7018,6 +7134,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+
 				Attributes: map[string]schema.Attribute{
 					"volterra_software_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
@@ -7035,6 +7152,8 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"usb_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

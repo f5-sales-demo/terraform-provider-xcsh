@@ -165,6 +165,7 @@ func (r *K8SClusterRoleBindingResource) Schema(ctx context.Context, req resource
 			}),
 			"subjects": schema.ListNestedBlock{
 				MarkdownDescription: "List of subjects (user, group or service account) to which this role is bound.",
+
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"group": schema.StringAttribute{
@@ -185,6 +186,7 @@ func (r *K8SClusterRoleBindingResource) Schema(ctx context.Context, req resource
 					Blocks: map[string]schema.Block{
 						"service_account": schema.SingleNestedBlock{
 							MarkdownDescription: "ServiceAccountType.",
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("name", "namespace")},
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
 									MarkdownDescription: "Name. Name of the service account.",
@@ -211,6 +213,8 @@ func (r *K8SClusterRoleBindingResource) Schema(ctx context.Context, req resource
 			},
 			"k8s_cluster_role": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",

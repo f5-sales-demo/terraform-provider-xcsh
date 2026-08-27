@@ -1189,9 +1189,18 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
 		}
 
-		// int64 range validators. Gated on presence flags (not value > 0) so a
-		// legitimate minimum:0 still emits AtLeast(0)/Between(0, N).
-		if attr.Type == "int64" && (attr.HasMinimum || attr.HasMaximum) {
+		// int64 range-set validators preserve discontinuities such as 0,512-16384.
+		if attr.Type == "int64" && len(attr.Int64RangeSpans) > 0 {
+			sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.Int64{\n", indent))
+			sb.WriteString(fmt.Sprintf("%s\t\t\tvalidators.Int64RangeSetValidator(\n", indent))
+			for _, span := range attr.Int64RangeSpans {
+				sb.WriteString(fmt.Sprintf("%s\t\t\t\tvalidators.Int64Range{Minimum: %d, Maximum: %d},\n", indent, span.Minimum, span.Maximum))
+			}
+			sb.WriteString(fmt.Sprintf("%s\t\t\t),\n", indent))
+			sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
+		} else if attr.Type == "int64" && (attr.HasMinimum || attr.HasMaximum) {
+			// Gated on presence flags (not value > 0) so a legitimate minimum:0
+			// still emits AtLeast(0)/Between(0, N).
 			sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.Int64{\n", indent))
 			if attr.HasMinimum && attr.HasMaximum {
 				sb.WriteString(fmt.Sprintf("%s\t\t\tint64validator.Between(%d, %d),\n", indent, attr.Minimum, attr.Maximum))
@@ -1490,6 +1499,7 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 
 		sb.WriteString(fmt.Sprintf("%s\t\"%s\": schema.%s{\n", indent, attr.TfsdkTag, blockType))
 		sb.WriteString(fmt.Sprintf("%s\t\tMarkdownDescription: \"%s\",\n", indent, desc))
+		sb.WriteString(RenderConditionalRequiredValidators(attr, indent+"\t\t"))
 
 		if attr.NestedBlockType == "list" {
 			sb.WriteString(fmt.Sprintf("%s\t\tNestedObject: schema.NestedBlockObject{\n", indent))
@@ -1513,4 +1523,28 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 
 	sb.WriteString(indent + "},\n")
 	return sb.String()
+}
+
+// RenderConditionalRequiredValidators emits a parent-block validator for
+// direct children carrying x-f5xc-required-for.create. Keeping those children
+// Optional in Terraform schema lets the parent block remain absent; the
+// validator enforces them only when the parent object/list element exists.
+func RenderConditionalRequiredValidators(attr openapi.TerraformAttribute, indent string) string {
+	required := make([]string, 0)
+	for _, child := range attr.NestedAttributes {
+		if child.CreateRequired {
+			required = append(required, child.TfsdkTag)
+		}
+	}
+	if len(required) == 0 {
+		return ""
+	}
+	quoted := make([]string, len(required))
+	for i, name := range required {
+		quoted[i] = fmt.Sprintf("%q", name)
+	}
+	if attr.NestedBlockType == "list" {
+		return fmt.Sprintf("%sValidators: []validator.List{validators.RequiredListObjectAttributes(%s)},\n", indent, strings.Join(quoted, ", "))
+	}
+	return fmt.Sprintf("%sValidators: []validator.Object{validators.RequiredObjectAttributes(%s)},\n", indent, strings.Join(quoted, ", "))
 }

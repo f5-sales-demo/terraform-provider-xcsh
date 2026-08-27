@@ -1594,10 +1594,13 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			}),
 			"active_forward_proxy_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_forward_proxy_policies, no_forward_proxy_policy; Default: no_forward_proxy_policy] Ordered List of Forward Proxy Policies active.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"forward_proxy_policies": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -1635,6 +1638,8 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"dynamic_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dynamic_proxy, http_proxy] Configuration parameter for dynamic proxy.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+
 				Attributes: map[string]schema.Attribute{
 					"domains": schema.ListAttribute{
 						MarkdownDescription: "List of Domains to be proxied. Wildcard hosts are supported in the suffix or prefix form Supported Domains and search order: 1. Exact Domain names: www.example.com. 2.",
@@ -1741,6 +1746,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"compression_params": schema.SingleNestedBlock{
 										MarkdownDescription: "Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("content_length")},
 										Attributes: map[string]schema.Attribute{
 											"content_length": schema.Int64Attribute{
 												MarkdownDescription: "Minimum response length, in bytes, which will trigger compression. The. Defaults to `30`.",
@@ -1778,6 +1784,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"request_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -1806,6 +1813,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1826,6 +1834,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1847,6 +1856,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"request_headers_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"append": schema.BoolAttribute{
@@ -1875,6 +1885,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1895,6 +1906,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1916,6 +1928,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"response_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"add_domain": schema.StringAttribute{
@@ -2017,6 +2030,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2037,6 +2051,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2058,6 +2073,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"response_headers_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"append": schema.BoolAttribute{
@@ -2086,6 +2102,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2106,6 +2123,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2218,6 +2236,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"compression_params": schema.SingleNestedBlock{
 										MarkdownDescription: "Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("content_length")},
 										Attributes: map[string]schema.Attribute{
 											"content_length": schema.Int64Attribute{
 												MarkdownDescription: "Minimum response length, in bytes, which will trigger compression. The. Defaults to `30`.",
@@ -2255,6 +2274,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"request_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -2283,6 +2303,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2303,6 +2324,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2324,6 +2346,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"request_headers_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"append": schema.BoolAttribute{
@@ -2352,6 +2375,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2372,6 +2396,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2393,6 +2418,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"response_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"add_domain": schema.StringAttribute{
@@ -2494,6 +2520,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2514,6 +2541,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2535,6 +2563,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"response_headers_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"append": schema.BoolAttribute{
@@ -2563,6 +2592,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2583,6 +2613,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2606,6 +2637,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"tls_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Inline TLS Parameters. Inline TLS parameters.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"no_mtls": schema.SingleNestedBlock{
@@ -2613,6 +2645,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"tls_certificates": schema.ListNestedBlock{
 										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -2630,6 +2663,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"custom_hash_algorithms": schema.SingleNestedBlock{
 													MarkdownDescription: "Specifies the hash algorithms to be used.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 													Attributes: map[string]schema.Attribute{
 														"hash_algorithms": schema.ListAttribute{
 															MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -2650,6 +2684,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -2670,6 +2705,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
 															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -2698,6 +2734,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
 												MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("cipher_suites")},
 												Attributes: map[string]schema.Attribute{
 													"cipher_suites": schema.ListAttribute{
 														MarkdownDescription: "The TLS listener will only support the specified cipher list.",
@@ -2749,6 +2786,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"crl": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2782,6 +2820,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 											"trusted_ca": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -2815,6 +2854,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 											"xfcc_options": schema.SingleNestedBlock{
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
 												Attributes: map[string]schema.Attribute{
 													"xfcc_header_elements": schema.ListAttribute{
 														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -2845,7 +2885,8 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"http_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP Connect Proxy. Parameters for HTTP Connect Proxy.",
-				Attributes:          map[string]schema.Attribute{},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"enable_http": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for enable http.",
@@ -2935,6 +2976,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"compression_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("content_length")},
 								Attributes: map[string]schema.Attribute{
 									"content_length": schema.Int64Attribute{
 										MarkdownDescription: "Minimum response length, in bytes, which will trigger compression. The. Defaults to `30`.",
@@ -2972,6 +3014,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"request_cookies_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3000,6 +3043,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3020,6 +3064,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3041,6 +3086,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"request_headers_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"append": schema.BoolAttribute{
@@ -3069,6 +3115,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3089,6 +3136,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3110,6 +3158,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"response_cookies_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"add_domain": schema.StringAttribute{
@@ -3211,6 +3260,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3231,6 +3281,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3252,6 +3303,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"response_headers_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"append": schema.BoolAttribute{
@@ -3280,6 +3332,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 													Attributes: map[string]schema.Attribute{
 														"decryption_provider": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3300,6 +3353,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"clear_secret_info": schema.SingleNestedBlock{
 													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 													Attributes: map[string]schema.Attribute{
 														"provider_ref": schema.StringAttribute{
 															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3337,7 +3391,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"site_virtual_sites": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines a way to advertise a VIP on specific sites.",
-				Attributes:          map[string]schema.Attribute{},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("advertise_where")},
+
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
 						MarkdownDescription: "Where should this load balancer be available.",
@@ -3374,6 +3430,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -3421,6 +3478,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Blocks: map[string]schema.Block{
 										"virtual_site": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
@@ -3458,6 +3516,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"tls_intercept": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration to enable TLS interception.",
+
 				Attributes: map[string]schema.Attribute{
 					"trusted_ca_url": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [volterra_trusted_ca] Custom Root CA Certificate for validating upstream server certificate.",
@@ -3470,6 +3529,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"custom_certificate": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for custom certificate.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificate_url")},
 						Attributes: map[string]schema.Attribute{
 							"certificate_url": schema.StringAttribute{
 								MarkdownDescription: "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
@@ -3486,6 +3546,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						Blocks: map[string]schema.Block{
 							"custom_hash_algorithms": schema.SingleNestedBlock{
 								MarkdownDescription: "Specifies the hash algorithms to be used.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")},
 								Attributes: map[string]schema.Attribute{
 									"hash_algorithms": schema.ListAttribute{
 										MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
@@ -3506,6 +3567,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("location")},
 										Attributes: map[string]schema.Attribute{
 											"decryption_provider": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3526,6 +3588,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"clear_secret_info": schema.SingleNestedBlock{
 										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("url")},
 										Attributes: map[string]schema.Attribute{
 											"provider_ref": schema.StringAttribute{
 												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3552,6 +3615,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 					"policy": schema.SingleNestedBlock{
 						MarkdownDescription: "Policy to enable or disable TLS interception.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("interception_rules")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"interception_rules": schema.ListNestedBlock{
