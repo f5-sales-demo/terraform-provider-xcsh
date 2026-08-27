@@ -9,6 +9,9 @@ while IFS= read -r path; do
   case "$path" in
   .github/workflows/* | \
     tools/validate_workflows_test.go | \
+    tools/generate-all-schemas.go | \
+    tools/pkg/codegen/* | \
+    tools/pkg/schema/* | \
     internal/acctest/release_integrity_test.go | \
     scripts/generate-provider-docs.sh | \
     scripts/check-spec-version-freshness.sh | \
