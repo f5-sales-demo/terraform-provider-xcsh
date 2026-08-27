@@ -12,6 +12,8 @@ while IFS= read -r path; do
     internal/acctest/release_integrity_test.go | \
     scripts/generate-provider-docs.sh | \
     scripts/check-spec-version-freshness.sh | \
+    scripts/classify-spec-release-semantics.sh | \
+    scripts/test-classify-spec-release-semantics.sh | \
     scripts/test-check-spec-version-freshness.sh | \
     scripts/prepare-spec-delivery-receipt.sh | \
     scripts/validate-provider-delivery-state.sh | \
