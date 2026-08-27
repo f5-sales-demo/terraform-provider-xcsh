@@ -19,6 +19,10 @@ while IFS= read -r path; do
     scripts/validate-provider-delivery-state.sh | \
     scripts/is-pending-delivery-active.sh | \
     scripts/is-release-recovery-only.sh | \
+    tools/pkg/codegen/codegen_test.go | \
+    tools/pkg/codegen/generate.go | \
+    tools/pkg/schema/scan.go | \
+    tools/pkg/schema/scan_test.go | \
     tools/provider-publication-receipts.json | \
     tools/spec-deliveries.json | \
     tools/spec-pending-delivery.json | \
