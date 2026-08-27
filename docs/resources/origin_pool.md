@@ -464,13 +464,11 @@ A [`http1_config`](#advanced-options-http1-config) block (within [`advanced_opti
 
 A [`header_transformation`](#transformation-1e4851) block (within [`advanced_options.http1_config`](#advanced-options-http1-config)) supports the following:
 
-<a id="transformation-6fa15c"></a>&#x2022; [`default_header_transformation`](#transformation-6fa15c) - Optional Block<br>Enable this option
+<a id="transformation-6fa15c"></a>&#x2022; [`default_header_transformation`](#transformation-6fa15c) - Optional Block<br>Use the platform's current default HTTP header transformation behavior
 
-<a id="transformation-c4c936"></a>&#x2022; [`legacy_header_transformation`](#transformation-c4c936) - Optional Block<br>Enable this option
+<a id="transformation-923ab8"></a>&#x2022; [`preserve_case_header_transformation`](#transformation-923ab8) - Optional Block<br>Preserve HTTP header-name case when upstream case must remain unchanged
 
-<a id="transformation-923ab8"></a>&#x2022; [`preserve_case_header_transformation`](#transformation-923ab8) - Optional Block<br>Enable this option
-
-<a id="transformation-1ce9d5"></a>&#x2022; [`proper_case_header_transformation`](#transformation-1ce9d5) - Optional Block<br>Enable this option
+<a id="transformation-1ce9d5"></a>&#x2022; [`proper_case_header_transformation`](#transformation-1ce9d5) - Optional Block<br>Transform HTTP header names to proper case when explicit transformation is required
 
 #### Advanced Options Http2 Options
 

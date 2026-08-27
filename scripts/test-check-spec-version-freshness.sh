@@ -68,7 +68,8 @@ run_test "Stale Pin" \
   "::error::tools/spec-version.txt (v1.2.3) lags latest upstream api-specs-enriched release (v1.2.4)"
 
 # Test 3: An exact pending delivery permits only an explicitly authorized
-# workflow-recovery PR to repair the release path before advancing the pin.
+# release-path recovery PR to repair the workflow or generator before advancing
+# the pin.
 commit=$(printf 'a%.0s' {1..40})
 canonical=$(jq -cnS \
   --arg commit "$commit" \
@@ -90,7 +91,7 @@ jq -nS \
 ALLOW_PENDING_DELIVERY=true run_test "Exact Pending Recovery" \
   "echo 'v1.2.4'; exit 0" \
   0 \
-  "Allowing workflow-only recovery for exact pending delivery" \
+  "Allowing release-path recovery for exact pending delivery" \
   "$pending_file"
 
 # Test 4: Recovery infrastructure may repair a completed delivery while the pin is stale.

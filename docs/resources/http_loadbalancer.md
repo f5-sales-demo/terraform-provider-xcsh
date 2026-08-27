@@ -758,7 +758,7 @@ spec:
 <a id="api-protection-rules"></a>&#x2022; [`api_protection_rules`](#api-protection-rules) - Optional Block<br>API Protection Rules. API Protection Rules<br>See [API Protection Rules](#api-protection-rules) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="api-rate-limit"></a>[`api_rate_limit`](#api-rate-limit) - Optional Block<br>APIRateLimit
+&#x2022; <a id="api-rate-limit"></a>[`api_rate_limit`](#api-rate-limit) - Optional Block<br>Path- or API-group-scoped rate limiting. Define server_url_rules or api_endpoint_rules and choose inline_rate_limiter for an inline limit, or ref_rate_limiter for a stored rate-limiter reference
 <br><br>&#x2022; <a id="disable-rate-limit"></a>[`disable_rate_limit`](#disable-rate-limit) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable rate limit.  Server applies default when omitted
 
 -> **One of the following:**
@@ -891,7 +891,7 @@ when omitted
 
 <a id="protected-cookies"></a>&#x2022; [`protected_cookies`](#protected-cookies) - Optional Block<br>Allows setting attributes (SameSite, Secure, and HttpOnly) on cookies in responses. Cookie Tampering Protection prevents attackers from modifying the value of session cookies. For Cookie Tampering Protection, enabling a web app firewall (WAF) is a prerequisite
 
-<a id="rate-limit"></a>&#x2022; [`rate_limit`](#rate-limit) - Optional Block<br>RateLimitConfigType
+<a id="rate-limit"></a>&#x2022; [`rate_limit`](#rate-limit) - Optional Block<br>Load-balancer-wide per-client rate limiting. The counter applies across every path; use api_rate_limit rules when only selected paths such as /login should be limited
 
 <a id="routes"></a>&#x2022; [`routes`](#routes) - Optional Block<br>Routes allow users to define match condition on a path and/or HTTP method to either forward matching traffic to origin pool or redirect matching traffic to a different URL or respond directly to matching traffic
 
@@ -1321,7 +1321,7 @@ A [`metadata`](#metadata-b7fd60) block (within [`api_protection_rules.api_groups
 
 An [`api_rate_limit`](#api-rate-limit) block supports the following:
 
-<a id="api-rate-limit-api-endpoint-rules"></a>&#x2022; [`api_endpoint_rules`](#api-rate-limit-api-endpoint-rules) - Optional Block<br>Sets of rules for a specific endpoints. Order is matter as it uses first match policy. For creating rule that contain a whole domain or group of endpoints, please use the server URL rules above<br>See [API Endpoint Rules](#api-rate-limit-api-endpoint-rules) below.
+<a id="api-rate-limit-api-endpoint-rules"></a>&#x2022; [`api_endpoint_rules`](#api-rate-limit-api-endpoint-rules) - Optional Block<br>Ordered endpoint-specific rate-limit rules. Each rule must choose exactly one rate_limiter_choice: inline_rate_limiter or ref_rate_limiter<br>See [API Endpoint Rules](#api-rate-limit-api-endpoint-rules) below.
 
 <a id="rules-776e97"></a>&#x2022; [`bypass_rate_limiting_rules`](#rules-776e97) - Optional Block<br>Category defines rules per URL or API group. If request matches any of these rules, skip Rate Limiting<br>See [Bypass Rate Limiting Rules](#rules-776e97) below.
 
@@ -1331,7 +1331,7 @@ An [`api_rate_limit`](#api-rate-limit) block supports the following:
 
 <a id="api-rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#api-rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
 
-<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules) below.
+<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Ordered domain or base-path rules for path-scoped rate limiting. Each rule must choose exactly one rate_limiter_choice: inline_rate_limiter or ref_rate_limiter<br>See [Server URL Rules](#api-rate-limit-server-url-rules) below.
 
 #### API Rate Limit API Endpoint Rules
 
@@ -1567,7 +1567,7 @@ A [`server_url_rules`](#api-rate-limit-server-url-rules) block (within [`api_rat
 
 <a id="matcher-ed4b34"></a>&#x2022; [`client_matcher`](#matcher-ed4b34) - Optional Block<br>Client Matcher. Client conditions for matching a rule<br>See [Client Matcher](#matcher-ed4b34) below.
 
-<a id="limiter-9faa53"></a>&#x2022; [`inline_rate_limiter`](#limiter-9faa53) - Optional Block<br>Configuration parameter for inline rate limiter<br>See [Inline Rate Limiter](#limiter-9faa53) below.
+<a id="limiter-9faa53"></a>&#x2022; [`inline_rate_limiter`](#limiter-9faa53) - Optional Block<br>Inline rate-limiter settings for this domain, base-path, or endpoint rule. Select this field as the required rate_limiter_choice when no stored rate-limiter object is used<br>See [Inline Rate Limiter](#limiter-9faa53) below.
 
 <a id="limiter-383ca9"></a>&#x2022; [`ref_rate_limiter`](#limiter-383ca9) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Ref Rate Limiter](#limiter-383ca9) below.
 

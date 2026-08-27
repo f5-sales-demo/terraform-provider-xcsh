@@ -172,7 +172,8 @@ spec:
 <br><br>&#x2022; <a id="allow-list"></a>[`allow_list`](#allow-list) - Optional Block<br>List of sources. A request belongs to this list if it satisfies any of the match criteria<br>See [Allow List](#allow-list) below for details.
 <br><br>&#x2022; <a id="deny-all-requests"></a>[`deny_all_requests`](#deny-all-requests) - Optional Block<br>Configuration parameter for deny all requests
 <br><br>&#x2022; <a id="deny-list"></a>[`deny_list`](#deny-list) - Optional Block<br>List of sources. A request belongs to this list if it satisfies any of the match criteria<br>See [Deny List](#deny-list) below for details.
-<br><br>&#x2022; <a id="rule-list"></a>[`rule_list`](#rule-list) - Optional Block<br>List of rules. The order of evaluation of the rules depends on the rule combining algorithm<br>See [Rule List](#rule-list) below for details.
+<br><br>&#x2022; <a id="rule-list"></a>[`rule_list`](#rule-list) - Optional Block<br>Ordered service-policy rules for non-geographic predicates and actions. Do not use country_list for a geo-only rule here: the platform adds match-all any_ip and any_asn selectors on readback, so the rule can match all traffic. Use deny_list or allow_list with country_list for geographic source<br>See [Rule
+List](#rule-list) below for details.
 
 -> **One of the following:**
 &#x2022; <a id="any-server"></a>[`any_server`](#any-server) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted

@@ -89,7 +89,7 @@ for details.
 
 <a id="non-api-endpoints"></a>&#x2022; [`non_api_endpoints`](#non-api-endpoints) - Optional Block  Defaults to `[]`<br>API Discovery Exclusion List. List of Non-API Endpoints.  Server applies default when omitted<br>See [Non API Endpoints](#non-api-endpoints) below for details.
 
-<a id="swagger-specs"></a>&#x2022; [`swagger_specs`](#swagger-specs) - Optional List  Defaults to `[]`<br>Define your application API by single or multiple OpenAPI files. 1. Upload your OpenAPI files via Web App & API Protection-> Files-> Swagger Files. 2. Select from the list of uploaded files.  Server applies default when omitted
+<a id="swagger-specs"></a>&#x2022; [`swagger_specs`](#swagger-specs) - Optional List  Defaults to `[]`<br>URLs of versioned OpenAPI files uploaded through Web App & API Protection > Files > Swagger Files. The 512-byte item limit is a URL-length limit; inline string:/// OpenAPI content is rejected and does not create an API-definition object.  Server applies default when omitted
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

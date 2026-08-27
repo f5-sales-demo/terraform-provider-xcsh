@@ -94,11 +94,16 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 		allowed bool
 	}{
 		{
-			name: "exact recovery infrastructure",
+			name: "exact recovery implementation and infrastructure",
 			paths: strings.Join([]string{
 				".github/workflows/on-merge.yml",
 				".github/workflows/ci.yml",
 				"tools/validate_workflows_test.go",
+				"tools/generate-all-schemas.go",
+				"tools/pkg/codegen/generate.go",
+				"tools/pkg/codegen/codegen_test.go",
+				"tools/pkg/schema/scan.go",
+				"tools/pkg/schema/scan_test.go",
 				"internal/acctest/release_integrity_test.go",
 				"scripts/generate-provider-docs.sh",
 				"scripts/check-spec-version-freshness.sh",
@@ -110,11 +115,24 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 			}, "\n"),
 			allowed: true,
 		},
+		{
+			name: "generator recovery",
+			paths: strings.Join([]string{
+				"tools/generate-all-schemas.go",
+				"tools/pkg/codegen/generate.go",
+				"tools/pkg/codegen/codegen_test.go",
+				"tools/pkg/schema/scan.go",
+				"tools/pkg/schema/scan_test.go",
+			}, "\n"),
+			allowed: true,
+		},
 		{name: "empty", paths: "", allowed: false},
 		{name: "substantive", paths: "internal/provider/provider.go\n", allowed: false},
+		{name: "unlisted codegen file", paths: "tools/pkg/codegen/unrelated.go\n", allowed: false},
+		{name: "unlisted schema file", paths: "tools/pkg/schema/unrelated.go\n", allowed: false},
 		{
 			name:    "mixed substantive",
-			paths:   ".github/workflows/on-merge.yml\ninternal/provider/provider.go\n",
+			paths:   "tools/pkg/codegen/generate.go\ninternal/provider/provider.go\n",
 			allowed: false,
 		},
 	}

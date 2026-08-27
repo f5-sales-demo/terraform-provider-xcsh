@@ -206,6 +206,47 @@ func TestScanPlanModifierUsage_SkipsBlocks(t *testing.T) {
 	}
 }
 
+func TestRefreshResourcePlanModifierUsageReplacesStaleTemplateFlags(t *testing.T) {
+	resource := &openapi.ResourceTemplate{
+		UsesBoolPlanModifier:   true,
+		UsesStringPlanModifier: true,
+		Attributes: []openapi.TerraformAttribute{
+			{Type: "list", PlanModifier: "RequiresReplace"},
+			{Type: "map", PlanModifier: "UseStateForUnknown"},
+			{NestedAttributes: []openapi.TerraformAttribute{
+				{Type: "int64", PlanModifier: "UseStateForUnknown"},
+			}},
+		},
+	}
+
+	RefreshResourcePlanModifierUsage(resource)
+
+	if resource.UsesBoolPlanModifier || resource.UsesStringPlanModifier {
+		t.Fatalf("stale plan-modifier flags were retained: %+v", resource)
+	}
+	if !resource.UsesInt64PlanModifier || !resource.UsesListPlanModifier || !resource.UsesMapPlanModifier {
+		t.Fatalf("final attribute plan-modifier usage was not synchronized: %+v", resource)
+	}
+}
+
+func TestRefreshResourcePlanModifierUsageAfterForceReplace(t *testing.T) {
+	resource := &openapi.ResourceTemplate{
+		Attributes: []openapi.TerraformAttribute{
+			{Type: "list", Required: true},
+			{Type: "map", Optional: true},
+			{Type: "bool", Optional: true},
+		},
+	}
+
+	ForceReplaceForCreateDeleteOnly(resource.Attributes)
+	RefreshResourcePlanModifierUsage(resource)
+
+	if !resource.UsesListPlanModifier || !resource.UsesMapPlanModifier || !resource.UsesBoolPlanModifier {
+		t.Fatalf("refreshed plan modifier usage = list:%v map:%v bool:%v, want all true",
+			resource.UsesListPlanModifier, resource.UsesMapPlanModifier, resource.UsesBoolPlanModifier)
+	}
+}
+
 func TestHasInt64RangeValidatorsAny_MinZero(t *testing.T) {
 	attrs := []openapi.TerraformAttribute{
 		{Name: "port", Minimum: 0, HasMinimum: true, Maximum: 65535, HasMaximum: true},

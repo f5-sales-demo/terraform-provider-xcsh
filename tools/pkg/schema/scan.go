@@ -172,3 +172,16 @@ func ScanPlanModifierUsage(attributes []openapi.TerraformAttribute) (usesBool, u
 	}
 	return
 }
+
+// RefreshResourcePlanModifierUsage recalculates template import flags after a
+// caller mutates resource attributes. Generator orchestration can apply
+// RequiresReplace after extraction (for resources without an update
+// operation), so the flags captured during extraction are no longer
+// authoritative at render time.
+func RefreshResourcePlanModifierUsage(resource *openapi.ResourceTemplate) {
+	resource.UsesBoolPlanModifier,
+		resource.UsesInt64PlanModifier,
+		resource.UsesStringPlanModifier,
+		resource.UsesListPlanModifier,
+		resource.UsesMapPlanModifier = ScanPlanModifierUsage(resource.Attributes)
+}

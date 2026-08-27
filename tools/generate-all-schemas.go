@@ -844,6 +844,11 @@ func generateResourceFromSchema(resourceName string, schemaName string, specFile
 		schema.ForceReplaceForCreateDeleteOnly(resource.Attributes)
 		resource.UpdateDisabled = true
 	}
+	// The update contract is resolved after schema extraction. If it turns an
+	// otherwise mutable resource into create/delete-only, every practitioner
+	// attribute gains RequiresReplace and the template's conditional imports
+	// must be recalculated from the final IR.
+	schema.RefreshResourcePlanModifierUsage(resource)
 
 	// Count attributes and blocks
 	attrCount := 0

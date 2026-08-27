@@ -138,7 +138,8 @@ during create<br>See [Metadata](#waf-exclusion-rules-metadata) below.
 
 An [`app_firewall_detection_control`](#control-b277f9) block (within [`waf_exclusion_rules`](#waf-exclusion-rules)) supports the following:
 
-<a id="contexts-73e1d1"></a>&#x2022; [`exclude_attack_type_contexts`](#contexts-73e1d1) - Optional Block<br>Attack Types to be excluded for the defined match criteria<br>See [Exclude Attack Type Contexts](#contexts-73e1d1) below.
+<a id="contexts-73e1d1"></a>&#x2022; [`exclude_attack_type_contexts`](#contexts-73e1d1) - Optional Block<br>Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected<br>See [Exclude Attack Type
+Contexts](#contexts-73e1d1) below.
 
 <a id="contexts-c4dd1b"></a>&#x2022; [`exclude_bot_name_contexts`](#contexts-c4dd1b) - Optional Block<br>Bot Names to be excluded for the defined match criteria<br>See [Exclude Bot Name Contexts](#contexts-c4dd1b) below.
 
