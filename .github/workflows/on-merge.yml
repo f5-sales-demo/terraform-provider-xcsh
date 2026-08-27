@@ -751,12 +751,16 @@ jobs:
 
       - name: Regenerate provider (if needed)
         if: needs.regenerate-provider.outputs.changed == 'true'
+        env:
+          GOGC: "10"
+          GOMEMLIMIT: 4GiB
+          GOMAXPROCS: "1"
         run: |
           echo "::group::Generate provider code"
           go run tools/generate-all-schemas.go --spec-dir=docs/specifications/api
           echo "::endgroup::"
           scripts/go-retry.sh 3 go mod tidy
-          scripts/go-retry.sh 3 go build -v ./...
+          scripts/go-retry.sh 3 go build -p 1 -gcflags='all=-N -l' -v ./...
 
       - name: Regenerate and validate documentation (if needed)
         # Regenerate docs if:
@@ -788,12 +792,16 @@ jobs:
         # _test.go entirely. Failing here means no PR and a red on-merge run,
         # which is the correct outcome: hand-written code has to catch up with
         # codegen before the regeneration can land.
+        env:
+          GOGC: "10"
+          GOMEMLIMIT: 4GiB
+          GOMAXPROCS: "1"
         run: |
           echo "::group::go build ./..."
-          go build ./...
+          scripts/go-retry.sh 3 go build -p 1 -gcflags='all=-N -l' ./...
           echo "::endgroup::"
           echo "::group::go vet ./..."
-          go vet ./...
+          scripts/go-retry.sh 3 go vet -p 1 ./...
           echo "::endgroup::"
           echo "::group::go vet (build-ignored generators)"
           scripts/vet-build-ignored-tools.sh

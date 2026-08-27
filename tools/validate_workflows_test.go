@@ -209,26 +209,45 @@ func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
 }
 
 func TestProviderRegenerationVerificationIsMemoryBounded(t *testing.T) {
-	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_generate-provider.yml"))
-	if err != nil {
-		t.Fatalf("read provider regeneration workflow: %v", err)
+	workflows := map[string]struct {
+		envCount int
+		commands []string
+	}{
+		"_generate-provider.yml": {
+			envCount: 2,
+			commands: []string{
+				`go build -p 1 -gcflags='all=-N -l' -v ./...`,
+				`go vet -p 1 ./...`,
+			},
+		},
+		"on-merge.yml": {
+			envCount: 2,
+			commands: []string{
+				`go build -p 1 -gcflags='all=-N -l' -v ./...`,
+				`go build -p 1 -gcflags='all=-N -l' ./...`,
+				`go vet -p 1 ./...`,
+			},
+		},
 	}
-	workflow := string(content)
-	for _, fragment := range []string{
-		`GOGC: "10"`,
-		`GOMEMLIMIT: 4GiB`,
-		`GOMAXPROCS: "1"`,
-	} {
-		if count := strings.Count(workflow, fragment); count != 2 {
-			t.Errorf("provider regeneration build and vet must each contain %q; found %d", fragment, count)
+	for name, contract := range workflows {
+		content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", name))
+		if err != nil {
+			t.Fatalf("read provider regeneration workflow %s: %v", name, err)
 		}
-	}
-	for _, fragment := range []string{
-		`go build -p 1 -gcflags='all=-N -l' -v ./...`,
-		`go vet -p 1 ./...`,
-	} {
-		if !strings.Contains(workflow, fragment) {
-			t.Errorf("provider regeneration memory contract is missing %q", fragment)
+		workflow := string(content)
+		for _, fragment := range []string{
+			`GOGC: "10"`,
+			`GOMEMLIMIT: 4GiB`,
+			`GOMAXPROCS: "1"`,
+		} {
+			if count := strings.Count(workflow, fragment); count != contract.envCount {
+				t.Errorf("%s regeneration compile gates must each contain %q; found %d", name, fragment, count)
+			}
+		}
+		for _, fragment := range contract.commands {
+			if !strings.Contains(workflow, fragment) {
+				t.Errorf("%s regeneration memory contract is missing %q", name, fragment)
+			}
 		}
 	}
 }
