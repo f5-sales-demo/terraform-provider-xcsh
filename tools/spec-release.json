@@ -1,18 +1,18 @@
 {
   "assets": {
-    "api-catalog.json": "sha256:49dcf431c431c8885147b93c5577517ec04d2debc27755c7ad706260c3863f71",
-    "concurrency_contracts.json": "sha256:d55b0b922cad740094135207659fae9dc9b19551649d831a6dd626c8930fe96b",
-    "f5xc-api-specs-v2.1.225.zip": "sha256:2e20318663ee277716258ff9d5466047ad2b8744f7e2000a5fc3c3ac419bc043",
-    "index.json": "sha256:fbe2588b2fe5a519abdc6b0086d285e2b8c542b444ee557bc80ad72790023ceb",
-    "minimal-export-defaults.json": "sha256:04530701b3cf59d0153c61e4232d3622e12bf6e299b7dc41214b6427ee1bb411",
-    "openapi.json": "sha256:ca4218b57d5cb911507df577052e7adf41a53a23ed7f25e9a59575085c056a66",
-    "smsv2-contract-manifest.json": "sha256:0aee71b72bccac5ccf0971601c978f590d277555bafcb158a16b6aed9fd3e375",
+    "api-catalog.json": "sha256:302b6351c2ec9efe38971689c8ad87c4c13f2951cb7cb2a0b7386745e319c593",
+    "concurrency_contracts.json": "sha256:88f8be48b968eb71c988c97bc3ab2e6ceca85d8b823629b90f8b7396bec5fef9",
+    "f5xc-api-specs-v3.0.0.zip": "sha256:ac0637ec6f9d4c2db9eabc76c9b44af5d3ba893a1febcbe780441a3a2a65314f",
+    "index.json": "sha256:c8074c1ee708931bb647c9479604a5e311a67411fe391924e2df82f3b92e2af8",
+    "minimal-export-defaults.json": "sha256:daeec8253edb5c3e3fda5dc1b3f40b9f40fc6dfc563732ae49098a0a76023107",
+    "openapi.json": "sha256:b9aefb9909789849819e56b8e4bdc5044b413692b0c1c429ee764b95d3117824",
+    "smsv2-contract-manifest.json": "sha256:35ac80b118bb0a4ab790fbea01b81aff232fa8582717e49f91e02e63d7a995c5",
     "smsv2-contract.json": "sha256:10f26956752287d5530fc13e1acbe497f9be4a997e474ad466b06d8dee7ce31b",
     "smsv2-evidence-receipt.json": "sha256:1d4f064372663d30f52d56faacacd762824cfd72d9e34058a5579b4384cc2509",
-    "smsv2_parity_manifest.json": "sha256:797d1c817fd24e3b6379e13fc61af372026f355daaa7da9515fee18c9f019cb7",
+    "smsv2_parity_manifest.json": "sha256:ada56c1c03e0329a1268b4ba759e2a0c2978e46cff3b420b1802180c0e09beed",
     "upstream-contract-removals.json": "sha256:aa1674550ad10b051bf03a4b860145f8d01724bc89b438c84fc99d94aa261957"
   },
-  "release_tag": "v2.1.225",
-  "target_commit": "1926dc8d6cb6d593a23311dc3aac9d8b47b510ef",
-  "version": "2.1.225"
+  "release_tag": "v3.0.0",
+  "target_commit": "7543b98a6f71d979013e960bbcb32c75ce89d307",
+  "version": "3.0.0"
 }
