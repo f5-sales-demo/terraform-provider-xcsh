@@ -60,13 +60,9 @@ resource "xcsh_virtual_network" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="global-network"></a>[`global_network`](#global-network) - Optional Block<br>Configuration parameter for global network
-<br><br>&#x2022; <a id="legacy-type"></a>[`legacy_type`](#legacy-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
-`VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
-VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
-Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
-<br><br>&#x2022; <a id="site-local-inside-network"></a>[`site_local_inside_network`](#site-local-inside-network) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="site-local-network"></a>[`site_local_network`](#site-local-network) - Optional Block<br>Enable this option
+&#x2022; <a id="global-network"></a>[`global_network`](#global-network) - Optional Block<br>Select the global virtual-network scope for connectivity across participating sites
+<br><br>&#x2022; <a id="site-local-inside-network"></a>[`site_local_inside_network`](#site-local-inside-network) - Optional Block<br>Select the site-local inside network for site-internal connectivity
+<br><br>&#x2022; <a id="site-local-network"></a>[`site_local_network`](#site-local-network) - Optional Block<br>Select a site-local virtual network when connectivity must remain within one site
 
 <a id="static-routes"></a>&#x2022; [`static_routes`](#static-routes) - Optional Block<br>List of static routes on the virtual network<br>See [Static Routes](#static-routes) below for details.
 

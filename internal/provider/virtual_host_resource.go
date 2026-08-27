@@ -10,8 +10,6 @@ import (
 	"strings"
 	"time"
 
-	"regexp"
-
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
@@ -27,6 +25,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
@@ -380,7 +379,6 @@ var VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTypes = map[s
 // VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *VirtualHostEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *VirtualHostEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *VirtualHostEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *VirtualHostEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -388,7 +386,6 @@ type VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationM
 // VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
 var VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -1791,16 +1788,13 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"default_header_transformation": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"legacy_header_transformation": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
+										MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 									},
 									"preserve_case_header_transformation": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
+										MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 									},
 									"proper_case_header_transformation": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
+										MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 									},
 								},
 							},
@@ -3285,9 +3279,6 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
-				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-				}
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
@@ -4764,15 +4755,6 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
-										}
-										return nil
-									}(),
-									LegacyHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-										}
-										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil
@@ -7279,15 +7261,6 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 										}
 										return nil
 									}(),
-									LegacyHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-										}
-										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
-										}
-										return nil
-									}(),
 									PreserveCaseHeaderTransformation: func() *VirtualHostEmptyModel {
 										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -9381,9 +9354,6 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
-				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
-				}
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
@@ -10950,15 +10920,6 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
-										}
-										return nil
-									}(),
-									LegacyHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation
-										}
-										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 											return &VirtualHostEmptyModel{}
 										}
 										return nil

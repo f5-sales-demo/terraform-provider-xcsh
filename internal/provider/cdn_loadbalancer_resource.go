@@ -10,8 +10,6 @@ import (
 	"strings"
 	"time"
 
-	"regexp"
-
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
@@ -26,6 +24,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
@@ -5200,7 +5199,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"api_endpoint_rules": schema.ListNestedBlock{
-						MarkdownDescription: "Sets of rules for a specific endpoints. Order is matter as it uses first match policy. For creating rule that contain a whole domain or group of endpoints, please use the server URL rules above.",
+						MarkdownDescription: "Ordered endpoint-specific rate-limit rules. Each rule must choose exactly one rate_limiter_choice: inline_rate_limiter or ref_rate_limiter.",
 						Validators:          []validator.List{validators.RequiredListObjectAttributes("api_endpoint_path")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -6295,7 +6294,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						MarkdownDescription: "Enable this option",
 					},
 					"server_url_rules": schema.ListNestedBlock{
-						MarkdownDescription: "Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below.",
+						MarkdownDescription: "Ordered domain or base-path rules for path-scoped rate limiting. Each rule must choose exactly one rate_limiter_choice: inline_rate_limiter or ref_rate_limiter.",
 						Validators:          []validator.List{validators.RequiredListObjectAttributes("base_path")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -6515,7 +6514,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 								},
 								"inline_rate_limiter": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inline rate limiter.",
+									MarkdownDescription: "Inline rate-limiter settings for this domain, base-path, or endpoint rule. Select this field as the required rate_limiter_choice when no stored rate-limiter object is used.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("threshold")},
 									Attributes: map[string]schema.Attribute{
 										"threshold": schema.Int64Attribute{
@@ -7017,10 +7016,10 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										Blocks: map[string]schema.Block{
 											"enforcement_block": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
 											},
 											"enforcement_report": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
 											},
 										},
 									},
@@ -7031,7 +7030,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "Enable this option",
 									},
 									"validation_mode_active": schema.SingleNestedBlock{
-										MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of request.",
+										MarkdownDescription: "Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403.",
 										Validators:          []validator.Object{validators.RequiredObjectAttributes("request_validation_properties")},
 										Attributes: map[string]schema.Attribute{
 											"request_validation_properties": schema.ListAttribute{
@@ -7045,10 +7044,10 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										Blocks: map[string]schema.Block{
 											"enforcement_block": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
 											},
 											"enforcement_report": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
+												MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
 											},
 										},
 									},
@@ -7240,10 +7239,10 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 													Blocks: map[string]schema.Block{
 														"enforcement_block": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
 														},
 														"enforcement_report": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
 														},
 													},
 												},
@@ -7254,7 +7253,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Enable this option",
 												},
 												"validation_mode_active": schema.SingleNestedBlock{
-													MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of request.",
+													MarkdownDescription: "Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403.",
 													Validators:          []validator.Object{validators.RequiredObjectAttributes("request_validation_properties")},
 													Attributes: map[string]schema.Attribute{
 														"request_validation_properties": schema.ListAttribute{
@@ -7268,10 +7267,10 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 													Blocks: map[string]schema.Block{
 														"enforcement_block": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
 														},
 														"enforcement_report": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
 														},
 													},
 												},
@@ -11996,7 +11995,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"exclude_attack_type_contexts": schema.ListNestedBlock{
-													MarkdownDescription: "Attack Types to be excluded for the defined match criteria.",
+													MarkdownDescription: "Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
 															"context": schema.StringAttribute{
@@ -12007,7 +12006,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																},
 															},
 															"context_name": schema.StringAttribute{
-																MarkdownDescription: "Relevant only for contexts: Header, Cookie and Parameter. Name of the Context that the WAF Exclusion Rules will check. Wildcard matching can be used by prefixing or suffixing the context name with an wildcard asterisk (*).",
+																MarkdownDescription: "Parameter, cookie, or header name selected by context. For a parameter-scoped WAF exception, set context to CONTEXT_PARAMETER and name only the intended parameter.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthAtMost(128),

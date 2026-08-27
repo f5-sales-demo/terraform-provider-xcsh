@@ -158,7 +158,7 @@ func (r *APIDefinitionResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 			},
 			"swagger_specs": schema.ListAttribute{
-				MarkdownDescription: "Define your application API by single or multiple OpenAPI files. 1. Upload your OpenAPI files via Web App & API Protection-> Files-> Swagger Files. 2. Select from the list of uploaded files. Defaults to `[]`. Server applies default when omitted.",
+				MarkdownDescription: "URLs of versioned OpenAPI files uploaded through Web App & API Protection > Files > Swagger Files. The 512-byte item limit is a URL-length limit; inline string:/// OpenAPI content is rejected and does not create an API-definition object. Defaults to `[]`. Server applies default when omitted.",
 				Optional:            true,
 				Computed:            true,
 				ElementType:         types.StringType,

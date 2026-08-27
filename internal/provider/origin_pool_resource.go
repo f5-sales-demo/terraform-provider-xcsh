@@ -10,8 +10,6 @@ import (
 	"strings"
 	"time"
 
-	"regexp"
-
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
@@ -26,6 +24,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
@@ -667,7 +666,6 @@ var OriginPoolAdvancedOptionsHttp1ConfigModelAttrTypes = map[string]attr.Type{
 // OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel represents header_transformation block
 type OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel struct {
 	DefaultHeaderTransformation      *OriginPoolEmptyModel `tfsdk:"default_header_transformation"`
-	LegacyHeaderTransformation       *OriginPoolEmptyModel `tfsdk:"legacy_header_transformation"`
 	PreserveCaseHeaderTransformation *OriginPoolEmptyModel `tfsdk:"preserve_case_header_transformation"`
 	ProperCaseHeaderTransformation   *OriginPoolEmptyModel `tfsdk:"proper_case_header_transformation"`
 }
@@ -675,7 +673,6 @@ type OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel struct {
 // OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModelAttrTypes defines the attribute types for OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel
 var OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModelAttrTypes = map[string]attr.Type{
 	"default_header_transformation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"legacy_header_transformation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"preserve_case_header_transformation": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"proper_case_header_transformation":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -1909,16 +1906,13 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"default_header_transformation": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"legacy_header_transformation": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
+										MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
 									},
 									"preserve_case_header_transformation": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
+										MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
 									},
 									"proper_case_header_transformation": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
+										MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
 									},
 								},
 							},
@@ -2861,9 +2855,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				AdvancedOptionsHttp1ConfigHeaderTransformationMap := make(map[string]interface{})
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-				}
-				if data.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
-					AdvancedOptionsHttp1ConfigHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 				}
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -4199,15 +4190,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
-										}
-										return nil
-									}(),
-									LegacyHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
-											return data.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-										}
-										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 											return &OriginPoolEmptyModel{}
 										}
 										return nil
@@ -5995,15 +5977,6 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 										}
 										return nil
 									}(),
-									LegacyHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
-											return data.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-										}
-										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
-										}
-										return nil
-									}(),
 									PreserveCaseHeaderTransformation: func() *OriginPoolEmptyModel {
 										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
@@ -7158,9 +7131,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				AdvancedOptionsHttp1ConfigHeaderTransformationMap := make(map[string]interface{})
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
-				}
-				if data.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
-					AdvancedOptionsHttp1ConfigHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 				}
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
@@ -8544,15 +8514,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
-										}
-										return nil
-									}(),
-									LegacyHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
-											return data.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation
-										}
-										if _, ok := HeaderTransformationData["legacy_header_transformation"].(map[string]interface{}); ok {
 											return &OriginPoolEmptyModel{}
 										}
 										return nil
