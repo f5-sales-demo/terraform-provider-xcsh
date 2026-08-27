@@ -14,7 +14,7 @@ terraform {
 # Look up an existing Srv6NetworkSlice by name
 data "xcsh_srv6_network_slice" "example" {
   name      = "example-srv6-network-slice"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "srv6_network_slice_id" {

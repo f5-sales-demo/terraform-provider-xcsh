@@ -14,7 +14,7 @@ terraform {
 # Look up an existing GeoLocationSet by name
 data "xcsh_geo_location_set" "example" {
   name      = "example-geo-location-set"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "geo_location_set_id" {

@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
@@ -25,6 +26,22 @@ import (
 // optional metadata (e.g. description, disable) but are marked Required for some resources.
 // Optional metadata (labels, annotations) is naturally excluded because it is not Required.
 var exampleIdentityFields = map[string]bool{"name": true, "namespace": true}
+
+// ExampleNamespace returns the namespace value to use in a generated example.
+// A single-value namespace constraint in the committed provider schema is
+// authoritative; resources without one retain their namespace-classification
+// fallback.
+func ExampleNamespace(rt *openapi.ResourceTemplate, resourceName string) string {
+	if rt != nil {
+		for _, attribute := range rt.Attributes {
+			if attribute.TfsdkTag == "namespace" && len(attribute.EnumValues) == 1 {
+				return attribute.EnumValues[0]
+			}
+		}
+	}
+	_, namespaceValue := namespace.ForResource(resourceName)
+	return namespaceValue
+}
 
 // RenderResourceExampleHCL renders a minimal valid HCL example for a resource.
 func RenderResourceExampleHCL(rt *openapi.ResourceTemplate, resourceName, namespaceVal string) string {

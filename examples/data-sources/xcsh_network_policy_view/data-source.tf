@@ -14,7 +14,7 @@ terraform {
 # Look up an existing NetworkPolicyView by name
 data "xcsh_network_policy_view" "example" {
   name      = "example-network-policy-view"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "network_policy_view_id" {

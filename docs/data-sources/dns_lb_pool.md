@@ -30,7 +30,7 @@ terraform {
 # Look up an existing DNSLBPool by name
 data "xcsh_dns_lb_pool" "example" {
   name      = "example-dns-lb-pool"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "dns_lb_pool_id" {

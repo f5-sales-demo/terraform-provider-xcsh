@@ -14,7 +14,7 @@ terraform {
 # Look up an existing NetworkFirewall by name
 data "xcsh_network_firewall" "example" {
   name      = "example-network-firewall"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "network_firewall_id" {
