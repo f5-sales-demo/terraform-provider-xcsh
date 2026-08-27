@@ -675,7 +675,7 @@ An [`api_key`](#new-relic-receiver-api-key) block (within [`new_relic_receiver`]
 
 A [`ns_list`](#ns-list) block supports the following:
 
-<a id="ns-list-namespaces"></a>&#x2022; [`namespaces`](#ns-list-namespaces) - Optional List<br>List of namespaces to stream logs for
+<a id="ns-list-namespaces"></a>&#x2022; [`namespaces`](#ns-list-namespaces) - Optional List<br>Namespaces. List of namespaces to stream logs for
 
 #### Qradar Receiver
 

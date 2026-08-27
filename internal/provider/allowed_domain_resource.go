@@ -440,118 +440,14 @@ func (r *AllowedDomainResource) Update(ctx context.Context, req resource.UpdateR
 		return
 	}
 
-	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
-	resp.Diagnostics.Append(diags...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
-	defer cancel()
-
-	apiResource := &client.AllowedDomain{
-		Metadata: client.Metadata{
-			Name:      data.Name.ValueString(),
-			Namespace: data.Namespace.ValueString(),
-		},
-		Spec: make(map[string]interface{}),
-	}
-
-	if !data.Description.IsNull() {
-		apiResource.Metadata.Description = data.Description.ValueString()
-	}
-
-	if !data.Labels.IsNull() {
-		labels := make(map[string]string)
-		resp.Diagnostics.Append(data.Labels.ElementsAs(ctx, &labels, false)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
-		apiResource.Metadata.Labels = labels
-	}
-
-	// Re-capture ownership on every update, because the configuration's label set can
-	// change: a key added here becomes owned, and a key removed stops being owned so the
-	// next Read filters it again if it lives in a platform namespace (#1398).
-	//
-	// Captured HERE, before the platform's own discovery labels are merged in below —
-	// merging first would record those as configuration-owned and reintroduce exactly the
-	// #1391 bug this pairs with. Written to private state only after the API call
-	// succeeds; see the note at the write site.
-	ownedLabelKeys, ownedLabelErr := encodeOwnedLabelKeys(configLabelKeys(apiResource.Metadata.Labels))
-	if ownedLabelErr != nil {
-		resp.Diagnostics.AddError(
-			"Unable to Record Owned Label Keys",
-			"Could not encode the configuration's label keys for private state: "+ownedLabelErr.Error()+
-				"\n\nWithout this record the read-back cannot distinguish a label this "+
-				"configuration owns from one the platform authored, and a label in the "+
-				"ves.io/ namespace would never converge.",
-		)
-		return
-	}
-
-	if !data.Annotations.IsNull() {
-		annotations := make(map[string]string)
-		resp.Diagnostics.Append(data.Annotations.ElementsAs(ctx, &annotations, false)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
-		apiResource.Metadata.Annotations = annotations
-	}
-
-	// Marshal spec fields from Terraform state to API struct
-	if !data.AllowedDomain.IsNull() && !data.AllowedDomain.IsUnknown() {
-		apiResource.Spec["allowed_domain"] = data.AllowedDomain.ValueString()
-	}
-
-	_, err := r.client.UpdateAllowedDomain(ctx, apiResource)
-	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update AllowedDomain: %s", err))
-		return
-	}
-
-	// Only now that the write has landed. terraform-plugin-framework persists private
-	// state even when the method returns an error (it copies updateResp.Private into the
-	// response before checking diagnostics), so recording ownership earlier would be
-	// worse than not recording it: dropping a ves.io/ label from the configuration and
-	// then failing the update would leave private state claiming the key is unowned while
-	// the server still holds it, and Read would filter it out of sight for good.
-	//
-	// This is not airtight, and cannot be: Client.Put returns json.Unmarshal's error
-	// after a 2xx, so an error does not strictly prove the write was rejected. What it
-	// does guarantee is the direction of the residual. If the write landed and we return
-	// early, ownership stays as it was — an added label keeps being planned, which is
-	// visible and self-corrects on the next successful apply. The opposite ordering loses
-	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	// Use plan data for ID since API response may not include metadata.name
-	data.ID = types.StringValue(data.Name.ValueString())
-
-	// Fetch the resource to get complete state including computed fields
-	// PUT responses may not include all computed nested fields (like tenant in Object Reference blocks)
-	fetched, fetchErr := r.client.GetAllowedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
-	if fetchErr != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AllowedDomain after update: %s", fetchErr))
-		return
-	}
-
-	// Set computed fields from API response
-
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["allowed_domain"].(string); ok && v != "" {
-		data.AllowedDomain = types.StringValue(v)
-	} else {
-		data.AllowedDomain = types.StringNull()
-	}
-
-	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	// The released operation/concurrency contracts do not classify this object
+	// as safely replaceable. Every configurable field requires replacement; fail
+	// closed without a PUT if Update is nevertheless invoked.
+	resp.Diagnostics.AddError(
+		"Update Not Supported",
+		"This API object does not expose a refreshable configuration token and cannot be updated safely. Replace the Terraform resource instead.",
+	)
+	return
 }
 
 func (r *AllowedDomainResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {

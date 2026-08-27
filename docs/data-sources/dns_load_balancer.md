@@ -30,7 +30,7 @@ terraform {
 # Look up an existing DNSLoadBalancer by name
 data "xcsh_dns_load_balancer" "example" {
   name      = "example-dns-load-balancer"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "dns_load_balancer_id" {

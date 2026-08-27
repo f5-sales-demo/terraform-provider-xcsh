@@ -22,7 +22,11 @@ import (
 const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 
-var canonicalSelfHostedRunsOn = []string{
+var canonicalManagedSocketlessRunsOn = []string{
+	"managed-socketless",
+}
+
+var canonicalLegacySelfHostedRunsOn = []string{
 	"self-hosted", "Linux", "X64", repositoryRunnerLabel, "ubuntu-24.04",
 }
 
@@ -101,6 +105,7 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 				"scripts/test-check-spec-version-freshness.sh",
 				"scripts/prepare-spec-delivery-receipt.sh",
 				"scripts/validate-provider-delivery-state.sh",
+				"scripts/is-pending-delivery-active.sh",
 				"scripts/is-release-recovery-only.sh",
 			}, "\n"),
 			allowed: true,
@@ -143,6 +148,49 @@ func TestOnMergeGeneratorStateClassifier(t *testing.T) {
 	}
 }
 
+func TestOnMergePendingRecoveryPrecedesMetadataOnlySkip(t *testing.T) {
+	workflowBytes, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	workflow := string(workflowBytes)
+	recoveryAwareMetadataGuard := `elif [[ "$DELIVERY_METADATA_ONLY" == "true" && "$PENDING_DELIVERY" != "true" ]]; then`
+	if !strings.Contains(workflow, recoveryAwareMetadataGuard) {
+		t.Errorf("pending recovery must bypass the metadata-only skip; missing %q", recoveryAwareMetadataGuard)
+	}
+}
+
+func TestPendingDeliveryActiveClassifier(t *testing.T) {
+	script := filepath.Join("..", "scripts", "is-pending-delivery-active.sh")
+	tempDir := t.TempDir()
+	pending := filepath.Join(tempDir, "spec-pending-delivery.json")
+
+	run := func(changedPaths, resume string) error {
+		cmd := exec.Command(script, pending, resume)
+		cmd.Stdin = strings.NewReader(changedPaths)
+		return cmd.Run()
+	}
+
+	if err := run(pending+"\n", "false"); err == nil {
+		t.Fatal("deleted pending-delivery path must not resume generation")
+	}
+	if err := os.WriteFile(pending, []byte("{}\n"), 0o600); err != nil {
+		t.Fatalf("create pending delivery: %v", err)
+	}
+	if err := run(pending+"\n", "false"); err != nil {
+		t.Fatalf("extant changed pending delivery must resume generation: %v", err)
+	}
+	if err := os.Remove(pending); err != nil {
+		t.Fatalf("remove pending delivery: %v", err)
+	}
+	if err := run("", "true"); err != nil {
+		t.Fatalf("explicit pending recovery must resume generation: %v", err)
+	}
+	if err := run("", "invalid"); err == nil {
+		t.Fatal("invalid resume-pending value must fail closed")
+	}
+}
+
 func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", "scripts", "generate-provider-docs.sh"))
 	if err != nil {
@@ -161,14 +209,14 @@ func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
 }
 
 var protectedJobs = []jobContract{
-	{"acc-tests.yml", "mock-tests", canonicalSelfHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
-	{"acc-tests.yml", "real-api-tests", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"acc-tests.yml", "cleanup", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"discover-defaults.yml", "discover", canonicalSelfHostedRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"sync-openapi.yml", "sync", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
-	{"on-merge.yml", "create-regeneration-pr", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"acc-tests.yml", "mock-tests", canonicalManagedSocketlessRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
+	{"acc-tests.yml", "real-api-tests", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"acc-tests.yml", "cleanup", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"discover-defaults.yml", "discover", canonicalManagedSocketlessRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"sync-openapi.yml", "sync", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
+	{"on-merge.yml", "create-regeneration-pr", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
 	{"on-merge.yml", "tag-release", nil, "", map[string]string{"contents": "write"}, []string{"push", "workflow_dispatch"}, nil, []string{"GPG_PRIVATE_KEY", "PASSPHRASE", "REPO_SYNC_TOKEN"}},
-	{"on-merge.yml", "receipt-spec-delivery", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"on-merge.yml", "receipt-spec-delivery", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
 	{"auto-merge.yml", "require-token", []string{"ubuntu-latest"}, "repository-settings", map[string]string{}, []string{"pull_request"}, nil, []string{"REPO_SYNC_TOKEN"}},
 }
 
@@ -380,8 +428,8 @@ func validateWorkflowBytes(filename string, content []byte, policySchema int) []
 	contracts := map[string]jobContract{}
 	for _, contract := range protectedJobs {
 		if contract.workflow == filename {
-			if policySchema == 3 && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
-				contract.runsOn = canonicalSelfHostedRunsOn
+			if (policySchema == 3 || policySchema == 4) && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
+				contract.runsOn = canonicalManagedSocketlessRunsOn
 			}
 			contracts[contract.job] = contract
 		}
@@ -423,7 +471,7 @@ func validateWorkflowBytes(filename string, content []byte, policySchema int) []
 		if runErr == nil {
 			canonicalRunsOn = canonicalizeRunsOn(runsOn, &errors, jobID)
 		}
-		if isSelfHosted && !reflect.DeepEqual(canonicalRunsOn, canonicalSelfHostedRunsOn) {
+		if isSelfHosted && !reflect.DeepEqual(canonicalRunsOn, canonicalLegacySelfHostedRunsOn) {
 			errors = append(errors, jobID+": invalid self-hosted tuple")
 		}
 		contract, listed := contracts[jobID]
@@ -535,7 +583,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	selfHosted := map[string]bool{}
+	managedSocketless := map[string]bool{}
 	for _, path := range entries {
 		content, err := os.ReadFile(path)
 		if err != nil {
@@ -551,8 +599,8 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		}
 		for jobID, job := range workflow.Jobs {
 			runsOn, _ := stringSlice(job["runs-on"])
-			if slicesContain(runsOn, "self-hosted") {
-				selfHosted[filename+"/"+jobID] = true
+			if slicesContain(runsOn, "managed-socketless") {
+				managedSocketless[filename+"/"+jobID] = true
 			}
 			steps, _ := job["steps"].([]any)
 			for _, raw := range steps {
@@ -599,11 +647,21 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		expected["dependabot-auto-merge.yml/auto-merge"] = true
 		expected["semgrep.yml/semgrep"] = true
 		expected["workflow-security-audit.yml/audit"] = true
+	case 4:
+		// Schema v4 retains the managed fleet and adds its tool-cache smoke test.
+		expected["auto-merge.yml/require-token"] = true
+		expected["dependabot-auto-merge.yml/auto-merge"] = true
+		expected["semgrep.yml/semgrep"] = true
+		expected["workflow-security-audit.yml/audit"] = true
+		delete(expected, "enforce-repo-settings.yml/resolve-source")
+		delete(expected, "require-linked-issue.yml/check")
+		expected["require-linked-issue.yml/check-linked-issues"] = true
+		expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
 	default:
 		t.Fatalf("unsupported runner policy schema version: %d", policy.SchemaVersion)
 	}
-	if !reflect.DeepEqual(selfHosted, expected) {
-		t.Fatalf("self-hosted inventory mismatch: %v", selfHosted)
+	if !reflect.DeepEqual(managedSocketless, expected) {
+		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
 	}
 }
 
@@ -617,7 +675,7 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 			return strings.Replace(s, "cron: '0 2 * * 1'", "cron: '0 3 * * 1'", 1)
 		},
 		"changed dispatch mode": func(s string) string {
-			return strings.Replace(s, "          - real-only      # Sequential real API tests (self-hosted)", "          - unsafe-mode    # unauthorized dispatch mode", 1)
+			return strings.Replace(s, "          - real-only      # Sequential real API tests (repository-scoped ARC)", "          - unsafe-mode    # unauthorized dispatch mode", 1)
 		},
 		"changed PR path": func(s string) string {
 			return strings.Replace(s, "      - 'internal/blindfold/**'", "      - 'unsafe/**'", 1)

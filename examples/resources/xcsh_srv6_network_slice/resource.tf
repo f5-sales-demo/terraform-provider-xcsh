@@ -15,10 +15,7 @@ terraform {
 # Basic Srv6NetworkSlice configuration
 resource "xcsh_srv6_network_slice" "example" {
   name      = "example-srv6-network-slice"
-  namespace = "staging"
+  namespace = "system"
 
-  sid_prefixes                   = ["example-value"]
-  connect_to_access_networks     = true
-  connect_to_enterprise_networks = true
-  connect_to_internet            = true
+  sid_prefixes = ["example-value"]
 }

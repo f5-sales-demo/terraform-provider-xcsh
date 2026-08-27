@@ -64,7 +64,7 @@ resource "xcsh_subnet" "example" {
 <br><br>&#x2022; <a id="connect-to-slo"></a>[`connect_to_slo`](#connect-to-slo) - Optional Block<br>Configuration parameter for connect to slo
 <br><br>&#x2022; <a id="isolated-nw"></a>[`isolated_nw`](#isolated-nw) - Optional Block<br>Configuration parameter for isolated nw
 
-<a id="site-subnet-params"></a>&#x2022; [`site_subnet_params`](#site-subnet-params) - Optional Block<br>Configure subnet parameters per site<br>See [Site Subnet Params](#site-subnet-params) below for details.
+<a id="site-subnet-params"></a>&#x2022; [`site_subnet_params`](#site-subnet-params) - Optional Block<br>Site Subnet Parameters. Configure subnet parameters per site<br>See [Site Subnet Params](#site-subnet-params) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

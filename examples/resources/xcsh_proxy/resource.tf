@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_proxy" "example" {
   name      = "example-proxy"
   namespace = "staging"
-
-  connection_timeout = 1
 }

@@ -10,8 +10,9 @@ import (
 
 // AuthorizationServer represents a F5XC AuthorizationServer
 type AuthorizationServer struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateAuthorizationServer creates a new AuthorizationServer

@@ -10,8 +10,9 @@ import (
 
 // MaliciousUserMitigation represents a F5XC MaliciousUserMitigation
 type MaliciousUserMitigation struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateMaliciousUserMitigation creates a new MaliciousUserMitigation

@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -26,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -49,42 +51,6 @@ type AWSTGWSiteResource struct {
 
 // AWSTGWSiteEmptyModel represents empty nested blocks
 type AWSTGWSiteEmptyModel struct {
-}
-
-// AWSTGWSitePerformanceEnhancementModeModel represents performance_enhancement_mode block
-type AWSTGWSitePerformanceEnhancementModeModel struct {
-	PerfModeL3Enhanced *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
-}
-
-// AWSTGWSitePerformanceEnhancementModeModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModeModel
-var AWSTGWSitePerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
-	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
-}
-
-// AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
-type AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *AWSTGWSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *AWSTGWSiteEmptyModel `tfsdk:"no_jumbo"`
-}
-
-// AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel
-var AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
-	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-}
-
-// AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
-type AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *AWSTGWSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *AWSTGWSiteEmptyModel `tfsdk:"jumbo_enabled"`
-}
-
-// AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel
-var AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
-	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSTGWSiteAWSParametersModel represents aws_parameters block
@@ -527,6 +493,42 @@ type AWSTGWSiteOSModel struct {
 var AWSTGWSiteOSModelAttrTypes = map[string]attr.Type{
 	"operating_system_version": types.StringType,
 	"default_os_version":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AWSTGWSitePerformanceEnhancementModeModel represents performance_enhancement_mode block
+type AWSTGWSitePerformanceEnhancementModeModel struct {
+	PerfModeL3Enhanced *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
+	PerfModeL7Enhanced *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
+}
+
+// AWSTGWSitePerformanceEnhancementModeModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModeModel
+var AWSTGWSitePerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
+	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
+}
+
+// AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
+type AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel struct {
+	Jumbo   *AWSTGWSiteEmptyModel `tfsdk:"jumbo"`
+	NoJumbo *AWSTGWSiteEmptyModel `tfsdk:"no_jumbo"`
+}
+
+// AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel
+var AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *AWSTGWSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *AWSTGWSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel
+var AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSTGWSitePrivateConnectivityModel represents private_connectivity block
@@ -1187,7 +1189,6 @@ type AWSTGWSiteResourceModel struct {
 	Tags                       types.Map                                  `tfsdk:"tags"`
 	ID                         types.String                               `tfsdk:"id"`
 	Timeouts                   timeouts.Value                             `tfsdk:"timeouts"`
-	PerformanceEnhancementMode *AWSTGWSitePerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	AWSParameters              *AWSTGWSiteAWSParametersModel              `tfsdk:"aws_parameters"`
 	BlockAllServices           *AWSTGWSiteEmptyModel                      `tfsdk:"block_all_services"`
 	BlockedServices            *AWSTGWSiteBlockedServicesModel            `tfsdk:"blocked_services"`
@@ -1201,6 +1202,7 @@ type AWSTGWSiteResourceModel struct {
 	LogsStreamingDisabled      *AWSTGWSiteEmptyModel                      `tfsdk:"logs_streaming_disabled"`
 	OfflineSurvivabilityMode   *AWSTGWSiteOfflineSurvivabilityModeModel   `tfsdk:"offline_survivability_mode"`
 	OS                         *AWSTGWSiteOSModel                         `tfsdk:"os"`
+	PerformanceEnhancementMode *AWSTGWSitePerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	PrivateConnectivity        *AWSTGWSitePrivateConnectivityModel        `tfsdk:"private_connectivity"`
 	Sw                         *AWSTGWSiteSwModel                         `tfsdk:"sw"`
 	TGWSecurity                *AWSTGWSiteTGWSecurityModel                `tfsdk:"tgw_security"`
@@ -1256,7 +1258,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"tags": schema.MapAttribute{
 				MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 			},
 			"id": schema.StringAttribute{
@@ -1274,36 +1276,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Update: true,
 				Delete: true,
 			}),
-			"performance_enhancement_mode": schema.SingleNestedBlock{
-				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
-				Attributes:          map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"no_jumbo": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
-					},
-					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo_disabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"jumbo_enabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
-					},
-				},
-			},
 			"aws_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Setup AWS services VPC, transit gateway and site.",
 				Attributes: map[string]schema.Attribute{
@@ -1319,7 +1291,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 					"instance_type": schema.StringAttribute{
-						MarkdownDescription: "Instance size based on the performance.",
+						MarkdownDescription: "AWS Instance Type for Node. Instance size based on the performance.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -1367,7 +1339,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Optional:            true,
 									},
 									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
@@ -1453,7 +1425,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
-													MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 													Optional:            true,
 												},
 											},
@@ -1476,7 +1448,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
-													MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 													Optional:            true,
 												},
 											},
@@ -1502,7 +1474,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "Parameters for creating a new cloud subnet.",
 											Attributes: map[string]schema.Attribute{
 												"ipv4": schema.StringAttribute{
-													MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+													MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 													Optional:            true,
 												},
 											},
@@ -1541,7 +1513,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Configuration parameter for enable encryption.",
 						Attributes: map[string]schema.Attribute{
 							"kms_key_id": schema.StringAttribute{
-								MarkdownDescription: "AWS KMS Key to be used to encrypt the disk attached to the VM .",
+								MarkdownDescription: "AWS KMS Key to be used to encrypt the disk attached to the VM.",
 								Optional:            true,
 							},
 						},
@@ -1556,7 +1528,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Enter TGW ASN. TGW ASN.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(65535),
+									int64validator.Between(1, 65535),
 								},
 							},
 							"tgw_id": schema.StringAttribute{
@@ -1570,7 +1542,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Enter F5XC Site ASN. F5XC Site ASN.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(65535),
+									int64validator.Between(1, 65535),
 								},
 							},
 						},
@@ -1592,14 +1564,14 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										MarkdownDescription: "TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534.",
 										Optional:            true,
 										Validators: []validator.Int64{
-											int64validator.AtMost(65534),
+											int64validator.Between(64513, 65534),
 										},
 									},
 									"volterra_site_asn": schema.Int64Attribute{
 										MarkdownDescription: "Enter F5XC Site ASN. F5XC Site ASN.",
 										Optional:            true,
 										Validators: []validator.Int64{
-											int64validator.AtMost(65535),
+											int64validator.Between(1, 65535),
 										},
 									},
 								},
@@ -1637,7 +1609,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Parameters for creating a new cloud subnet.",
 						Attributes: map[string]schema.Attribute{
 							"ipv4": schema.StringAttribute{
-								MarkdownDescription: "IPv4 subnet prefix for this subnet .",
+								MarkdownDescription: "IPv4 Subnet. IPv4 subnet prefix for this subnet.",
 								Optional:            true,
 							},
 						},
@@ -1764,7 +1736,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 										},
 										"vif_id": schema.StringAttribute{
-											MarkdownDescription: "AWS Direct Connect VIF ID that needs to be connected to the site .",
+											MarkdownDescription: "AWS Direct Connect VIF ID that needs to be connected to the site.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1024),
@@ -1883,6 +1855,36 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
+			"performance_enhancement_mode": schema.SingleNestedBlock{
+				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Attributes:          map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
+						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"no_jumbo": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
+					},
+					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
+						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"jumbo_enabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
+					},
+				},
+			},
 			"private_connectivity": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for private connectivity.",
 				Attributes:          map[string]schema.Attribute{},
@@ -1989,7 +1991,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"enhanced_firewall_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active .",
+								MarkdownDescription: "Ordered List of Enhanced Firewall Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2027,7 +2029,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"forward_proxy_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Forward Proxy Policies active .",
+								MarkdownDescription: "Ordered List of Forward Proxy Policies active.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2065,7 +2067,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"network_policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall .",
+								MarkdownDescription: "Ordered List of Firewall Policies active for this network firewall.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2127,7 +2129,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Custom Ports. List of Custom port.",
 								Attributes: map[string]schema.Attribute{
 									"port_ranges": schema.StringAttribute{
-										MarkdownDescription: "Port Ranges. Port Ranges .",
+										MarkdownDescription: "Port Ranges. Port Ranges.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 512),
@@ -2157,7 +2159,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Custom Ports. List of Custom port.",
 								Attributes: map[string]schema.Attribute{
 									"port_ranges": schema.StringAttribute{
-										MarkdownDescription: "Port Ranges. Port Ranges .",
+										MarkdownDescription: "Port Ranges. Port Ranges.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 512),
@@ -2244,7 +2246,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
-								MarkdownDescription: "Global network connections .",
+								MarkdownDescription: "Global Network Connections. Global network connections.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -2330,7 +2332,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2437,7 +2439,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2508,7 +2510,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
-								MarkdownDescription: "List of Static Routes. List of Static routes .",
+								MarkdownDescription: "List of Static Routes. List of Static routes.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2615,7 +2617,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 													},
 												},
 												"subnets": schema.ListNestedBlock{
-													MarkdownDescription: "Subnets. List of route prefixes .",
+													MarkdownDescription: "Subnets. List of route prefixes.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2865,30 +2867,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.PerformanceEnhancementMode != nil {
-		PerformanceEnhancementModeMap := make(map[string]interface{})
-		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
-		}
-		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
-		}
-		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
-	}
 	if data.AWSParameters != nil {
 		AWSParametersMap := make(map[string]interface{})
 		if data.AWSParameters.AdminPassword != nil {
@@ -2925,9 +2903,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.AWSParameters.AWSCred.Namespace.IsNull() && !data.AWSParameters.AWSCred.Namespace.IsUnknown() {
 				AWSParametersAWSCredMap["namespace"] = data.AWSParameters.AWSCred.Namespace.ValueString()
-			}
-			if !data.AWSParameters.AWSCred.Tenant.IsNull() && !data.AWSParameters.AWSCred.Tenant.IsUnknown() {
-				AWSParametersAWSCredMap["tenant"] = data.AWSParameters.AWSCred.Tenant.ValueString()
 			}
 			AWSParametersMap["aws_cred"] = AWSParametersAWSCredMap
 		}
@@ -3238,9 +3213,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
@@ -3266,6 +3238,30 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["os"] = OSMap
 	}
+	if data.PerformanceEnhancementMode != nil {
+		PerformanceEnhancementModeMap := make(map[string]interface{})
+		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
+		}
+		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
+		}
+		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+	}
 	if data.PrivateConnectivity != nil {
 		PrivateConnectivityMap := make(map[string]interface{})
 		if data.PrivateConnectivity.CloudLink != nil {
@@ -3275,9 +3271,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.PrivateConnectivity.CloudLink.Namespace.IsNull() && !data.PrivateConnectivity.CloudLink.Namespace.IsUnknown() {
 				PrivateConnectivityCloudLinkMap["namespace"] = data.PrivateConnectivity.CloudLink.Namespace.ValueString()
-			}
-			if !data.PrivateConnectivity.CloudLink.Tenant.IsNull() && !data.PrivateConnectivity.CloudLink.Tenant.IsUnknown() {
-				PrivateConnectivityCloudLinkMap["tenant"] = data.PrivateConnectivity.CloudLink.Tenant.ValueString()
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
@@ -3325,9 +3318,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if !ServicePoliciesItem.Namespace.IsNull() && !ServicePoliciesItem.Namespace.IsUnknown() {
 							ServicePoliciesItemMap["namespace"] = ServicePoliciesItem.Namespace.ValueString()
 						}
-						if !ServicePoliciesItem.Tenant.IsNull() && !ServicePoliciesItem.Tenant.IsUnknown() {
-							ServicePoliciesItemMap["tenant"] = ServicePoliciesItem.Tenant.ValueString()
-						}
 						ServicePoliciesList = append(ServicePoliciesList, ServicePoliciesItemMap)
 					}
 					TGWSecurityActiveEastWestServicePoliciesMap["service_policies"] = ServicePoliciesList
@@ -3350,9 +3340,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
-						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
@@ -3377,9 +3364,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					TGWSecurityActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -3402,9 +3386,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -3486,9 +3467,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			if !data.VnConfig.DcClusterGroupInsideVn.Namespace.IsNull() && !data.VnConfig.DcClusterGroupInsideVn.Namespace.IsUnknown() {
 				VnConfigDcClusterGroupInsideVnMap["namespace"] = data.VnConfig.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
-			if !data.VnConfig.DcClusterGroupInsideVn.Tenant.IsNull() && !data.VnConfig.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				VnConfigDcClusterGroupInsideVnMap["tenant"] = data.VnConfig.DcClusterGroupInsideVn.Tenant.ValueString()
-			}
 			VnConfigMap["dc_cluster_group_inside_vn"] = VnConfigDcClusterGroupInsideVnMap
 		}
 		if data.VnConfig.DcClusterGroupOutsideVn != nil {
@@ -3498,9 +3476,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.VnConfig.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.VnConfig.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
 				VnConfigDcClusterGroupOutsideVnMap["namespace"] = data.VnConfig.DcClusterGroupOutsideVn.Namespace.ValueString()
-			}
-			if !data.VnConfig.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.VnConfig.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				VnConfigDcClusterGroupOutsideVnMap["tenant"] = data.VnConfig.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
 			VnConfigMap["dc_cluster_group_outside_vn"] = VnConfigDcClusterGroupOutsideVnMap
 		}
@@ -3524,9 +3499,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -3540,9 +3512,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VnConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VnConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								VnConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VnConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -3588,20 +3557,11 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -3721,20 +3681,11 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -3847,11 +3798,28 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetAWSTGWSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -3862,66 +3830,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &AWSTGWSitePerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["aws_parameters"].(map[string]interface{}); ok && (isImport || data.AWSParameters != nil) {
 		data.AWSParameters = &AWSTGWSiteAWSParametersModel{
 			AdminPassword: func() *AWSTGWSiteAWSParametersAdminPasswordModel {
@@ -4743,6 +4651,66 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &AWSTGWSitePerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
 			}(),
 		}
 	}
@@ -5941,6 +5909,16 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 		return
 	}
 
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -6013,66 +5991,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &AWSTGWSitePerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["aws_parameters"].(map[string]interface{}); ok && (isImport || data.AWSParameters != nil) {
 		data.AWSParameters = &AWSTGWSiteAWSParametersModel{
 			AdminPassword: func() *AWSTGWSiteAWSParametersAdminPasswordModel {
@@ -6894,6 +6812,66 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &AWSTGWSitePerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
 			}(),
 		}
 	}
@@ -8071,6 +8049,20 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.AWSTGWSite{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -8078,6 +8070,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -8159,30 +8152,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.PerformanceEnhancementMode != nil {
-		PerformanceEnhancementModeMap := make(map[string]interface{})
-		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
-		}
-		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
-			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
-				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
-			}
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
-		}
-		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
-	}
 	if data.AWSParameters != nil {
 		AWSParametersMap := make(map[string]interface{})
 		if data.AWSParameters.AdminPassword != nil {
@@ -8219,9 +8188,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if !data.AWSParameters.AWSCred.Namespace.IsNull() && !data.AWSParameters.AWSCred.Namespace.IsUnknown() {
 				AWSParametersAWSCredMap["namespace"] = data.AWSParameters.AWSCred.Namespace.ValueString()
-			}
-			if !data.AWSParameters.AWSCred.Tenant.IsNull() && !data.AWSParameters.AWSCred.Tenant.IsUnknown() {
-				AWSParametersAWSCredMap["tenant"] = data.AWSParameters.AWSCred.Tenant.ValueString()
 			}
 			AWSParametersMap["aws_cred"] = AWSParametersAWSCredMap
 		}
@@ -8532,9 +8498,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
 			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
 		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
 	if data.LogsStreamingDisabled != nil {
@@ -8560,6 +8523,30 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["os"] = OSMap
 	}
+	if data.PerformanceEnhancementMode != nil {
+		PerformanceEnhancementModeMap := make(map[string]interface{})
+		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
+		}
+		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
+		}
+		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+	}
 	if data.PrivateConnectivity != nil {
 		PrivateConnectivityMap := make(map[string]interface{})
 		if data.PrivateConnectivity.CloudLink != nil {
@@ -8569,9 +8556,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if !data.PrivateConnectivity.CloudLink.Namespace.IsNull() && !data.PrivateConnectivity.CloudLink.Namespace.IsUnknown() {
 				PrivateConnectivityCloudLinkMap["namespace"] = data.PrivateConnectivity.CloudLink.Namespace.ValueString()
-			}
-			if !data.PrivateConnectivity.CloudLink.Tenant.IsNull() && !data.PrivateConnectivity.CloudLink.Tenant.IsUnknown() {
-				PrivateConnectivityCloudLinkMap["tenant"] = data.PrivateConnectivity.CloudLink.Tenant.ValueString()
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
@@ -8619,9 +8603,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !ServicePoliciesItem.Namespace.IsNull() && !ServicePoliciesItem.Namespace.IsUnknown() {
 							ServicePoliciesItemMap["namespace"] = ServicePoliciesItem.Namespace.ValueString()
 						}
-						if !ServicePoliciesItem.Tenant.IsNull() && !ServicePoliciesItem.Tenant.IsUnknown() {
-							ServicePoliciesItemMap["tenant"] = ServicePoliciesItem.Tenant.ValueString()
-						}
 						ServicePoliciesList = append(ServicePoliciesList, ServicePoliciesItemMap)
 					}
 					TGWSecurityActiveEastWestServicePoliciesMap["service_policies"] = ServicePoliciesList
@@ -8644,9 +8625,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						if !EnhancedFirewallPoliciesItem.Namespace.IsNull() && !EnhancedFirewallPoliciesItem.Namespace.IsUnknown() {
 							EnhancedFirewallPoliciesItemMap["namespace"] = EnhancedFirewallPoliciesItem.Namespace.ValueString()
-						}
-						if !EnhancedFirewallPoliciesItem.Tenant.IsNull() && !EnhancedFirewallPoliciesItem.Tenant.IsUnknown() {
-							EnhancedFirewallPoliciesItemMap["tenant"] = EnhancedFirewallPoliciesItem.Tenant.ValueString()
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
@@ -8671,9 +8649,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !ForwardProxyPoliciesItem.Namespace.IsNull() && !ForwardProxyPoliciesItem.Namespace.IsUnknown() {
 							ForwardProxyPoliciesItemMap["namespace"] = ForwardProxyPoliciesItem.Namespace.ValueString()
 						}
-						if !ForwardProxyPoliciesItem.Tenant.IsNull() && !ForwardProxyPoliciesItem.Tenant.IsUnknown() {
-							ForwardProxyPoliciesItemMap["tenant"] = ForwardProxyPoliciesItem.Tenant.ValueString()
-						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
 					TGWSecurityActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
@@ -8696,9 +8671,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						if !NetworkPoliciesItem.Namespace.IsNull() && !NetworkPoliciesItem.Namespace.IsUnknown() {
 							NetworkPoliciesItemMap["namespace"] = NetworkPoliciesItem.Namespace.ValueString()
-						}
-						if !NetworkPoliciesItem.Tenant.IsNull() && !NetworkPoliciesItem.Tenant.IsUnknown() {
-							NetworkPoliciesItemMap["tenant"] = NetworkPoliciesItem.Tenant.ValueString()
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
@@ -8780,9 +8752,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			if !data.VnConfig.DcClusterGroupInsideVn.Namespace.IsNull() && !data.VnConfig.DcClusterGroupInsideVn.Namespace.IsUnknown() {
 				VnConfigDcClusterGroupInsideVnMap["namespace"] = data.VnConfig.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
-			if !data.VnConfig.DcClusterGroupInsideVn.Tenant.IsNull() && !data.VnConfig.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				VnConfigDcClusterGroupInsideVnMap["tenant"] = data.VnConfig.DcClusterGroupInsideVn.Tenant.ValueString()
-			}
 			VnConfigMap["dc_cluster_group_inside_vn"] = VnConfigDcClusterGroupInsideVnMap
 		}
 		if data.VnConfig.DcClusterGroupOutsideVn != nil {
@@ -8792,9 +8761,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if !data.VnConfig.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.VnConfig.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
 				VnConfigDcClusterGroupOutsideVnMap["namespace"] = data.VnConfig.DcClusterGroupOutsideVn.Namespace.ValueString()
-			}
-			if !data.VnConfig.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.VnConfig.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				VnConfigDcClusterGroupOutsideVnMap["tenant"] = data.VnConfig.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
 			VnConfigMap["dc_cluster_group_outside_vn"] = VnConfigDcClusterGroupOutsideVnMap
 		}
@@ -8818,9 +8784,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
-								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-								}
 								VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
 							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VnConfigGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
@@ -8834,9 +8797,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 									VnConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
-								}
-								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									VnConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
 								VnConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VnConfigGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
@@ -8882,20 +8842,11 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -9015,20 +8966,11 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -9137,6 +9079,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	_, err := r.client.UpdateAWSTGWSite(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of aws_tgw_site %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update AWSTGWSite: %s", err))
 		return
 	}
@@ -9154,10 +9104,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -9170,72 +9116,25 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
-		data.PerformanceEnhancementMode = &AWSTGWSitePerformanceEnhancementModeModel{
-			PerfModeL3Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
-				}
-				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						NoJumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
-							}
-							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
-				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
-				}
-				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-						JumboEnabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
-							}
-							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
-							}
-							return nil
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["aws_parameters"].(map[string]interface{}); ok && (isImport || data.AWSParameters != nil) {
 		data.AWSParameters = &AWSTGWSiteAWSParametersModel{
 			AdminPassword: func() *AWSTGWSiteAWSParametersAdminPasswordModel {
@@ -10057,6 +9956,66 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
+		data.PerformanceEnhancementMode = &AWSTGWSitePerformanceEnhancementModeModel{
+			PerfModeL3Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL3Enhanced
+				}
+				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
+						Jumbo: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						NoJumbo: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
+							}
+							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
+				}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
 			}(),
 		}
 	}

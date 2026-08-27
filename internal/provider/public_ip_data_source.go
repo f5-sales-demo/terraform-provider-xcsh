@@ -73,7 +73,7 @@ func (d *PublicIPDataSource) Schema(ctx context.Context, req datasource.SchemaRe
 				ElementType:         types.StringType,
 			},
 			"ip": schema.StringAttribute{
-				MarkdownDescription: "IP address for this object .",
+				MarkdownDescription: "IP address. IP address for this object.",
 				Computed:            true,
 			},
 			"virtual_sites": schema.StringAttribute{

@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -27,6 +28,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1044,7 +1046,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Delete: true,
 			}),
 			"origin_servers": schema.ListNestedBlock{
-				MarkdownDescription: "List of origin servers in this pool .",
+				MarkdownDescription: "Origin Servers. List of origin servers in this pool.",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"labels": schema.MapAttribute{
@@ -1462,7 +1464,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							MarkdownDescription: "Specify origin server with private or public DNS name and site information.",
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{
-									MarkdownDescription: "DNS Name. DNS Name .",
+									MarkdownDescription: "DNS Name. DNS Name",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 1024),
@@ -1621,7 +1623,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							MarkdownDescription: "Specify origin server with public DNS name.",
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{
-									MarkdownDescription: "DNS Name. DNS Name .",
+									MarkdownDescription: "DNS Name. DNS Name",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
@@ -1685,7 +1687,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							MarkdownDescription: "Specify origin server with DNS name on Virtual Network.",
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{
-									MarkdownDescription: "DNS Name. DNS Name .",
+									MarkdownDescription: "DNS Name. DNS Name",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 1024),
@@ -2056,7 +2058,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
-								MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate .",
+								MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2100,7 +2102,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -2417,9 +2419,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsUnknown() {
 								OriginServersConsulServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.Site.Namespace.ValueString()
 							}
-							if !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsUnknown() {
-								OriginServersConsulServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.Site.Tenant.ValueString()
-							}
 							OriginServersConsulServiceSiteLocatorMap["site"] = OriginServersConsulServiceSiteLocatorSiteMap
 						}
 						if OriginServersItem.ConsulService.SiteLocator.VirtualSite != nil {
@@ -2429,9 +2428,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 								OriginServersConsulServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.ValueString()
-							}
-							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								OriginServersConsulServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
 							OriginServersConsulServiceSiteLocatorMap["virtual_site"] = OriginServersConsulServiceSiteLocatorVirtualSiteMap
 						}
@@ -2468,9 +2464,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						if !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsUnknown() {
 							OriginServersCustomEndpointObjectEndpointMap["namespace"] = OriginServersItem.CustomEndpointObject.Endpoint.Namespace.ValueString()
 						}
-						if !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsUnknown() {
-							OriginServersCustomEndpointObjectEndpointMap["tenant"] = OriginServersItem.CustomEndpointObject.Endpoint.Tenant.ValueString()
-						}
 						OriginServersCustomEndpointObjectMap["endpoint"] = OriginServersCustomEndpointObjectEndpointMap
 					}
 					OriginServersItemMap["custom_endpoint_object"] = OriginServersCustomEndpointObjectMap
@@ -2499,9 +2492,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
 								OriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 							}
-							if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-								OriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
-							}
 							OriginServersK8SServiceSiteLocatorMap["site"] = OriginServersK8SServiceSiteLocatorSiteMap
 						}
 						if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
@@ -2511,9 +2501,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 								OriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
-							}
-							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								OriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
 							OriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginServersK8SServiceSiteLocatorVirtualSiteMap
 						}
@@ -2570,9 +2557,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
 							OriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 						}
-						if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-							OriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
-						}
 						OriginServersPrivateIPMap["segment"] = OriginServersPrivateIPSegmentMap
 					}
 					if OriginServersItem.PrivateIP.SiteLocator != nil {
@@ -2585,9 +2569,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
 								OriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 							}
-							if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-								OriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
-							}
 							OriginServersPrivateIPSiteLocatorMap["site"] = OriginServersPrivateIPSiteLocatorSiteMap
 						}
 						if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
@@ -2597,9 +2578,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 								OriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
-							}
-							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								OriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
 							OriginServersPrivateIPSiteLocatorMap["virtual_site"] = OriginServersPrivateIPSiteLocatorVirtualSiteMap
 						}
@@ -2648,9 +2626,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						if !OriginServersItem.PrivateName.Segment.Namespace.IsNull() && !OriginServersItem.PrivateName.Segment.Namespace.IsUnknown() {
 							OriginServersPrivateNameSegmentMap["namespace"] = OriginServersItem.PrivateName.Segment.Namespace.ValueString()
 						}
-						if !OriginServersItem.PrivateName.Segment.Tenant.IsNull() && !OriginServersItem.PrivateName.Segment.Tenant.IsUnknown() {
-							OriginServersPrivateNameSegmentMap["tenant"] = OriginServersItem.PrivateName.Segment.Tenant.ValueString()
-						}
 						OriginServersPrivateNameMap["segment"] = OriginServersPrivateNameSegmentMap
 					}
 					if OriginServersItem.PrivateName.SiteLocator != nil {
@@ -2663,9 +2638,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							if !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsUnknown() {
 								OriginServersPrivateNameSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.Site.Namespace.ValueString()
 							}
-							if !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsUnknown() {
-								OriginServersPrivateNameSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.Site.Tenant.ValueString()
-							}
 							OriginServersPrivateNameSiteLocatorMap["site"] = OriginServersPrivateNameSiteLocatorSiteMap
 						}
 						if OriginServersItem.PrivateName.SiteLocator.VirtualSite != nil {
@@ -2675,9 +2647,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 								OriginServersPrivateNameSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.ValueString()
-							}
-							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								OriginServersPrivateNameSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
 							OriginServersPrivateNameSiteLocatorMap["virtual_site"] = OriginServersPrivateNameSiteLocatorVirtualSiteMap
 						}
@@ -2734,9 +2703,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsUnknown() {
 							OriginServersVnPrivateIPVirtualNetworkMap["namespace"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.ValueString()
 						}
-						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsUnknown() {
-							OriginServersVnPrivateIPVirtualNetworkMap["tenant"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.ValueString()
-						}
 						OriginServersVnPrivateIPMap["virtual_network"] = OriginServersVnPrivateIPVirtualNetworkMap
 					}
 					OriginServersItemMap["vn_private_ip"] = OriginServersVnPrivateIPMap
@@ -2753,9 +2719,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						if !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsUnknown() {
 							OriginServersVnPrivateNamePrivateNetworkMap["namespace"] = OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.ValueString()
-						}
-						if !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsUnknown() {
-							OriginServersVnPrivateNamePrivateNetworkMap["tenant"] = OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.ValueString()
 						}
 						OriginServersVnPrivateNameMap["private_network"] = OriginServersVnPrivateNamePrivateNetworkMap
 					}
@@ -3070,9 +3033,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			if !data.UseTLS.UseMtlsObj.Namespace.IsNull() && !data.UseTLS.UseMtlsObj.Namespace.IsUnknown() {
 				UseTLSUseMtlsObjMap["namespace"] = data.UseTLS.UseMtlsObj.Namespace.ValueString()
 			}
-			if !data.UseTLS.UseMtlsObj.Tenant.IsNull() && !data.UseTLS.UseMtlsObj.Tenant.IsUnknown() {
-				UseTLSUseMtlsObjMap["tenant"] = data.UseTLS.UseMtlsObj.Tenant.ValueString()
-			}
 			UseTLSMap["use_mtls_obj"] = UseTLSUseMtlsObjMap
 		}
 		if data.UseTLS.UseServerVerification != nil {
@@ -3084,9 +3044,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if !data.UseTLS.UseServerVerification.TrustedCA.Namespace.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Namespace.IsUnknown() {
 					UseTLSUseServerVerificationTrustedCAMap["namespace"] = data.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
-				}
-				if !data.UseTLS.UseServerVerification.TrustedCA.Tenant.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Tenant.IsUnknown() {
-					UseTLSUseServerVerificationTrustedCAMap["tenant"] = data.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
 				}
 				UseTLSUseServerVerificationMap["trusted_ca"] = UseTLSUseServerVerificationTrustedCAMap
 			}
@@ -3120,9 +3077,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !HealthcheckItem.Namespace.IsNull() && !HealthcheckItem.Namespace.IsUnknown() {
 					HealthcheckItemMap["namespace"] = HealthcheckItem.Namespace.ValueString()
 				}
-				if !HealthcheckItem.Tenant.IsNull() && !HealthcheckItem.Tenant.IsUnknown() {
-					HealthcheckItemMap["tenant"] = HealthcheckItem.Tenant.ValueString()
-				}
 				HealthcheckList = append(HealthcheckList, HealthcheckItemMap)
 			}
 			createReq.Spec["healthcheck"] = HealthcheckList
@@ -3147,11 +3101,28 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetOriginPool(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -4869,6 +4840,16 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read OriginPool: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -6633,6 +6614,20 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.OriginPool{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -6640,6 +6635,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -6720,9 +6716,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsUnknown() {
 								OriginServersConsulServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.Site.Namespace.ValueString()
 							}
-							if !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsUnknown() {
-								OriginServersConsulServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.Site.Tenant.ValueString()
-							}
 							OriginServersConsulServiceSiteLocatorMap["site"] = OriginServersConsulServiceSiteLocatorSiteMap
 						}
 						if OriginServersItem.ConsulService.SiteLocator.VirtualSite != nil {
@@ -6732,9 +6725,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 								OriginServersConsulServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.ValueString()
-							}
-							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								OriginServersConsulServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
 							OriginServersConsulServiceSiteLocatorMap["virtual_site"] = OriginServersConsulServiceSiteLocatorVirtualSiteMap
 						}
@@ -6771,9 +6761,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsUnknown() {
 							OriginServersCustomEndpointObjectEndpointMap["namespace"] = OriginServersItem.CustomEndpointObject.Endpoint.Namespace.ValueString()
 						}
-						if !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsUnknown() {
-							OriginServersCustomEndpointObjectEndpointMap["tenant"] = OriginServersItem.CustomEndpointObject.Endpoint.Tenant.ValueString()
-						}
 						OriginServersCustomEndpointObjectMap["endpoint"] = OriginServersCustomEndpointObjectEndpointMap
 					}
 					OriginServersItemMap["custom_endpoint_object"] = OriginServersCustomEndpointObjectMap
@@ -6802,9 +6789,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
 								OriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 							}
-							if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-								OriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
-							}
 							OriginServersK8SServiceSiteLocatorMap["site"] = OriginServersK8SServiceSiteLocatorSiteMap
 						}
 						if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
@@ -6814,9 +6798,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 								OriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
-							}
-							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								OriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
 							OriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginServersK8SServiceSiteLocatorVirtualSiteMap
 						}
@@ -6873,9 +6854,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
 							OriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 						}
-						if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-							OriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
-						}
 						OriginServersPrivateIPMap["segment"] = OriginServersPrivateIPSegmentMap
 					}
 					if OriginServersItem.PrivateIP.SiteLocator != nil {
@@ -6888,9 +6866,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
 								OriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 							}
-							if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-								OriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
-							}
 							OriginServersPrivateIPSiteLocatorMap["site"] = OriginServersPrivateIPSiteLocatorSiteMap
 						}
 						if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
@@ -6900,9 +6875,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 								OriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
-							}
-							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								OriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
 							OriginServersPrivateIPSiteLocatorMap["virtual_site"] = OriginServersPrivateIPSiteLocatorVirtualSiteMap
 						}
@@ -6951,9 +6923,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !OriginServersItem.PrivateName.Segment.Namespace.IsNull() && !OriginServersItem.PrivateName.Segment.Namespace.IsUnknown() {
 							OriginServersPrivateNameSegmentMap["namespace"] = OriginServersItem.PrivateName.Segment.Namespace.ValueString()
 						}
-						if !OriginServersItem.PrivateName.Segment.Tenant.IsNull() && !OriginServersItem.PrivateName.Segment.Tenant.IsUnknown() {
-							OriginServersPrivateNameSegmentMap["tenant"] = OriginServersItem.PrivateName.Segment.Tenant.ValueString()
-						}
 						OriginServersPrivateNameMap["segment"] = OriginServersPrivateNameSegmentMap
 					}
 					if OriginServersItem.PrivateName.SiteLocator != nil {
@@ -6966,9 +6935,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							if !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsUnknown() {
 								OriginServersPrivateNameSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.Site.Namespace.ValueString()
 							}
-							if !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsUnknown() {
-								OriginServersPrivateNameSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.Site.Tenant.ValueString()
-							}
 							OriginServersPrivateNameSiteLocatorMap["site"] = OriginServersPrivateNameSiteLocatorSiteMap
 						}
 						if OriginServersItem.PrivateName.SiteLocator.VirtualSite != nil {
@@ -6978,9 +6944,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 								OriginServersPrivateNameSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.ValueString()
-							}
-							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								OriginServersPrivateNameSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
 							OriginServersPrivateNameSiteLocatorMap["virtual_site"] = OriginServersPrivateNameSiteLocatorVirtualSiteMap
 						}
@@ -7037,9 +7000,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsUnknown() {
 							OriginServersVnPrivateIPVirtualNetworkMap["namespace"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.ValueString()
 						}
-						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsUnknown() {
-							OriginServersVnPrivateIPVirtualNetworkMap["tenant"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.ValueString()
-						}
 						OriginServersVnPrivateIPMap["virtual_network"] = OriginServersVnPrivateIPVirtualNetworkMap
 					}
 					OriginServersItemMap["vn_private_ip"] = OriginServersVnPrivateIPMap
@@ -7056,9 +7016,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						if !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsUnknown() {
 							OriginServersVnPrivateNamePrivateNetworkMap["namespace"] = OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.ValueString()
-						}
-						if !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsUnknown() {
-							OriginServersVnPrivateNamePrivateNetworkMap["tenant"] = OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.ValueString()
 						}
 						OriginServersVnPrivateNameMap["private_network"] = OriginServersVnPrivateNamePrivateNetworkMap
 					}
@@ -7373,9 +7330,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			if !data.UseTLS.UseMtlsObj.Namespace.IsNull() && !data.UseTLS.UseMtlsObj.Namespace.IsUnknown() {
 				UseTLSUseMtlsObjMap["namespace"] = data.UseTLS.UseMtlsObj.Namespace.ValueString()
 			}
-			if !data.UseTLS.UseMtlsObj.Tenant.IsNull() && !data.UseTLS.UseMtlsObj.Tenant.IsUnknown() {
-				UseTLSUseMtlsObjMap["tenant"] = data.UseTLS.UseMtlsObj.Tenant.ValueString()
-			}
 			UseTLSMap["use_mtls_obj"] = UseTLSUseMtlsObjMap
 		}
 		if data.UseTLS.UseServerVerification != nil {
@@ -7387,9 +7341,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if !data.UseTLS.UseServerVerification.TrustedCA.Namespace.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Namespace.IsUnknown() {
 					UseTLSUseServerVerificationTrustedCAMap["namespace"] = data.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
-				}
-				if !data.UseTLS.UseServerVerification.TrustedCA.Tenant.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Tenant.IsUnknown() {
-					UseTLSUseServerVerificationTrustedCAMap["tenant"] = data.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
 				}
 				UseTLSUseServerVerificationMap["trusted_ca"] = UseTLSUseServerVerificationTrustedCAMap
 			}
@@ -7423,9 +7374,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !HealthcheckItem.Namespace.IsNull() && !HealthcheckItem.Namespace.IsUnknown() {
 					HealthcheckItemMap["namespace"] = HealthcheckItem.Namespace.ValueString()
 				}
-				if !HealthcheckItem.Tenant.IsNull() && !HealthcheckItem.Tenant.IsUnknown() {
-					HealthcheckItemMap["tenant"] = HealthcheckItem.Tenant.ValueString()
-				}
 				HealthcheckList = append(HealthcheckList, HealthcheckItemMap)
 			}
 			apiResource.Spec["healthcheck"] = HealthcheckList
@@ -7446,6 +7394,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	_, err := r.client.UpdateOriginPool(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of origin_pool %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update OriginPool: %s", err))
 		return
 	}
@@ -7463,10 +7419,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -7476,6 +7428,19 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	fetched, fetchErr := r.client.GetOriginPool(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read OriginPool after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

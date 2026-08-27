@@ -465,9 +465,8 @@ watcher_collector="$repo_root/scripts/collect-antigravity-fleet-state.sh"
 review="$repo_root/.github/workflows/antigravity-review.yml"
 translation="$repo_root/.github/workflows/antigravity-translate.yml"
 translation_caller="$repo_root/workflows/antigravity-translate.yml"
-sync_workflow="$repo_root/.github/workflows/sync-managed-files.yml"
-dispatcher="$repo_root/.github/workflows/dispatch-downstream.yml"
-enforcement_caller="$repo_root/workflows/enforce-repo-settings.yml"
+content_reconciler="$repo_root/.github/workflows/reconcile-fleet-content.yml"
+settings_reconciler="$repo_root/.github/workflows/reconcile-fleet-settings.yml"
 repo_settings="$repo_root/.github/config/repo-settings.json"
 
 credential_files=("$review")
@@ -509,13 +508,28 @@ if [ -f "$watcher" ]; then
     grep -qE '\[PROGRESS\].*repository' "$watcher_collector"
   check 'Free-tier contract remains explicit' \
     grep -qF 'GitHub Free-compatible' "$watcher"
-  check 'downstream dispatcher uses receipt-aware bounded API retries' \
-    grep -qF 'github-api-resilience.cjs dispatch' "$dispatcher"
-  check 'downstream dispatcher does not suppress GitHub response diagnostics' \
-    bash -c "! grep -qF '>/dev/null 2>&1' '$dispatcher'"
-  check 'enforcement caller exposes an exact-source dispatch receipt' \
-    grep -qF 'run-name: Enforce Repository Settings @ ${{ inputs.source_sha' \
-    "$enforcement_caller"
+  check 'central content reconciler uses the managed socketless ARC route' \
+    grep -qF 'runs-on: managed-socketless' "$content_reconciler"
+  check 'central content reconciler has an explicit job name' \
+    grep -qF '    name: Reconcile fleet content' "$content_reconciler"
+  check 'central content reconciler binds secrets to the repository-settings environment' \
+    grep -qF '    environment: repository-settings' "$content_reconciler"
+  check 'central settings reconciler remains ARC-routed, push-driven, and manually dispatchable without cron' \
+    bash -c "grep -qF 'runs-on: managed-socketless' '$settings_reconciler' && grep -qF 'push:' '$settings_reconciler' && grep -qF 'workflow_dispatch:' '$settings_reconciler' && ! grep -qF 'schedule:' '$settings_reconciler'"
+  check 'central settings reconciler has an explicit job name' \
+    grep -qF '    name: Reconcile fleet settings' "$settings_reconciler"
+  check 'central settings reconciler binds secrets to the repository-settings environment' \
+    grep -qF '    environment: repository-settings' "$settings_reconciler"
+  check 'central workflows react to reconciliation engine changes' \
+    bash -c "grep -qF -- \"- 'scripts/fleet-reconciler.cjs'\" '$content_reconciler' && grep -qF -- \"- 'scripts/github-api-resilience.cjs'\" '$content_reconciler' && grep -qF -- \"- 'scripts/fleet-reconciler.cjs'\" '$settings_reconciler' && grep -qF -- \"- 'scripts/github-api-resilience.cjs'\" '$settings_reconciler'"
+  check 'central reconcilers prefer GitHub App credentials with cutover fallback' \
+    bash -c "grep -qF 'create-github-app-token' '$content_reconciler' && grep -qF 'REPO_SETTINGS_TOKEN' '$content_reconciler'"
+  check 'central reconciler app tokens are limited to governed repositories' \
+    bash -c "grep -qF 'repositories: \${{ steps.repository-scope.outputs.repositories }}' '$content_reconciler' && grep -qF 'repositories: \${{ steps.repository-scope.outputs.repositories }}' '$settings_reconciler'"
+  check 'content reconciliation requests only its required app permissions' \
+    bash -c "grep -qF 'permission-contents: write' '$content_reconciler' && grep -qF 'permission-issues: write' '$content_reconciler' && grep -qF 'permission-pull-requests: write' '$content_reconciler' && grep -qF 'permission-statuses: write' '$content_reconciler'"
+  check 'settings reconciliation requests only its required app permissions' \
+    bash -c "grep -qF 'permission-actions: write' '$settings_reconciler' && grep -qF 'permission-administration: write' '$settings_reconciler' && grep -qF 'permission-pull-requests: read' '$settings_reconciler'"
 else
   skip_source_contract 'fleet watcher wiring contract'
 fi
@@ -524,15 +538,11 @@ check 'operator guidance documents secondary cooldown without polling' \
   bash -c "grep -qF 'Secondary limits never poll during cooldown' '$repo_root/CONTRIBUTING.md' && \
     grep -qF 'Retry-After' '$repo_root/CONTRIBUTING.md'"
 
-if [ -f "$sync_workflow" ]; then
-  check 'managed-file sync isolates the exact auto-merge GraphQL mutation' \
-    bash -c "! grep -qE 'gh (issue create|issue close|pr create|pr close|pr merge)' \
-      '$sync_workflow' && \
-      test \$(grep -c 'enablePullRequestAutoMerge' '$sync_workflow') -eq 2 && \
-      grep -q 'retry_current_json 3.*auto_merge_json' '$sync_workflow' && \
-      grep -q 'graphql --method POST' '$sync_workflow'"
+if [ -f "$repo_root/scripts/fleet-reconciler.cjs" ]; then
+  check 'central reconciliation uses the shared bounded retry helper' \
+    grep -qF 'requestGitHubApi' "$repo_root/scripts/fleet-reconciler.cjs"
 else
-  skip_source_contract 'managed-file sync implementation contract'
+  skip_source_contract 'central reconciliation implementation contract'
 fi
 
 if [ -f "$watcher" ]; then

@@ -59,7 +59,7 @@ resource "xcsh_api_crawler" "example" {
 
 ### Spec Argument Reference
 
-<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional Block<br>API Crawler Configuration<br>See [Domains](#domains) below for details.
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional Block<br>API Crawler. API Crawler Configuration<br>See [Domains](#domains) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

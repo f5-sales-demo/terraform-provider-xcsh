@@ -105,8 +105,9 @@ runs:
             .version == $version and
             (.target_commit | test("^[0-9a-f]{40}$")) and
             (.assets | keys | sort) ==
-              ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
-               "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json"] and
+              ["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
+               "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json", "smsv2_parity_manifest.json",
+               "upstream-contract-removals.json"] and
             ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
           ' "$PIN_FILE" >/dev/null || {
           echo "::error::Tracked spec release pin is malformed or names another release"
@@ -149,13 +150,16 @@ runs:
 
         EXPECTED_ASSETS=$(printf '%s\n' \
           api-catalog.json \
+          concurrency_contracts.json \
           "$BUNDLE_NAME" \
           index.json \
           minimal-export-defaults.json \
           openapi.json \
           smsv2-contract-manifest.json \
           smsv2-contract.json \
-          smsv2-evidence-receipt.json | sort)
+          smsv2-evidence-receipt.json \
+          smsv2_parity_manifest.json \
+          upstream-contract-removals.json | sort)
         ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
         [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
           echo "::error::Release asset set differs from the verified SMSv2 contract"
@@ -179,8 +183,9 @@ runs:
             .version == $pin[0].version and
             .assets == $pin[0].assets and
             (.assets | keys | sort) ==
-              ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
-               "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json"] and
+              ["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
+               "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json", "smsv2_parity_manifest.json",
+               "upstream-contract-removals.json"] and
             ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
           ' >/dev/null || {
           echo "::error::Publication receipt does not exactly match the tracked release pin"
@@ -239,8 +244,9 @@ runs:
 
         COMPANIONS="${STAGING_ROOT}/companions"
         mkdir -p "$COMPANIONS"
-        for asset in api-catalog.json index.json minimal-export-defaults.json openapi.json \
-          smsv2-contract-manifest.json smsv2-contract.json smsv2-evidence-receipt.json; do
+        for asset in api-catalog.json concurrency_contracts.json index.json minimal-export-defaults.json openapi.json \
+          smsv2-contract-manifest.json smsv2-contract.json smsv2-evidence-receipt.json smsv2_parity_manifest.json \
+          upstream-contract-removals.json; do
           AID=$(jq -r --arg name "$asset" \
             '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
             "$RELEASE_METADATA")

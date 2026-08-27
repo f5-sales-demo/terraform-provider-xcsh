@@ -10,8 +10,9 @@ import (
 
 // AWSTGWSite represents a F5XC AWSTGWSite
 type AWSTGWSite struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateAWSTGWSite creates a new AWSTGWSite

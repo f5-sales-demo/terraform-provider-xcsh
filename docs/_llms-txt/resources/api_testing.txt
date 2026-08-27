@@ -7,7 +7,6 @@ API Testing resource
 
 - name
 - namespace
-- custom_header_value
 
 ## Minimal Valid Config
 
@@ -15,8 +14,6 @@ API Testing resource
 resource "xcsh_api_testing" "example" {
   name      = "example-api-testing"
   namespace = "staging"
-
-  custom_header_value = "example-value"
 }
 ```
 

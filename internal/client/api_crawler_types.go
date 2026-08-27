@@ -10,8 +10,9 @@ import (
 
 // APICrawler represents a F5XC APICrawler
 type APICrawler struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateAPICrawler creates a new APICrawler

@@ -203,7 +203,7 @@ An [`applications`](#rule-list-rules-applications) block (within [`rule_list.rul
 
 A [`destination_aws_vpc_ids`](#rule-list-rules-destination-aws-vpc-ids) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
 
-<a id="vpc-id-5f1d03"></a>&#x2022; [`vpc_id`](#vpc-id-5f1d03) - Optional List<br>List of VPC Identifiers in AWS
+<a id="vpc-id-5f1d03"></a>&#x2022; [`vpc_id`](#vpc-id-5f1d03) - Optional List<br>AWS VPC List. List of VPC Identifiers in AWS
 
 #### Rule List Rules Destination IP Prefix Set
 
@@ -269,7 +269,7 @@ A [`protocol_port_range`](#rule-list-rules-protocol-port-range) block (within [`
 
 A [`source_aws_vpc_ids`](#rule-list-rules-source-aws-vpc-ids) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
 
-<a id="vpc-id-a05612"></a>&#x2022; [`vpc_id`](#vpc-id-a05612) - Optional List<br>List of VPC Identifiers in AWS
+<a id="vpc-id-a05612"></a>&#x2022; [`vpc_id`](#vpc-id-a05612) - Optional List<br>AWS VPC List. List of VPC Identifiers in AWS
 
 #### Rule List Rules Source IP Prefix Set
 

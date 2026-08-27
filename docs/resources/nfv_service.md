@@ -95,7 +95,7 @@ An [`enabled_ssh_access`](#enabled-ssh-access) block supports the following:
 
 <a id="enabled-ssh-access-domain-suffix"></a>&#x2022; [`domain_suffix`](#enabled-ssh-access-domain-suffix) - Optional String<br>Domain suffix will be used along with node name to form the hostname for SSH node management
 
-<a id="enabled-ssh-access-node-ssh-ports"></a>&#x2022; [`node_ssh_ports`](#enabled-ssh-access-node-ssh-ports) - Optional Block<br>Enter TCP port and node name per node<br>See [Node SSH Ports](#enabled-ssh-access-node-ssh-ports) below.
+<a id="enabled-ssh-access-node-ssh-ports"></a>&#x2022; [`node_ssh_ports`](#enabled-ssh-access-node-ssh-ports) - Optional Block<br>Management Node SSH Port. Enter TCP port and node name per node<br>See [Node SSH Ports](#enabled-ssh-access-node-ssh-ports) below.
 
 #### Enabled SSH Access Node SSH Ports
 
@@ -111,7 +111,7 @@ A [`f5_big_ip_aws_service`](#f5-big-ip-aws-service) block supports the following
 
 <a id="f5-big-ip-aws-service-admin-password"></a>&#x2022; [`admin_password`](#f5-big-ip-aws-service-admin-password) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Admin Password](#f5-big-ip-aws-service-admin-password) below.
 
-<a id="f5-big-ip-aws-service-admin-username"></a>&#x2022; [`admin_username`](#f5-big-ip-aws-service-admin-username) - Optional String<br>Admin Username for BIG-IP
+<a id="f5-big-ip-aws-service-admin-username"></a>&#x2022; [`admin_username`](#f5-big-ip-aws-service-admin-username) - Optional String<br>Admin Username. Admin Username for BIG-IP
 
 <a id="params-7322b1"></a>&#x2022; [`aws_tgw_site_params`](#params-7322b1) - Optional Block<br>BIG-IP AWS TGW Site. BIG-IP AWS TGW site specification<br>See [AWS TGW Site Params](#params-7322b1) below.
 
@@ -584,7 +584,7 @@ A [`panorama_server`](#palo-alto-fw-service-panorama-server) block (within [`pal
 
 A [`service_nodes`](#palo-alto-fw-service-service-nodes) block (within [`palo_alto_fw_service`](#palo-alto-fw-service)) supports the following:
 
-<a id="nodes-b8137e"></a>&#x2022; [`nodes`](#nodes-b8137e) - Optional Block<br>Palo Alto Networks AZ Nodes<br>See [Nodes](#nodes-b8137e) below.
+<a id="nodes-b8137e"></a>&#x2022; [`nodes`](#nodes-b8137e) - Optional Block<br>Palo Alto Networks AZ Nodes. Configuration parameter for nodes<br>See [Nodes](#nodes-b8137e) below.
 
 #### Palo Alto Fw Service Service Nodes Nodes
 

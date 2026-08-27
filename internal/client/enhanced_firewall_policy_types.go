@@ -10,8 +10,9 @@ import (
 
 // EnhancedFirewallPolicy represents a F5XC EnhancedFirewallPolicy
 type EnhancedFirewallPolicy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateEnhancedFirewallPolicy creates a new EnhancedFirewallPolicy

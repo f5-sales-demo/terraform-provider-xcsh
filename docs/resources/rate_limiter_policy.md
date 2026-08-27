@@ -234,7 +234,7 @@ A [`headers`](#rules-spec-headers) block (within [`rules.spec`](#rules-spec)) su
 
 <a id="rules-spec-headers-item"></a>&#x2022; [`item`](#rules-spec-headers-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#rules-spec-headers-item) below.
 
-<a id="rules-spec-headers-name"></a>&#x2022; [`name`](#rules-spec-headers-name) - Optional String<br>Case-insensitive HTTP header name
+<a id="rules-spec-headers-name"></a>&#x2022; [`name`](#rules-spec-headers-name) - Optional String<br>Header Name. A case-insensitive HTTP header name
 
 #### Rules Spec Headers Item
 

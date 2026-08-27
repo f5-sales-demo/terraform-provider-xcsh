@@ -14,7 +14,7 @@ terraform {
 # Look up an existing DNSZone by name
 data "xcsh_dns_zone" "example" {
   name      = "example-dns-zone"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "dns_zone_id" {

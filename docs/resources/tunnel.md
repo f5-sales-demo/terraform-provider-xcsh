@@ -32,8 +32,6 @@ terraform {
 resource "xcsh_tunnel" "example" {
   name      = "example-tunnel"
   namespace = "staging"
-
-  tunnel_type = "IPSEC_PSK"
 }
 ```
 
@@ -69,7 +67,7 @@ resource "xcsh_tunnel" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="tunnel-type"></a>&#x2022; [`tunnel_type`](#tunnel-type) - Required String  Defaults to `IPSEC_PSK`<br>Possible values are `IPSEC_PSK`, `GRE`<br>[Enum: IPSEC_PSK|GRE] Supported tunnel types are IPsec IPsec tunnel type with PSK GRE tunnel type
+<a id="tunnel-type"></a>&#x2022; [`tunnel_type`](#tunnel-type) - Optional String  Defaults to `IPSEC_PSK`<br>Possible values are `IPSEC_PSK`, `GRE`<br>[Enum: IPSEC_PSK|GRE] Supported tunnel types are IPsec IPsec tunnel type with PSK GRE tunnel type
 
 ### Attributes Reference
 

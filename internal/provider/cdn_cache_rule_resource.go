@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -22,6 +23,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -358,7 +360,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 				MarkdownDescription: "Cache Rule. This defines a CDN Cache Rule.",
 				Attributes: map[string]schema.Attribute{
 					"rule_name": schema.StringAttribute{
-						MarkdownDescription: "Rule Name. Name of the Cache Rule .",
+						MarkdownDescription: "Rule Name. Name of the Cache Rule.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(128),
@@ -381,7 +383,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 										Optional:            true,
 									},
 									"cache_ttl": schema.StringAttribute{
-										MarkdownDescription: "Cache TTL value is used to cache the resource/content for the specified amount of time Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days .",
+										MarkdownDescription: "Cache TTL value is used to cache the resource/content for the specified amount of time Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days.",
 										Optional:            true,
 									},
 									"ignore_response_cookie": schema.BoolAttribute{
@@ -398,7 +400,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 										Optional:            true,
 									},
 									"cache_ttl": schema.StringAttribute{
-										MarkdownDescription: "Cache TTL value is used to cache the resource/content for the specified amount of time Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days .",
+										MarkdownDescription: "Cache TTL value is used to cache the resource/content for the specified amount of time Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days.",
 										Optional:            true,
 									},
 									"ignore_response_cookie": schema.BoolAttribute{
@@ -410,11 +412,11 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 						},
 					},
 					"rule_expression_list": schema.ListNestedBlock{
-						MarkdownDescription: "Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs. .",
+						MarkdownDescription: "Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"expression_name": schema.StringAttribute{
-									MarkdownDescription: "Name of the Expressions items that are ANDed .",
+									MarkdownDescription: "Name of the Expressions items that are ANDed.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(128),
@@ -423,7 +425,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 							},
 							Blocks: map[string]schema.Block{
 								"cache_rule_expression": schema.ListNestedBlock{
-									MarkdownDescription: "The Cache Rule Expression Terms that are ANDed .",
+									MarkdownDescription: "The Cache Rule Expression Terms that are ANDed.",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
@@ -492,7 +494,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
-															MarkdownDescription: "Enter the name of the cookie to match .",
+															MarkdownDescription: "Cookie Name. Enter the name of the cookie to match.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 63),
@@ -602,7 +604,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"key": schema.StringAttribute{
-															MarkdownDescription: "The name of the query parameter to match .",
+															MarkdownDescription: "The name of the query parameter to match.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 256),
@@ -1043,11 +1045,28 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetCDNCacheRule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1589,6 +1608,16 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CDNCacheRule: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -2177,6 +2206,20 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.CDNCacheRule{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -2184,6 +2227,7 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -2476,6 +2520,14 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 
 	_, err := r.client.UpdateCDNCacheRule(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of cdn_cache_rule %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update CDNCacheRule: %s", err))
 		return
 	}
@@ -2493,10 +2545,6 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2506,6 +2554,19 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 	fetched, fetchErr := r.client.GetCDNCacheRule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CDNCacheRule after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

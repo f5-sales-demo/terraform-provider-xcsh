@@ -21,11 +21,16 @@ self-hosted-runner:
     - dns
     - docs
     - docs-builder
+    - docs-container-build
     - docs-control
     - docs-icons
+    - docs-socketless
     - docs-theme
     - fixture
     - i18n-core
+    - macos-15-intel
+    - managed-container-build
+    - managed-socketless
     - marketplace
     - marketplace-claude-code
     - mcn
@@ -44,6 +49,8 @@ self-hosted-runner:
     - xcsh
     - xcsh-action
     - xcsh-chrome-extension
+    - xcsh-container-build
+    - xcsh-socketless
 
 config-variables: null
 
@@ -56,6 +63,3 @@ paths:
       - "shellcheck reported issue in this script: SC2002:.+"
       - "shellcheck reported issue in this script: SC2015:.+"
       - "shellcheck reported issue in this script: SC2016:.+"
-  .github/workflows/enforce-repo-settings.yml:
-    ignore:
-      - 'property "repo_settings_token" is not defined'

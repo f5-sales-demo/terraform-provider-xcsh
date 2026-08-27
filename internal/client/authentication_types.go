@@ -10,8 +10,9 @@ import (
 
 // Authentication represents a F5XC Authentication
 type Authentication struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateAuthentication creates a new Authentication

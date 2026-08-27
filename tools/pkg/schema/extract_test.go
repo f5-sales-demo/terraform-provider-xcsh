@@ -117,6 +117,155 @@ func TestExtractResourceSchema_NoProfileStaysRequired(t *testing.T) {
 	}
 }
 
+func TestExtractResourceSchema_MinimumConfigurationDoesNotPromoteOptional(t *testing.T) {
+	spec, extractAPIPath := systemOnlySpec("min_config_probe")
+	create := spec.Components.Schemas["min_config_probeCreateSpecType"]
+	create.XF5XCMinimumConfiguration = map[string]interface{}{
+		"required_fields": []interface{}{"spec.port"},
+	}
+	spec.Components.Schemas["min_config_probeCreateSpecType"] = create
+
+	result, err := ExtractResourceSchema(spec, "min_config_probe", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	port := findAttr(result.Attributes, "port")
+	if port == nil {
+		t.Fatal("port attribute missing")
+	}
+	if port.Required || !port.Optional {
+		t.Fatalf("minimum-configuration guidance must not change Terraform requiredness; got Required=%v Optional=%v", port.Required, port.Optional)
+	}
+}
+
+func concurrencyTokenSchema(serverAssigned bool, operations ...string) openapi.Schema {
+	return openapi.Schema{
+		Type: "string",
+		XF5XCConcurrencyToken: &openapi.ConcurrencyToken{
+			ServerAssigned:   serverAssigned,
+			EchoOnOperations: operations,
+		},
+	}
+}
+
+func concurrencyTokenSpec() (*openapi.Spec, func(*openapi.Spec, string) (string, string, bool)) {
+	spec, extractAPIPath := systemOnlySpec("token_probe")
+	spec.Components.Schemas["token_probeGetResponse"] = openapi.Schema{
+		Type: "object",
+		Properties: map[string]openapi.Schema{
+			"resource_version": concurrencyTokenSchema(true, "replace"),
+		},
+	}
+	spec.Components.Schemas["token_probeReplaceRequest"] = openapi.Schema{
+		Type: "object",
+		Properties: map[string]openapi.Schema{
+			"resource_version": concurrencyTokenSchema(true, "replace"),
+		},
+	}
+	return spec, extractAPIPath
+}
+
+func TestExtractResourceSchema_ConcurrencyTokenContract(t *testing.T) {
+	spec, extractAPIPath := concurrencyTokenSpec()
+	result, err := ExtractResourceSchema(spec, "token_probe", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if !result.HasConcurrencyToken {
+		t.Fatal("valid GET/replace concurrency contract was not detected")
+	}
+	if result.ConcurrencyTokenJSONName != "resource_version" || result.ConcurrencyTokenGoName != "ResourceVersion" {
+		t.Fatalf("unexpected token names: JSON=%q Go=%q", result.ConcurrencyTokenJSONName, result.ConcurrencyTokenGoName)
+	}
+	if findAttr(result.Attributes, "resource_version") != nil {
+		t.Fatal("concurrency token must remain client-only and absent from Terraform attributes")
+	}
+}
+
+func TestValidateGeneratedConcurrencyCoverage(t *testing.T) {
+	for _, tc := range []struct {
+		name       string
+		hasReplace bool
+		hasToken   bool
+		wantError  bool
+	}{
+		{name: "mutable covered", hasReplace: true, hasToken: true},
+		{name: "mutable missing token", hasReplace: true, wantError: true},
+		{name: "create delete only", hasReplace: false},
+		{name: "token without replace", hasToken: true, wantError: true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			err := ValidateGeneratedConcurrencyCoverage(&openapi.ResourceTemplate{
+				Name: "probe", HasConcurrencyToken: tc.hasToken,
+			}, tc.hasReplace)
+			if (err != nil) != tc.wantError {
+				t.Fatalf("ValidateGeneratedConcurrencyCoverage() error = %v, wantError %v", err, tc.wantError)
+			}
+		})
+	}
+}
+
+func TestExtractResourceSchema_RejectsInvalidConcurrencyTokenContract(t *testing.T) {
+	tests := map[string]func(*openapi.Spec){
+		"missing replace token": func(spec *openapi.Spec) {
+			replace := spec.Components.Schemas["token_probeReplaceRequest"]
+			delete(replace.Properties, "resource_version")
+			spec.Components.Schemas["token_probeReplaceRequest"] = replace
+		},
+		"mismatched property": func(spec *openapi.Spec) {
+			replace := spec.Components.Schemas["token_probeReplaceRequest"]
+			delete(replace.Properties, "resource_version")
+			replace.Properties["etag"] = concurrencyTokenSchema(true, "replace")
+			spec.Components.Schemas["token_probeReplaceRequest"] = replace
+		},
+		"non string": func(spec *openapi.Spec) {
+			get := spec.Components.Schemas["token_probeGetResponse"]
+			field := get.Properties["resource_version"]
+			field.Type = "integer"
+			get.Properties["resource_version"] = field
+			spec.Components.Schemas["token_probeGetResponse"] = get
+		},
+		"not server assigned": func(spec *openapi.Spec) {
+			get := spec.Components.Schemas["token_probeGetResponse"]
+			get.Properties["resource_version"] = concurrencyTokenSchema(false, "replace")
+			spec.Components.Schemas["token_probeGetResponse"] = get
+		},
+		"replace not echoed": func(spec *openapi.Spec) {
+			replace := spec.Components.Schemas["token_probeReplaceRequest"]
+			replace.Properties["resource_version"] = concurrencyTokenSchema(true, "update")
+			spec.Components.Schemas["token_probeReplaceRequest"] = replace
+		},
+		"additional echo operation": func(spec *openapi.Spec) {
+			for _, envelope := range []string{"token_probeGetResponse", "token_probeReplaceRequest"} {
+				candidate := spec.Components.Schemas[envelope]
+				candidate.Properties["resource_version"] = concurrencyTokenSchema(true, "replace", "create")
+				spec.Components.Schemas[envelope] = candidate
+			}
+		},
+		"create declares token": func(spec *openapi.Spec) {
+			create := spec.Components.Schemas["token_probeCreateRequest"]
+			create.Type = "object"
+			create.Properties = map[string]openapi.Schema{"resource_version": concurrencyTokenSchema(true, "replace")}
+			spec.Components.Schemas["token_probeCreateRequest"] = create
+		},
+		"create spec declares token": func(spec *openapi.Spec) {
+			create := spec.Components.Schemas["token_probeCreateSpecType"]
+			create.Properties["resource_version"] = concurrencyTokenSchema(true, "replace")
+			spec.Components.Schemas["token_probeCreateSpecType"] = create
+		},
+	}
+
+	for name, mutate := range tests {
+		t.Run(name, func(t *testing.T) {
+			spec, extractAPIPath := concurrencyTokenSpec()
+			mutate(spec)
+			if _, err := ExtractResourceSchema(spec, "token_probe", extractAPIPath); err == nil {
+				t.Fatal("expected invalid concurrency-token contract to fail extraction")
+			}
+		})
+	}
+}
+
 // A single-allowed profile that is NOT enforced (unverified classification) must not
 // be defaulted/locked — namespace stays Required so we don't over-restrict on a guess.
 func TestExtractResourceSchema_UnverifiedSingleAllowedStaysRequired(t *testing.T) {

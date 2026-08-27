@@ -6,21 +6,13 @@ Workload_flavor
 ## Required
 
 - name
-- namespace
-- ephemeral_storage
-- memory
-- vcpus
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_workload_flavor" "example" {
   name      = "example-workload-flavor"
-  namespace = "staging"
-
-  ephemeral_storage = "example-value"
-  memory            = "example-value"
-  vcpus             = 1
+  namespace = "shared"
 }
 ```
 

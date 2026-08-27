@@ -10,8 +10,9 @@ import (
 
 // BGPRoutingPolicy represents a F5XC BGPRoutingPolicy
 type BGPRoutingPolicy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateBGPRoutingPolicy creates a new BGPRoutingPolicy

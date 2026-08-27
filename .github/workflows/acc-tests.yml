@@ -24,7 +24,7 @@
 #     - XCSH_API_URL: F5 XC Console API URL (e.g., https://tenant.console.ves.volterra.io)
 #     - XCSH_API_TOKEN: API token from F5 XC Console
 #
-# IMPORTANT: Real API tests require self-hosted runner with network access
+# IMPORTANT: Real API tests require the repository-scoped ARC runner with network access
 # to the F5 XC environment.
 
 name: Acceptance Tests
@@ -39,7 +39,7 @@ on:
         type: choice
         options:
           - mock-only      # Fast, parallel mock tests
-          - real-only      # Sequential real API tests (self-hosted)
+          - real-only      # Sequential real API tests (repository-scoped ARC)
           - full           # Both mock and real API tests
           - pr-subset      # Mock tests only (safe for PRs)
       parallel:
@@ -80,7 +80,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   mock-tests:
     name: Mock Tests (Parallel)
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     # Always run mock tests except for real-only mode
     if: |
       github.event_name != 'workflow_dispatch' ||
@@ -204,8 +204,8 @@ jobs:
   real-api-tests:
     name: Real API Tests (Sequential)
     environment: acceptance-tests
-    # Runner selection: exact repository-specific self-hosted runner tuple
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    # Runner selection: repository-scoped socketless ARC scale set
+    runs-on: managed-socketless
     needs: [mock-tests]
     # Run only when the selected mode's prerequisite state is exact. The
     # explicit always() is required for real-only: its mock prerequisite is
@@ -353,7 +353,7 @@ jobs:
   cleanup:
     name: Cleanup Test Resources
     environment: acceptance-tests
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     needs: [real-api-tests]
     # ALWAYS run after real API tests, even if they failed
     if: |
@@ -425,7 +425,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   compare-results:
     name: Compare Mock vs Real
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     needs: [mock-tests, real-api-tests]
     # Only run when both mock and real tests have completed
     if: |
@@ -545,7 +545,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   summary:
     name: Test Summary
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     needs: [mock-tests, real-api-tests, compare-results, cleanup]
     if: always()
 

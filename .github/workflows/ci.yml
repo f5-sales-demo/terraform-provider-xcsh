@@ -51,7 +51,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   check-constitution:
     name: Constitution Check
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     # Skip for automated branches - they're expected to contain generated files
     if: |
       github.event_name == 'pull_request' &&
@@ -75,10 +75,16 @@ jobs:
           set -euo pipefail
           CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD")
           ALLOW_PENDING_DELIVERY=false
+          ALLOW_RECOVERY_INFRASTRUCTURE=false
           if printf '%s\n' "$CHANGED_FILES" | scripts/is-release-recovery-only.sh; then
-            ALLOW_PENDING_DELIVERY=true
+            if [ -f tools/spec-pending-delivery.json ]; then
+              ALLOW_PENDING_DELIVERY=true
+            else
+              ALLOW_RECOVERY_INFRASTRUCTURE=true
+            fi
           fi
           ALLOW_PENDING_DELIVERY="$ALLOW_PENDING_DELIVERY" \
+          ALLOW_RECOVERY_INFRASTRUCTURE="$ALLOW_RECOVERY_INFRASTRUCTURE" \
             bash scripts/check-spec-version-freshness.sh \
               tools/spec-version.txt tools/spec-pending-delivery.json
 
@@ -98,7 +104,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   validate-docs-generation:
     name: Validate Docs Generation
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
@@ -196,7 +202,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   validate-mock-fixtures:
     name: Validate Mock Fixtures
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
@@ -276,7 +282,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   validate-shell-scripts:
     name: Validate Shell Scripts
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
@@ -328,7 +334,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   validate-terraform-examples:
     name: Validate Terraform Examples
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout

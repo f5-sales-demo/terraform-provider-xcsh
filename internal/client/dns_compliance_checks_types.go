@@ -10,8 +10,9 @@ import (
 
 // DNSComplianceChecks represents a F5XC DNSComplianceChecks
 type DNSComplianceChecks struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateDNSComplianceChecks creates a new DNSComplianceChecks

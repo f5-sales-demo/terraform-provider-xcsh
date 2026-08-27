@@ -10,8 +10,9 @@ import (
 
 // CodeBaseIntegration represents a F5XC CodeBaseIntegration
 type CodeBaseIntegration struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateCodeBaseIntegration creates a new CodeBaseIntegration

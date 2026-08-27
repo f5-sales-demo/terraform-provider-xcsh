@@ -32,22 +32,6 @@ terraform {
 resource "xcsh_virtual_host" "example" {
   name      = "example-virtual-host"
   namespace = "staging"
-
-  custom_errors = {
-    example = "value"
-  }
-  domains                     = ["example-value"]
-  request_cookies_to_remove   = ["example-value"]
-  request_headers_to_remove   = ["example-value"]
-  response_cookies_to_remove  = ["example-value"]
-  response_headers_to_remove  = ["example-value"]
-  add_location                = true
-  connection_idle_timeout     = 1
-  disable_default_error_pages = true
-  disable_dns_resolve         = true
-  idle_timeout                = 1
-  max_request_header_size     = 1
-  proxy                       = "UDP_PROXY"
 }
 ```
 
@@ -75,7 +59,7 @@ resource "xcsh_virtual_host" "example" {
 
 ### Spec Argument Reference
 
-<a id="add-location"></a>&#x2022; [`add_location`](#add-location) - Required Bool<br>Add Location. X-example: true Appends header x-F5 Distributed Cloud-location = `<RE-site-name>` in responses. This configuration is ignored on CE sites
+<a id="add-location"></a>&#x2022; [`add_location`](#add-location) - Optional Bool<br>Add Location. X-example: true Appends header x-F5 Distributed Cloud-location = `<RE-site-name>` in responses. This configuration is ignored on CE sites
 
 <a id="advertise-policies"></a>&#x2022; [`advertise_policies`](#advertise-policies) - Optional Block<br>Advertise Policy allows you to define networks or sites where you want a VIP for this virtual host to be advertised. Each Policy rule can have different parameters, like TLS configuration, ports, optionally IP address to be used for VIP. If advertise policy is not specified then no VIP is<br>See
 [Advertise Policies](#advertise-policies) below for details.
@@ -101,7 +85,7 @@ Challenge](#js-challenge) below for details.
 <a id="compression-params"></a>&#x2022; [`compression_params`](#compression-params) - Optional Block<br>Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported<br>See [Compression
 Params](#compression-params) below for details.
 
-<a id="connection-idle-timeout"></a>&#x2022; [`connection_idle_timeout`](#connection-idle-timeout) - Required Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+<a id="connection-idle-timeout"></a>&#x2022; [`connection_idle_timeout`](#connection-idle-timeout) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
 
 <a id="cors-policy"></a>&#x2022; [`cors_policy`](#cors-policy) - Optional Block<br>Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5<br>See [CORS
 Policy](#cors-policy) below for details.
@@ -109,19 +93,19 @@ Policy](#cors-policy) below for details.
 <a id="csrf-policy"></a>&#x2022; [`csrf_policy`](#csrf-policy) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent<br>See [CSRF
 Policy](#csrf-policy) below for details.
 
-<a id="custom-errors"></a>&#x2022; [`custom_errors`](#custom-errors) - Required Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
+<a id="custom-errors"></a>&#x2022; [`custom_errors`](#custom-errors) - Optional Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
 
 -> **One of the following:**
 &#x2022; <a id="default-loadbalancer"></a>[`default_loadbalancer`](#default-loadbalancer) - Optional Block<br>Configuration parameter for default loadbalancer
 
-<a id="disable-default-error-pages"></a>&#x2022; [`disable_default_error_pages`](#disable-default-error-pages) - Required Bool<br>Option to specify whether to disable using default F5XC error pages
+<a id="disable-default-error-pages"></a>&#x2022; [`disable_default_error_pages`](#disable-default-error-pages) - Optional Bool<br>Option to specify whether to disable using default F5XC error pages
 
-<a id="disable-dns-resolve"></a>&#x2022; [`disable_dns_resolve`](#disable-dns-resolve) - Required Bool  Specified in the virtual host When the virtual host is configured as Dynamive Resolve Proxy (DRP), disable DNS resolution for domains configured<br>Disable DNS resolution for domains  This configuration is suitable for HTTP CONNECT proxy
+<a id="disable-dns-resolve"></a>&#x2022; [`disable_dns_resolve`](#disable-dns-resolve) - Optional Bool  Specified in the virtual host When the virtual host is configured as Dynamive Resolve Proxy (DRP), disable DNS resolution for domains configured<br>Disable DNS resolution for domains  This configuration is suitable for HTTP CONNECT proxy
 
 -> **One of the following:**
 &#x2022; <a id="disable-path-normalize"></a>[`disable_path_normalize`](#disable-path-normalize) - Optional Block<br>Enable this option
 
-<a id="domains"></a>&#x2022; [`domains`](#domains) - Required List<br>List of domain names matched to this virtual host for routing incoming requests. Supports wildcard patterns like \*.example.com for subdomain matching
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>List of domain names matched to this virtual host for routing incoming requests. Supports wildcard patterns like \*.example.com for subdomain matching
 
 <a id="dynamic-reverse-proxy"></a>&#x2022; [`dynamic_reverse_proxy`](#dynamic-reverse-proxy) - Optional Block<br>In this mode of proxy, virtual host will resolve the destination endpoint dynamically. The dynamic resolution is done using a predefined field in the request. This predefined field depends on the ProxyType configured on the Virtual Host<br>See [Dynamic Reverse
 Proxy](#dynamic-reverse-proxy) below for details.
@@ -130,9 +114,9 @@ Proxy](#dynamic-reverse-proxy) below for details.
 
 <a id="http-protocol-options"></a>&#x2022; [`http_protocol_options`](#http-protocol-options) - Optional Block<br>HTTP protocol configuration OPTIONS for downstream connections<br>See [HTTP Protocol Options](#http-protocol-options) below for details.
 
-<a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Required Number<br>Idle timeout is the amount of time that the loadbalancer will allow a stream to exist with no upstream or downstream activity. Idle timeout and Proxy Type: HTTP_PROXY, HTTPS_PROXY: Idle timer is started when the first byte is received on the connection. Each time an encode/decode event for
+<a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Optional Number<br>Idle timeout is the amount of time that the loadbalancer will allow a stream to exist with no upstream or downstream activity. Idle timeout and Proxy Type: HTTP_PROXY, HTTPS_PROXY: Idle timer is started when the first byte is received on the connection. Each time an encode/decode event for
 
-<a id="max-request-header-size"></a>&#x2022; [`max_request_header_size`](#max-request-header-size) - Required Number<br>The maximum request header size in KiB for incoming connections. If un-configured, the default max request headers allowed is 60 KiB. Requests that exceed this limit will receive a 431 response
+<a id="max-request-header-size"></a>&#x2022; [`max_request_header_size`](#max-request-header-size) - Optional Number<br>The maximum request header size in KiB for incoming connections. If un-configured, the default max request headers allowed is 60 KiB. Requests that exceed this limit will receive a 431 response
 
 -> **One of the following:**
 &#x2022; <a id="max-requests-per-connection"></a>[`max_requests_per_connection`](#max-requests-per-connection) - Optional Number<br>Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection
@@ -145,27 +129,27 @@ Proxy](#dynamic-reverse-proxy) below for details.
 
 <a id="non-default-loadbalancer"></a>&#x2022; [`non_default_loadbalancer`](#non-default-loadbalancer) - Optional Block<br>Configuration parameter for non default loadbalancer
 
-<a id="proxy"></a>&#x2022; [`proxy`](#proxy) - Required String<br>Possible values are `UDP_PROXY`, `SMA_PROXY`, `DNS_PROXY`, `ZTNA_PROXY`, `UZTNA_PROXY`, `TMM_HTTP_PROXY`, `TMM_HTTPS_PROXY`, `TMM_TCP_PROXY`, `TMM_UDP_PROXY`, `TMM_QUIC_PROXY`<br>[Enum: UDP_PROXY|SMA_PROXY|DNS_PROXY|ZTNA_PROXY|UZTNA_PROXY|TMM_HTTP_PROXY|TMM_HTTPS_PROXY|TMM_TCP_PROXY|TMM_UDP_PROXY|TMM_QUIC_PROXY] ProxyType tells the
+<a id="proxy"></a>&#x2022; [`proxy`](#proxy) - Optional String<br>Possible values are `UDP_PROXY`, `SMA_PROXY`, `DNS_PROXY`, `ZTNA_PROXY`, `UZTNA_PROXY`, `TMM_HTTP_PROXY`, `TMM_HTTPS_PROXY`, `TMM_TCP_PROXY`, `TMM_UDP_PROXY`, `TMM_QUIC_PROXY`<br>[Enum: UDP_PROXY|SMA_PROXY|DNS_PROXY|ZTNA_PROXY|UZTNA_PROXY|TMM_HTTP_PROXY|TMM_HTTPS_PROXY|TMM_TCP_PROXY|TMM_UDP_PROXY|TMM_QUIC_PROXY] ProxyType tells the
 type of proxy to install for the virtual host. Only the following combination of VirtualHosts within same AdvertisePolicy is permitted (None of them should have '*' in domains when used with other VirtualHosts in same AdvertisePolicy) 1. Multiple TCP_PROXY_WITH_SNI and
 
 <a id="rate-limiter-allowed-prefixes"></a>&#x2022; [`rate_limiter_allowed_prefixes`](#rate-limiter-allowed-prefixes) - Optional Block<br>References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting<br>See [Rate Limiter Allowed Prefixes](#rate-limiter-allowed-prefixes) below for details.
 
 <a id="request-cookies-to-add"></a>&#x2022; [`request_cookies_to_add`](#request-cookies-to-add) - Optional Block<br>Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied<br>See [Request Cookies To Add](#request-cookies-to-add) below for details.
 
-<a id="request-cookies-to-remove"></a>&#x2022; [`request_cookies_to_remove`](#request-cookies-to-remove) - Required List<br>List of keys of Cookies to be removed from the HTTP request being sent towards upstream
+<a id="request-cookies-to-remove"></a>&#x2022; [`request_cookies_to_remove`](#request-cookies-to-remove) - Optional List<br>List of keys of Cookies to be removed from the HTTP request being sent towards upstream
 
 <a id="request-headers-to-add"></a>&#x2022; [`request_headers_to_add`](#request-headers-to-add) - Optional Block<br>Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied<br>See [Request Headers To Add](#request-headers-to-add) below for details.
 
-<a id="request-headers-to-remove"></a>&#x2022; [`request_headers_to_remove`](#request-headers-to-remove) - Required List<br>List of keys of Headers to be removed from the HTTP request being sent towards upstream
+<a id="request-headers-to-remove"></a>&#x2022; [`request_headers_to_remove`](#request-headers-to-remove) - Optional List<br>List of keys of Headers to be removed from the HTTP request being sent towards upstream
 
 <a id="response-cookies-to-add"></a>&#x2022; [`response_cookies_to_add`](#response-cookies-to-add) - Optional Block<br>Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied<br>See [Response Cookies To Add](#response-cookies-to-add)
 below for details.
 
-<a id="response-cookies-to-remove"></a>&#x2022; [`response_cookies_to_remove`](#response-cookies-to-remove) - Required List<br>List of name of Cookies to be removed from the HTTP response being sent towards downstream. Entire set-cookie header will be removed
+<a id="response-cookies-to-remove"></a>&#x2022; [`response_cookies_to_remove`](#response-cookies-to-remove) - Optional List<br>List of name of Cookies to be removed from the HTTP response being sent towards downstream. Entire set-cookie header will be removed
 
 <a id="response-headers-to-add"></a>&#x2022; [`response_headers_to_add`](#response-headers-to-add) - Optional Block<br>Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied
 
-<a id="response-headers-to-remove"></a>&#x2022; [`response_headers_to_remove`](#response-headers-to-remove) - Required List<br>List of keys of Headers to be removed from the HTTP response being sent towards downstream
+<a id="response-headers-to-remove"></a>&#x2022; [`response_headers_to_remove`](#response-headers-to-remove) - Optional List<br>List of keys of Headers to be removed from the HTTP response being sent towards downstream
 
 <a id="retry-policy"></a>&#x2022; [`retry_policy`](#retry-policy) - Optional Block<br>Retry policy configuration for route destination
 
@@ -257,11 +241,11 @@ An [`auth_hmac`](#authentication-cookie-params-auth-hmac) block (within [`authen
 
 <a id="key-cec38f"></a>&#x2022; [`prim_key`](#key-cec38f) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Prim Key](#key-cec38f) below.
 
-<a id="expiry-982334"></a>&#x2022; [`prim_key_expiry`](#expiry-982334) - Optional String<br>Primary HMAC Key Expiry time
+<a id="expiry-982334"></a>&#x2022; [`prim_key_expiry`](#expiry-982334) - Optional String<br>HMAC Primary Key Expiry. Primary HMAC Key Expiry time
 
 <a id="key-f289cf"></a>&#x2022; [`sec_key`](#key-f289cf) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Sec Key](#key-f289cf) below.
 
-<a id="expiry-6c8703"></a>&#x2022; [`sec_key_expiry`](#expiry-6c8703) - Optional String<br>Secondary HMAC Key Expiry time
+<a id="expiry-6c8703"></a>&#x2022; [`sec_key_expiry`](#expiry-6c8703) - Optional String<br>HMAC Secondary Key Expiry. Secondary HMAC Key Expiry time
 
 #### Authentication Cookie Params Auth HMAC Prim Key
 
@@ -443,7 +427,7 @@ A [`rate_limiter_allowed_prefixes`](#rate-limiter-allowed-prefixes) block suppor
 
 A [`request_cookies_to_add`](#request-cookies-to-add) block supports the following:
 
-<a id="request-cookies-to-add-name"></a>&#x2022; [`name`](#request-cookies-to-add-name) - Optional String<br>Name of the cookie in Cookie header
+<a id="request-cookies-to-add-name"></a>&#x2022; [`name`](#request-cookies-to-add-name) - Optional String<br>Name. Name of the cookie in Cookie header
 
 <a id="request-cookies-to-add-overwrite"></a>&#x2022; [`overwrite`](#request-cookies-to-add-overwrite) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
 
@@ -531,7 +515,7 @@ A [`response_cookies_to_add`](#response-cookies-to-add) block supports the follo
 
 <a id="response-cookies-to-add-max-age-value"></a>&#x2022; [`max_age_value`](#response-cookies-to-add-max-age-value) - Optional Number<br>Add max age attribute
 
-<a id="response-cookies-to-add-name"></a>&#x2022; [`name`](#response-cookies-to-add-name) - Optional String<br>Name of the cookie in Cookie header
+<a id="response-cookies-to-add-name"></a>&#x2022; [`name`](#response-cookies-to-add-name) - Optional String<br>Name. Name of the cookie in Cookie header
 
 <a id="response-cookies-to-add-overwrite"></a>&#x2022; [`overwrite`](#response-cookies-to-add-overwrite) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
 

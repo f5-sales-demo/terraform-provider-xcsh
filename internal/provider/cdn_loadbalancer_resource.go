@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -27,6 +28,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -5111,7 +5113,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"domains": schema.ListAttribute{
-				MarkdownDescription: "List of fully qualified domain names. The CDN Distribution will be setup for these FQDN name(s). [This can be a domain or a sub-domain] .",
+				MarkdownDescription: "List of fully qualified domain names. The CDN Distribution will be setup for these FQDN name(s). [This can be a domain or a sub-domain].",
 				Required:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
@@ -5198,7 +5200,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"api_endpoint_path": schema.StringAttribute{
-									MarkdownDescription: "The endpoint (path) of the request.",
+									MarkdownDescription: "API Endpoint. The endpoint (path) of the request.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
@@ -5377,7 +5379,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 											Attributes: map[string]schema.Attribute{
 												"ip_threat_categories": schema.ListAttribute{
-													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -5424,7 +5426,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.Between(0, 8192),
+												int64validator.Between(1, 8192),
 											},
 										},
 										"unit": schema.StringAttribute{
@@ -5514,7 +5516,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-sensitive cookie name.",
+														MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -5569,7 +5571,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-insensitive HTTP header name.",
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -5772,7 +5774,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path. Path to be matched .",
+													MarkdownDescription: "Path. Path to be matched.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 1024),
@@ -5784,7 +5786,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "API Groups.",
 											Attributes: map[string]schema.Attribute{
 												"api_groups": schema.ListAttribute{
-													MarkdownDescription: "API Groups. .",
+													MarkdownDescription: "API Groups. Group or collection configuration",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -5937,7 +5939,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 													Attributes: map[string]schema.Attribute{
 														"ip_threat_categories": schema.ListAttribute{
-															MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+															MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 															Optional:            true,
 															ElementType:         types.StringType,
 															Validators: []validator.List{
@@ -5990,7 +5992,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																Optional:            true,
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Case-sensitive cookie name.",
+																MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 63),
@@ -6045,7 +6047,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																Optional:            true,
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Case-insensitive HTTP header name.",
+																MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 63),
@@ -6274,7 +6276,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 								},
 								"base_path": schema.StringAttribute{
-									MarkdownDescription: "Prefix of the request path.",
+									MarkdownDescription: "Base Path. Prefix of the request path.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(128),
@@ -6436,7 +6438,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 											Attributes: map[string]schema.Attribute{
 												"ip_threat_categories": schema.ListAttribute{
-													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -6483,7 +6485,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.Between(0, 8192),
+												int64validator.Between(1, 8192),
 											},
 										},
 										"unit": schema.StringAttribute{
@@ -6573,7 +6575,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-sensitive cookie name.",
+														MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -6628,7 +6630,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-insensitive HTTP header name.",
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -6841,7 +6843,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"open_api_validation_rules": schema.ListNestedBlock{
-												MarkdownDescription: "Custom Fall Through Rule List. .",
+												MarkdownDescription: "Custom Fall Through Rule List. Rule or policy definition",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"api_group": schema.StringAttribute{
@@ -6881,7 +6883,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	},
 																},
 																"path": schema.StringAttribute{
-																	MarkdownDescription: "Path. Path to be matched .",
+																	MarkdownDescription: "Path. Path to be matched.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 1024),
@@ -6956,7 +6958,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of response.",
 										Attributes: map[string]schema.Attribute{
 											"response_validation_properties": schema.ListAttribute{
-												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger) . Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 												Validators: []validator.List{
@@ -6983,7 +6985,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of request.",
 										Attributes: map[string]schema.Attribute{
 											"request_validation_properties": schema.ListAttribute{
-												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger) . Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 												Validators: []validator.List{
@@ -7020,7 +7022,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"open_api_validation_rules": schema.ListNestedBlock{
-												MarkdownDescription: "Custom Fall Through Rule List. .",
+												MarkdownDescription: "Custom Fall Through Rule List. Rule or policy definition",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"api_group": schema.StringAttribute{
@@ -7060,7 +7062,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	},
 																},
 																"path": schema.StringAttribute{
-																	MarkdownDescription: "Path. Path to be matched .",
+																	MarkdownDescription: "Path. Path to be matched.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 1024),
@@ -7095,7 +7097,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 							},
 							"open_api_validation_rules": schema.ListNestedBlock{
-								MarkdownDescription: "Validation List. .",
+								MarkdownDescription: "Validation List. Rule or policy definition",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"api_group": schema.StringAttribute{
@@ -7136,7 +7138,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path. Path to be matched .",
+													MarkdownDescription: "Path. Path to be matched.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 1024),
@@ -7171,7 +7173,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of response.",
 													Attributes: map[string]schema.Attribute{
 														"response_validation_properties": schema.ListAttribute{
-															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger) . Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
 															Optional:            true,
 															ElementType:         types.StringType,
 															Validators: []validator.List{
@@ -7198,7 +7200,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of request.",
 													Attributes: map[string]schema.Attribute{
 														"request_validation_properties": schema.ListAttribute{
-															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger) . Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
 															Optional:            true,
 															ElementType:         types.StringType,
 															Validators: []validator.List{
@@ -7295,7 +7297,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"actions": schema.ListAttribute{
-							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule . Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
+							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule. Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -7338,7 +7340,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"headers": schema.ListNestedBlock{
-									MarkdownDescription: "List of HTTP header name and value pairs .",
+									MarkdownDescription: "List of HTTP header name and value pairs.",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"exact": schema.StringAttribute{
@@ -7353,7 +7355,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												Optional:            true,
 											},
 											"name": schema.StringAttribute{
-												MarkdownDescription: "Name. Name of the header .",
+												MarkdownDescription: "Name. Name of the header.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 63),
@@ -7749,7 +7751,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
-															MarkdownDescription: "Case-insensitive HTTP header name.",
+															MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 63),
@@ -8066,7 +8068,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-insensitive HTTP header name.",
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -8165,14 +8167,14 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															MarkdownDescription: "Append flag mitigation headers to forwarded request.",
 															Attributes: map[string]schema.Attribute{
 																"auto_type_header_name": schema.StringAttribute{
-																	MarkdownDescription: "Case-insensitive HTTP header name.",
+																	MarkdownDescription: "Automation Type Header Name. A case-insensitive HTTP header name.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(256),
 																	},
 																},
 																"inference_header_name": schema.StringAttribute{
-																	MarkdownDescription: "Case-insensitive HTTP header name.",
+																	MarkdownDescription: "Inference Header Name. A case-insensitive HTTP header name.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(256),
@@ -9004,7 +9006,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -9051,7 +9053,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"code_base_integrations": schema.ListNestedBlock{
-								MarkdownDescription: "Select Code Base Integrations. .",
+								MarkdownDescription: "Configuration parameter for code base integrations.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -9092,7 +9094,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "Select which API repositories represent the LB applications.",
 											Attributes: map[string]schema.Attribute{
 												"api_code_repo": schema.ListAttribute{
-													MarkdownDescription: "Code repository which contain API endpoints .",
+													MarkdownDescription: "Code repository which contain API endpoints.",
 													Optional:            true,
 													ElementType:         types.StringType,
 												},
@@ -9567,7 +9569,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 												Attributes: map[string]schema.Attribute{
 													"xfcc_header_elements": schema.ListAttribute{
-														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 														Optional:            true,
 														ElementType:         types.StringType,
 													},
@@ -9585,7 +9587,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "Enable this option",
 									},
 									"tls_certificates": schema.ListNestedBlock{
-										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -9629,7 +9631,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -9790,7 +9792,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 												Attributes: map[string]schema.Attribute{
 													"xfcc_header_elements": schema.ListAttribute{
-														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+														MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 														Optional:            true,
 														ElementType:         types.StringType,
 													},
@@ -9946,7 +9948,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "Audiences",
 								Attributes: map[string]schema.Attribute{
 									"audiences": schema.ListAttribute{
-										MarkdownDescription: "Values.",
+										MarkdownDescription: "Values. Configuration parameter for audiences",
 										Optional:            true,
 										ElementType:         types.StringType,
 										Validators: []validator.List{
@@ -9980,7 +9982,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "API Groups.",
 								Attributes: map[string]schema.Attribute{
 									"api_groups": schema.ListAttribute{
-										MarkdownDescription: "API Groups. .",
+										MarkdownDescription: "API Groups. Group or collection configuration",
 										Optional:            true,
 										ElementType:         types.StringType,
 										Validators: []validator.List{
@@ -9993,7 +9995,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "Base Paths.",
 								Attributes: map[string]schema.Attribute{
 									"base_paths": schema.ListAttribute{
-										MarkdownDescription: "Prefix Values. .",
+										MarkdownDescription: "Prefix Values. File system or URL path",
 										Optional:            true,
 										ElementType:         types.StringType,
 										Validators: []validator.List{
@@ -10079,7 +10081,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						MarkdownDescription: "Enable this option",
 					},
 					"origin_servers": schema.ListNestedBlock{
-						MarkdownDescription: "List Of Origin Servers. List of original servers .",
+						MarkdownDescription: "List Of Origin Servers. List of original servers.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -10108,7 +10110,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "Specify origin server with public DNS name.",
 									Attributes: map[string]schema.Attribute{
 										"dns_name": schema.StringAttribute{
-											MarkdownDescription: "DNS Name. DNS Name .",
+											MarkdownDescription: "DNS Name. DNS Name",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -10130,7 +10132,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						MarkdownDescription: "Specify origin server with public DNS name.",
 						Attributes: map[string]schema.Attribute{
 							"dns_name": schema.StringAttribute{
-								MarkdownDescription: "DNS Name. DNS Name .",
+								MarkdownDescription: "DNS Name. DNS Name",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 256),
@@ -10226,7 +10228,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"tls_certificates": schema.ListNestedBlock{
-										MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate .",
+										MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -10270,7 +10272,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -10455,7 +10457,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -10524,7 +10526,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -10899,7 +10901,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																Optional:            true,
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Case-sensitive cookie name.",
+																MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 63),
@@ -10984,7 +10986,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																Optional:            true,
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Case-insensitive HTTP header name.",
+																MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 63),
@@ -11280,7 +11282,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 						},
 						"name": schema.StringAttribute{
-							MarkdownDescription: "Cookie Name. Name of the Cookie .",
+							MarkdownDescription: "Cookie Name. Name of the Cookie.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(1, 256),
@@ -11390,7 +11392,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered list of rate limiter policies.",
+								MarkdownDescription: "Rate Limiter Policies. Ordered list of rate limiter policies.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -11430,7 +11432,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(100),
+									int64validator.Between(1, 100),
 								},
 							},
 							"period_multiplier": schema.Int64Attribute{
@@ -11448,7 +11450,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(8192),
+									int64validator.Between(1, 8192),
 								},
 							},
 							"unit": schema.StringAttribute{
@@ -11471,7 +11473,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(48),
+													int64validator.Between(1, 48),
 												},
 											},
 										},
@@ -11483,7 +11485,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(60),
+													int64validator.Between(1, 60),
 												},
 											},
 										},
@@ -11495,7 +11497,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(300),
+													int64validator.Between(1, 300),
 												},
 											},
 										},
@@ -11586,7 +11588,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"actions": schema.ListAttribute{
-							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule . Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
+							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule. Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -11629,7 +11631,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"headers": schema.ListNestedBlock{
-									MarkdownDescription: "List of HTTP header name and value pairs .",
+									MarkdownDescription: "List of HTTP header name and value pairs.",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"exact": schema.StringAttribute{
@@ -11644,7 +11646,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												Optional:            true,
 											},
 											"name": schema.StringAttribute{
-												MarkdownDescription: "Name. Name of the header .",
+												MarkdownDescription: "Name. Name of the header.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 63),
@@ -11824,7 +11826,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
 															"bot_name": schema.StringAttribute{
-																MarkdownDescription: "Bot Name.",
+																MarkdownDescription: "Bot Name. Human-readable name for the resource",
 																Optional:            true,
 															},
 														},
@@ -12097,9 +12099,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
 					}
-					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
-					}
 					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
 				ActiveServicePoliciesMap["policies"] = PoliciesList
@@ -12168,20 +12167,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -12215,20 +12205,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -12304,9 +12285,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.IsUnknown() {
 								APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap["namespace"] = APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.ValueString()
 							}
-							if !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.IsUnknown() {
-								APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap["tenant"] = APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.ValueString()
-							}
 							APIRateLimitAPIEndpointRulesInlineRateLimiterMap["ref_user_id"] = APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap
 						}
 						if !APIEndpointRulesItem.InlineRateLimiter.Threshold.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.Threshold.IsUnknown() {
@@ -12327,9 +12305,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !APIEndpointRulesItem.RefRateLimiter.Namespace.IsNull() && !APIEndpointRulesItem.RefRateLimiter.Namespace.IsUnknown() {
 							APIRateLimitAPIEndpointRulesRefRateLimiterMap["namespace"] = APIEndpointRulesItem.RefRateLimiter.Namespace.ValueString()
-						}
-						if !APIEndpointRulesItem.RefRateLimiter.Tenant.IsNull() && !APIEndpointRulesItem.RefRateLimiter.Tenant.IsUnknown() {
-							APIRateLimitAPIEndpointRulesRefRateLimiterMap["tenant"] = APIEndpointRulesItem.RefRateLimiter.Tenant.ValueString()
 						}
 						APIEndpointRulesItemMap["ref_rate_limiter"] = APIRateLimitAPIEndpointRulesRefRateLimiterMap
 					}
@@ -12633,20 +12608,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										var AsnSetsList []map[string]interface{}
 										for _, AsnSetsItem := range AsnSetsElems {
 											AsnSetsItemMap := make(map[string]interface{})
-											if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-												AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-											}
 											if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 												AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 											}
 											if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 												AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-											}
-											if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-												AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-											}
-											if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-												AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 											}
 											AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 										}
@@ -12680,20 +12646,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										var PrefixSetsList []map[string]interface{}
 										for _, PrefixSetsItem := range PrefixSetsElems {
 											PrefixSetsItemMap := make(map[string]interface{})
-											if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-												PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-											}
 											if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 												PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 											}
 											if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 												PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-											}
-											if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-												PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-											}
-											if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-												PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 											}
 											PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 										}
@@ -13001,9 +12958,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 							RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
 						}
-						if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-							RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-						}
 						RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 					}
 					APIRateLimitCustomIPAllowedListMap["rate_limiter_allowed_prefixes"] = RateLimiterAllowedPrefixesList
@@ -13073,20 +13027,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -13120,20 +13065,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -13209,9 +13145,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.IsNull() && !ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.IsUnknown() {
 								APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap["namespace"] = ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.ValueString()
 							}
-							if !ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.IsNull() && !ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.IsUnknown() {
-								APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap["tenant"] = ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.ValueString()
-							}
 							APIRateLimitServerURLRulesInlineRateLimiterMap["ref_user_id"] = APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap
 						}
 						if !ServerURLRulesItem.InlineRateLimiter.Threshold.IsNull() && !ServerURLRulesItem.InlineRateLimiter.Threshold.IsUnknown() {
@@ -13232,9 +13165,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !ServerURLRulesItem.RefRateLimiter.Namespace.IsNull() && !ServerURLRulesItem.RefRateLimiter.Namespace.IsUnknown() {
 							APIRateLimitServerURLRulesRefRateLimiterMap["namespace"] = ServerURLRulesItem.RefRateLimiter.Namespace.ValueString()
-						}
-						if !ServerURLRulesItem.RefRateLimiter.Tenant.IsNull() && !ServerURLRulesItem.RefRateLimiter.Tenant.IsUnknown() {
-							APIRateLimitServerURLRulesRefRateLimiterMap["tenant"] = ServerURLRulesItem.RefRateLimiter.Tenant.ValueString()
 						}
 						ServerURLRulesItemMap["ref_rate_limiter"] = APIRateLimitServerURLRulesRefRateLimiterMap
 					}
@@ -13473,9 +13403,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if !data.APISpecification.APIDefinition.Namespace.IsNull() && !data.APISpecification.APIDefinition.Namespace.IsUnknown() {
 				APISpecificationAPIDefinitionMap["namespace"] = data.APISpecification.APIDefinition.Namespace.ValueString()
-			}
-			if !data.APISpecification.APIDefinition.Tenant.IsNull() && !data.APISpecification.APIDefinition.Tenant.IsUnknown() {
-				APISpecificationAPIDefinitionMap["tenant"] = data.APISpecification.APIDefinition.Tenant.ValueString()
 			}
 			APISpecificationMap["api_definition"] = APISpecificationAPIDefinitionMap
 		}
@@ -13823,9 +13750,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		}
 		if !data.AppFirewall.Namespace.IsNull() && !data.AppFirewall.Namespace.IsUnknown() {
 			AppFirewallMap["namespace"] = data.AppFirewall.Namespace.ValueString()
-		}
-		if !data.AppFirewall.Tenant.IsNull() && !data.AppFirewall.Tenant.IsUnknown() {
-			AppFirewallMap["tenant"] = data.AppFirewall.Tenant.ValueString()
 		}
 		createReq.Spec["app_firewall"] = AppFirewallMap
 	}
@@ -14857,9 +14781,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !CDNCacheRulesItem.Namespace.IsNull() && !CDNCacheRulesItem.Namespace.IsUnknown() {
 						CDNCacheRulesItemMap["namespace"] = CDNCacheRulesItem.Namespace.ValueString()
 					}
-					if !CDNCacheRulesItem.Tenant.IsNull() && !CDNCacheRulesItem.Tenant.IsUnknown() {
-						CDNCacheRulesItemMap["tenant"] = CDNCacheRulesItem.Tenant.ValueString()
-					}
 					CDNCacheRulesList = append(CDNCacheRulesList, CDNCacheRulesItemMap)
 				}
 				CustomCacheRuleMap["cdn_cache_rules"] = CDNCacheRulesList
@@ -15150,9 +15071,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsUnknown() {
 								EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["namespace"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.ValueString()
 							}
-							if !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsUnknown() {
-								EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["tenant"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.ValueString()
-							}
 							CodeBaseIntegrationsItemMap["code_base_integration"] = EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap
 						}
 						if CodeBaseIntegrationsItem.SelectedRepos != nil {
@@ -15183,9 +15101,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsNull() && !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsUnknown() {
 					EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["namespace"] = data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.ValueString()
-				}
-				if !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsNull() && !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsUnknown() {
-					EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["tenant"] = data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.ValueString()
 				}
 				EnableAPIDiscoveryCustomAPIAuthDiscoveryMap["api_discovery_ref"] = EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap
 			}
@@ -15250,9 +15165,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if !data.EnableChallenge.MaliciousUserMitigation.Namespace.IsNull() && !data.EnableChallenge.MaliciousUserMitigation.Namespace.IsUnknown() {
 				EnableChallengeMaliciousUserMitigationMap["namespace"] = data.EnableChallenge.MaliciousUserMitigation.Namespace.ValueString()
-			}
-			if !data.EnableChallenge.MaliciousUserMitigation.Tenant.IsNull() && !data.EnableChallenge.MaliciousUserMitigation.Tenant.IsUnknown() {
-				EnableChallengeMaliciousUserMitigationMap["tenant"] = data.EnableChallenge.MaliciousUserMitigation.Tenant.ValueString()
 			}
 			EnableChallengeMap["malicious_user_mitigation"] = EnableChallengeMaliciousUserMitigationMap
 		}
@@ -15375,9 +15287,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 								CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 							}
-							if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-								CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-							}
 							CertificatesList = append(CertificatesList, CertificatesItemMap)
 						}
 						HTTPSTLSCertOptionsTLSCertParamsMap["certificates"] = CertificatesList
@@ -15430,9 +15339,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 							HTTPSTLSCertOptionsTLSCertParamsUseMtlsCRLMap["namespace"] = data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-							HTTPSTLSCertOptionsTLSCertParamsUseMtlsCRLMap["tenant"] = data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-						}
 						HTTPSTLSCertOptionsTLSCertParamsUseMtlsMap["crl"] = HTTPSTLSCertOptionsTLSCertParamsUseMtlsCRLMap
 					}
 					if data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.NoCRL != nil {
@@ -15445,9 +15351,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							HTTPSTLSCertOptionsTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							HTTPSTLSCertOptionsTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						HTTPSTLSCertOptionsTLSCertParamsUseMtlsMap["trusted_ca"] = HTTPSTLSCertOptionsTLSCertParamsUseMtlsTrustedCAMap
 					}
@@ -15586,9 +15489,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Namespace.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Namespace.IsUnknown() {
 							HTTPSTLSCertOptionsTLSInlineParamsUseMtlsCRLMap["namespace"] = data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Tenant.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Tenant.IsUnknown() {
-							HTTPSTLSCertOptionsTLSInlineParamsUseMtlsCRLMap["tenant"] = data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Tenant.ValueString()
-						}
 						HTTPSTLSCertOptionsTLSInlineParamsUseMtlsMap["crl"] = HTTPSTLSCertOptionsTLSInlineParamsUseMtlsCRLMap
 					}
 					if data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.NoCRL != nil {
@@ -15601,9 +15501,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							HTTPSTLSCertOptionsTLSInlineParamsUseMtlsTrustedCAMap["namespace"] = data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							HTTPSTLSCertOptionsTLSInlineParamsUseMtlsTrustedCAMap["tenant"] = data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						HTTPSTLSCertOptionsTLSInlineParamsUseMtlsMap["trusted_ca"] = HTTPSTLSCertOptionsTLSInlineParamsUseMtlsTrustedCAMap
 					}
@@ -15693,9 +15590,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !AuthorizationServersItem.Namespace.IsNull() && !AuthorizationServersItem.Namespace.IsUnknown() {
 							AuthorizationServersItemMap["namespace"] = AuthorizationServersItem.Namespace.ValueString()
-						}
-						if !AuthorizationServersItem.Tenant.IsNull() && !AuthorizationServersItem.Tenant.IsUnknown() {
-							AuthorizationServersItemMap["tenant"] = AuthorizationServersItem.Tenant.ValueString()
 						}
 						AuthorizationServersList = append(AuthorizationServersList, AuthorizationServersItemMap)
 					}
@@ -16013,9 +15907,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !data.OriginPool.UseTLS.UseMtlsObj.Namespace.IsNull() && !data.OriginPool.UseTLS.UseMtlsObj.Namespace.IsUnknown() {
 					OriginPoolUseTLSUseMtlsObjMap["namespace"] = data.OriginPool.UseTLS.UseMtlsObj.Namespace.ValueString()
 				}
-				if !data.OriginPool.UseTLS.UseMtlsObj.Tenant.IsNull() && !data.OriginPool.UseTLS.UseMtlsObj.Tenant.IsUnknown() {
-					OriginPoolUseTLSUseMtlsObjMap["tenant"] = data.OriginPool.UseTLS.UseMtlsObj.Tenant.ValueString()
-				}
 				OriginPoolUseTLSMap["use_mtls_obj"] = OriginPoolUseTLSUseMtlsObjMap
 			}
 			if data.OriginPool.UseTLS.UseServerVerification != nil {
@@ -16027,9 +15918,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					if !data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Namespace.IsNull() && !data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Namespace.IsUnknown() {
 						OriginPoolUseTLSUseServerVerificationTrustedCAMap["namespace"] = data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
-					}
-					if !data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Tenant.IsNull() && !data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Tenant.IsUnknown() {
-						OriginPoolUseTLSUseServerVerificationTrustedCAMap["tenant"] = data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
 					}
 					OriginPoolUseTLSUseServerVerificationMap["trusted_ca"] = OriginPoolUseTLSUseServerVerificationTrustedCAMap
 				}
@@ -16249,9 +16137,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			if !data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.IsNull() && !data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.IsUnknown() {
 				PolicyBasedChallengeMaliciousUserMitigationMap["namespace"] = data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.ValueString()
 			}
-			if !data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.IsNull() && !data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.IsUnknown() {
-				PolicyBasedChallengeMaliciousUserMitigationMap["tenant"] = data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.ValueString()
-			}
 			PolicyBasedChallengeMap["malicious_user_mitigation"] = PolicyBasedChallengeMaliciousUserMitigationMap
 		}
 		if data.PolicyBasedChallenge.NoChallenge != nil {
@@ -16363,20 +16248,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										var AsnSetsList []map[string]interface{}
 										for _, AsnSetsItem := range AsnSetsElems {
 											AsnSetsItemMap := make(map[string]interface{})
-											if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-												AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-											}
 											if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 												AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 											}
 											if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 												AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-											}
-											if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-												AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-											}
-											if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-												AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 											}
 											AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 										}
@@ -16591,20 +16467,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										var PrefixSetsList []map[string]interface{}
 										for _, PrefixSetsItem := range PrefixSetsElems {
 											PrefixSetsItemMap := make(map[string]interface{})
-											if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-												PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-											}
 											if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 												PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 											}
 											if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 												PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-											}
-											if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-												PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-											}
-											if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-												PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 											}
 											PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 										}
@@ -16847,9 +16714,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 							RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
 						}
-						if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-							RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-						}
 						RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 					}
 					RateLimitCustomIPAllowedListMap["rate_limiter_allowed_prefixes"] = RateLimiterAllowedPrefixesList
@@ -16890,9 +16754,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 							PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
-						}
-						if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-							PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
 						}
 						PoliciesList = append(PoliciesList, PoliciesItemMap)
 					}
@@ -16962,9 +16823,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.IsNull() && !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.IsUnknown() {
 				SensitiveDataPolicySensitiveDataPolicyRefMap["namespace"] = data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.ValueString()
-			}
-			if !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.IsNull() && !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.IsUnknown() {
-				SensitiveDataPolicySensitiveDataPolicyRefMap["tenant"] = data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.ValueString()
 			}
 			SensitiveDataPolicyMap["sensitive_data_policy_ref"] = SensitiveDataPolicySensitiveDataPolicyRefMap
 		}
@@ -17086,9 +16944,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		}
 		if !data.UserIdentification.Namespace.IsNull() && !data.UserIdentification.Namespace.IsUnknown() {
 			UserIdentificationMap["namespace"] = data.UserIdentification.Namespace.ValueString()
-		}
-		if !data.UserIdentification.Tenant.IsNull() && !data.UserIdentification.Tenant.IsUnknown() {
-			UserIdentificationMap["tenant"] = data.UserIdentification.Tenant.ValueString()
 		}
 		createReq.Spec["user_identification"] = UserIdentificationMap
 	}
@@ -17247,9 +17102,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			if !data.WAFExclusion.WAFExclusionPolicy.Namespace.IsNull() && !data.WAFExclusion.WAFExclusionPolicy.Namespace.IsUnknown() {
 				WAFExclusionWAFExclusionPolicyMap["namespace"] = data.WAFExclusion.WAFExclusionPolicy.Namespace.ValueString()
 			}
-			if !data.WAFExclusion.WAFExclusionPolicy.Tenant.IsNull() && !data.WAFExclusion.WAFExclusionPolicy.Tenant.IsUnknown() {
-				WAFExclusionWAFExclusionPolicyMap["tenant"] = data.WAFExclusion.WAFExclusionPolicy.Tenant.ValueString()
-			}
 			WAFExclusionMap["waf_exclusion_policy"] = WAFExclusionWAFExclusionPolicyMap
 		}
 		createReq.Spec["waf_exclusion"] = WAFExclusionMap
@@ -17261,11 +17113,28 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetCDNLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -27922,6 +27791,16 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CDNLoadBalancer: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -38625,6 +38504,20 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.CDNLoadBalancer{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -38632,6 +38525,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -38699,9 +38593,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
-					}
-					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
 					}
 					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
@@ -38771,20 +38662,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -38818,20 +38700,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -38907,9 +38780,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.IsUnknown() {
 								APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap["namespace"] = APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.ValueString()
 							}
-							if !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.IsUnknown() {
-								APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap["tenant"] = APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.ValueString()
-							}
 							APIRateLimitAPIEndpointRulesInlineRateLimiterMap["ref_user_id"] = APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap
 						}
 						if !APIEndpointRulesItem.InlineRateLimiter.Threshold.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.Threshold.IsUnknown() {
@@ -38930,9 +38800,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !APIEndpointRulesItem.RefRateLimiter.Namespace.IsNull() && !APIEndpointRulesItem.RefRateLimiter.Namespace.IsUnknown() {
 							APIRateLimitAPIEndpointRulesRefRateLimiterMap["namespace"] = APIEndpointRulesItem.RefRateLimiter.Namespace.ValueString()
-						}
-						if !APIEndpointRulesItem.RefRateLimiter.Tenant.IsNull() && !APIEndpointRulesItem.RefRateLimiter.Tenant.IsUnknown() {
-							APIRateLimitAPIEndpointRulesRefRateLimiterMap["tenant"] = APIEndpointRulesItem.RefRateLimiter.Tenant.ValueString()
 						}
 						APIEndpointRulesItemMap["ref_rate_limiter"] = APIRateLimitAPIEndpointRulesRefRateLimiterMap
 					}
@@ -39236,20 +39103,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										var AsnSetsList []map[string]interface{}
 										for _, AsnSetsItem := range AsnSetsElems {
 											AsnSetsItemMap := make(map[string]interface{})
-											if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-												AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-											}
 											if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 												AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 											}
 											if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 												AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-											}
-											if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-												AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-											}
-											if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-												AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 											}
 											AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 										}
@@ -39283,20 +39141,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										var PrefixSetsList []map[string]interface{}
 										for _, PrefixSetsItem := range PrefixSetsElems {
 											PrefixSetsItemMap := make(map[string]interface{})
-											if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-												PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-											}
 											if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 												PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 											}
 											if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 												PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-											}
-											if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-												PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-											}
-											if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-												PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 											}
 											PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 										}
@@ -39604,9 +39453,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 							RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
 						}
-						if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-							RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-						}
 						RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 					}
 					APIRateLimitCustomIPAllowedListMap["rate_limiter_allowed_prefixes"] = RateLimiterAllowedPrefixesList
@@ -39676,20 +39522,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -39723,20 +39560,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -39812,9 +39640,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.IsNull() && !ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.IsUnknown() {
 								APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap["namespace"] = ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.ValueString()
 							}
-							if !ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.IsNull() && !ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.IsUnknown() {
-								APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap["tenant"] = ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.ValueString()
-							}
 							APIRateLimitServerURLRulesInlineRateLimiterMap["ref_user_id"] = APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap
 						}
 						if !ServerURLRulesItem.InlineRateLimiter.Threshold.IsNull() && !ServerURLRulesItem.InlineRateLimiter.Threshold.IsUnknown() {
@@ -39835,9 +39660,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !ServerURLRulesItem.RefRateLimiter.Namespace.IsNull() && !ServerURLRulesItem.RefRateLimiter.Namespace.IsUnknown() {
 							APIRateLimitServerURLRulesRefRateLimiterMap["namespace"] = ServerURLRulesItem.RefRateLimiter.Namespace.ValueString()
-						}
-						if !ServerURLRulesItem.RefRateLimiter.Tenant.IsNull() && !ServerURLRulesItem.RefRateLimiter.Tenant.IsUnknown() {
-							APIRateLimitServerURLRulesRefRateLimiterMap["tenant"] = ServerURLRulesItem.RefRateLimiter.Tenant.ValueString()
 						}
 						ServerURLRulesItemMap["ref_rate_limiter"] = APIRateLimitServerURLRulesRefRateLimiterMap
 					}
@@ -40076,9 +39898,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if !data.APISpecification.APIDefinition.Namespace.IsNull() && !data.APISpecification.APIDefinition.Namespace.IsUnknown() {
 				APISpecificationAPIDefinitionMap["namespace"] = data.APISpecification.APIDefinition.Namespace.ValueString()
-			}
-			if !data.APISpecification.APIDefinition.Tenant.IsNull() && !data.APISpecification.APIDefinition.Tenant.IsUnknown() {
-				APISpecificationAPIDefinitionMap["tenant"] = data.APISpecification.APIDefinition.Tenant.ValueString()
 			}
 			APISpecificationMap["api_definition"] = APISpecificationAPIDefinitionMap
 		}
@@ -40426,9 +40245,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		}
 		if !data.AppFirewall.Namespace.IsNull() && !data.AppFirewall.Namespace.IsUnknown() {
 			AppFirewallMap["namespace"] = data.AppFirewall.Namespace.ValueString()
-		}
-		if !data.AppFirewall.Tenant.IsNull() && !data.AppFirewall.Tenant.IsUnknown() {
-			AppFirewallMap["tenant"] = data.AppFirewall.Tenant.ValueString()
 		}
 		apiResource.Spec["app_firewall"] = AppFirewallMap
 	}
@@ -41460,9 +41276,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !CDNCacheRulesItem.Namespace.IsNull() && !CDNCacheRulesItem.Namespace.IsUnknown() {
 						CDNCacheRulesItemMap["namespace"] = CDNCacheRulesItem.Namespace.ValueString()
 					}
-					if !CDNCacheRulesItem.Tenant.IsNull() && !CDNCacheRulesItem.Tenant.IsUnknown() {
-						CDNCacheRulesItemMap["tenant"] = CDNCacheRulesItem.Tenant.ValueString()
-					}
 					CDNCacheRulesList = append(CDNCacheRulesList, CDNCacheRulesItemMap)
 				}
 				CustomCacheRuleMap["cdn_cache_rules"] = CDNCacheRulesList
@@ -41753,9 +41566,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsUnknown() {
 								EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["namespace"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.ValueString()
 							}
-							if !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsUnknown() {
-								EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["tenant"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.ValueString()
-							}
 							CodeBaseIntegrationsItemMap["code_base_integration"] = EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap
 						}
 						if CodeBaseIntegrationsItem.SelectedRepos != nil {
@@ -41786,9 +41596,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsNull() && !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsUnknown() {
 					EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["namespace"] = data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.ValueString()
-				}
-				if !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsNull() && !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsUnknown() {
-					EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["tenant"] = data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.ValueString()
 				}
 				EnableAPIDiscoveryCustomAPIAuthDiscoveryMap["api_discovery_ref"] = EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap
 			}
@@ -41853,9 +41660,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if !data.EnableChallenge.MaliciousUserMitigation.Namespace.IsNull() && !data.EnableChallenge.MaliciousUserMitigation.Namespace.IsUnknown() {
 				EnableChallengeMaliciousUserMitigationMap["namespace"] = data.EnableChallenge.MaliciousUserMitigation.Namespace.ValueString()
-			}
-			if !data.EnableChallenge.MaliciousUserMitigation.Tenant.IsNull() && !data.EnableChallenge.MaliciousUserMitigation.Tenant.IsUnknown() {
-				EnableChallengeMaliciousUserMitigationMap["tenant"] = data.EnableChallenge.MaliciousUserMitigation.Tenant.ValueString()
 			}
 			EnableChallengeMap["malicious_user_mitigation"] = EnableChallengeMaliciousUserMitigationMap
 		}
@@ -41978,9 +41782,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 								CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 							}
-							if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-								CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-							}
 							CertificatesList = append(CertificatesList, CertificatesItemMap)
 						}
 						HTTPSTLSCertOptionsTLSCertParamsMap["certificates"] = CertificatesList
@@ -42033,9 +41834,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 							HTTPSTLSCertOptionsTLSCertParamsUseMtlsCRLMap["namespace"] = data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-							HTTPSTLSCertOptionsTLSCertParamsUseMtlsCRLMap["tenant"] = data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-						}
 						HTTPSTLSCertOptionsTLSCertParamsUseMtlsMap["crl"] = HTTPSTLSCertOptionsTLSCertParamsUseMtlsCRLMap
 					}
 					if data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.NoCRL != nil {
@@ -42048,9 +41846,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							HTTPSTLSCertOptionsTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							HTTPSTLSCertOptionsTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.HTTPS.TLSCertOptions.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						HTTPSTLSCertOptionsTLSCertParamsUseMtlsMap["trusted_ca"] = HTTPSTLSCertOptionsTLSCertParamsUseMtlsTrustedCAMap
 					}
@@ -42189,9 +41984,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Namespace.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Namespace.IsUnknown() {
 							HTTPSTLSCertOptionsTLSInlineParamsUseMtlsCRLMap["namespace"] = data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Namespace.ValueString()
 						}
-						if !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Tenant.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Tenant.IsUnknown() {
-							HTTPSTLSCertOptionsTLSInlineParamsUseMtlsCRLMap["tenant"] = data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.CRL.Tenant.ValueString()
-						}
 						HTTPSTLSCertOptionsTLSInlineParamsUseMtlsMap["crl"] = HTTPSTLSCertOptionsTLSInlineParamsUseMtlsCRLMap
 					}
 					if data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.NoCRL != nil {
@@ -42204,9 +41996,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 							HTTPSTLSCertOptionsTLSInlineParamsUseMtlsTrustedCAMap["namespace"] = data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Namespace.ValueString()
-						}
-						if !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							HTTPSTLSCertOptionsTLSInlineParamsUseMtlsTrustedCAMap["tenant"] = data.HTTPS.TLSCertOptions.TLSInlineParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
 						HTTPSTLSCertOptionsTLSInlineParamsUseMtlsMap["trusted_ca"] = HTTPSTLSCertOptionsTLSInlineParamsUseMtlsTrustedCAMap
 					}
@@ -42296,9 +42085,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !AuthorizationServersItem.Namespace.IsNull() && !AuthorizationServersItem.Namespace.IsUnknown() {
 							AuthorizationServersItemMap["namespace"] = AuthorizationServersItem.Namespace.ValueString()
-						}
-						if !AuthorizationServersItem.Tenant.IsNull() && !AuthorizationServersItem.Tenant.IsUnknown() {
-							AuthorizationServersItemMap["tenant"] = AuthorizationServersItem.Tenant.ValueString()
 						}
 						AuthorizationServersList = append(AuthorizationServersList, AuthorizationServersItemMap)
 					}
@@ -42616,9 +42402,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !data.OriginPool.UseTLS.UseMtlsObj.Namespace.IsNull() && !data.OriginPool.UseTLS.UseMtlsObj.Namespace.IsUnknown() {
 					OriginPoolUseTLSUseMtlsObjMap["namespace"] = data.OriginPool.UseTLS.UseMtlsObj.Namespace.ValueString()
 				}
-				if !data.OriginPool.UseTLS.UseMtlsObj.Tenant.IsNull() && !data.OriginPool.UseTLS.UseMtlsObj.Tenant.IsUnknown() {
-					OriginPoolUseTLSUseMtlsObjMap["tenant"] = data.OriginPool.UseTLS.UseMtlsObj.Tenant.ValueString()
-				}
 				OriginPoolUseTLSMap["use_mtls_obj"] = OriginPoolUseTLSUseMtlsObjMap
 			}
 			if data.OriginPool.UseTLS.UseServerVerification != nil {
@@ -42630,9 +42413,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					if !data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Namespace.IsNull() && !data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Namespace.IsUnknown() {
 						OriginPoolUseTLSUseServerVerificationTrustedCAMap["namespace"] = data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
-					}
-					if !data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Tenant.IsNull() && !data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Tenant.IsUnknown() {
-						OriginPoolUseTLSUseServerVerificationTrustedCAMap["tenant"] = data.OriginPool.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
 					}
 					OriginPoolUseTLSUseServerVerificationMap["trusted_ca"] = OriginPoolUseTLSUseServerVerificationTrustedCAMap
 				}
@@ -42852,9 +42632,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			if !data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.IsNull() && !data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.IsUnknown() {
 				PolicyBasedChallengeMaliciousUserMitigationMap["namespace"] = data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.ValueString()
 			}
-			if !data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.IsNull() && !data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.IsUnknown() {
-				PolicyBasedChallengeMaliciousUserMitigationMap["tenant"] = data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.ValueString()
-			}
 			PolicyBasedChallengeMap["malicious_user_mitigation"] = PolicyBasedChallengeMaliciousUserMitigationMap
 		}
 		if data.PolicyBasedChallenge.NoChallenge != nil {
@@ -42966,20 +42743,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										var AsnSetsList []map[string]interface{}
 										for _, AsnSetsItem := range AsnSetsElems {
 											AsnSetsItemMap := make(map[string]interface{})
-											if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-												AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-											}
 											if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 												AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 											}
 											if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 												AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-											}
-											if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-												AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-											}
-											if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-												AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 											}
 											AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 										}
@@ -43194,20 +42962,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										var PrefixSetsList []map[string]interface{}
 										for _, PrefixSetsItem := range PrefixSetsElems {
 											PrefixSetsItemMap := make(map[string]interface{})
-											if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-												PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-											}
 											if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 												PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 											}
 											if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 												PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-											}
-											if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-												PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-											}
-											if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-												PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 											}
 											PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 										}
@@ -43450,9 +43209,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 							RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
 						}
-						if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-							RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-						}
 						RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 					}
 					RateLimitCustomIPAllowedListMap["rate_limiter_allowed_prefixes"] = RateLimiterAllowedPrefixesList
@@ -43493,9 +43249,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 							PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
-						}
-						if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-							PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
 						}
 						PoliciesList = append(PoliciesList, PoliciesItemMap)
 					}
@@ -43565,9 +43318,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.IsNull() && !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.IsUnknown() {
 				SensitiveDataPolicySensitiveDataPolicyRefMap["namespace"] = data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.ValueString()
-			}
-			if !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.IsNull() && !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.IsUnknown() {
-				SensitiveDataPolicySensitiveDataPolicyRefMap["tenant"] = data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.ValueString()
 			}
 			SensitiveDataPolicyMap["sensitive_data_policy_ref"] = SensitiveDataPolicySensitiveDataPolicyRefMap
 		}
@@ -43689,9 +43439,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		}
 		if !data.UserIdentification.Namespace.IsNull() && !data.UserIdentification.Namespace.IsUnknown() {
 			UserIdentificationMap["namespace"] = data.UserIdentification.Namespace.ValueString()
-		}
-		if !data.UserIdentification.Tenant.IsNull() && !data.UserIdentification.Tenant.IsUnknown() {
-			UserIdentificationMap["tenant"] = data.UserIdentification.Tenant.ValueString()
 		}
 		apiResource.Spec["user_identification"] = UserIdentificationMap
 	}
@@ -43850,9 +43597,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			if !data.WAFExclusion.WAFExclusionPolicy.Namespace.IsNull() && !data.WAFExclusion.WAFExclusionPolicy.Namespace.IsUnknown() {
 				WAFExclusionWAFExclusionPolicyMap["namespace"] = data.WAFExclusion.WAFExclusionPolicy.Namespace.ValueString()
 			}
-			if !data.WAFExclusion.WAFExclusionPolicy.Tenant.IsNull() && !data.WAFExclusion.WAFExclusionPolicy.Tenant.IsUnknown() {
-				WAFExclusionWAFExclusionPolicyMap["tenant"] = data.WAFExclusion.WAFExclusionPolicy.Tenant.ValueString()
-			}
 			WAFExclusionMap["waf_exclusion_policy"] = WAFExclusionWAFExclusionPolicyMap
 		}
 		apiResource.Spec["waf_exclusion"] = WAFExclusionMap
@@ -43860,6 +43604,14 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 
 	_, err := r.client.UpdateCDNLoadBalancer(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of cdn_loadbalancer %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update CDNLoadBalancer: %s", err))
 		return
 	}
@@ -43877,10 +43629,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -43890,6 +43638,19 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	fetched, fetchErr := r.client.GetCDNLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CDNLoadBalancer after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

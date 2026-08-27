@@ -352,7 +352,7 @@ is required, the load balancer uses loadbalancer_algorithm to determine which ho
 -> **One of the following:**
 &#x2022; <a id="no-tls"></a>[`no_tls`](#no-tls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="origin-servers"></a>&#x2022; [`origin_servers`](#origin-servers) - Optional Block<br>List of origin servers in this pool<br>See [Origin Servers](#origin-servers) below for details.
+<a id="origin-servers"></a>&#x2022; [`origin_servers`](#origin-servers) - Optional Block<br>Origin Servers. List of origin servers in this pool<br>See [Origin Servers](#origin-servers) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 

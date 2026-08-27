@@ -20,5 +20,4 @@ resource "xcsh_alert_template" "example" {
   alert_message         = "example-value"
   alert_message_details = "example-value"
   alert_name            = "example-value"
-  severity              = "MINOR"
 }

@@ -1,17 +1,30 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "docker": {
-    "socket": "/run/docker.sock",
+    "host_socket": "/run/f5-actions-runner/container-build/docker.sock",
+    "runner_socket": "/run/docker.sock",
+    "data_root": "/data/actions-runners/container-build-docker",
+    "cache_max": "20g",
+    "cgroup_parent": "f5-actions-container-build.slice",
     "minimum_version": "29.2.1",
     "target_version": "29.7.2"
   },
+  "dispatcher": {
+    "repositories": [],
+    "memory": "48g",
+    "cpus": "18",
+    "standard_runners": 3,
+    "container_build_runners": 1,
+    "request_budget": 80
+  },
   "defaults": {
     "replicas": 1,
-    "profile": "ubuntu-24.04"
+    "profile": "ubuntu-24.04",
+    "standby_profiles": ["ubuntu-24.04"]
   },
   "profiles": {
     "ubuntu-24.04": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:e7ad5916a273bb0adf40e133ce089c321558b58f4362fc8e1015d379fa3e24e2",
       "labels": ["ubuntu-24.04"],
       "memory": "8g",
       "cpus": "4",
@@ -21,7 +34,7 @@
       "docker_socket": false
     },
     "ubuntu-24.04-secondary": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:e7ad5916a273bb0adf40e133ce089c321558b58f4362fc8e1015d379fa3e24e2",
       "labels": ["ubuntu-24.04"],
       "memory": "8g",
       "cpus": "4",
@@ -31,7 +44,7 @@
       "docker_socket": false
     },
     "automation": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:e7ad5916a273bb0adf40e133ce089c321558b58f4362fc8e1015d379fa3e24e2",
       "labels": ["automation"],
       "memory": "8g",
       "cpus": "4",
@@ -41,7 +54,7 @@
       "docker_socket": false
     },
     "ubuntu-22.04": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:cbc2f6d8c2c037f5fb9703767d7ed49b146dd0df20effc30ae85bebd5f33aa6c",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:f04d6bce9800b97d4abe941d4d42c9c99cc0db6945b868808724fda37f258ec4",
       "labels": ["ubuntu-22.04"],
       "memory": "8g",
       "cpus": "4",
@@ -51,7 +64,7 @@
       "docker_socket": false
     },
     "container-build": {
-      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:d7253128030110789e9df797e847ddd0298b15ea0c4c4c9546d53e1f8dacf208",
+      "image": "ghcr.io/f5-sales-demo/self-hosted-runner@sha256:a0f1231675d6280c0b702c855ad2445f8a3cb0f2c42921607b2ca22f8c57992c",
       "labels": ["container-build"],
       "memory": "16g",
       "cpus": "6",
@@ -156,10 +169,6 @@
         }
       },
       ".github/workflows/ci.yml": {
-        "check": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "CI validation uses the hosted Bun toolchain"
-        },
         "setup-zig": {
           "runs_on": "matrix",
           "reason": "Zig setup validates hosted Linux, macOS, and Windows"
@@ -167,42 +176,6 @@
         "native": {
           "runs_on": "matrix",
           "reason": "native builds require hosted platform-specific toolchains"
-        },
-        "test": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "test provisioning installs an ephemeral hosted toolchain"
-        },
-        "install_methods": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "installation tests require ephemeral package provisioning"
-        },
-        "invalidate-stale-release-prs": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "release PR maintenance uses the hosted GitHub environment"
-        },
-        "auto-release": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "release planning uses the hosted GitHub environment"
-        },
-        "build-release": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "release packaging uses the hosted Linux toolchain"
-        },
-        "create-release": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "release publication uses the hosted GitHub environment"
-        },
-        "update-homebrew": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "Homebrew formula updates use the hosted release environment"
-        },
-        "publish-npm": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "npm publication uses the hosted release environment"
-        },
-        "verify-npm-install": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "npm installation verification uses the hosted environment"
         },
         "build-sign-macos": {
           "runs_on": "matrix",
@@ -223,24 +196,6 @@
         "update-console-catalog": {
           "runs_on": "ubuntu-22.04",
           "reason": "catalog publishing uses the hosted GitHub environment"
-        }
-      },
-      ".github/workflows/container.yml": {
-        "container-build": {
-          "runs_on": "matrix",
-          "reason": "container builds require hosted native amd64 and arm64 runners"
-        },
-        "podman-uat-harness": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "Podman harness runs in an ephemeral hosted environment"
-        },
-        "container-test": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "container aggregation runs in the hosted test environment"
-        },
-        "publish-ghcr": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "container publication uses the hosted Docker environment"
         }
       },
       ".github/workflows/deploy-office-pane.yml": {
@@ -265,12 +220,6 @@
         "reconcile": {
           "runs_on": "ubuntu-22.04",
           "reason": "release reconciliation uses hosted registry access"
-        }
-      },
-      ".github/workflows/tag-on-version-bump.yml": {
-        "tag": {
-          "runs_on": "ubuntu-22.04",
-          "reason": "immutable release tagging uses hosted GitHub credentials"
         }
       },
       ".github/workflows/test-codesign.yml": {
@@ -607,136 +556,517 @@
   },
   "repositories": {
     "f5-sales-demo/administration": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/api-protection": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/api-specs": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/api-specs-enriched": {
       "runner": {
-        "profiles": ["ubuntu-24.04", "ubuntu-24.04-secondary", "container-build"]
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
       }
     },
     "f5-sales-demo/apt-repo": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/bot-advanced": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/bot-standard": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/cdn": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/cdn-simulator": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/console": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/csd": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/ddos": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/demo-resource-template": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/demo-resources": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/devcontainer": {
       "runner": {
-        "profiles": ["ubuntu-24.04", "container-build"]
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
       }
     },
     "f5-sales-demo/dns": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/docs": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": { "label": "docs-socketless", "profile": "ubuntu-24.04" },
+          "container-build": { "label": "docs-container-build", "profile": "container-build" }
+        }
+      }
     },
     "f5-sales-demo/docs-builder": {
       "runner": {
-        "profiles": ["ubuntu-24.04", "container-build"]
+        "arc_scale_sets": {
+          "socketless": { "label": "docs-socketless", "profile": "ubuntu-24.04" },
+          "container-build": { "label": "docs-container-build", "profile": "container-build" }
+        }
       }
     },
     "f5-sales-demo/docs-control": {
       "runner": {
-        "profiles": ["ubuntu-24.04", "ubuntu-24.04-secondary", "automation", "container-build"]
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
       }
     },
     "f5-sales-demo/docs-icons": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": { "label": "docs-socketless", "profile": "ubuntu-24.04" },
+          "container-build": { "label": "docs-container-build", "profile": "container-build" }
+        }
+      }
     },
     "f5-sales-demo/docs-theme": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": { "label": "docs-socketless", "profile": "ubuntu-24.04" },
+          "container-build": { "label": "docs-container-build", "profile": "container-build" }
+        }
+      }
     },
     "f5-sales-demo/i18n-core": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": { "label": "docs-socketless", "profile": "ubuntu-24.04" },
+          "container-build": { "label": "docs-container-build", "profile": "container-build" }
+        }
+      }
     },
     "f5-sales-demo/marketplace": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/marketplace-claude-code": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/mcn": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/nginx": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/observability": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/origin-server": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/starlight-llms-txt": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": { "label": "docs-socketless", "profile": "ubuntu-24.04" },
+          "container-build": { "label": "docs-container-build", "profile": "container-build" }
+        }
+      }
     },
     "f5-sales-demo/starlight-mega-menu": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/traffic-generator": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/vscode-xcsh": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/waf": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/was": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/webapp-api-protection": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/xcsh": {
       "runner": {
-        "profiles": ["ubuntu-24.04", "ubuntu-22.04", "container-build"]
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "xcsh-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "xcsh-container-build",
+            "profile": "container-build"
+          }
+        }
       }
     },
     "f5-sales-demo/xcsh-action": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/xcsh-chrome-extension": {
-      "runner": { "profiles": ["ubuntu-24.04", "container-build"] }
+      "runner": {
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
+      }
     },
     "f5-sales-demo/terraform-provider-xcsh": {
       "runner": {
-        "profiles": ["ubuntu-24.04", "container-build"]
+        "arc_scale_sets": {
+          "socketless": {
+            "label": "managed-socketless",
+            "profile": "ubuntu-24.04"
+          },
+          "container-build": {
+            "label": "managed-container-build",
+            "profile": "container-build"
+          }
+        }
       },
       ".github/workflows/acc-tests.yml": {
         "real-api-tests": {
-          "runs_on": ["self-hosted", "Linux", "X64", "terraform-provider-xcsh", "ubuntu-24.04"],
+          "runs_on": "managed-socketless",
           "environment": "acceptance-tests",
           "permissions": {
             "checks": "write",
@@ -786,7 +1116,7 @@
           "if": "always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"
         },
         "cleanup": {
-          "runs_on": ["self-hosted", "Linux", "X64", "terraform-provider-xcsh", "ubuntu-24.04"],
+          "runs_on": "managed-socketless",
           "environment": "acceptance-tests",
           "permissions": {
             "contents": "read"
@@ -837,7 +1167,7 @@
       },
       ".github/workflows/discover-defaults.yml": {
         "discover": {
-          "runs_on": ["self-hosted", "Linux", "X64", "terraform-provider-xcsh", "ubuntu-24.04"],
+          "runs_on": "managed-socketless",
           "environment": "default-discovery",
           "permissions": {},
           "allowed_secrets": ["REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"],

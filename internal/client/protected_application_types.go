@@ -10,8 +10,9 @@ import (
 
 // ProtectedApplication represents a F5XC ProtectedApplication
 type ProtectedApplication struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateProtectedApplication creates a new ProtectedApplication

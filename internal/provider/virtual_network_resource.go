@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -26,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -183,7 +185,11 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"legacy_type": schema.StringAttribute{
 				MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE", "VIRTUAL_NETWORK_PER_SITE", "VIRTUAL_NETWORK_PUBLIC", "VIRTUAL_NETWORK_GLOBAL", "VIRTUAL_NETWORK_SITE_SERVICE", "VIRTUAL_NETWORK_VER_INTERNAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE", "VIRTUAL_NETWORK_IP_AUTO", "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK", "VIRTUAL_NETWORK_SRV6_NETWORK", "VIRTUAL_NETWORK_IP_FABRIC", "VIRTUAL_NETWORK_SEGMENT", "VIRTUAL_NETWORK_MANAGEMENT"),
 				},
@@ -226,7 +232,7 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 							},
 						},
 						"ip_prefixes": schema.ListAttribute{
-							MarkdownDescription: "List of route prefixes that have common next hop and attributes .",
+							MarkdownDescription: "List of route prefixes that have common next hop and attributes.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -478,20 +484,11 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -523,11 +520,28 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetVirtualNetwork(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -751,6 +765,16 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read VirtualNetwork: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1021,6 +1045,20 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.VirtualNetwork{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -1028,6 +1066,7 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -1129,20 +1168,11 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 										var InterfaceList []map[string]interface{}
 										for _, InterfaceItem := range InterfaceElems {
 											InterfaceItemMap := make(map[string]interface{})
-											if !InterfaceItem.Kind.IsNull() && !InterfaceItem.Kind.IsUnknown() {
-												InterfaceItemMap["kind"] = InterfaceItem.Kind.ValueString()
-											}
 											if !InterfaceItem.Name.IsNull() && !InterfaceItem.Name.IsUnknown() {
 												InterfaceItemMap["name"] = InterfaceItem.Name.ValueString()
 											}
 											if !InterfaceItem.Namespace.IsNull() && !InterfaceItem.Namespace.IsUnknown() {
 												InterfaceItemMap["namespace"] = InterfaceItem.Namespace.ValueString()
-											}
-											if !InterfaceItem.Tenant.IsNull() && !InterfaceItem.Tenant.IsUnknown() {
-												InterfaceItemMap["tenant"] = InterfaceItem.Tenant.ValueString()
-											}
-											if !InterfaceItem.Uid.IsNull() && !InterfaceItem.Uid.IsUnknown() {
-												InterfaceItemMap["uid"] = InterfaceItem.Uid.ValueString()
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
@@ -1170,6 +1200,14 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 
 	_, err := r.client.UpdateVirtualNetwork(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of virtual_network %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update VirtualNetwork: %s", err))
 		return
 	}
@@ -1187,10 +1225,6 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -1203,7 +1237,27 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["legacy_type"].(string); ok && v != "" {
+		data.LegacyType = types.StringValue(v)
+	} else if data.LegacyType.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.LegacyType = types.StringNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields

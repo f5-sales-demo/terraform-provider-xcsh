@@ -119,7 +119,7 @@ A [`connections`](#aws-byoc-connections) block (within [`aws.byoc`](#aws-byoc)) 
 during create<br>See [Metadata](#aws-byoc-connections-metadata) below.
 
 <a id="aws-byoc-connections-region"></a>&#x2022; [`region`](#aws-byoc-connections-region) - Optional String<br>Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `CA-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`,
-`me-south-1`, `us-west-1`, `ap-southeast-3`<br>[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|CA-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] Region where the connection is setup
+`me-south-1`, `us-west-1`, `ap-southeast-3`<br>[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|CA-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] Region. Region where the connection is setup
 
 <a id="name-ebc6a3"></a>&#x2022; [`system_generated_name`](#name-ebc6a3) - Optional Block<br>Enable this option
 

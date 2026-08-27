@@ -17,6 +17,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -109,6 +112,9 @@ func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "Address pool from which the allocator carves out subnets or addresses to its clients.",
 				Required:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.List{
+					listplanmodifier.RequiresReplace(),
+				},
 				Validators: []validator.List{
 					listvalidator.SizeBetween(1, 32),
 				},
@@ -117,19 +123,31 @@ func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.RequiresReplace(),
+				},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -140,7 +158,11 @@ func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"mode": schema.StringAttribute{
 				MarkdownDescription: "[Enum: LOCAL|GLOBAL_PER_SITE_NODE] Mode of the address allocator Address allocator is for VERs within the local cluster or site Allocation is per site and then per node. Possible values are `LOCAL`, `GLOBAL_PER_SITE_NODE`. Defaults to `LOCAL`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("LOCAL", "GLOBAL_PER_SITE_NODE"),
 				},
@@ -587,182 +609,14 @@ func (r *AddressAllocatorResource) Update(ctx context.Context, req resource.Upda
 		return
 	}
 
-	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
-	resp.Diagnostics.Append(diags...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
-	defer cancel()
-
-	apiResource := &client.AddressAllocator{
-		Metadata: client.Metadata{
-			Name:      data.Name.ValueString(),
-			Namespace: data.Namespace.ValueString(),
-		},
-		Spec: make(map[string]interface{}),
-	}
-
-	if !data.Description.IsNull() {
-		apiResource.Metadata.Description = data.Description.ValueString()
-	}
-
-	if !data.Labels.IsNull() {
-		labels := make(map[string]string)
-		resp.Diagnostics.Append(data.Labels.ElementsAs(ctx, &labels, false)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
-		apiResource.Metadata.Labels = labels
-	}
-
-	// Re-capture ownership on every update, because the configuration's label set can
-	// change: a key added here becomes owned, and a key removed stops being owned so the
-	// next Read filters it again if it lives in a platform namespace (#1398).
-	//
-	// Captured HERE, before the platform's own discovery labels are merged in below —
-	// merging first would record those as configuration-owned and reintroduce exactly the
-	// #1391 bug this pairs with. Written to private state only after the API call
-	// succeeds; see the note at the write site.
-	ownedLabelKeys, ownedLabelErr := encodeOwnedLabelKeys(configLabelKeys(apiResource.Metadata.Labels))
-	if ownedLabelErr != nil {
-		resp.Diagnostics.AddError(
-			"Unable to Record Owned Label Keys",
-			"Could not encode the configuration's label keys for private state: "+ownedLabelErr.Error()+
-				"\n\nWithout this record the read-back cannot distinguish a label this "+
-				"configuration owns from one the platform authored, and a label in the "+
-				"ves.io/ namespace would never converge.",
-		)
-		return
-	}
-
-	if !data.Annotations.IsNull() {
-		annotations := make(map[string]string)
-		resp.Diagnostics.Append(data.Annotations.ElementsAs(ctx, &annotations, false)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
-		apiResource.Metadata.Annotations = annotations
-	}
-
-	// Marshal spec fields from Terraform state to API struct
-	if !data.AddressPool.IsNull() && !data.AddressPool.IsUnknown() {
-		var AddressPoolItems []string
-		diags := data.AddressPool.ElementsAs(ctx, &AddressPoolItems, false)
-		resp.Diagnostics.Append(diags...)
-		if !diags.HasError() {
-			apiResource.Spec["address_pool"] = AddressPoolItems
-		}
-	}
-	if data.AddressAllocationScheme != nil {
-		AddressAllocationSchemeMap := make(map[string]interface{})
-		if !data.AddressAllocationScheme.AllocationUnit.IsNull() && !data.AddressAllocationScheme.AllocationUnit.IsUnknown() {
-			AddressAllocationSchemeMap["allocation_unit"] = data.AddressAllocationScheme.AllocationUnit.ValueInt64()
-		}
-		if !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsNull() && !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsUnknown() {
-			AddressAllocationSchemeMap["local_interface_address_offset"] = data.AddressAllocationScheme.LocalInterfaceAddressOffset.ValueInt64()
-		}
-		if !data.AddressAllocationScheme.LocalInterfaceAddressType.IsNull() && !data.AddressAllocationScheme.LocalInterfaceAddressType.IsUnknown() {
-			AddressAllocationSchemeMap["local_interface_address_type"] = data.AddressAllocationScheme.LocalInterfaceAddressType.ValueString()
-		}
-		apiResource.Spec["address_allocation_scheme"] = AddressAllocationSchemeMap
-	}
-	if !data.Mode.IsNull() && !data.Mode.IsUnknown() {
-		apiResource.Spec["mode"] = data.Mode.ValueString()
-	}
-
-	_, err := r.client.UpdateAddressAllocator(ctx, apiResource)
-	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update AddressAllocator: %s", err))
-		return
-	}
-
-	// Only now that the write has landed. terraform-plugin-framework persists private
-	// state even when the method returns an error (it copies updateResp.Private into the
-	// response before checking diagnostics), so recording ownership earlier would be
-	// worse than not recording it: dropping a ves.io/ label from the configuration and
-	// then failing the update would leave private state claiming the key is unowned while
-	// the server still holds it, and Read would filter it out of sight for good.
-	//
-	// This is not airtight, and cannot be: Client.Put returns json.Unmarshal's error
-	// after a 2xx, so an error does not strictly prove the write was rejected. What it
-	// does guarantee is the direction of the residual. If the write landed and we return
-	// early, ownership stays as it was — an added label keeps being planned, which is
-	// visible and self-corrects on the next successful apply. The opposite ordering loses
-	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
-
-	// Use plan data for ID since API response may not include metadata.name
-	data.ID = types.StringValue(data.Name.ValueString())
-
-	// Fetch the resource to get complete state including computed fields
-	// PUT responses may not include all computed nested fields (like tenant in Object Reference blocks)
-	fetched, fetchErr := r.client.GetAddressAllocator(ctx, data.Namespace.ValueString(), data.Name.ValueString())
-	if fetchErr != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AddressAllocator after update: %s", fetchErr))
-		return
-	}
-
-	// Set computed fields from API response
-
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["address_pool"].([]interface{}); ok && len(v) > 0 {
-		var address_poolList []string
-		for _, item := range v {
-			if s, ok := item.(string); ok {
-				address_poolList = append(address_poolList, s)
-			}
-		}
-		listVal, diags := types.ListValueFrom(ctx, types.StringType, address_poolList)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() {
-			data.AddressPool = listVal
-		}
-	} else {
-		data.AddressPool = types.ListNull(types.StringType)
-	}
-	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {
-		data.AddressAllocationScheme = &AddressAllocatorAddressAllocationSchemeModel{
-			AllocationUnit: func() types.Int64 {
-				if !isImport && data.AddressAllocationScheme != nil && !data.AddressAllocationScheme.AllocationUnit.IsUnknown() {
-					return data.AddressAllocationScheme.AllocationUnit
-				}
-				if v, ok := blockData["allocation_unit"].(float64); ok && v != 0 {
-					return types.Int64Value(int64(v))
-				}
-				return types.Int64Null()
-			}(),
-			LocalInterfaceAddressOffset: func() types.Int64 {
-				if !isImport && data.AddressAllocationScheme != nil && !data.AddressAllocationScheme.LocalInterfaceAddressOffset.IsUnknown() {
-					return data.AddressAllocationScheme.LocalInterfaceAddressOffset
-				}
-				if v, ok := blockData["local_interface_address_offset"].(float64); ok && v != 0 {
-					return types.Int64Value(int64(v))
-				}
-				return types.Int64Null()
-			}(),
-			LocalInterfaceAddressType: func() types.String {
-				if v, ok := blockData["local_interface_address_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-		}
-	}
-	if v, ok := apiResource.Spec["mode"].(string); ok && v != "" {
-		data.Mode = types.StringValue(v)
-	} else {
-		data.Mode = types.StringNull()
-	}
-
-	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	// The released operation/concurrency contracts do not classify this object
+	// as safely replaceable. Every configurable field requires replacement; fail
+	// closed without a PUT if Update is nevertheless invoked.
+	resp.Diagnostics.AddError(
+		"Update Not Supported",
+		"This API object does not expose a refreshable configuration token and cannot be updated safely. Replace the Terraform resource instead.",
+	)
+	return
 }
 
 func (r *AddressAllocatorResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {

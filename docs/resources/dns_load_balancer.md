@@ -113,7 +113,7 @@ A [`response_cache_parameters`](#parameters-0ffd09) block (within [`response_cac
 
 A [`rule_list`](#rule-list) block supports the following:
 
-<a id="rule-list-rules"></a>&#x2022; [`rules`](#rule-list-rules) - Optional Block<br>Rules to perform load balancing<br>See [Rules](#rule-list-rules) below.
+<a id="rule-list-rules"></a>&#x2022; [`rules`](#rule-list-rules) - Optional Block<br>Load Balancing Rules. Rules to perform load balancing<br>See [Rules](#rule-list-rules) below.
 
 #### Rule List Rules
 

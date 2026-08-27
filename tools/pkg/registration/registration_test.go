@@ -5,11 +5,55 @@ package registration
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
+
+func TestEveryGeneratedUpdateIsTokenProtectedOrDisabled(t *testing.T) {
+	repoRoot := filepath.Join("..", "..", "..")
+	providerDir := filepath.Join(repoRoot, "internal", "provider")
+	clientDir := filepath.Join(repoRoot, "internal", "client")
+	files, err := filepath.Glob(filepath.Join(providerDir, "*_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, path := range files {
+		content, readErr := os.ReadFile(path) //nolint:gosec // repository-generated files
+		if readErr != nil {
+			t.Fatal(readErr)
+		}
+		source := string(content)
+		if !strings.Contains(source, "DO NOT EDIT") || !strings.Contains(source, "Resource) Update(") {
+			continue
+		}
+		if strings.Contains(source, "action resource (x-f5xc-action)") {
+			if strings.Contains(source, "r.client.Update") {
+				t.Errorf("%s action resource emits an in-place PUT", strings.TrimSuffix(filepath.Base(path), "_resource.go"))
+			}
+			continue
+		}
+		resourceName := strings.TrimSuffix(filepath.Base(path), "_resource.go")
+		if strings.Contains(source, "r.client.Update") {
+			if !strings.Contains(source, "req.Private.GetKey(ctx, concurrencyTokenPrivateKey)") {
+				t.Errorf("%s emits an in-place PUT without reading the refreshed private concurrency token", resourceName)
+			}
+			clientSource, clientErr := os.ReadFile(filepath.Join(clientDir, resourceName+"_types.go")) //nolint:gosec
+			if clientErr != nil {
+				t.Errorf("%s client model is unavailable: %v", resourceName, clientErr)
+			} else if !strings.Contains(string(clientSource), `ResourceVersion string`) ||
+				!strings.Contains(string(clientSource), `json:"resource_version,omitempty"`) {
+				t.Errorf("%s emits an in-place PUT without a client-only resource_version field", resourceName)
+			}
+			continue
+		}
+		if !strings.Contains(source, "Update Not Supported") {
+			t.Errorf("%s has neither a token-protected PUT nor a fail-closed Update stub", resourceName)
+		}
+	}
+}
 
 func TestCleanOrphanGeneratedFiles(t *testing.T) {
 	// Create temp directories for provider and client files

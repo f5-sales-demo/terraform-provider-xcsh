@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -28,6 +29,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -51,56 +53,6 @@ type HTTPLoadBalancerResource struct {
 
 // HTTPLoadBalancerEmptyModel represents empty nested blocks
 type HTTPLoadBalancerEmptyModel struct {
-}
-
-// HTTPLoadBalancerCachingPolicyModel represents caching_policy block
-type HTTPLoadBalancerCachingPolicyModel struct {
-	CustomCacheRule    *HTTPLoadBalancerCachingPolicyCustomCacheRuleModel    `tfsdk:"custom_cache_rule"`
-	DefaultCacheAction *HTTPLoadBalancerCachingPolicyDefaultCacheActionModel `tfsdk:"default_cache_action"`
-}
-
-// HTTPLoadBalancerCachingPolicyModelAttrTypes defines the attribute types for HTTPLoadBalancerCachingPolicyModel
-var HTTPLoadBalancerCachingPolicyModelAttrTypes = map[string]attr.Type{
-	"custom_cache_rule":    types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleModelAttrTypes},
-	"default_cache_action": types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyDefaultCacheActionModelAttrTypes},
-}
-
-// HTTPLoadBalancerCachingPolicyCustomCacheRuleModel represents custom_cache_rule block
-type HTTPLoadBalancerCachingPolicyCustomCacheRuleModel struct {
-	CDNCacheRules types.List `tfsdk:"cdn_cache_rules"`
-}
-
-// HTTPLoadBalancerCachingPolicyCustomCacheRuleModelAttrTypes defines the attribute types for HTTPLoadBalancerCachingPolicyCustomCacheRuleModel
-var HTTPLoadBalancerCachingPolicyCustomCacheRuleModelAttrTypes = map[string]attr.Type{
-	"cdn_cache_rules": types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes}},
-}
-
-// HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel represents cdn_cache_rules block
-type HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel struct {
-	Name      types.String `tfsdk:"name"`
-	Namespace types.String `tfsdk:"namespace"`
-	Tenant    types.String `tfsdk:"tenant"`
-}
-
-// HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-var HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes = map[string]attr.Type{
-	"name":      types.StringType,
-	"namespace": types.StringType,
-	"tenant":    types.StringType,
-}
-
-// HTTPLoadBalancerCachingPolicyDefaultCacheActionModel represents default_cache_action block
-type HTTPLoadBalancerCachingPolicyDefaultCacheActionModel struct {
-	CacheTTLDefault  types.String                `tfsdk:"cache_ttl_default"`
-	CacheTTLOverride types.String                `tfsdk:"cache_ttl_override"`
-	CacheDisabled    *HTTPLoadBalancerEmptyModel `tfsdk:"cache_disabled"`
-}
-
-// HTTPLoadBalancerCachingPolicyDefaultCacheActionModelAttrTypes defines the attribute types for HTTPLoadBalancerCachingPolicyDefaultCacheActionModel
-var HTTPLoadBalancerCachingPolicyDefaultCacheActionModelAttrTypes = map[string]attr.Type{
-	"cache_ttl_default":  types.StringType,
-	"cache_ttl_override": types.StringType,
-	"cache_disabled":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // HTTPLoadBalancerActiveServicePoliciesModel represents active_service_policies block
@@ -3911,6 +3863,56 @@ var HTTPLoadBalancerBotDefenseAdvancedWebModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
+}
+
+// HTTPLoadBalancerCachingPolicyModel represents caching_policy block
+type HTTPLoadBalancerCachingPolicyModel struct {
+	CustomCacheRule    *HTTPLoadBalancerCachingPolicyCustomCacheRuleModel    `tfsdk:"custom_cache_rule"`
+	DefaultCacheAction *HTTPLoadBalancerCachingPolicyDefaultCacheActionModel `tfsdk:"default_cache_action"`
+}
+
+// HTTPLoadBalancerCachingPolicyModelAttrTypes defines the attribute types for HTTPLoadBalancerCachingPolicyModel
+var HTTPLoadBalancerCachingPolicyModelAttrTypes = map[string]attr.Type{
+	"custom_cache_rule":    types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleModelAttrTypes},
+	"default_cache_action": types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyDefaultCacheActionModelAttrTypes},
+}
+
+// HTTPLoadBalancerCachingPolicyCustomCacheRuleModel represents custom_cache_rule block
+type HTTPLoadBalancerCachingPolicyCustomCacheRuleModel struct {
+	CDNCacheRules types.List `tfsdk:"cdn_cache_rules"`
+}
+
+// HTTPLoadBalancerCachingPolicyCustomCacheRuleModelAttrTypes defines the attribute types for HTTPLoadBalancerCachingPolicyCustomCacheRuleModel
+var HTTPLoadBalancerCachingPolicyCustomCacheRuleModelAttrTypes = map[string]attr.Type{
+	"cdn_cache_rules": types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes}},
+}
+
+// HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel represents cdn_cache_rules block
+type HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+var HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// HTTPLoadBalancerCachingPolicyDefaultCacheActionModel represents default_cache_action block
+type HTTPLoadBalancerCachingPolicyDefaultCacheActionModel struct {
+	CacheTTLDefault  types.String                `tfsdk:"cache_ttl_default"`
+	CacheTTLOverride types.String                `tfsdk:"cache_ttl_override"`
+	CacheDisabled    *HTTPLoadBalancerEmptyModel `tfsdk:"cache_disabled"`
+}
+
+// HTTPLoadBalancerCachingPolicyDefaultCacheActionModelAttrTypes defines the attribute types for HTTPLoadBalancerCachingPolicyDefaultCacheActionModel
+var HTTPLoadBalancerCachingPolicyDefaultCacheActionModelAttrTypes = map[string]attr.Type{
+	"cache_ttl_default":  types.StringType,
+	"cache_ttl_override": types.StringType,
+	"cache_disabled":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // HTTPLoadBalancerCaptchaChallengeModel represents captcha_challenge block
@@ -9304,7 +9306,6 @@ type HTTPLoadBalancerResourceModel struct {
 	ID                            types.String                                       `tfsdk:"id"`
 	AddLocation                   types.Bool                                         `tfsdk:"add_location"`
 	Timeouts                      timeouts.Value                                     `tfsdk:"timeouts"`
-	CachingPolicy                 *HTTPLoadBalancerCachingPolicyModel                `tfsdk:"caching_policy"`
 	ActiveServicePolicies         *HTTPLoadBalancerActiveServicePoliciesModel        `tfsdk:"active_service_policies"`
 	AdvertiseCustom               *HTTPLoadBalancerAdvertiseCustomModel              `tfsdk:"advertise_custom"`
 	AdvertiseOnPublic             *HTTPLoadBalancerAdvertiseOnPublicModel            `tfsdk:"advertise_on_public"`
@@ -9317,6 +9318,7 @@ type HTTPLoadBalancerResourceModel struct {
 	BlockedClients                types.List                                         `tfsdk:"blocked_clients"`
 	BotDefense                    *HTTPLoadBalancerBotDefenseModel                   `tfsdk:"bot_defense"`
 	BotDefenseAdvanced            *HTTPLoadBalancerBotDefenseAdvancedModel           `tfsdk:"bot_defense_advanced"`
+	CachingPolicy                 *HTTPLoadBalancerCachingPolicyModel                `tfsdk:"caching_policy"`
 	CaptchaChallenge              *HTTPLoadBalancerCaptchaChallengeModel             `tfsdk:"captcha_challenge"`
 	ClientSideDefense             *HTTPLoadBalancerClientSideDefenseModel            `tfsdk:"client_side_defense"`
 	CookieStickiness              *HTTPLoadBalancerCookieStickinessModel             `tfsdk:"cookie_stickiness"`
@@ -9462,68 +9464,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Update: true,
 				Delete: true,
 			}),
-			"caching_policy": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: caching_policy, disable_caching; Default: disable_caching] Policy configuration for this feature.",
-				Attributes:          map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"custom_cache_rule": schema.SingleNestedBlock{
-						MarkdownDescription: "Custom Cache Rules. Caching policies for CDN.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"cdn_cache_rules": schema.ListNestedBlock{
-								MarkdownDescription: "Reference to CDN Cache Rule configuration object.",
-								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{
-										"name": schema.StringAttribute{
-											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
-											Optional:            true,
-											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
-											},
-										},
-										"namespace": schema.StringAttribute{
-											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
-											Optional:            true,
-											Computed:            true,
-											PlanModifiers: []planmodifier.String{
-												stringplanmodifier.UseStateForUnknown(),
-											},
-											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 63),
-											},
-										},
-										"tenant": schema.StringAttribute{
-											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-											Computed:            true,
-											Validators: []validator.String{
-												stringvalidator.LengthAtMost(64),
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-					"default_cache_action": schema.SingleNestedBlock{
-						MarkdownDescription: "Default Cache Behaviour. This defines a Default Cache Action.",
-						Attributes: map[string]schema.Attribute{
-							"cache_ttl_default": schema.StringAttribute{
-								MarkdownDescription: "Exclusive with [cache_disabled cache_ttl_override] Use Cache TTL Provided by Origin, and set a contigency TTL value in case one is not provided.",
-								Optional:            true,
-							},
-							"cache_ttl_override": schema.StringAttribute{
-								MarkdownDescription: "Exclusive with [cache_disabled cache_ttl_default] Always override the Cache TTL provided by Origin.",
-								Optional:            true,
-							},
-						},
-						Blocks: map[string]schema.Block{
-							"cache_disabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
-					},
-				},
-			},
 			"active_service_policies": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: active_service_policies, no_service_policies, service_policies_from_namespace; Default: no_service_policies] Configuration parameter for active service policies.",
 				Attributes:          map[string]schema.Attribute{},
@@ -9567,7 +9507,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
-						MarkdownDescription: "Where should this load balancer be available .",
+						MarkdownDescription: "Where should this load balancer be available.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -9951,7 +9891,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"api_endpoint_path": schema.StringAttribute{
-									MarkdownDescription: "The endpoint (path) of the request.",
+									MarkdownDescription: "API Endpoint. The endpoint (path) of the request.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
@@ -10142,7 +10082,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 											Attributes: map[string]schema.Attribute{
 												"ip_threat_categories": schema.ListAttribute{
-													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -10214,7 +10154,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-sensitive cookie name.",
+														MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -10269,7 +10209,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-insensitive HTTP header name.",
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -10442,7 +10382,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"base_path": schema.StringAttribute{
-									MarkdownDescription: "Base Path. Prefix of the request path. For example: /v1 .",
+									MarkdownDescription: "Base Path. Prefix of the request path. For example: /v1.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(128),
@@ -10616,7 +10556,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 											Attributes: map[string]schema.Attribute{
 												"ip_threat_categories": schema.ListAttribute{
-													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -10688,7 +10628,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-sensitive cookie name.",
+														MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -10743,7 +10683,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-insensitive HTTP header name.",
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -10915,7 +10855,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"api_endpoint_path": schema.StringAttribute{
-									MarkdownDescription: "The endpoint (path) of the request.",
+									MarkdownDescription: "API Endpoint. The endpoint (path) of the request.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
@@ -11094,7 +11034,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 											Attributes: map[string]schema.Attribute{
 												"ip_threat_categories": schema.ListAttribute{
-													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -11141,7 +11081,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.Between(0, 8192),
+												int64validator.Between(1, 8192),
 											},
 										},
 										"unit": schema.StringAttribute{
@@ -11231,7 +11171,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-sensitive cookie name.",
+														MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -11286,7 +11226,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-insensitive HTTP header name.",
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -11489,7 +11429,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path. Path to be matched .",
+													MarkdownDescription: "Path. Path to be matched.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 1024),
@@ -11501,7 +11441,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "API Groups.",
 											Attributes: map[string]schema.Attribute{
 												"api_groups": schema.ListAttribute{
-													MarkdownDescription: "API Groups. .",
+													MarkdownDescription: "API Groups. Group or collection configuration",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -11654,7 +11594,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 													Attributes: map[string]schema.Attribute{
 														"ip_threat_categories": schema.ListAttribute{
-															MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+															MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 															Optional:            true,
 															ElementType:         types.StringType,
 															Validators: []validator.List{
@@ -11707,7 +11647,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																Optional:            true,
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Case-sensitive cookie name.",
+																MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 63),
@@ -11762,7 +11702,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																Optional:            true,
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Case-insensitive HTTP header name.",
+																MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 63),
@@ -11991,7 +11931,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"base_path": schema.StringAttribute{
-									MarkdownDescription: "Prefix of the request path.",
+									MarkdownDescription: "Base Path. Prefix of the request path.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(128),
@@ -12153,7 +12093,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
 											Attributes: map[string]schema.Attribute{
 												"ip_threat_categories": schema.ListAttribute{
-													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions . Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
 													Optional:            true,
 													ElementType:         types.StringType,
 													Validators: []validator.List{
@@ -12200,7 +12140,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
 											Validators: []validator.Int64{
-												int64validator.Between(0, 8192),
+												int64validator.Between(1, 8192),
 											},
 										},
 										"unit": schema.StringAttribute{
@@ -12290,7 +12230,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-sensitive cookie name.",
+														MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -12345,7 +12285,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-insensitive HTTP header name.",
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -12558,7 +12498,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"open_api_validation_rules": schema.ListNestedBlock{
-												MarkdownDescription: "Custom Fall Through Rule List. .",
+												MarkdownDescription: "Custom Fall Through Rule List. Rule or policy definition",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"api_group": schema.StringAttribute{
@@ -12598,7 +12538,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																	},
 																},
 																"path": schema.StringAttribute{
-																	MarkdownDescription: "Path. Path to be matched .",
+																	MarkdownDescription: "Path. Path to be matched.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 1024),
@@ -12673,7 +12613,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of response.",
 										Attributes: map[string]schema.Attribute{
 											"response_validation_properties": schema.ListAttribute{
-												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger) . Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 												Validators: []validator.List{
@@ -12700,7 +12640,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of request.",
 										Attributes: map[string]schema.Attribute{
 											"request_validation_properties": schema.ListAttribute{
-												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger) . Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 												Validators: []validator.List{
@@ -12737,7 +12677,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"open_api_validation_rules": schema.ListNestedBlock{
-												MarkdownDescription: "Custom Fall Through Rule List. .",
+												MarkdownDescription: "Custom Fall Through Rule List. Rule or policy definition",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"api_group": schema.StringAttribute{
@@ -12777,7 +12717,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																	},
 																},
 																"path": schema.StringAttribute{
-																	MarkdownDescription: "Path. Path to be matched .",
+																	MarkdownDescription: "Path. Path to be matched.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 1024),
@@ -12812,7 +12752,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								},
 							},
 							"open_api_validation_rules": schema.ListNestedBlock{
-								MarkdownDescription: "Validation List. .",
+								MarkdownDescription: "Validation List. Rule or policy definition",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"api_group": schema.StringAttribute{
@@ -12853,7 +12793,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"path": schema.StringAttribute{
-													MarkdownDescription: "Path. Path to be matched .",
+													MarkdownDescription: "Path. Path to be matched.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 1024),
@@ -12888,7 +12828,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of response.",
 													Attributes: map[string]schema.Attribute{
 														"response_validation_properties": schema.ListAttribute{
-															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger) . Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
 															Optional:            true,
 															ElementType:         types.StringType,
 															Validators: []validator.List{
@@ -12915,7 +12855,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of request.",
 													Attributes: map[string]schema.Attribute{
 														"request_validation_properties": schema.ListAttribute{
-															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger) . Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
 															Optional:            true,
 															ElementType:         types.StringType,
 															Validators: []validator.List{
@@ -12990,7 +12930,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 				Blocks: map[string]schema.Block{
 					"domains": schema.ListNestedBlock{
-						MarkdownDescription: "Add and configure testing domains and credentials .",
+						MarkdownDescription: "Add and configure testing domains and credentials.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"allow_destructive_methods": schema.BoolAttribute{
@@ -13011,7 +12951,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"credential_name": schema.StringAttribute{
-												MarkdownDescription: "Enter a unique name for the credentials used in API testing .",
+												MarkdownDescription: "Enter a unique name for the credentials used in API testing.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
@@ -13026,7 +12966,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												MarkdownDescription: "API Key",
 												Attributes: map[string]schema.Attribute{
 													"key": schema.StringAttribute{
-														MarkdownDescription: "Key.",
+														MarkdownDescription: "Key. Cryptographic key material",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(128),
@@ -13046,7 +12986,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																	},
 																	"location": schema.StringAttribute{
-																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(4, 131072),
@@ -13082,7 +13022,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												MarkdownDescription: "Basic Authentication.",
 												Attributes: map[string]schema.Attribute{
 													"user": schema.StringAttribute{
-														MarkdownDescription: "User.",
+														MarkdownDescription: "User. Configuration parameter for user",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 64),
@@ -13102,7 +13042,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																	},
 																	"location": schema.StringAttribute{
-																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(4, 131072),
@@ -13150,7 +13090,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																	},
 																	"location": schema.StringAttribute{
-																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(4, 131072),
@@ -13193,7 +13133,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 													"path": schema.StringAttribute{
-														MarkdownDescription: "Path.",
+														MarkdownDescription: "Path. URL path for the endpoint",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 1024),
@@ -13217,7 +13157,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																	},
 																	"location": schema.StringAttribute{
-																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(4, 131072),
@@ -13304,7 +13244,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"actions": schema.ListAttribute{
-							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule . Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
+							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule. Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -13347,7 +13287,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"headers": schema.ListNestedBlock{
-									MarkdownDescription: "List of HTTP header name and value pairs .",
+									MarkdownDescription: "List of HTTP header name and value pairs.",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"exact": schema.StringAttribute{
@@ -13362,7 +13302,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												Optional:            true,
 											},
 											"name": schema.StringAttribute{
-												MarkdownDescription: "Name. Name of the header .",
+												MarkdownDescription: "Name. Name of the header.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 63),
@@ -13758,7 +13698,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
-															MarkdownDescription: "Case-insensitive HTTP header name.",
+															MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 63),
@@ -14075,7 +14015,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Case-insensitive HTTP header name.",
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 63),
@@ -14174,14 +14114,14 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 															MarkdownDescription: "Append flag mitigation headers to forwarded request.",
 															Attributes: map[string]schema.Attribute{
 																"auto_type_header_name": schema.StringAttribute{
-																	MarkdownDescription: "Case-insensitive HTTP header name.",
+																	MarkdownDescription: "Automation Type Header Name. A case-insensitive HTTP header name.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(256),
 																	},
 																},
 																"inference_header_name": schema.StringAttribute{
-																	MarkdownDescription: "Case-insensitive HTTP header name.",
+																	MarkdownDescription: "Inference Header Name. A case-insensitive HTTP header name.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(256),
@@ -14653,7 +14593,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
-													MarkdownDescription: "Case-insensitive HTTP header name.",
+													MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 63),
@@ -14730,6 +14670,68 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
+							},
+						},
+					},
+				},
+			},
+			"caching_policy": schema.SingleNestedBlock{
+				MarkdownDescription: "[OneOf: caching_policy, disable_caching; Default: disable_caching] Policy configuration for this feature.",
+				Attributes:          map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"custom_cache_rule": schema.SingleNestedBlock{
+						MarkdownDescription: "Custom Cache Rules. Caching policies for CDN.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"cdn_cache_rules": schema.ListNestedBlock{
+								MarkdownDescription: "Reference to CDN Cache Rule configuration object.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 128),
+											},
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+											Validators: []validator.String{
+												stringvalidator.LengthAtMost(64),
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+					"default_cache_action": schema.SingleNestedBlock{
+						MarkdownDescription: "Default Cache Behaviour. This defines a Default Cache Action.",
+						Attributes: map[string]schema.Attribute{
+							"cache_ttl_default": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [cache_disabled cache_ttl_override] Use Cache TTL Provided by Origin, and set a contigency TTL value in case one is not provided.",
+								Optional:            true,
+							},
+							"cache_ttl_override": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [cache_disabled cache_ttl_default] Always override the Cache TTL provided by Origin.",
+								Optional:            true,
+							},
+						},
+						Blocks: map[string]schema.Block{
+							"cache_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
@@ -15034,7 +15036,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "[OneOf: cookie_stickiness, least_active, random, ring_hash, round_robin, source_ip_stickiness; Default: round_robin] Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets..",
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{
-						MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced .",
+						MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(1, 256),
@@ -15659,7 +15661,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 					},
 					"origin_servers": schema.ListNestedBlock{
-						MarkdownDescription: "List of origin servers in this pool .",
+						MarkdownDescription: "Origin Servers. List of origin servers in this pool.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"labels": schema.MapAttribute{
@@ -16077,7 +16079,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									MarkdownDescription: "Specify origin server with private or public DNS name and site information.",
 									Attributes: map[string]schema.Attribute{
 										"dns_name": schema.StringAttribute{
-											MarkdownDescription: "DNS Name. DNS Name .",
+											MarkdownDescription: "DNS Name. DNS Name",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 1024),
@@ -16236,7 +16238,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									MarkdownDescription: "Specify origin server with public DNS name.",
 									Attributes: map[string]schema.Attribute{
 										"dns_name": schema.StringAttribute{
-											MarkdownDescription: "DNS Name. DNS Name .",
+											MarkdownDescription: "DNS Name. DNS Name",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -16300,7 +16302,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									MarkdownDescription: "Specify origin server with DNS name on Virtual Network.",
 									Attributes: map[string]schema.Attribute{
 										"dns_name": schema.StringAttribute{
-											MarkdownDescription: "DNS Name. DNS Name .",
+											MarkdownDescription: "DNS Name. DNS Name",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 1024),
@@ -16440,7 +16442,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"tls_certificates": schema.ListNestedBlock{
-										MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate .",
+										MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -16484,7 +16486,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																	Optional:            true,
 																},
 																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(4, 131072),
@@ -16863,7 +16865,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																			Optional:            true,
 																		},
 																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(4, 131072),
@@ -16910,7 +16912,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"code_base_integrations": schema.ListNestedBlock{
-								MarkdownDescription: "Select Code Base Integrations. .",
+								MarkdownDescription: "Configuration parameter for code base integrations.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -16951,7 +16953,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "Select which API repositories represent the LB applications.",
 											Attributes: map[string]schema.Attribute{
 												"api_code_repo": schema.ListAttribute{
-													MarkdownDescription: "Code repository which contain API endpoints .",
+													MarkdownDescription: "Code repository which contain API endpoints.",
 													Optional:            true,
 													ElementType:         types.StringType,
 												},
@@ -17536,7 +17538,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -17554,7 +17556,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Enable this option",
 							},
 							"tls_certificates": schema.ListNestedBlock{
-								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms .",
+								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -17598,7 +17600,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -17759,7 +17761,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Attributes: map[string]schema.Attribute{
 											"xfcc_header_elements": schema.ListAttribute{
-												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+												MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 												Optional:            true,
 												ElementType:         types.StringType,
 											},
@@ -18025,7 +18027,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 								Attributes: map[string]schema.Attribute{
 									"xfcc_header_elements": schema.ListAttribute{
-										MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests . Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+										MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be added to requests. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 										Optional:            true,
 										ElementType:         types.StringType,
 									},
@@ -18150,7 +18152,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Audiences",
 								Attributes: map[string]schema.Attribute{
 									"audiences": schema.ListAttribute{
-										MarkdownDescription: "Values.",
+										MarkdownDescription: "Values. Configuration parameter for audiences",
 										Optional:            true,
 										ElementType:         types.StringType,
 										Validators: []validator.List{
@@ -18184,7 +18186,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "API Groups.",
 								Attributes: map[string]schema.Attribute{
 									"api_groups": schema.ListAttribute{
-										MarkdownDescription: "API Groups. .",
+										MarkdownDescription: "API Groups. Group or collection configuration",
 										Optional:            true,
 										ElementType:         types.StringType,
 										Validators: []validator.List{
@@ -18197,7 +18199,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Base Paths.",
 								Attributes: map[string]schema.Attribute{
 									"base_paths": schema.ListAttribute{
-										MarkdownDescription: "Prefix Values. .",
+										MarkdownDescription: "Prefix Values. File system or URL path",
 										Optional:            true,
 										ElementType:         types.StringType,
 										Validators: []validator.List{
@@ -18259,7 +18261,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"malware_protection_rules": schema.ListNestedBlock{
-						MarkdownDescription: "Configure the match criteria to trigger Malware Protection Scan .",
+						MarkdownDescription: "Configure the match criteria to trigger Malware Protection Scan.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"http_methods": schema.ListAttribute{
@@ -18491,7 +18493,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name of the cookie in Cookie header.",
+									MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
@@ -18522,7 +18524,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													Optional:            true,
 												},
 												"location": schema.StringAttribute{
-													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(4, 131072),
@@ -18591,7 +18593,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													Optional:            true,
 												},
 												"location": schema.StringAttribute{
-													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(4, 131072),
@@ -18657,7 +18659,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"name": schema.StringAttribute{
-									MarkdownDescription: "Name of the cookie in Cookie header.",
+									MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 256),
@@ -18733,7 +18735,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													Optional:            true,
 												},
 												"location": schema.StringAttribute{
-													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(4, 131072),
@@ -18802,7 +18804,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													Optional:            true,
 												},
 												"location": schema.StringAttribute{
-													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(4, 131072),
@@ -19343,7 +19345,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																Optional:            true,
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Case-sensitive cookie name.",
+																MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 63),
@@ -19428,7 +19430,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																Optional:            true,
 															},
 															"name": schema.StringAttribute{
-																MarkdownDescription: "Case-insensitive HTTP header name.",
+																MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 63),
@@ -19724,7 +19726,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							},
 						},
 						"name": schema.StringAttribute{
-							MarkdownDescription: "Cookie Name. Name of the Cookie .",
+							MarkdownDescription: "Cookie Name. Name of the Cookie.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(1, 256),
@@ -19837,7 +19839,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"policies": schema.ListNestedBlock{
-								MarkdownDescription: "Ordered list of rate limiter policies.",
+								MarkdownDescription: "Rate Limiter Policies. Ordered list of rate limiter policies.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -19877,7 +19879,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(100),
+									int64validator.Between(1, 100),
 								},
 							},
 							"period_multiplier": schema.Int64Attribute{
@@ -19895,7 +19897,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.AtMost(8192),
+									int64validator.Between(1, 8192),
 								},
 							},
 							"unit": schema.StringAttribute{
@@ -19918,7 +19920,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(48),
+													int64validator.Between(1, 48),
 												},
 											},
 										},
@@ -19930,7 +19932,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(60),
+													int64validator.Between(1, 60),
 												},
 											},
 										},
@@ -19942,7 +19944,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
 												Validators: []validator.Int64{
-													int64validator.AtMost(300),
+													int64validator.Between(1, 300),
 												},
 											},
 										},
@@ -19967,7 +19969,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"hash_policy": schema.ListNestedBlock{
-						MarkdownDescription: "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request .",
+						MarkdownDescription: "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"header_name": schema.StringAttribute{
@@ -19991,7 +19993,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									MarkdownDescription: "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets..",
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
-											MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced .",
+											MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 256),
@@ -20113,7 +20115,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												Optional:            true,
 											},
 											"name": schema.StringAttribute{
-												MarkdownDescription: "Name. Name of the header .",
+												MarkdownDescription: "Name. Name of the header.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 63),
@@ -20232,7 +20234,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												Optional:            true,
 											},
 											"name": schema.StringAttribute{
-												MarkdownDescription: "Name. Name of the header .",
+												MarkdownDescription: "Name. Name of the header.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 63),
@@ -20700,7 +20702,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 															},
 														},
 														"numerator": schema.Int64Attribute{
-															MarkdownDescription: "Sampled parts per denominator. If denominator was 10000, then value of 5 will be 5 in 10000 .",
+															MarkdownDescription: "Sampled parts per denominator. If denominator was 10000, then value of 5 will be 5 in 10000.",
 															Optional:            true,
 														},
 													},
@@ -20734,7 +20736,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Name of the cookie in Cookie header.",
+														MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 256),
@@ -20765,7 +20767,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																	},
 																	"location": schema.StringAttribute{
-																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(4, 131072),
@@ -20834,7 +20836,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																	},
 																	"location": schema.StringAttribute{
-																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(4, 131072),
@@ -20900,7 +20902,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 													"name": schema.StringAttribute{
-														MarkdownDescription: "Name of the cookie in Cookie header.",
+														MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 256),
@@ -20976,7 +20978,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																	},
 																	"location": schema.StringAttribute{
-																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(4, 131072),
@@ -21045,7 +21047,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																	},
 																	"location": schema.StringAttribute{
-																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																		MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(4, 131072),
@@ -21122,6 +21124,9 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														"base_interval": schema.Int64Attribute{
 															MarkdownDescription: "Specifies the base interval between retries in milliseconds.",
 															Optional:            true,
+															Validators: []validator.Int64{
+																int64validator.AtLeast(1),
+															},
 														},
 														"max_interval": schema.Int64Attribute{
 															MarkdownDescription: "Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must be greater than or equal to the base_interval if set. The  times the base_interval. Defaults to `10`.",
@@ -21136,7 +21141,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"hash_policy": schema.ListNestedBlock{
-													MarkdownDescription: "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request .",
+													MarkdownDescription: "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request.",
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
 															"header_name": schema.StringAttribute{
@@ -21160,7 +21165,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets..",
 																Attributes: map[string]schema.Attribute{
 																	"name": schema.StringAttribute{
-																		MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced .",
+																		MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthBetween(1, 256),
@@ -21276,7 +21281,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												Optional:            true,
 											},
 											"name": schema.StringAttribute{
-												MarkdownDescription: "Name. Name of the header .",
+												MarkdownDescription: "Name. Name of the header.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 63),
@@ -21321,7 +21326,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"origin_pools": schema.ListNestedBlock{
-									MarkdownDescription: "Origin Pools for this route .",
+									MarkdownDescription: "Origin Pools. Origin Pools for this route.",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"priority": schema.Int64Attribute{
@@ -21475,7 +21480,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"path": schema.StringAttribute{
-											MarkdownDescription: "Path. Path to be matched .",
+											MarkdownDescription: "Path. Path to be matched.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 1024),
@@ -21602,7 +21607,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																					Optional:            true,
 																				},
 																				"location": schema.StringAttribute{
-																					MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+																					MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthBetween(4, 131072),
@@ -21649,7 +21654,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"code_base_integrations": schema.ListNestedBlock{
-										MarkdownDescription: "Select Code Base Integrations. .",
+										MarkdownDescription: "Configuration parameter for code base integrations.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -21690,7 +21695,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													MarkdownDescription: "Select which API repositories represent the LB applications.",
 													Attributes: map[string]schema.Attribute{
 														"api_code_repo": schema.ListAttribute{
-															MarkdownDescription: "Code repository which contain API endpoints .",
+															MarkdownDescription: "Code repository which contain API endpoints.",
 															Optional:            true,
 															ElementType:         types.StringType,
 														},
@@ -21800,7 +21805,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"actions": schema.ListAttribute{
-							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule . Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
+							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule. Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -21843,7 +21848,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"headers": schema.ListNestedBlock{
-									MarkdownDescription: "List of HTTP header name and value pairs .",
+									MarkdownDescription: "List of HTTP header name and value pairs.",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"exact": schema.StringAttribute{
@@ -21858,7 +21863,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												Optional:            true,
 											},
 											"name": schema.StringAttribute{
-												MarkdownDescription: "Name. Name of the header .",
+												MarkdownDescription: "Name. Name of the header.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 63),
@@ -22035,7 +22040,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{
 															"bot_name": schema.StringAttribute{
-																MarkdownDescription: "Bot Name.",
+																MarkdownDescription: "Bot Name. Human-readable name for the resource",
 																Optional:            true,
 															},
 														},
@@ -22495,49 +22500,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.CachingPolicy != nil {
-		CachingPolicyMap := make(map[string]interface{})
-		if data.CachingPolicy.CustomCacheRule != nil {
-			CachingPolicyCustomCacheRuleMap := make(map[string]interface{})
-			if !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
-				var CDNCacheRulesElems []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-				diags := data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesElems, false)
-				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(CDNCacheRulesElems) > 0 {
-					var CDNCacheRulesList []map[string]interface{}
-					for _, CDNCacheRulesItem := range CDNCacheRulesElems {
-						CDNCacheRulesItemMap := make(map[string]interface{})
-						if !CDNCacheRulesItem.Name.IsNull() && !CDNCacheRulesItem.Name.IsUnknown() {
-							CDNCacheRulesItemMap["name"] = CDNCacheRulesItem.Name.ValueString()
-						}
-						if !CDNCacheRulesItem.Namespace.IsNull() && !CDNCacheRulesItem.Namespace.IsUnknown() {
-							CDNCacheRulesItemMap["namespace"] = CDNCacheRulesItem.Namespace.ValueString()
-						}
-						if !CDNCacheRulesItem.Tenant.IsNull() && !CDNCacheRulesItem.Tenant.IsUnknown() {
-							CDNCacheRulesItemMap["tenant"] = CDNCacheRulesItem.Tenant.ValueString()
-						}
-						CDNCacheRulesList = append(CDNCacheRulesList, CDNCacheRulesItemMap)
-					}
-					CachingPolicyCustomCacheRuleMap["cdn_cache_rules"] = CDNCacheRulesList
-				}
-			}
-			CachingPolicyMap["custom_cache_rule"] = CachingPolicyCustomCacheRuleMap
-		}
-		if data.CachingPolicy.DefaultCacheAction != nil {
-			CachingPolicyDefaultCacheActionMap := make(map[string]interface{})
-			if data.CachingPolicy.DefaultCacheAction.CacheDisabled != nil {
-				CachingPolicyDefaultCacheActionMap["cache_disabled"] = map[string]interface{}{}
-			}
-			if !data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.IsNull() && !data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.IsUnknown() {
-				CachingPolicyDefaultCacheActionMap["cache_ttl_default"] = data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.ValueString()
-			}
-			if !data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.IsNull() && !data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.IsUnknown() {
-				CachingPolicyDefaultCacheActionMap["cache_ttl_override"] = data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.ValueString()
-			}
-			CachingPolicyMap["default_cache_action"] = CachingPolicyDefaultCacheActionMap
-		}
-		createReq.Spec["caching_policy"] = CachingPolicyMap
-	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
@@ -22561,9 +22523,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
-					}
-					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
 					}
 					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
@@ -22592,9 +22551,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
@@ -22620,9 +22576,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
@@ -22653,9 +22606,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
 						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -22672,9 +22622,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
@@ -22696,9 +22643,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
 						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -22713,9 +22657,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -22725,9 +22666,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
@@ -22749,9 +22687,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-			}
-			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
 			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
@@ -22831,20 +22766,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -22878,20 +22804,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -23248,20 +23165,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -23295,20 +23203,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -23671,20 +23570,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -23718,20 +23608,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -23807,9 +23688,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.IsUnknown() {
 								APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap["namespace"] = APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.ValueString()
 							}
-							if !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.IsUnknown() {
-								APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap["tenant"] = APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.ValueString()
-							}
 							APIRateLimitAPIEndpointRulesInlineRateLimiterMap["ref_user_id"] = APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap
 						}
 						if !APIEndpointRulesItem.InlineRateLimiter.Threshold.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.Threshold.IsUnknown() {
@@ -23830,9 +23708,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						if !APIEndpointRulesItem.RefRateLimiter.Namespace.IsNull() && !APIEndpointRulesItem.RefRateLimiter.Namespace.IsUnknown() {
 							APIRateLimitAPIEndpointRulesRefRateLimiterMap["namespace"] = APIEndpointRulesItem.RefRateLimiter.Namespace.ValueString()
-						}
-						if !APIEndpointRulesItem.RefRateLimiter.Tenant.IsNull() && !APIEndpointRulesItem.RefRateLimiter.Tenant.IsUnknown() {
-							APIRateLimitAPIEndpointRulesRefRateLimiterMap["tenant"] = APIEndpointRulesItem.RefRateLimiter.Tenant.ValueString()
 						}
 						APIEndpointRulesItemMap["ref_rate_limiter"] = APIRateLimitAPIEndpointRulesRefRateLimiterMap
 					}
@@ -24136,20 +24011,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										var AsnSetsList []map[string]interface{}
 										for _, AsnSetsItem := range AsnSetsElems {
 											AsnSetsItemMap := make(map[string]interface{})
-											if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-												AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-											}
 											if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 												AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 											}
 											if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 												AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-											}
-											if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-												AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-											}
-											if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-												AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 											}
 											AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 										}
@@ -24183,20 +24049,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										var PrefixSetsList []map[string]interface{}
 										for _, PrefixSetsItem := range PrefixSetsElems {
 											PrefixSetsItemMap := make(map[string]interface{})
-											if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-												PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-											}
 											if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 												PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 											}
 											if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 												PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-											}
-											if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-												PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-											}
-											if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-												PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 											}
 											PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 										}
@@ -24504,9 +24361,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 							RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
 						}
-						if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-							RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-						}
 						RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 					}
 					APIRateLimitCustomIPAllowedListMap["rate_limiter_allowed_prefixes"] = RateLimiterAllowedPrefixesList
@@ -24576,20 +24430,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -24623,20 +24468,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -24712,9 +24548,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.IsNull() && !ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.IsUnknown() {
 								APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap["namespace"] = ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.ValueString()
 							}
-							if !ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.IsNull() && !ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.IsUnknown() {
-								APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap["tenant"] = ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.ValueString()
-							}
 							APIRateLimitServerURLRulesInlineRateLimiterMap["ref_user_id"] = APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap
 						}
 						if !ServerURLRulesItem.InlineRateLimiter.Threshold.IsNull() && !ServerURLRulesItem.InlineRateLimiter.Threshold.IsUnknown() {
@@ -24735,9 +24568,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						if !ServerURLRulesItem.RefRateLimiter.Namespace.IsNull() && !ServerURLRulesItem.RefRateLimiter.Namespace.IsUnknown() {
 							APIRateLimitServerURLRulesRefRateLimiterMap["namespace"] = ServerURLRulesItem.RefRateLimiter.Namespace.ValueString()
-						}
-						if !ServerURLRulesItem.RefRateLimiter.Tenant.IsNull() && !ServerURLRulesItem.RefRateLimiter.Tenant.IsUnknown() {
-							APIRateLimitServerURLRulesRefRateLimiterMap["tenant"] = ServerURLRulesItem.RefRateLimiter.Tenant.ValueString()
 						}
 						ServerURLRulesItemMap["ref_rate_limiter"] = APIRateLimitServerURLRulesRefRateLimiterMap
 					}
@@ -24976,9 +24806,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			}
 			if !data.APISpecification.APIDefinition.Namespace.IsNull() && !data.APISpecification.APIDefinition.Namespace.IsUnknown() {
 				APISpecificationAPIDefinitionMap["namespace"] = data.APISpecification.APIDefinition.Namespace.ValueString()
-			}
-			if !data.APISpecification.APIDefinition.Tenant.IsNull() && !data.APISpecification.APIDefinition.Tenant.IsUnknown() {
-				APISpecificationAPIDefinitionMap["tenant"] = data.APISpecification.APIDefinition.Tenant.ValueString()
 			}
 			APISpecificationMap["api_definition"] = APISpecificationAPIDefinitionMap
 		}
@@ -25522,9 +25349,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		}
 		if !data.AppFirewall.Namespace.IsNull() && !data.AppFirewall.Namespace.IsUnknown() {
 			AppFirewallMap["namespace"] = data.AppFirewall.Namespace.ValueString()
-		}
-		if !data.AppFirewall.Tenant.IsNull() && !data.AppFirewall.Tenant.IsUnknown() {
-			AppFirewallMap["tenant"] = data.AppFirewall.Tenant.ValueString()
 		}
 		createReq.Spec["app_firewall"] = AppFirewallMap
 	}
@@ -26485,9 +26309,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.BotDefenseAdvanced.Mobile.Namespace.IsNull() && !data.BotDefenseAdvanced.Mobile.Namespace.IsUnknown() {
 				BotDefenseAdvancedMobileMap["namespace"] = data.BotDefenseAdvanced.Mobile.Namespace.ValueString()
 			}
-			if !data.BotDefenseAdvanced.Mobile.Tenant.IsNull() && !data.BotDefenseAdvanced.Mobile.Tenant.IsUnknown() {
-				BotDefenseAdvancedMobileMap["tenant"] = data.BotDefenseAdvanced.Mobile.Tenant.ValueString()
-			}
 			BotDefenseAdvancedMap["mobile"] = BotDefenseAdvancedMobileMap
 		}
 		if data.BotDefenseAdvanced.MobileSdkConfig != nil {
@@ -26556,12 +26377,49 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.BotDefenseAdvanced.Web.Namespace.IsNull() && !data.BotDefenseAdvanced.Web.Namespace.IsUnknown() {
 				BotDefenseAdvancedWebMap["namespace"] = data.BotDefenseAdvanced.Web.Namespace.ValueString()
 			}
-			if !data.BotDefenseAdvanced.Web.Tenant.IsNull() && !data.BotDefenseAdvanced.Web.Tenant.IsUnknown() {
-				BotDefenseAdvancedWebMap["tenant"] = data.BotDefenseAdvanced.Web.Tenant.ValueString()
-			}
 			BotDefenseAdvancedMap["web"] = BotDefenseAdvancedWebMap
 		}
 		createReq.Spec["bot_defense_advanced"] = BotDefenseAdvancedMap
+	}
+	if data.CachingPolicy != nil {
+		CachingPolicyMap := make(map[string]interface{})
+		if data.CachingPolicy.CustomCacheRule != nil {
+			CachingPolicyCustomCacheRuleMap := make(map[string]interface{})
+			if !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
+				var CDNCacheRulesElems []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+				diags := data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(CDNCacheRulesElems) > 0 {
+					var CDNCacheRulesList []map[string]interface{}
+					for _, CDNCacheRulesItem := range CDNCacheRulesElems {
+						CDNCacheRulesItemMap := make(map[string]interface{})
+						if !CDNCacheRulesItem.Name.IsNull() && !CDNCacheRulesItem.Name.IsUnknown() {
+							CDNCacheRulesItemMap["name"] = CDNCacheRulesItem.Name.ValueString()
+						}
+						if !CDNCacheRulesItem.Namespace.IsNull() && !CDNCacheRulesItem.Namespace.IsUnknown() {
+							CDNCacheRulesItemMap["namespace"] = CDNCacheRulesItem.Namespace.ValueString()
+						}
+						CDNCacheRulesList = append(CDNCacheRulesList, CDNCacheRulesItemMap)
+					}
+					CachingPolicyCustomCacheRuleMap["cdn_cache_rules"] = CDNCacheRulesList
+				}
+			}
+			CachingPolicyMap["custom_cache_rule"] = CachingPolicyCustomCacheRuleMap
+		}
+		if data.CachingPolicy.DefaultCacheAction != nil {
+			CachingPolicyDefaultCacheActionMap := make(map[string]interface{})
+			if data.CachingPolicy.DefaultCacheAction.CacheDisabled != nil {
+				CachingPolicyDefaultCacheActionMap["cache_disabled"] = map[string]interface{}{}
+			}
+			if !data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.IsNull() && !data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.IsUnknown() {
+				CachingPolicyDefaultCacheActionMap["cache_ttl_default"] = data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.ValueString()
+			}
+			if !data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.IsNull() && !data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.IsUnknown() {
+				CachingPolicyDefaultCacheActionMap["cache_ttl_override"] = data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.ValueString()
+			}
+			CachingPolicyMap["default_cache_action"] = CachingPolicyDefaultCacheActionMap
+		}
+		createReq.Spec["caching_policy"] = CachingPolicyMap
 	}
 	if data.CaptchaChallenge != nil {
 		CaptchaChallengeMap := make(map[string]interface{})
@@ -27187,9 +27045,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !HealthcheckItem.Namespace.IsNull() && !HealthcheckItem.Namespace.IsUnknown() {
 						HealthcheckItemMap["namespace"] = HealthcheckItem.Namespace.ValueString()
 					}
-					if !HealthcheckItem.Tenant.IsNull() && !HealthcheckItem.Tenant.IsUnknown() {
-						HealthcheckItemMap["tenant"] = HealthcheckItem.Tenant.ValueString()
-					}
 					HealthcheckList = append(HealthcheckList, HealthcheckItemMap)
 				}
 				DefaultPoolMap["healthcheck"] = HealthcheckList
@@ -27240,9 +27095,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsUnknown() {
 									DefaultPoolOriginServersConsulServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsUnknown() {
-									DefaultPoolOriginServersConsulServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.Site.Tenant.ValueString()
-								}
 								DefaultPoolOriginServersConsulServiceSiteLocatorMap["site"] = DefaultPoolOriginServersConsulServiceSiteLocatorSiteMap
 							}
 							if OriginServersItem.ConsulService.SiteLocator.VirtualSite != nil {
@@ -27252,9 +27104,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								}
 								if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									DefaultPoolOriginServersConsulServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									DefaultPoolOriginServersConsulServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								DefaultPoolOriginServersConsulServiceSiteLocatorMap["virtual_site"] = DefaultPoolOriginServersConsulServiceSiteLocatorVirtualSiteMap
 							}
@@ -27291,9 +27140,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsUnknown() {
 								DefaultPoolOriginServersCustomEndpointObjectEndpointMap["namespace"] = OriginServersItem.CustomEndpointObject.Endpoint.Namespace.ValueString()
 							}
-							if !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsUnknown() {
-								DefaultPoolOriginServersCustomEndpointObjectEndpointMap["tenant"] = OriginServersItem.CustomEndpointObject.Endpoint.Tenant.ValueString()
-							}
 							DefaultPoolOriginServersCustomEndpointObjectMap["endpoint"] = DefaultPoolOriginServersCustomEndpointObjectEndpointMap
 						}
 						OriginServersItemMap["custom_endpoint_object"] = DefaultPoolOriginServersCustomEndpointObjectMap
@@ -27322,9 +27168,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
 									DefaultPoolOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-									DefaultPoolOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
-								}
 								DefaultPoolOriginServersK8SServiceSiteLocatorMap["site"] = DefaultPoolOriginServersK8SServiceSiteLocatorSiteMap
 							}
 							if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
@@ -27334,9 +27177,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								}
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									DefaultPoolOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									DefaultPoolOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								DefaultPoolOriginServersK8SServiceSiteLocatorMap["virtual_site"] = DefaultPoolOriginServersK8SServiceSiteLocatorVirtualSiteMap
 							}
@@ -27393,9 +27233,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
 								DefaultPoolOriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 							}
-							if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-								DefaultPoolOriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
-							}
 							DefaultPoolOriginServersPrivateIPMap["segment"] = DefaultPoolOriginServersPrivateIPSegmentMap
 						}
 						if OriginServersItem.PrivateIP.SiteLocator != nil {
@@ -27408,9 +27245,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
 									DefaultPoolOriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-									DefaultPoolOriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
-								}
 								DefaultPoolOriginServersPrivateIPSiteLocatorMap["site"] = DefaultPoolOriginServersPrivateIPSiteLocatorSiteMap
 							}
 							if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
@@ -27420,9 +27254,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								}
 								if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									DefaultPoolOriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									DefaultPoolOriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								DefaultPoolOriginServersPrivateIPSiteLocatorMap["virtual_site"] = DefaultPoolOriginServersPrivateIPSiteLocatorVirtualSiteMap
 							}
@@ -27471,9 +27302,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !OriginServersItem.PrivateName.Segment.Namespace.IsNull() && !OriginServersItem.PrivateName.Segment.Namespace.IsUnknown() {
 								DefaultPoolOriginServersPrivateNameSegmentMap["namespace"] = OriginServersItem.PrivateName.Segment.Namespace.ValueString()
 							}
-							if !OriginServersItem.PrivateName.Segment.Tenant.IsNull() && !OriginServersItem.PrivateName.Segment.Tenant.IsUnknown() {
-								DefaultPoolOriginServersPrivateNameSegmentMap["tenant"] = OriginServersItem.PrivateName.Segment.Tenant.ValueString()
-							}
 							DefaultPoolOriginServersPrivateNameMap["segment"] = DefaultPoolOriginServersPrivateNameSegmentMap
 						}
 						if OriginServersItem.PrivateName.SiteLocator != nil {
@@ -27486,9 +27314,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsUnknown() {
 									DefaultPoolOriginServersPrivateNameSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsUnknown() {
-									DefaultPoolOriginServersPrivateNameSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.Site.Tenant.ValueString()
-								}
 								DefaultPoolOriginServersPrivateNameSiteLocatorMap["site"] = DefaultPoolOriginServersPrivateNameSiteLocatorSiteMap
 							}
 							if OriginServersItem.PrivateName.SiteLocator.VirtualSite != nil {
@@ -27498,9 +27323,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								}
 								if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									DefaultPoolOriginServersPrivateNameSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									DefaultPoolOriginServersPrivateNameSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								DefaultPoolOriginServersPrivateNameSiteLocatorMap["virtual_site"] = DefaultPoolOriginServersPrivateNameSiteLocatorVirtualSiteMap
 							}
@@ -27557,9 +27379,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsUnknown() {
 								DefaultPoolOriginServersVnPrivateIPVirtualNetworkMap["namespace"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.ValueString()
 							}
-							if !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsUnknown() {
-								DefaultPoolOriginServersVnPrivateIPVirtualNetworkMap["tenant"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.ValueString()
-							}
 							DefaultPoolOriginServersVnPrivateIPMap["virtual_network"] = DefaultPoolOriginServersVnPrivateIPVirtualNetworkMap
 						}
 						OriginServersItemMap["vn_private_ip"] = DefaultPoolOriginServersVnPrivateIPMap
@@ -27576,9 +27395,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							}
 							if !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsUnknown() {
 								DefaultPoolOriginServersVnPrivateNamePrivateNetworkMap["namespace"] = OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.ValueString()
-							}
-							if !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsUnknown() {
-								DefaultPoolOriginServersVnPrivateNamePrivateNetworkMap["tenant"] = OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.ValueString()
 							}
 							DefaultPoolOriginServersVnPrivateNameMap["private_network"] = DefaultPoolOriginServersVnPrivateNamePrivateNetworkMap
 						}
@@ -27738,9 +27554,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !data.DefaultPool.UseTLS.UseMtlsObj.Namespace.IsNull() && !data.DefaultPool.UseTLS.UseMtlsObj.Namespace.IsUnknown() {
 					DefaultPoolUseTLSUseMtlsObjMap["namespace"] = data.DefaultPool.UseTLS.UseMtlsObj.Namespace.ValueString()
 				}
-				if !data.DefaultPool.UseTLS.UseMtlsObj.Tenant.IsNull() && !data.DefaultPool.UseTLS.UseMtlsObj.Tenant.IsUnknown() {
-					DefaultPoolUseTLSUseMtlsObjMap["tenant"] = data.DefaultPool.UseTLS.UseMtlsObj.Tenant.ValueString()
-				}
 				DefaultPoolUseTLSMap["use_mtls_obj"] = DefaultPoolUseTLSUseMtlsObjMap
 			}
 			if data.DefaultPool.UseTLS.UseServerVerification != nil {
@@ -27752,9 +27565,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					if !data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Namespace.IsNull() && !data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Namespace.IsUnknown() {
 						DefaultPoolUseTLSUseServerVerificationTrustedCAMap["namespace"] = data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
-					}
-					if !data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Tenant.IsNull() && !data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Tenant.IsUnknown() {
-						DefaultPoolUseTLSUseServerVerificationTrustedCAMap["tenant"] = data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
 					}
 					DefaultPoolUseTLSUseServerVerificationMap["trusted_ca"] = DefaultPoolUseTLSUseServerVerificationTrustedCAMap
 				}
@@ -27775,9 +27585,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			}
 			if !data.DefaultPool.ViewInternal.Namespace.IsNull() && !data.DefaultPool.ViewInternal.Namespace.IsUnknown() {
 				DefaultPoolViewInternalMap["namespace"] = data.DefaultPool.ViewInternal.Namespace.ValueString()
-			}
-			if !data.DefaultPool.ViewInternal.Tenant.IsNull() && !data.DefaultPool.ViewInternal.Tenant.IsUnknown() {
-				DefaultPoolViewInternalMap["tenant"] = data.DefaultPool.ViewInternal.Tenant.ValueString()
 			}
 			DefaultPoolMap["view_internal"] = DefaultPoolViewInternalMap
 		}
@@ -27801,9 +27608,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !PoolsItem.Cluster.Namespace.IsNull() && !PoolsItem.Cluster.Namespace.IsUnknown() {
 							DefaultPoolListPoolsClusterMap["namespace"] = PoolsItem.Cluster.Namespace.ValueString()
 						}
-						if !PoolsItem.Cluster.Tenant.IsNull() && !PoolsItem.Cluster.Tenant.IsUnknown() {
-							DefaultPoolListPoolsClusterMap["tenant"] = PoolsItem.Cluster.Tenant.ValueString()
-						}
 						PoolsItemMap["cluster"] = DefaultPoolListPoolsClusterMap
 					}
 					if PoolsItem.EndpointSubsets != nil {
@@ -27816,9 +27620,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						if !PoolsItem.Pool.Namespace.IsNull() && !PoolsItem.Pool.Namespace.IsUnknown() {
 							DefaultPoolListPoolsPoolMap["namespace"] = PoolsItem.Pool.Namespace.ValueString()
-						}
-						if !PoolsItem.Pool.Tenant.IsNull() && !PoolsItem.Pool.Tenant.IsUnknown() {
-							DefaultPoolListPoolsPoolMap["tenant"] = PoolsItem.Pool.Tenant.ValueString()
 						}
 						PoolsItemMap["pool"] = DefaultPoolListPoolsPoolMap
 					}
@@ -27851,9 +27652,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !DefaultRoutePoolsItem.Cluster.Namespace.IsNull() && !DefaultRoutePoolsItem.Cluster.Namespace.IsUnknown() {
 						DefaultRoutePoolsClusterMap["namespace"] = DefaultRoutePoolsItem.Cluster.Namespace.ValueString()
 					}
-					if !DefaultRoutePoolsItem.Cluster.Tenant.IsNull() && !DefaultRoutePoolsItem.Cluster.Tenant.IsUnknown() {
-						DefaultRoutePoolsClusterMap["tenant"] = DefaultRoutePoolsItem.Cluster.Tenant.ValueString()
-					}
 					DefaultRoutePoolsItemMap["cluster"] = DefaultRoutePoolsClusterMap
 				}
 				if DefaultRoutePoolsItem.EndpointSubsets != nil {
@@ -27866,9 +27664,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					if !DefaultRoutePoolsItem.Pool.Namespace.IsNull() && !DefaultRoutePoolsItem.Pool.Namespace.IsUnknown() {
 						DefaultRoutePoolsPoolMap["namespace"] = DefaultRoutePoolsItem.Pool.Namespace.ValueString()
-					}
-					if !DefaultRoutePoolsItem.Pool.Tenant.IsNull() && !DefaultRoutePoolsItem.Pool.Tenant.IsUnknown() {
-						DefaultRoutePoolsPoolMap["tenant"] = DefaultRoutePoolsItem.Pool.Tenant.ValueString()
 					}
 					DefaultRoutePoolsItemMap["pool"] = DefaultRoutePoolsPoolMap
 				}
@@ -27976,9 +27771,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsUnknown() {
 								EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["namespace"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.ValueString()
 							}
-							if !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsUnknown() {
-								EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["tenant"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.ValueString()
-							}
 							CodeBaseIntegrationsItemMap["code_base_integration"] = EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap
 						}
 						if CodeBaseIntegrationsItem.SelectedRepos != nil {
@@ -28009,9 +27801,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				}
 				if !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsNull() && !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsUnknown() {
 					EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["namespace"] = data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.ValueString()
-				}
-				if !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsNull() && !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsUnknown() {
-					EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["tenant"] = data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.ValueString()
 				}
 				EnableAPIDiscoveryCustomAPIAuthDiscoveryMap["api_discovery_ref"] = EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap
 			}
@@ -28076,9 +27865,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			}
 			if !data.EnableChallenge.MaliciousUserMitigation.Namespace.IsNull() && !data.EnableChallenge.MaliciousUserMitigation.Namespace.IsUnknown() {
 				EnableChallengeMaliciousUserMitigationMap["namespace"] = data.EnableChallenge.MaliciousUserMitigation.Namespace.ValueString()
-			}
-			if !data.EnableChallenge.MaliciousUserMitigation.Tenant.IsNull() && !data.EnableChallenge.MaliciousUserMitigation.Tenant.IsUnknown() {
-				EnableChallengeMaliciousUserMitigationMap["tenant"] = data.EnableChallenge.MaliciousUserMitigation.Tenant.ValueString()
 			}
 			EnableChallengeMap["malicious_user_mitigation"] = EnableChallengeMaliciousUserMitigationMap
 		}
@@ -28284,9 +28070,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 						}
-						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-						}
 						CertificatesList = append(CertificatesList, CertificatesItemMap)
 					}
 					HTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -28339,9 +28122,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSTLSCertParamsUseMtlsMap["crl"] = HTTPSTLSCertParamsUseMtlsCRLMap
 				}
 				if data.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -28354,9 +28134,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					if !data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = HTTPSTLSCertParamsUseMtlsTrustedCAMap
 				}
@@ -28495,9 +28272,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					if !data.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSTLSParametersUseMtlsMap["crl"] = HTTPSTLSParametersUseMtlsCRLMap
 				}
 				if data.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -28510,9 +28284,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					if !data.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSTLSParametersUseMtlsMap["trusted_ca"] = HTTPSTLSParametersUseMtlsTrustedCAMap
 				}
@@ -28668,9 +28439,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				if !data.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 					HTTPSAutoCertUseMtlsCRLMap["namespace"] = data.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 				}
-				if !data.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-					HTTPSAutoCertUseMtlsCRLMap["tenant"] = data.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-				}
 				HTTPSAutoCertUseMtlsMap["crl"] = HTTPSAutoCertUseMtlsCRLMap
 			}
 			if data.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -28683,9 +28451,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				}
 				if !data.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 					HTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-				}
-				if !data.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-					HTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 				}
 				HTTPSAutoCertUseMtlsMap["trusted_ca"] = HTTPSAutoCertUseMtlsTrustedCAMap
 			}
@@ -28751,9 +28516,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						if !AuthorizationServersItem.Namespace.IsNull() && !AuthorizationServersItem.Namespace.IsUnknown() {
 							AuthorizationServersItemMap["namespace"] = AuthorizationServersItem.Namespace.ValueString()
-						}
-						if !AuthorizationServersItem.Tenant.IsNull() && !AuthorizationServersItem.Tenant.IsUnknown() {
-							AuthorizationServersItemMap["tenant"] = AuthorizationServersItem.Tenant.ValueString()
 						}
 						AuthorizationServersList = append(AuthorizationServersList, AuthorizationServersItemMap)
 					}
@@ -29345,20 +29107,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								var AsnSetsList []map[string]interface{}
 								for _, AsnSetsItem := range AsnSetsElems {
 									AsnSetsItemMap := make(map[string]interface{})
-									if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-										AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-									}
 									if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 										AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 									}
 									if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 										AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-									}
-									if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-										AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-									}
-									if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-										AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 									}
 									AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 								}
@@ -29400,20 +29153,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								var PrefixSetsList []map[string]interface{}
 								for _, PrefixSetsItem := range PrefixSetsElems {
 									PrefixSetsItemMap := make(map[string]interface{})
-									if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-										PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-									}
 									if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 										PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 									}
 									if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 										PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-									}
-									if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-										PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-									}
-									if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-										PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 									}
 									PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 								}
@@ -29523,9 +29267,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			}
 			if !data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.IsNull() && !data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.IsUnknown() {
 				PolicyBasedChallengeMaliciousUserMitigationMap["namespace"] = data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.ValueString()
-			}
-			if !data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.IsNull() && !data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.IsUnknown() {
-				PolicyBasedChallengeMaliciousUserMitigationMap["tenant"] = data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.ValueString()
 			}
 			PolicyBasedChallengeMap["malicious_user_mitigation"] = PolicyBasedChallengeMaliciousUserMitigationMap
 		}
@@ -29638,20 +29379,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										var AsnSetsList []map[string]interface{}
 										for _, AsnSetsItem := range AsnSetsElems {
 											AsnSetsItemMap := make(map[string]interface{})
-											if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-												AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-											}
 											if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 												AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 											}
 											if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 												AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-											}
-											if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-												AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-											}
-											if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-												AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 											}
 											AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 										}
@@ -29866,20 +29598,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										var PrefixSetsList []map[string]interface{}
 										for _, PrefixSetsItem := range PrefixSetsElems {
 											PrefixSetsItemMap := make(map[string]interface{})
-											if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-												PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-											}
 											if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 												PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 											}
 											if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 												PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-											}
-											if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-												PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-											}
-											if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-												PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 											}
 											PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 										}
@@ -30125,9 +29848,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 							RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
 						}
-						if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-							RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-						}
 						RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 					}
 					RateLimitCustomIPAllowedListMap["rate_limiter_allowed_prefixes"] = RateLimiterAllowedPrefixesList
@@ -30168,9 +29888,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 							PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
-						}
-						if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-							PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
 						}
 						PoliciesList = append(PoliciesList, PoliciesItemMap)
 					}
@@ -30317,9 +30034,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 							RoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-						}
-						if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-							RoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 						}
 						RoutesCustomRouteObjectMap["route_ref"] = RoutesCustomRouteObjectRouteRefMap
 					}
@@ -30503,9 +30217,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Namespace.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Namespace.IsUnknown() {
 								RoutesSimpleRouteAdvancedOptionsAppFirewallMap["namespace"] = RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Namespace.ValueString()
 							}
-							if !RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Tenant.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Tenant.IsUnknown() {
-								RoutesSimpleRouteAdvancedOptionsAppFirewallMap["tenant"] = RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Tenant.ValueString()
-							}
 							RoutesSimpleRouteAdvancedOptionsMap["app_firewall"] = RoutesSimpleRouteAdvancedOptionsAppFirewallMap
 						}
 						if RoutesItem.SimpleRoute.AdvancedOptions.BotDefenseJavascriptInjection != nil {
@@ -30674,9 +30385,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								}
 								if !RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Namespace.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Namespace.IsUnknown() {
 									RoutesSimpleRouteAdvancedOptionsMirrorPolicyOriginPoolMap["namespace"] = RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Namespace.ValueString()
-								}
-								if !RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Tenant.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Tenant.IsUnknown() {
-									RoutesSimpleRouteAdvancedOptionsMirrorPolicyOriginPoolMap["tenant"] = RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Tenant.ValueString()
 								}
 								RoutesSimpleRouteAdvancedOptionsMirrorPolicyMap["origin_pool"] = RoutesSimpleRouteAdvancedOptionsMirrorPolicyOriginPoolMap
 							}
@@ -31109,9 +30817,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							if !RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Namespace.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Namespace.IsUnknown() {
 								RoutesSimpleRouteAdvancedOptionsWAFExclusionPolicyMap["namespace"] = RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Namespace.ValueString()
 							}
-							if !RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Tenant.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Tenant.IsUnknown() {
-								RoutesSimpleRouteAdvancedOptionsWAFExclusionPolicyMap["tenant"] = RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Tenant.ValueString()
-							}
 							RoutesSimpleRouteAdvancedOptionsMap["waf_exclusion_policy"] = RoutesSimpleRouteAdvancedOptionsWAFExclusionPolicyMap
 						}
 						if RoutesItem.SimpleRoute.AdvancedOptions.WebSocketConfig != nil {
@@ -31198,9 +30903,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									if !OriginPoolsItem.Cluster.Namespace.IsNull() && !OriginPoolsItem.Cluster.Namespace.IsUnknown() {
 										RoutesSimpleRouteOriginPoolsClusterMap["namespace"] = OriginPoolsItem.Cluster.Namespace.ValueString()
 									}
-									if !OriginPoolsItem.Cluster.Tenant.IsNull() && !OriginPoolsItem.Cluster.Tenant.IsUnknown() {
-										RoutesSimpleRouteOriginPoolsClusterMap["tenant"] = OriginPoolsItem.Cluster.Tenant.ValueString()
-									}
 									OriginPoolsItemMap["cluster"] = RoutesSimpleRouteOriginPoolsClusterMap
 								}
 								if OriginPoolsItem.EndpointSubsets != nil {
@@ -31213,9 +30915,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									if !OriginPoolsItem.Pool.Namespace.IsNull() && !OriginPoolsItem.Pool.Namespace.IsUnknown() {
 										RoutesSimpleRouteOriginPoolsPoolMap["namespace"] = OriginPoolsItem.Pool.Namespace.ValueString()
-									}
-									if !OriginPoolsItem.Pool.Tenant.IsNull() && !OriginPoolsItem.Pool.Tenant.IsUnknown() {
-										RoutesSimpleRouteOriginPoolsPoolMap["tenant"] = OriginPoolsItem.Pool.Tenant.ValueString()
 									}
 									OriginPoolsItemMap["pool"] = RoutesSimpleRouteOriginPoolsPoolMap
 								}
@@ -31323,9 +31022,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.IsNull() && !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.IsUnknown() {
 				SensitiveDataPolicySensitiveDataPolicyRefMap["namespace"] = data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.ValueString()
 			}
-			if !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.IsNull() && !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.IsUnknown() {
-				SensitiveDataPolicySensitiveDataPolicyRefMap["tenant"] = data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.ValueString()
-			}
 			SensitiveDataPolicyMap["sensitive_data_policy_ref"] = SensitiveDataPolicySensitiveDataPolicyRefMap
 		}
 		createReq.Spec["sensitive_data_policy"] = SensitiveDataPolicyMap
@@ -31422,9 +31118,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsUnknown() {
 									SingleLBAppEnableDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["namespace"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.ValueString()
 								}
-								if !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsUnknown() {
-									SingleLBAppEnableDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["tenant"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.ValueString()
-								}
 								CodeBaseIntegrationsItemMap["code_base_integration"] = SingleLBAppEnableDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap
 							}
 							if CodeBaseIntegrationsItem.SelectedRepos != nil {
@@ -31455,9 +31148,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					if !data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsNull() && !data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsUnknown() {
 						SingleLBAppEnableDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["namespace"] = data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.ValueString()
-					}
-					if !data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsNull() && !data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsUnknown() {
-						SingleLBAppEnableDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["tenant"] = data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.ValueString()
 					}
 					SingleLBAppEnableDiscoveryCustomAPIAuthDiscoveryMap["api_discovery_ref"] = SingleLBAppEnableDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap
 				}
@@ -31599,9 +31289,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		}
 		if !data.UserIdentification.Namespace.IsNull() && !data.UserIdentification.Namespace.IsUnknown() {
 			UserIdentificationMap["namespace"] = data.UserIdentification.Namespace.ValueString()
-		}
-		if !data.UserIdentification.Tenant.IsNull() && !data.UserIdentification.Tenant.IsUnknown() {
-			UserIdentificationMap["tenant"] = data.UserIdentification.Tenant.ValueString()
 		}
 		createReq.Spec["user_identification"] = UserIdentificationMap
 	}
@@ -31760,9 +31447,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.WAFExclusion.WAFExclusionPolicy.Namespace.IsNull() && !data.WAFExclusion.WAFExclusionPolicy.Namespace.IsUnknown() {
 				WAFExclusionWAFExclusionPolicyMap["namespace"] = data.WAFExclusion.WAFExclusionPolicy.Namespace.ValueString()
 			}
-			if !data.WAFExclusion.WAFExclusionPolicy.Tenant.IsNull() && !data.WAFExclusion.WAFExclusionPolicy.Tenant.IsUnknown() {
-				WAFExclusionWAFExclusionPolicyMap["tenant"] = data.WAFExclusion.WAFExclusionPolicy.Tenant.ValueString()
-			}
 			WAFExclusionMap["waf_exclusion_policy"] = WAFExclusionWAFExclusionPolicyMap
 		}
 		createReq.Spec["waf_exclusion"] = WAFExclusionMap
@@ -31842,9 +31526,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if !data.L7DDOSProtection.DDOSPolicyCustom.Namespace.IsNull() && !data.L7DDOSProtection.DDOSPolicyCustom.Namespace.IsUnknown() {
 				L7DDOSProtectionDDOSPolicyCustomMap["namespace"] = data.L7DDOSProtection.DDOSPolicyCustom.Namespace.ValueString()
 			}
-			if !data.L7DDOSProtection.DDOSPolicyCustom.Tenant.IsNull() && !data.L7DDOSProtection.DDOSPolicyCustom.Tenant.IsUnknown() {
-				L7DDOSProtectionDDOSPolicyCustomMap["tenant"] = data.L7DDOSProtection.DDOSPolicyCustom.Tenant.ValueString()
-			}
 			L7DDOSProtectionMap["ddos_policy_custom"] = L7DDOSProtectionDDOSPolicyCustomMap
 		}
 		if data.L7DDOSProtection.DDOSPolicyNone != nil {
@@ -31903,11 +31584,28 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetHTTPLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -31918,88 +31616,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["caching_policy"].(map[string]interface{}); ok && (isImport || data.CachingPolicy != nil) {
-		data.CachingPolicy = &HTTPLoadBalancerCachingPolicyModel{
-			CustomCacheRule: func() *HTTPLoadBalancerCachingPolicyCustomCacheRuleModel {
-				if CustomCacheRuleData, ok := blockData["custom_cache_rule"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerCachingPolicyCustomCacheRuleModel{
-						CDNCacheRules: func() types.List {
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && (data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CachingPolicy.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
-							}
-							var CDNCacheRulesExisting []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
-								data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
-							}
-							if rawList, ok := CustomCacheRuleData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
-								var CDNCacheRulesResult []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-								for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
-									_ = CDNCacheRulesIdx
-									if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
-										CDNCacheRulesResult = append(CDNCacheRulesResult, HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel{
-											Name: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["name"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Namespace: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["namespace"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Tenant: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["tenant"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes}, CDNCacheRulesResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
-						}(),
-					}
-				}
-				return nil
-			}(),
-			DefaultCacheAction: func() *HTTPLoadBalancerCachingPolicyDefaultCacheActionModel {
-				if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
-					return data.CachingPolicy.DefaultCacheAction
-				}
-				if DefaultCacheActionData, ok := blockData["default_cache_action"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerCachingPolicyDefaultCacheActionModel{
-						CacheDisabled: func() *HTTPLoadBalancerEmptyModel {
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
-								return data.CachingPolicy.DefaultCacheAction.CacheDisabled
-							}
-							if _, ok := DefaultCacheActionData["cache_disabled"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerEmptyModel{}
-							}
-							return nil
-						}(),
-						CacheTTLDefault: func() types.String {
-							if v, ok := DefaultCacheActionData["cache_ttl_default"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						CacheTTLOverride: func() types.String {
-							if v, ok := DefaultCacheActionData["cache_ttl_override"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
 		var domainsList []string
 		for _, item := range v {
@@ -40120,6 +39736,88 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}(),
 						Tenant: func() types.String {
 							if v, ok := WebData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["caching_policy"].(map[string]interface{}); ok && (isImport || data.CachingPolicy != nil) {
+		data.CachingPolicy = &HTTPLoadBalancerCachingPolicyModel{
+			CustomCacheRule: func() *HTTPLoadBalancerCachingPolicyCustomCacheRuleModel {
+				if CustomCacheRuleData, ok := blockData["custom_cache_rule"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerCachingPolicyCustomCacheRuleModel{
+						CDNCacheRules: func() types.List {
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && (data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CachingPolicy.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
+							}
+							var CDNCacheRulesExisting []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
+								data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
+							}
+							if rawList, ok := CustomCacheRuleData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
+								var CDNCacheRulesResult []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+								for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
+									_ = CDNCacheRulesIdx
+									if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
+										CDNCacheRulesResult = append(CDNCacheRulesResult, HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel{
+											Name: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes}, CDNCacheRulesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultCacheAction: func() *HTTPLoadBalancerCachingPolicyDefaultCacheActionModel {
+				if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
+					return data.CachingPolicy.DefaultCacheAction
+				}
+				if DefaultCacheActionData, ok := blockData["default_cache_action"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerCachingPolicyDefaultCacheActionModel{
+						CacheDisabled: func() *HTTPLoadBalancerEmptyModel {
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
+								return data.CachingPolicy.DefaultCacheAction.CacheDisabled
+							}
+							if _, ok := DefaultCacheActionData["cache_disabled"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						CacheTTLDefault: func() types.String {
+							if v, ok := DefaultCacheActionData["cache_ttl_default"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						CacheTTLOverride: func() types.String {
+							if v, ok := DefaultCacheActionData["cache_ttl_override"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -51538,6 +51236,16 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		return
 	}
 
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -51610,88 +51318,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["caching_policy"].(map[string]interface{}); ok && (isImport || data.CachingPolicy != nil) {
-		data.CachingPolicy = &HTTPLoadBalancerCachingPolicyModel{
-			CustomCacheRule: func() *HTTPLoadBalancerCachingPolicyCustomCacheRuleModel {
-				if CustomCacheRuleData, ok := blockData["custom_cache_rule"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerCachingPolicyCustomCacheRuleModel{
-						CDNCacheRules: func() types.List {
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && (data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CachingPolicy.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
-							}
-							var CDNCacheRulesExisting []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
-								data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
-							}
-							if rawList, ok := CustomCacheRuleData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
-								var CDNCacheRulesResult []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-								for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
-									_ = CDNCacheRulesIdx
-									if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
-										CDNCacheRulesResult = append(CDNCacheRulesResult, HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel{
-											Name: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["name"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Namespace: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["namespace"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Tenant: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["tenant"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes}, CDNCacheRulesResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
-						}(),
-					}
-				}
-				return nil
-			}(),
-			DefaultCacheAction: func() *HTTPLoadBalancerCachingPolicyDefaultCacheActionModel {
-				if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
-					return data.CachingPolicy.DefaultCacheAction
-				}
-				if DefaultCacheActionData, ok := blockData["default_cache_action"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerCachingPolicyDefaultCacheActionModel{
-						CacheDisabled: func() *HTTPLoadBalancerEmptyModel {
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
-								return data.CachingPolicy.DefaultCacheAction.CacheDisabled
-							}
-							if _, ok := DefaultCacheActionData["cache_disabled"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerEmptyModel{}
-							}
-							return nil
-						}(),
-						CacheTTLDefault: func() types.String {
-							if v, ok := DefaultCacheActionData["cache_ttl_default"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						CacheTTLOverride: func() types.String {
-							if v, ok := DefaultCacheActionData["cache_ttl_override"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
 		var domainsList []string
 		for _, item := range v {
@@ -59812,6 +59438,88 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 						}(),
 						Tenant: func() types.String {
 							if v, ok := WebData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["caching_policy"].(map[string]interface{}); ok && (isImport || data.CachingPolicy != nil) {
+		data.CachingPolicy = &HTTPLoadBalancerCachingPolicyModel{
+			CustomCacheRule: func() *HTTPLoadBalancerCachingPolicyCustomCacheRuleModel {
+				if CustomCacheRuleData, ok := blockData["custom_cache_rule"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerCachingPolicyCustomCacheRuleModel{
+						CDNCacheRules: func() types.List {
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && (data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CachingPolicy.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
+							}
+							var CDNCacheRulesExisting []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
+								data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
+							}
+							if rawList, ok := CustomCacheRuleData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
+								var CDNCacheRulesResult []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+								for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
+									_ = CDNCacheRulesIdx
+									if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
+										CDNCacheRulesResult = append(CDNCacheRulesResult, HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel{
+											Name: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes}, CDNCacheRulesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultCacheAction: func() *HTTPLoadBalancerCachingPolicyDefaultCacheActionModel {
+				if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
+					return data.CachingPolicy.DefaultCacheAction
+				}
+				if DefaultCacheActionData, ok := blockData["default_cache_action"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerCachingPolicyDefaultCacheActionModel{
+						CacheDisabled: func() *HTTPLoadBalancerEmptyModel {
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
+								return data.CachingPolicy.DefaultCacheAction.CacheDisabled
+							}
+							if _, ok := DefaultCacheActionData["cache_disabled"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						CacheTTLDefault: func() types.String {
+							if v, ok := DefaultCacheActionData["cache_ttl_default"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						CacheTTLOverride: func() types.String {
+							if v, ok := DefaultCacheActionData["cache_ttl_override"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -71209,6 +70917,20 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	// Requirement pre-flight (generated; source: x-f5xc-requires):
 	// client_side_defense requires a protected_domain (eTLD+1) registered in the load balancer's own namespace
 	if data.ClientSideDefense != nil {
@@ -71233,6 +70955,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -71277,49 +71000,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.CachingPolicy != nil {
-		CachingPolicyMap := make(map[string]interface{})
-		if data.CachingPolicy.CustomCacheRule != nil {
-			CachingPolicyCustomCacheRuleMap := make(map[string]interface{})
-			if !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
-				var CDNCacheRulesElems []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-				diags := data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesElems, false)
-				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(CDNCacheRulesElems) > 0 {
-					var CDNCacheRulesList []map[string]interface{}
-					for _, CDNCacheRulesItem := range CDNCacheRulesElems {
-						CDNCacheRulesItemMap := make(map[string]interface{})
-						if !CDNCacheRulesItem.Name.IsNull() && !CDNCacheRulesItem.Name.IsUnknown() {
-							CDNCacheRulesItemMap["name"] = CDNCacheRulesItem.Name.ValueString()
-						}
-						if !CDNCacheRulesItem.Namespace.IsNull() && !CDNCacheRulesItem.Namespace.IsUnknown() {
-							CDNCacheRulesItemMap["namespace"] = CDNCacheRulesItem.Namespace.ValueString()
-						}
-						if !CDNCacheRulesItem.Tenant.IsNull() && !CDNCacheRulesItem.Tenant.IsUnknown() {
-							CDNCacheRulesItemMap["tenant"] = CDNCacheRulesItem.Tenant.ValueString()
-						}
-						CDNCacheRulesList = append(CDNCacheRulesList, CDNCacheRulesItemMap)
-					}
-					CachingPolicyCustomCacheRuleMap["cdn_cache_rules"] = CDNCacheRulesList
-				}
-			}
-			CachingPolicyMap["custom_cache_rule"] = CachingPolicyCustomCacheRuleMap
-		}
-		if data.CachingPolicy.DefaultCacheAction != nil {
-			CachingPolicyDefaultCacheActionMap := make(map[string]interface{})
-			if data.CachingPolicy.DefaultCacheAction.CacheDisabled != nil {
-				CachingPolicyDefaultCacheActionMap["cache_disabled"] = map[string]interface{}{}
-			}
-			if !data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.IsNull() && !data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.IsUnknown() {
-				CachingPolicyDefaultCacheActionMap["cache_ttl_default"] = data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.ValueString()
-			}
-			if !data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.IsNull() && !data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.IsUnknown() {
-				CachingPolicyDefaultCacheActionMap["cache_ttl_override"] = data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.ValueString()
-			}
-			CachingPolicyMap["default_cache_action"] = CachingPolicyDefaultCacheActionMap
-		}
-		apiResource.Spec["caching_policy"] = CachingPolicyMap
-	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
 		var DomainsItems []string
 		diags := data.Domains.ElementsAs(ctx, &DomainsItems, false)
@@ -71343,9 +71023,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
-					}
-					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
 					}
 					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
@@ -71374,9 +71051,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
@@ -71402,9 +71076,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
@@ -71435,9 +71106,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
 						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -71454,9 +71122,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
@@ -71478,9 +71143,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
 						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -71495,9 +71157,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -71507,9 +71166,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
@@ -71531,9 +71187,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-			}
-			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
 			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
@@ -71613,20 +71266,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -71660,20 +71304,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -72030,20 +71665,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -72077,20 +71703,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -72453,20 +72070,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -72500,20 +72108,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -72589,9 +72188,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.IsUnknown() {
 								APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap["namespace"] = APIEndpointRulesItem.InlineRateLimiter.RefUserID.Namespace.ValueString()
 							}
-							if !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.IsUnknown() {
-								APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap["tenant"] = APIEndpointRulesItem.InlineRateLimiter.RefUserID.Tenant.ValueString()
-							}
 							APIRateLimitAPIEndpointRulesInlineRateLimiterMap["ref_user_id"] = APIRateLimitAPIEndpointRulesInlineRateLimiterRefUserIDMap
 						}
 						if !APIEndpointRulesItem.InlineRateLimiter.Threshold.IsNull() && !APIEndpointRulesItem.InlineRateLimiter.Threshold.IsUnknown() {
@@ -72612,9 +72208,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						if !APIEndpointRulesItem.RefRateLimiter.Namespace.IsNull() && !APIEndpointRulesItem.RefRateLimiter.Namespace.IsUnknown() {
 							APIRateLimitAPIEndpointRulesRefRateLimiterMap["namespace"] = APIEndpointRulesItem.RefRateLimiter.Namespace.ValueString()
-						}
-						if !APIEndpointRulesItem.RefRateLimiter.Tenant.IsNull() && !APIEndpointRulesItem.RefRateLimiter.Tenant.IsUnknown() {
-							APIRateLimitAPIEndpointRulesRefRateLimiterMap["tenant"] = APIEndpointRulesItem.RefRateLimiter.Tenant.ValueString()
 						}
 						APIEndpointRulesItemMap["ref_rate_limiter"] = APIRateLimitAPIEndpointRulesRefRateLimiterMap
 					}
@@ -72918,20 +72511,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										var AsnSetsList []map[string]interface{}
 										for _, AsnSetsItem := range AsnSetsElems {
 											AsnSetsItemMap := make(map[string]interface{})
-											if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-												AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-											}
 											if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 												AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 											}
 											if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 												AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-											}
-											if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-												AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-											}
-											if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-												AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 											}
 											AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 										}
@@ -72965,20 +72549,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										var PrefixSetsList []map[string]interface{}
 										for _, PrefixSetsItem := range PrefixSetsElems {
 											PrefixSetsItemMap := make(map[string]interface{})
-											if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-												PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-											}
 											if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 												PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 											}
 											if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 												PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-											}
-											if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-												PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-											}
-											if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-												PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 											}
 											PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 										}
@@ -73286,9 +72861,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 							RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
 						}
-						if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-							RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-						}
 						RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 					}
 					APIRateLimitCustomIPAllowedListMap["rate_limiter_allowed_prefixes"] = RateLimiterAllowedPrefixesList
@@ -73358,20 +72930,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									var AsnSetsList []map[string]interface{}
 									for _, AsnSetsItem := range AsnSetsElems {
 										AsnSetsItemMap := make(map[string]interface{})
-										if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-											AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-										}
 										if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 											AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 										}
 										if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 											AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-										}
-										if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-											AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-										}
-										if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-											AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 										}
 										AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 									}
@@ -73405,20 +72968,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									var PrefixSetsList []map[string]interface{}
 									for _, PrefixSetsItem := range PrefixSetsElems {
 										PrefixSetsItemMap := make(map[string]interface{})
-										if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-											PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-										}
 										if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 											PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 										}
 										if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 											PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-										}
-										if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-											PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-										}
-										if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-											PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 										}
 										PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 									}
@@ -73494,9 +73048,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.IsNull() && !ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.IsUnknown() {
 								APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap["namespace"] = ServerURLRulesItem.InlineRateLimiter.RefUserID.Namespace.ValueString()
 							}
-							if !ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.IsNull() && !ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.IsUnknown() {
-								APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap["tenant"] = ServerURLRulesItem.InlineRateLimiter.RefUserID.Tenant.ValueString()
-							}
 							APIRateLimitServerURLRulesInlineRateLimiterMap["ref_user_id"] = APIRateLimitServerURLRulesInlineRateLimiterRefUserIDMap
 						}
 						if !ServerURLRulesItem.InlineRateLimiter.Threshold.IsNull() && !ServerURLRulesItem.InlineRateLimiter.Threshold.IsUnknown() {
@@ -73517,9 +73068,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						if !ServerURLRulesItem.RefRateLimiter.Namespace.IsNull() && !ServerURLRulesItem.RefRateLimiter.Namespace.IsUnknown() {
 							APIRateLimitServerURLRulesRefRateLimiterMap["namespace"] = ServerURLRulesItem.RefRateLimiter.Namespace.ValueString()
-						}
-						if !ServerURLRulesItem.RefRateLimiter.Tenant.IsNull() && !ServerURLRulesItem.RefRateLimiter.Tenant.IsUnknown() {
-							APIRateLimitServerURLRulesRefRateLimiterMap["tenant"] = ServerURLRulesItem.RefRateLimiter.Tenant.ValueString()
 						}
 						ServerURLRulesItemMap["ref_rate_limiter"] = APIRateLimitServerURLRulesRefRateLimiterMap
 					}
@@ -73758,9 +73306,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			}
 			if !data.APISpecification.APIDefinition.Namespace.IsNull() && !data.APISpecification.APIDefinition.Namespace.IsUnknown() {
 				APISpecificationAPIDefinitionMap["namespace"] = data.APISpecification.APIDefinition.Namespace.ValueString()
-			}
-			if !data.APISpecification.APIDefinition.Tenant.IsNull() && !data.APISpecification.APIDefinition.Tenant.IsUnknown() {
-				APISpecificationAPIDefinitionMap["tenant"] = data.APISpecification.APIDefinition.Tenant.ValueString()
 			}
 			APISpecificationMap["api_definition"] = APISpecificationAPIDefinitionMap
 		}
@@ -74304,9 +73849,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		}
 		if !data.AppFirewall.Namespace.IsNull() && !data.AppFirewall.Namespace.IsUnknown() {
 			AppFirewallMap["namespace"] = data.AppFirewall.Namespace.ValueString()
-		}
-		if !data.AppFirewall.Tenant.IsNull() && !data.AppFirewall.Tenant.IsUnknown() {
-			AppFirewallMap["tenant"] = data.AppFirewall.Tenant.ValueString()
 		}
 		apiResource.Spec["app_firewall"] = AppFirewallMap
 	}
@@ -75267,9 +74809,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.BotDefenseAdvanced.Mobile.Namespace.IsNull() && !data.BotDefenseAdvanced.Mobile.Namespace.IsUnknown() {
 				BotDefenseAdvancedMobileMap["namespace"] = data.BotDefenseAdvanced.Mobile.Namespace.ValueString()
 			}
-			if !data.BotDefenseAdvanced.Mobile.Tenant.IsNull() && !data.BotDefenseAdvanced.Mobile.Tenant.IsUnknown() {
-				BotDefenseAdvancedMobileMap["tenant"] = data.BotDefenseAdvanced.Mobile.Tenant.ValueString()
-			}
 			BotDefenseAdvancedMap["mobile"] = BotDefenseAdvancedMobileMap
 		}
 		if data.BotDefenseAdvanced.MobileSdkConfig != nil {
@@ -75338,12 +74877,49 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.BotDefenseAdvanced.Web.Namespace.IsNull() && !data.BotDefenseAdvanced.Web.Namespace.IsUnknown() {
 				BotDefenseAdvancedWebMap["namespace"] = data.BotDefenseAdvanced.Web.Namespace.ValueString()
 			}
-			if !data.BotDefenseAdvanced.Web.Tenant.IsNull() && !data.BotDefenseAdvanced.Web.Tenant.IsUnknown() {
-				BotDefenseAdvancedWebMap["tenant"] = data.BotDefenseAdvanced.Web.Tenant.ValueString()
-			}
 			BotDefenseAdvancedMap["web"] = BotDefenseAdvancedWebMap
 		}
 		apiResource.Spec["bot_defense_advanced"] = BotDefenseAdvancedMap
+	}
+	if data.CachingPolicy != nil {
+		CachingPolicyMap := make(map[string]interface{})
+		if data.CachingPolicy.CustomCacheRule != nil {
+			CachingPolicyCustomCacheRuleMap := make(map[string]interface{})
+			if !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
+				var CDNCacheRulesElems []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+				diags := data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(CDNCacheRulesElems) > 0 {
+					var CDNCacheRulesList []map[string]interface{}
+					for _, CDNCacheRulesItem := range CDNCacheRulesElems {
+						CDNCacheRulesItemMap := make(map[string]interface{})
+						if !CDNCacheRulesItem.Name.IsNull() && !CDNCacheRulesItem.Name.IsUnknown() {
+							CDNCacheRulesItemMap["name"] = CDNCacheRulesItem.Name.ValueString()
+						}
+						if !CDNCacheRulesItem.Namespace.IsNull() && !CDNCacheRulesItem.Namespace.IsUnknown() {
+							CDNCacheRulesItemMap["namespace"] = CDNCacheRulesItem.Namespace.ValueString()
+						}
+						CDNCacheRulesList = append(CDNCacheRulesList, CDNCacheRulesItemMap)
+					}
+					CachingPolicyCustomCacheRuleMap["cdn_cache_rules"] = CDNCacheRulesList
+				}
+			}
+			CachingPolicyMap["custom_cache_rule"] = CachingPolicyCustomCacheRuleMap
+		}
+		if data.CachingPolicy.DefaultCacheAction != nil {
+			CachingPolicyDefaultCacheActionMap := make(map[string]interface{})
+			if data.CachingPolicy.DefaultCacheAction.CacheDisabled != nil {
+				CachingPolicyDefaultCacheActionMap["cache_disabled"] = map[string]interface{}{}
+			}
+			if !data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.IsNull() && !data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.IsUnknown() {
+				CachingPolicyDefaultCacheActionMap["cache_ttl_default"] = data.CachingPolicy.DefaultCacheAction.CacheTTLDefault.ValueString()
+			}
+			if !data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.IsNull() && !data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.IsUnknown() {
+				CachingPolicyDefaultCacheActionMap["cache_ttl_override"] = data.CachingPolicy.DefaultCacheAction.CacheTTLOverride.ValueString()
+			}
+			CachingPolicyMap["default_cache_action"] = CachingPolicyDefaultCacheActionMap
+		}
+		apiResource.Spec["caching_policy"] = CachingPolicyMap
 	}
 	if data.CaptchaChallenge != nil {
 		CaptchaChallengeMap := make(map[string]interface{})
@@ -75969,9 +75545,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !HealthcheckItem.Namespace.IsNull() && !HealthcheckItem.Namespace.IsUnknown() {
 						HealthcheckItemMap["namespace"] = HealthcheckItem.Namespace.ValueString()
 					}
-					if !HealthcheckItem.Tenant.IsNull() && !HealthcheckItem.Tenant.IsUnknown() {
-						HealthcheckItemMap["tenant"] = HealthcheckItem.Tenant.ValueString()
-					}
 					HealthcheckList = append(HealthcheckList, HealthcheckItemMap)
 				}
 				DefaultPoolMap["healthcheck"] = HealthcheckList
@@ -76022,9 +75595,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsUnknown() {
 									DefaultPoolOriginServersConsulServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsUnknown() {
-									DefaultPoolOriginServersConsulServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.Site.Tenant.ValueString()
-								}
 								DefaultPoolOriginServersConsulServiceSiteLocatorMap["site"] = DefaultPoolOriginServersConsulServiceSiteLocatorSiteMap
 							}
 							if OriginServersItem.ConsulService.SiteLocator.VirtualSite != nil {
@@ -76034,9 +75604,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								}
 								if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									DefaultPoolOriginServersConsulServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									DefaultPoolOriginServersConsulServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								DefaultPoolOriginServersConsulServiceSiteLocatorMap["virtual_site"] = DefaultPoolOriginServersConsulServiceSiteLocatorVirtualSiteMap
 							}
@@ -76073,9 +75640,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsUnknown() {
 								DefaultPoolOriginServersCustomEndpointObjectEndpointMap["namespace"] = OriginServersItem.CustomEndpointObject.Endpoint.Namespace.ValueString()
 							}
-							if !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsUnknown() {
-								DefaultPoolOriginServersCustomEndpointObjectEndpointMap["tenant"] = OriginServersItem.CustomEndpointObject.Endpoint.Tenant.ValueString()
-							}
 							DefaultPoolOriginServersCustomEndpointObjectMap["endpoint"] = DefaultPoolOriginServersCustomEndpointObjectEndpointMap
 						}
 						OriginServersItemMap["custom_endpoint_object"] = DefaultPoolOriginServersCustomEndpointObjectMap
@@ -76104,9 +75668,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
 									DefaultPoolOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-									DefaultPoolOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
-								}
 								DefaultPoolOriginServersK8SServiceSiteLocatorMap["site"] = DefaultPoolOriginServersK8SServiceSiteLocatorSiteMap
 							}
 							if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
@@ -76116,9 +75677,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								}
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									DefaultPoolOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									DefaultPoolOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								DefaultPoolOriginServersK8SServiceSiteLocatorMap["virtual_site"] = DefaultPoolOriginServersK8SServiceSiteLocatorVirtualSiteMap
 							}
@@ -76175,9 +75733,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
 								DefaultPoolOriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 							}
-							if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-								DefaultPoolOriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
-							}
 							DefaultPoolOriginServersPrivateIPMap["segment"] = DefaultPoolOriginServersPrivateIPSegmentMap
 						}
 						if OriginServersItem.PrivateIP.SiteLocator != nil {
@@ -76190,9 +75745,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
 									DefaultPoolOriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-									DefaultPoolOriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
-								}
 								DefaultPoolOriginServersPrivateIPSiteLocatorMap["site"] = DefaultPoolOriginServersPrivateIPSiteLocatorSiteMap
 							}
 							if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
@@ -76202,9 +75754,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								}
 								if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									DefaultPoolOriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									DefaultPoolOriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								DefaultPoolOriginServersPrivateIPSiteLocatorMap["virtual_site"] = DefaultPoolOriginServersPrivateIPSiteLocatorVirtualSiteMap
 							}
@@ -76253,9 +75802,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !OriginServersItem.PrivateName.Segment.Namespace.IsNull() && !OriginServersItem.PrivateName.Segment.Namespace.IsUnknown() {
 								DefaultPoolOriginServersPrivateNameSegmentMap["namespace"] = OriginServersItem.PrivateName.Segment.Namespace.ValueString()
 							}
-							if !OriginServersItem.PrivateName.Segment.Tenant.IsNull() && !OriginServersItem.PrivateName.Segment.Tenant.IsUnknown() {
-								DefaultPoolOriginServersPrivateNameSegmentMap["tenant"] = OriginServersItem.PrivateName.Segment.Tenant.ValueString()
-							}
 							DefaultPoolOriginServersPrivateNameMap["segment"] = DefaultPoolOriginServersPrivateNameSegmentMap
 						}
 						if OriginServersItem.PrivateName.SiteLocator != nil {
@@ -76268,9 +75814,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsUnknown() {
 									DefaultPoolOriginServersPrivateNameSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.Site.Namespace.ValueString()
 								}
-								if !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsUnknown() {
-									DefaultPoolOriginServersPrivateNameSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.Site.Tenant.ValueString()
-								}
 								DefaultPoolOriginServersPrivateNameSiteLocatorMap["site"] = DefaultPoolOriginServersPrivateNameSiteLocatorSiteMap
 							}
 							if OriginServersItem.PrivateName.SiteLocator.VirtualSite != nil {
@@ -76280,9 +75823,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								}
 								if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsUnknown() {
 									DefaultPoolOriginServersPrivateNameSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.ValueString()
-								}
-								if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									DefaultPoolOriginServersPrivateNameSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
 								DefaultPoolOriginServersPrivateNameSiteLocatorMap["virtual_site"] = DefaultPoolOriginServersPrivateNameSiteLocatorVirtualSiteMap
 							}
@@ -76339,9 +75879,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsUnknown() {
 								DefaultPoolOriginServersVnPrivateIPVirtualNetworkMap["namespace"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.ValueString()
 							}
-							if !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsUnknown() {
-								DefaultPoolOriginServersVnPrivateIPVirtualNetworkMap["tenant"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.ValueString()
-							}
 							DefaultPoolOriginServersVnPrivateIPMap["virtual_network"] = DefaultPoolOriginServersVnPrivateIPVirtualNetworkMap
 						}
 						OriginServersItemMap["vn_private_ip"] = DefaultPoolOriginServersVnPrivateIPMap
@@ -76358,9 +75895,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							}
 							if !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsUnknown() {
 								DefaultPoolOriginServersVnPrivateNamePrivateNetworkMap["namespace"] = OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.ValueString()
-							}
-							if !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsUnknown() {
-								DefaultPoolOriginServersVnPrivateNamePrivateNetworkMap["tenant"] = OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.ValueString()
 							}
 							DefaultPoolOriginServersVnPrivateNameMap["private_network"] = DefaultPoolOriginServersVnPrivateNamePrivateNetworkMap
 						}
@@ -76520,9 +76054,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !data.DefaultPool.UseTLS.UseMtlsObj.Namespace.IsNull() && !data.DefaultPool.UseTLS.UseMtlsObj.Namespace.IsUnknown() {
 					DefaultPoolUseTLSUseMtlsObjMap["namespace"] = data.DefaultPool.UseTLS.UseMtlsObj.Namespace.ValueString()
 				}
-				if !data.DefaultPool.UseTLS.UseMtlsObj.Tenant.IsNull() && !data.DefaultPool.UseTLS.UseMtlsObj.Tenant.IsUnknown() {
-					DefaultPoolUseTLSUseMtlsObjMap["tenant"] = data.DefaultPool.UseTLS.UseMtlsObj.Tenant.ValueString()
-				}
 				DefaultPoolUseTLSMap["use_mtls_obj"] = DefaultPoolUseTLSUseMtlsObjMap
 			}
 			if data.DefaultPool.UseTLS.UseServerVerification != nil {
@@ -76534,9 +76065,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					if !data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Namespace.IsNull() && !data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Namespace.IsUnknown() {
 						DefaultPoolUseTLSUseServerVerificationTrustedCAMap["namespace"] = data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
-					}
-					if !data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Tenant.IsNull() && !data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Tenant.IsUnknown() {
-						DefaultPoolUseTLSUseServerVerificationTrustedCAMap["tenant"] = data.DefaultPool.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
 					}
 					DefaultPoolUseTLSUseServerVerificationMap["trusted_ca"] = DefaultPoolUseTLSUseServerVerificationTrustedCAMap
 				}
@@ -76557,9 +76085,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			}
 			if !data.DefaultPool.ViewInternal.Namespace.IsNull() && !data.DefaultPool.ViewInternal.Namespace.IsUnknown() {
 				DefaultPoolViewInternalMap["namespace"] = data.DefaultPool.ViewInternal.Namespace.ValueString()
-			}
-			if !data.DefaultPool.ViewInternal.Tenant.IsNull() && !data.DefaultPool.ViewInternal.Tenant.IsUnknown() {
-				DefaultPoolViewInternalMap["tenant"] = data.DefaultPool.ViewInternal.Tenant.ValueString()
 			}
 			DefaultPoolMap["view_internal"] = DefaultPoolViewInternalMap
 		}
@@ -76583,9 +76108,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !PoolsItem.Cluster.Namespace.IsNull() && !PoolsItem.Cluster.Namespace.IsUnknown() {
 							DefaultPoolListPoolsClusterMap["namespace"] = PoolsItem.Cluster.Namespace.ValueString()
 						}
-						if !PoolsItem.Cluster.Tenant.IsNull() && !PoolsItem.Cluster.Tenant.IsUnknown() {
-							DefaultPoolListPoolsClusterMap["tenant"] = PoolsItem.Cluster.Tenant.ValueString()
-						}
 						PoolsItemMap["cluster"] = DefaultPoolListPoolsClusterMap
 					}
 					if PoolsItem.EndpointSubsets != nil {
@@ -76598,9 +76120,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						if !PoolsItem.Pool.Namespace.IsNull() && !PoolsItem.Pool.Namespace.IsUnknown() {
 							DefaultPoolListPoolsPoolMap["namespace"] = PoolsItem.Pool.Namespace.ValueString()
-						}
-						if !PoolsItem.Pool.Tenant.IsNull() && !PoolsItem.Pool.Tenant.IsUnknown() {
-							DefaultPoolListPoolsPoolMap["tenant"] = PoolsItem.Pool.Tenant.ValueString()
 						}
 						PoolsItemMap["pool"] = DefaultPoolListPoolsPoolMap
 					}
@@ -76633,9 +76152,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !DefaultRoutePoolsItem.Cluster.Namespace.IsNull() && !DefaultRoutePoolsItem.Cluster.Namespace.IsUnknown() {
 						DefaultRoutePoolsClusterMap["namespace"] = DefaultRoutePoolsItem.Cluster.Namespace.ValueString()
 					}
-					if !DefaultRoutePoolsItem.Cluster.Tenant.IsNull() && !DefaultRoutePoolsItem.Cluster.Tenant.IsUnknown() {
-						DefaultRoutePoolsClusterMap["tenant"] = DefaultRoutePoolsItem.Cluster.Tenant.ValueString()
-					}
 					DefaultRoutePoolsItemMap["cluster"] = DefaultRoutePoolsClusterMap
 				}
 				if DefaultRoutePoolsItem.EndpointSubsets != nil {
@@ -76648,9 +76164,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					if !DefaultRoutePoolsItem.Pool.Namespace.IsNull() && !DefaultRoutePoolsItem.Pool.Namespace.IsUnknown() {
 						DefaultRoutePoolsPoolMap["namespace"] = DefaultRoutePoolsItem.Pool.Namespace.ValueString()
-					}
-					if !DefaultRoutePoolsItem.Pool.Tenant.IsNull() && !DefaultRoutePoolsItem.Pool.Tenant.IsUnknown() {
-						DefaultRoutePoolsPoolMap["tenant"] = DefaultRoutePoolsItem.Pool.Tenant.ValueString()
 					}
 					DefaultRoutePoolsItemMap["pool"] = DefaultRoutePoolsPoolMap
 				}
@@ -76758,9 +76271,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsUnknown() {
 								EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["namespace"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.ValueString()
 							}
-							if !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsUnknown() {
-								EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["tenant"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.ValueString()
-							}
 							CodeBaseIntegrationsItemMap["code_base_integration"] = EnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap
 						}
 						if CodeBaseIntegrationsItem.SelectedRepos != nil {
@@ -76791,9 +76301,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				}
 				if !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsNull() && !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsUnknown() {
 					EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["namespace"] = data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.ValueString()
-				}
-				if !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsNull() && !data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsUnknown() {
-					EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["tenant"] = data.EnableAPIDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.ValueString()
 				}
 				EnableAPIDiscoveryCustomAPIAuthDiscoveryMap["api_discovery_ref"] = EnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap
 			}
@@ -76858,9 +76365,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			}
 			if !data.EnableChallenge.MaliciousUserMitigation.Namespace.IsNull() && !data.EnableChallenge.MaliciousUserMitigation.Namespace.IsUnknown() {
 				EnableChallengeMaliciousUserMitigationMap["namespace"] = data.EnableChallenge.MaliciousUserMitigation.Namespace.ValueString()
-			}
-			if !data.EnableChallenge.MaliciousUserMitigation.Tenant.IsNull() && !data.EnableChallenge.MaliciousUserMitigation.Tenant.IsUnknown() {
-				EnableChallengeMaliciousUserMitigationMap["tenant"] = data.EnableChallenge.MaliciousUserMitigation.Tenant.ValueString()
 			}
 			EnableChallengeMap["malicious_user_mitigation"] = EnableChallengeMaliciousUserMitigationMap
 		}
@@ -77066,9 +76570,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 							CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
 						}
-						if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-							CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-						}
 						CertificatesList = append(CertificatesList, CertificatesItemMap)
 					}
 					HTTPSTLSCertParamsMap["certificates"] = CertificatesList
@@ -77121,9 +76622,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSTLSCertParamsUseMtlsMap["crl"] = HTTPSTLSCertParamsUseMtlsCRLMap
 				}
 				if data.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
@@ -77136,9 +76634,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					if !data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = HTTPSTLSCertParamsUseMtlsTrustedCAMap
 				}
@@ -77277,9 +76772,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					if !data.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
 						HTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 					}
-					if !data.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-						HTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
-					}
 					HTTPSTLSParametersUseMtlsMap["crl"] = HTTPSTLSParametersUseMtlsCRLMap
 				}
 				if data.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
@@ -77292,9 +76784,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					if !data.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
 						HTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
-					}
-					if !data.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						HTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 					}
 					HTTPSTLSParametersUseMtlsMap["trusted_ca"] = HTTPSTLSParametersUseMtlsTrustedCAMap
 				}
@@ -77450,9 +76939,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				if !data.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
 					HTTPSAutoCertUseMtlsCRLMap["namespace"] = data.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 				}
-				if !data.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-					HTTPSAutoCertUseMtlsCRLMap["tenant"] = data.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
-				}
 				HTTPSAutoCertUseMtlsMap["crl"] = HTTPSAutoCertUseMtlsCRLMap
 			}
 			if data.HTTPSAutoCert.UseMtls.NoCRL != nil {
@@ -77465,9 +76951,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				}
 				if !data.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
 					HTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
-				}
-				if !data.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-					HTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 				}
 				HTTPSAutoCertUseMtlsMap["trusted_ca"] = HTTPSAutoCertUseMtlsTrustedCAMap
 			}
@@ -77533,9 +77016,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						if !AuthorizationServersItem.Namespace.IsNull() && !AuthorizationServersItem.Namespace.IsUnknown() {
 							AuthorizationServersItemMap["namespace"] = AuthorizationServersItem.Namespace.ValueString()
-						}
-						if !AuthorizationServersItem.Tenant.IsNull() && !AuthorizationServersItem.Tenant.IsUnknown() {
-							AuthorizationServersItemMap["tenant"] = AuthorizationServersItem.Tenant.ValueString()
 						}
 						AuthorizationServersList = append(AuthorizationServersList, AuthorizationServersItemMap)
 					}
@@ -78127,20 +77607,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								var AsnSetsList []map[string]interface{}
 								for _, AsnSetsItem := range AsnSetsElems {
 									AsnSetsItemMap := make(map[string]interface{})
-									if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-										AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-									}
 									if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 										AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 									}
 									if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 										AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-									}
-									if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-										AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-									}
-									if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-										AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 									}
 									AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 								}
@@ -78182,20 +77653,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								var PrefixSetsList []map[string]interface{}
 								for _, PrefixSetsItem := range PrefixSetsElems {
 									PrefixSetsItemMap := make(map[string]interface{})
-									if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-										PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-									}
 									if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 										PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 									}
 									if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 										PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-									}
-									if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-										PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-									}
-									if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-										PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 									}
 									PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 								}
@@ -78305,9 +77767,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			}
 			if !data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.IsNull() && !data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.IsUnknown() {
 				PolicyBasedChallengeMaliciousUserMitigationMap["namespace"] = data.PolicyBasedChallenge.MaliciousUserMitigation.Namespace.ValueString()
-			}
-			if !data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.IsNull() && !data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.IsUnknown() {
-				PolicyBasedChallengeMaliciousUserMitigationMap["tenant"] = data.PolicyBasedChallenge.MaliciousUserMitigation.Tenant.ValueString()
 			}
 			PolicyBasedChallengeMap["malicious_user_mitigation"] = PolicyBasedChallengeMaliciousUserMitigationMap
 		}
@@ -78420,20 +77879,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										var AsnSetsList []map[string]interface{}
 										for _, AsnSetsItem := range AsnSetsElems {
 											AsnSetsItemMap := make(map[string]interface{})
-											if !AsnSetsItem.Kind.IsNull() && !AsnSetsItem.Kind.IsUnknown() {
-												AsnSetsItemMap["kind"] = AsnSetsItem.Kind.ValueString()
-											}
 											if !AsnSetsItem.Name.IsNull() && !AsnSetsItem.Name.IsUnknown() {
 												AsnSetsItemMap["name"] = AsnSetsItem.Name.ValueString()
 											}
 											if !AsnSetsItem.Namespace.IsNull() && !AsnSetsItem.Namespace.IsUnknown() {
 												AsnSetsItemMap["namespace"] = AsnSetsItem.Namespace.ValueString()
-											}
-											if !AsnSetsItem.Tenant.IsNull() && !AsnSetsItem.Tenant.IsUnknown() {
-												AsnSetsItemMap["tenant"] = AsnSetsItem.Tenant.ValueString()
-											}
-											if !AsnSetsItem.Uid.IsNull() && !AsnSetsItem.Uid.IsUnknown() {
-												AsnSetsItemMap["uid"] = AsnSetsItem.Uid.ValueString()
 											}
 											AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 										}
@@ -78648,20 +78098,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										var PrefixSetsList []map[string]interface{}
 										for _, PrefixSetsItem := range PrefixSetsElems {
 											PrefixSetsItemMap := make(map[string]interface{})
-											if !PrefixSetsItem.Kind.IsNull() && !PrefixSetsItem.Kind.IsUnknown() {
-												PrefixSetsItemMap["kind"] = PrefixSetsItem.Kind.ValueString()
-											}
 											if !PrefixSetsItem.Name.IsNull() && !PrefixSetsItem.Name.IsUnknown() {
 												PrefixSetsItemMap["name"] = PrefixSetsItem.Name.ValueString()
 											}
 											if !PrefixSetsItem.Namespace.IsNull() && !PrefixSetsItem.Namespace.IsUnknown() {
 												PrefixSetsItemMap["namespace"] = PrefixSetsItem.Namespace.ValueString()
-											}
-											if !PrefixSetsItem.Tenant.IsNull() && !PrefixSetsItem.Tenant.IsUnknown() {
-												PrefixSetsItemMap["tenant"] = PrefixSetsItem.Tenant.ValueString()
-											}
-											if !PrefixSetsItem.Uid.IsNull() && !PrefixSetsItem.Uid.IsUnknown() {
-												PrefixSetsItemMap["uid"] = PrefixSetsItem.Uid.ValueString()
 											}
 											PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 										}
@@ -78907,9 +78348,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 							RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
 						}
-						if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-							RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-						}
 						RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 					}
 					RateLimitCustomIPAllowedListMap["rate_limiter_allowed_prefixes"] = RateLimiterAllowedPrefixesList
@@ -78950,9 +78388,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 							PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
-						}
-						if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-							PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
 						}
 						PoliciesList = append(PoliciesList, PoliciesItemMap)
 					}
@@ -79099,9 +78534,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						if !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Namespace.IsUnknown() {
 							RoutesCustomRouteObjectRouteRefMap["namespace"] = RoutesItem.CustomRouteObject.RouteRef.Namespace.ValueString()
-						}
-						if !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsNull() && !RoutesItem.CustomRouteObject.RouteRef.Tenant.IsUnknown() {
-							RoutesCustomRouteObjectRouteRefMap["tenant"] = RoutesItem.CustomRouteObject.RouteRef.Tenant.ValueString()
 						}
 						RoutesCustomRouteObjectMap["route_ref"] = RoutesCustomRouteObjectRouteRefMap
 					}
@@ -79285,9 +78717,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Namespace.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Namespace.IsUnknown() {
 								RoutesSimpleRouteAdvancedOptionsAppFirewallMap["namespace"] = RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Namespace.ValueString()
 							}
-							if !RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Tenant.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Tenant.IsUnknown() {
-								RoutesSimpleRouteAdvancedOptionsAppFirewallMap["tenant"] = RoutesItem.SimpleRoute.AdvancedOptions.AppFirewall.Tenant.ValueString()
-							}
 							RoutesSimpleRouteAdvancedOptionsMap["app_firewall"] = RoutesSimpleRouteAdvancedOptionsAppFirewallMap
 						}
 						if RoutesItem.SimpleRoute.AdvancedOptions.BotDefenseJavascriptInjection != nil {
@@ -79456,9 +78885,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								}
 								if !RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Namespace.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Namespace.IsUnknown() {
 									RoutesSimpleRouteAdvancedOptionsMirrorPolicyOriginPoolMap["namespace"] = RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Namespace.ValueString()
-								}
-								if !RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Tenant.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Tenant.IsUnknown() {
-									RoutesSimpleRouteAdvancedOptionsMirrorPolicyOriginPoolMap["tenant"] = RoutesItem.SimpleRoute.AdvancedOptions.MirrorPolicy.OriginPool.Tenant.ValueString()
 								}
 								RoutesSimpleRouteAdvancedOptionsMirrorPolicyMap["origin_pool"] = RoutesSimpleRouteAdvancedOptionsMirrorPolicyOriginPoolMap
 							}
@@ -79891,9 +79317,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							if !RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Namespace.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Namespace.IsUnknown() {
 								RoutesSimpleRouteAdvancedOptionsWAFExclusionPolicyMap["namespace"] = RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Namespace.ValueString()
 							}
-							if !RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Tenant.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Tenant.IsUnknown() {
-								RoutesSimpleRouteAdvancedOptionsWAFExclusionPolicyMap["tenant"] = RoutesItem.SimpleRoute.AdvancedOptions.WAFExclusionPolicy.Tenant.ValueString()
-							}
 							RoutesSimpleRouteAdvancedOptionsMap["waf_exclusion_policy"] = RoutesSimpleRouteAdvancedOptionsWAFExclusionPolicyMap
 						}
 						if RoutesItem.SimpleRoute.AdvancedOptions.WebSocketConfig != nil {
@@ -79980,9 +79403,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									if !OriginPoolsItem.Cluster.Namespace.IsNull() && !OriginPoolsItem.Cluster.Namespace.IsUnknown() {
 										RoutesSimpleRouteOriginPoolsClusterMap["namespace"] = OriginPoolsItem.Cluster.Namespace.ValueString()
 									}
-									if !OriginPoolsItem.Cluster.Tenant.IsNull() && !OriginPoolsItem.Cluster.Tenant.IsUnknown() {
-										RoutesSimpleRouteOriginPoolsClusterMap["tenant"] = OriginPoolsItem.Cluster.Tenant.ValueString()
-									}
 									OriginPoolsItemMap["cluster"] = RoutesSimpleRouteOriginPoolsClusterMap
 								}
 								if OriginPoolsItem.EndpointSubsets != nil {
@@ -79995,9 +79415,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									if !OriginPoolsItem.Pool.Namespace.IsNull() && !OriginPoolsItem.Pool.Namespace.IsUnknown() {
 										RoutesSimpleRouteOriginPoolsPoolMap["namespace"] = OriginPoolsItem.Pool.Namespace.ValueString()
-									}
-									if !OriginPoolsItem.Pool.Tenant.IsNull() && !OriginPoolsItem.Pool.Tenant.IsUnknown() {
-										RoutesSimpleRouteOriginPoolsPoolMap["tenant"] = OriginPoolsItem.Pool.Tenant.ValueString()
 									}
 									OriginPoolsItemMap["pool"] = RoutesSimpleRouteOriginPoolsPoolMap
 								}
@@ -80105,9 +79522,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.IsNull() && !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.IsUnknown() {
 				SensitiveDataPolicySensitiveDataPolicyRefMap["namespace"] = data.SensitiveDataPolicy.SensitiveDataPolicyRef.Namespace.ValueString()
 			}
-			if !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.IsNull() && !data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.IsUnknown() {
-				SensitiveDataPolicySensitiveDataPolicyRefMap["tenant"] = data.SensitiveDataPolicy.SensitiveDataPolicyRef.Tenant.ValueString()
-			}
 			SensitiveDataPolicyMap["sensitive_data_policy_ref"] = SensitiveDataPolicySensitiveDataPolicyRefMap
 		}
 		apiResource.Spec["sensitive_data_policy"] = SensitiveDataPolicyMap
@@ -80204,9 +79618,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.IsUnknown() {
 									SingleLBAppEnableDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["namespace"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Namespace.ValueString()
 								}
-								if !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsNull() && !CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.IsUnknown() {
-									SingleLBAppEnableDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap["tenant"] = CodeBaseIntegrationsItem.CodeBaseIntegration.Tenant.ValueString()
-								}
 								CodeBaseIntegrationsItemMap["code_base_integration"] = SingleLBAppEnableDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationMap
 							}
 							if CodeBaseIntegrationsItem.SelectedRepos != nil {
@@ -80237,9 +79648,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					if !data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsNull() && !data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.IsUnknown() {
 						SingleLBAppEnableDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["namespace"] = data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Namespace.ValueString()
-					}
-					if !data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsNull() && !data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.IsUnknown() {
-						SingleLBAppEnableDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap["tenant"] = data.SingleLBApp.EnableDiscovery.CustomAPIAuthDiscovery.APIDiscoveryRef.Tenant.ValueString()
 					}
 					SingleLBAppEnableDiscoveryCustomAPIAuthDiscoveryMap["api_discovery_ref"] = SingleLBAppEnableDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefMap
 				}
@@ -80381,9 +79789,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		}
 		if !data.UserIdentification.Namespace.IsNull() && !data.UserIdentification.Namespace.IsUnknown() {
 			UserIdentificationMap["namespace"] = data.UserIdentification.Namespace.ValueString()
-		}
-		if !data.UserIdentification.Tenant.IsNull() && !data.UserIdentification.Tenant.IsUnknown() {
-			UserIdentificationMap["tenant"] = data.UserIdentification.Tenant.ValueString()
 		}
 		apiResource.Spec["user_identification"] = UserIdentificationMap
 	}
@@ -80542,9 +79947,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.WAFExclusion.WAFExclusionPolicy.Namespace.IsNull() && !data.WAFExclusion.WAFExclusionPolicy.Namespace.IsUnknown() {
 				WAFExclusionWAFExclusionPolicyMap["namespace"] = data.WAFExclusion.WAFExclusionPolicy.Namespace.ValueString()
 			}
-			if !data.WAFExclusion.WAFExclusionPolicy.Tenant.IsNull() && !data.WAFExclusion.WAFExclusionPolicy.Tenant.IsUnknown() {
-				WAFExclusionWAFExclusionPolicyMap["tenant"] = data.WAFExclusion.WAFExclusionPolicy.Tenant.ValueString()
-			}
 			WAFExclusionMap["waf_exclusion_policy"] = WAFExclusionWAFExclusionPolicyMap
 		}
 		apiResource.Spec["waf_exclusion"] = WAFExclusionMap
@@ -80624,9 +80026,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if !data.L7DDOSProtection.DDOSPolicyCustom.Namespace.IsNull() && !data.L7DDOSProtection.DDOSPolicyCustom.Namespace.IsUnknown() {
 				L7DDOSProtectionDDOSPolicyCustomMap["namespace"] = data.L7DDOSProtection.DDOSPolicyCustom.Namespace.ValueString()
 			}
-			if !data.L7DDOSProtection.DDOSPolicyCustom.Tenant.IsNull() && !data.L7DDOSProtection.DDOSPolicyCustom.Tenant.IsUnknown() {
-				L7DDOSProtectionDDOSPolicyCustomMap["tenant"] = data.L7DDOSProtection.DDOSPolicyCustom.Tenant.ValueString()
-			}
 			L7DDOSProtectionMap["ddos_policy_custom"] = L7DDOSProtectionDDOSPolicyCustomMap
 		}
 		if data.L7DDOSProtection.DDOSPolicyNone != nil {
@@ -80681,6 +80080,14 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 
 	_, err := r.client.UpdateHTTPLoadBalancer(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of http_loadbalancer %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update HTTPLoadBalancer: %s", err))
 		return
 	}
@@ -80698,10 +80105,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -80711,6 +80114,19 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	fetched, fetchErr := r.client.GetHTTPLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read HTTPLoadBalancer after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -80727,88 +80143,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["caching_policy"].(map[string]interface{}); ok && (isImport || data.CachingPolicy != nil) {
-		data.CachingPolicy = &HTTPLoadBalancerCachingPolicyModel{
-			CustomCacheRule: func() *HTTPLoadBalancerCachingPolicyCustomCacheRuleModel {
-				if CustomCacheRuleData, ok := blockData["custom_cache_rule"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerCachingPolicyCustomCacheRuleModel{
-						CDNCacheRules: func() types.List {
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && (data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CachingPolicy.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
-							}
-							var CDNCacheRulesExisting []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
-								data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
-							}
-							if rawList, ok := CustomCacheRuleData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
-								var CDNCacheRulesResult []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
-								for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
-									_ = CDNCacheRulesIdx
-									if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
-										CDNCacheRulesResult = append(CDNCacheRulesResult, HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel{
-											Name: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["name"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Namespace: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["namespace"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Tenant: func() types.String {
-												if v, ok := CDNCacheRulesItemMap["tenant"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes}, CDNCacheRulesResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
-						}(),
-					}
-				}
-				return nil
-			}(),
-			DefaultCacheAction: func() *HTTPLoadBalancerCachingPolicyDefaultCacheActionModel {
-				if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
-					return data.CachingPolicy.DefaultCacheAction
-				}
-				if DefaultCacheActionData, ok := blockData["default_cache_action"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerCachingPolicyDefaultCacheActionModel{
-						CacheDisabled: func() *HTTPLoadBalancerEmptyModel {
-							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
-								return data.CachingPolicy.DefaultCacheAction.CacheDisabled
-							}
-							if _, ok := DefaultCacheActionData["cache_disabled"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerEmptyModel{}
-							}
-							return nil
-						}(),
-						CacheTTLDefault: func() types.String {
-							if v, ok := DefaultCacheActionData["cache_ttl_default"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						CacheTTLOverride: func() types.String {
-							if v, ok := DefaultCacheActionData["cache_ttl_override"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
 		var domainsList []string
 		for _, item := range v {
@@ -88929,6 +88263,88 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}(),
 						Tenant: func() types.String {
 							if v, ok := WebData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["caching_policy"].(map[string]interface{}); ok && (isImport || data.CachingPolicy != nil) {
+		data.CachingPolicy = &HTTPLoadBalancerCachingPolicyModel{
+			CustomCacheRule: func() *HTTPLoadBalancerCachingPolicyCustomCacheRuleModel {
+				if CustomCacheRuleData, ok := blockData["custom_cache_rule"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerCachingPolicyCustomCacheRuleModel{
+						CDNCacheRules: func() types.List {
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && (data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() || len(data.CachingPolicy.CustomCacheRule.CDNCacheRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
+							}
+							var CDNCacheRulesExisting []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.CustomCacheRule != nil && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsNull() && !data.CachingPolicy.CustomCacheRule.CDNCacheRules.IsUnknown() {
+								data.CachingPolicy.CustomCacheRule.CDNCacheRules.ElementsAs(ctx, &CDNCacheRulesExisting, false)
+							}
+							if rawList, ok := CustomCacheRuleData["cdn_cache_rules"].([]interface{}); ok && len(rawList) > 0 {
+								var CDNCacheRulesResult []HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel
+								for CDNCacheRulesIdx, CDNCacheRulesItem := range rawList {
+									_ = CDNCacheRulesIdx
+									if CDNCacheRulesItemMap, ok := CDNCacheRulesItem.(map[string]interface{}); ok {
+										CDNCacheRulesResult = append(CDNCacheRulesResult, HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModel{
+											Name: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CDNCacheRulesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes}, CDNCacheRulesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerCachingPolicyCustomCacheRuleCDNCacheRulesModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultCacheAction: func() *HTTPLoadBalancerCachingPolicyDefaultCacheActionModel {
+				if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
+					return data.CachingPolicy.DefaultCacheAction
+				}
+				if DefaultCacheActionData, ok := blockData["default_cache_action"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerCachingPolicyDefaultCacheActionModel{
+						CacheDisabled: func() *HTTPLoadBalancerEmptyModel {
+							if !isImport && data.CachingPolicy != nil && data.CachingPolicy.DefaultCacheAction != nil {
+								return data.CachingPolicy.DefaultCacheAction.CacheDisabled
+							}
+							if _, ok := DefaultCacheActionData["cache_disabled"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerEmptyModel{}
+							}
+							return nil
+						}(),
+						CacheTTLDefault: func() types.String {
+							if v, ok := DefaultCacheActionData["cache_ttl_default"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						CacheTTLOverride: func() types.String {
+							if v, ok := DefaultCacheActionData["cache_ttl_override"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()

@@ -18,5 +18,4 @@ resource "xcsh_address_allocator" "example" {
   namespace = "staging"
 
   address_pool = ["example-value"]
-  mode         = "LOCAL"
 }

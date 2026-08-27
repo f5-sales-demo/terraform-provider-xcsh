@@ -10,8 +10,9 @@ import (
 
 // SecretManagementAccess represents a F5XC SecretManagementAccess
 type SecretManagementAccess struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateSecretManagementAccess creates a new SecretManagementAccess

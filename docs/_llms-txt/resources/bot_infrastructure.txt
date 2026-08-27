@@ -7,7 +7,6 @@ Bot Infrastructure
 
 - name
 - namespace
-- traffic_type
 
 ## Minimal Valid Config
 
@@ -15,8 +14,6 @@ Bot Infrastructure
 resource "xcsh_bot_infrastructure" "example" {
   name      = "example-bot-infrastructure"
   namespace = "staging"
-
-  traffic_type = "WEB"
 }
 ```
 

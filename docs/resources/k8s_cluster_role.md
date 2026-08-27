@@ -85,7 +85,7 @@ A [`k8s_cluster_role_selector`](#k8s-cluster-role-selector) block supports the f
 
 A [`policy_rule_list`](#policy-rule-list) block supports the following:
 
-<a id="policy-rule-list-policy-rule"></a>&#x2022; [`policy_rule`](#policy-rule-list-policy-rule) - Optional Block<br>List of rules for role permissions<br>See [Policy Rule](#policy-rule-list-policy-rule) below.
+<a id="policy-rule-list-policy-rule"></a>&#x2022; [`policy_rule`](#policy-rule-list-policy-rule) - Optional Block<br>Policy Rules. List of rules for role permissions<br>See [Policy Rule](#policy-rule-list-policy-rule) below.
 
 #### Policy Rule List Policy Rule
 

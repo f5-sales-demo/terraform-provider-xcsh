@@ -17,8 +17,5 @@ resource "xcsh_fleet" "example" {
   name      = "example-fleet"
   namespace = "staging"
 
-  fleet_label                          = "example-value"
-  enable_default_fleet_config_download = true
-  operating_system_version             = "example-value"
-  volterra_software_version            = "example-value"
+  fleet_label = "example-value"
 }

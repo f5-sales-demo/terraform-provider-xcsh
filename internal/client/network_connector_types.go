@@ -10,8 +10,9 @@ import (
 
 // NetworkConnector represents a F5XC NetworkConnector
 type NetworkConnector struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateNetworkConnector creates a new NetworkConnector

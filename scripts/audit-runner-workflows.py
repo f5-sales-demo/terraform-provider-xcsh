@@ -14,6 +14,7 @@ from pathlib import Path
 import yaml  # pylint: disable=import-error
 
 SHA_RE = re.compile(r"[0-9a-f]{40}")
+SAFE_RUNNER_LABEL_RE = re.compile(r"[a-z0-9][a-z0-9.-]*")
 CANONICAL_REPOSITORY_LABEL = "${{ github.event.repository.name }}"
 PULL_REQUEST_EVENT = "github.event_name == 'pull_request' && "
 PULL_REQUEST_HEAD_REPO = "github.event.pull_request.head.repo.full_name"
@@ -27,10 +28,177 @@ CALLABLE_DOCKER_GUARD = (
 DEFAULT_BRANCH_DOCKER_GUARD = (
     "github.event_name == 'workflow_dispatch' || "
     "(github.event_name == 'push' && "
-    "github.ref == format('refs/heads/{0}', github.event.repository.default_branch)) || "
+    "(github.ref == format('refs/heads/{0}', "
+    "github.event.repository.default_branch) || "
+    "startsWith(github.ref, 'refs/tags/v'))) || "
     "(github.event_name == 'pull_request' && "
     "github.event.pull_request.head.repo.full_name == github.repository)"
 )
+TAG_ONLY_DOCKER_GUARD = "startsWith(github.ref, 'refs/tags/v')"
+SCHEDULED_DEFAULT_BRANCH_DOCKER_GUARD = (
+    "github.event_name == 'workflow_dispatch' || "
+    "github.event_name == 'schedule' || "
+    "(github.event_name == 'push' && "
+    "github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && "
+    "github.ref_protected == true)"
+)
+PAGES_DOCKER_GUARD = (
+    "github.event_name == 'workflow_dispatch' || "
+    "(github.event_name == 'push' && "
+    "github.ref == format('refs/heads/{0}', "
+    "github.event.repository.default_branch)) || "
+    "(github.event_name == 'pull_request' && "
+    "github.event.pull_request.head.repo.full_name == github.repository)"
+)
+SOCKETLESS_ROUTE_EXPRESSION = (
+    "${{ inputs.socketless_runner_label || "
+    'fromJSON(format(\'["self-hosted","Linux","X64","{0}",'
+    '"ubuntu-24.04"]\', github.event.repository.name)) }}'
+)
+CONTAINER_ROUTE_EXPRESSION = (
+    "${{ inputs.container_build_runner_label || "
+    'fromJSON(format(\'["self-hosted","Linux","X64","{0}",'
+    '"container-build"]\', github.event.repository.name)) }}'
+)
+REUSABLE_RUNNER_WORKFLOWS = {
+    "f5-sales-demo/docs-control/.github/workflows/github-pages-deploy.yml",
+    "f5-sales-demo/docs-control/.github/workflows/super-linter.yml",
+}
+REUSABLE_DEFINITION_ROUTES = {
+    (".github/workflows/github-pages-deploy.yml", "trust-gate"): (
+        "ubuntu-24.04",
+        SOCKETLESS_ROUTE_EXPRESSION,
+    ),
+    (".github/workflows/github-pages-deploy.yml", "build"): (
+        "container-build",
+        CONTAINER_ROUTE_EXPRESSION,
+    ),
+    (".github/workflows/github-pages-deploy.yml", "deploy"): (
+        "ubuntu-24.04",
+        SOCKETLESS_ROUTE_EXPRESSION,
+    ),
+    (".github/workflows/super-linter.yml", "trust-gate"): (
+        "ubuntu-24.04",
+        SOCKETLESS_ROUTE_EXPRESSION,
+    ),
+    (".github/workflows/super-linter.yml", "lint"): (
+        "container-build",
+        CONTAINER_ROUTE_EXPRESSION,
+    ),
+    (".github/workflows/super-linter.yml", "shell-unit-tests"): (
+        "ubuntu-24.04",
+        SOCKETLESS_ROUTE_EXPRESSION,
+    ),
+}
+
+
+DOCS_ARC_COHORT = frozenset(
+    f"f5-sales-demo/{name}"
+    for name in (
+        "docs",
+        "docs-builder",
+        "docs-icons",
+        "docs-theme",
+        "i18n-core",
+        "starlight-llms-txt",
+    )
+)
+MANAGED_ARC_COHORT = frozenset(
+    f"f5-sales-demo/{name}"
+    for name in (
+        "administration",
+        "api-protection",
+        "api-specs",
+        "api-specs-enriched",
+        "apt-repo",
+        "bot-advanced",
+        "bot-standard",
+        "cdn",
+        "cdn-simulator",
+        "console",
+        "csd",
+        "ddos",
+        "demo-resource-template",
+        "demo-resources",
+        "devcontainer",
+        "dns",
+        "docs-control",
+        "marketplace",
+        "marketplace-claude-code",
+        "mcn",
+        "nginx",
+        "observability",
+        "origin-server",
+        "starlight-mega-menu",
+        "terraform-provider-xcsh",
+        "traffic-generator",
+        "vscode-xcsh",
+        "waf",
+        "was",
+        "webapp-api-protection",
+        "xcsh-action",
+        "xcsh-chrome-extension",
+    )
+)
+ARC_SHARED_CONTRACTS = (
+    (
+        DOCS_ARC_COHORT,
+        {
+            "socketless": {
+                "label": "docs-socketless",
+                "profile": "ubuntu-24.04",
+            },
+            "container-build": {
+                "label": "docs-container-build",
+                "profile": "container-build",
+            },
+        },
+    ),
+    (
+        MANAGED_ARC_COHORT,
+        {
+            "socketless": {
+                "label": "managed-socketless",
+                "profile": "ubuntu-24.04",
+            },
+            "container-build": {
+                "label": "managed-container-build",
+                "profile": "container-build",
+            },
+        },
+    ),
+    (
+        frozenset({"f5-sales-demo/xcsh"}),
+        {
+            "socketless": {
+                "label": "xcsh-socketless",
+                "profile": "ubuntu-24.04",
+            },
+            "container-build": {
+                "label": "xcsh-container-build",
+                "profile": "container-build",
+            },
+        },
+    ),
+)
+RESERVED_ARC_LABELS = frozenset(
+    {
+        "docs-container-build",
+        "docs-socketless",
+        "managed-container-build",
+        "managed-socketless",
+        "xcsh-container-build",
+        "xcsh-socketless",
+    }
+)
+
+
+def expected_arc_scale_sets(repository):
+    """Return the exact shared-label contract for a governed ARC cohort."""
+    for cohort, contract in ARC_SHARED_CONTRACTS:
+        if repository in cohort:
+            return contract
+    return None
 
 
 class AuditError(ValueError):
@@ -46,8 +214,8 @@ def load_policy(path, repository):
         raw = json.loads(Path(path).read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
         raise AuditError(f"cannot read runner policy: {exc}") from exc
-    if raw.get("schema_version") != 3:
-        raise AuditError("runner policy schema_version must be 3")
+    if raw.get("schema_version") != 4:
+        raise AuditError("runner policy schema_version must be 4")
     repositories = raw.get("repositories")
     if not isinstance(repositories, dict) or repository not in repositories:
         raise AuditError(f"repository is not governed: {repository}")
@@ -87,20 +255,131 @@ def docker_socket_value(profiles, profile):
     return spec.get("docker_socket") if isinstance(spec, dict) else None
 
 
-def profile_for_route(runs_on, profiles):
+def repository_routes(policy, repository):
+    """Parse the repository's exact legacy or ARC scheduling routes."""
+    profiles = policy.get("profiles", {})
+    runner = policy.get("repositories", {}).get(repository, {}).get("runner", {})
+    if not isinstance(runner, dict) or set(runner) - {"profiles", "arc_scale_sets"}:
+        raise AuditError("repository runner policy has unknown fields")
+    scale_sets = runner.get("arc_scale_sets")
+    if scale_sets is not None:
+        if "profiles" in runner:
+            raise AuditError(
+                "repository runner policy cannot combine ARC scale sets and legacy profiles",
+            )
+        if not isinstance(scale_sets, dict) or not scale_sets:
+            raise AuditError("repository ARC scale sets must be a non-empty object")
+        profiles_by_label = {}
+        for name, spec in scale_sets.items():
+            if not isinstance(name, str) or not re.fullmatch(
+                r"[a-z0-9][a-z0-9.-]*",
+                name,
+            ):
+                raise AuditError("repository ARC scale sets must use safe route names")
+            if not isinstance(spec, dict) or set(spec) != {"label", "profile"}:
+                raise AuditError("ARC scale set must contain only label and profile")
+            label = spec.get("label")
+            profile = spec.get("profile")
+            if not isinstance(label, str) or not re.fullmatch(
+                r"[a-z0-9][a-z0-9.-]*",
+                label,
+            ):
+                raise AuditError("ARC scale set label must be a safe string")
+            if not isinstance(profile, str) or profile not in profiles:
+                raise AuditError("ARC scale set profile must be defined")
+            if label in profiles_by_label:
+                raise AuditError(f"duplicate ARC scale set label: {label}")
+            profiles_by_label[label] = profile
+        expected = expected_arc_scale_sets(repository)
+        if expected is not None and scale_sets != expected:
+            raise AuditError(f"{repository} ARC scale-set contract is invalid")
+        if expected is None:
+            leaked = set(profiles_by_label) & RESERVED_ARC_LABELS
+            if leaked:
+                message = "reserved ARC scale-set label escaped its cohort"
+                raise AuditError(f"{message}: {sorted(leaked)}")
+        return {"kind": "arc", "profiles_by_label": profiles_by_label}
+
+    allowed = runner.get("profiles", list(profiles))
+    if (
+        not isinstance(allowed, list)
+        or not allowed
+        or not all(isinstance(name, str) and name in profiles for name in allowed)
+        or len(allowed) != len(set(allowed))
+    ):
+        raise AuditError("repository runner profiles must be unique known profiles")
+    return {"kind": "legacy", "profiles": tuple(allowed)}
+
+
+def profile_for_route(runs_on, profiles, routes, repository):
     """Resolve one security-equivalent profile for an exact scheduling route."""
+    if routes["kind"] == "arc":
+        if not isinstance(runs_on, str):
+            return None
+        return routes["profiles_by_label"].get(runs_on)
     if not isinstance(runs_on, list) or len(runs_on) != 5:
         return None
+    expected_prefix = ["self-hosted", "Linux", "X64"]
+    repository_labels = {
+        repository.split("/", 1)[1],
+        CANONICAL_REPOSITORY_LABEL,
+    }
+    if runs_on[:3] != expected_prefix or runs_on[3] not in repository_labels:
+        return None
     candidates = []
-    for name, spec in profiles.items():
-        if runs_on[-1] in spec.get("labels", []):
+    for name in routes["profiles"]:
+        spec = profiles[name]
+        if spec.get("labels") == [runs_on[4]]:
             candidates.append((name, spec))
-    if not candidates:
+    if candidates:
+        reference = candidates[0][1]
+        if all(spec == reference for _, spec in candidates[1:]):
+            return candidates[0][0]
+    return None
+
+
+def reusable_definition_profile(repository, relative, job_id, runs_on):
+    """Resolve only the two governed reusable definitions' exact fallback expressions."""
+    if repository != "f5-sales-demo/docs-control":
         return None
-    reference = candidates[0][1]
-    if not all(spec == reference for _, spec in candidates[1:]):
+    expected = REUSABLE_DEFINITION_ROUTES.get((relative, job_id))
+    if expected is None or runs_on != expected[1]:
         return None
-    return candidates[0][0]
+    return expected[0]
+
+
+def validate_reusable_runner_inputs(job, routes, profiles, default_profile):
+    """Validate runner-label inputs on governed reusable workflow calls."""
+    uses = job.get("uses")
+    target = uses.rsplit("@", 1)[0] if isinstance(uses, str) and "@" in uses else uses
+    if target not in REUSABLE_RUNNER_WORKFLOWS:
+        return
+    inputs = job.get("with", {})
+    if not isinstance(inputs, dict):
+        raise AuditError("reusable workflow with inputs must be an object")
+    names = ("socketless_runner_label", "container_build_runner_label")
+    values = {name: inputs.get(name, "") for name in names}
+    supplied = {name for name, value in values.items() if value not in (None, "")}
+    if supplied and supplied != set(names):
+        raise AuditError("ARC reusable runner labels must be supplied together")
+    if not supplied:
+        if routes["kind"] == "arc":
+            raise AuditError("ARC reusable workflow call requires both runner labels")
+        return
+    if routes["kind"] != "arc":
+        raise AuditError("legacy reusable workflow calls cannot override runner labels")
+    expected_profiles = {
+        "socketless_runner_label": default_profile,
+        "container_build_runner_label": "container-build",
+    }
+    for name, expected_profile in expected_profiles.items():
+        value = values[name]
+        safe_label = isinstance(value, str) and SAFE_RUNNER_LABEL_RE.fullmatch(value)
+        if not safe_label:
+            raise AuditError(f"{name} must be a safe scalar label")
+        resolved = routes["profiles_by_label"].get(value)
+        if resolved != expected_profile or expected_profile not in profiles:
+            raise AuditError(f"{name} does not match its policy-approved profile")
 
 
 def exception_for(exceptions, relative, job_id):
@@ -121,7 +400,49 @@ def trigger_names(workflow):
     raise AuditError("workflow trigger is malformed")
 
 
-def audit_docker_route(workflow, job, profiles, profile):
+def dependency_names(job):
+    needs = job.get("needs") if isinstance(job, dict) else None
+    if isinstance(needs, str):
+        return (needs,)
+    if isinstance(needs, list) and all(isinstance(name, str) for name in needs):
+        return tuple(needs)
+    return ()
+
+
+def transitive_dependencies(workflow, job_id):
+    jobs = workflow.get("jobs")
+    if not isinstance(jobs, dict):
+        return set(), False
+
+    reachable = set()
+    active = {job_id}
+    cycle = False
+
+    def visit(name) -> None:
+        nonlocal cycle
+        if name in active:
+            cycle = True
+            return
+        if name in reachable:
+            return
+        reachable.add(name)
+        dependency_job = jobs.get(name)
+        if not isinstance(dependency_job, dict):
+            return
+        active.add(name)
+        for dependency in dependency_names(dependency_job):
+            visit(dependency)
+        active.remove(name)
+
+    for dependency in dependency_names(jobs.get(job_id)):
+        visit(dependency)
+    return reachable, cycle
+
+
+# pylint: disable-next=too-many-arguments,too-many-locals
+def audit_docker_route(  # noqa: PLR0917
+    workflow, relative, job_id, job, profiles, routes, repository, profile
+):
     errors: list[str] = []
     if profile not in profiles or not profiles[profile].get("docker_socket"):
         return errors
@@ -129,7 +450,7 @@ def audit_docker_route(workflow, job, profiles, profile):
         triggers = trigger_names(workflow)
     except AuditError as exc:
         return [f"Docker-capable job has a malformed trigger: {exc}"]
-    allowed = {"pull_request", "push", "workflow_call", "workflow_dispatch"}
+    allowed = {"pull_request", "push", "schedule", "workflow_call", "workflow_dispatch"}
     if not triggers or not triggers <= allowed:
         errors.append(
             "Docker-capable jobs require a protected push, same-repository PR, or manual dispatch",
@@ -137,23 +458,37 @@ def audit_docker_route(workflow, job, profiles, profile):
         return errors
     if triggers == {"workflow_dispatch"}:
         return errors
-    if triggers == {"pull_request"}:
-        expected_guard = PULL_REQUEST_GUARD
-    elif "push" in triggers or triggers == {"workflow_call"}:
-        expected_guard = DEFAULT_BRANCH_DOCKER_GUARD
-    else:
-        expected_guard = CALLABLE_DOCKER_GUARD
-    if job.get("if") != expected_guard:
-        errors.append(
-            "Docker-capable PR job requires the complete same-repository guard",
-        )
-    needs = job.get("needs")
-    needs_is_trust_gate_list = isinstance(needs, list) and needs == ["trust-gate"]
-    if needs != "trust-gate" and not needs_is_trust_gate_list:
+    tag_only = job.get("if") == TAG_ONLY_DOCKER_GUARD and "push" in triggers
+    if not tag_only:
+        pages_build = (
+            relative,
+            job_id,
+        ) == (".github/workflows/github-pages-deploy.yml", "build")
+        if pages_build:
+            expected_guard = PAGES_DOCKER_GUARD
+        elif "schedule" in triggers:
+            expected_guard = SCHEDULED_DEFAULT_BRANCH_DOCKER_GUARD
+        elif triggers == {"pull_request"}:
+            expected_guard = PULL_REQUEST_GUARD
+        elif "push" in triggers or triggers == {"workflow_call"}:
+            expected_guard = DEFAULT_BRANCH_DOCKER_GUARD
+        else:
+            expected_guard = CALLABLE_DOCKER_GUARD
+        if job.get("if") != expected_guard:
+            errors.append(
+                "Docker-capable PR job requires the complete same-repository guard",
+            )
+    dependencies, cycle = transitive_dependencies(workflow, job_id)
+    if cycle:
+        errors.append("Docker-capable job dependency graph must be acyclic")
+    if "trust-gate" not in dependencies:
         errors.append("Docker-capable PR job requires the socketless trust-gate")
     trust_gate = workflow.get("jobs", {}).get("trust-gate")
     trust_runs_on = trust_gate.get("runs-on") if isinstance(trust_gate, dict) else None
-    trust_profile = profile_for_route(trust_runs_on, profiles)
+    trust_profile = profile_for_route(trust_runs_on, profiles, routes, repository)
+    if trust_profile is None:
+        trust_context = repository, relative, "trust-gate", trust_runs_on
+        trust_profile = reusable_definition_profile(*trust_context)
     if docker_socket_value(profiles, trust_profile) is not False:
         errors.append("Docker-capable PR job requires a socketless trust-gate job")
     return errors
@@ -185,12 +520,14 @@ def step_has_privileged_package_install(step):
     )
 
 
-def audit_job(  # pylint: disable=too-many-locals
+# pylint: disable-next=too-many-arguments,too-many-locals
+def audit_job(  # noqa: PLR0917
     repository,
     relative,
     job_id,
     job,
     profiles,
+    routes,
     exceptions,
     workflow_context,
 ):
@@ -201,6 +538,7 @@ def audit_job(  # pylint: disable=too-many-locals
     if "uses" in job:
         try:
             remote_dependency(job["uses"])
+            validate_reusable_runner_inputs(job, routes, profiles, default_profile)
         except AuditError as exc:
             errors.append(f"{relative}/{job_id}: {exc}")
         if "runs-on" in job:
@@ -226,17 +564,14 @@ def audit_job(  # pylint: disable=too-many-locals
             errors.append(f"{relative}/{job_id}: hosted exception reason is incomplete")
     else:
         profile = default_profile
-        if isinstance(runs_on, list) and len(runs_on) == 5:
-            profile = profile_for_route(runs_on, profiles)
-        try:
-            expected = expected_self_hosted_labels(profile, profiles)
-        except AuditError as exc:
-            errors.append(f"{relative}/{job_id}: {exc}")
-            expected = []
-        static = list(expected)
-        if len(static) >= 4:
-            static[3] = repository.split("/", 1)[1]
-        if runs_on not in (expected, static):
+        resolved_profile = profile_for_route(runs_on, profiles, routes, repository)
+        if resolved_profile is None:
+            definition_context = repository, relative, job_id, runs_on
+            resolved_profile = reusable_definition_profile(*definition_context)
+        if resolved_profile is not None:
+            profile = resolved_profile
+        valid_route = resolved_profile is not None
+        if not valid_route:
             errors.append(
                 f"{relative}/{job_id}: runs-on must use the canonical repository route, got {runs_on!r}",
             )
@@ -247,7 +582,16 @@ def audit_job(  # pylint: disable=too-many-locals
             errors.append(
                 f"{relative}/{job_id}: Docker workload requires a Docker socket profile",
             )
-        route_errors = audit_docker_route(workflow, job, profiles, profile)
+        route_errors = audit_docker_route(
+            workflow,
+            relative,
+            job_id,
+            job,
+            profiles,
+            routes,
+            repository,
+            profile,
+        )
         route_prefix = f"{relative}/{job_id}: "
         errors.extend(route_prefix + error for error in route_errors)
         if any(map(step_has_privileged_package_install, steps)):
@@ -268,6 +612,7 @@ def audit_repository(root, repository, policy_path):
     root = Path(root)
     policy, exceptions = load_policy(policy_path, repository)
     profiles = policy["profiles"]
+    routes = repository_routes(policy, repository)
     errors = []
     actual_exceptions = set()
     workflows = root / ".github/workflows"
@@ -293,6 +638,7 @@ def audit_repository(root, repository, policy_path):
                     job_id,
                     job,
                     profiles,
+                    routes,
                     exceptions,
                     (policy["defaults"]["profile"], document),
                 )

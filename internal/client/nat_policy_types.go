@@ -10,8 +10,9 @@ import (
 
 // NATPolicy represents a F5XC NATPolicy
 type NATPolicy struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateNATPolicy creates a new NATPolicy

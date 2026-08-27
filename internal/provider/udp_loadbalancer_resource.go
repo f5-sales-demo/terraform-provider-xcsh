@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -17,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -25,6 +27,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -429,7 +432,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"domains": schema.ListAttribute{
 				MarkdownDescription: "List of domains (host/authority header) that will be matched to this load balancer.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
 					listvalidator.SizeBetween(1, 32),
@@ -449,11 +452,19 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"dns_volterra_managed": schema.BoolAttribute{
 				MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain to be delegated to F5 Distributed Cloud using the Delegated Domain feature or a DNS CNAME record must be created in your DNS provider's portal.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 			"idle_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The amount of time that a session can exist without upstream or downstream activity, in milliseconds.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.AtMost(30000),
 				},
@@ -531,7 +542,7 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
-						MarkdownDescription: "Where should this load balancer be available .",
+						MarkdownDescription: "Where should this load balancer be available.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -1160,9 +1171,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
 					}
-					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
-					}
 					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
 				ActiveServicePoliciesMap["policies"] = PoliciesList
@@ -1190,9 +1198,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
@@ -1218,9 +1223,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
@@ -1251,9 +1253,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
 						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -1270,9 +1269,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
@@ -1294,9 +1290,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
 						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -1311,9 +1304,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -1323,9 +1313,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
@@ -1347,9 +1334,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-			}
-			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
 			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
@@ -1397,9 +1381,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
 						OriginPoolsWeightsClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
-					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
-						OriginPoolsWeightsClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
-					}
 					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
 				if OriginPoolsWeightsItem.EndpointSubsets != nil {
@@ -1412,9 +1393,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
 						OriginPoolsWeightsPoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
-					}
-					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
-						OriginPoolsWeightsPoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
 					OriginPoolsWeightsItemMap["pool"] = OriginPoolsWeightsPoolMap
 				}
@@ -1454,11 +1432,28 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetUDPLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1999,10 +1994,15 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if _, ok := apiResource.Spec["udp"].(map[string]interface{}); ok && isImport && data.UDP == nil {
 		data.UDP = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
-		data.DNSVolterraManaged = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DNSVolterraManaged = types.BoolNull()
+		if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
+			data.DNSVolterraManaged = types.BoolValue(v)
+		} else {
+			data.DNSVolterraManaged = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
@@ -2065,6 +2065,16 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read UDPLoadBalancer: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -2670,10 +2680,15 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if _, ok := apiResource.Spec["udp"].(map[string]interface{}); ok && isImport && data.UDP == nil {
 		data.UDP = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
-		data.DNSVolterraManaged = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DNSVolterraManaged = types.BoolNull()
+		if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
+			data.DNSVolterraManaged = types.BoolValue(v)
+		} else {
+			data.DNSVolterraManaged = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
@@ -2718,6 +2733,20 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.UDPLoadBalancer{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -2725,6 +2754,7 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -2785,9 +2815,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !PoliciesItem.Namespace.IsNull() && !PoliciesItem.Namespace.IsUnknown() {
 						PoliciesItemMap["namespace"] = PoliciesItem.Namespace.ValueString()
 					}
-					if !PoliciesItem.Tenant.IsNull() && !PoliciesItem.Tenant.IsUnknown() {
-						PoliciesItemMap["tenant"] = PoliciesItem.Tenant.ValueString()
-					}
 					PoliciesList = append(PoliciesList, PoliciesItemMap)
 				}
 				ActiveServicePoliciesMap["policies"] = PoliciesList
@@ -2815,9 +2842,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
@@ -2843,9 +2867,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
@@ -2876,9 +2897,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
 						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
@@ -2895,9 +2913,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
@@ -2919,9 +2934,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
 						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
@@ -2936,9 +2948,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
-							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
-							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
@@ -2948,9 +2957,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
 								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
-							}
-							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
 							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
@@ -2972,9 +2978,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
 				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
-			}
-			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
 			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
@@ -3022,9 +3025,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
 						OriginPoolsWeightsClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
-					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
-						OriginPoolsWeightsClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
-					}
 					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
 				if OriginPoolsWeightsItem.EndpointSubsets != nil {
@@ -3037,9 +3037,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
 						OriginPoolsWeightsPoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
-					}
-					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
-						OriginPoolsWeightsPoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
 					OriginPoolsWeightsItemMap["pool"] = OriginPoolsWeightsPoolMap
 				}
@@ -3075,6 +3072,14 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 
 	_, err := r.client.UpdateUDPLoadBalancer(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of udp_loadbalancer %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update UDPLoadBalancer: %s", err))
 		return
 	}
@@ -3092,10 +3097,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -3108,7 +3109,34 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["dns_volterra_managed"].(bool); ok {
+		data.DNSVolterraManaged = types.BoolValue(v)
+	} else if data.DNSVolterraManaged.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.DNSVolterraManaged = types.BoolNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["idle_timeout"].(float64); ok {
+		data.IdleTimeout = types.Int64Value(int64(v))
+	} else if data.IdleTimeout.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.IdleTimeout = types.Int64Null()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["listen_port"].(float64); ok {
 		data.ListenPort = types.Int64Value(int64(v))
 	} else if data.ListenPort.IsUnknown() {
@@ -3658,10 +3686,15 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if _, ok := apiResource.Spec["udp"].(map[string]interface{}); ok && isImport && data.UDP == nil {
 		data.UDP = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
-		data.DNSVolterraManaged = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DNSVolterraManaged = types.BoolNull()
+		if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
+			data.DNSVolterraManaged = types.BoolValue(v)
+		} else {
+			data.DNSVolterraManaged = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))

@@ -60,7 +60,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
 
-<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>IP address for this object
+<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>IP address. IP address for this object
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
 

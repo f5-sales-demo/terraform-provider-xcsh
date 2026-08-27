@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -19,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -27,6 +29,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -1147,7 +1150,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"custom_errors": schema.MapAttribute{
 				MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 			},
 			"description": schema.StringAttribute{
@@ -1160,7 +1163,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"domains": schema.ListAttribute{
 				MarkdownDescription: "List of domain names matched to this virtual host for routing incoming requests. Supports wildcard patterns like *.example.com for subdomain matching.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
 					listvalidator.SizeBetween(1, 33),
@@ -1173,7 +1176,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"request_cookies_to_remove": schema.ListAttribute{
 				MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
 					listvalidator.SizeAtMost(32),
@@ -1181,7 +1184,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"request_headers_to_remove": schema.ListAttribute{
 				MarkdownDescription: "List of keys of Headers to be removed from the HTTP request being sent towards upstream.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
 					listvalidator.SizeAtMost(32),
@@ -1189,7 +1192,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"response_cookies_to_remove": schema.ListAttribute{
 				MarkdownDescription: "List of name of Cookies to be removed from the HTTP response being sent towards downstream. Entire set-cookie header will be removed.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
 					listvalidator.SizeAtMost(32),
@@ -1197,7 +1200,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"response_headers_to_remove": schema.ListAttribute{
 				MarkdownDescription: "List of keys of Headers to be removed from the HTTP response being sent towards downstream.",
-				Required:            true,
+				Optional:            true,
 				ElementType:         types.StringType,
 				Validators: []validator.List{
 					listvalidator.SizeAtMost(32),
@@ -1212,7 +1215,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"add_location": schema.BoolAttribute{
 				MarkdownDescription: "Add Location. X-example: true Appends header x-F5 Distributed Cloud-location = <RE-site-name> in responses. This configuration is ignored on CE sites.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 			"append_server_name": schema.StringAttribute{
 				MarkdownDescription: "[OneOf: append_server_name, default_header, pass_through, server_name; Default: default_header] Exclusive with [default_header pass_through server_name] Specifies the value to be used for Server header if it is not already present. If Server Header is already present it is not overwritten. It is just passed.",
@@ -1227,26 +1234,46 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"connection_idle_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.AtMost(600000),
 				},
 			},
 			"disable_default_error_pages": schema.BoolAttribute{
 				MarkdownDescription: "Option to specify whether to disable using default F5XC error pages.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 			"disable_dns_resolve": schema.BoolAttribute{
 				MarkdownDescription: "Disable DNS resolution for domains specified in the virtual host When the virtual host is configured as Dynamive Resolve Proxy (DRP), disable DNS resolution for domains configured. This configuration is suitable for HTTP CONNECT proxy.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 			"idle_timeout": schema.Int64Attribute{
 				MarkdownDescription: "Idle timeout is the amount of time that the loadbalancer will allow a stream to exist with no upstream or downstream activity. Idle timeout and Proxy Type: HTTP_PROXY, HTTPS_PROXY: Idle timer is started when the first byte is received on the connection. Each time an encode/decode event for..",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 			},
 			"max_request_header_size": schema.Int64Attribute{
 				MarkdownDescription: "The maximum request header size in KiB for incoming connections. If un-configured, the default max request headers allowed is 60 KiB. Requests that exceed this limit will receive a 431 response.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.Int64{
 					int64validator.AtMost(96),
 				},
@@ -1264,7 +1291,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"proxy": schema.StringAttribute{
 				MarkdownDescription: "[Enum: UDP_PROXY|SMA_PROXY|DNS_PROXY|ZTNA_PROXY|UZTNA_PROXY|TMM_HTTP_PROXY|TMM_HTTPS_PROXY|TMM_TCP_PROXY|TMM_UDP_PROXY|TMM_QUIC_PROXY] ProxyType tells the type of proxy to install for the virtual host. Only the following combination of VirtualHosts within same AdvertisePolicy is permitted (None of them should have '*' in domains when used with other VirtualHosts in same AdvertisePolicy) 1. Multiple TCP_PROXY_WITH_SNI and.. Possible values are `UDP_PROXY`, `SMA_PROXY`, `DNS_PROXY`, `ZTNA_PROXY`, `UZTNA_PROXY`, `TMM_HTTP_PROXY`, `TMM_HTTPS_PROXY`, `TMM_TCP_PROXY`, `TMM_UDP_PROXY`, `TMM_QUIC_PROXY`.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
 				Validators: []validator.String{
 					stringvalidator.OneOf("UDP_PROXY", "SMA_PROXY", "DNS_PROXY", "ZTNA_PROXY", "UZTNA_PROXY", "TMM_HTTP_PROXY", "TMM_HTTPS_PROXY", "TMM_TCP_PROXY", "TMM_UDP_PROXY", "TMM_QUIC_PROXY"),
 				},
@@ -1336,7 +1367,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 				Blocks: map[string]schema.Block{
 					"auth_config": schema.ListNestedBlock{
-						MarkdownDescription: "Reference to Authentication Config Object .",
+						MarkdownDescription: "Reference to Authentication Config Object.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"kind": schema.StringAttribute{
@@ -1400,11 +1431,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								MarkdownDescription: "HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid.",
 								Attributes: map[string]schema.Attribute{
 									"prim_key_expiry": schema.StringAttribute{
-										MarkdownDescription: "Primary HMAC Key Expiry time .",
+										MarkdownDescription: "HMAC Primary Key Expiry. Primary HMAC Key Expiry time.",
 										Optional:            true,
 									},
 									"sec_key_expiry": schema.StringAttribute{
-										MarkdownDescription: "Secondary HMAC Key Expiry time .",
+										MarkdownDescription: "HMAC Secondary Key Expiry. Secondary HMAC Key Expiry time.",
 										Optional:            true,
 									},
 								},
@@ -1421,7 +1452,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -1463,7 +1494,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -1845,7 +1876,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"name": schema.StringAttribute{
-							MarkdownDescription: "Name of the cookie in Cookie header.",
+							MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(1, 256),
@@ -1876,7 +1907,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 											Optional:            true,
 										},
 										"location": schema.StringAttribute{
-											MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+											MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(4, 131072),
@@ -1945,7 +1976,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 											Optional:            true,
 										},
 										"location": schema.StringAttribute{
-											MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+											MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(4, 131072),
@@ -2011,7 +2042,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 						},
 						"name": schema.StringAttribute{
-							MarkdownDescription: "Name of the cookie in Cookie header.",
+							MarkdownDescription: "Name. Name of the cookie in Cookie header.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(1, 256),
@@ -2087,7 +2118,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 											Optional:            true,
 										},
 										"location": schema.StringAttribute{
-											MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+											MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(4, 131072),
@@ -2156,7 +2187,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 											Optional:            true,
 										},
 										"location": schema.StringAttribute{
-											MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+											MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(4, 131072),
@@ -2230,6 +2261,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							"base_interval": schema.Int64Attribute{
 								MarkdownDescription: "Specifies the base interval between retries in milliseconds.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtLeast(1),
+								},
 							},
 							"max_interval": schema.Int64Attribute{
 								MarkdownDescription: "Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must be greater than or equal to the base_interval if set. The  times the base_interval. Defaults to `10`.",
@@ -2363,7 +2397,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 				Blocks: map[string]schema.Block{
 					"certificates": schema.ListNestedBlock{
-						MarkdownDescription: "Certificates. Set of certificates .",
+						MarkdownDescription: "Certificates. Set of certificates.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"kind": schema.StringAttribute{
@@ -2557,7 +2591,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 															Optional:            true,
 														},
 														"location": schema.StringAttribute{
-															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
@@ -2708,7 +2742,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"app_firewall": schema.ListNestedBlock{
-								MarkdownDescription: "References to an Application Firewall configuration object .",
+								MarkdownDescription: "References to an Application Firewall configuration object.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"kind": schema.StringAttribute{
@@ -2894,20 +2928,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			var AdvertisePoliciesList []map[string]interface{}
 			for _, AdvertisePoliciesItem := range AdvertisePoliciesElems {
 				AdvertisePoliciesItemMap := make(map[string]interface{})
-				if !AdvertisePoliciesItem.Kind.IsNull() && !AdvertisePoliciesItem.Kind.IsUnknown() {
-					AdvertisePoliciesItemMap["kind"] = AdvertisePoliciesItem.Kind.ValueString()
-				}
 				if !AdvertisePoliciesItem.Name.IsNull() && !AdvertisePoliciesItem.Name.IsUnknown() {
 					AdvertisePoliciesItemMap["name"] = AdvertisePoliciesItem.Name.ValueString()
 				}
 				if !AdvertisePoliciesItem.Namespace.IsNull() && !AdvertisePoliciesItem.Namespace.IsUnknown() {
 					AdvertisePoliciesItemMap["namespace"] = AdvertisePoliciesItem.Namespace.ValueString()
-				}
-				if !AdvertisePoliciesItem.Tenant.IsNull() && !AdvertisePoliciesItem.Tenant.IsUnknown() {
-					AdvertisePoliciesItemMap["tenant"] = AdvertisePoliciesItem.Tenant.ValueString()
-				}
-				if !AdvertisePoliciesItem.Uid.IsNull() && !AdvertisePoliciesItem.Uid.IsUnknown() {
-					AdvertisePoliciesItemMap["uid"] = AdvertisePoliciesItem.Uid.ValueString()
 				}
 				AdvertisePoliciesList = append(AdvertisePoliciesList, AdvertisePoliciesItemMap)
 			}
@@ -2924,20 +2949,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				var AuthConfigList []map[string]interface{}
 				for _, AuthConfigItem := range AuthConfigElems {
 					AuthConfigItemMap := make(map[string]interface{})
-					if !AuthConfigItem.Kind.IsNull() && !AuthConfigItem.Kind.IsUnknown() {
-						AuthConfigItemMap["kind"] = AuthConfigItem.Kind.ValueString()
-					}
 					if !AuthConfigItem.Name.IsNull() && !AuthConfigItem.Name.IsUnknown() {
 						AuthConfigItemMap["name"] = AuthConfigItem.Name.ValueString()
 					}
 					if !AuthConfigItem.Namespace.IsNull() && !AuthConfigItem.Namespace.IsUnknown() {
 						AuthConfigItemMap["namespace"] = AuthConfigItem.Namespace.ValueString()
-					}
-					if !AuthConfigItem.Tenant.IsNull() && !AuthConfigItem.Tenant.IsUnknown() {
-						AuthConfigItemMap["tenant"] = AuthConfigItem.Tenant.ValueString()
-					}
-					if !AuthConfigItem.Uid.IsNull() && !AuthConfigItem.Uid.IsUnknown() {
-						AuthConfigItemMap["uid"] = AuthConfigItem.Uid.ValueString()
 					}
 					AuthConfigList = append(AuthConfigList, AuthConfigItemMap)
 				}
@@ -3184,20 +3200,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				var ResolutionNetworkList []map[string]interface{}
 				for _, ResolutionNetworkItem := range ResolutionNetworkElems {
 					ResolutionNetworkItemMap := make(map[string]interface{})
-					if !ResolutionNetworkItem.Kind.IsNull() && !ResolutionNetworkItem.Kind.IsUnknown() {
-						ResolutionNetworkItemMap["kind"] = ResolutionNetworkItem.Kind.ValueString()
-					}
 					if !ResolutionNetworkItem.Name.IsNull() && !ResolutionNetworkItem.Name.IsUnknown() {
 						ResolutionNetworkItemMap["name"] = ResolutionNetworkItem.Name.ValueString()
 					}
 					if !ResolutionNetworkItem.Namespace.IsNull() && !ResolutionNetworkItem.Namespace.IsUnknown() {
 						ResolutionNetworkItemMap["namespace"] = ResolutionNetworkItem.Namespace.ValueString()
-					}
-					if !ResolutionNetworkItem.Tenant.IsNull() && !ResolutionNetworkItem.Tenant.IsUnknown() {
-						ResolutionNetworkItemMap["tenant"] = ResolutionNetworkItem.Tenant.ValueString()
-					}
-					if !ResolutionNetworkItem.Uid.IsNull() && !ResolutionNetworkItem.Uid.IsUnknown() {
-						ResolutionNetworkItemMap["uid"] = ResolutionNetworkItem.Uid.ValueString()
 					}
 					ResolutionNetworkList = append(ResolutionNetworkList, ResolutionNetworkItemMap)
 				}
@@ -3281,20 +3288,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			var RateLimiterAllowedPrefixesList []map[string]interface{}
 			for _, RateLimiterAllowedPrefixesItem := range RateLimiterAllowedPrefixesElems {
 				RateLimiterAllowedPrefixesItemMap := make(map[string]interface{})
-				if !RateLimiterAllowedPrefixesItem.Kind.IsNull() && !RateLimiterAllowedPrefixesItem.Kind.IsUnknown() {
-					RateLimiterAllowedPrefixesItemMap["kind"] = RateLimiterAllowedPrefixesItem.Kind.ValueString()
-				}
 				if !RateLimiterAllowedPrefixesItem.Name.IsNull() && !RateLimiterAllowedPrefixesItem.Name.IsUnknown() {
 					RateLimiterAllowedPrefixesItemMap["name"] = RateLimiterAllowedPrefixesItem.Name.ValueString()
 				}
 				if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 					RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
-				}
-				if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-					RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-				}
-				if !RateLimiterAllowedPrefixesItem.Uid.IsNull() && !RateLimiterAllowedPrefixesItem.Uid.IsUnknown() {
-					RateLimiterAllowedPrefixesItemMap["uid"] = RateLimiterAllowedPrefixesItem.Uid.ValueString()
 				}
 				RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 			}
@@ -3630,20 +3628,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			var RoutesList []map[string]interface{}
 			for _, RoutesItem := range RoutesElems {
 				RoutesItemMap := make(map[string]interface{})
-				if !RoutesItem.Kind.IsNull() && !RoutesItem.Kind.IsUnknown() {
-					RoutesItemMap["kind"] = RoutesItem.Kind.ValueString()
-				}
 				if !RoutesItem.Name.IsNull() && !RoutesItem.Name.IsUnknown() {
 					RoutesItemMap["name"] = RoutesItem.Name.ValueString()
 				}
 				if !RoutesItem.Namespace.IsNull() && !RoutesItem.Namespace.IsUnknown() {
 					RoutesItemMap["namespace"] = RoutesItem.Namespace.ValueString()
-				}
-				if !RoutesItem.Tenant.IsNull() && !RoutesItem.Tenant.IsUnknown() {
-					RoutesItemMap["tenant"] = RoutesItem.Tenant.ValueString()
-				}
-				if !RoutesItem.Uid.IsNull() && !RoutesItem.Uid.IsUnknown() {
-					RoutesItemMap["uid"] = RoutesItem.Uid.ValueString()
 				}
 				RoutesList = append(RoutesList, RoutesItemMap)
 			}
@@ -3658,20 +3647,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			var SensitiveDataPolicyList []map[string]interface{}
 			for _, SensitiveDataPolicyItem := range SensitiveDataPolicyElems {
 				SensitiveDataPolicyItemMap := make(map[string]interface{})
-				if !SensitiveDataPolicyItem.Kind.IsNull() && !SensitiveDataPolicyItem.Kind.IsUnknown() {
-					SensitiveDataPolicyItemMap["kind"] = SensitiveDataPolicyItem.Kind.ValueString()
-				}
 				if !SensitiveDataPolicyItem.Name.IsNull() && !SensitiveDataPolicyItem.Name.IsUnknown() {
 					SensitiveDataPolicyItemMap["name"] = SensitiveDataPolicyItem.Name.ValueString()
 				}
 				if !SensitiveDataPolicyItem.Namespace.IsNull() && !SensitiveDataPolicyItem.Namespace.IsUnknown() {
 					SensitiveDataPolicyItemMap["namespace"] = SensitiveDataPolicyItem.Namespace.ValueString()
-				}
-				if !SensitiveDataPolicyItem.Tenant.IsNull() && !SensitiveDataPolicyItem.Tenant.IsUnknown() {
-					SensitiveDataPolicyItemMap["tenant"] = SensitiveDataPolicyItem.Tenant.ValueString()
-				}
-				if !SensitiveDataPolicyItem.Uid.IsNull() && !SensitiveDataPolicyItem.Uid.IsUnknown() {
-					SensitiveDataPolicyItemMap["uid"] = SensitiveDataPolicyItem.Uid.ValueString()
 				}
 				SensitiveDataPolicyList = append(SensitiveDataPolicyList, SensitiveDataPolicyItemMap)
 			}
@@ -3701,20 +3681,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				var CertificatesList []map[string]interface{}
 				for _, CertificatesItem := range CertificatesElems {
 					CertificatesItemMap := make(map[string]interface{})
-					if !CertificatesItem.Kind.IsNull() && !CertificatesItem.Kind.IsUnknown() {
-						CertificatesItemMap["kind"] = CertificatesItem.Kind.ValueString()
-					}
 					if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
 						CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
 					}
 					if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 						CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
-					}
-					if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-						CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-					}
-					if !CertificatesItem.Uid.IsNull() && !CertificatesItem.Uid.IsUnknown() {
-						CertificatesItemMap["uid"] = CertificatesItem.Uid.ValueString()
 					}
 					CertificatesList = append(CertificatesList, CertificatesItemMap)
 				}
@@ -3759,20 +3730,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						var TrustedCAListList []map[string]interface{}
 						for _, TrustedCAListItem := range TrustedCAListElems {
 							TrustedCAListItemMap := make(map[string]interface{})
-							if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-								TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-							}
 							if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 								TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 							}
 							if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 								TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-							}
-							if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-								TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-							}
-							if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-								TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 							}
 							TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 						}
@@ -3907,20 +3869,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							var TrustedCAListList []map[string]interface{}
 							for _, TrustedCAListItem := range TrustedCAListElems {
 								TrustedCAListItemMap := make(map[string]interface{})
-								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-								}
 								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 								}
 								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-								}
-								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-								}
-								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
@@ -3965,20 +3918,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			var UserIdentificationList []map[string]interface{}
 			for _, UserIdentificationItem := range UserIdentificationElems {
 				UserIdentificationItemMap := make(map[string]interface{})
-				if !UserIdentificationItem.Kind.IsNull() && !UserIdentificationItem.Kind.IsUnknown() {
-					UserIdentificationItemMap["kind"] = UserIdentificationItem.Kind.ValueString()
-				}
 				if !UserIdentificationItem.Name.IsNull() && !UserIdentificationItem.Name.IsUnknown() {
 					UserIdentificationItemMap["name"] = UserIdentificationItem.Name.ValueString()
 				}
 				if !UserIdentificationItem.Namespace.IsNull() && !UserIdentificationItem.Namespace.IsUnknown() {
 					UserIdentificationItemMap["namespace"] = UserIdentificationItem.Namespace.ValueString()
-				}
-				if !UserIdentificationItem.Tenant.IsNull() && !UserIdentificationItem.Tenant.IsUnknown() {
-					UserIdentificationItemMap["tenant"] = UserIdentificationItem.Tenant.ValueString()
-				}
-				if !UserIdentificationItem.Uid.IsNull() && !UserIdentificationItem.Uid.IsUnknown() {
-					UserIdentificationItemMap["uid"] = UserIdentificationItem.Uid.ValueString()
 				}
 				UserIdentificationList = append(UserIdentificationList, UserIdentificationItemMap)
 			}
@@ -3997,20 +3941,11 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 					var AppFirewallList []map[string]interface{}
 					for _, AppFirewallItem := range AppFirewallElems {
 						AppFirewallItemMap := make(map[string]interface{})
-						if !AppFirewallItem.Kind.IsNull() && !AppFirewallItem.Kind.IsUnknown() {
-							AppFirewallItemMap["kind"] = AppFirewallItem.Kind.ValueString()
-						}
 						if !AppFirewallItem.Name.IsNull() && !AppFirewallItem.Name.IsUnknown() {
 							AppFirewallItemMap["name"] = AppFirewallItem.Name.ValueString()
 						}
 						if !AppFirewallItem.Namespace.IsNull() && !AppFirewallItem.Namespace.IsUnknown() {
 							AppFirewallItemMap["namespace"] = AppFirewallItem.Namespace.ValueString()
-						}
-						if !AppFirewallItem.Tenant.IsNull() && !AppFirewallItem.Tenant.IsUnknown() {
-							AppFirewallItemMap["tenant"] = AppFirewallItem.Tenant.ValueString()
-						}
-						if !AppFirewallItem.Uid.IsNull() && !AppFirewallItem.Uid.IsUnknown() {
-							AppFirewallItemMap["uid"] = AppFirewallItem.Uid.ValueString()
 						}
 						AppFirewallList = append(AppFirewallList, AppFirewallItemMap)
 					}
@@ -4064,11 +3999,28 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetVirtualHost(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -6394,10 +6346,15 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["add_location"].(bool); ok {
-		data.AddLocation = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.AddLocation.IsNull() && !data.AddLocation.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.AddLocation = types.BoolNull()
+		if v, ok := apiResource.Spec["add_location"].(bool); ok {
+			data.AddLocation = types.BoolValue(v)
+		} else {
+			data.AddLocation = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["append_server_name"].(string); ok && v != "" {
 		data.AppendServerName = types.StringValue(v)
@@ -6409,15 +6366,25 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	} else {
 		data.ConnectionIdleTimeout = types.Int64Null()
 	}
-	if v, ok := apiResource.Spec["disable_default_error_pages"].(bool); ok {
-		data.DisableDefaultErrorPages = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DisableDefaultErrorPages.IsNull() && !data.DisableDefaultErrorPages.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DisableDefaultErrorPages = types.BoolNull()
+		if v, ok := apiResource.Spec["disable_default_error_pages"].(bool); ok {
+			data.DisableDefaultErrorPages = types.BoolValue(v)
+		} else {
+			data.DisableDefaultErrorPages = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["disable_dns_resolve"].(bool); ok {
-		data.DisableDNSResolve = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DisableDNSResolve.IsNull() && !data.DisableDNSResolve.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DisableDNSResolve = types.BoolNull()
+		if v, ok := apiResource.Spec["disable_dns_resolve"].(bool); ok {
+			data.DisableDNSResolve = types.BoolValue(v)
+		} else {
+			data.DisableDNSResolve = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
@@ -6490,6 +6457,16 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read VirtualHost: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -8880,10 +8857,15 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["add_location"].(bool); ok {
-		data.AddLocation = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.AddLocation.IsNull() && !data.AddLocation.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.AddLocation = types.BoolNull()
+		if v, ok := apiResource.Spec["add_location"].(bool); ok {
+			data.AddLocation = types.BoolValue(v)
+		} else {
+			data.AddLocation = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["append_server_name"].(string); ok && v != "" {
 		data.AppendServerName = types.StringValue(v)
@@ -8895,15 +8877,25 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	} else {
 		data.ConnectionIdleTimeout = types.Int64Null()
 	}
-	if v, ok := apiResource.Spec["disable_default_error_pages"].(bool); ok {
-		data.DisableDefaultErrorPages = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DisableDefaultErrorPages.IsNull() && !data.DisableDefaultErrorPages.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DisableDefaultErrorPages = types.BoolNull()
+		if v, ok := apiResource.Spec["disable_default_error_pages"].(bool); ok {
+			data.DisableDefaultErrorPages = types.BoolValue(v)
+		} else {
+			data.DisableDefaultErrorPages = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["disable_dns_resolve"].(bool); ok {
-		data.DisableDNSResolve = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DisableDNSResolve.IsNull() && !data.DisableDNSResolve.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DisableDNSResolve = types.BoolNull()
+		if v, ok := apiResource.Spec["disable_dns_resolve"].(bool); ok {
+			data.DisableDNSResolve = types.BoolValue(v)
+		} else {
+			data.DisableDNSResolve = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
@@ -8958,6 +8950,20 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.VirtualHost{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -8965,6 +8971,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -9017,20 +9024,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			var AdvertisePoliciesList []map[string]interface{}
 			for _, AdvertisePoliciesItem := range AdvertisePoliciesElems {
 				AdvertisePoliciesItemMap := make(map[string]interface{})
-				if !AdvertisePoliciesItem.Kind.IsNull() && !AdvertisePoliciesItem.Kind.IsUnknown() {
-					AdvertisePoliciesItemMap["kind"] = AdvertisePoliciesItem.Kind.ValueString()
-				}
 				if !AdvertisePoliciesItem.Name.IsNull() && !AdvertisePoliciesItem.Name.IsUnknown() {
 					AdvertisePoliciesItemMap["name"] = AdvertisePoliciesItem.Name.ValueString()
 				}
 				if !AdvertisePoliciesItem.Namespace.IsNull() && !AdvertisePoliciesItem.Namespace.IsUnknown() {
 					AdvertisePoliciesItemMap["namespace"] = AdvertisePoliciesItem.Namespace.ValueString()
-				}
-				if !AdvertisePoliciesItem.Tenant.IsNull() && !AdvertisePoliciesItem.Tenant.IsUnknown() {
-					AdvertisePoliciesItemMap["tenant"] = AdvertisePoliciesItem.Tenant.ValueString()
-				}
-				if !AdvertisePoliciesItem.Uid.IsNull() && !AdvertisePoliciesItem.Uid.IsUnknown() {
-					AdvertisePoliciesItemMap["uid"] = AdvertisePoliciesItem.Uid.ValueString()
 				}
 				AdvertisePoliciesList = append(AdvertisePoliciesList, AdvertisePoliciesItemMap)
 			}
@@ -9047,20 +9045,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				var AuthConfigList []map[string]interface{}
 				for _, AuthConfigItem := range AuthConfigElems {
 					AuthConfigItemMap := make(map[string]interface{})
-					if !AuthConfigItem.Kind.IsNull() && !AuthConfigItem.Kind.IsUnknown() {
-						AuthConfigItemMap["kind"] = AuthConfigItem.Kind.ValueString()
-					}
 					if !AuthConfigItem.Name.IsNull() && !AuthConfigItem.Name.IsUnknown() {
 						AuthConfigItemMap["name"] = AuthConfigItem.Name.ValueString()
 					}
 					if !AuthConfigItem.Namespace.IsNull() && !AuthConfigItem.Namespace.IsUnknown() {
 						AuthConfigItemMap["namespace"] = AuthConfigItem.Namespace.ValueString()
-					}
-					if !AuthConfigItem.Tenant.IsNull() && !AuthConfigItem.Tenant.IsUnknown() {
-						AuthConfigItemMap["tenant"] = AuthConfigItem.Tenant.ValueString()
-					}
-					if !AuthConfigItem.Uid.IsNull() && !AuthConfigItem.Uid.IsUnknown() {
-						AuthConfigItemMap["uid"] = AuthConfigItem.Uid.ValueString()
 					}
 					AuthConfigList = append(AuthConfigList, AuthConfigItemMap)
 				}
@@ -9307,20 +9296,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				var ResolutionNetworkList []map[string]interface{}
 				for _, ResolutionNetworkItem := range ResolutionNetworkElems {
 					ResolutionNetworkItemMap := make(map[string]interface{})
-					if !ResolutionNetworkItem.Kind.IsNull() && !ResolutionNetworkItem.Kind.IsUnknown() {
-						ResolutionNetworkItemMap["kind"] = ResolutionNetworkItem.Kind.ValueString()
-					}
 					if !ResolutionNetworkItem.Name.IsNull() && !ResolutionNetworkItem.Name.IsUnknown() {
 						ResolutionNetworkItemMap["name"] = ResolutionNetworkItem.Name.ValueString()
 					}
 					if !ResolutionNetworkItem.Namespace.IsNull() && !ResolutionNetworkItem.Namespace.IsUnknown() {
 						ResolutionNetworkItemMap["namespace"] = ResolutionNetworkItem.Namespace.ValueString()
-					}
-					if !ResolutionNetworkItem.Tenant.IsNull() && !ResolutionNetworkItem.Tenant.IsUnknown() {
-						ResolutionNetworkItemMap["tenant"] = ResolutionNetworkItem.Tenant.ValueString()
-					}
-					if !ResolutionNetworkItem.Uid.IsNull() && !ResolutionNetworkItem.Uid.IsUnknown() {
-						ResolutionNetworkItemMap["uid"] = ResolutionNetworkItem.Uid.ValueString()
 					}
 					ResolutionNetworkList = append(ResolutionNetworkList, ResolutionNetworkItemMap)
 				}
@@ -9404,20 +9384,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			var RateLimiterAllowedPrefixesList []map[string]interface{}
 			for _, RateLimiterAllowedPrefixesItem := range RateLimiterAllowedPrefixesElems {
 				RateLimiterAllowedPrefixesItemMap := make(map[string]interface{})
-				if !RateLimiterAllowedPrefixesItem.Kind.IsNull() && !RateLimiterAllowedPrefixesItem.Kind.IsUnknown() {
-					RateLimiterAllowedPrefixesItemMap["kind"] = RateLimiterAllowedPrefixesItem.Kind.ValueString()
-				}
 				if !RateLimiterAllowedPrefixesItem.Name.IsNull() && !RateLimiterAllowedPrefixesItem.Name.IsUnknown() {
 					RateLimiterAllowedPrefixesItemMap["name"] = RateLimiterAllowedPrefixesItem.Name.ValueString()
 				}
 				if !RateLimiterAllowedPrefixesItem.Namespace.IsNull() && !RateLimiterAllowedPrefixesItem.Namespace.IsUnknown() {
 					RateLimiterAllowedPrefixesItemMap["namespace"] = RateLimiterAllowedPrefixesItem.Namespace.ValueString()
-				}
-				if !RateLimiterAllowedPrefixesItem.Tenant.IsNull() && !RateLimiterAllowedPrefixesItem.Tenant.IsUnknown() {
-					RateLimiterAllowedPrefixesItemMap["tenant"] = RateLimiterAllowedPrefixesItem.Tenant.ValueString()
-				}
-				if !RateLimiterAllowedPrefixesItem.Uid.IsNull() && !RateLimiterAllowedPrefixesItem.Uid.IsUnknown() {
-					RateLimiterAllowedPrefixesItemMap["uid"] = RateLimiterAllowedPrefixesItem.Uid.ValueString()
 				}
 				RateLimiterAllowedPrefixesList = append(RateLimiterAllowedPrefixesList, RateLimiterAllowedPrefixesItemMap)
 			}
@@ -9753,20 +9724,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			var RoutesList []map[string]interface{}
 			for _, RoutesItem := range RoutesElems {
 				RoutesItemMap := make(map[string]interface{})
-				if !RoutesItem.Kind.IsNull() && !RoutesItem.Kind.IsUnknown() {
-					RoutesItemMap["kind"] = RoutesItem.Kind.ValueString()
-				}
 				if !RoutesItem.Name.IsNull() && !RoutesItem.Name.IsUnknown() {
 					RoutesItemMap["name"] = RoutesItem.Name.ValueString()
 				}
 				if !RoutesItem.Namespace.IsNull() && !RoutesItem.Namespace.IsUnknown() {
 					RoutesItemMap["namespace"] = RoutesItem.Namespace.ValueString()
-				}
-				if !RoutesItem.Tenant.IsNull() && !RoutesItem.Tenant.IsUnknown() {
-					RoutesItemMap["tenant"] = RoutesItem.Tenant.ValueString()
-				}
-				if !RoutesItem.Uid.IsNull() && !RoutesItem.Uid.IsUnknown() {
-					RoutesItemMap["uid"] = RoutesItem.Uid.ValueString()
 				}
 				RoutesList = append(RoutesList, RoutesItemMap)
 			}
@@ -9781,20 +9743,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			var SensitiveDataPolicyList []map[string]interface{}
 			for _, SensitiveDataPolicyItem := range SensitiveDataPolicyElems {
 				SensitiveDataPolicyItemMap := make(map[string]interface{})
-				if !SensitiveDataPolicyItem.Kind.IsNull() && !SensitiveDataPolicyItem.Kind.IsUnknown() {
-					SensitiveDataPolicyItemMap["kind"] = SensitiveDataPolicyItem.Kind.ValueString()
-				}
 				if !SensitiveDataPolicyItem.Name.IsNull() && !SensitiveDataPolicyItem.Name.IsUnknown() {
 					SensitiveDataPolicyItemMap["name"] = SensitiveDataPolicyItem.Name.ValueString()
 				}
 				if !SensitiveDataPolicyItem.Namespace.IsNull() && !SensitiveDataPolicyItem.Namespace.IsUnknown() {
 					SensitiveDataPolicyItemMap["namespace"] = SensitiveDataPolicyItem.Namespace.ValueString()
-				}
-				if !SensitiveDataPolicyItem.Tenant.IsNull() && !SensitiveDataPolicyItem.Tenant.IsUnknown() {
-					SensitiveDataPolicyItemMap["tenant"] = SensitiveDataPolicyItem.Tenant.ValueString()
-				}
-				if !SensitiveDataPolicyItem.Uid.IsNull() && !SensitiveDataPolicyItem.Uid.IsUnknown() {
-					SensitiveDataPolicyItemMap["uid"] = SensitiveDataPolicyItem.Uid.ValueString()
 				}
 				SensitiveDataPolicyList = append(SensitiveDataPolicyList, SensitiveDataPolicyItemMap)
 			}
@@ -9824,20 +9777,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				var CertificatesList []map[string]interface{}
 				for _, CertificatesItem := range CertificatesElems {
 					CertificatesItemMap := make(map[string]interface{})
-					if !CertificatesItem.Kind.IsNull() && !CertificatesItem.Kind.IsUnknown() {
-						CertificatesItemMap["kind"] = CertificatesItem.Kind.ValueString()
-					}
 					if !CertificatesItem.Name.IsNull() && !CertificatesItem.Name.IsUnknown() {
 						CertificatesItemMap["name"] = CertificatesItem.Name.ValueString()
 					}
 					if !CertificatesItem.Namespace.IsNull() && !CertificatesItem.Namespace.IsUnknown() {
 						CertificatesItemMap["namespace"] = CertificatesItem.Namespace.ValueString()
-					}
-					if !CertificatesItem.Tenant.IsNull() && !CertificatesItem.Tenant.IsUnknown() {
-						CertificatesItemMap["tenant"] = CertificatesItem.Tenant.ValueString()
-					}
-					if !CertificatesItem.Uid.IsNull() && !CertificatesItem.Uid.IsUnknown() {
-						CertificatesItemMap["uid"] = CertificatesItem.Uid.ValueString()
 					}
 					CertificatesList = append(CertificatesList, CertificatesItemMap)
 				}
@@ -9882,20 +9826,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						var TrustedCAListList []map[string]interface{}
 						for _, TrustedCAListItem := range TrustedCAListElems {
 							TrustedCAListItemMap := make(map[string]interface{})
-							if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-								TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-							}
 							if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 								TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 							}
 							if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 								TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-							}
-							if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-								TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-							}
-							if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-								TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 							}
 							TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 						}
@@ -10030,20 +9965,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							var TrustedCAListList []map[string]interface{}
 							for _, TrustedCAListItem := range TrustedCAListElems {
 								TrustedCAListItemMap := make(map[string]interface{})
-								if !TrustedCAListItem.Kind.IsNull() && !TrustedCAListItem.Kind.IsUnknown() {
-									TrustedCAListItemMap["kind"] = TrustedCAListItem.Kind.ValueString()
-								}
 								if !TrustedCAListItem.Name.IsNull() && !TrustedCAListItem.Name.IsUnknown() {
 									TrustedCAListItemMap["name"] = TrustedCAListItem.Name.ValueString()
 								}
 								if !TrustedCAListItem.Namespace.IsNull() && !TrustedCAListItem.Namespace.IsUnknown() {
 									TrustedCAListItemMap["namespace"] = TrustedCAListItem.Namespace.ValueString()
-								}
-								if !TrustedCAListItem.Tenant.IsNull() && !TrustedCAListItem.Tenant.IsUnknown() {
-									TrustedCAListItemMap["tenant"] = TrustedCAListItem.Tenant.ValueString()
-								}
-								if !TrustedCAListItem.Uid.IsNull() && !TrustedCAListItem.Uid.IsUnknown() {
-									TrustedCAListItemMap["uid"] = TrustedCAListItem.Uid.ValueString()
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
@@ -10088,20 +10014,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			var UserIdentificationList []map[string]interface{}
 			for _, UserIdentificationItem := range UserIdentificationElems {
 				UserIdentificationItemMap := make(map[string]interface{})
-				if !UserIdentificationItem.Kind.IsNull() && !UserIdentificationItem.Kind.IsUnknown() {
-					UserIdentificationItemMap["kind"] = UserIdentificationItem.Kind.ValueString()
-				}
 				if !UserIdentificationItem.Name.IsNull() && !UserIdentificationItem.Name.IsUnknown() {
 					UserIdentificationItemMap["name"] = UserIdentificationItem.Name.ValueString()
 				}
 				if !UserIdentificationItem.Namespace.IsNull() && !UserIdentificationItem.Namespace.IsUnknown() {
 					UserIdentificationItemMap["namespace"] = UserIdentificationItem.Namespace.ValueString()
-				}
-				if !UserIdentificationItem.Tenant.IsNull() && !UserIdentificationItem.Tenant.IsUnknown() {
-					UserIdentificationItemMap["tenant"] = UserIdentificationItem.Tenant.ValueString()
-				}
-				if !UserIdentificationItem.Uid.IsNull() && !UserIdentificationItem.Uid.IsUnknown() {
-					UserIdentificationItemMap["uid"] = UserIdentificationItem.Uid.ValueString()
 				}
 				UserIdentificationList = append(UserIdentificationList, UserIdentificationItemMap)
 			}
@@ -10120,20 +10037,11 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 					var AppFirewallList []map[string]interface{}
 					for _, AppFirewallItem := range AppFirewallElems {
 						AppFirewallItemMap := make(map[string]interface{})
-						if !AppFirewallItem.Kind.IsNull() && !AppFirewallItem.Kind.IsUnknown() {
-							AppFirewallItemMap["kind"] = AppFirewallItem.Kind.ValueString()
-						}
 						if !AppFirewallItem.Name.IsNull() && !AppFirewallItem.Name.IsUnknown() {
 							AppFirewallItemMap["name"] = AppFirewallItem.Name.ValueString()
 						}
 						if !AppFirewallItem.Namespace.IsNull() && !AppFirewallItem.Namespace.IsUnknown() {
 							AppFirewallItemMap["namespace"] = AppFirewallItem.Namespace.ValueString()
-						}
-						if !AppFirewallItem.Tenant.IsNull() && !AppFirewallItem.Tenant.IsUnknown() {
-							AppFirewallItemMap["tenant"] = AppFirewallItem.Tenant.ValueString()
-						}
-						if !AppFirewallItem.Uid.IsNull() && !AppFirewallItem.Uid.IsUnknown() {
-							AppFirewallItemMap["uid"] = AppFirewallItem.Uid.ValueString()
 						}
 						AppFirewallList = append(AppFirewallList, AppFirewallItemMap)
 					}
@@ -10183,6 +10091,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 
 	_, err := r.client.UpdateVirtualHost(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of virtual_host %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update VirtualHost: %s", err))
 		return
 	}
@@ -10200,10 +10116,6 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -10216,7 +10128,27 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["add_location"].(bool); ok {
+		data.AddLocation = types.BoolValue(v)
+	} else if data.AddLocation.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.AddLocation = types.BoolNull()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["append_server_name"].(string); ok && v != "" {
 		data.AppendServerName = types.StringValue(v)
 	} else if data.AppendServerName.IsUnknown() {
@@ -10224,11 +10156,53 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		data.AppendServerName = types.StringNull()
 	}
 	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["connection_idle_timeout"].(float64); ok {
+		data.ConnectionIdleTimeout = types.Int64Value(int64(v))
+	} else if data.ConnectionIdleTimeout.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ConnectionIdleTimeout = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["disable_default_error_pages"].(bool); ok {
+		data.DisableDefaultErrorPages = types.BoolValue(v)
+	} else if data.DisableDefaultErrorPages.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.DisableDefaultErrorPages = types.BoolNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["disable_dns_resolve"].(bool); ok {
+		data.DisableDNSResolve = types.BoolValue(v)
+	} else if data.DisableDNSResolve.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.DisableDNSResolve = types.BoolNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["idle_timeout"].(float64); ok {
+		data.IdleTimeout = types.Int64Value(int64(v))
+	} else if data.IdleTimeout.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.IdleTimeout = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["max_request_header_size"].(float64); ok {
+		data.MaxRequestHeaderSize = types.Int64Value(int64(v))
+	} else if data.MaxRequestHeaderSize.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.MaxRequestHeaderSize = types.Int64Null()
+	}
+	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["max_requests_per_connection"].(float64); ok {
 		data.MaxRequestsPerConnection = types.Int64Value(int64(v))
 	} else if data.MaxRequestsPerConnection.IsUnknown() {
 		// API didn't return value and plan was unknown - set to null
 		data.MaxRequestsPerConnection = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["proxy"].(string); ok && v != "" {
+		data.Proxy = types.StringValue(v)
+	} else if data.Proxy.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Proxy = types.StringNull()
 	}
 	// If plan had a value, preserve it
 	if v, ok := fetched.Spec["server_name"].(string); ok && v != "" {
@@ -12558,10 +12532,15 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["add_location"].(bool); ok {
-		data.AddLocation = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.AddLocation.IsNull() && !data.AddLocation.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.AddLocation = types.BoolNull()
+		if v, ok := apiResource.Spec["add_location"].(bool); ok {
+			data.AddLocation = types.BoolValue(v)
+		} else {
+			data.AddLocation = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["append_server_name"].(string); ok && v != "" {
 		data.AppendServerName = types.StringValue(v)
@@ -12573,15 +12552,25 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	} else {
 		data.ConnectionIdleTimeout = types.Int64Null()
 	}
-	if v, ok := apiResource.Spec["disable_default_error_pages"].(bool); ok {
-		data.DisableDefaultErrorPages = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DisableDefaultErrorPages.IsNull() && !data.DisableDefaultErrorPages.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DisableDefaultErrorPages = types.BoolNull()
+		if v, ok := apiResource.Spec["disable_default_error_pages"].(bool); ok {
+			data.DisableDefaultErrorPages = types.BoolValue(v)
+		} else {
+			data.DisableDefaultErrorPages = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["disable_dns_resolve"].(bool); ok {
-		data.DisableDNSResolve = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.DisableDNSResolve.IsNull() && !data.DisableDNSResolve.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.DisableDNSResolve = types.BoolNull()
+		if v, ok := apiResource.Spec["disable_dns_resolve"].(bool); ok {
+			data.DisableDNSResolve = types.BoolValue(v)
+		} else {
+			data.DisableDNSResolve = types.BoolNull()
+		}
 	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))

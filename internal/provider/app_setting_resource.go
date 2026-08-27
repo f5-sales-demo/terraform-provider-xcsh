@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -25,6 +26,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -296,12 +298,12 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Delete: true,
 			}),
 			"app_type_settings": schema.ListNestedBlock{
-				MarkdownDescription: "List of settings to enable for each AppType, given instance of AppType Exist in this Namespace .",
+				MarkdownDescription: "List of settings to enable for each AppType, given instance of AppType Exist in this Namespace.",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
 						"app_type_ref": schema.ListNestedBlock{
-							MarkdownDescription: "The AppType of App instance in current Namespace. Associating an AppType reference, will enable analysis on this instance's generated data .",
+							MarkdownDescription: "The AppType of App instance in current Namespace. Associating an AppType reference, will enable analysis on this instance's generated data.",
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"kind": schema.StringAttribute{
@@ -428,8 +430,11 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "When enabled, the system monitors persistent failed login attempts from a user. A failed login is detected if a request results in a response code of 401. These settings specify how to use failed login activity to determine suspicious behavior.",
 											Attributes: map[string]schema.Attribute{
 												"login_failures_threshold": schema.Int64Attribute{
-													MarkdownDescription: "The number of failed logins beyond which the system will flag this user as malicious .",
+													MarkdownDescription: "The number of failed logins beyond which the system will flag this user as malicious.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtLeast(1),
+													},
 												},
 											},
 										},
@@ -437,8 +442,11 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "When L7 policy rules are set up to disallow certain types of requests, the system monitors persistent attempts from a user to send requests which result in policy denies. These settings specify how to use disallowed request activity from a user to determine suspicious behavior.",
 											Attributes: map[string]schema.Attribute{
 												"forbidden_requests_threshold": schema.Int64Attribute{
-													MarkdownDescription: "The number of forbidden requests beyond which the system will flag this user as malicious .",
+													MarkdownDescription: "The number of forbidden requests beyond which the system will flag this user as malicious.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtLeast(1),
+													},
 												},
 											},
 										},
@@ -464,10 +472,10 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "Non-existent URL Custom Activity Setting.",
 											Attributes: map[string]schema.Attribute{
 												"nonexistent_requests_threshold": schema.Int64Attribute{
-													MarkdownDescription: "The percentage of non-existent requests beyond which the system will flag this user as malicious .",
+													MarkdownDescription: "The percentage of non-existent requests beyond which the system will flag this user as malicious.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.AtMost(100),
+														int64validator.Between(1, 100),
 													},
 												},
 											},
@@ -630,20 +638,11 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 						var AppTypeRefList []map[string]interface{}
 						for _, AppTypeRefItem := range AppTypeRefElems {
 							AppTypeRefItemMap := make(map[string]interface{})
-							if !AppTypeRefItem.Kind.IsNull() && !AppTypeRefItem.Kind.IsUnknown() {
-								AppTypeRefItemMap["kind"] = AppTypeRefItem.Kind.ValueString()
-							}
 							if !AppTypeRefItem.Name.IsNull() && !AppTypeRefItem.Name.IsUnknown() {
 								AppTypeRefItemMap["name"] = AppTypeRefItem.Name.ValueString()
 							}
 							if !AppTypeRefItem.Namespace.IsNull() && !AppTypeRefItem.Namespace.IsUnknown() {
 								AppTypeRefItemMap["namespace"] = AppTypeRefItem.Namespace.ValueString()
-							}
-							if !AppTypeRefItem.Tenant.IsNull() && !AppTypeRefItem.Tenant.IsUnknown() {
-								AppTypeRefItemMap["tenant"] = AppTypeRefItem.Tenant.ValueString()
-							}
-							if !AppTypeRefItem.Uid.IsNull() && !AppTypeRefItem.Uid.IsUnknown() {
-								AppTypeRefItemMap["uid"] = AppTypeRefItem.Uid.ValueString()
 							}
 							AppTypeRefList = append(AppTypeRefList, AppTypeRefItemMap)
 						}
@@ -793,11 +792,28 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetAppSetting(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1267,6 +1283,16 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AppSetting: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1783,6 +1809,20 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.AppSetting{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -1790,6 +1830,7 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -1850,20 +1891,11 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 						var AppTypeRefList []map[string]interface{}
 						for _, AppTypeRefItem := range AppTypeRefElems {
 							AppTypeRefItemMap := make(map[string]interface{})
-							if !AppTypeRefItem.Kind.IsNull() && !AppTypeRefItem.Kind.IsUnknown() {
-								AppTypeRefItemMap["kind"] = AppTypeRefItem.Kind.ValueString()
-							}
 							if !AppTypeRefItem.Name.IsNull() && !AppTypeRefItem.Name.IsUnknown() {
 								AppTypeRefItemMap["name"] = AppTypeRefItem.Name.ValueString()
 							}
 							if !AppTypeRefItem.Namespace.IsNull() && !AppTypeRefItem.Namespace.IsUnknown() {
 								AppTypeRefItemMap["namespace"] = AppTypeRefItem.Namespace.ValueString()
-							}
-							if !AppTypeRefItem.Tenant.IsNull() && !AppTypeRefItem.Tenant.IsUnknown() {
-								AppTypeRefItemMap["tenant"] = AppTypeRefItem.Tenant.ValueString()
-							}
-							if !AppTypeRefItem.Uid.IsNull() && !AppTypeRefItem.Uid.IsUnknown() {
-								AppTypeRefItemMap["uid"] = AppTypeRefItem.Uid.ValueString()
 							}
 							AppTypeRefList = append(AppTypeRefList, AppTypeRefItemMap)
 						}
@@ -2009,6 +2041,14 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	_, err := r.client.UpdateAppSetting(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of app_setting %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update AppSetting: %s", err))
 		return
 	}
@@ -2026,10 +2066,6 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2039,6 +2075,19 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 	fetched, fetchErr := r.client.GetAppSetting(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AppSetting after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

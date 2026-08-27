@@ -5,22 +5,27 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -76,13 +81,16 @@ func (r *Srv6NetworkSliceResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Srv6 Network Slice is created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Srv6 Network Slice. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"sid_prefixes": schema.ListAttribute{
@@ -120,15 +128,27 @@ func (r *Srv6NetworkSliceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"connect_to_access_networks": schema.BoolAttribute{
 				MarkdownDescription: "Connect all SRv6 Virtual Networks in this slice to their corresponding access networks by importing route targets specified in the virtual network.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 			"connect_to_enterprise_networks": schema.BoolAttribute{
 				MarkdownDescription: "Connect all SRv6 Virtual Networks in this slice to their corresponding enterprise networks by importing route targets specified in the virtual network.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 			"connect_to_internet": schema.BoolAttribute{
 				MarkdownDescription: "Connect all SRv6 Virtual Networks in this slice to the Internet by importing route targets specified in the virtual network.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{
@@ -288,11 +308,28 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetSrv6NetworkSlice(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -318,20 +355,35 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 	} else {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
-		data.ConnectToAccessNetworks = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToAccessNetworks.IsNull() && !data.ConnectToAccessNetworks.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToAccessNetworks = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
+			data.ConnectToAccessNetworks = types.BoolValue(v)
+		} else {
+			data.ConnectToAccessNetworks = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["connect_to_enterprise_networks"].(bool); ok {
-		data.ConnectToEnterpriseNetworks = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToEnterpriseNetworks.IsNull() && !data.ConnectToEnterpriseNetworks.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToEnterpriseNetworks = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_enterprise_networks"].(bool); ok {
+			data.ConnectToEnterpriseNetworks = types.BoolValue(v)
+		} else {
+			data.ConnectToEnterpriseNetworks = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["connect_to_internet"].(bool); ok {
-		data.ConnectToInternet = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToInternet.IsNull() && !data.ConnectToInternet.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToInternet = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_internet"].(bool); ok {
+			data.ConnectToInternet = types.BoolValue(v)
+		} else {
+			data.ConnectToInternet = types.BoolNull()
+		}
 	}
 
 	tflog.Trace(ctx, "created Srv6NetworkSlice resource")
@@ -379,6 +431,16 @@ func (r *Srv6NetworkSliceResource) Read(ctx context.Context, req resource.ReadRe
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Srv6NetworkSlice: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -469,20 +531,35 @@ func (r *Srv6NetworkSliceResource) Read(ctx context.Context, req resource.ReadRe
 	} else {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
-		data.ConnectToAccessNetworks = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToAccessNetworks.IsNull() && !data.ConnectToAccessNetworks.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToAccessNetworks = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
+			data.ConnectToAccessNetworks = types.BoolValue(v)
+		} else {
+			data.ConnectToAccessNetworks = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["connect_to_enterprise_networks"].(bool); ok {
-		data.ConnectToEnterpriseNetworks = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToEnterpriseNetworks.IsNull() && !data.ConnectToEnterpriseNetworks.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToEnterpriseNetworks = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_enterprise_networks"].(bool); ok {
+			data.ConnectToEnterpriseNetworks = types.BoolValue(v)
+		} else {
+			data.ConnectToEnterpriseNetworks = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["connect_to_internet"].(bool); ok {
-		data.ConnectToInternet = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToInternet.IsNull() && !data.ConnectToInternet.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToInternet = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_internet"].(bool); ok {
+			data.ConnectToInternet = types.BoolValue(v)
+		} else {
+			data.ConnectToInternet = types.BoolNull()
+		}
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -512,6 +589,20 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.Srv6NetworkSlice{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -519,6 +610,7 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -583,6 +675,14 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 
 	_, err := r.client.UpdateSrv6NetworkSlice(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of srv6_network_slice %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update Srv6NetworkSlice: %s", err))
 		return
 	}
@@ -600,10 +700,6 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -616,7 +712,41 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 		return
 	}
 
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
 	// Set computed fields from API response
+	if v, ok := fetched.Spec["connect_to_access_networks"].(bool); ok {
+		data.ConnectToAccessNetworks = types.BoolValue(v)
+	} else if data.ConnectToAccessNetworks.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ConnectToAccessNetworks = types.BoolNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["connect_to_enterprise_networks"].(bool); ok {
+		data.ConnectToEnterpriseNetworks = types.BoolValue(v)
+	} else if data.ConnectToEnterpriseNetworks.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ConnectToEnterpriseNetworks = types.BoolNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["connect_to_internet"].(bool); ok {
+		data.ConnectToInternet = types.BoolValue(v)
+	} else if data.ConnectToInternet.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.ConnectToInternet = types.BoolNull()
+	}
+	// If plan had a value, preserve it
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
@@ -637,20 +767,35 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 	} else {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
-		data.ConnectToAccessNetworks = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToAccessNetworks.IsNull() && !data.ConnectToAccessNetworks.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToAccessNetworks = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
+			data.ConnectToAccessNetworks = types.BoolValue(v)
+		} else {
+			data.ConnectToAccessNetworks = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["connect_to_enterprise_networks"].(bool); ok {
-		data.ConnectToEnterpriseNetworks = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToEnterpriseNetworks.IsNull() && !data.ConnectToEnterpriseNetworks.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToEnterpriseNetworks = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_enterprise_networks"].(bool); ok {
+			data.ConnectToEnterpriseNetworks = types.BoolValue(v)
+		} else {
+			data.ConnectToEnterpriseNetworks = types.BoolNull()
+		}
 	}
-	if v, ok := apiResource.Spec["connect_to_internet"].(bool); ok {
-		data.ConnectToInternet = types.BoolValue(v)
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.ConnectToInternet.IsNull() && !data.ConnectToInternet.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
 	} else {
-		data.ConnectToInternet = types.BoolNull()
+		if v, ok := apiResource.Spec["connect_to_internet"].(bool); ok {
+			data.ConnectToInternet = types.BoolValue(v)
+		} else {
+			data.ConnectToInternet = types.BoolNull()
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

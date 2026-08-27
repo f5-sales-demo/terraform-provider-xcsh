@@ -18,6 +18,4 @@ resource "xcsh_securemesh_site" "example" {
   namespace = "staging"
 
   volterra_certified_hw = "example-value"
-  worker_nodes          = ["example-value"]
-  address               = "example-value"
 }

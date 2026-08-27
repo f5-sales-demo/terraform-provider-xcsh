@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -24,6 +25,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -429,7 +431,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 													},
 													"location": schema.StringAttribute{
-														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(4, 131072),
@@ -472,7 +474,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"interception_rules": schema.ListNestedBlock{
-										MarkdownDescription: "List of ordered rules to enable or disable for TLS interception .",
+										MarkdownDescription: "List of ordered rules to enable or disable for TLS interception.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -882,9 +884,6 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 			if !data.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 				SLIToGlobalDRGlobalVnMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
-			if !data.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				SLIToGlobalDRGlobalVnMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-			}
 			SLIToGlobalDRMap["global_vn"] = SLIToGlobalDRGlobalVnMap
 		}
 		createReq.Spec["sli_to_global_dr"] = SLIToGlobalDRMap
@@ -909,9 +908,6 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 			if !data.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 				SloToGlobalDRGlobalVnMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
-			if !data.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				SloToGlobalDRGlobalVnMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
-			}
 			SloToGlobalDRMap["global_vn"] = SloToGlobalDRGlobalVnMap
 		}
 		createReq.Spec["slo_to_global_dr"] = SloToGlobalDRMap
@@ -923,11 +919,28 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetNetworkConnector(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1368,6 +1381,16 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NetworkConnector: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -1855,6 +1878,20 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.NetworkConnector{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -1862,6 +1899,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -2055,9 +2093,6 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 			if !data.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 				SLIToGlobalDRGlobalVnMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
-			if !data.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				SLIToGlobalDRGlobalVnMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
-			}
 			SLIToGlobalDRMap["global_vn"] = SLIToGlobalDRGlobalVnMap
 		}
 		apiResource.Spec["sli_to_global_dr"] = SLIToGlobalDRMap
@@ -2082,9 +2117,6 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 			if !data.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
 				SloToGlobalDRGlobalVnMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
-			if !data.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				SloToGlobalDRGlobalVnMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
-			}
 			SloToGlobalDRMap["global_vn"] = SloToGlobalDRGlobalVnMap
 		}
 		apiResource.Spec["slo_to_global_dr"] = SloToGlobalDRMap
@@ -2092,6 +2124,14 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 
 	_, err := r.client.UpdateNetworkConnector(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of network_connector %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update NetworkConnector: %s", err))
 		return
 	}
@@ -2109,10 +2149,6 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2122,6 +2158,19 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	fetched, fetchErr := r.client.GetNetworkConnector(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NetworkConnector after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

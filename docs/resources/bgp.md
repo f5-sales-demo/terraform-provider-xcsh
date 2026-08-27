@@ -128,7 +128,7 @@ An [`external`](#peers-external) block (within [`peers`](#peers)) supports the f
 
 <a id="peers-external-address-ipv6"></a>&#x2022; [`address_ipv6`](#peers-external-address-ipv6) - Optional String<br>Specify peer IPv6 address
 
-<a id="peers-external-asn"></a>&#x2022; [`asn`](#peers-external-asn) - Optional Number<br>Autonomous System Number for BGP peer
+<a id="peers-external-asn"></a>&#x2022; [`asn`](#peers-external-asn) - Optional Number<br>ASN. Autonomous System Number for BGP peer
 
 <a id="peers-external-default-gateway"></a>&#x2022; [`default_gateway`](#peers-external-default-gateway) - Optional Block<br>Configuration parameter for default gateway
 
@@ -206,7 +206,7 @@ An [`interface`](#peers-external-interface) block (within [`peers.external`](#pe
 
 An [`interface_list`](#peers-external-interface-list) block (within [`peers.external`](#peers-external)) supports the following:
 
-<a id="interfaces-2564cf"></a>&#x2022; [`interfaces`](#interfaces-2564cf) - Optional Block<br>List of network interfaces<br>See [Interfaces](#interfaces-2564cf) below.
+<a id="interfaces-2564cf"></a>&#x2022; [`interfaces`](#interfaces-2564cf) - Optional Block<br>Interface List. List of network interfaces<br>See [Interfaces](#interfaces-2564cf) below.
 
 #### Peers External Interface List Interfaces
 
@@ -242,7 +242,7 @@ A [`route_policy`](#peers-routing-policies-route-policy) block (within [`peers.r
 
 <a id="name-e2301f"></a>&#x2022; [`node_name`](#name-e2301f) - Optional Block<br>List of nodes on which BGP routing policy has to be applied<br>See [Node Name](#name-e2301f) below.
 
-<a id="refs-6e5457"></a>&#x2022; [`object_refs`](#refs-6e5457) - Optional Block<br>Select route policy to apply<br>See [Object Refs](#refs-6e5457) below.
+<a id="refs-6e5457"></a>&#x2022; [`object_refs`](#refs-6e5457) - Optional Block<br>BGP routing policy. Select route policy to apply<br>See [Object Refs](#refs-6e5457) below.
 
 <a id="outbound-195eea"></a>&#x2022; [`outbound`](#outbound-195eea) - Optional Block<br>Enable this option
 
@@ -328,7 +328,7 @@ A [`virtual_site`](#where-virtual-site) block (within [`where`](#where)) support
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
-<a id="where-virtual-site-ref"></a>&#x2022; [`ref`](#where-virtual-site-ref) - Optional Block<br>Virtual_site direct reference<br>See [Ref](#where-virtual-site-ref) below.
+<a id="where-virtual-site-ref"></a>&#x2022; [`ref`](#where-virtual-site-ref) - Optional Block<br>Reference. A virtual_site direct reference<br>See [Ref](#where-virtual-site-ref) below.
 
 #### Where Virtual Site Ref
 

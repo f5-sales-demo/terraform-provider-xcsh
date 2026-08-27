@@ -71,7 +71,7 @@ jobs:
   # ===========================================================================
   detect-changes:
     name: Detect Changes
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     permissions:
       contents: read # actions/checkout only
       pull-requests: read # attest an automated regeneration merge from its exact PR
@@ -119,7 +119,9 @@ jobs:
           MESSAGE=$(git log -1 --format='%s')
           echo "Message: $MESSAGE"
           REGENERATION_TITLE="chore: auto-regenerate provider and documentation"
+          RECEIPT_TITLE="chore: receipt published spec delivery"
           IS_REGENERATION=false
+          IS_RECEIPT=false
           PR_ASSOCIATION_ATTEMPTS=${PR_ASSOCIATION_ATTEMPTS:-6}
           PR_ASSOCIATION_RETRY_DELAY_SECONDS=${PR_ASSOCIATION_RETRY_DELAY_SECONDS:-10}
           PENDING=tools/spec-pending-delivery.json
@@ -212,6 +214,73 @@ jobs:
               fi
               echo "Exact subject has no matching automated regeneration PR; processing as a human change"
             fi
+          fi
+
+          if [[ "$MESSAGE" == "$RECEIPT_TITLE"* ]]; then
+            [[ "$MESSAGE" =~ ^chore:\ receipt\ published\ spec\ delivery\ \(#[0-9]+\)$ ]] || {
+              echo "::error::Receipt merge subject does not identify its exact pull request"
+              exit 1
+            }
+            PR_NUMBER=${MESSAGE##*\(#}
+            PR_NUMBER=${PR_NUMBER%)}
+            HEAD_COMMIT=$(git rev-parse HEAD)
+            RECEIPT_PR=$(gh api "repos/${TARGET_REPOSITORY}/pulls/${PR_NUMBER}")
+            MATCHING_RECEIPT=$(jq -c \
+              --arg commit "$HEAD_COMMIT" \
+              --arg message "$MESSAGE" \
+              --arg repository "$TARGET_REPOSITORY" \
+              --arg title "$RECEIPT_TITLE" '
+              select(
+                .state == "closed" and
+                .merged_at != null and
+                .merge_commit_sha == $commit and
+                .title == $title and
+                $message == ($title + " (#" + (.number | tostring) + ")") and
+                .base.ref == "main" and
+                .base.repo.full_name == $repository and
+                .head.repo.full_name == $repository and
+                (.head.ref | test("^spec-delivery-receipt/[0-9a-f]{64}$"))
+              )
+            ' <<< "$RECEIPT_PR")
+            [ -n "$MATCHING_RECEIPT" ] || {
+              echo "::error::Receipt merge has no exact pull request attestation"
+              exit 1
+            }
+            RECEIPT_BRANCH=$(jq -r '.head.ref' <<< "$MATCHING_RECEIPT")
+            RECEIPT_DELIVERY_ID=${RECEIPT_BRANCH#spec-delivery-receipt/}
+            EXPECTED_RECEIPT_CHANGES=$(printf '%s\n' \
+              'M tools/provider-publication-receipts.json' \
+              'M tools/spec-deliveries.json' \
+              'D tools/spec-pending-delivery.json' \
+              'D tools/spec-regeneration-receipt.json')
+            ACTUAL_RECEIPT_CHANGES=$(git diff --name-status HEAD^ HEAD | sort -k2,2 | tr '\t' ' ')
+            [ "$ACTUAL_RECEIPT_CHANGES" = "$EXPECTED_RECEIPT_CHANGES" ] || {
+              echo "::error::Receipt merge changed files outside the exact durable receipt set"
+              exit 1
+            }
+            [ ! -e "$PENDING" ] && [ ! -e "$RECEIPT" ] || {
+              echo "::error::Receipt merge did not remove both transient delivery files"
+              exit 1
+            }
+            PREVIOUS_PENDING=$(git show "HEAD^:$PENDING") || {
+              echo "::error::Receipt merge parent has no pending delivery"
+              exit 1
+            }
+            PREVIOUS_RECEIPT=$(git show "HEAD^:$RECEIPT") || {
+              echo "::error::Receipt merge parent has no regeneration receipt"
+              exit 1
+            }
+            [ "$(jq -r '.delivery_id // empty' <<< "$PREVIOUS_PENDING")" = "$RECEIPT_DELIVERY_ID" ] &&
+              [ "$(jq -r '.delivery_id // empty' <<< "$PREVIOUS_RECEIPT")" = "$RECEIPT_DELIVERY_ID" ] || {
+              echo "::error::Receipt pull request branch differs from the transient delivery identity"
+              exit 1
+            }
+            scripts/validate-provider-delivery-state.sh || {
+              echo "::error::Receipt merge did not produce valid durable delivery state"
+              exit 1
+            }
+            IS_RECEIPT=true
+            echo "Detected exact durable delivery receipt merge ${RECEIPT_BRANCH}"
           fi
 
           if [ "$IS_REGENERATION" = true ]; then
@@ -308,6 +377,8 @@ jobs:
               }
               echo "Detected a regeneration merge without a spec delivery"
             fi
+          elif [ "$IS_RECEIPT" = true ]; then
+            : # Valid durable receipt metadata must not trigger another release.
           elif [ "$RECEIPT_CHANGED" = true ]; then
             echo "::error::Only the exact regeneration merge may add or modify a receipt"
             exit 1
@@ -324,8 +395,9 @@ jobs:
           echo "Changed files:"
           echo "$CHANGED"
           PENDING_DELIVERY=false
-          if echo "$CHANGED" | grep -qx 'tools/spec-pending-delivery.json' || \
-            [ "$PENDING_RESUME" = "true" ]; then
+          if printf '%s\n' "$CHANGED" | \
+            scripts/is-pending-delivery-active.sh \
+              tools/spec-pending-delivery.json "$PENDING_RESUME"; then
             PENDING_DELIVERY=true
           fi
           echo "pending_delivery=$PENDING_DELIVERY" >> "$GITHUB_OUTPUT"
@@ -435,7 +507,7 @@ jobs:
           if [[ "$IS_REGENERATION" == "true" ]]; then
             echo "Processing: exact regeneration completion - will proceed to tag/release"
             RESULT=true
-          elif [[ "$DELIVERY_METADATA_ONLY" == "true" ]]; then
+          elif [[ "$DELIVERY_METADATA_ONLY" == "true" && "$PENDING_DELIVERY" != "true" ]]; then
             echo "Skipping: delivery receipt metadata cannot trigger regeneration or a release"
           elif [[ "$NEEDS_REGEN" == "false" ]]; then
             # No regeneration needed - check if there are any substantive changes for tagging
@@ -519,7 +591,7 @@ jobs:
     name: Classify Generator State
     needs: [detect-changes, build-test, regenerate-provider, regenerate-docs]
     if: always()
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     permissions: {}
     outputs:
       create-pr: ${{ steps.classify.outputs.create_pr }}
@@ -623,7 +695,7 @@ jobs:
       always() &&
       needs.generation-state.result == 'success' &&
       needs.generation-state.outputs.create-pr == 'true'
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     # Branch push, issue creation, PR creation and auto-merge all authenticate
     # with secrets.REPO_SYNC_TOKEN (checkout too, with persist-credentials:
     # false), so GITHUB_TOKEN needs no write scope here.
@@ -1010,7 +1082,7 @@ jobs:
       needs.detect-changes.outputs.is-regeneration-commit == 'true' &&
       needs.tag-release.result == 'success' &&
       needs.tag-release.outputs.new-tag != ''
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     permissions:
       contents: read
     steps:
@@ -1135,7 +1207,7 @@ jobs:
     name: Workflow Summary
     needs: [detect-changes, build-test, regenerate-provider, regenerate-docs, generation-state, create-regeneration-pr, tag-release, receipt-spec-delivery]
     if: always()
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     permissions: {} # writes only to GITHUB_STEP_SUMMARY
     steps:
       - name: Print summary

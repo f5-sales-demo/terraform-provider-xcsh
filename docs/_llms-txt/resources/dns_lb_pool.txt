@@ -6,7 +6,6 @@ DNS Load Balancer Pool in a given namespace. If one already exist it will give a
 ## Required
 
 - name
-- load_balancing_mode
 
 ## Minimal Valid Config
 
@@ -14,8 +13,6 @@ DNS Load Balancer Pool in a given namespace. If one already exist it will give a
 resource "xcsh_dns_lb_pool" "example" {
   name      = "example-dns-lb-pool"
   namespace = "system"
-
-  load_balancing_mode = "ROUND_ROBIN"
 }
 ```
 

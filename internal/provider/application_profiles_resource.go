@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -25,6 +26,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -3688,20 +3690,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			var IrulesList []map[string]interface{}
 			for _, IrulesItem := range IrulesElems {
 				IrulesItemMap := make(map[string]interface{})
-				if !IrulesItem.Kind.IsNull() && !IrulesItem.Kind.IsUnknown() {
-					IrulesItemMap["kind"] = IrulesItem.Kind.ValueString()
-				}
 				if !IrulesItem.Name.IsNull() && !IrulesItem.Name.IsUnknown() {
 					IrulesItemMap["name"] = IrulesItem.Name.ValueString()
 				}
 				if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
 					IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
-				}
-				if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
-					IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
-				}
-				if !IrulesItem.Uid.IsNull() && !IrulesItem.Uid.IsUnknown() {
-					IrulesItemMap["uid"] = IrulesItem.Uid.ValueString()
 				}
 				IrulesList = append(IrulesList, IrulesItemMap)
 			}
@@ -3741,20 +3734,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var ClonePoolClientList []map[string]interface{}
 				for _, ClonePoolClientItem := range ClonePoolClientElems {
 					ClonePoolClientItemMap := make(map[string]interface{})
-					if !ClonePoolClientItem.Kind.IsNull() && !ClonePoolClientItem.Kind.IsUnknown() {
-						ClonePoolClientItemMap["kind"] = ClonePoolClientItem.Kind.ValueString()
-					}
 					if !ClonePoolClientItem.Name.IsNull() && !ClonePoolClientItem.Name.IsUnknown() {
 						ClonePoolClientItemMap["name"] = ClonePoolClientItem.Name.ValueString()
 					}
 					if !ClonePoolClientItem.Namespace.IsNull() && !ClonePoolClientItem.Namespace.IsUnknown() {
 						ClonePoolClientItemMap["namespace"] = ClonePoolClientItem.Namespace.ValueString()
-					}
-					if !ClonePoolClientItem.Tenant.IsNull() && !ClonePoolClientItem.Tenant.IsUnknown() {
-						ClonePoolClientItemMap["tenant"] = ClonePoolClientItem.Tenant.ValueString()
-					}
-					if !ClonePoolClientItem.Uid.IsNull() && !ClonePoolClientItem.Uid.IsUnknown() {
-						ClonePoolClientItemMap["uid"] = ClonePoolClientItem.Uid.ValueString()
 					}
 					ClonePoolClientList = append(ClonePoolClientList, ClonePoolClientItemMap)
 				}
@@ -3769,20 +3753,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var ClonePoolServerList []map[string]interface{}
 				for _, ClonePoolServerItem := range ClonePoolServerElems {
 					ClonePoolServerItemMap := make(map[string]interface{})
-					if !ClonePoolServerItem.Kind.IsNull() && !ClonePoolServerItem.Kind.IsUnknown() {
-						ClonePoolServerItemMap["kind"] = ClonePoolServerItem.Kind.ValueString()
-					}
 					if !ClonePoolServerItem.Name.IsNull() && !ClonePoolServerItem.Name.IsUnknown() {
 						ClonePoolServerItemMap["name"] = ClonePoolServerItem.Name.ValueString()
 					}
 					if !ClonePoolServerItem.Namespace.IsNull() && !ClonePoolServerItem.Namespace.IsUnknown() {
 						ClonePoolServerItemMap["namespace"] = ClonePoolServerItem.Namespace.ValueString()
-					}
-					if !ClonePoolServerItem.Tenant.IsNull() && !ClonePoolServerItem.Tenant.IsUnknown() {
-						ClonePoolServerItemMap["tenant"] = ClonePoolServerItem.Tenant.ValueString()
-					}
-					if !ClonePoolServerItem.Uid.IsNull() && !ClonePoolServerItem.Uid.IsUnknown() {
-						ClonePoolServerItemMap["uid"] = ClonePoolServerItem.Uid.ValueString()
 					}
 					ClonePoolServerList = append(ClonePoolServerList, ClonePoolServerItemMap)
 				}
@@ -3858,20 +3833,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var DefaultPersistenceProfileList []map[string]interface{}
 				for _, DefaultPersistenceProfileItem := range DefaultPersistenceProfileElems {
 					DefaultPersistenceProfileItemMap := make(map[string]interface{})
-					if !DefaultPersistenceProfileItem.Kind.IsNull() && !DefaultPersistenceProfileItem.Kind.IsUnknown() {
-						DefaultPersistenceProfileItemMap["kind"] = DefaultPersistenceProfileItem.Kind.ValueString()
-					}
 					if !DefaultPersistenceProfileItem.Name.IsNull() && !DefaultPersistenceProfileItem.Name.IsUnknown() {
 						DefaultPersistenceProfileItemMap["name"] = DefaultPersistenceProfileItem.Name.ValueString()
 					}
 					if !DefaultPersistenceProfileItem.Namespace.IsNull() && !DefaultPersistenceProfileItem.Namespace.IsUnknown() {
 						DefaultPersistenceProfileItemMap["namespace"] = DefaultPersistenceProfileItem.Namespace.ValueString()
-					}
-					if !DefaultPersistenceProfileItem.Tenant.IsNull() && !DefaultPersistenceProfileItem.Tenant.IsUnknown() {
-						DefaultPersistenceProfileItemMap["tenant"] = DefaultPersistenceProfileItem.Tenant.ValueString()
-					}
-					if !DefaultPersistenceProfileItem.Uid.IsNull() && !DefaultPersistenceProfileItem.Uid.IsUnknown() {
-						DefaultPersistenceProfileItemMap["uid"] = DefaultPersistenceProfileItem.Uid.ValueString()
 					}
 					DefaultPersistenceProfileList = append(DefaultPersistenceProfileList, DefaultPersistenceProfileItemMap)
 				}
@@ -3886,20 +3852,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var DefaultPoolList []map[string]interface{}
 				for _, DefaultPoolItem := range DefaultPoolElems {
 					DefaultPoolItemMap := make(map[string]interface{})
-					if !DefaultPoolItem.Kind.IsNull() && !DefaultPoolItem.Kind.IsUnknown() {
-						DefaultPoolItemMap["kind"] = DefaultPoolItem.Kind.ValueString()
-					}
 					if !DefaultPoolItem.Name.IsNull() && !DefaultPoolItem.Name.IsUnknown() {
 						DefaultPoolItemMap["name"] = DefaultPoolItem.Name.ValueString()
 					}
 					if !DefaultPoolItem.Namespace.IsNull() && !DefaultPoolItem.Namespace.IsUnknown() {
 						DefaultPoolItemMap["namespace"] = DefaultPoolItem.Namespace.ValueString()
-					}
-					if !DefaultPoolItem.Tenant.IsNull() && !DefaultPoolItem.Tenant.IsUnknown() {
-						DefaultPoolItemMap["tenant"] = DefaultPoolItem.Tenant.ValueString()
-					}
-					if !DefaultPoolItem.Uid.IsNull() && !DefaultPoolItem.Uid.IsUnknown() {
-						DefaultPoolItemMap["uid"] = DefaultPoolItem.Uid.ValueString()
 					}
 					DefaultPoolList = append(DefaultPoolList, DefaultPoolItemMap)
 				}
@@ -3914,20 +3871,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var FallbackPersistenceProfileList []map[string]interface{}
 				for _, FallbackPersistenceProfileItem := range FallbackPersistenceProfileElems {
 					FallbackPersistenceProfileItemMap := make(map[string]interface{})
-					if !FallbackPersistenceProfileItem.Kind.IsNull() && !FallbackPersistenceProfileItem.Kind.IsUnknown() {
-						FallbackPersistenceProfileItemMap["kind"] = FallbackPersistenceProfileItem.Kind.ValueString()
-					}
 					if !FallbackPersistenceProfileItem.Name.IsNull() && !FallbackPersistenceProfileItem.Name.IsUnknown() {
 						FallbackPersistenceProfileItemMap["name"] = FallbackPersistenceProfileItem.Name.ValueString()
 					}
 					if !FallbackPersistenceProfileItem.Namespace.IsNull() && !FallbackPersistenceProfileItem.Namespace.IsUnknown() {
 						FallbackPersistenceProfileItemMap["namespace"] = FallbackPersistenceProfileItem.Namespace.ValueString()
-					}
-					if !FallbackPersistenceProfileItem.Tenant.IsNull() && !FallbackPersistenceProfileItem.Tenant.IsUnknown() {
-						FallbackPersistenceProfileItemMap["tenant"] = FallbackPersistenceProfileItem.Tenant.ValueString()
-					}
-					if !FallbackPersistenceProfileItem.Uid.IsNull() && !FallbackPersistenceProfileItem.Uid.IsUnknown() {
-						FallbackPersistenceProfileItemMap["uid"] = FallbackPersistenceProfileItem.Uid.ValueString()
 					}
 					FallbackPersistenceProfileList = append(FallbackPersistenceProfileList, FallbackPersistenceProfileItemMap)
 				}
@@ -3942,20 +3890,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var FixProfileList []map[string]interface{}
 				for _, FixProfileItem := range FixProfileElems {
 					FixProfileItemMap := make(map[string]interface{})
-					if !FixProfileItem.Kind.IsNull() && !FixProfileItem.Kind.IsUnknown() {
-						FixProfileItemMap["kind"] = FixProfileItem.Kind.ValueString()
-					}
 					if !FixProfileItem.Name.IsNull() && !FixProfileItem.Name.IsUnknown() {
 						FixProfileItemMap["name"] = FixProfileItem.Name.ValueString()
 					}
 					if !FixProfileItem.Namespace.IsNull() && !FixProfileItem.Namespace.IsUnknown() {
 						FixProfileItemMap["namespace"] = FixProfileItem.Namespace.ValueString()
-					}
-					if !FixProfileItem.Tenant.IsNull() && !FixProfileItem.Tenant.IsUnknown() {
-						FixProfileItemMap["tenant"] = FixProfileItem.Tenant.ValueString()
-					}
-					if !FixProfileItem.Uid.IsNull() && !FixProfileItem.Uid.IsUnknown() {
-						FixProfileItemMap["uid"] = FixProfileItem.Uid.ValueString()
 					}
 					FixProfileList = append(FixProfileList, FixProfileItemMap)
 				}
@@ -3972,20 +3911,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -4000,20 +3930,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var Http2ClientProfileList []map[string]interface{}
 					for _, Http2ClientProfileItem := range Http2ClientProfileElems {
 						Http2ClientProfileItemMap := make(map[string]interface{})
-						if !Http2ClientProfileItem.Kind.IsNull() && !Http2ClientProfileItem.Kind.IsUnknown() {
-							Http2ClientProfileItemMap["kind"] = Http2ClientProfileItem.Kind.ValueString()
-						}
 						if !Http2ClientProfileItem.Name.IsNull() && !Http2ClientProfileItem.Name.IsUnknown() {
 							Http2ClientProfileItemMap["name"] = Http2ClientProfileItem.Name.ValueString()
 						}
 						if !Http2ClientProfileItem.Namespace.IsNull() && !Http2ClientProfileItem.Namespace.IsUnknown() {
 							Http2ClientProfileItemMap["namespace"] = Http2ClientProfileItem.Namespace.ValueString()
-						}
-						if !Http2ClientProfileItem.Tenant.IsNull() && !Http2ClientProfileItem.Tenant.IsUnknown() {
-							Http2ClientProfileItemMap["tenant"] = Http2ClientProfileItem.Tenant.ValueString()
-						}
-						if !Http2ClientProfileItem.Uid.IsNull() && !Http2ClientProfileItem.Uid.IsUnknown() {
-							Http2ClientProfileItemMap["uid"] = Http2ClientProfileItem.Uid.ValueString()
 						}
 						Http2ClientProfileList = append(Http2ClientProfileList, Http2ClientProfileItemMap)
 					}
@@ -4028,20 +3949,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var Http2ServerProfileList []map[string]interface{}
 					for _, Http2ServerProfileItem := range Http2ServerProfileElems {
 						Http2ServerProfileItemMap := make(map[string]interface{})
-						if !Http2ServerProfileItem.Kind.IsNull() && !Http2ServerProfileItem.Kind.IsUnknown() {
-							Http2ServerProfileItemMap["kind"] = Http2ServerProfileItem.Kind.ValueString()
-						}
 						if !Http2ServerProfileItem.Name.IsNull() && !Http2ServerProfileItem.Name.IsUnknown() {
 							Http2ServerProfileItemMap["name"] = Http2ServerProfileItem.Name.ValueString()
 						}
 						if !Http2ServerProfileItem.Namespace.IsNull() && !Http2ServerProfileItem.Namespace.IsUnknown() {
 							Http2ServerProfileItemMap["namespace"] = Http2ServerProfileItem.Namespace.ValueString()
-						}
-						if !Http2ServerProfileItem.Tenant.IsNull() && !Http2ServerProfileItem.Tenant.IsUnknown() {
-							Http2ServerProfileItemMap["tenant"] = Http2ServerProfileItem.Tenant.ValueString()
-						}
-						if !Http2ServerProfileItem.Uid.IsNull() && !Http2ServerProfileItem.Uid.IsUnknown() {
-							Http2ServerProfileItemMap["uid"] = Http2ServerProfileItem.Uid.ValueString()
 						}
 						Http2ServerProfileList = append(Http2ServerProfileList, Http2ServerProfileItemMap)
 					}
@@ -4056,20 +3968,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var HTTPClientProfileList []map[string]interface{}
 					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
 						HTTPClientProfileItemMap := make(map[string]interface{})
-						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
-							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
-						}
 						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
 							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
 						}
 						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
 							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
-						}
-						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
-							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
-						}
-						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
-							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
@@ -4084,20 +3987,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var HTTPServerProfileList []map[string]interface{}
 					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
 						HTTPServerProfileItemMap := make(map[string]interface{})
-						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
-							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
-						}
 						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
 							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
 						}
 						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
 							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
-						}
-						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
-							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
-						}
-						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
-							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
@@ -4112,20 +4006,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var OCSPProfileList []map[string]interface{}
 					for _, OCSPProfileItem := range OCSPProfileElems {
 						OCSPProfileItemMap := make(map[string]interface{})
-						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
-							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
-						}
 						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
 							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
 						}
 						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
 							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
-						}
-						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
-							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
-						}
-						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
-							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
 						}
 						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
 					}
@@ -4140,20 +4025,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -4168,20 +4044,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var StreamProfileList []map[string]interface{}
 					for _, StreamProfileItem := range StreamProfileElems {
 						StreamProfileItemMap := make(map[string]interface{})
-						if !StreamProfileItem.Kind.IsNull() && !StreamProfileItem.Kind.IsUnknown() {
-							StreamProfileItemMap["kind"] = StreamProfileItem.Kind.ValueString()
-						}
 						if !StreamProfileItem.Name.IsNull() && !StreamProfileItem.Name.IsUnknown() {
 							StreamProfileItemMap["name"] = StreamProfileItem.Name.ValueString()
 						}
 						if !StreamProfileItem.Namespace.IsNull() && !StreamProfileItem.Namespace.IsUnknown() {
 							StreamProfileItemMap["namespace"] = StreamProfileItem.Namespace.ValueString()
-						}
-						if !StreamProfileItem.Tenant.IsNull() && !StreamProfileItem.Tenant.IsUnknown() {
-							StreamProfileItemMap["tenant"] = StreamProfileItem.Tenant.ValueString()
-						}
-						if !StreamProfileItem.Uid.IsNull() && !StreamProfileItem.Uid.IsUnknown() {
-							StreamProfileItemMap["uid"] = StreamProfileItem.Uid.ValueString()
 						}
 						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
 					}
@@ -4196,20 +4063,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var TCPClientProfileList []map[string]interface{}
 					for _, TCPClientProfileItem := range TCPClientProfileElems {
 						TCPClientProfileItemMap := make(map[string]interface{})
-						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
-							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
-						}
 						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
 							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
 						}
 						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
 							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
-						}
-						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
-							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
-						}
-						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
-							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
@@ -4224,20 +4082,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var TCPServerProfileList []map[string]interface{}
 					for _, TCPServerProfileItem := range TCPServerProfileElems {
 						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
-						}
 						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
 							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
 						}
 						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
 							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
-						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
-						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
@@ -4252,20 +4101,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var WebSocketClientProfileList []map[string]interface{}
 					for _, WebSocketClientProfileItem := range WebSocketClientProfileElems {
 						WebSocketClientProfileItemMap := make(map[string]interface{})
-						if !WebSocketClientProfileItem.Kind.IsNull() && !WebSocketClientProfileItem.Kind.IsUnknown() {
-							WebSocketClientProfileItemMap["kind"] = WebSocketClientProfileItem.Kind.ValueString()
-						}
 						if !WebSocketClientProfileItem.Name.IsNull() && !WebSocketClientProfileItem.Name.IsUnknown() {
 							WebSocketClientProfileItemMap["name"] = WebSocketClientProfileItem.Name.ValueString()
 						}
 						if !WebSocketClientProfileItem.Namespace.IsNull() && !WebSocketClientProfileItem.Namespace.IsUnknown() {
 							WebSocketClientProfileItemMap["namespace"] = WebSocketClientProfileItem.Namespace.ValueString()
-						}
-						if !WebSocketClientProfileItem.Tenant.IsNull() && !WebSocketClientProfileItem.Tenant.IsUnknown() {
-							WebSocketClientProfileItemMap["tenant"] = WebSocketClientProfileItem.Tenant.ValueString()
-						}
-						if !WebSocketClientProfileItem.Uid.IsNull() && !WebSocketClientProfileItem.Uid.IsUnknown() {
-							WebSocketClientProfileItemMap["uid"] = WebSocketClientProfileItem.Uid.ValueString()
 						}
 						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
 					}
@@ -4280,20 +4120,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var WebSocketServerProfileList []map[string]interface{}
 					for _, WebSocketServerProfileItem := range WebSocketServerProfileElems {
 						WebSocketServerProfileItemMap := make(map[string]interface{})
-						if !WebSocketServerProfileItem.Kind.IsNull() && !WebSocketServerProfileItem.Kind.IsUnknown() {
-							WebSocketServerProfileItemMap["kind"] = WebSocketServerProfileItem.Kind.ValueString()
-						}
 						if !WebSocketServerProfileItem.Name.IsNull() && !WebSocketServerProfileItem.Name.IsUnknown() {
 							WebSocketServerProfileItemMap["name"] = WebSocketServerProfileItem.Name.ValueString()
 						}
 						if !WebSocketServerProfileItem.Namespace.IsNull() && !WebSocketServerProfileItem.Namespace.IsUnknown() {
 							WebSocketServerProfileItemMap["namespace"] = WebSocketServerProfileItem.Namespace.ValueString()
-						}
-						if !WebSocketServerProfileItem.Tenant.IsNull() && !WebSocketServerProfileItem.Tenant.IsUnknown() {
-							WebSocketServerProfileItemMap["tenant"] = WebSocketServerProfileItem.Tenant.ValueString()
-						}
-						if !WebSocketServerProfileItem.Uid.IsNull() && !WebSocketServerProfileItem.Uid.IsUnknown() {
-							WebSocketServerProfileItemMap["uid"] = WebSocketServerProfileItem.Uid.ValueString()
 						}
 						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
 					}
@@ -4312,20 +4143,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -4340,20 +4162,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var Http3ProfileList []map[string]interface{}
 					for _, Http3ProfileItem := range Http3ProfileElems {
 						Http3ProfileItemMap := make(map[string]interface{})
-						if !Http3ProfileItem.Kind.IsNull() && !Http3ProfileItem.Kind.IsUnknown() {
-							Http3ProfileItemMap["kind"] = Http3ProfileItem.Kind.ValueString()
-						}
 						if !Http3ProfileItem.Name.IsNull() && !Http3ProfileItem.Name.IsUnknown() {
 							Http3ProfileItemMap["name"] = Http3ProfileItem.Name.ValueString()
 						}
 						if !Http3ProfileItem.Namespace.IsNull() && !Http3ProfileItem.Namespace.IsUnknown() {
 							Http3ProfileItemMap["namespace"] = Http3ProfileItem.Namespace.ValueString()
-						}
-						if !Http3ProfileItem.Tenant.IsNull() && !Http3ProfileItem.Tenant.IsUnknown() {
-							Http3ProfileItemMap["tenant"] = Http3ProfileItem.Tenant.ValueString()
-						}
-						if !Http3ProfileItem.Uid.IsNull() && !Http3ProfileItem.Uid.IsUnknown() {
-							Http3ProfileItemMap["uid"] = Http3ProfileItem.Uid.ValueString()
 						}
 						Http3ProfileList = append(Http3ProfileList, Http3ProfileItemMap)
 					}
@@ -4368,20 +4181,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var HTTPClientProfileList []map[string]interface{}
 					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
 						HTTPClientProfileItemMap := make(map[string]interface{})
-						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
-							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
-						}
 						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
 							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
 						}
 						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
 							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
-						}
-						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
-							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
-						}
-						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
-							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
@@ -4396,20 +4200,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var HTTPServerProfileList []map[string]interface{}
 					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
 						HTTPServerProfileItemMap := make(map[string]interface{})
-						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
-							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
-						}
 						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
 							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
 						}
 						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
 							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
-						}
-						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
-							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
-						}
-						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
-							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
@@ -4424,20 +4219,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var QUICProfileList []map[string]interface{}
 					for _, QUICProfileItem := range QUICProfileElems {
 						QUICProfileItemMap := make(map[string]interface{})
-						if !QUICProfileItem.Kind.IsNull() && !QUICProfileItem.Kind.IsUnknown() {
-							QUICProfileItemMap["kind"] = QUICProfileItem.Kind.ValueString()
-						}
 						if !QUICProfileItem.Name.IsNull() && !QUICProfileItem.Name.IsUnknown() {
 							QUICProfileItemMap["name"] = QUICProfileItem.Name.ValueString()
 						}
 						if !QUICProfileItem.Namespace.IsNull() && !QUICProfileItem.Namespace.IsUnknown() {
 							QUICProfileItemMap["namespace"] = QUICProfileItem.Namespace.ValueString()
-						}
-						if !QUICProfileItem.Tenant.IsNull() && !QUICProfileItem.Tenant.IsUnknown() {
-							QUICProfileItemMap["tenant"] = QUICProfileItem.Tenant.ValueString()
-						}
-						if !QUICProfileItem.Uid.IsNull() && !QUICProfileItem.Uid.IsUnknown() {
-							QUICProfileItemMap["uid"] = QUICProfileItem.Uid.ValueString()
 						}
 						QUICProfileList = append(QUICProfileList, QUICProfileItemMap)
 					}
@@ -4452,20 +4238,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -4480,20 +4257,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var TCPServerProfileList []map[string]interface{}
 					for _, TCPServerProfileItem := range TCPServerProfileElems {
 						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
-						}
 						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
 							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
 						}
 						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
 							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
-						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
-						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
@@ -4508,20 +4276,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var UDPClientProfileList []map[string]interface{}
 					for _, UDPClientProfileItem := range UDPClientProfileElems {
 						UDPClientProfileItemMap := make(map[string]interface{})
-						if !UDPClientProfileItem.Kind.IsNull() && !UDPClientProfileItem.Kind.IsUnknown() {
-							UDPClientProfileItemMap["kind"] = UDPClientProfileItem.Kind.ValueString()
-						}
 						if !UDPClientProfileItem.Name.IsNull() && !UDPClientProfileItem.Name.IsUnknown() {
 							UDPClientProfileItemMap["name"] = UDPClientProfileItem.Name.ValueString()
 						}
 						if !UDPClientProfileItem.Namespace.IsNull() && !UDPClientProfileItem.Namespace.IsUnknown() {
 							UDPClientProfileItemMap["namespace"] = UDPClientProfileItem.Namespace.ValueString()
-						}
-						if !UDPClientProfileItem.Tenant.IsNull() && !UDPClientProfileItem.Tenant.IsUnknown() {
-							UDPClientProfileItemMap["tenant"] = UDPClientProfileItem.Tenant.ValueString()
-						}
-						if !UDPClientProfileItem.Uid.IsNull() && !UDPClientProfileItem.Uid.IsUnknown() {
-							UDPClientProfileItemMap["uid"] = UDPClientProfileItem.Uid.ValueString()
 						}
 						UDPClientProfileList = append(UDPClientProfileList, UDPClientProfileItemMap)
 					}
@@ -4536,20 +4295,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var UDPServerProfileList []map[string]interface{}
 					for _, UDPServerProfileItem := range UDPServerProfileElems {
 						UDPServerProfileItemMap := make(map[string]interface{})
-						if !UDPServerProfileItem.Kind.IsNull() && !UDPServerProfileItem.Kind.IsUnknown() {
-							UDPServerProfileItemMap["kind"] = UDPServerProfileItem.Kind.ValueString()
-						}
 						if !UDPServerProfileItem.Name.IsNull() && !UDPServerProfileItem.Name.IsUnknown() {
 							UDPServerProfileItemMap["name"] = UDPServerProfileItem.Name.ValueString()
 						}
 						if !UDPServerProfileItem.Namespace.IsNull() && !UDPServerProfileItem.Namespace.IsUnknown() {
 							UDPServerProfileItemMap["namespace"] = UDPServerProfileItem.Namespace.ValueString()
-						}
-						if !UDPServerProfileItem.Tenant.IsNull() && !UDPServerProfileItem.Tenant.IsUnknown() {
-							UDPServerProfileItemMap["tenant"] = UDPServerProfileItem.Tenant.ValueString()
-						}
-						if !UDPServerProfileItem.Uid.IsNull() && !UDPServerProfileItem.Uid.IsUnknown() {
-							UDPServerProfileItemMap["uid"] = UDPServerProfileItem.Uid.ValueString()
 						}
 						UDPServerProfileList = append(UDPServerProfileList, UDPServerProfileItemMap)
 					}
@@ -4568,20 +4318,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -4596,20 +4337,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var Http2ClientProfileList []map[string]interface{}
 					for _, Http2ClientProfileItem := range Http2ClientProfileElems {
 						Http2ClientProfileItemMap := make(map[string]interface{})
-						if !Http2ClientProfileItem.Kind.IsNull() && !Http2ClientProfileItem.Kind.IsUnknown() {
-							Http2ClientProfileItemMap["kind"] = Http2ClientProfileItem.Kind.ValueString()
-						}
 						if !Http2ClientProfileItem.Name.IsNull() && !Http2ClientProfileItem.Name.IsUnknown() {
 							Http2ClientProfileItemMap["name"] = Http2ClientProfileItem.Name.ValueString()
 						}
 						if !Http2ClientProfileItem.Namespace.IsNull() && !Http2ClientProfileItem.Namespace.IsUnknown() {
 							Http2ClientProfileItemMap["namespace"] = Http2ClientProfileItem.Namespace.ValueString()
-						}
-						if !Http2ClientProfileItem.Tenant.IsNull() && !Http2ClientProfileItem.Tenant.IsUnknown() {
-							Http2ClientProfileItemMap["tenant"] = Http2ClientProfileItem.Tenant.ValueString()
-						}
-						if !Http2ClientProfileItem.Uid.IsNull() && !Http2ClientProfileItem.Uid.IsUnknown() {
-							Http2ClientProfileItemMap["uid"] = Http2ClientProfileItem.Uid.ValueString()
 						}
 						Http2ClientProfileList = append(Http2ClientProfileList, Http2ClientProfileItemMap)
 					}
@@ -4624,20 +4356,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var Http2ServerProfileList []map[string]interface{}
 					for _, Http2ServerProfileItem := range Http2ServerProfileElems {
 						Http2ServerProfileItemMap := make(map[string]interface{})
-						if !Http2ServerProfileItem.Kind.IsNull() && !Http2ServerProfileItem.Kind.IsUnknown() {
-							Http2ServerProfileItemMap["kind"] = Http2ServerProfileItem.Kind.ValueString()
-						}
 						if !Http2ServerProfileItem.Name.IsNull() && !Http2ServerProfileItem.Name.IsUnknown() {
 							Http2ServerProfileItemMap["name"] = Http2ServerProfileItem.Name.ValueString()
 						}
 						if !Http2ServerProfileItem.Namespace.IsNull() && !Http2ServerProfileItem.Namespace.IsUnknown() {
 							Http2ServerProfileItemMap["namespace"] = Http2ServerProfileItem.Namespace.ValueString()
-						}
-						if !Http2ServerProfileItem.Tenant.IsNull() && !Http2ServerProfileItem.Tenant.IsUnknown() {
-							Http2ServerProfileItemMap["tenant"] = Http2ServerProfileItem.Tenant.ValueString()
-						}
-						if !Http2ServerProfileItem.Uid.IsNull() && !Http2ServerProfileItem.Uid.IsUnknown() {
-							Http2ServerProfileItemMap["uid"] = Http2ServerProfileItem.Uid.ValueString()
 						}
 						Http2ServerProfileList = append(Http2ServerProfileList, Http2ServerProfileItemMap)
 					}
@@ -4652,20 +4375,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var HTTPClientProfileList []map[string]interface{}
 					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
 						HTTPClientProfileItemMap := make(map[string]interface{})
-						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
-							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
-						}
 						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
 							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
 						}
 						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
 							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
-						}
-						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
-							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
-						}
-						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
-							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
@@ -4680,20 +4394,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var HTTPServerProfileList []map[string]interface{}
 					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
 						HTTPServerProfileItemMap := make(map[string]interface{})
-						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
-							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
-						}
 						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
 							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
 						}
 						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
 							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
-						}
-						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
-							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
-						}
-						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
-							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
@@ -4708,20 +4413,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var OCSPProfileList []map[string]interface{}
 					for _, OCSPProfileItem := range OCSPProfileElems {
 						OCSPProfileItemMap := make(map[string]interface{})
-						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
-							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
-						}
 						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
 							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
 						}
 						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
 							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
-						}
-						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
-							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
-						}
-						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
-							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
 						}
 						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
 					}
@@ -4736,20 +4432,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -4764,20 +4451,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var StreamProfileList []map[string]interface{}
 					for _, StreamProfileItem := range StreamProfileElems {
 						StreamProfileItemMap := make(map[string]interface{})
-						if !StreamProfileItem.Kind.IsNull() && !StreamProfileItem.Kind.IsUnknown() {
-							StreamProfileItemMap["kind"] = StreamProfileItem.Kind.ValueString()
-						}
 						if !StreamProfileItem.Name.IsNull() && !StreamProfileItem.Name.IsUnknown() {
 							StreamProfileItemMap["name"] = StreamProfileItem.Name.ValueString()
 						}
 						if !StreamProfileItem.Namespace.IsNull() && !StreamProfileItem.Namespace.IsUnknown() {
 							StreamProfileItemMap["namespace"] = StreamProfileItem.Namespace.ValueString()
-						}
-						if !StreamProfileItem.Tenant.IsNull() && !StreamProfileItem.Tenant.IsUnknown() {
-							StreamProfileItemMap["tenant"] = StreamProfileItem.Tenant.ValueString()
-						}
-						if !StreamProfileItem.Uid.IsNull() && !StreamProfileItem.Uid.IsUnknown() {
-							StreamProfileItemMap["uid"] = StreamProfileItem.Uid.ValueString()
 						}
 						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
 					}
@@ -4792,20 +4470,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var TCPClientProfileList []map[string]interface{}
 					for _, TCPClientProfileItem := range TCPClientProfileElems {
 						TCPClientProfileItemMap := make(map[string]interface{})
-						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
-							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
-						}
 						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
 							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
 						}
 						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
 							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
-						}
-						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
-							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
-						}
-						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
-							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
@@ -4820,20 +4489,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var TCPServerProfileList []map[string]interface{}
 					for _, TCPServerProfileItem := range TCPServerProfileElems {
 						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
-						}
 						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
 							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
 						}
 						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
 							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
-						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
-						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
@@ -4848,20 +4508,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var WebSocketClientProfileList []map[string]interface{}
 					for _, WebSocketClientProfileItem := range WebSocketClientProfileElems {
 						WebSocketClientProfileItemMap := make(map[string]interface{})
-						if !WebSocketClientProfileItem.Kind.IsNull() && !WebSocketClientProfileItem.Kind.IsUnknown() {
-							WebSocketClientProfileItemMap["kind"] = WebSocketClientProfileItem.Kind.ValueString()
-						}
 						if !WebSocketClientProfileItem.Name.IsNull() && !WebSocketClientProfileItem.Name.IsUnknown() {
 							WebSocketClientProfileItemMap["name"] = WebSocketClientProfileItem.Name.ValueString()
 						}
 						if !WebSocketClientProfileItem.Namespace.IsNull() && !WebSocketClientProfileItem.Namespace.IsUnknown() {
 							WebSocketClientProfileItemMap["namespace"] = WebSocketClientProfileItem.Namespace.ValueString()
-						}
-						if !WebSocketClientProfileItem.Tenant.IsNull() && !WebSocketClientProfileItem.Tenant.IsUnknown() {
-							WebSocketClientProfileItemMap["tenant"] = WebSocketClientProfileItem.Tenant.ValueString()
-						}
-						if !WebSocketClientProfileItem.Uid.IsNull() && !WebSocketClientProfileItem.Uid.IsUnknown() {
-							WebSocketClientProfileItemMap["uid"] = WebSocketClientProfileItem.Uid.ValueString()
 						}
 						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
 					}
@@ -4876,20 +4527,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var WebSocketServerProfileList []map[string]interface{}
 					for _, WebSocketServerProfileItem := range WebSocketServerProfileElems {
 						WebSocketServerProfileItemMap := make(map[string]interface{})
-						if !WebSocketServerProfileItem.Kind.IsNull() && !WebSocketServerProfileItem.Kind.IsUnknown() {
-							WebSocketServerProfileItemMap["kind"] = WebSocketServerProfileItem.Kind.ValueString()
-						}
 						if !WebSocketServerProfileItem.Name.IsNull() && !WebSocketServerProfileItem.Name.IsUnknown() {
 							WebSocketServerProfileItemMap["name"] = WebSocketServerProfileItem.Name.ValueString()
 						}
 						if !WebSocketServerProfileItem.Namespace.IsNull() && !WebSocketServerProfileItem.Namespace.IsUnknown() {
 							WebSocketServerProfileItemMap["namespace"] = WebSocketServerProfileItem.Namespace.ValueString()
-						}
-						if !WebSocketServerProfileItem.Tenant.IsNull() && !WebSocketServerProfileItem.Tenant.IsUnknown() {
-							WebSocketServerProfileItemMap["tenant"] = WebSocketServerProfileItem.Tenant.ValueString()
-						}
-						if !WebSocketServerProfileItem.Uid.IsNull() && !WebSocketServerProfileItem.Uid.IsUnknown() {
-							WebSocketServerProfileItemMap["uid"] = WebSocketServerProfileItem.Uid.ValueString()
 						}
 						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
 					}
@@ -4919,20 +4561,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var LastHopPoolList []map[string]interface{}
 				for _, LastHopPoolItem := range LastHopPoolElems {
 					LastHopPoolItemMap := make(map[string]interface{})
-					if !LastHopPoolItem.Kind.IsNull() && !LastHopPoolItem.Kind.IsUnknown() {
-						LastHopPoolItemMap["kind"] = LastHopPoolItem.Kind.ValueString()
-					}
 					if !LastHopPoolItem.Name.IsNull() && !LastHopPoolItem.Name.IsUnknown() {
 						LastHopPoolItemMap["name"] = LastHopPoolItem.Name.ValueString()
 					}
 					if !LastHopPoolItem.Namespace.IsNull() && !LastHopPoolItem.Namespace.IsUnknown() {
 						LastHopPoolItemMap["namespace"] = LastHopPoolItem.Namespace.ValueString()
-					}
-					if !LastHopPoolItem.Tenant.IsNull() && !LastHopPoolItem.Tenant.IsUnknown() {
-						LastHopPoolItemMap["tenant"] = LastHopPoolItem.Tenant.ValueString()
-					}
-					if !LastHopPoolItem.Uid.IsNull() && !LastHopPoolItem.Uid.IsUnknown() {
-						LastHopPoolItemMap["uid"] = LastHopPoolItem.Uid.ValueString()
 					}
 					LastHopPoolList = append(LastHopPoolList, LastHopPoolItemMap)
 				}
@@ -4967,20 +4600,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var RequestLoggingProfileList []map[string]interface{}
 				for _, RequestLoggingProfileItem := range RequestLoggingProfileElems {
 					RequestLoggingProfileItemMap := make(map[string]interface{})
-					if !RequestLoggingProfileItem.Kind.IsNull() && !RequestLoggingProfileItem.Kind.IsUnknown() {
-						RequestLoggingProfileItemMap["kind"] = RequestLoggingProfileItem.Kind.ValueString()
-					}
 					if !RequestLoggingProfileItem.Name.IsNull() && !RequestLoggingProfileItem.Name.IsUnknown() {
 						RequestLoggingProfileItemMap["name"] = RequestLoggingProfileItem.Name.ValueString()
 					}
 					if !RequestLoggingProfileItem.Namespace.IsNull() && !RequestLoggingProfileItem.Namespace.IsUnknown() {
 						RequestLoggingProfileItemMap["namespace"] = RequestLoggingProfileItem.Namespace.ValueString()
-					}
-					if !RequestLoggingProfileItem.Tenant.IsNull() && !RequestLoggingProfileItem.Tenant.IsUnknown() {
-						RequestLoggingProfileItemMap["tenant"] = RequestLoggingProfileItem.Tenant.ValueString()
-					}
-					if !RequestLoggingProfileItem.Uid.IsNull() && !RequestLoggingProfileItem.Uid.IsUnknown() {
-						RequestLoggingProfileItemMap["uid"] = RequestLoggingProfileItem.Uid.ValueString()
 					}
 					RequestLoggingProfileList = append(RequestLoggingProfileList, RequestLoggingProfileItemMap)
 				}
@@ -5008,20 +4632,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				var StatisticsProfileList []map[string]interface{}
 				for _, StatisticsProfileItem := range StatisticsProfileElems {
 					StatisticsProfileItemMap := make(map[string]interface{})
-					if !StatisticsProfileItem.Kind.IsNull() && !StatisticsProfileItem.Kind.IsUnknown() {
-						StatisticsProfileItemMap["kind"] = StatisticsProfileItem.Kind.ValueString()
-					}
 					if !StatisticsProfileItem.Name.IsNull() && !StatisticsProfileItem.Name.IsUnknown() {
 						StatisticsProfileItemMap["name"] = StatisticsProfileItem.Name.ValueString()
 					}
 					if !StatisticsProfileItem.Namespace.IsNull() && !StatisticsProfileItem.Namespace.IsUnknown() {
 						StatisticsProfileItemMap["namespace"] = StatisticsProfileItem.Namespace.ValueString()
-					}
-					if !StatisticsProfileItem.Tenant.IsNull() && !StatisticsProfileItem.Tenant.IsUnknown() {
-						StatisticsProfileItemMap["tenant"] = StatisticsProfileItem.Tenant.ValueString()
-					}
-					if !StatisticsProfileItem.Uid.IsNull() && !StatisticsProfileItem.Uid.IsUnknown() {
-						StatisticsProfileItemMap["uid"] = StatisticsProfileItem.Uid.ValueString()
 					}
 					StatisticsProfileList = append(StatisticsProfileList, StatisticsProfileItemMap)
 				}
@@ -5038,20 +4653,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -5066,20 +4672,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var OCSPProfileList []map[string]interface{}
 					for _, OCSPProfileItem := range OCSPProfileElems {
 						OCSPProfileItemMap := make(map[string]interface{})
-						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
-							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
-						}
 						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
 							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
 						}
 						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
 							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
-						}
-						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
-							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
-						}
-						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
-							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
 						}
 						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
 					}
@@ -5094,20 +4691,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -5122,20 +4710,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var TCPClientProfileList []map[string]interface{}
 					for _, TCPClientProfileItem := range TCPClientProfileElems {
 						TCPClientProfileItemMap := make(map[string]interface{})
-						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
-							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
-						}
 						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
 							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
 						}
 						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
 							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
-						}
-						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
-							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
-						}
-						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
-							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
@@ -5150,20 +4729,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var TCPServerProfileList []map[string]interface{}
 					for _, TCPServerProfileItem := range TCPServerProfileElems {
 						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
-						}
 						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
 							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
 						}
 						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
 							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
-						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
-						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
@@ -5182,20 +4752,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -5210,20 +4771,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -5238,20 +4790,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var UDPClientProfileList []map[string]interface{}
 					for _, UDPClientProfileItem := range UDPClientProfileElems {
 						UDPClientProfileItemMap := make(map[string]interface{})
-						if !UDPClientProfileItem.Kind.IsNull() && !UDPClientProfileItem.Kind.IsUnknown() {
-							UDPClientProfileItemMap["kind"] = UDPClientProfileItem.Kind.ValueString()
-						}
 						if !UDPClientProfileItem.Name.IsNull() && !UDPClientProfileItem.Name.IsUnknown() {
 							UDPClientProfileItemMap["name"] = UDPClientProfileItem.Name.ValueString()
 						}
 						if !UDPClientProfileItem.Namespace.IsNull() && !UDPClientProfileItem.Namespace.IsUnknown() {
 							UDPClientProfileItemMap["namespace"] = UDPClientProfileItem.Namespace.ValueString()
-						}
-						if !UDPClientProfileItem.Tenant.IsNull() && !UDPClientProfileItem.Tenant.IsUnknown() {
-							UDPClientProfileItemMap["tenant"] = UDPClientProfileItem.Tenant.ValueString()
-						}
-						if !UDPClientProfileItem.Uid.IsNull() && !UDPClientProfileItem.Uid.IsUnknown() {
-							UDPClientProfileItemMap["uid"] = UDPClientProfileItem.Uid.ValueString()
 						}
 						UDPClientProfileList = append(UDPClientProfileList, UDPClientProfileItemMap)
 					}
@@ -5266,20 +4809,11 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 					var UDPServerProfileList []map[string]interface{}
 					for _, UDPServerProfileItem := range UDPServerProfileElems {
 						UDPServerProfileItemMap := make(map[string]interface{})
-						if !UDPServerProfileItem.Kind.IsNull() && !UDPServerProfileItem.Kind.IsUnknown() {
-							UDPServerProfileItemMap["kind"] = UDPServerProfileItem.Kind.ValueString()
-						}
 						if !UDPServerProfileItem.Name.IsNull() && !UDPServerProfileItem.Name.IsUnknown() {
 							UDPServerProfileItemMap["name"] = UDPServerProfileItem.Name.ValueString()
 						}
 						if !UDPServerProfileItem.Namespace.IsNull() && !UDPServerProfileItem.Namespace.IsUnknown() {
 							UDPServerProfileItemMap["namespace"] = UDPServerProfileItem.Namespace.ValueString()
-						}
-						if !UDPServerProfileItem.Tenant.IsNull() && !UDPServerProfileItem.Tenant.IsUnknown() {
-							UDPServerProfileItemMap["tenant"] = UDPServerProfileItem.Tenant.ValueString()
-						}
-						if !UDPServerProfileItem.Uid.IsNull() && !UDPServerProfileItem.Uid.IsUnknown() {
-							UDPServerProfileItemMap["uid"] = UDPServerProfileItem.Uid.ValueString()
 						}
 						UDPServerProfileList = append(UDPServerProfileList, UDPServerProfileItemMap)
 					}
@@ -5310,11 +4844,28 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetApplicationProfiles(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -8560,6 +8111,16 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ApplicationProfiles: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -11852,6 +11413,20 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.ApplicationProfiles{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -11859,6 +11434,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -11931,20 +11507,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			var IrulesList []map[string]interface{}
 			for _, IrulesItem := range IrulesElems {
 				IrulesItemMap := make(map[string]interface{})
-				if !IrulesItem.Kind.IsNull() && !IrulesItem.Kind.IsUnknown() {
-					IrulesItemMap["kind"] = IrulesItem.Kind.ValueString()
-				}
 				if !IrulesItem.Name.IsNull() && !IrulesItem.Name.IsUnknown() {
 					IrulesItemMap["name"] = IrulesItem.Name.ValueString()
 				}
 				if !IrulesItem.Namespace.IsNull() && !IrulesItem.Namespace.IsUnknown() {
 					IrulesItemMap["namespace"] = IrulesItem.Namespace.ValueString()
-				}
-				if !IrulesItem.Tenant.IsNull() && !IrulesItem.Tenant.IsUnknown() {
-					IrulesItemMap["tenant"] = IrulesItem.Tenant.ValueString()
-				}
-				if !IrulesItem.Uid.IsNull() && !IrulesItem.Uid.IsUnknown() {
-					IrulesItemMap["uid"] = IrulesItem.Uid.ValueString()
 				}
 				IrulesList = append(IrulesList, IrulesItemMap)
 			}
@@ -11984,20 +11551,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var ClonePoolClientList []map[string]interface{}
 				for _, ClonePoolClientItem := range ClonePoolClientElems {
 					ClonePoolClientItemMap := make(map[string]interface{})
-					if !ClonePoolClientItem.Kind.IsNull() && !ClonePoolClientItem.Kind.IsUnknown() {
-						ClonePoolClientItemMap["kind"] = ClonePoolClientItem.Kind.ValueString()
-					}
 					if !ClonePoolClientItem.Name.IsNull() && !ClonePoolClientItem.Name.IsUnknown() {
 						ClonePoolClientItemMap["name"] = ClonePoolClientItem.Name.ValueString()
 					}
 					if !ClonePoolClientItem.Namespace.IsNull() && !ClonePoolClientItem.Namespace.IsUnknown() {
 						ClonePoolClientItemMap["namespace"] = ClonePoolClientItem.Namespace.ValueString()
-					}
-					if !ClonePoolClientItem.Tenant.IsNull() && !ClonePoolClientItem.Tenant.IsUnknown() {
-						ClonePoolClientItemMap["tenant"] = ClonePoolClientItem.Tenant.ValueString()
-					}
-					if !ClonePoolClientItem.Uid.IsNull() && !ClonePoolClientItem.Uid.IsUnknown() {
-						ClonePoolClientItemMap["uid"] = ClonePoolClientItem.Uid.ValueString()
 					}
 					ClonePoolClientList = append(ClonePoolClientList, ClonePoolClientItemMap)
 				}
@@ -12012,20 +11570,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var ClonePoolServerList []map[string]interface{}
 				for _, ClonePoolServerItem := range ClonePoolServerElems {
 					ClonePoolServerItemMap := make(map[string]interface{})
-					if !ClonePoolServerItem.Kind.IsNull() && !ClonePoolServerItem.Kind.IsUnknown() {
-						ClonePoolServerItemMap["kind"] = ClonePoolServerItem.Kind.ValueString()
-					}
 					if !ClonePoolServerItem.Name.IsNull() && !ClonePoolServerItem.Name.IsUnknown() {
 						ClonePoolServerItemMap["name"] = ClonePoolServerItem.Name.ValueString()
 					}
 					if !ClonePoolServerItem.Namespace.IsNull() && !ClonePoolServerItem.Namespace.IsUnknown() {
 						ClonePoolServerItemMap["namespace"] = ClonePoolServerItem.Namespace.ValueString()
-					}
-					if !ClonePoolServerItem.Tenant.IsNull() && !ClonePoolServerItem.Tenant.IsUnknown() {
-						ClonePoolServerItemMap["tenant"] = ClonePoolServerItem.Tenant.ValueString()
-					}
-					if !ClonePoolServerItem.Uid.IsNull() && !ClonePoolServerItem.Uid.IsUnknown() {
-						ClonePoolServerItemMap["uid"] = ClonePoolServerItem.Uid.ValueString()
 					}
 					ClonePoolServerList = append(ClonePoolServerList, ClonePoolServerItemMap)
 				}
@@ -12101,20 +11650,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var DefaultPersistenceProfileList []map[string]interface{}
 				for _, DefaultPersistenceProfileItem := range DefaultPersistenceProfileElems {
 					DefaultPersistenceProfileItemMap := make(map[string]interface{})
-					if !DefaultPersistenceProfileItem.Kind.IsNull() && !DefaultPersistenceProfileItem.Kind.IsUnknown() {
-						DefaultPersistenceProfileItemMap["kind"] = DefaultPersistenceProfileItem.Kind.ValueString()
-					}
 					if !DefaultPersistenceProfileItem.Name.IsNull() && !DefaultPersistenceProfileItem.Name.IsUnknown() {
 						DefaultPersistenceProfileItemMap["name"] = DefaultPersistenceProfileItem.Name.ValueString()
 					}
 					if !DefaultPersistenceProfileItem.Namespace.IsNull() && !DefaultPersistenceProfileItem.Namespace.IsUnknown() {
 						DefaultPersistenceProfileItemMap["namespace"] = DefaultPersistenceProfileItem.Namespace.ValueString()
-					}
-					if !DefaultPersistenceProfileItem.Tenant.IsNull() && !DefaultPersistenceProfileItem.Tenant.IsUnknown() {
-						DefaultPersistenceProfileItemMap["tenant"] = DefaultPersistenceProfileItem.Tenant.ValueString()
-					}
-					if !DefaultPersistenceProfileItem.Uid.IsNull() && !DefaultPersistenceProfileItem.Uid.IsUnknown() {
-						DefaultPersistenceProfileItemMap["uid"] = DefaultPersistenceProfileItem.Uid.ValueString()
 					}
 					DefaultPersistenceProfileList = append(DefaultPersistenceProfileList, DefaultPersistenceProfileItemMap)
 				}
@@ -12129,20 +11669,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var DefaultPoolList []map[string]interface{}
 				for _, DefaultPoolItem := range DefaultPoolElems {
 					DefaultPoolItemMap := make(map[string]interface{})
-					if !DefaultPoolItem.Kind.IsNull() && !DefaultPoolItem.Kind.IsUnknown() {
-						DefaultPoolItemMap["kind"] = DefaultPoolItem.Kind.ValueString()
-					}
 					if !DefaultPoolItem.Name.IsNull() && !DefaultPoolItem.Name.IsUnknown() {
 						DefaultPoolItemMap["name"] = DefaultPoolItem.Name.ValueString()
 					}
 					if !DefaultPoolItem.Namespace.IsNull() && !DefaultPoolItem.Namespace.IsUnknown() {
 						DefaultPoolItemMap["namespace"] = DefaultPoolItem.Namespace.ValueString()
-					}
-					if !DefaultPoolItem.Tenant.IsNull() && !DefaultPoolItem.Tenant.IsUnknown() {
-						DefaultPoolItemMap["tenant"] = DefaultPoolItem.Tenant.ValueString()
-					}
-					if !DefaultPoolItem.Uid.IsNull() && !DefaultPoolItem.Uid.IsUnknown() {
-						DefaultPoolItemMap["uid"] = DefaultPoolItem.Uid.ValueString()
 					}
 					DefaultPoolList = append(DefaultPoolList, DefaultPoolItemMap)
 				}
@@ -12157,20 +11688,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var FallbackPersistenceProfileList []map[string]interface{}
 				for _, FallbackPersistenceProfileItem := range FallbackPersistenceProfileElems {
 					FallbackPersistenceProfileItemMap := make(map[string]interface{})
-					if !FallbackPersistenceProfileItem.Kind.IsNull() && !FallbackPersistenceProfileItem.Kind.IsUnknown() {
-						FallbackPersistenceProfileItemMap["kind"] = FallbackPersistenceProfileItem.Kind.ValueString()
-					}
 					if !FallbackPersistenceProfileItem.Name.IsNull() && !FallbackPersistenceProfileItem.Name.IsUnknown() {
 						FallbackPersistenceProfileItemMap["name"] = FallbackPersistenceProfileItem.Name.ValueString()
 					}
 					if !FallbackPersistenceProfileItem.Namespace.IsNull() && !FallbackPersistenceProfileItem.Namespace.IsUnknown() {
 						FallbackPersistenceProfileItemMap["namespace"] = FallbackPersistenceProfileItem.Namespace.ValueString()
-					}
-					if !FallbackPersistenceProfileItem.Tenant.IsNull() && !FallbackPersistenceProfileItem.Tenant.IsUnknown() {
-						FallbackPersistenceProfileItemMap["tenant"] = FallbackPersistenceProfileItem.Tenant.ValueString()
-					}
-					if !FallbackPersistenceProfileItem.Uid.IsNull() && !FallbackPersistenceProfileItem.Uid.IsUnknown() {
-						FallbackPersistenceProfileItemMap["uid"] = FallbackPersistenceProfileItem.Uid.ValueString()
 					}
 					FallbackPersistenceProfileList = append(FallbackPersistenceProfileList, FallbackPersistenceProfileItemMap)
 				}
@@ -12185,20 +11707,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var FixProfileList []map[string]interface{}
 				for _, FixProfileItem := range FixProfileElems {
 					FixProfileItemMap := make(map[string]interface{})
-					if !FixProfileItem.Kind.IsNull() && !FixProfileItem.Kind.IsUnknown() {
-						FixProfileItemMap["kind"] = FixProfileItem.Kind.ValueString()
-					}
 					if !FixProfileItem.Name.IsNull() && !FixProfileItem.Name.IsUnknown() {
 						FixProfileItemMap["name"] = FixProfileItem.Name.ValueString()
 					}
 					if !FixProfileItem.Namespace.IsNull() && !FixProfileItem.Namespace.IsUnknown() {
 						FixProfileItemMap["namespace"] = FixProfileItem.Namespace.ValueString()
-					}
-					if !FixProfileItem.Tenant.IsNull() && !FixProfileItem.Tenant.IsUnknown() {
-						FixProfileItemMap["tenant"] = FixProfileItem.Tenant.ValueString()
-					}
-					if !FixProfileItem.Uid.IsNull() && !FixProfileItem.Uid.IsUnknown() {
-						FixProfileItemMap["uid"] = FixProfileItem.Uid.ValueString()
 					}
 					FixProfileList = append(FixProfileList, FixProfileItemMap)
 				}
@@ -12215,20 +11728,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -12243,20 +11747,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var Http2ClientProfileList []map[string]interface{}
 					for _, Http2ClientProfileItem := range Http2ClientProfileElems {
 						Http2ClientProfileItemMap := make(map[string]interface{})
-						if !Http2ClientProfileItem.Kind.IsNull() && !Http2ClientProfileItem.Kind.IsUnknown() {
-							Http2ClientProfileItemMap["kind"] = Http2ClientProfileItem.Kind.ValueString()
-						}
 						if !Http2ClientProfileItem.Name.IsNull() && !Http2ClientProfileItem.Name.IsUnknown() {
 							Http2ClientProfileItemMap["name"] = Http2ClientProfileItem.Name.ValueString()
 						}
 						if !Http2ClientProfileItem.Namespace.IsNull() && !Http2ClientProfileItem.Namespace.IsUnknown() {
 							Http2ClientProfileItemMap["namespace"] = Http2ClientProfileItem.Namespace.ValueString()
-						}
-						if !Http2ClientProfileItem.Tenant.IsNull() && !Http2ClientProfileItem.Tenant.IsUnknown() {
-							Http2ClientProfileItemMap["tenant"] = Http2ClientProfileItem.Tenant.ValueString()
-						}
-						if !Http2ClientProfileItem.Uid.IsNull() && !Http2ClientProfileItem.Uid.IsUnknown() {
-							Http2ClientProfileItemMap["uid"] = Http2ClientProfileItem.Uid.ValueString()
 						}
 						Http2ClientProfileList = append(Http2ClientProfileList, Http2ClientProfileItemMap)
 					}
@@ -12271,20 +11766,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var Http2ServerProfileList []map[string]interface{}
 					for _, Http2ServerProfileItem := range Http2ServerProfileElems {
 						Http2ServerProfileItemMap := make(map[string]interface{})
-						if !Http2ServerProfileItem.Kind.IsNull() && !Http2ServerProfileItem.Kind.IsUnknown() {
-							Http2ServerProfileItemMap["kind"] = Http2ServerProfileItem.Kind.ValueString()
-						}
 						if !Http2ServerProfileItem.Name.IsNull() && !Http2ServerProfileItem.Name.IsUnknown() {
 							Http2ServerProfileItemMap["name"] = Http2ServerProfileItem.Name.ValueString()
 						}
 						if !Http2ServerProfileItem.Namespace.IsNull() && !Http2ServerProfileItem.Namespace.IsUnknown() {
 							Http2ServerProfileItemMap["namespace"] = Http2ServerProfileItem.Namespace.ValueString()
-						}
-						if !Http2ServerProfileItem.Tenant.IsNull() && !Http2ServerProfileItem.Tenant.IsUnknown() {
-							Http2ServerProfileItemMap["tenant"] = Http2ServerProfileItem.Tenant.ValueString()
-						}
-						if !Http2ServerProfileItem.Uid.IsNull() && !Http2ServerProfileItem.Uid.IsUnknown() {
-							Http2ServerProfileItemMap["uid"] = Http2ServerProfileItem.Uid.ValueString()
 						}
 						Http2ServerProfileList = append(Http2ServerProfileList, Http2ServerProfileItemMap)
 					}
@@ -12299,20 +11785,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var HTTPClientProfileList []map[string]interface{}
 					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
 						HTTPClientProfileItemMap := make(map[string]interface{})
-						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
-							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
-						}
 						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
 							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
 						}
 						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
 							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
-						}
-						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
-							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
-						}
-						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
-							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
@@ -12327,20 +11804,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var HTTPServerProfileList []map[string]interface{}
 					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
 						HTTPServerProfileItemMap := make(map[string]interface{})
-						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
-							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
-						}
 						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
 							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
 						}
 						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
 							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
-						}
-						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
-							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
-						}
-						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
-							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
@@ -12355,20 +11823,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var OCSPProfileList []map[string]interface{}
 					for _, OCSPProfileItem := range OCSPProfileElems {
 						OCSPProfileItemMap := make(map[string]interface{})
-						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
-							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
-						}
 						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
 							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
 						}
 						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
 							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
-						}
-						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
-							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
-						}
-						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
-							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
 						}
 						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
 					}
@@ -12383,20 +11842,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -12411,20 +11861,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var StreamProfileList []map[string]interface{}
 					for _, StreamProfileItem := range StreamProfileElems {
 						StreamProfileItemMap := make(map[string]interface{})
-						if !StreamProfileItem.Kind.IsNull() && !StreamProfileItem.Kind.IsUnknown() {
-							StreamProfileItemMap["kind"] = StreamProfileItem.Kind.ValueString()
-						}
 						if !StreamProfileItem.Name.IsNull() && !StreamProfileItem.Name.IsUnknown() {
 							StreamProfileItemMap["name"] = StreamProfileItem.Name.ValueString()
 						}
 						if !StreamProfileItem.Namespace.IsNull() && !StreamProfileItem.Namespace.IsUnknown() {
 							StreamProfileItemMap["namespace"] = StreamProfileItem.Namespace.ValueString()
-						}
-						if !StreamProfileItem.Tenant.IsNull() && !StreamProfileItem.Tenant.IsUnknown() {
-							StreamProfileItemMap["tenant"] = StreamProfileItem.Tenant.ValueString()
-						}
-						if !StreamProfileItem.Uid.IsNull() && !StreamProfileItem.Uid.IsUnknown() {
-							StreamProfileItemMap["uid"] = StreamProfileItem.Uid.ValueString()
 						}
 						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
 					}
@@ -12439,20 +11880,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var TCPClientProfileList []map[string]interface{}
 					for _, TCPClientProfileItem := range TCPClientProfileElems {
 						TCPClientProfileItemMap := make(map[string]interface{})
-						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
-							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
-						}
 						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
 							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
 						}
 						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
 							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
-						}
-						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
-							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
-						}
-						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
-							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
@@ -12467,20 +11899,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var TCPServerProfileList []map[string]interface{}
 					for _, TCPServerProfileItem := range TCPServerProfileElems {
 						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
-						}
 						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
 							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
 						}
 						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
 							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
-						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
-						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
@@ -12495,20 +11918,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var WebSocketClientProfileList []map[string]interface{}
 					for _, WebSocketClientProfileItem := range WebSocketClientProfileElems {
 						WebSocketClientProfileItemMap := make(map[string]interface{})
-						if !WebSocketClientProfileItem.Kind.IsNull() && !WebSocketClientProfileItem.Kind.IsUnknown() {
-							WebSocketClientProfileItemMap["kind"] = WebSocketClientProfileItem.Kind.ValueString()
-						}
 						if !WebSocketClientProfileItem.Name.IsNull() && !WebSocketClientProfileItem.Name.IsUnknown() {
 							WebSocketClientProfileItemMap["name"] = WebSocketClientProfileItem.Name.ValueString()
 						}
 						if !WebSocketClientProfileItem.Namespace.IsNull() && !WebSocketClientProfileItem.Namespace.IsUnknown() {
 							WebSocketClientProfileItemMap["namespace"] = WebSocketClientProfileItem.Namespace.ValueString()
-						}
-						if !WebSocketClientProfileItem.Tenant.IsNull() && !WebSocketClientProfileItem.Tenant.IsUnknown() {
-							WebSocketClientProfileItemMap["tenant"] = WebSocketClientProfileItem.Tenant.ValueString()
-						}
-						if !WebSocketClientProfileItem.Uid.IsNull() && !WebSocketClientProfileItem.Uid.IsUnknown() {
-							WebSocketClientProfileItemMap["uid"] = WebSocketClientProfileItem.Uid.ValueString()
 						}
 						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
 					}
@@ -12523,20 +11937,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var WebSocketServerProfileList []map[string]interface{}
 					for _, WebSocketServerProfileItem := range WebSocketServerProfileElems {
 						WebSocketServerProfileItemMap := make(map[string]interface{})
-						if !WebSocketServerProfileItem.Kind.IsNull() && !WebSocketServerProfileItem.Kind.IsUnknown() {
-							WebSocketServerProfileItemMap["kind"] = WebSocketServerProfileItem.Kind.ValueString()
-						}
 						if !WebSocketServerProfileItem.Name.IsNull() && !WebSocketServerProfileItem.Name.IsUnknown() {
 							WebSocketServerProfileItemMap["name"] = WebSocketServerProfileItem.Name.ValueString()
 						}
 						if !WebSocketServerProfileItem.Namespace.IsNull() && !WebSocketServerProfileItem.Namespace.IsUnknown() {
 							WebSocketServerProfileItemMap["namespace"] = WebSocketServerProfileItem.Namespace.ValueString()
-						}
-						if !WebSocketServerProfileItem.Tenant.IsNull() && !WebSocketServerProfileItem.Tenant.IsUnknown() {
-							WebSocketServerProfileItemMap["tenant"] = WebSocketServerProfileItem.Tenant.ValueString()
-						}
-						if !WebSocketServerProfileItem.Uid.IsNull() && !WebSocketServerProfileItem.Uid.IsUnknown() {
-							WebSocketServerProfileItemMap["uid"] = WebSocketServerProfileItem.Uid.ValueString()
 						}
 						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
 					}
@@ -12555,20 +11960,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -12583,20 +11979,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var Http3ProfileList []map[string]interface{}
 					for _, Http3ProfileItem := range Http3ProfileElems {
 						Http3ProfileItemMap := make(map[string]interface{})
-						if !Http3ProfileItem.Kind.IsNull() && !Http3ProfileItem.Kind.IsUnknown() {
-							Http3ProfileItemMap["kind"] = Http3ProfileItem.Kind.ValueString()
-						}
 						if !Http3ProfileItem.Name.IsNull() && !Http3ProfileItem.Name.IsUnknown() {
 							Http3ProfileItemMap["name"] = Http3ProfileItem.Name.ValueString()
 						}
 						if !Http3ProfileItem.Namespace.IsNull() && !Http3ProfileItem.Namespace.IsUnknown() {
 							Http3ProfileItemMap["namespace"] = Http3ProfileItem.Namespace.ValueString()
-						}
-						if !Http3ProfileItem.Tenant.IsNull() && !Http3ProfileItem.Tenant.IsUnknown() {
-							Http3ProfileItemMap["tenant"] = Http3ProfileItem.Tenant.ValueString()
-						}
-						if !Http3ProfileItem.Uid.IsNull() && !Http3ProfileItem.Uid.IsUnknown() {
-							Http3ProfileItemMap["uid"] = Http3ProfileItem.Uid.ValueString()
 						}
 						Http3ProfileList = append(Http3ProfileList, Http3ProfileItemMap)
 					}
@@ -12611,20 +11998,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var HTTPClientProfileList []map[string]interface{}
 					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
 						HTTPClientProfileItemMap := make(map[string]interface{})
-						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
-							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
-						}
 						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
 							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
 						}
 						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
 							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
-						}
-						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
-							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
-						}
-						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
-							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
@@ -12639,20 +12017,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var HTTPServerProfileList []map[string]interface{}
 					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
 						HTTPServerProfileItemMap := make(map[string]interface{})
-						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
-							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
-						}
 						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
 							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
 						}
 						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
 							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
-						}
-						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
-							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
-						}
-						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
-							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
@@ -12667,20 +12036,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var QUICProfileList []map[string]interface{}
 					for _, QUICProfileItem := range QUICProfileElems {
 						QUICProfileItemMap := make(map[string]interface{})
-						if !QUICProfileItem.Kind.IsNull() && !QUICProfileItem.Kind.IsUnknown() {
-							QUICProfileItemMap["kind"] = QUICProfileItem.Kind.ValueString()
-						}
 						if !QUICProfileItem.Name.IsNull() && !QUICProfileItem.Name.IsUnknown() {
 							QUICProfileItemMap["name"] = QUICProfileItem.Name.ValueString()
 						}
 						if !QUICProfileItem.Namespace.IsNull() && !QUICProfileItem.Namespace.IsUnknown() {
 							QUICProfileItemMap["namespace"] = QUICProfileItem.Namespace.ValueString()
-						}
-						if !QUICProfileItem.Tenant.IsNull() && !QUICProfileItem.Tenant.IsUnknown() {
-							QUICProfileItemMap["tenant"] = QUICProfileItem.Tenant.ValueString()
-						}
-						if !QUICProfileItem.Uid.IsNull() && !QUICProfileItem.Uid.IsUnknown() {
-							QUICProfileItemMap["uid"] = QUICProfileItem.Uid.ValueString()
 						}
 						QUICProfileList = append(QUICProfileList, QUICProfileItemMap)
 					}
@@ -12695,20 +12055,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -12723,20 +12074,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var TCPServerProfileList []map[string]interface{}
 					for _, TCPServerProfileItem := range TCPServerProfileElems {
 						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
-						}
 						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
 							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
 						}
 						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
 							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
-						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
-						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
@@ -12751,20 +12093,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var UDPClientProfileList []map[string]interface{}
 					for _, UDPClientProfileItem := range UDPClientProfileElems {
 						UDPClientProfileItemMap := make(map[string]interface{})
-						if !UDPClientProfileItem.Kind.IsNull() && !UDPClientProfileItem.Kind.IsUnknown() {
-							UDPClientProfileItemMap["kind"] = UDPClientProfileItem.Kind.ValueString()
-						}
 						if !UDPClientProfileItem.Name.IsNull() && !UDPClientProfileItem.Name.IsUnknown() {
 							UDPClientProfileItemMap["name"] = UDPClientProfileItem.Name.ValueString()
 						}
 						if !UDPClientProfileItem.Namespace.IsNull() && !UDPClientProfileItem.Namespace.IsUnknown() {
 							UDPClientProfileItemMap["namespace"] = UDPClientProfileItem.Namespace.ValueString()
-						}
-						if !UDPClientProfileItem.Tenant.IsNull() && !UDPClientProfileItem.Tenant.IsUnknown() {
-							UDPClientProfileItemMap["tenant"] = UDPClientProfileItem.Tenant.ValueString()
-						}
-						if !UDPClientProfileItem.Uid.IsNull() && !UDPClientProfileItem.Uid.IsUnknown() {
-							UDPClientProfileItemMap["uid"] = UDPClientProfileItem.Uid.ValueString()
 						}
 						UDPClientProfileList = append(UDPClientProfileList, UDPClientProfileItemMap)
 					}
@@ -12779,20 +12112,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var UDPServerProfileList []map[string]interface{}
 					for _, UDPServerProfileItem := range UDPServerProfileElems {
 						UDPServerProfileItemMap := make(map[string]interface{})
-						if !UDPServerProfileItem.Kind.IsNull() && !UDPServerProfileItem.Kind.IsUnknown() {
-							UDPServerProfileItemMap["kind"] = UDPServerProfileItem.Kind.ValueString()
-						}
 						if !UDPServerProfileItem.Name.IsNull() && !UDPServerProfileItem.Name.IsUnknown() {
 							UDPServerProfileItemMap["name"] = UDPServerProfileItem.Name.ValueString()
 						}
 						if !UDPServerProfileItem.Namespace.IsNull() && !UDPServerProfileItem.Namespace.IsUnknown() {
 							UDPServerProfileItemMap["namespace"] = UDPServerProfileItem.Namespace.ValueString()
-						}
-						if !UDPServerProfileItem.Tenant.IsNull() && !UDPServerProfileItem.Tenant.IsUnknown() {
-							UDPServerProfileItemMap["tenant"] = UDPServerProfileItem.Tenant.ValueString()
-						}
-						if !UDPServerProfileItem.Uid.IsNull() && !UDPServerProfileItem.Uid.IsUnknown() {
-							UDPServerProfileItemMap["uid"] = UDPServerProfileItem.Uid.ValueString()
 						}
 						UDPServerProfileList = append(UDPServerProfileList, UDPServerProfileItemMap)
 					}
@@ -12811,20 +12135,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -12839,20 +12154,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var Http2ClientProfileList []map[string]interface{}
 					for _, Http2ClientProfileItem := range Http2ClientProfileElems {
 						Http2ClientProfileItemMap := make(map[string]interface{})
-						if !Http2ClientProfileItem.Kind.IsNull() && !Http2ClientProfileItem.Kind.IsUnknown() {
-							Http2ClientProfileItemMap["kind"] = Http2ClientProfileItem.Kind.ValueString()
-						}
 						if !Http2ClientProfileItem.Name.IsNull() && !Http2ClientProfileItem.Name.IsUnknown() {
 							Http2ClientProfileItemMap["name"] = Http2ClientProfileItem.Name.ValueString()
 						}
 						if !Http2ClientProfileItem.Namespace.IsNull() && !Http2ClientProfileItem.Namespace.IsUnknown() {
 							Http2ClientProfileItemMap["namespace"] = Http2ClientProfileItem.Namespace.ValueString()
-						}
-						if !Http2ClientProfileItem.Tenant.IsNull() && !Http2ClientProfileItem.Tenant.IsUnknown() {
-							Http2ClientProfileItemMap["tenant"] = Http2ClientProfileItem.Tenant.ValueString()
-						}
-						if !Http2ClientProfileItem.Uid.IsNull() && !Http2ClientProfileItem.Uid.IsUnknown() {
-							Http2ClientProfileItemMap["uid"] = Http2ClientProfileItem.Uid.ValueString()
 						}
 						Http2ClientProfileList = append(Http2ClientProfileList, Http2ClientProfileItemMap)
 					}
@@ -12867,20 +12173,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var Http2ServerProfileList []map[string]interface{}
 					for _, Http2ServerProfileItem := range Http2ServerProfileElems {
 						Http2ServerProfileItemMap := make(map[string]interface{})
-						if !Http2ServerProfileItem.Kind.IsNull() && !Http2ServerProfileItem.Kind.IsUnknown() {
-							Http2ServerProfileItemMap["kind"] = Http2ServerProfileItem.Kind.ValueString()
-						}
 						if !Http2ServerProfileItem.Name.IsNull() && !Http2ServerProfileItem.Name.IsUnknown() {
 							Http2ServerProfileItemMap["name"] = Http2ServerProfileItem.Name.ValueString()
 						}
 						if !Http2ServerProfileItem.Namespace.IsNull() && !Http2ServerProfileItem.Namespace.IsUnknown() {
 							Http2ServerProfileItemMap["namespace"] = Http2ServerProfileItem.Namespace.ValueString()
-						}
-						if !Http2ServerProfileItem.Tenant.IsNull() && !Http2ServerProfileItem.Tenant.IsUnknown() {
-							Http2ServerProfileItemMap["tenant"] = Http2ServerProfileItem.Tenant.ValueString()
-						}
-						if !Http2ServerProfileItem.Uid.IsNull() && !Http2ServerProfileItem.Uid.IsUnknown() {
-							Http2ServerProfileItemMap["uid"] = Http2ServerProfileItem.Uid.ValueString()
 						}
 						Http2ServerProfileList = append(Http2ServerProfileList, Http2ServerProfileItemMap)
 					}
@@ -12895,20 +12192,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var HTTPClientProfileList []map[string]interface{}
 					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
 						HTTPClientProfileItemMap := make(map[string]interface{})
-						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
-							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
-						}
 						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
 							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
 						}
 						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
 							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
-						}
-						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
-							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
-						}
-						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
-							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
@@ -12923,20 +12211,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var HTTPServerProfileList []map[string]interface{}
 					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
 						HTTPServerProfileItemMap := make(map[string]interface{})
-						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
-							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
-						}
 						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
 							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
 						}
 						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
 							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
-						}
-						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
-							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
-						}
-						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
-							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
@@ -12951,20 +12230,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var OCSPProfileList []map[string]interface{}
 					for _, OCSPProfileItem := range OCSPProfileElems {
 						OCSPProfileItemMap := make(map[string]interface{})
-						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
-							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
-						}
 						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
 							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
 						}
 						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
 							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
-						}
-						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
-							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
-						}
-						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
-							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
 						}
 						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
 					}
@@ -12979,20 +12249,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -13007,20 +12268,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var StreamProfileList []map[string]interface{}
 					for _, StreamProfileItem := range StreamProfileElems {
 						StreamProfileItemMap := make(map[string]interface{})
-						if !StreamProfileItem.Kind.IsNull() && !StreamProfileItem.Kind.IsUnknown() {
-							StreamProfileItemMap["kind"] = StreamProfileItem.Kind.ValueString()
-						}
 						if !StreamProfileItem.Name.IsNull() && !StreamProfileItem.Name.IsUnknown() {
 							StreamProfileItemMap["name"] = StreamProfileItem.Name.ValueString()
 						}
 						if !StreamProfileItem.Namespace.IsNull() && !StreamProfileItem.Namespace.IsUnknown() {
 							StreamProfileItemMap["namespace"] = StreamProfileItem.Namespace.ValueString()
-						}
-						if !StreamProfileItem.Tenant.IsNull() && !StreamProfileItem.Tenant.IsUnknown() {
-							StreamProfileItemMap["tenant"] = StreamProfileItem.Tenant.ValueString()
-						}
-						if !StreamProfileItem.Uid.IsNull() && !StreamProfileItem.Uid.IsUnknown() {
-							StreamProfileItemMap["uid"] = StreamProfileItem.Uid.ValueString()
 						}
 						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
 					}
@@ -13035,20 +12287,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var TCPClientProfileList []map[string]interface{}
 					for _, TCPClientProfileItem := range TCPClientProfileElems {
 						TCPClientProfileItemMap := make(map[string]interface{})
-						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
-							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
-						}
 						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
 							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
 						}
 						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
 							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
-						}
-						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
-							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
-						}
-						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
-							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
@@ -13063,20 +12306,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var TCPServerProfileList []map[string]interface{}
 					for _, TCPServerProfileItem := range TCPServerProfileElems {
 						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
-						}
 						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
 							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
 						}
 						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
 							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
-						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
-						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
@@ -13091,20 +12325,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var WebSocketClientProfileList []map[string]interface{}
 					for _, WebSocketClientProfileItem := range WebSocketClientProfileElems {
 						WebSocketClientProfileItemMap := make(map[string]interface{})
-						if !WebSocketClientProfileItem.Kind.IsNull() && !WebSocketClientProfileItem.Kind.IsUnknown() {
-							WebSocketClientProfileItemMap["kind"] = WebSocketClientProfileItem.Kind.ValueString()
-						}
 						if !WebSocketClientProfileItem.Name.IsNull() && !WebSocketClientProfileItem.Name.IsUnknown() {
 							WebSocketClientProfileItemMap["name"] = WebSocketClientProfileItem.Name.ValueString()
 						}
 						if !WebSocketClientProfileItem.Namespace.IsNull() && !WebSocketClientProfileItem.Namespace.IsUnknown() {
 							WebSocketClientProfileItemMap["namespace"] = WebSocketClientProfileItem.Namespace.ValueString()
-						}
-						if !WebSocketClientProfileItem.Tenant.IsNull() && !WebSocketClientProfileItem.Tenant.IsUnknown() {
-							WebSocketClientProfileItemMap["tenant"] = WebSocketClientProfileItem.Tenant.ValueString()
-						}
-						if !WebSocketClientProfileItem.Uid.IsNull() && !WebSocketClientProfileItem.Uid.IsUnknown() {
-							WebSocketClientProfileItemMap["uid"] = WebSocketClientProfileItem.Uid.ValueString()
 						}
 						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
 					}
@@ -13119,20 +12344,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var WebSocketServerProfileList []map[string]interface{}
 					for _, WebSocketServerProfileItem := range WebSocketServerProfileElems {
 						WebSocketServerProfileItemMap := make(map[string]interface{})
-						if !WebSocketServerProfileItem.Kind.IsNull() && !WebSocketServerProfileItem.Kind.IsUnknown() {
-							WebSocketServerProfileItemMap["kind"] = WebSocketServerProfileItem.Kind.ValueString()
-						}
 						if !WebSocketServerProfileItem.Name.IsNull() && !WebSocketServerProfileItem.Name.IsUnknown() {
 							WebSocketServerProfileItemMap["name"] = WebSocketServerProfileItem.Name.ValueString()
 						}
 						if !WebSocketServerProfileItem.Namespace.IsNull() && !WebSocketServerProfileItem.Namespace.IsUnknown() {
 							WebSocketServerProfileItemMap["namespace"] = WebSocketServerProfileItem.Namespace.ValueString()
-						}
-						if !WebSocketServerProfileItem.Tenant.IsNull() && !WebSocketServerProfileItem.Tenant.IsUnknown() {
-							WebSocketServerProfileItemMap["tenant"] = WebSocketServerProfileItem.Tenant.ValueString()
-						}
-						if !WebSocketServerProfileItem.Uid.IsNull() && !WebSocketServerProfileItem.Uid.IsUnknown() {
-							WebSocketServerProfileItemMap["uid"] = WebSocketServerProfileItem.Uid.ValueString()
 						}
 						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
 					}
@@ -13162,20 +12378,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var LastHopPoolList []map[string]interface{}
 				for _, LastHopPoolItem := range LastHopPoolElems {
 					LastHopPoolItemMap := make(map[string]interface{})
-					if !LastHopPoolItem.Kind.IsNull() && !LastHopPoolItem.Kind.IsUnknown() {
-						LastHopPoolItemMap["kind"] = LastHopPoolItem.Kind.ValueString()
-					}
 					if !LastHopPoolItem.Name.IsNull() && !LastHopPoolItem.Name.IsUnknown() {
 						LastHopPoolItemMap["name"] = LastHopPoolItem.Name.ValueString()
 					}
 					if !LastHopPoolItem.Namespace.IsNull() && !LastHopPoolItem.Namespace.IsUnknown() {
 						LastHopPoolItemMap["namespace"] = LastHopPoolItem.Namespace.ValueString()
-					}
-					if !LastHopPoolItem.Tenant.IsNull() && !LastHopPoolItem.Tenant.IsUnknown() {
-						LastHopPoolItemMap["tenant"] = LastHopPoolItem.Tenant.ValueString()
-					}
-					if !LastHopPoolItem.Uid.IsNull() && !LastHopPoolItem.Uid.IsUnknown() {
-						LastHopPoolItemMap["uid"] = LastHopPoolItem.Uid.ValueString()
 					}
 					LastHopPoolList = append(LastHopPoolList, LastHopPoolItemMap)
 				}
@@ -13210,20 +12417,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var RequestLoggingProfileList []map[string]interface{}
 				for _, RequestLoggingProfileItem := range RequestLoggingProfileElems {
 					RequestLoggingProfileItemMap := make(map[string]interface{})
-					if !RequestLoggingProfileItem.Kind.IsNull() && !RequestLoggingProfileItem.Kind.IsUnknown() {
-						RequestLoggingProfileItemMap["kind"] = RequestLoggingProfileItem.Kind.ValueString()
-					}
 					if !RequestLoggingProfileItem.Name.IsNull() && !RequestLoggingProfileItem.Name.IsUnknown() {
 						RequestLoggingProfileItemMap["name"] = RequestLoggingProfileItem.Name.ValueString()
 					}
 					if !RequestLoggingProfileItem.Namespace.IsNull() && !RequestLoggingProfileItem.Namespace.IsUnknown() {
 						RequestLoggingProfileItemMap["namespace"] = RequestLoggingProfileItem.Namespace.ValueString()
-					}
-					if !RequestLoggingProfileItem.Tenant.IsNull() && !RequestLoggingProfileItem.Tenant.IsUnknown() {
-						RequestLoggingProfileItemMap["tenant"] = RequestLoggingProfileItem.Tenant.ValueString()
-					}
-					if !RequestLoggingProfileItem.Uid.IsNull() && !RequestLoggingProfileItem.Uid.IsUnknown() {
-						RequestLoggingProfileItemMap["uid"] = RequestLoggingProfileItem.Uid.ValueString()
 					}
 					RequestLoggingProfileList = append(RequestLoggingProfileList, RequestLoggingProfileItemMap)
 				}
@@ -13251,20 +12449,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				var StatisticsProfileList []map[string]interface{}
 				for _, StatisticsProfileItem := range StatisticsProfileElems {
 					StatisticsProfileItemMap := make(map[string]interface{})
-					if !StatisticsProfileItem.Kind.IsNull() && !StatisticsProfileItem.Kind.IsUnknown() {
-						StatisticsProfileItemMap["kind"] = StatisticsProfileItem.Kind.ValueString()
-					}
 					if !StatisticsProfileItem.Name.IsNull() && !StatisticsProfileItem.Name.IsUnknown() {
 						StatisticsProfileItemMap["name"] = StatisticsProfileItem.Name.ValueString()
 					}
 					if !StatisticsProfileItem.Namespace.IsNull() && !StatisticsProfileItem.Namespace.IsUnknown() {
 						StatisticsProfileItemMap["namespace"] = StatisticsProfileItem.Namespace.ValueString()
-					}
-					if !StatisticsProfileItem.Tenant.IsNull() && !StatisticsProfileItem.Tenant.IsUnknown() {
-						StatisticsProfileItemMap["tenant"] = StatisticsProfileItem.Tenant.ValueString()
-					}
-					if !StatisticsProfileItem.Uid.IsNull() && !StatisticsProfileItem.Uid.IsUnknown() {
-						StatisticsProfileItemMap["uid"] = StatisticsProfileItem.Uid.ValueString()
 					}
 					StatisticsProfileList = append(StatisticsProfileList, StatisticsProfileItemMap)
 				}
@@ -13281,20 +12470,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -13309,20 +12489,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var OCSPProfileList []map[string]interface{}
 					for _, OCSPProfileItem := range OCSPProfileElems {
 						OCSPProfileItemMap := make(map[string]interface{})
-						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
-							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
-						}
 						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
 							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
 						}
 						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
 							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
-						}
-						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
-							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
-						}
-						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
-							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
 						}
 						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
 					}
@@ -13337,20 +12508,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -13365,20 +12527,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var TCPClientProfileList []map[string]interface{}
 					for _, TCPClientProfileItem := range TCPClientProfileElems {
 						TCPClientProfileItemMap := make(map[string]interface{})
-						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
-							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
-						}
 						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
 							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
 						}
 						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
 							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
-						}
-						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
-							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
-						}
-						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
-							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
@@ -13393,20 +12546,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var TCPServerProfileList []map[string]interface{}
 					for _, TCPServerProfileItem := range TCPServerProfileElems {
 						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
-						}
 						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
 							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
 						}
 						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
 							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
-						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
-						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
@@ -13425,20 +12569,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ClientSSLProfileList []map[string]interface{}
 					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
 						ClientSSLProfileItemMap := make(map[string]interface{})
-						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
-							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
-						}
 						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
 							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
 						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
 							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
-						}
-						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
-							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
-						}
-						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
-							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
 						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
@@ -13453,20 +12588,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var ServerSSLProfileList []map[string]interface{}
 					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
 						ServerSSLProfileItemMap := make(map[string]interface{})
-						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
-							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
-						}
 						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
 							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
 						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
 							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
-						}
-						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
-							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
-						}
-						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
-							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
 						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
@@ -13481,20 +12607,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var UDPClientProfileList []map[string]interface{}
 					for _, UDPClientProfileItem := range UDPClientProfileElems {
 						UDPClientProfileItemMap := make(map[string]interface{})
-						if !UDPClientProfileItem.Kind.IsNull() && !UDPClientProfileItem.Kind.IsUnknown() {
-							UDPClientProfileItemMap["kind"] = UDPClientProfileItem.Kind.ValueString()
-						}
 						if !UDPClientProfileItem.Name.IsNull() && !UDPClientProfileItem.Name.IsUnknown() {
 							UDPClientProfileItemMap["name"] = UDPClientProfileItem.Name.ValueString()
 						}
 						if !UDPClientProfileItem.Namespace.IsNull() && !UDPClientProfileItem.Namespace.IsUnknown() {
 							UDPClientProfileItemMap["namespace"] = UDPClientProfileItem.Namespace.ValueString()
-						}
-						if !UDPClientProfileItem.Tenant.IsNull() && !UDPClientProfileItem.Tenant.IsUnknown() {
-							UDPClientProfileItemMap["tenant"] = UDPClientProfileItem.Tenant.ValueString()
-						}
-						if !UDPClientProfileItem.Uid.IsNull() && !UDPClientProfileItem.Uid.IsUnknown() {
-							UDPClientProfileItemMap["uid"] = UDPClientProfileItem.Uid.ValueString()
 						}
 						UDPClientProfileList = append(UDPClientProfileList, UDPClientProfileItemMap)
 					}
@@ -13509,20 +12626,11 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 					var UDPServerProfileList []map[string]interface{}
 					for _, UDPServerProfileItem := range UDPServerProfileElems {
 						UDPServerProfileItemMap := make(map[string]interface{})
-						if !UDPServerProfileItem.Kind.IsNull() && !UDPServerProfileItem.Kind.IsUnknown() {
-							UDPServerProfileItemMap["kind"] = UDPServerProfileItem.Kind.ValueString()
-						}
 						if !UDPServerProfileItem.Name.IsNull() && !UDPServerProfileItem.Name.IsUnknown() {
 							UDPServerProfileItemMap["name"] = UDPServerProfileItem.Name.ValueString()
 						}
 						if !UDPServerProfileItem.Namespace.IsNull() && !UDPServerProfileItem.Namespace.IsUnknown() {
 							UDPServerProfileItemMap["namespace"] = UDPServerProfileItem.Namespace.ValueString()
-						}
-						if !UDPServerProfileItem.Tenant.IsNull() && !UDPServerProfileItem.Tenant.IsUnknown() {
-							UDPServerProfileItemMap["tenant"] = UDPServerProfileItem.Tenant.ValueString()
-						}
-						if !UDPServerProfileItem.Uid.IsNull() && !UDPServerProfileItem.Uid.IsUnknown() {
-							UDPServerProfileItemMap["uid"] = UDPServerProfileItem.Uid.ValueString()
 						}
 						UDPServerProfileList = append(UDPServerProfileList, UDPServerProfileItemMap)
 					}
@@ -13549,6 +12657,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 
 	_, err := r.client.UpdateApplicationProfiles(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of application_profiles %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update ApplicationProfiles: %s", err))
 		return
 	}
@@ -13566,10 +12682,6 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -13579,6 +12691,19 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	fetched, fetchErr := r.client.GetApplicationProfiles(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ApplicationProfiles after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

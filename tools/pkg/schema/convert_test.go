@@ -72,6 +72,7 @@ func TestFilterSpecFields(t *testing.T) {
 		{TfsdkTag: "protocol", IsSpecField: true},
 		{TfsdkTag: "description", IsSpecField: true}, // metadata name even though IsSpecField
 		{TfsdkTag: "custom", IsSpecField: true},
+		{TfsdkTag: "server_only", IsSpecField: true, Computed: true},
 	}
 	result := FilterSpecFields(attrs)
 	if len(result) != 3 {
@@ -126,23 +127,33 @@ func TestParseMinConfigRequiredFields(t *testing.T) {
 	}
 }
 
-func TestPromoteMinConfigRequired(t *testing.T) {
-	attrs := []openapi.TerraformAttribute{
-		{TfsdkTag: "field_a", Optional: true, Required: false},
-		{TfsdkTag: "field_b", Optional: true, Required: false},
-		{TfsdkTag: "field_c", Optional: false, Required: true}, // already required
+func TestConvertRequirednessUsesOnlyCreateContractSignals(t *testing.T) {
+	tests := []struct {
+		name     string
+		required bool
+		schema   openapi.Schema
+		want     bool
+	}{
+		{name: "openapi required", required: true, schema: openapi.Schema{Type: "string"}, want: true},
+		{name: "x-ves-required", schema: openapi.Schema{Type: "string", XVesRequired: "true"}, want: true},
+		{name: "x-f5xc-required-for create", schema: openapi.Schema{Type: "string", XF5XCRequiredFor: openapi.RequiredFor{Create: true}}, want: true},
+		{name: "legacy x-required ignored", schema: openapi.Schema{Type: "string", XRequired: true}, want: false},
+		{name: "minimum configuration metadata ignored", schema: openapi.Schema{Type: "string", XF5XCRequiredFor: openapi.RequiredFor{MinimumConfig: true}}, want: false},
 	}
-	minFields := map[string]bool{"field_a": true, "field_c": true}
-	PromoteMinConfigRequired(attrs, minFields)
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			attr := ConvertToTerraformAttribute("probe", tt.schema, tt.required, "", &openapi.Spec{})
+			if attr.Required != tt.want || attr.Optional == tt.want {
+				t.Fatalf("Required=%v Optional=%v, want Required=%v Optional=%v", attr.Required, attr.Optional, tt.want, !tt.want)
+			}
+		})
+	}
+}
 
-	if !attrs[0].Required || attrs[0].Optional {
-		t.Error("field_a should be promoted to Required")
-	}
-	if attrs[1].Required || !attrs[1].Optional {
-		t.Error("field_b should remain Optional")
-	}
-	if !attrs[2].Required {
-		t.Error("field_c should remain Required")
+func TestConvertReadOnlyBooleanIsComputedOnly(t *testing.T) {
+	attr := ConvertToTerraformAttribute("is_management", openapi.Schema{Type: "boolean", ReadOnly: true}, false, "", &openapi.Spec{})
+	if attr.Type != "bool" || !attr.Computed || attr.Optional || attr.Required {
+		t.Fatalf("readOnly boolean must be Computed-only bool; got Type=%q Computed=%v Optional=%v Required=%v", attr.Type, attr.Computed, attr.Optional, attr.Required)
 	}
 }
 

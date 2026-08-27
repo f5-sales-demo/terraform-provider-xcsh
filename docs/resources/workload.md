@@ -84,7 +84,7 @@ A [`job`](#job) block supports the following:
 
 <a id="job-configuration"></a>&#x2022; [`configuration`](#job-configuration) - Optional Block<br>Configuration parameters of the workload<br>See [Configuration](#job-configuration) below.
 
-<a id="job-containers"></a>&#x2022; [`containers`](#job-containers) - Optional Block<br>Containers to use for the job<br>See [Containers](#job-containers) below.
+<a id="job-containers"></a>&#x2022; [`containers`](#job-containers) - Optional Block<br>Containers. Containers to use for the job<br>See [Containers](#job-containers) below.
 
 <a id="job-deploy-options"></a>&#x2022; [`deploy_options`](#job-deploy-options) - Optional Block<br>Deploy OPTIONS are used to configure the workload deployment OPTIONS<br>See [Deploy Options](#job-deploy-options) below.
 
@@ -229,7 +229,7 @@ A [`http_health_check`](#check-052b16) block (within [`job.containers.liveness_c
 
 <a id="header-2aa0a5"></a>&#x2022; [`host_header`](#header-2aa0a5) - Optional String<br>The value of the host header in the HTTP health check request
 
-<a id="path-c81de3"></a>&#x2022; [`path`](#path-c81de3) - Optional String<br>Path to access on the HTTP server
+<a id="path-c81de3"></a>&#x2022; [`path`](#path-c81de3) - Optional String<br>Path. Path to access on the HTTP server
 
 <a id="port-3d627c"></a>&#x2022; [`port`](#port-3d627c) - Optional Block<br>Port. Port<br>See [Port](#port-3d627c) below.
 
@@ -281,7 +281,7 @@ A [`http_health_check`](#check-c5bafc) block (within [`job.containers.readiness_
 
 <a id="header-389f08"></a>&#x2022; [`host_header`](#header-389f08) - Optional String<br>The value of the host header in the HTTP health check request
 
-<a id="path-c89875"></a>&#x2022; [`path`](#path-c89875) - Optional String<br>Path to access on the HTTP server
+<a id="path-c89875"></a>&#x2022; [`path`](#path-c89875) - Optional String<br>Path. Path to access on the HTTP server
 
 <a id="port-3b8b2e"></a>&#x2022; [`port`](#port-3b8b2e) - Optional Block<br>Port. Port<br>See [Port](#port-3b8b2e) below.
 
@@ -385,7 +385,7 @@ An [`empty_dir`](#job-volumes-empty-dir) block (within [`job.volumes`](#job-volu
 
 <a id="job-volumes-empty-dir-mount"></a>&#x2022; [`mount`](#job-volumes-empty-dir-mount) - Optional Block<br>Volume mount describes how volume is mounted inside a workload<br>See [Mount](#job-volumes-empty-dir-mount) below.
 
-<a id="job-volumes-empty-dir-size-limit"></a>&#x2022; [`size_limit`](#job-volumes-empty-dir-size-limit) - Optional Number<br>Size Limit (in GiB)
+<a id="job-volumes-empty-dir-size-limit"></a>&#x2022; [`size_limit`](#job-volumes-empty-dir-size-limit) - Optional Number<br>Size Limit (in GiB). Configuration parameter for size limit
 
 #### Job Volumes Empty Dir Mount
 
@@ -404,7 +404,7 @@ A [`host_path`](#job-volumes-host-path) block (within [`job.volumes`](#job-volum
 
 <a id="job-volumes-host-path-mount"></a>&#x2022; [`mount`](#job-volumes-host-path-mount) - Optional Block<br>Volume mount describes how volume is mounted inside a workload<br>See [Mount](#job-volumes-host-path-mount) below.
 
-<a id="job-volumes-host-path-path"></a>&#x2022; [`path`](#job-volumes-host-path-path) - Optional String<br>Path of the directory on the host
+<a id="job-volumes-host-path-path"></a>&#x2022; [`path`](#job-volumes-host-path-path) - Optional String<br>Path. Path of the directory on the host
 
 #### Job Volumes Host Path Mount
 
@@ -447,7 +447,7 @@ persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Onc
 
 <a id="default-3128b0"></a>&#x2022; [`default`](#default-3128b0) - Optional Block<br>Enable this option
 
-<a id="size-81eddf"></a>&#x2022; [`storage_size`](#size-81eddf) - Optional Number<br>Size in GiB of the persistent storage
+<a id="size-81eddf"></a>&#x2022; [`storage_size`](#size-81eddf) - Optional Number<br>Size (in GiB). Size in GiB of the persistent storage
 
 #### Service
 
@@ -457,7 +457,7 @@ A [`service`](#service) block supports the following:
 
 <a id="service-configuration"></a>&#x2022; [`configuration`](#service-configuration) - Optional Block<br>Configuration parameters of the workload<br>See [Configuration](#service-configuration) below.
 
-<a id="service-containers"></a>&#x2022; [`containers`](#service-containers) - Optional Block<br>Containers to use for service<br>See [Containers](#service-containers) below.
+<a id="service-containers"></a>&#x2022; [`containers`](#service-containers) - Optional Block<br>Containers. Containers to use for service<br>See [Containers](#service-containers) below.
 
 <a id="service-deploy-options"></a>&#x2022; [`deploy_options`](#service-deploy-options) - Optional Block<br>Deploy OPTIONS are used to configure the workload deployment OPTIONS<br>See [Deploy Options](#service-deploy-options) below.
 
@@ -1428,7 +1428,7 @@ A [`http_health_check`](#check-d4d023) block (within [`service.containers.livene
 
 <a id="header-d00d0a"></a>&#x2022; [`host_header`](#header-d00d0a) - Optional String<br>The value of the host header in the HTTP health check request
 
-<a id="path-ab95e6"></a>&#x2022; [`path`](#path-ab95e6) - Optional String<br>Path to access on the HTTP server
+<a id="path-ab95e6"></a>&#x2022; [`path`](#path-ab95e6) - Optional String<br>Path. Path to access on the HTTP server
 
 <a id="port-df543d"></a>&#x2022; [`port`](#port-df543d) - Optional Block<br>Port. Port<br>See [Port](#port-df543d) below.
 
@@ -1480,7 +1480,7 @@ A [`http_health_check`](#check-2e8715) block (within [`service.containers.readin
 
 <a id="header-62e026"></a>&#x2022; [`host_header`](#header-62e026) - Optional String<br>The value of the host header in the HTTP health check request
 
-<a id="path-f132ec"></a>&#x2022; [`path`](#path-f132ec) - Optional String<br>Path to access on the HTTP server
+<a id="path-f132ec"></a>&#x2022; [`path`](#path-f132ec) - Optional String<br>Path. Path to access on the HTTP server
 
 <a id="port-3d625e"></a>&#x2022; [`port`](#port-3d625e) - Optional Block<br>Port. Port<br>See [Port](#port-3d625e) below.
 
@@ -1584,7 +1584,7 @@ An [`empty_dir`](#service-volumes-empty-dir) block (within [`service.volumes`](#
 
 <a id="service-volumes-empty-dir-mount"></a>&#x2022; [`mount`](#service-volumes-empty-dir-mount) - Optional Block<br>Volume mount describes how volume is mounted inside a workload<br>See [Mount](#service-volumes-empty-dir-mount) below.
 
-<a id="service-volumes-empty-dir-size-limit"></a>&#x2022; [`size_limit`](#service-volumes-empty-dir-size-limit) - Optional Number<br>Size Limit (in GiB)
+<a id="service-volumes-empty-dir-size-limit"></a>&#x2022; [`size_limit`](#service-volumes-empty-dir-size-limit) - Optional Number<br>Size Limit (in GiB). Configuration parameter for size limit
 
 #### Service Volumes Empty Dir Mount
 
@@ -1603,7 +1603,7 @@ A [`host_path`](#service-volumes-host-path) block (within [`service.volumes`](#s
 
 <a id="service-volumes-host-path-mount"></a>&#x2022; [`mount`](#service-volumes-host-path-mount) - Optional Block<br>Volume mount describes how volume is mounted inside a workload<br>See [Mount](#service-volumes-host-path-mount) below.
 
-<a id="service-volumes-host-path-path"></a>&#x2022; [`path`](#service-volumes-host-path-path) - Optional String<br>Path of the directory on the host
+<a id="service-volumes-host-path-path"></a>&#x2022; [`path`](#service-volumes-host-path-path) - Optional String<br>Path. Path of the directory on the host
 
 #### Service Volumes Host Path Mount
 
@@ -1646,7 +1646,7 @@ persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Onc
 
 <a id="default-36c85c"></a>&#x2022; [`default`](#default-36c85c) - Optional Block<br>Enable this option
 
-<a id="size-fea8d4"></a>&#x2022; [`storage_size`](#size-fea8d4) - Optional Number<br>Size in GiB of the persistent storage
+<a id="size-fea8d4"></a>&#x2022; [`storage_size`](#size-fea8d4) - Optional Number<br>Size (in GiB). Size in GiB of the persistent storage
 
 #### Simple Service
 
@@ -1887,7 +1887,7 @@ persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Onc
 
 <a id="default-f48482"></a>&#x2022; [`default`](#default-f48482) - Optional Block<br>Enable this option
 
-<a id="size-17db0b"></a>&#x2022; [`storage_size`](#size-17db0b) - Optional Number<br>Size in GiB of the persistent storage
+<a id="size-17db0b"></a>&#x2022; [`storage_size`](#size-17db0b) - Optional Number<br>Size (in GiB). Size in GiB of the persistent storage
 
 #### Simple Service Simple Advertise
 
@@ -1905,7 +1905,7 @@ A [`stateful_service`](#stateful-service) block supports the following:
 
 <a id="stateful-service-configuration"></a>&#x2022; [`configuration`](#stateful-service-configuration) - Optional Block<br>Configuration parameters of the workload<br>See [Configuration](#stateful-service-configuration) below.
 
-<a id="stateful-service-containers"></a>&#x2022; [`containers`](#stateful-service-containers) - Optional Block<br>Containers to use for service<br>See [Containers](#stateful-service-containers) below.
+<a id="stateful-service-containers"></a>&#x2022; [`containers`](#stateful-service-containers) - Optional Block<br>Containers. Containers to use for service<br>See [Containers](#stateful-service-containers) below.
 
 <a id="stateful-service-deploy-options"></a>&#x2022; [`deploy_options`](#stateful-service-deploy-options) - Optional Block<br>Deploy OPTIONS are used to configure the workload deployment OPTIONS<br>See [Deploy Options](#stateful-service-deploy-options) below.
 
@@ -2996,7 +2996,7 @@ persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Onc
 
 <a id="default-def9af"></a>&#x2022; [`default`](#default-def9af) - Optional Block<br>Enable this option
 
-<a id="size-f9136f"></a>&#x2022; [`storage_size`](#size-f9136f) - Optional Number<br>Size in GiB of the persistent storage
+<a id="size-f9136f"></a>&#x2022; [`storage_size`](#size-f9136f) - Optional Number<br>Size (in GiB). Size in GiB of the persistent storage
 
 #### Stateful Service Volumes
 
@@ -3014,7 +3014,7 @@ An [`empty_dir`](#stateful-service-volumes-empty-dir) block (within [`stateful_s
 
 <a id="mount-0d2125"></a>&#x2022; [`mount`](#mount-0d2125) - Optional Block<br>Volume mount describes how volume is mounted inside a workload<br>See [Mount](#mount-0d2125) below.
 
-<a id="limit-15665a"></a>&#x2022; [`size_limit`](#limit-15665a) - Optional Number<br>Size Limit (in GiB)
+<a id="limit-15665a"></a>&#x2022; [`size_limit`](#limit-15665a) - Optional Number<br>Size Limit (in GiB). Configuration parameter for size limit
 
 #### Stateful Service Volumes Empty Dir Mount
 
@@ -3033,7 +3033,7 @@ A [`host_path`](#stateful-service-volumes-host-path) block (within [`stateful_se
 
 <a id="mount-ebf189"></a>&#x2022; [`mount`](#mount-ebf189) - Optional Block<br>Volume mount describes how volume is mounted inside a workload<br>See [Mount](#mount-ebf189) below.
 
-<a id="stateful-service-volumes-host-path-path"></a>&#x2022; [`path`](#stateful-service-volumes-host-path-path) - Optional String<br>Path of the directory on the host
+<a id="stateful-service-volumes-host-path-path"></a>&#x2022; [`path`](#stateful-service-volumes-host-path-path) - Optional String<br>Path. Path of the directory on the host
 
 #### Stateful Service Volumes Host Path Mount
 

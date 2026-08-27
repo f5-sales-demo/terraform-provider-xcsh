@@ -16,6 +16,4 @@ terraform {
 resource "xcsh_bot_infrastructure" "example" {
   name      = "example-bot-infrastructure"
   namespace = "staging"
-
-  traffic_type = "WEB"
 }

@@ -32,10 +32,6 @@ terraform {
 resource "xcsh_aws_tgw_site" "example" {
   name      = "example-aws-tgw-site"
   namespace = "staging"
-
-  tags = {
-    example = "value"
-  }
 }
 ```
 
@@ -95,7 +91,7 @@ configuration for upto 7<br>See [Offline Survivability Mode](#offline-survivabil
 
 <a id="sw"></a>&#x2022; [`sw`](#sw) - Optional Block<br>Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions
 
-<a id="tags"></a>&#x2022; [`tags`](#tags) - Required Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
+<a id="tags"></a>&#x2022; [`tags`](#tags) - Optional Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
 
 <a id="tgw-security"></a>&#x2022; [`tgw_security`](#tgw-security) - Optional Block<br>Security Configuration for transit gateway
 
@@ -141,7 +137,7 @@ An [`aws_parameters`](#aws-parameters) block supports the following:
 
 <a id="aws-parameters-f5xc-security-group"></a>&#x2022; [`f5xc_security_group`](#aws-parameters-f5xc-security-group) - Optional Block<br>Enable this option
 
-<a id="aws-parameters-instance-type"></a>&#x2022; [`instance_type`](#aws-parameters-instance-type) - Optional String<br>Instance size based on the performance
+<a id="aws-parameters-instance-type"></a>&#x2022; [`instance_type`](#aws-parameters-instance-type) - Optional String<br>AWS Instance Type for Node. Instance size based on the performance
 
 <a id="aws-parameters-new-tgw"></a>&#x2022; [`new_tgw`](#aws-parameters-new-tgw) - Optional Block<br>TGWParamsType<br>See [New TGW](#aws-parameters-new-tgw) below.
 
@@ -301,7 +297,7 @@ A [`new_vpc`](#aws-parameters-new-vpc) block (within [`aws_parameters`](#aws-par
 
 A [`tgw_cidr`](#aws-parameters-tgw-cidr) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
-<a id="aws-parameters-tgw-cidr-ipv4"></a>&#x2022; [`ipv4`](#aws-parameters-tgw-cidr-ipv4) - Optional String<br>IPv4 subnet prefix for this subnet
+<a id="aws-parameters-tgw-cidr-ipv4"></a>&#x2022; [`ipv4`](#aws-parameters-tgw-cidr-ipv4) - Optional String<br>IPv4 Subnet. IPv4 subnet prefix for this subnet
 
 #### Blocked Services
 
@@ -647,7 +643,7 @@ A [`dc_cluster_group_outside_vn`](#vn-config-dc-cluster-group-outside-vn) block 
 
 A [`global_network_list`](#vn-config-global-network-list) block (within [`vn_config`](#vn-config)) supports the following:
 
-<a id="connections-42b80a"></a>&#x2022; [`global_network_connections`](#connections-42b80a) - Optional Block<br>Global network connections<br>See [Global Network Connections](#connections-42b80a) below.
+<a id="connections-42b80a"></a>&#x2022; [`global_network_connections`](#connections-42b80a) - Optional Block<br>Global Network Connections. Global network connections<br>See [Global Network Connections](#connections-42b80a) below.
 
 #### Vn Config Global Network List Global Network Connections
 

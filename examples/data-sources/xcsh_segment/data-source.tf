@@ -14,7 +14,7 @@ terraform {
 # Look up an existing Segment by name
 data "xcsh_segment" "example" {
   name      = "example-segment"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "segment_id" {

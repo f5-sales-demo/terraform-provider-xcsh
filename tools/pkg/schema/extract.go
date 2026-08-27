@@ -41,45 +41,10 @@ func ForceReplaceForCreateDeleteOnly(attrs []openapi.TerraformAttribute) {
 }
 
 func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPath func(spec *openapi.Spec, resourceName string) (string, string, bool)) (*openapi.ResourceTemplate, error) {
-	// Find CreateSpecType schema
-	var createSpec openapi.Schema
-	var found bool
-	var createSpecKey string
-
-	// Try exact match first (most specs), then schema-prefixed variant
-	exactPatterns := []string{
-		resourceName + "CreateSpecType",
-		"schema" + resourceName + "CreateSpecType",
+	createSpec, createSpecKey, found, resolveErr := ResolveEnvelopeSchema(spec, resourceName, "CreateSpecType")
+	if resolveErr != nil {
+		return nil, resolveErr
 	}
-	for _, pattern := range exactPatterns {
-		if schema, ok := spec.Components.Schemas[pattern]; ok {
-			createSpec = schema
-			createSpecKey = pattern
-			found = true
-			break
-		}
-	}
-
-	if !found {
-		// Sort schema keys for deterministic fallback (map order is random in Go)
-		schemaKeys := make([]string, 0, len(spec.Components.Schemas))
-		for key := range spec.Components.Schemas {
-			schemaKeys = append(schemaKeys, key)
-		}
-		sort.Strings(schemaKeys)
-
-		for _, key := range schemaKeys {
-			keyLower := strings.ToLower(key)
-			if strings.Contains(keyLower, strings.ToLower(resourceName)) &&
-				strings.Contains(keyLower, "createspectype") {
-				createSpec = spec.Components.Schemas[key]
-				createSpecKey = key
-				found = true
-				break
-			}
-		}
-	}
-
 	if !found {
 		return nil, fmt.Errorf("no CreateSpecType found")
 	}
@@ -278,14 +243,9 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		ForceReplaceForCreateDeleteOnly(attributes)
 	}
 
-	// Apply x-f5xc-minimum-configuration to improve Required field accuracy
-	minConfigFields := ParseMinConfigRequiredFields(createSpec.XF5XCMinimumConfiguration)
-	if len(minConfigFields) > 0 {
-		minFieldSet := make(map[string]bool, len(minConfigFields))
-		for _, f := range minConfigFields {
-			minFieldSet[f] = true
-		}
-		PromoteMinConfigRequired(attributes, minFieldSet)
+	concurrencyToken, err := ExtractConcurrencyTokenContract(spec, resourceName)
+	if err != nil {
+		return nil, err
 	}
 
 	// Get best description with enrichment extension priority:
@@ -358,6 +318,9 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		// #1391: only the resources F5 XC decorates with hardware/OS discovery labels
 		// filter those six unprefixed keys out of the read-back.
 		FiltersDiscoveredSiteLabels: openapi.LoadDiscoveredSiteLabels(titleCase),
+		HasConcurrencyToken:         concurrencyToken != nil,
+		ConcurrencyTokenJSONName:    concurrencyTokenJSONName(concurrencyToken),
+		ConcurrencyTokenGoName:      concurrencyTokenGoName(concurrencyToken),
 		APIPath:                     apiPath,
 		APIPathPlural:               resourceName + "s",
 		APIPathItem:                 apiPathItem,
@@ -598,36 +561,9 @@ func ResolvePreflightGoFields(preflights []openapi.RequirementPreflight, attribu
 // ExtractReadOnlyResourceSchema extracts a data-source-only schema from a GetSpecType.
 // All spec properties become Computed attributes. No plan modifiers or conflict checks.
 func ExtractReadOnlyResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPath func(spec *openapi.Spec, resourceName string) (string, string, bool)) (*openapi.ResourceTemplate, error) {
-	// Find GetSpecType schema with all prefix variants
-	getPatterns := []string{
-		resourceName + "GetSpecType",
-		"schema" + resourceName + "GetSpecType",
-		"views" + resourceName + "GetSpecType",
-	}
-	var getSpec openapi.Schema
-	var found bool
-	for _, pattern := range getPatterns {
-		if schema, ok := spec.Components.Schemas[pattern]; ok {
-			getSpec = schema
-			found = true
-			break
-		}
-	}
-	if !found {
-		// Fallback: case-insensitive
-		lowerName := strings.ToLower(resourceName)
-		schemaKeys := make([]string, 0, len(spec.Components.Schemas))
-		for key := range spec.Components.Schemas {
-			schemaKeys = append(schemaKeys, key)
-		}
-		sort.Strings(schemaKeys)
-		for _, key := range schemaKeys {
-			if strings.Contains(strings.ToLower(key), lowerName) && strings.Contains(strings.ToLower(key), "getspectype") {
-				getSpec = spec.Components.Schemas[key]
-				found = true
-				break
-			}
-		}
+	getSpec, _, found, resolveErr := ResolveEnvelopeSchema(spec, resourceName, "GetSpecType")
+	if resolveErr != nil {
+		return nil, resolveErr
 	}
 	if !found {
 		return nil, fmt.Errorf("no GetSpecType found for %s", resourceName)

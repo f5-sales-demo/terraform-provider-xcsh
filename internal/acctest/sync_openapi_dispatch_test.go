@@ -240,7 +240,7 @@ func TestSyncOpenAPIUsesDispatchedTagAndRetainsCatalog(t *testing.T) {
 	if strings.Contains(determine, "releases/latest") || strings.Contains(determine, `"latest"`) {
 		t.Fatal("version resolution still contains a mutable latest fallback")
 	}
-	catalogDownload := strings.Index(download, `for asset in api-catalog.json index.json minimal-export-defaults.json openapi.json`)
+	catalogDownload := strings.Index(download, `for asset in api-catalog.json concurrency_contracts.json index.json minimal-export-defaults.json openapi.json`)
 	promotion := strings.Index(download, `cp -a "${STAGED_SPECS}/." "${SPEC_DIR}/"`)
 	if catalogDownload < 0 || promotion < 0 || catalogDownload > promotion {
 		t.Fatal("api-catalog.json is not retained in the staged bundle before promotion")
@@ -376,6 +376,9 @@ case "$*" in
   *releases/assets/306*) cat "$SMSV2_MANIFEST_FILE" ;;
   *releases/assets/307*) cat "$SMSV2_CONTRACT_FILE" ;;
   *releases/assets/308*) cat "$SMSV2_EVIDENCE_FILE" ;;
+  *releases/assets/309*) cat "$CONCURRENCY_FILE" ;;
+  *releases/assets/310*) cat "$PARITY_FILE" ;;
+  *releases/assets/311*) cat "$REMOVALS_FILE" ;;
   *commits/v2.1.208*) printf '%s\n' "$TAG_COMMIT" ;;
   *releases/tags/v2.1.208*)
     bundle_sha=$(shasum -a 256 "$BUNDLE_ZIP" | awk '{print $1}')
@@ -386,6 +389,9 @@ case "$*" in
     manifest_sha=$(shasum -a 256 "$SMSV2_MANIFEST_FILE" | cut -d " " -f1)
     contract_sha=$(shasum -a 256 "$SMSV2_CONTRACT_FILE" | cut -d " " -f1)
     evidence_sha=$(shasum -a 256 "$SMSV2_EVIDENCE_FILE" | cut -d " " -f1)
+    concurrency_sha=$(shasum -a 256 "$CONCURRENCY_FILE" | cut -d " " -f1)
+    parity_sha=$(shasum -a 256 "$PARITY_FILE" | cut -d " " -f1)
+    removals_sha=$(shasum -a 256 "$REMOVALS_FILE" | cut -d " " -f1)
     jq -cn \
       --arg bundle_sha "$bundle_sha" \
       --arg catalog_sha "$catalog_sha" \
@@ -395,7 +401,10 @@ case "$*" in
       --arg openapi_sha "$openapi_sha" \
       --arg manifest_sha "$manifest_sha" \
       --arg contract_sha "$contract_sha" \
-      --arg evidence_sha "$evidence_sha" '
+      --arg evidence_sha "$evidence_sha" \
+      --arg concurrency_sha "$concurrency_sha" \
+      --arg parity_sha "$parity_sha" \
+      --arg removals_sha "$removals_sha" '
       {tag_name: "v2.1.208", draft: false, prerelease: false, immutable: true, assets: [
         {id: 302, name: "api-catalog.json", digest: ("sha256:" + $catalog_sha)},
         {id: 301, name: "f5xc-api-specs-v2.1.208.zip", digest: ("sha256:" + $bundle_sha)},
@@ -404,7 +413,10 @@ case "$*" in
         {id: 305, name: "openapi.json", digest: ("sha256:" + $openapi_sha)},
         {id: 306, name: "smsv2-contract-manifest.json", digest: ("sha256:" + $manifest_sha)},
         {id: 307, name: "smsv2-contract.json", digest: ("sha256:" + $contract_sha)},
-        {id: 308, name: "smsv2-evidence-receipt.json", digest: ("sha256:" + $evidence_sha)}
+        {id: 308, name: "smsv2-evidence-receipt.json", digest: ("sha256:" + $evidence_sha)},
+        {id: 309, name: "concurrency_contracts.json", digest: ("sha256:" + $concurrency_sha)},
+        {id: 310, name: "smsv2_parity_manifest.json", digest: ("sha256:" + $parity_sha)},
+        {id: 311, name: "upstream-contract-removals.json", digest: ("sha256:" + $removals_sha)}
       ], body: ("<!-- publication-receipt:" + ({
         assets: {
           "api-catalog.json": ("sha256:" + $catalog_sha),
@@ -414,7 +426,10 @@ case "$*" in
           "openapi.json": ("sha256:" + $openapi_sha),
           "smsv2-contract-manifest.json": ("sha256:" + $manifest_sha),
           "smsv2-contract.json": ("sha256:" + $contract_sha),
-          "smsv2-evidence-receipt.json": ("sha256:" + $evidence_sha)
+          "smsv2-evidence-receipt.json": ("sha256:" + $evidence_sha),
+          "concurrency_contracts.json": ("sha256:" + $concurrency_sha),
+          "smsv2_parity_manifest.json": ("sha256:" + $parity_sha),
+          "upstream-contract-removals.json": ("sha256:" + $removals_sha)
         }, commit: $commit, version: "2.1.208"
       } | tojson) + " -->")}' ;;
   *) echo "unexpected gh invocation: $*" >&2; exit 9 ;;
@@ -439,6 +454,9 @@ esac
 		"SMSV2_MANIFEST_FILE=" + filepath.Join(tmp, "smsv2-contract-manifest.json"),
 		"SMSV2_CONTRACT_FILE=" + filepath.Join(tmp, "smsv2-contract.json"),
 		"SMSV2_EVIDENCE_FILE=" + filepath.Join(tmp, "smsv2-evidence-receipt.json"),
+		"CONCURRENCY_FILE=" + filepath.Join(tmp, "concurrency_contracts.json"),
+		"PARITY_FILE=" + filepath.Join(tmp, "smsv2_parity_manifest.json"),
+		"REMOVALS_FILE=" + filepath.Join(tmp, "upstream-contract-removals.json"),
 		"DISPATCH_TARGET_COMMIT=" + strings.Repeat("a", 40),
 		"RUNNER_TEMP=" + filepath.Join(tmp, "runner"),
 		"TAG_COMMIT=" + strings.Repeat("a", 40),

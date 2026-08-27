@@ -14,7 +14,7 @@ terraform {
 # Look up an existing Token by name
 data "xcsh_token" "example" {
   name      = "example-token"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "token_id" {

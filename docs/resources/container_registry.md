@@ -35,7 +35,6 @@ resource "xcsh_container_registry" "example" {
 
   registry  = "example-value"
   user_name = "example-value"
-  email     = "example-value"
 }
 ```
 
@@ -63,7 +62,7 @@ resource "xcsh_container_registry" "example" {
 
 ### Spec Argument Reference
 
-<a id="email"></a>&#x2022; [`email`](#email) - Required String<br>Email. Email used for the registry
+<a id="email"></a>&#x2022; [`email`](#email) - Optional String<br>Email. Email used for the registry
 
 <a id="password"></a>&#x2022; [`password`](#password) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Password](#password) below for details.
 
@@ -71,7 +70,7 @@ resource "xcsh_container_registry" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="user-name"></a>&#x2022; [`user_name`](#user-name) - Required String<br>Username used to access the registry
+<a id="user-name"></a>&#x2022; [`user_name`](#user-name) - Required String<br>username. Username used to access the registry
 
 ### Attributes Reference
 

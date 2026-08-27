@@ -7,8 +7,6 @@ Forwarding class is created by users in system namespace. configuration
 
 - name
 - namespace
-- queue_id_to_use
-- interface_group
 
 ## Minimal Valid Config
 
@@ -16,9 +14,6 @@ Forwarding class is created by users in system namespace. configuration
 resource "xcsh_forwarding_class" "example" {
   name      = "example-forwarding-class"
   namespace = "staging"
-
-  interface_group = "ANY_AVAILABLE_INTERFACE"
-  queue_id_to_use = "DSCP_BEST_EFFORT"
 }
 ```
 

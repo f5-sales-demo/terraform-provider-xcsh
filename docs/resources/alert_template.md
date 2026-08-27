@@ -36,7 +36,6 @@ resource "xcsh_alert_template" "example" {
   alert_message         = "example-value"
   alert_message_details = "example-value"
   alert_name            = "example-value"
-  severity              = "MINOR"
 }
 ```
 
@@ -66,11 +65,11 @@ resource "xcsh_alert_template" "example" {
 
 <a id="alert-message"></a>&#x2022; [`alert_message`](#alert-message) - Required String<br>Alert Message. Alert Message
 
-<a id="alert-message-details"></a>&#x2022; [`alert_message_details`](#alert-message-details) - Required String<br>Detailed message of the alert
+<a id="alert-message-details"></a>&#x2022; [`alert_message_details`](#alert-message-details) - Required String<br>Alert Message Details. Detailed message of the alert
 
 <a id="alert-name"></a>&#x2022; [`alert_name`](#alert-name) - Required String<br>Alert Name. Alert Name
 
-<a id="severity"></a>&#x2022; [`severity`](#severity) - Required String  Defaults to `MINOR`<br>Possible values are `MINOR`, `MAJOR`, `CRITICAL`<br>[Enum: MINOR|MAJOR|CRITICAL] List of alert severities Minor Major Critical
+<a id="severity"></a>&#x2022; [`severity`](#severity) - Optional String  Defaults to `MINOR`<br>Possible values are `MINOR`, `MAJOR`, `CRITICAL`<br>[Enum: MINOR|MAJOR|CRITICAL] List of alert severities Minor Major Critical
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

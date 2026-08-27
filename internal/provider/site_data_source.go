@@ -128,11 +128,11 @@ func (d *SiteDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 				Computed:            true,
 			},
 			"connected_re": schema.StringAttribute{
-				MarkdownDescription: "Following fields are only for customer edge sites List of REs to which to which this CE initiates IPsec/SSL connection to .",
+				MarkdownDescription: "Following fields are only for customer edge sites List of REs to which to which this CE initiates IPsec/SSL connection to.",
 				Computed:            true,
 			},
 			"connected_re_for_config": schema.StringAttribute{
-				MarkdownDescription: "Valid only for CE site object List of REs which can send config to this CE site .",
+				MarkdownDescription: "Valid only for CE site object List of REs which can send config to this CE site.",
 				Computed:            true,
 			},
 			"coordinates": schema.StringAttribute{

@@ -14,7 +14,7 @@ terraform {
 # Look up an existing DNSProxy by name
 data "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "dns_proxy_id" {

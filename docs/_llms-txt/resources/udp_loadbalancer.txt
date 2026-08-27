@@ -7,8 +7,6 @@ Load balancing UDP traffic across origin pools
 
 - name
 - namespace
-- dns_volterra_managed
-- idle_timeout
 
 ## Minimal Valid Config
 
@@ -16,10 +14,6 @@ Load balancing UDP traffic across origin pools
 resource "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
-
-  domains              = ["example-value"]
-  dns_volterra_managed = true
-  idle_timeout         = 1
 }
 ```
 

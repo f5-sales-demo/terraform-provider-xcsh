@@ -117,12 +117,12 @@ cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was n
 
 A [`bond_config`](#infra-bond-config) block (within [`infra`](#infra)) supports the following:
 
-<a id="infra-bond-config-interfaces"></a>&#x2022; [`interfaces`](#infra-bond-config-interfaces) - Optional List<br>Member Interfaces
+<a id="infra-bond-config-interfaces"></a>&#x2022; [`interfaces`](#infra-bond-config-interfaces) - Optional List<br>Member Interfaces. Configuration parameter for interfaces
 
 <a id="infra-bond-config-mode"></a>&#x2022; [`mode`](#infra-bond-config-mode) - Optional String  Defaults to `BOND_MODE_UNSPECIFIED`<br>Possible values are `BOND_MODE_UNSPECIFIED`, `ACTIVE_BACKUP`, `LACP_802_3AD`<br>[Enum: BOND_MODE_UNSPECIFIED|ACTIVE_BACKUP|LACP_802_3AD] Bonding mode for bond device configuration Bond mode is not specified Active-backup bond mode (one interface active, others as
 backup) IEEE 802.3ad Dynamic link aggregation (LACP)
 
-<a id="infra-bond-config-name"></a>&#x2022; [`name`](#infra-bond-config-name) - Optional String<br>Bond Name
+<a id="infra-bond-config-name"></a>&#x2022; [`name`](#infra-bond-config-name) - Optional String<br>Bond Name. Human-readable name for the resource
 
 #### Infra Hw Info
 
@@ -380,19 +380,19 @@ A [`sw_info`](#infra-sw-info) block (within [`infra`](#infra)) supports the foll
 
 A [`passport`](#passport) block supports the following:
 
-<a id="passport-cluster-name"></a>&#x2022; [`cluster_name`](#passport-cluster-name) - Optional String<br>Cluster Name
+<a id="passport-cluster-name"></a>&#x2022; [`cluster_name`](#passport-cluster-name) - Optional String<br>Cluster Name. Human-readable name for the resource
 
 <a id="passport-cluster-size"></a>&#x2022; [`cluster_size`](#passport-cluster-size) - Optional Number<br>Defines how many master nodes is in the cluster, only 1 or 3 is allowed 1 - cluster have single master, without HA 3 - cluster have 3 masters, with HA, all nodes should be allowed at same time, cluster won't start until ALL nodes are ADMITTED 0 - same as 1 This value can't be changed after
 
-<a id="passport-cluster-type"></a>&#x2022; [`cluster_type`](#passport-cluster-type) - Optional String<br>Cluster Type
+<a id="passport-cluster-type"></a>&#x2022; [`cluster_type`](#passport-cluster-type) - Optional String<br>Cluster Type. Cluster or grouping configuration
 
 <a id="passport-default-os-version"></a>&#x2022; [`default_os_version`](#passport-default-os-version) - Optional Block<br>Enable this option
 
 <a id="passport-default-sw-version"></a>&#x2022; [`default_sw_version`](#passport-default-sw-version) - Optional Block<br>Enable this option
 
-<a id="passport-latitude"></a>&#x2022; [`latitude`](#passport-latitude) - Optional Number<br>Geographic location of this site
+<a id="passport-latitude"></a>&#x2022; [`latitude`](#passport-latitude) - Optional Number<br>Latitude. Geographic location of this site
 
-<a id="passport-longitude"></a>&#x2022; [`longitude`](#passport-longitude) - Optional Number<br>Geographic location of this site
+<a id="passport-longitude"></a>&#x2022; [`longitude`](#passport-longitude) - Optional Number<br>Longitude. Geographic location of this site
 
 <a id="passport-operating-system-version"></a>&#x2022; [`operating_system_version`](#passport-operating-system-version) - Optional String<br>Operating System Version is optional parameter, which allows to specify target SW version for particular site e.g. 7.2009.10
 

@@ -277,6 +277,9 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 			}
 			sb.WriteString(fmt.Sprintf("%s\t%s := make(map[string]interface{})\n", bodyIndent, mapVar))
 			for _, child := range attr.NestedAttributes {
+				if child.Computed && !child.Optional && !child.Required {
+					continue
+				}
 				childSrc := loopVar + "." + child.GoName
 				if child.IsBlock {
 					if err := renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, mapVar, bodyIndent+"\t", nestedListUsesTypesList(child)); err != nil {
@@ -336,6 +339,9 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 	sb.WriteString(fmt.Sprintf("%sif %s != nil {\n", indent, src))
 	sb.WriteString(fmt.Sprintf("%s\t%s := make(map[string]interface{})\n", indent, subVar))
 	for _, child := range attr.NestedAttributes {
+		if child.Computed && !child.Optional && !child.Required {
+			continue
+		}
 		childSrc := src + "." + child.GoName
 		if child.IsBlock {
 			if err := renderMarshalBlock(sb, resourceTitleCase, childPath, child, childSrc, subVar, indent+"\t", nestedListUsesTypesList(child)); err != nil {

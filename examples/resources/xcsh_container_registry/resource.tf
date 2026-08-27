@@ -19,5 +19,4 @@ resource "xcsh_container_registry" "example" {
 
   registry  = "example-value"
   user_name = "example-value"
-  email     = "example-value"
 }

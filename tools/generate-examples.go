@@ -23,7 +23,6 @@ import (
 	"strings"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/codegen"
-	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
@@ -68,11 +67,18 @@ func main() {
 			failed++
 			continue
 		}
-		ns := exampleNamespace(rt, name)
+		ns := codegen.ExampleNamespace(rt, name)
 		if err := codegen.WriteResourceExample(rt, name, "examples", ns); err != nil {
 			fmt.Fprintf(os.Stderr, "❌ %s: %v\n", name, err)
 			failed++
 			continue
+		}
+		if name == "securemesh_site_v2" {
+			if err := codegen.WriteSecuremeshSiteV2Examples("."); err != nil {
+				fmt.Fprintf(os.Stderr, "❌ %s variants: %v\n", name, err)
+				failed++
+				continue
+			}
 		}
 		generated++
 	}
@@ -83,7 +89,13 @@ func main() {
 			continue
 		}
 		dataSourceKeep[name] = true
-		_, ns := namespace.ForResource(name)
+		rt, err := correspondingResourceTemplate(name)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "❌ %s (data source): %v\n", name, err)
+			failed++
+			continue
+		}
+		ns := codegen.ExampleNamespace(rt, name)
 		if err := codegen.WriteDataSourceExample(name, "examples", ns); err != nil {
 			fmt.Fprintf(os.Stderr, "❌ %s (data source): %v\n", name, err)
 			failed++
@@ -101,19 +113,22 @@ func main() {
 	fmt.Println("✅ All examples generated (schema-driven, from committed provider)")
 }
 
-// exampleNamespace returns the namespace value to use in the generated example. It is
-// spec-driven: when the provider schema restricts namespace to a single value (a
-// stringvalidator.OneOf captured as EnumValues — e.g. system-only DNS resources), that
-// value is used so the example satisfies the constraint. Otherwise it falls back to the
-// resource's namespace classification (default "staging").
-func exampleNamespace(rt *openapi.ResourceTemplate, name string) string {
-	for _, a := range rt.Attributes {
-		if a.TfsdkTag == "namespace" && len(a.EnumValues) == 1 {
-			return a.EnumValues[0]
+// correspondingResourceTemplate returns the committed resource schema that governs a
+// data source's namespace when the resource exists. Query-only data sources retain the
+// existing namespace-classification fallback.
+func correspondingResourceTemplate(name string) (*openapi.ResourceTemplate, error) {
+	resourcePath := filepath.Join(providerDir, name+"_resource.go")
+	if _, err := os.Stat(resourcePath); err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
 		}
+		return nil, fmt.Errorf("inspect corresponding resource schema: %w", err)
 	}
-	_, ns := namespace.ForResource(name)
-	return ns
+	rt, err := parseResourceSchema(resourcePath, name)
+	if err != nil {
+		return nil, fmt.Errorf("parse corresponding resource schema: %w", err)
+	}
+	return rt, nil
 }
 
 // parseResourceSchema builds a ResourceTemplate carrying the resource's TOP-LEVEL attributes

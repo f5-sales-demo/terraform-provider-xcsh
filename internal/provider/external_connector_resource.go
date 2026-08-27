@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -25,6 +26,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -473,7 +475,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"refs": schema.ListNestedBlock{
-										MarkdownDescription: "Reference to Segment Object .",
+										MarkdownDescription: "Segment. Reference to Segment Object.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"kind": schema.StringAttribute{
@@ -524,7 +526,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 											Optional:            true,
 										},
 										"local_tunnel_ip": schema.StringAttribute{
-											MarkdownDescription: "For a particular tunnel on a node, specify the local tunnel IP Address i.e. The IP address of the tunnel on the CE node itself and a subnet prefix length .",
+											MarkdownDescription: "For a particular tunnel on a node, specify the local tunnel IP Address i.e. The IP address of the tunnel on the CE node itself and a subnet prefix length.",
 											Optional:            true,
 										},
 										"node": schema.StringAttribute{
@@ -532,7 +534,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 											Optional:            true,
 										},
 										"remote_tunnel_ip": schema.StringAttribute{
-											MarkdownDescription: "For a particular tunnel on a node, specify the remote tunnel IP Address i.e. The IP address of the tunnel on the remote gateway and a subnet prefix length .",
+											MarkdownDescription: "For a particular tunnel on a node, specify the remote tunnel IP Address i.e. The IP address of the tunnel on the remote gateway and a subnet prefix length.",
 											Optional:            true,
 										},
 									},
@@ -684,7 +686,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 								Optional:            true,
 							},
 							"tunnel_mtu": schema.Int64Attribute{
-								MarkdownDescription: "The tunnel MTU defines the maximum size of the packet that can be sent through the tunnel without needing to be fragmented .",
+								MarkdownDescription: "The tunnel MTU defines the maximum size of the packet that can be sent through the tunnel without needing to be fragmented.",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.Between(512, 1370),
@@ -710,7 +712,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"refs": schema.ListNestedBlock{
-										MarkdownDescription: "Reference to Segment Object .",
+										MarkdownDescription: "Segment. Reference to Segment Object.",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"kind": schema.StringAttribute{
@@ -753,7 +755,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 								MarkdownDescription: "Enable this option",
 							},
 							"tunnel_eps": schema.ListNestedBlock{
-								MarkdownDescription: "Configure tunnel parameters, local and remote IP addresses .",
+								MarkdownDescription: "Configure tunnel parameters, local and remote IP addresses.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"interface": schema.StringAttribute{
@@ -761,7 +763,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 											Optional:            true,
 										},
 										"local_tunnel_ip": schema.StringAttribute{
-											MarkdownDescription: "For a particular tunnel on a node, specify the local tunnel IP Address i.e. The IP address of the tunnel on the CE node itself and a subnet prefix length .",
+											MarkdownDescription: "For a particular tunnel on a node, specify the local tunnel IP Address i.e. The IP address of the tunnel on the CE node itself and a subnet prefix length.",
 											Optional:            true,
 										},
 										"node": schema.StringAttribute{
@@ -769,7 +771,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 											Optional:            true,
 										},
 										"remote_tunnel_ip": schema.StringAttribute{
-											MarkdownDescription: "For a particular tunnel on a node, specify the remote tunnel IP Address i.e. The IP address of the tunnel on the remote gateway and a subnet prefix length .",
+											MarkdownDescription: "For a particular tunnel on a node, specify the remote tunnel IP Address i.e. The IP address of the tunnel on the remote gateway and a subnet prefix length.",
 											Optional:            true,
 										},
 									},
@@ -913,9 +915,6 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 		if !data.CESiteReference.Namespace.IsNull() && !data.CESiteReference.Namespace.IsUnknown() {
 			CESiteReferenceMap["namespace"] = data.CESiteReference.Namespace.ValueString()
 		}
-		if !data.CESiteReference.Tenant.IsNull() && !data.CESiteReference.Tenant.IsUnknown() {
-			CESiteReferenceMap["tenant"] = data.CESiteReference.Tenant.ValueString()
-		}
 		createReq.Spec["ce_site_reference"] = CESiteReferenceMap
 	}
 	if data.Gre != nil {
@@ -939,20 +938,11 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 						var RefsList []map[string]interface{}
 						for _, RefsItem := range RefsElems {
 							RefsItemMap := make(map[string]interface{})
-							if !RefsItem.Kind.IsNull() && !RefsItem.Kind.IsUnknown() {
-								RefsItemMap["kind"] = RefsItem.Kind.ValueString()
-							}
 							if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
 								RefsItemMap["name"] = RefsItem.Name.ValueString()
 							}
 							if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
 								RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
-							}
-							if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
-								RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
-							}
-							if !RefsItem.Uid.IsNull() && !RefsItem.Uid.IsUnknown() {
-								RefsItemMap["uid"] = RefsItem.Uid.ValueString()
 							}
 							RefsList = append(RefsList, RefsItemMap)
 						}
@@ -1021,9 +1011,6 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsUnknown() {
 					IpsecIKEParametersIKEPhase1ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.ValueString()
 				}
-				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsUnknown() {
-					IpsecIKEParametersIKEPhase1ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.ValueString()
-				}
 				IpsecIKEParametersMap["ike_phase1_profile"] = IpsecIKEParametersIKEPhase1ProfileMap
 			}
 			if data.Ipsec.IKEParameters.IKEPhase2Profile != nil {
@@ -1033,9 +1020,6 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsUnknown() {
 					IpsecIKEParametersIKEPhase2ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.ValueString()
-				}
-				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsUnknown() {
-					IpsecIKEParametersIKEPhase2ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.ValueString()
 				}
 				IpsecIKEParametersMap["ike_phase2_profile"] = IpsecIKEParametersIKEPhase2ProfileMap
 			}
@@ -1096,20 +1080,11 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 						var RefsList []map[string]interface{}
 						for _, RefsItem := range RefsElems {
 							RefsItemMap := make(map[string]interface{})
-							if !RefsItem.Kind.IsNull() && !RefsItem.Kind.IsUnknown() {
-								RefsItemMap["kind"] = RefsItem.Kind.ValueString()
-							}
 							if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
 								RefsItemMap["name"] = RefsItem.Name.ValueString()
 							}
 							if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
 								RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
-							}
-							if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
-								RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
-							}
-							if !RefsItem.Uid.IsNull() && !RefsItem.Uid.IsUnknown() {
-								RefsItemMap["uid"] = RefsItem.Uid.ValueString()
 							}
 							RefsList = append(RefsList, RefsItemMap)
 						}
@@ -1163,11 +1138,28 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 		return
 	}
 
+	// The concurrency token is declared only on GET responses. Read back the object
+	// after creation and record that exact server-assigned value for the next replace.
+	apiResource, err = r.client.GetExternalConnector(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Concurrency Token After Create",
+			fmt.Sprintf("The object was created, but its server-assigned concurrency token could not be read. Refresh the resource before updating it: %s", err),
+		)
+		return
+	}
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Concurrency Token After Create", tokenErr.Error())
+		return
+	}
+
 	// Only now that the write has landed. terraform-plugin-framework persists private
 	// state even when the method returns an error (it copies createResp.Private into the
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
@@ -1739,6 +1731,16 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 			return
 		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ExternalConnector: %s", err))
+		return
+	}
+
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(apiResource.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -2357,6 +2359,20 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
+	rawConcurrencyToken, tokenDiags := req.Private.GetKey(ctx, concurrencyTokenPrivateKey)
+	resp.Diagnostics.Append(tokenDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	concurrencyToken, tokenErr := decodeConcurrencyToken(rawConcurrencyToken)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError(
+			"Refresh Required Before Update",
+			"The update was not sent because this resource has no usable concurrency token from its last read. Run terraform refresh (or terraform plan with refresh enabled), review the refreshed configuration, and apply again. The provider will not fetch and silently adopt a newer token during a write. Details: "+tokenErr.Error(),
+		)
+		return
+	}
+
 	apiResource := &client.ExternalConnector{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
@@ -2364,6 +2380,7 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 		},
 		Spec: make(map[string]interface{}),
 	}
+	apiResource.ResourceVersion = concurrencyToken
 
 	if !data.Description.IsNull() {
 		apiResource.Metadata.Description = data.Description.ValueString()
@@ -2416,9 +2433,6 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 		if !data.CESiteReference.Namespace.IsNull() && !data.CESiteReference.Namespace.IsUnknown() {
 			CESiteReferenceMap["namespace"] = data.CESiteReference.Namespace.ValueString()
 		}
-		if !data.CESiteReference.Tenant.IsNull() && !data.CESiteReference.Tenant.IsUnknown() {
-			CESiteReferenceMap["tenant"] = data.CESiteReference.Tenant.ValueString()
-		}
 		apiResource.Spec["ce_site_reference"] = CESiteReferenceMap
 	}
 	if data.Gre != nil {
@@ -2442,20 +2456,11 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 						var RefsList []map[string]interface{}
 						for _, RefsItem := range RefsElems {
 							RefsItemMap := make(map[string]interface{})
-							if !RefsItem.Kind.IsNull() && !RefsItem.Kind.IsUnknown() {
-								RefsItemMap["kind"] = RefsItem.Kind.ValueString()
-							}
 							if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
 								RefsItemMap["name"] = RefsItem.Name.ValueString()
 							}
 							if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
 								RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
-							}
-							if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
-								RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
-							}
-							if !RefsItem.Uid.IsNull() && !RefsItem.Uid.IsUnknown() {
-								RefsItemMap["uid"] = RefsItem.Uid.ValueString()
 							}
 							RefsList = append(RefsList, RefsItemMap)
 						}
@@ -2524,9 +2529,6 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsUnknown() {
 					IpsecIKEParametersIKEPhase1ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.ValueString()
 				}
-				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsUnknown() {
-					IpsecIKEParametersIKEPhase1ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.ValueString()
-				}
 				IpsecIKEParametersMap["ike_phase1_profile"] = IpsecIKEParametersIKEPhase1ProfileMap
 			}
 			if data.Ipsec.IKEParameters.IKEPhase2Profile != nil {
@@ -2536,9 +2538,6 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsUnknown() {
 					IpsecIKEParametersIKEPhase2ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.ValueString()
-				}
-				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsUnknown() {
-					IpsecIKEParametersIKEPhase2ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.ValueString()
 				}
 				IpsecIKEParametersMap["ike_phase2_profile"] = IpsecIKEParametersIKEPhase2ProfileMap
 			}
@@ -2599,20 +2598,11 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 						var RefsList []map[string]interface{}
 						for _, RefsItem := range RefsElems {
 							RefsItemMap := make(map[string]interface{})
-							if !RefsItem.Kind.IsNull() && !RefsItem.Kind.IsUnknown() {
-								RefsItemMap["kind"] = RefsItem.Kind.ValueString()
-							}
 							if !RefsItem.Name.IsNull() && !RefsItem.Name.IsUnknown() {
 								RefsItemMap["name"] = RefsItem.Name.ValueString()
 							}
 							if !RefsItem.Namespace.IsNull() && !RefsItem.Namespace.IsUnknown() {
 								RefsItemMap["namespace"] = RefsItem.Namespace.ValueString()
-							}
-							if !RefsItem.Tenant.IsNull() && !RefsItem.Tenant.IsUnknown() {
-								RefsItemMap["tenant"] = RefsItem.Tenant.ValueString()
-							}
-							if !RefsItem.Uid.IsNull() && !RefsItem.Uid.IsUnknown() {
-								RefsItemMap["uid"] = RefsItem.Uid.ValueString()
 							}
 							RefsList = append(RefsList, RefsItemMap)
 						}
@@ -2662,6 +2652,14 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 
 	_, err := r.client.UpdateExternalConnector(ctx, apiResource)
 	if err != nil {
+		var apiErr *xcsherrors.XCSHError
+		if errors.As(err, &apiErr) && apiErr.Code == xcsherrors.ErrCodeConflict {
+			resp.Diagnostics.AddError(
+				"Stale Configuration",
+				fmt.Sprintf("F5 XC rejected the update of external_connector %q in namespace %q because the object changed after Terraform last refreshed it. The provider sent one replace request using the exact token stored with the reviewed state and did not retry or change private state. Refresh, review the remote changes, and apply again.", data.Name.ValueString(), data.Namespace.ValueString()),
+			)
+			return
+		}
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update ExternalConnector: %s", err))
 		return
 	}
@@ -2679,10 +2677,6 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 	// early, ownership stays as it was — an added label keeps being planned, which is
 	// visible and self-corrects on the next successful apply. The opposite ordering loses
 	// a label silently and permanently. Fail loud rather than fail quiet.
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
-	if resp.Diagnostics.HasError() {
-		return
-	}
 
 	// Use plan data for ID since API response may not include metadata.name
 	data.ID = types.StringValue(data.Name.ValueString())
@@ -2692,6 +2686,19 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 	fetched, fetchErr := r.client.GetExternalConnector(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ExternalConnector after update: %s", fetchErr))
+		return
+	}
+
+	// Commit both private-state updates only after PUT and readback succeeded. A 409
+	// or failed readback therefore leaves the prior token and label ownership intact.
+	concurrencyTokenPrivate, tokenErr := encodeConcurrencyToken(fetched.ResourceVersion)
+	if tokenErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

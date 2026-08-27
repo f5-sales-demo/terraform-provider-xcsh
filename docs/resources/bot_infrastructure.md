@@ -32,8 +32,6 @@ terraform {
 resource "xcsh_bot_infrastructure" "example" {
   name      = "example-bot-infrastructure"
   namespace = "staging"
-
-  traffic_type = "WEB"
 }
 ```
 
@@ -63,7 +61,7 @@ resource "xcsh_bot_infrastructure" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="traffic-type"></a>&#x2022; [`traffic_type`](#traffic-type) - Required String  Defaults to `WEB`<br>Possible values are `WEB`, `MOBILE`<br>[Enum: WEB|MOBILE] The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic
+<a id="traffic-type"></a>&#x2022; [`traffic_type`](#traffic-type) - Optional String  Defaults to `WEB`<br>Possible values are `WEB`, `MOBILE`<br>[Enum: WEB|MOBILE] The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic
 from native mobile apps with the Bot Defense SDK are routed
 
 ### Attributes Reference

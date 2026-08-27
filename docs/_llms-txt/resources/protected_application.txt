@@ -7,7 +7,6 @@ Applications protected by Bot Defense
 
 - name
 - namespace
-- region
 
 ## Minimal Valid Config
 
@@ -15,8 +14,6 @@ Applications protected by Bot Defense
 resource "xcsh_protected_application" "example" {
   name      = "example-protected-application"
   namespace = "staging"
-
-  region = "US"
 }
 ```
 

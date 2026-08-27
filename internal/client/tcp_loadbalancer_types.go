@@ -10,8 +10,9 @@ import (
 
 // TCPLoadBalancer represents a F5XC TCPLoadBalancer
 type TCPLoadBalancer struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata        Metadata               `json:"metadata"`
+	Spec            map[string]interface{} `json:"spec"`
+	ResourceVersion string                 `json:"resource_version,omitempty"`
 }
 
 // CreateTCPLoadBalancer creates a new TCPLoadBalancer

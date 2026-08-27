@@ -16,10 +16,4 @@ terraform {
 resource "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
-
-  connection_timeout     = 1
-  endpoint_selection     = "DISTRIBUTED"
-  fallback_policy        = "NO_FALLBACK"
-  http_idle_timeout      = 1
-  loadbalancer_algorithm = "ROUND_ROBIN"
 }

@@ -30,7 +30,7 @@ terraform {
 # Look up an existing K8SCluster by name
 data "xcsh_k8s_cluster" "example" {
   name      = "example-k8s-cluster"
-  namespace = "staging"
+  namespace = "system"
 }
 
 output "k8s_cluster_id" {
