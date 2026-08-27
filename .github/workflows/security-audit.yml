@@ -18,7 +18,7 @@ concurrency:
 jobs:
   govulncheck:
     name: Go Vulnerability Check
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     permissions:
       contents: read # checkout and resolve the repository's Go dependency graph
       issues: write # create one deduplicated vulnerability issue when needed
