@@ -66,7 +66,7 @@ if command -v gh >/dev/null 2>&1; then
         echo "::error::Pending delivery ID is not canonical"
         exit 1
       }
-      echo "::notice::Allowing workflow-only recovery for exact pending delivery ${EXPECTED_ID}"
+      echo "::notice::Allowing release-path recovery for exact pending delivery ${EXPECTED_ID}"
       exit 0
     fi
     echo "::error::tools/spec-version.txt ($CURRENT_VERSION) lags latest upstream api-specs-enriched release ($LATEST_RELEASE)"
