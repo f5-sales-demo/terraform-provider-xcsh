@@ -34,7 +34,7 @@ jobs:
   sync:
     name: Sync OpenAPI Specs
     environment: provider-delivery
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     # Every mutation uses REPO_SYNC_TOKEN explicitly. Keeping GITHUB_TOKEN
     # disabled also prevents an accidental token push that suppresses PR checks.
     permissions: {}

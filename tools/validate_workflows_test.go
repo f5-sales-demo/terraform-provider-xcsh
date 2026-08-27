@@ -22,7 +22,11 @@ import (
 const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 
-var canonicalSelfHostedRunsOn = []string{
+var canonicalManagedSocketlessRunsOn = []string{
+	"managed-socketless",
+}
+
+var canonicalLegacySelfHostedRunsOn = []string{
 	"self-hosted", "Linux", "X64", repositoryRunnerLabel, "ubuntu-24.04",
 }
 
@@ -205,14 +209,14 @@ func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
 }
 
 var protectedJobs = []jobContract{
-	{"acc-tests.yml", "mock-tests", canonicalSelfHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
-	{"acc-tests.yml", "real-api-tests", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"acc-tests.yml", "cleanup", canonicalSelfHostedRunsOn, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"discover-defaults.yml", "discover", canonicalSelfHostedRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"sync-openapi.yml", "sync", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
-	{"on-merge.yml", "create-regeneration-pr", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"acc-tests.yml", "mock-tests", canonicalManagedSocketlessRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
+	{"acc-tests.yml", "real-api-tests", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"acc-tests.yml", "cleanup", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"discover-defaults.yml", "discover", canonicalManagedSocketlessRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
+	{"sync-openapi.yml", "sync", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
+	{"on-merge.yml", "create-regeneration-pr", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
 	{"on-merge.yml", "tag-release", nil, "", map[string]string{"contents": "write"}, []string{"push", "workflow_dispatch"}, nil, []string{"GPG_PRIVATE_KEY", "PASSPHRASE", "REPO_SYNC_TOKEN"}},
-	{"on-merge.yml", "receipt-spec-delivery", canonicalSelfHostedRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"on-merge.yml", "receipt-spec-delivery", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
 	{"auto-merge.yml", "require-token", []string{"ubuntu-latest"}, "repository-settings", map[string]string{}, []string{"pull_request"}, nil, []string{"REPO_SYNC_TOKEN"}},
 }
 
@@ -425,7 +429,7 @@ func validateWorkflowBytes(filename string, content []byte, policySchema int) []
 	for _, contract := range protectedJobs {
 		if contract.workflow == filename {
 			if (policySchema == 3 || policySchema == 4) && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
-				contract.runsOn = canonicalSelfHostedRunsOn
+				contract.runsOn = canonicalManagedSocketlessRunsOn
 			}
 			contracts[contract.job] = contract
 		}
@@ -467,7 +471,7 @@ func validateWorkflowBytes(filename string, content []byte, policySchema int) []
 		if runErr == nil {
 			canonicalRunsOn = canonicalizeRunsOn(runsOn, &errors, jobID)
 		}
-		if isSelfHosted && !reflect.DeepEqual(canonicalRunsOn, canonicalSelfHostedRunsOn) {
+		if isSelfHosted && !reflect.DeepEqual(canonicalRunsOn, canonicalLegacySelfHostedRunsOn) {
 			errors = append(errors, jobID+": invalid self-hosted tuple")
 		}
 		contract, listed := contracts[jobID]
@@ -579,7 +583,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	selfHosted := map[string]bool{}
+	managedSocketless := map[string]bool{}
 	for _, path := range entries {
 		content, err := os.ReadFile(path)
 		if err != nil {
@@ -595,8 +599,8 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		}
 		for jobID, job := range workflow.Jobs {
 			runsOn, _ := stringSlice(job["runs-on"])
-			if slicesContain(runsOn, "self-hosted") {
-				selfHosted[filename+"/"+jobID] = true
+			if slicesContain(runsOn, "managed-socketless") {
+				managedSocketless[filename+"/"+jobID] = true
 			}
 			steps, _ := job["steps"].([]any)
 			for _, raw := range steps {
@@ -656,8 +660,8 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	default:
 		t.Fatalf("unsupported runner policy schema version: %d", policy.SchemaVersion)
 	}
-	if !reflect.DeepEqual(selfHosted, expected) {
-		t.Fatalf("self-hosted inventory mismatch: %v", selfHosted)
+	if !reflect.DeepEqual(managedSocketless, expected) {
+		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
 	}
 }
 
@@ -671,7 +675,7 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 			return strings.Replace(s, "cron: '0 2 * * 1'", "cron: '0 3 * * 1'", 1)
 		},
 		"changed dispatch mode": func(s string) string {
-			return strings.Replace(s, "          - real-only      # Sequential real API tests (self-hosted)", "          - unsafe-mode    # unauthorized dispatch mode", 1)
+			return strings.Replace(s, "          - real-only      # Sequential real API tests (repository-scoped ARC)", "          - unsafe-mode    # unauthorized dispatch mode", 1)
 		},
 		"changed PR path": func(s string) string {
 			return strings.Replace(s, "      - 'internal/blindfold/**'", "      - 'unsafe/**'", 1)

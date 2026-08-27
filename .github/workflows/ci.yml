@@ -51,7 +51,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   check-constitution:
     name: Constitution Check
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     # Skip for automated branches - they're expected to contain generated files
     if: |
       github.event_name == 'pull_request' &&
@@ -104,7 +104,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   validate-docs-generation:
     name: Validate Docs Generation
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
@@ -202,7 +202,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   validate-mock-fixtures:
     name: Validate Mock Fixtures
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
@@ -282,7 +282,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   validate-shell-scripts:
     name: Validate Shell Scripts
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
@@ -334,7 +334,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   validate-terraform-examples:
     name: Validate Terraform Examples
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout

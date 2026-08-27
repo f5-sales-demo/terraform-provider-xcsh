@@ -4,7 +4,7 @@
 # and comparing requests with responses. It requires access to the F5 XC
 # staging environment, which is only available via VPN.
 #
-# IMPORTANT: Uses self-hosted runner with VPN access
+# IMPORTANT: Uses repository-scoped ARC with VPN access
 # Public GitHub runners cannot access the staging environment.
 #
 # Triggers:
@@ -60,9 +60,9 @@ jobs:
   discover:
     name: Discover API Defaults
     environment: default-discovery
-    # IMPORTANT: This MUST run on a self-hosted runner with VPN access
+    # IMPORTANT: This MUST run on the repository-scoped ARC runner with VPN access
     # The staging environment is not accessible from public GitHub runners
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     # Checkout, push, and PR creation all use REPO_SYNC_TOKEN explicitly. Keep
     # the automatic GITHUB_TOKEN disabled rather than granting duplicate writes.
     permissions: {}
@@ -85,7 +85,7 @@ jobs:
       - name: Check runner availability
         run: |
           echo "Self-hosted discovery runner started"
-          # The self-hosted runner should have VPN configured
+          # The ARC runner should have VPN configured
           # This step validates we can reach the staging environment
 
       - name: Checkout
@@ -301,7 +301,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   summary:
     name: Discovery Summary
-    runs-on: [self-hosted, Linux, X64, terraform-provider-xcsh, ubuntu-24.04]
+    runs-on: managed-socketless
     needs: discover
     if: always()
     steps:
