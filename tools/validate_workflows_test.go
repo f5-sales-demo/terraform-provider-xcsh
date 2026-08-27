@@ -101,6 +101,7 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 				"scripts/test-check-spec-version-freshness.sh",
 				"scripts/prepare-spec-delivery-receipt.sh",
 				"scripts/validate-provider-delivery-state.sh",
+				"scripts/is-pending-delivery-active.sh",
 				"scripts/is-release-recovery-only.sh",
 			}, "\n"),
 			allowed: true,
@@ -152,6 +153,37 @@ func TestOnMergePendingRecoveryPrecedesMetadataOnlySkip(t *testing.T) {
 	recoveryAwareMetadataGuard := `elif [[ "$DELIVERY_METADATA_ONLY" == "true" && "$PENDING_DELIVERY" != "true" ]]; then`
 	if !strings.Contains(workflow, recoveryAwareMetadataGuard) {
 		t.Errorf("pending recovery must bypass the metadata-only skip; missing %q", recoveryAwareMetadataGuard)
+	}
+}
+
+func TestPendingDeliveryActiveClassifier(t *testing.T) {
+	script := filepath.Join("..", "scripts", "is-pending-delivery-active.sh")
+	tempDir := t.TempDir()
+	pending := filepath.Join(tempDir, "spec-pending-delivery.json")
+
+	run := func(changedPaths, resume string) error {
+		cmd := exec.Command(script, pending, resume)
+		cmd.Stdin = strings.NewReader(changedPaths)
+		return cmd.Run()
+	}
+
+	if err := run(pending+"\n", "false"); err == nil {
+		t.Fatal("deleted pending-delivery path must not resume generation")
+	}
+	if err := os.WriteFile(pending, []byte("{}\n"), 0o600); err != nil {
+		t.Fatalf("create pending delivery: %v", err)
+	}
+	if err := run(pending+"\n", "false"); err != nil {
+		t.Fatalf("extant changed pending delivery must resume generation: %v", err)
+	}
+	if err := os.Remove(pending); err != nil {
+		t.Fatalf("remove pending delivery: %v", err)
+	}
+	if err := run("", "true"); err != nil {
+		t.Fatalf("explicit pending recovery must resume generation: %v", err)
+	}
+	if err := run("", "invalid"); err == nil {
+		t.Fatal("invalid resume-pending value must fail closed")
 	}
 }
 
