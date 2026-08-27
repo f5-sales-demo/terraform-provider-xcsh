@@ -48,9 +48,9 @@ on:
         default: '4'
         type: string
       timeout:
-        description: 'Timeout per test (minutes)'
+        description: 'Go test suite timeout (minutes)'
         required: false
-        default: '10'
+        default: '300'
         type: string
   pull_request:
     branches: [main]
@@ -122,7 +122,7 @@ jobs:
 
           # Mock tests run in PARALLEL - no rate limiting needed
           PARALLEL="${INPUT_PARALLEL:-4}"
-          TIMEOUT="${INPUT_TIMEOUT:-10}"
+          TIMEOUT="${INPUT_TIMEOUT:-300}"
 
           echo "Running mock tests with parallelism: $PARALLEL"
 
@@ -274,15 +274,17 @@ jobs:
           set -o pipefail
           mkdir -p test-reports
 
-          TIMEOUT="${INPUT_TIMEOUT:-10}"
+          TIMEOUT="${INPUT_TIMEOUT:-300}"
 
           echo "Running real API tests SEQUENTIALLY with rate limiting"
-          echo "Timeout per test: ${TIMEOUT}m"
+          echo "Suite timeout: ${TIMEOUT}m"
 
-          # Real API tests run SEQUENTIALLY (-parallel 1) with rate limiting
+          # Real API tests serialize packages (-p 1) and individual tests
+          # (-parallel 1) so tenant mutations never overlap.
           # Tests include both provider resources AND provider-defined functions
           TEST_STATUS=0
           go test -json \
+            -p 1 \
             -parallel 1 \
             -timeout "${TIMEOUT}m" \
             -run 'TestAcc.*' \
@@ -382,39 +384,105 @@ jobs:
           set -o pipefail
           [ -n "$XCSH_API_URL" ] || { echo "::error::XCSH_API_URL secret not configured"; exit 1; }
           [ -n "$XCSH_API_TOKEN" ] || { echo "::error::XCSH_API_TOKEN secret not configured"; exit 1; }
-          echo "Running sweepers to clean up test resources..."
-          echo ""
+          trap 'rm -f sweep-output-first.txt sweep-output-final.txt' EXIT
 
-          # Run all sweepers to clean up leftover test resources
-          # This runs even if tests failed to ensure cleanup
-          go test ./internal/acctest -v -sweep=all -timeout 30m \
-            > sweep-output.txt 2>&1 || SWEEP_EXIT=$?
+          echo "Running cleanup pass and final idempotence pass..."
 
-          # Count swept resources (for summary)
-          NAMESPACE_COUNT=$(grep -c "Successfully deleted namespace" sweep-output.txt || echo "0")
-          echo "swept_namespaces=$NAMESPACE_COUNT" >> "$GITHUB_OUTPUT"
+          # Both raw streams can contain live-tenant identifiers. Keep them in
+          # the private job workspace only and remove them on every exit path.
+          FIRST_SWEEP_EXIT=0
+          go test ./internal/acctest -count=1 -v -sweep=all -timeout 30m \
+            > sweep-output-first.txt 2>&1 || FIRST_SWEEP_EXIT=$?
 
-          # Report results
-          echo ""
-          echo "Sweep completed."
-          echo "Namespaces cleaned: $NAMESPACE_COUNT"
+          FINAL_SWEEP_EXIT=0
+          go test ./internal/acctest -count=1 -v -sweep=all -timeout 30m \
+            > sweep-output-final.txt 2>&1 || FINAL_SWEEP_EXIT=$?
 
-          # Absence is idempotent success; any non-zero sweeper result is a defect.
-          if [[ "${SWEEP_EXIT:-0}" -ne 0 ]]; then
-            echo "::error::One or more sweepers failed"
-            exit 1
+          CLEANUP_STATUS=0
+          if [[ "$FIRST_SWEEP_EXIT" -ne 0 ]]; then
+            echo "::error::Initial cleanup sweepers failed"
+            CLEANUP_STATUS=1
           fi
+          if [[ "$FINAL_SWEEP_EXIT" -ne 0 ]]; then
+            echo "::error::Final idempotence sweepers failed"
+            CLEANUP_STATUS=1
+          fi
+
+          extract_final_count() {
+            local label="$1"
+            local matches
+            local count
+            matches=$(sed -nE "s/.*Swept ([0-9]+) ${label}$/\\1/p" sweep-output-final.txt)
+            count=$(printf '%s\n' "$matches" | sed '/^$/d' | wc -l | tr -d '[:space:]')
+            if [[ "$count" != "1" || ! "$matches" =~ ^[0-9]+$ ]]; then
+              echo "::error::Final sweep evidence for ${label} is missing or ambiguous" >&2
+              return 1
+            fi
+            printf '%s' "$matches"
+          }
+
+          record_final_count() {
+            local output_name="$1"
+            local label="$2"
+            local value
+            if ! value=$(extract_final_count "$label"); then
+              CLEANUP_STATUS=1
+              return
+            fi
+            printf '%s=%s\n' "$output_name" "$value" >> "$GITHUB_OUTPUT"
+            if [[ "$value" -ne 0 ]]; then
+              echo "::error::Final sweep found ${value} ${label}"
+              CLEANUP_STATUS=1
+            fi
+          }
+
+          record_final_count final_namespaces "namespaces"
+          record_final_count final_http_load_balancers "HTTP load balancers"
+          record_final_count final_origin_pools "origin pools"
+          record_final_count final_healthchecks "healthchecks"
+          record_final_count final_app_firewalls "app firewalls"
+          record_final_count final_service_policies "service policies"
+          record_final_count final_ip_prefix_sets "IP prefix sets"
+          record_final_count final_rate_limiters "rate limiters"
+          record_final_count final_user_identifications "user identifications"
+          record_final_count final_malicious_user_mitigations "malicious user mitigations"
+
+          if [[ "$CLEANUP_STATUS" -ne 0 ]]; then
+            exit "$CLEANUP_STATUS"
+          fi
+
+          echo "Cleanup completed; the final pass found zero resources in all ten categories."
 
       - name: Post cleanup summary
         env:
-          SWEPT_NAMESPACES: ${{ steps.sweep.outputs.swept_namespaces || '0' }}
+          FINAL_NAMESPACES: ${{ steps.sweep.outputs.final_namespaces }}
+          FINAL_HTTP_LOAD_BALANCERS: ${{ steps.sweep.outputs.final_http_load_balancers }}
+          FINAL_ORIGIN_POOLS: ${{ steps.sweep.outputs.final_origin_pools }}
+          FINAL_HEALTHCHECKS: ${{ steps.sweep.outputs.final_healthchecks }}
+          FINAL_APP_FIREWALLS: ${{ steps.sweep.outputs.final_app_firewalls }}
+          FINAL_SERVICE_POLICIES: ${{ steps.sweep.outputs.final_service_policies }}
+          FINAL_IP_PREFIX_SETS: ${{ steps.sweep.outputs.final_ip_prefix_sets }}
+          FINAL_RATE_LIMITERS: ${{ steps.sweep.outputs.final_rate_limiters }}
+          FINAL_USER_IDENTIFICATIONS: ${{ steps.sweep.outputs.final_user_identifications }}
+          FINAL_MALICIOUS_USER_MITIGATIONS: ${{ steps.sweep.outputs.final_malicious_user_mitigations }}
         run: |
           {
             echo "## Resource Cleanup"
             echo ""
-            echo "Sweepers ran to clean up test resources left behind by acceptance tests."
+            echo "The final idempotence pass reported:"
             echo ""
-            echo "- Namespaces cleaned: ${SWEPT_NAMESPACES}"
+            echo "| Resource category | Remaining test resources |"
+            echo "| --- | ---: |"
+            echo "| Namespaces | ${FINAL_NAMESPACES} |"
+            echo "| HTTP load balancers | ${FINAL_HTTP_LOAD_BALANCERS} |"
+            echo "| Origin pools | ${FINAL_ORIGIN_POOLS} |"
+            echo "| Healthchecks | ${FINAL_HEALTHCHECKS} |"
+            echo "| App firewalls | ${FINAL_APP_FIREWALLS} |"
+            echo "| Service policies | ${FINAL_SERVICE_POLICIES} |"
+            echo "| IP prefix sets | ${FINAL_IP_PREFIX_SETS} |"
+            echo "| Rate limiters | ${FINAL_RATE_LIMITERS} |"
+            echo "| User identifications | ${FINAL_USER_IDENTIFICATIONS} |"
+            echo "| Malicious user mitigations | ${FINAL_MALICIOUS_USER_MITIGATIONS} |"
           } >> "$GITHUB_STEP_SUMMARY"
 
   # ═══════════════════════════════════════════════════════════════════════════

@@ -1680,6 +1680,23 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 	if !mockStepFound {
 		t.Fatal("mock acceptance test step not found")
 	}
+	realScript := extractWorkflowRunStep(t, "acc-tests.yml", "real-api-tests", "Run real API tests")
+	for _, want := range []string{
+		"TIMEOUT=\"${INPUT_TIMEOUT:-300}\"",
+		"go test -json \\\n  -p 1 \\",
+		"-parallel 1 \\",
+		"-timeout \"${TIMEOUT}m\"",
+		"Suite timeout: ${TIMEOUT}m",
+	} {
+		if !strings.Contains(realScript, want) {
+			t.Fatalf("real acceptance test command does not contain %q", want)
+		}
+	}
+	if !strings.Contains(workflowText, "description: 'Go test suite timeout (minutes)'") ||
+		!strings.Contains(workflowText, "default: '300'") ||
+		strings.Contains(workflowText, "Timeout per test") {
+		t.Fatal("acceptance timeout is not documented and defaulted as a 300-minute suite timeout")
+	}
 	for _, forbidden := range []string{"P12", "p12", "GO_VERSION", "go-version:", "RUNNER_NAME", "batch_delay"} {
 		if strings.Contains(workflowText, forbidden) {
 			t.Fatalf("acceptance workflow retains pre-production compatibility or moving-toolchain marker %q", forbidden)
@@ -1786,25 +1803,112 @@ exit 1
 		})
 	}
 
-	t.Run("sweeper failure", func(t *testing.T) {
-		tmp := t.TempDir()
-		bin := filepath.Join(tmp, "bin")
-		writeReleaseTestFile(t, bin, "go", "#!/usr/bin/env bash\nprintf 'sweeper detail that must stay local\\n'\nexit 7\n", 0o700)
-		outputPath := filepath.Join(tmp, "github-output")
-		sweepScript := extractWorkflowRunStep(t, "acc-tests.yml", "cleanup", "Run sweepers")
-		result, runErr := runImplicitWorkflowScript(tmp, sweepScript, []string{
-			"PATH=" + bin + string(os.PathListSeparator) + os.Getenv("PATH"),
-			"GITHUB_OUTPUT=" + outputPath,
-			"XCSH_API_URL=https://example.invalid",
-			"XCSH_API_TOKEN=fixture",
+	sweepScript := extractWorkflowRunStep(t, "acc-tests.yml", "cleanup", "Run sweepers")
+	if strings.Count(sweepScript, "go test ./internal/acctest") != 2 ||
+		strings.Count(sweepScript, "-count=1 -v -sweep=all") != 2 {
+		t.Fatal("cleanup does not execute two uncached sweeper passes")
+	}
+	for _, label := range []string{
+		"namespaces",
+		"HTTP load balancers",
+		"origin pools",
+		"healthchecks",
+		"app firewalls",
+		"service policies",
+		"IP prefix sets",
+		"rate limiters",
+		"user identifications",
+		"malicious user mitigations",
+	} {
+		if !strings.Contains(sweepScript, `record_final_count`) || !strings.Contains(sweepScript, `"`+label+`"`) {
+			t.Fatalf("cleanup omits final evidence for %s", label)
+		}
+	}
+
+	for _, tc := range []struct {
+		name     string
+		mode     string
+		wantErr  string
+		wantPass bool
+	}{
+		{name: "two clean passes", mode: "success", wantPass: true},
+		{name: "initial pass failure", mode: "first-failure", wantErr: "Initial cleanup sweepers failed"},
+		{name: "final pass failure", mode: "final-failure", wantErr: "Final idempotence sweepers failed"},
+		{name: "missing final category", mode: "missing", wantErr: "missing or ambiguous"},
+		{name: "nonzero final category", mode: "nonzero", wantErr: "Final sweep found 1 namespaces"},
+	} {
+		t.Run("sweepers "+tc.name, func(t *testing.T) {
+			tmp := t.TempDir()
+			bin := filepath.Join(tmp, "bin")
+			writeReleaseTestFile(t, bin, "go", `#!/usr/bin/env bash
+set -euo pipefail
+calls_file=go-call-count
+calls=0
+if [ -f "$calls_file" ]; then calls=$(cat "$calls_file"); fi
+calls=$((calls + 1))
+printf '%s\n' "$calls" > "$calls_file"
+printf 'sweeper detail that must stay local\n'
+if [ "${SWEEP_MODE:-success}" = first-failure ] && [ "$calls" -eq 1 ]; then exit 7; fi
+if [ "${SWEEP_MODE:-success}" = final-failure ] && [ "$calls" -eq 2 ]; then exit 8; fi
+namespace_count=0
+if [ "$calls" -eq 1 ]; then namespace_count=3; fi
+if [ "${SWEEP_MODE:-success}" = nonzero ] && [ "$calls" -eq 2 ]; then namespace_count=1; fi
+printf '[INFO] Swept %s namespaces\n' "$namespace_count"
+printf '[INFO] Swept 0 HTTP load balancers\n'
+printf '[INFO] Swept 0 origin pools\n'
+printf '[INFO] Swept 0 healthchecks\n'
+printf '[INFO] Swept 0 app firewalls\n'
+printf '[INFO] Swept 0 service policies\n'
+printf '[INFO] Swept 0 IP prefix sets\n'
+printf '[INFO] Swept 0 rate limiters\n'
+printf '[INFO] Swept 0 user identifications\n'
+if [ "${SWEEP_MODE:-success}" != missing ] || [ "$calls" -ne 2 ]; then
+  printf '[INFO] Swept 0 malicious user mitigations\n'
+fi
+`, 0o700)
+			outputPath := filepath.Join(tmp, "github-output")
+			result, runErr := runImplicitWorkflowScript(tmp, sweepScript, []string{
+				"PATH=" + bin + string(os.PathListSeparator) + os.Getenv("PATH"),
+				"GITHUB_OUTPUT=" + outputPath,
+				"XCSH_API_URL=https://example.invalid",
+				"XCSH_API_TOKEN=fixture",
+				"SWEEP_MODE=" + tc.mode,
+			})
+			if tc.wantPass && runErr != nil {
+				t.Fatalf("valid two-pass cleanup failed: %v\n%s", runErr, result)
+			}
+			if !tc.wantPass && (runErr == nil || !strings.Contains(result, tc.wantErr)) {
+				t.Fatalf("cleanup defect was reported as success: err=%v\n%s", runErr, result)
+			}
+			if strings.Contains(result, "sweeper detail") {
+				t.Fatalf("sweeper output leaked to the job log:\n%s", result)
+			}
+			calls, err := os.ReadFile(filepath.Join(tmp, "go-call-count")) //nolint:gosec // isolated fixture
+			if err != nil || strings.TrimSpace(string(calls)) != "2" {
+				t.Fatalf("cleanup did not invoke both passes: calls=%q err=%v", calls, err)
+			}
+			for _, rawName := range []string{"sweep-output-first.txt", "sweep-output-final.txt"} {
+				if _, err := os.Stat(filepath.Join(tmp, rawName)); !os.IsNotExist(err) {
+					t.Fatalf("private sweeper output survived script exit: %s: %v", rawName, err)
+				}
+			}
+			if tc.wantPass {
+				outputs, err := os.ReadFile(outputPath) //nolint:gosec // isolated fixture
+				if err != nil {
+					t.Fatal(err)
+				}
+				lines := strings.Split(strings.TrimSpace(string(outputs)), "\n")
+				if len(lines) != 10 {
+					t.Fatalf("cleanup published %d final counts, want 10:\n%s", len(lines), outputs)
+				}
+				for _, line := range lines {
+					if !strings.HasSuffix(line, "=0") {
+						t.Fatalf("cleanup published a nonzero or malformed final count: %q", line)
+					}
+				}
+			}
 		})
-		if runErr == nil || !strings.Contains(result, "sweepers failed") {
-			t.Fatalf("sweeper failure was reported as success: err=%v\n%s", runErr, result)
-		}
-		if strings.Contains(result, "sweeper detail") {
-			t.Fatalf("sweeper output leaked to the job log:\n%s", result)
-		}
-	})
+	}
 
 	t.Run("mock-real comparison", func(t *testing.T) {
 		tmp := t.TempDir()
