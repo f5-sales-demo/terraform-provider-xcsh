@@ -185,6 +185,7 @@ func renderResponseOperationFlags(result *strings.Builder, attribute openapi.Ter
 	if attribute.Sensitive {
 		result.WriteString(indent + "Sensitive: true,\n")
 	}
+	renderResponseOperationValidators(result, attribute, indent)
 	if requiresReplace && (attribute.Required || attribute.Optional) {
 		typeName := map[string]string{"string": "String", "int64": "Int64", "bool": "Bool", "list": "List", "map": "Map"}[attribute.Type]
 		packageName := map[string]string{"string": "stringplanmodifier", "int64": "int64planmodifier", "bool": "boolplanmodifier", "list": "listplanmodifier", "map": "mapplanmodifier"}[attribute.Type]
@@ -192,6 +193,74 @@ func renderResponseOperationFlags(result *strings.Builder, attribute openapi.Ter
 			fmt.Fprintf(result, "%sPlanModifiers: []planmodifier.%s{%s.RequiresReplace()},\n", indent, typeName, packageName)
 		}
 	}
+}
+
+func renderResponseOperationValidators(result *strings.Builder, attribute openapi.TerraformAttribute, indent string) {
+	if attribute.Type == "string" {
+		var validators []string
+		switch {
+		case attribute.MinLength > 0 && attribute.MaxLength > 0:
+			validators = append(validators, fmt.Sprintf("stringvalidator.LengthBetween(%d, %d)", attribute.MinLength, attribute.MaxLength))
+		case attribute.MinLength > 0:
+			validators = append(validators, fmt.Sprintf("stringvalidator.LengthAtLeast(%d)", attribute.MinLength))
+		case attribute.MaxLength > 0:
+			validators = append(validators, fmt.Sprintf("stringvalidator.LengthAtMost(%d)", attribute.MaxLength))
+		}
+		if attribute.Pattern != "" {
+			validators = append(validators, fmt.Sprintf("stringvalidator.RegexMatches(regexp.MustCompile(%s), \"\")", RegexLiteral(attribute.Pattern)))
+		}
+		if len(attribute.EnumValues) > 0 {
+			quoted := make([]string, len(attribute.EnumValues))
+			for index, value := range attribute.EnumValues {
+				quoted[index] = strconv.Quote(value)
+			}
+			validators = append(validators, "stringvalidator.OneOf("+strings.Join(quoted, ", ")+")")
+		}
+		if len(validators) > 0 {
+			result.WriteString(indent + "Validators: []validator.String{\n")
+			for _, expression := range validators {
+				fmt.Fprintf(result, "%s\t%s,\n", indent, expression)
+			}
+			result.WriteString(indent + "},\n")
+		}
+	}
+	if attribute.Type == "list" && (attribute.MinItems > 0 || attribute.MaxItems > 0) {
+		result.WriteString(indent + "Validators: []validator.List{\n")
+		switch {
+		case attribute.MinItems > 0 && attribute.MaxItems > 0:
+			fmt.Fprintf(result, "%s\tlistvalidator.SizeBetween(%d, %d),\n", indent, attribute.MinItems, attribute.MaxItems)
+		case attribute.MinItems > 0:
+			fmt.Fprintf(result, "%s\tlistvalidator.SizeAtLeast(%d),\n", indent, attribute.MinItems)
+		default:
+			fmt.Fprintf(result, "%s\tlistvalidator.SizeAtMost(%d),\n", indent, attribute.MaxItems)
+		}
+		result.WriteString(indent + "},\n")
+	}
+	if attribute.Type != "int64" {
+		return
+	}
+	if len(attribute.Int64RangeSpans) > 0 {
+		result.WriteString(indent + "Validators: []validator.Int64{\n")
+		result.WriteString(indent + "\tvalidators.Int64RangeSetValidator(\n")
+		for _, span := range attribute.Int64RangeSpans {
+			fmt.Fprintf(result, "%s\t\tvalidators.Int64Range{Minimum: %d, Maximum: %d},\n", indent, span.Minimum, span.Maximum)
+		}
+		result.WriteString(indent + "\t),\n" + indent + "},\n")
+		return
+	}
+	if !attribute.HasMinimum && !attribute.HasMaximum {
+		return
+	}
+	result.WriteString(indent + "Validators: []validator.Int64{\n")
+	switch {
+	case attribute.HasMinimum && attribute.HasMaximum:
+		fmt.Fprintf(result, "%s\tint64validator.Between(%d, %d),\n", indent, attribute.Minimum, attribute.Maximum)
+	case attribute.HasMinimum:
+		fmt.Fprintf(result, "%s\tint64validator.AtLeast(%d),\n", indent, attribute.Minimum)
+	default:
+		fmt.Fprintf(result, "%s\tint64validator.AtMost(%d),\n", indent, attribute.Maximum)
+	}
+	result.WriteString(indent + "},\n")
 }
 
 func renderResponseOperationRequestSetup(operation *openapi.ResponseOperationTemplate) string {
@@ -356,11 +425,17 @@ import (
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-framework/attr"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 var _ datasource.DataSource = &{{.TitleCase}}DataSource{}
@@ -407,6 +482,9 @@ import (
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-framework/attr"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
@@ -415,9 +493,12 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 var _ resource.Resource = &{{.TitleCase}}Resource{}
@@ -462,10 +543,16 @@ import (
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-framework/action"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/action/schema"
+	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+	"regexp"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
 var _ action.Action = &{{.TitleCase}}Action{}

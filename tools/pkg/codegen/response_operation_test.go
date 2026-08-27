@@ -67,7 +67,7 @@ func TestGenerateResponseOperationEveryRole(t *testing.T) {
 				t.Fatal(err)
 			}
 			text := string(content)
-			for _, want := range []string{"Code generated", test.marker, `"/api/probe/{namespace}/{name}"`, "url.PathEscape"} {
+			for _, want := range []string{"Code generated", test.marker, `"/api/probe/{namespace}/{name}"`, "url.PathEscape", `stringvalidator.OneOf("v1", "v2")`} {
 				if !strings.Contains(text, want) {
 					t.Errorf("generated %s missing %q", test.role, want)
 				}
@@ -141,7 +141,7 @@ func responseOperationTemplate(role string) *openapi.ResponseOperationTemplate {
 		Description: "Probe operation.",
 		Inputs: []openapi.ResponseOperationInput{
 			{Attribute: openapi.TerraformAttribute{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", JsonName: "namespace", Type: "string", Required: true}, Bindings: []openapi.OperationBinding{{Location: "path", Name: "namespace"}, {Location: "body", Name: "namespace"}}},
-			{Attribute: openapi.TerraformAttribute{Name: "name", GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string", Required: true}, Bindings: []openapi.OperationBinding{{Location: "path", Name: "name"}, {Location: "body", Name: "name"}}},
+			{Attribute: openapi.TerraformAttribute{Name: "name", GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string", Required: true, EnumValues: []string{"v1", "v2"}}, Bindings: []openapi.OperationBinding{{Location: "path", Name: "name"}, {Location: "body", Name: "name"}}},
 			{Attribute: openapi.TerraformAttribute{Name: "force", GoName: "Force", TfsdkTag: "force", JsonName: "force", Type: "bool", Optional: true, Default: falseValue}, Bindings: []openapi.OperationBinding{{Location: "body", Name: "force"}}},
 		},
 		ResponseAttributes: []openapi.TerraformAttribute{{Name: "secret", GoName: "Secret", TfsdkTag: "secret", JsonName: "secret", Type: "string", Computed: true, Sensitive: true, IsSpecField: true}},
