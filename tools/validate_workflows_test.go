@@ -208,7 +208,7 @@ func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
 	}
 }
 
-func TestProviderRegenerationBuildIsMemoryBounded(t *testing.T) {
+func TestProviderRegenerationVerificationIsMemoryBounded(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_generate-provider.yml"))
 	if err != nil {
 		t.Fatalf("read provider regeneration workflow: %v", err)
@@ -218,7 +218,14 @@ func TestProviderRegenerationBuildIsMemoryBounded(t *testing.T) {
 		`GOGC: "10"`,
 		`GOMEMLIMIT: 4GiB`,
 		`GOMAXPROCS: "1"`,
+	} {
+		if count := strings.Count(workflow, fragment); count != 2 {
+			t.Errorf("provider regeneration build and vet must each contain %q; found %d", fragment, count)
+		}
+	}
+	for _, fragment := range []string{
 		`go build -p 1 -gcflags='all=-N -l' -v ./...`,
+		`go vet -p 1 ./...`,
 	} {
 		if !strings.Contains(workflow, fragment) {
 			t.Errorf("provider regeneration memory contract is missing %q", fragment)

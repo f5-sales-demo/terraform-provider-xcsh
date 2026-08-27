@@ -82,7 +82,14 @@ jobs:
 
       - name: Vet to verify
         # Type-checks _test.go files, which go build skips (#1351).
-        run: scripts/go-retry.sh 3 go vet ./...
+        # Vet compiles the same large package graph as build. Keep it serial and
+        # under the same proven GC/memory ceiling so the hosted runner survives
+        # long enough to report the complete analysis result.
+        env:
+          GOGC: "10"
+          GOMEMLIMIT: 4GiB
+          GOMAXPROCS: "1"
+        run: scripts/go-retry.sh 3 go vet -p 1 ./...
 
       - name: Run tests
         # ./tools/... runs here as well as in _build-test.yml so the freshly
