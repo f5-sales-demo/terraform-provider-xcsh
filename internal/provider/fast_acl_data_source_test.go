@@ -42,8 +42,17 @@ func testAccFastAclDataSourceConfig_basic(name string) string {
 resource "xcsh_fast_acl" "test" {
   name      = %[1]q
   namespace = "system"
-  action    = "policer_action"
-  prefix    = "10.0.0.0/8"
+
+  re_acl {
+    fast_acl_rules {
+      action {
+        simple_action = "DENY"
+      }
+      prefix {
+        prefix = ["192.0.2.0/24"]
+      }
+    }
+  }
 }
 
 data "xcsh_fast_acl" "test" {

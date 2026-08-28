@@ -31957,8 +31957,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -31969,7 +31969,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -41077,9 +41077,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["default_pool"].(map[string]interface{}); ok && (isImport || data.DefaultPool != nil) {
 		data.DefaultPool = &HTTPLoadBalancerDefaultPoolModel{
 			AdvancedOptions: func() *HTTPLoadBalancerDefaultPoolAdvancedOptionsModel {
-				if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-					return data.DefaultPool.AdvancedOptions
-				}
 				if AdvancedOptionsData, ok := blockData["advanced_options"].(map[string]interface{}); ok {
 					return &HTTPLoadBalancerDefaultPoolAdvancedOptionsModel{
 						AutoHTTPConfig: func() *HTTPLoadBalancerEmptyModel {
@@ -41915,12 +41912,12 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									return nil
 								}(),
-								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+								Labels: UnmarshalStringMapForRead(ctx, OriginServersItemMap["labels"], func() types.Map {
 									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
 									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+								}(), "labels", isImport, &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{
@@ -45407,12 +45404,12 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				}
 				return nil
 			}(),
-			CustomErrors: UnmarshalStringMap(ctx, blockData["custom_errors"], func() types.Map {
+			CustomErrors: UnmarshalStringMapForRead(ctx, blockData["custom_errors"], func() types.Map {
 				if data.MoreOption != nil {
 					return data.MoreOption.CustomErrors
 				}
 				return types.MapNull(types.StringType)
-			}(), "custom_errors", &resp.Diagnostics),
+			}(), "custom_errors", isImport, &resp.Diagnostics),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					return data.MoreOption.DisableDefaultErrorPages
@@ -46366,12 +46363,12 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: UnmarshalStringMap(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
+								OriginServerSubsetsAction: UnmarshalStringMapForRead(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
 									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
 									return types.MapNull(types.StringType)
-								}(), "origin_server_subsets_action", &resp.Diagnostics),
+								}(), "origin_server_subsets_action", isImport, &resp.Diagnostics),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
 										var items []string
@@ -47845,9 +47842,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				return nil
 			}(),
 			RateLimiter: func() *HTTPLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &HTTPLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *HTTPLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -51632,8 +51626,8 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -51644,7 +51638,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -60752,9 +60746,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["default_pool"].(map[string]interface{}); ok && (isImport || data.DefaultPool != nil) {
 		data.DefaultPool = &HTTPLoadBalancerDefaultPoolModel{
 			AdvancedOptions: func() *HTTPLoadBalancerDefaultPoolAdvancedOptionsModel {
-				if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-					return data.DefaultPool.AdvancedOptions
-				}
 				if AdvancedOptionsData, ok := blockData["advanced_options"].(map[string]interface{}); ok {
 					return &HTTPLoadBalancerDefaultPoolAdvancedOptionsModel{
 						AutoHTTPConfig: func() *HTTPLoadBalancerEmptyModel {
@@ -61590,12 +61581,12 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return nil
 								}(),
-								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+								Labels: UnmarshalStringMapForRead(ctx, OriginServersItemMap["labels"], func() types.Map {
 									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
 									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+								}(), "labels", isImport, &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{
@@ -65082,12 +65073,12 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return nil
 			}(),
-			CustomErrors: UnmarshalStringMap(ctx, blockData["custom_errors"], func() types.Map {
+			CustomErrors: UnmarshalStringMapForRead(ctx, blockData["custom_errors"], func() types.Map {
 				if data.MoreOption != nil {
 					return data.MoreOption.CustomErrors
 				}
 				return types.MapNull(types.StringType)
-			}(), "custom_errors", &resp.Diagnostics),
+			}(), "custom_errors", isImport, &resp.Diagnostics),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					return data.MoreOption.DisableDefaultErrorPages
@@ -66041,12 +66032,12 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: UnmarshalStringMap(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
+								OriginServerSubsetsAction: UnmarshalStringMapForRead(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
 									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
 									return types.MapNull(types.StringType)
-								}(), "origin_server_subsets_action", &resp.Diagnostics),
+								}(), "origin_server_subsets_action", isImport, &resp.Diagnostics),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
 										var items []string
@@ -67520,9 +67511,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 				return nil
 			}(),
 			RateLimiter: func() *HTTPLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &HTTPLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *HTTPLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -80421,8 +80409,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -80433,7 +80421,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -89541,9 +89529,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["default_pool"].(map[string]interface{}); ok && (isImport || data.DefaultPool != nil) {
 		data.DefaultPool = &HTTPLoadBalancerDefaultPoolModel{
 			AdvancedOptions: func() *HTTPLoadBalancerDefaultPoolAdvancedOptionsModel {
-				if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-					return data.DefaultPool.AdvancedOptions
-				}
 				if AdvancedOptionsData, ok := blockData["advanced_options"].(map[string]interface{}); ok {
 					return &HTTPLoadBalancerDefaultPoolAdvancedOptionsModel{
 						AutoHTTPConfig: func() *HTTPLoadBalancerEmptyModel {
@@ -90379,12 +90364,12 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									return nil
 								}(),
-								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+								Labels: UnmarshalStringMapForRead(ctx, OriginServersItemMap["labels"], func() types.Map {
 									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
 									return types.MapNull(types.StringType)
-								}(), "labels", &resp.Diagnostics),
+								}(), "labels", isImport, &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{
@@ -93871,12 +93856,12 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				}
 				return nil
 			}(),
-			CustomErrors: UnmarshalStringMap(ctx, blockData["custom_errors"], func() types.Map {
+			CustomErrors: UnmarshalStringMapForRead(ctx, blockData["custom_errors"], func() types.Map {
 				if data.MoreOption != nil {
 					return data.MoreOption.CustomErrors
 				}
 				return types.MapNull(types.StringType)
-			}(), "custom_errors", &resp.Diagnostics),
+			}(), "custom_errors", isImport, &resp.Diagnostics),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					return data.MoreOption.DisableDefaultErrorPages
@@ -94830,12 +94815,12 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: UnmarshalStringMap(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
+								OriginServerSubsetsAction: UnmarshalStringMapForRead(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
 									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
 									return types.MapNull(types.StringType)
-								}(), "origin_server_subsets_action", &resp.Diagnostics),
+								}(), "origin_server_subsets_action", isImport, &resp.Diagnostics),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
 										var items []string
@@ -96309,9 +96294,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				return nil
 			}(),
 			RateLimiter: func() *HTTPLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &HTTPLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *HTTPLoadBalancerRateLimitRateLimiterActionBlockModel {

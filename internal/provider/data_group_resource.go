@@ -389,32 +389,32 @@ func (r *DataGroupResource) Create(ctx context.Context, req resource.CreateReque
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
 		data.AddressRecords = &DataGroupAddressRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.AddressRecords != nil {
 					return data.AddressRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
 		data.IntegerRecords = &DataGroupIntegerRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.IntegerRecords != nil {
 					return data.IntegerRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
 		data.StringRecords = &DataGroupStringRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.StringRecords != nil {
 					return data.StringRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 
@@ -550,32 +550,32 @@ func (r *DataGroupResource) Read(ctx context.Context, req resource.ReadRequest, 
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
 		data.AddressRecords = &DataGroupAddressRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.AddressRecords != nil {
 					return data.AddressRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
 		data.IntegerRecords = &DataGroupIntegerRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.IntegerRecords != nil {
 					return data.IntegerRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
 		data.StringRecords = &DataGroupStringRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.StringRecords != nil {
 					return data.StringRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 
@@ -769,32 +769,32 @@ func (r *DataGroupResource) Update(ctx context.Context, req resource.UpdateReque
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
 		data.AddressRecords = &DataGroupAddressRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.AddressRecords != nil {
 					return data.AddressRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
 		data.IntegerRecords = &DataGroupIntegerRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.IntegerRecords != nil {
 					return data.IntegerRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
 		data.StringRecords = &DataGroupStringRecordsModel{
-			Records: UnmarshalStringMap(ctx, blockData["records"], func() types.Map {
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
 				if data.StringRecords != nil {
 					return data.StringRecords.Records
 				}
 				return types.MapNull(types.StringType)
-			}(), "records", &resp.Diagnostics),
+			}(), "records", isImport, &resp.Diagnostics),
 		}
 	}
 

@@ -592,12 +592,12 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+			Headers: UnmarshalStringMapForRead(ctx, blockData["headers"], func() types.Map {
 				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
 				return types.MapNull(types.StringType)
-			}(), "headers", &resp.Diagnostics),
+			}(), "headers", isImport, &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -846,12 +846,12 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+			Headers: UnmarshalStringMapForRead(ctx, blockData["headers"], func() types.Map {
 				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
 				return types.MapNull(types.StringType)
-			}(), "headers", &resp.Diagnostics),
+			}(), "headers", isImport, &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -1200,12 +1200,12 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+			Headers: UnmarshalStringMapForRead(ctx, blockData["headers"], func() types.Map {
 				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
 				return types.MapNull(types.StringType)
-			}(), "headers", &resp.Diagnostics),
+			}(), "headers", isImport, &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)

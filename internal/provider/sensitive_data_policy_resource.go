@@ -418,8 +418,8 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {
-		var compliancesList []string
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				compliancesList = append(compliancesList, s)
@@ -430,7 +430,7 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else {
+	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.CustomDataTypes.IsNull() || len(data.CustomDataTypes.Elements()) == 0) {
@@ -481,8 +481,8 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 	} else {
 		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok && len(v) > 0 {
-		var disabled_predefined_data_typesList []string
+	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok {
+		disabled_predefined_data_typesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disabled_predefined_data_typesList = append(disabled_predefined_data_typesList, s)
@@ -493,7 +493,7 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.DisabledPredefinedDataTypes = listVal
 		}
-	} else {
+	} else if data.DisabledPredefinedDataTypes.IsNull() || data.DisabledPredefinedDataTypes.IsUnknown() {
 		data.DisabledPredefinedDataTypes = types.ListNull(types.StringType)
 	}
 
@@ -627,8 +627,8 @@ func (r *SensitiveDataPolicyResource) Read(ctx context.Context, req resource.Rea
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {
-		var compliancesList []string
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				compliancesList = append(compliancesList, s)
@@ -639,7 +639,7 @@ func (r *SensitiveDataPolicyResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else {
+	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.CustomDataTypes.IsNull() || len(data.CustomDataTypes.Elements()) == 0) {
@@ -690,8 +690,8 @@ func (r *SensitiveDataPolicyResource) Read(ctx context.Context, req resource.Rea
 	} else {
 		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok && len(v) > 0 {
-		var disabled_predefined_data_typesList []string
+	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok {
+		disabled_predefined_data_typesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disabled_predefined_data_typesList = append(disabled_predefined_data_typesList, s)
@@ -702,7 +702,7 @@ func (r *SensitiveDataPolicyResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.DisabledPredefinedDataTypes = listVal
 		}
-	} else {
+	} else if data.DisabledPredefinedDataTypes.IsNull() || data.DisabledPredefinedDataTypes.IsUnknown() {
 		data.DisabledPredefinedDataTypes = types.ListNull(types.StringType)
 	}
 
@@ -897,8 +897,8 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && len(v) > 0 {
-		var compliancesList []string
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				compliancesList = append(compliancesList, s)
@@ -909,7 +909,7 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else {
+	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	if !isImport && (data.CustomDataTypes.IsNull() || len(data.CustomDataTypes.Elements()) == 0) {
@@ -960,8 +960,8 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 	} else {
 		data.CustomDataTypes = types.ListNull(types.ObjectType{AttrTypes: SensitiveDataPolicyCustomDataTypesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok && len(v) > 0 {
-		var disabled_predefined_data_typesList []string
+	if v, ok := apiResource.Spec["disabled_predefined_data_types"].([]interface{}); ok {
+		disabled_predefined_data_typesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				disabled_predefined_data_typesList = append(disabled_predefined_data_typesList, s)
@@ -972,7 +972,7 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.DisabledPredefinedDataTypes = listVal
 		}
-	} else {
+	} else if data.DisabledPredefinedDataTypes.IsNull() || data.DisabledPredefinedDataTypes.IsUnknown() {
 		data.DisabledPredefinedDataTypes = types.ListNull(types.StringType)
 	}
 

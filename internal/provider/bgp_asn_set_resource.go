@@ -298,8 +298,8 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
-		var as_numbersList []int64
+	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok {
+		as_numbersList := make([]int64, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(float64); ok {
 				as_numbersList = append(as_numbersList, int64(s))
@@ -310,7 +310,7 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 		if !resp.Diagnostics.HasError() {
 			data.AsNumbers = listVal
 		}
-	} else {
+	} else if data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown() {
 		data.AsNumbers = types.ListNull(types.Int64Type)
 	}
 
@@ -444,8 +444,8 @@ func (r *BGPAsnSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
-		var as_numbersList []int64
+	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok {
+		as_numbersList := make([]int64, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(float64); ok {
 				as_numbersList = append(as_numbersList, int64(s))
@@ -456,7 +456,7 @@ func (r *BGPAsnSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.AsNumbers = listVal
 		}
-	} else {
+	} else if data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown() {
 		data.AsNumbers = types.ListNull(types.Int64Type)
 	}
 
@@ -620,8 +620,8 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
-		var as_numbersList []int64
+	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok {
+		as_numbersList := make([]int64, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(float64); ok {
 				as_numbersList = append(as_numbersList, int64(s))
@@ -632,7 +632,7 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 		if !resp.Diagnostics.HasError() {
 			data.AsNumbers = listVal
 		}
-	} else {
+	} else if data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown() {
 		data.AsNumbers = types.ListNull(types.Int64Type)
 	}
 

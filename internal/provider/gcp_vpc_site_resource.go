@@ -5154,7 +5154,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	data.GCPLabels = UnmarshalStringMap(ctx, apiResource.Spec["gcp_labels"], data.GCPLabels, "gcp_labels", &resp.Diagnostics)
+	data.GCPLabels = UnmarshalStringMapForRead(ctx, apiResource.Spec["gcp_labels"], data.GCPLabels, "gcp_labels", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel {
@@ -7827,7 +7827,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	data.GCPLabels = UnmarshalStringMap(ctx, apiResource.Spec["gcp_labels"], data.GCPLabels, "gcp_labels", &resp.Diagnostics)
+	data.GCPLabels = UnmarshalStringMapForRead(ctx, apiResource.Spec["gcp_labels"], data.GCPLabels, "gcp_labels", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel {
@@ -11744,7 +11744,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	data.GCPLabels = UnmarshalStringMap(ctx, apiResource.Spec["gcp_labels"], data.GCPLabels, "gcp_labels", &resp.Diagnostics)
+	data.GCPLabels = UnmarshalStringMapForRead(ctx, apiResource.Spec["gcp_labels"], data.GCPLabels, "gcp_labels", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &GCPVPCSiteIngressEgressGwModel{
 			ActiveEnhancedFirewallPolicies: func() *GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel {

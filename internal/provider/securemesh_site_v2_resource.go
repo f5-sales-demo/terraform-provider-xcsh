@@ -15276,9 +15276,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["aws"].(map[string]interface{}); ok && (isImport || data.AWS != nil) {
 		data.AWS = &SecuremeshSiteV2AWSModel{
 			NotManaged: func() *SecuremeshSiteV2AWSNotManagedModel {
-				if !isImport && data.AWS != nil && data.AWS.NotManaged != nil {
-					return data.AWS.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AWSNotManagedModel{
 						NodeList: func() types.List {
@@ -15606,24 +15603,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -15652,12 +15649,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -15783,12 +15780,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -15878,9 +15875,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["azure"].(map[string]interface{}); ok && (isImport || data.Azure != nil) {
 		data.Azure = &SecuremeshSiteV2AzureModel{
 			NotManaged: func() *SecuremeshSiteV2AzureNotManagedModel {
-				if !isImport && data.Azure != nil && data.Azure.NotManaged != nil {
-					return data.Azure.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AzureNotManagedModel{
 						NodeList: func() types.List {
@@ -16208,24 +16202,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -16254,12 +16248,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -16385,12 +16379,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -16480,9 +16474,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["baremetal"].(map[string]interface{}); ok && (isImport || data.Baremetal != nil) {
 		data.Baremetal = &SecuremeshSiteV2BaremetalModel{
 			NotManaged: func() *SecuremeshSiteV2BaremetalNotManagedModel {
-				if !isImport && data.Baremetal != nil && data.Baremetal.NotManaged != nil {
-					return data.Baremetal.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2BaremetalNotManagedModel{
 						NodeList: func() types.List {
@@ -16810,24 +16801,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -16856,12 +16847,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -16987,12 +16978,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -17409,9 +17400,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["equinix"].(map[string]interface{}); ok && (isImport || data.Equinix != nil) {
 		data.Equinix = &SecuremeshSiteV2EquinixModel{
 			NotManaged: func() *SecuremeshSiteV2EquinixNotManagedModel {
-				if !isImport && data.Equinix != nil && data.Equinix.NotManaged != nil {
-					return data.Equinix.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2EquinixNotManagedModel{
 						NodeList: func() types.List {
@@ -17739,24 +17727,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -17785,12 +17773,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -17916,12 +17904,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -18014,9 +18002,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && (isImport || data.GCP != nil) {
 		data.GCP = &SecuremeshSiteV2GCPModel{
 			NotManaged: func() *SecuremeshSiteV2GCPNotManagedModel {
-				if !isImport && data.GCP != nil && data.GCP.NotManaged != nil {
-					return data.GCP.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2GCPNotManagedModel{
 						NodeList: func() types.List {
@@ -18344,24 +18329,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -18390,12 +18375,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -18521,12 +18506,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -18616,9 +18601,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["kvm"].(map[string]interface{}); ok && (isImport || data.Kvm != nil) {
 		data.Kvm = &SecuremeshSiteV2KvmModel{
 			NotManaged: func() *SecuremeshSiteV2KvmNotManagedModel {
-				if !isImport && data.Kvm != nil && data.Kvm.NotManaged != nil {
-					return data.Kvm.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2KvmNotManagedModel{
 						NodeList: func() types.List {
@@ -18946,24 +18928,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -18992,12 +18974,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -19123,12 +19105,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -19248,12 +19230,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			SLIConfig: func() *SecuremeshSiteV2LocalVrfSLIConfigModel {
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSLIConfigModel{
-						Labels: UnmarshalStringMap(ctx, SLIConfigData["labels"], func() types.Map {
+						Labels: UnmarshalStringMapForRead(ctx, SLIConfigData["labels"], func() types.Map {
 							if data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
 							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+						}(), "labels", isImport, &resp.Diagnostics),
 						Nameserver: func() types.String {
 							if v, ok := SLIConfigData["nameserver"].(string); ok && v != "" {
 								return types.StringValue(v)
@@ -19615,12 +19597,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			SloConfig: func() *SecuremeshSiteV2LocalVrfSloConfigModel {
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSloConfigModel{
-						Labels: UnmarshalStringMap(ctx, SloConfigData["labels"], func() types.Map {
+						Labels: UnmarshalStringMapForRead(ctx, SloConfigData["labels"], func() types.Map {
 							if data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
 							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+						}(), "labels", isImport, &resp.Diagnostics),
 						Nameserver: func() types.String {
 							if v, ok := SloConfigData["nameserver"].(string); ok && v != "" {
 								return types.StringValue(v)
@@ -20049,9 +20031,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["nutanix"].(map[string]interface{}); ok && (isImport || data.Nutanix != nil) {
 		data.Nutanix = &SecuremeshSiteV2NutanixModel{
 			NotManaged: func() *SecuremeshSiteV2NutanixNotManagedModel {
-				if !isImport && data.Nutanix != nil && data.Nutanix.NotManaged != nil {
-					return data.Nutanix.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2NutanixNotManagedModel{
 						NodeList: func() types.List {
@@ -20379,24 +20358,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -20425,12 +20404,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -20556,12 +20535,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -20651,9 +20630,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["oci"].(map[string]interface{}); ok && (isImport || data.Oci != nil) {
 		data.Oci = &SecuremeshSiteV2OciModel{
 			NotManaged: func() *SecuremeshSiteV2OciNotManagedModel {
-				if !isImport && data.Oci != nil && data.Oci.NotManaged != nil {
-					return data.Oci.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OciNotManagedModel{
 						NodeList: func() types.List {
@@ -20981,24 +20957,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -21027,12 +21003,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -21158,12 +21134,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -21275,9 +21251,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["openshift_virtualization"].(map[string]interface{}); ok && (isImport || data.OpenshiftVirtualization != nil) {
 		data.OpenshiftVirtualization = &SecuremeshSiteV2OpenshiftVirtualizationModel{
 			NotManaged: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel {
-				if !isImport && data.OpenshiftVirtualization != nil && data.OpenshiftVirtualization.NotManaged != nil {
-					return data.OpenshiftVirtualization.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel{
 						NodeList: func() types.List {
@@ -21605,24 +21578,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -21651,12 +21624,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -21782,12 +21755,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -21877,9 +21850,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["openstack"].(map[string]interface{}); ok && (isImport || data.Openstack != nil) {
 		data.Openstack = &SecuremeshSiteV2OpenstackModel{
 			NotManaged: func() *SecuremeshSiteV2OpenstackNotManagedModel {
-				if !isImport && data.Openstack != nil && data.Openstack.NotManaged != nil {
-					return data.Openstack.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenstackNotManagedModel{
 						NodeList: func() types.List {
@@ -22207,24 +22177,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -22253,12 +22223,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -22384,12 +22354,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -23168,9 +23138,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["vmware"].(map[string]interface{}); ok && (isImport || data.Vmware != nil) {
 		data.Vmware = &SecuremeshSiteV2VmwareModel{
 			NotManaged: func() *SecuremeshSiteV2VmwareNotManagedModel {
-				if !isImport && data.Vmware != nil && data.Vmware.NotManaged != nil {
-					return data.Vmware.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2VmwareNotManagedModel{
 						NodeList: func() types.List {
@@ -23498,24 +23465,24 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -23544,12 +23511,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -23675,12 +23642,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -24069,9 +24036,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["aws"].(map[string]interface{}); ok && (isImport || data.AWS != nil) {
 		data.AWS = &SecuremeshSiteV2AWSModel{
 			NotManaged: func() *SecuremeshSiteV2AWSNotManagedModel {
-				if !isImport && data.AWS != nil && data.AWS.NotManaged != nil {
-					return data.AWS.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AWSNotManagedModel{
 						NodeList: func() types.List {
@@ -24399,24 +24363,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -24445,12 +24409,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -24576,12 +24540,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -24671,9 +24635,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["azure"].(map[string]interface{}); ok && (isImport || data.Azure != nil) {
 		data.Azure = &SecuremeshSiteV2AzureModel{
 			NotManaged: func() *SecuremeshSiteV2AzureNotManagedModel {
-				if !isImport && data.Azure != nil && data.Azure.NotManaged != nil {
-					return data.Azure.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AzureNotManagedModel{
 						NodeList: func() types.List {
@@ -25001,24 +24962,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -25047,12 +25008,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -25178,12 +25139,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -25273,9 +25234,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["baremetal"].(map[string]interface{}); ok && (isImport || data.Baremetal != nil) {
 		data.Baremetal = &SecuremeshSiteV2BaremetalModel{
 			NotManaged: func() *SecuremeshSiteV2BaremetalNotManagedModel {
-				if !isImport && data.Baremetal != nil && data.Baremetal.NotManaged != nil {
-					return data.Baremetal.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2BaremetalNotManagedModel{
 						NodeList: func() types.List {
@@ -25603,24 +25561,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -25649,12 +25607,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -25780,12 +25738,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -26202,9 +26160,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["equinix"].(map[string]interface{}); ok && (isImport || data.Equinix != nil) {
 		data.Equinix = &SecuremeshSiteV2EquinixModel{
 			NotManaged: func() *SecuremeshSiteV2EquinixNotManagedModel {
-				if !isImport && data.Equinix != nil && data.Equinix.NotManaged != nil {
-					return data.Equinix.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2EquinixNotManagedModel{
 						NodeList: func() types.List {
@@ -26532,24 +26487,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -26578,12 +26533,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -26709,12 +26664,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -26807,9 +26762,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && (isImport || data.GCP != nil) {
 		data.GCP = &SecuremeshSiteV2GCPModel{
 			NotManaged: func() *SecuremeshSiteV2GCPNotManagedModel {
-				if !isImport && data.GCP != nil && data.GCP.NotManaged != nil {
-					return data.GCP.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2GCPNotManagedModel{
 						NodeList: func() types.List {
@@ -27137,24 +27089,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -27183,12 +27135,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -27314,12 +27266,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -27409,9 +27361,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["kvm"].(map[string]interface{}); ok && (isImport || data.Kvm != nil) {
 		data.Kvm = &SecuremeshSiteV2KvmModel{
 			NotManaged: func() *SecuremeshSiteV2KvmNotManagedModel {
-				if !isImport && data.Kvm != nil && data.Kvm.NotManaged != nil {
-					return data.Kvm.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2KvmNotManagedModel{
 						NodeList: func() types.List {
@@ -27739,24 +27688,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -27785,12 +27734,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -27916,12 +27865,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -28041,12 +27990,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 			SLIConfig: func() *SecuremeshSiteV2LocalVrfSLIConfigModel {
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSLIConfigModel{
-						Labels: UnmarshalStringMap(ctx, SLIConfigData["labels"], func() types.Map {
+						Labels: UnmarshalStringMapForRead(ctx, SLIConfigData["labels"], func() types.Map {
 							if data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
 							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+						}(), "labels", isImport, &resp.Diagnostics),
 						Nameserver: func() types.String {
 							if v, ok := SLIConfigData["nameserver"].(string); ok && v != "" {
 								return types.StringValue(v)
@@ -28408,12 +28357,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 			SloConfig: func() *SecuremeshSiteV2LocalVrfSloConfigModel {
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSloConfigModel{
-						Labels: UnmarshalStringMap(ctx, SloConfigData["labels"], func() types.Map {
+						Labels: UnmarshalStringMapForRead(ctx, SloConfigData["labels"], func() types.Map {
 							if data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
 							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+						}(), "labels", isImport, &resp.Diagnostics),
 						Nameserver: func() types.String {
 							if v, ok := SloConfigData["nameserver"].(string); ok && v != "" {
 								return types.StringValue(v)
@@ -28842,9 +28791,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["nutanix"].(map[string]interface{}); ok && (isImport || data.Nutanix != nil) {
 		data.Nutanix = &SecuremeshSiteV2NutanixModel{
 			NotManaged: func() *SecuremeshSiteV2NutanixNotManagedModel {
-				if !isImport && data.Nutanix != nil && data.Nutanix.NotManaged != nil {
-					return data.Nutanix.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2NutanixNotManagedModel{
 						NodeList: func() types.List {
@@ -29172,24 +29118,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -29218,12 +29164,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -29349,12 +29295,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -29444,9 +29390,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["oci"].(map[string]interface{}); ok && (isImport || data.Oci != nil) {
 		data.Oci = &SecuremeshSiteV2OciModel{
 			NotManaged: func() *SecuremeshSiteV2OciNotManagedModel {
-				if !isImport && data.Oci != nil && data.Oci.NotManaged != nil {
-					return data.Oci.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OciNotManagedModel{
 						NodeList: func() types.List {
@@ -29774,24 +29717,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -29820,12 +29763,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -29951,12 +29894,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -30068,9 +30011,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["openshift_virtualization"].(map[string]interface{}); ok && (isImport || data.OpenshiftVirtualization != nil) {
 		data.OpenshiftVirtualization = &SecuremeshSiteV2OpenshiftVirtualizationModel{
 			NotManaged: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel {
-				if !isImport && data.OpenshiftVirtualization != nil && data.OpenshiftVirtualization.NotManaged != nil {
-					return data.OpenshiftVirtualization.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel{
 						NodeList: func() types.List {
@@ -30398,24 +30338,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -30444,12 +30384,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -30575,12 +30515,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -30670,9 +30610,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["openstack"].(map[string]interface{}); ok && (isImport || data.Openstack != nil) {
 		data.Openstack = &SecuremeshSiteV2OpenstackModel{
 			NotManaged: func() *SecuremeshSiteV2OpenstackNotManagedModel {
-				if !isImport && data.Openstack != nil && data.Openstack.NotManaged != nil {
-					return data.Openstack.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenstackNotManagedModel{
 						NodeList: func() types.List {
@@ -31000,24 +30937,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -31046,12 +30983,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -31177,12 +31114,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -31961,9 +31898,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["vmware"].(map[string]interface{}); ok && (isImport || data.Vmware != nil) {
 		data.Vmware = &SecuremeshSiteV2VmwareModel{
 			NotManaged: func() *SecuremeshSiteV2VmwareNotManagedModel {
-				if !isImport && data.Vmware != nil && data.Vmware.NotManaged != nil {
-					return data.Vmware.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2VmwareNotManagedModel{
 						NodeList: func() types.List {
@@ -32291,24 +32225,24 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -32337,12 +32271,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -32468,12 +32402,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -37151,9 +37085,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["aws"].(map[string]interface{}); ok && (isImport || data.AWS != nil) {
 		data.AWS = &SecuremeshSiteV2AWSModel{
 			NotManaged: func() *SecuremeshSiteV2AWSNotManagedModel {
-				if !isImport && data.AWS != nil && data.AWS.NotManaged != nil {
-					return data.AWS.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AWSNotManagedModel{
 						NodeList: func() types.List {
@@ -37481,24 +37412,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -37527,12 +37458,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -37658,12 +37589,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -37753,9 +37684,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["azure"].(map[string]interface{}); ok && (isImport || data.Azure != nil) {
 		data.Azure = &SecuremeshSiteV2AzureModel{
 			NotManaged: func() *SecuremeshSiteV2AzureNotManagedModel {
-				if !isImport && data.Azure != nil && data.Azure.NotManaged != nil {
-					return data.Azure.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2AzureNotManagedModel{
 						NodeList: func() types.List {
@@ -38083,24 +38011,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -38129,12 +38057,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -38260,12 +38188,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -38355,9 +38283,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["baremetal"].(map[string]interface{}); ok && (isImport || data.Baremetal != nil) {
 		data.Baremetal = &SecuremeshSiteV2BaremetalModel{
 			NotManaged: func() *SecuremeshSiteV2BaremetalNotManagedModel {
-				if !isImport && data.Baremetal != nil && data.Baremetal.NotManaged != nil {
-					return data.Baremetal.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2BaremetalNotManagedModel{
 						NodeList: func() types.List {
@@ -38685,24 +38610,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -38731,12 +38656,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -38862,12 +38787,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -39284,9 +39209,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["equinix"].(map[string]interface{}); ok && (isImport || data.Equinix != nil) {
 		data.Equinix = &SecuremeshSiteV2EquinixModel{
 			NotManaged: func() *SecuremeshSiteV2EquinixNotManagedModel {
-				if !isImport && data.Equinix != nil && data.Equinix.NotManaged != nil {
-					return data.Equinix.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2EquinixNotManagedModel{
 						NodeList: func() types.List {
@@ -39614,24 +39536,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -39660,12 +39582,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -39791,12 +39713,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -39889,9 +39811,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["gcp"].(map[string]interface{}); ok && (isImport || data.GCP != nil) {
 		data.GCP = &SecuremeshSiteV2GCPModel{
 			NotManaged: func() *SecuremeshSiteV2GCPNotManagedModel {
-				if !isImport && data.GCP != nil && data.GCP.NotManaged != nil {
-					return data.GCP.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2GCPNotManagedModel{
 						NodeList: func() types.List {
@@ -40219,24 +40138,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -40265,12 +40184,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -40396,12 +40315,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -40491,9 +40410,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["kvm"].(map[string]interface{}); ok && (isImport || data.Kvm != nil) {
 		data.Kvm = &SecuremeshSiteV2KvmModel{
 			NotManaged: func() *SecuremeshSiteV2KvmNotManagedModel {
-				if !isImport && data.Kvm != nil && data.Kvm.NotManaged != nil {
-					return data.Kvm.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2KvmNotManagedModel{
 						NodeList: func() types.List {
@@ -40821,24 +40737,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -40867,12 +40783,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -40998,12 +40914,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -41123,12 +41039,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			SLIConfig: func() *SecuremeshSiteV2LocalVrfSLIConfigModel {
 				if SLIConfigData, ok := blockData["sli_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSLIConfigModel{
-						Labels: UnmarshalStringMap(ctx, SLIConfigData["labels"], func() types.Map {
+						Labels: UnmarshalStringMapForRead(ctx, SLIConfigData["labels"], func() types.Map {
 							if data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
 							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+						}(), "labels", isImport, &resp.Diagnostics),
 						Nameserver: func() types.String {
 							if v, ok := SLIConfigData["nameserver"].(string); ok && v != "" {
 								return types.StringValue(v)
@@ -41490,12 +41406,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			SloConfig: func() *SecuremeshSiteV2LocalVrfSloConfigModel {
 				if SloConfigData, ok := blockData["slo_config"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2LocalVrfSloConfigModel{
-						Labels: UnmarshalStringMap(ctx, SloConfigData["labels"], func() types.Map {
+						Labels: UnmarshalStringMapForRead(ctx, SloConfigData["labels"], func() types.Map {
 							if data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
 							return types.MapNull(types.StringType)
-						}(), "labels", &resp.Diagnostics),
+						}(), "labels", isImport, &resp.Diagnostics),
 						Nameserver: func() types.String {
 							if v, ok := SloConfigData["nameserver"].(string); ok && v != "" {
 								return types.StringValue(v)
@@ -41924,9 +41840,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["nutanix"].(map[string]interface{}); ok && (isImport || data.Nutanix != nil) {
 		data.Nutanix = &SecuremeshSiteV2NutanixModel{
 			NotManaged: func() *SecuremeshSiteV2NutanixNotManagedModel {
-				if !isImport && data.Nutanix != nil && data.Nutanix.NotManaged != nil {
-					return data.Nutanix.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2NutanixNotManagedModel{
 						NodeList: func() types.List {
@@ -42254,24 +42167,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -42300,12 +42213,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -42431,12 +42344,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -42526,9 +42439,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["oci"].(map[string]interface{}); ok && (isImport || data.Oci != nil) {
 		data.Oci = &SecuremeshSiteV2OciModel{
 			NotManaged: func() *SecuremeshSiteV2OciNotManagedModel {
-				if !isImport && data.Oci != nil && data.Oci.NotManaged != nil {
-					return data.Oci.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OciNotManagedModel{
 						NodeList: func() types.List {
@@ -42856,24 +42766,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -42902,12 +42812,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -43033,12 +42943,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -43150,9 +43060,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["openshift_virtualization"].(map[string]interface{}); ok && (isImport || data.OpenshiftVirtualization != nil) {
 		data.OpenshiftVirtualization = &SecuremeshSiteV2OpenshiftVirtualizationModel{
 			NotManaged: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel {
-				if !isImport && data.OpenshiftVirtualization != nil && data.OpenshiftVirtualization.NotManaged != nil {
-					return data.OpenshiftVirtualization.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedModel{
 						NodeList: func() types.List {
@@ -43480,24 +43387,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -43526,12 +43433,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -43657,12 +43564,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -43752,9 +43659,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["openstack"].(map[string]interface{}); ok && (isImport || data.Openstack != nil) {
 		data.Openstack = &SecuremeshSiteV2OpenstackModel{
 			NotManaged: func() *SecuremeshSiteV2OpenstackNotManagedModel {
-				if !isImport && data.Openstack != nil && data.Openstack.NotManaged != nil {
-					return data.Openstack.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2OpenstackNotManagedModel{
 						NodeList: func() types.List {
@@ -44082,24 +43986,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -44128,12 +44032,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -44259,12 +44163,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil
@@ -45043,9 +44947,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["vmware"].(map[string]interface{}); ok && (isImport || data.Vmware != nil) {
 		data.Vmware = &SecuremeshSiteV2VmwareModel{
 			NotManaged: func() *SecuremeshSiteV2VmwareNotManagedModel {
-				if !isImport && data.Vmware != nil && data.Vmware.NotManaged != nil {
-					return data.Vmware.NotManaged
-				}
 				if NotManagedData, ok := blockData["not_managed"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2VmwareNotManagedModel{
 						NodeList: func() types.List {
@@ -45373,24 +45274,24 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																										}
 																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 																									}(),
-																									FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+																									FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 																										if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.FixedIPMap
 																										}
 																										return types.MapNull(types.StringType)
-																									}(), "fixed_ip_map", &resp.Diagnostics),
+																									}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 																									InterfaceIPMap: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 																										if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																											return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 																										}
 																										if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 																											return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-																												InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																												InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																													if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful != nil && InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																														return InterfaceListExisting[InterfaceListIdx].Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																													}
 																													return types.MapNull(types.StringType)
-																												}(), "interface_ip_map", &resp.Diagnostics),
+																												}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																											}
 																										}
 																										return nil
@@ -45419,12 +45320,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.BoolNull()
 																}(),
-																Labels: UnmarshalStringMap(ctx, InterfaceListItemMap["labels"], func() types.Map {
+																Labels: UnmarshalStringMapForRead(ctx, InterfaceListItemMap["labels"], func() types.Map {
 																	if len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
 																	return types.MapNull(types.StringType)
-																}(), "labels", &resp.Diagnostics),
+																}(), "labels", isImport, &resp.Diagnostics),
 																Monitor: func() *SecuremeshSiteV2EmptyModel {
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Monitor
@@ -45550,12 +45451,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressClusterStaticIPModel{
-																						InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address != nil && InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP != nil {
 																								return InterfaceListExisting[InterfaceListIdx].StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 																							}
 																							return types.MapNull(types.StringType)
-																						}(), "interface_ip_map", &resp.Diagnostics),
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
 																					}
 																				}
 																				return nil

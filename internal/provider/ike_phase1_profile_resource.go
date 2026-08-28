@@ -484,8 +484,8 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok && len(v) > 0 {
-		var authentication_algosList []string
+	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok {
+		authentication_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				authentication_algosList = append(authentication_algosList, s)
@@ -496,11 +496,11 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else {
+	} else if data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown() {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["dh_group"].([]interface{}); ok && len(v) > 0 {
-		var dh_groupList []string
+	if v, ok := apiResource.Spec["dh_group"].([]interface{}); ok {
+		dh_groupList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				dh_groupList = append(dh_groupList, s)
@@ -511,11 +511,11 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.DhGroup = listVal
 		}
-	} else {
+	} else if data.DhGroup.IsNull() || data.DhGroup.IsUnknown() {
 		data.DhGroup = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok && len(v) > 0 {
-		var encryption_algosList []string
+	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
+		encryption_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				encryption_algosList = append(encryption_algosList, s)
@@ -526,11 +526,11 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else {
+	} else if data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown() {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["prf"].([]interface{}); ok && len(v) > 0 {
-		var prfList []string
+	if v, ok := apiResource.Spec["prf"].([]interface{}); ok {
+		prfList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				prfList = append(prfList, s)
@@ -541,7 +541,7 @@ func (r *IKEPhase1ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.Prf = listVal
 		}
-	} else {
+	} else if data.Prf.IsNull() || data.Prf.IsUnknown() {
 		data.Prf = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
@@ -733,8 +733,8 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok && len(v) > 0 {
-		var authentication_algosList []string
+	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok {
+		authentication_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				authentication_algosList = append(authentication_algosList, s)
@@ -745,11 +745,11 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else {
+	} else if data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown() {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["dh_group"].([]interface{}); ok && len(v) > 0 {
-		var dh_groupList []string
+	if v, ok := apiResource.Spec["dh_group"].([]interface{}); ok {
+		dh_groupList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				dh_groupList = append(dh_groupList, s)
@@ -760,11 +760,11 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.DhGroup = listVal
 		}
-	} else {
+	} else if data.DhGroup.IsNull() || data.DhGroup.IsUnknown() {
 		data.DhGroup = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok && len(v) > 0 {
-		var encryption_algosList []string
+	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
+		encryption_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				encryption_algosList = append(encryption_algosList, s)
@@ -775,11 +775,11 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else {
+	} else if data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown() {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["prf"].([]interface{}); ok && len(v) > 0 {
-		var prfList []string
+	if v, ok := apiResource.Spec["prf"].([]interface{}); ok {
+		prfList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				prfList = append(prfList, s)
@@ -790,7 +790,7 @@ func (r *IKEPhase1ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.Prf = listVal
 		}
-	} else {
+	} else if data.Prf.IsNull() || data.Prf.IsUnknown() {
 		data.Prf = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
@@ -1070,8 +1070,8 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok && len(v) > 0 {
-		var authentication_algosList []string
+	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok {
+		authentication_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				authentication_algosList = append(authentication_algosList, s)
@@ -1082,11 +1082,11 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else {
+	} else if data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown() {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["dh_group"].([]interface{}); ok && len(v) > 0 {
-		var dh_groupList []string
+	if v, ok := apiResource.Spec["dh_group"].([]interface{}); ok {
+		dh_groupList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				dh_groupList = append(dh_groupList, s)
@@ -1097,11 +1097,11 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.DhGroup = listVal
 		}
-	} else {
+	} else if data.DhGroup.IsNull() || data.DhGroup.IsUnknown() {
 		data.DhGroup = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok && len(v) > 0 {
-		var encryption_algosList []string
+	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
+		encryption_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				encryption_algosList = append(encryption_algosList, s)
@@ -1112,11 +1112,11 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else {
+	} else if data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown() {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["prf"].([]interface{}); ok && len(v) > 0 {
-		var prfList []string
+	if v, ok := apiResource.Spec["prf"].([]interface{}); ok {
+		prfList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				prfList = append(prfList, s)
@@ -1127,7 +1127,7 @@ func (r *IKEPhase1ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.Prf = listVal
 		}
-	} else {
+	} else if data.Prf.IsNull() || data.Prf.IsUnknown() {
 		data.Prf = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {

@@ -41,3 +41,17 @@ func UnmarshalStringMap(ctx context.Context, apiVal interface{}, priorState type
 	}
 	return types.MapNull(types.StringType)
 }
+
+// UnmarshalStringMapForRead preserves the configuration's distinction between a
+// null map and an explicitly configured empty map during normal lifecycle reads.
+// The API commonly materializes omitted maps as {}, which must not make an
+// absent configuration value appear after apply. Imports have no configuration
+// ownership to preserve and therefore remain derived from the API response.
+func UnmarshalStringMapForRead(ctx context.Context, apiVal interface{}, priorState types.Map, fieldName string, isImport bool, diags *diag.Diagnostics) types.Map {
+	if !isImport && priorState.IsNull() {
+		if apiMap, ok := apiVal.(map[string]interface{}); ok && len(apiMap) == 0 {
+			return priorState
+		}
+	}
+	return UnmarshalStringMap(ctx, apiVal, priorState, fieldName, diags)
+}

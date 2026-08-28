@@ -17350,8 +17350,8 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -17362,7 +17362,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -27243,9 +27243,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -28081,8 +28078,8 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -28093,7 +28090,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -37974,9 +37971,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -43865,8 +43859,8 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -43877,7 +43871,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -53758,9 +53752,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {

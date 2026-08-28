@@ -55,6 +55,13 @@ func TestClassifyFailureFingerprint(t *testing.T) {
 			wantSource: "resource_test.go:51",
 		},
 		{
+			name:       "indented go test location",
+			output:     "    origin_pool_resource_test.go:144: Provider produced inconsistent result after apply",
+			wantClass:  FailureClassFrameworkDiagnostic,
+			wantSum:    "Provider produced inconsistent result after apply",
+			wantSource: "origin_pool_resource_test.go:144",
+		},
+		{
 			name:       "server error",
 			output:     "request failed with HTTP 503 Service Unavailable",
 			wantClass:  FailureClassServerError,

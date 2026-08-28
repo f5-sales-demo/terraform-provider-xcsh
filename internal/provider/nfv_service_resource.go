@@ -4601,12 +4601,12 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+			Tags: UnmarshalStringMapForRead(ctx, blockData["tags"], func() types.Map {
 				if data.F5BigIPAWSService != nil {
 					return data.F5BigIPAWSService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(), "tags", &resp.Diagnostics),
+			}(), "tags", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
@@ -6398,12 +6398,12 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+			Tags: UnmarshalStringMapForRead(ctx, blockData["tags"], func() types.Map {
 				if data.PaloAltoFwService != nil {
 					return data.PaloAltoFwService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(), "tags", &resp.Diagnostics),
+			}(), "tags", isImport, &resp.Diagnostics),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -6986,12 +6986,12 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+			Tags: UnmarshalStringMapForRead(ctx, blockData["tags"], func() types.Map {
 				if data.F5BigIPAWSService != nil {
 					return data.F5BigIPAWSService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(), "tags", &resp.Diagnostics),
+			}(), "tags", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
@@ -8783,12 +8783,12 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+			Tags: UnmarshalStringMapForRead(ctx, blockData["tags"], func() types.Map {
 				if data.PaloAltoFwService != nil {
 					return data.PaloAltoFwService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(), "tags", &resp.Diagnostics),
+			}(), "tags", isImport, &resp.Diagnostics),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -10421,12 +10421,12 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+			Tags: UnmarshalStringMapForRead(ctx, blockData["tags"], func() types.Map {
 				if data.F5BigIPAWSService != nil {
 					return data.F5BigIPAWSService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(), "tags", &resp.Diagnostics),
+			}(), "tags", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
@@ -12218,12 +12218,12 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+			Tags: UnmarshalStringMapForRead(ctx, blockData["tags"], func() types.Map {
 				if data.PaloAltoFwService != nil {
 					return data.PaloAltoFwService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(), "tags", &resp.Diagnostics),
+			}(), "tags", isImport, &resp.Diagnostics),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {
 					return types.StringValue(v)

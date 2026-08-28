@@ -27013,12 +27013,12 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -27183,12 +27183,12 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -34023,12 +34023,12 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -34193,12 +34193,12 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -35028,12 +35028,12 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										}
 										if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel{
-												Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+												Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil {
 														return data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers
 													}
 													return types.MapNull(types.StringType)
-												}(), "headers", &resp.Diagnostics),
+												}(), "headers", isImport, &resp.Diagnostics),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 														return types.StringValue(v)
@@ -35201,12 +35201,12 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 										}
 										if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel{
-												Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+												Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil {
 														return data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers
 													}
 													return types.MapNull(types.StringType)
-												}(), "headers", &resp.Diagnostics),
+												}(), "headers", isImport, &resp.Diagnostics),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 														return types.StringValue(v)
@@ -41781,12 +41781,12 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -41951,12 +41951,12 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -42950,12 +42950,12 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -43120,12 +43120,12 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -49960,12 +49960,12 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -50130,12 +50130,12 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -50965,12 +50965,12 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 										}
 										if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel{
-												Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+												Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil {
 														return data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers
 													}
 													return types.MapNull(types.StringType)
-												}(), "headers", &resp.Diagnostics),
+												}(), "headers", isImport, &resp.Diagnostics),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 														return types.StringValue(v)
@@ -51138,12 +51138,12 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 										}
 										if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel{
-												Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+												Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil {
 														return data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers
 													}
 													return types.MapNull(types.StringType)
-												}(), "headers", &resp.Diagnostics),
+												}(), "headers", isImport, &resp.Diagnostics),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 														return types.StringValue(v)
@@ -57718,12 +57718,12 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -57888,12 +57888,12 @@ func (r *WorkloadResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -65830,12 +65830,12 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -66000,12 +66000,12 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadJobContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -72840,12 +72840,12 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -73010,12 +73010,12 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -73845,12 +73845,12 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										}
 										if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerLivenessCheckHTTPHealthCheckModel{
-												Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+												Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.LivenessCheck != nil && data.SimpleService.Container.LivenessCheck.HTTPHealthCheck != nil {
 														return data.SimpleService.Container.LivenessCheck.HTTPHealthCheck.Headers
 													}
 													return types.MapNull(types.StringType)
-												}(), "headers", &resp.Diagnostics),
+												}(), "headers", isImport, &resp.Diagnostics),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 														return types.StringValue(v)
@@ -74018,12 +74018,12 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 										}
 										if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 											return &WorkloadSimpleServiceContainerReadinessCheckHTTPHealthCheckModel{
-												Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+												Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 													if data.SimpleService != nil && data.SimpleService.Container != nil && data.SimpleService.Container.ReadinessCheck != nil && data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck != nil {
 														return data.SimpleService.Container.ReadinessCheck.HTTPHealthCheck.Headers
 													}
 													return types.MapNull(types.StringType)
-												}(), "headers", &resp.Diagnostics),
+												}(), "headers", isImport, &resp.Diagnostics),
 												HostHeader: func() types.String {
 													if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 														return types.StringValue(v)
@@ -80598,12 +80598,12 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := LivenessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersLivenessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].LivenessCheck != nil && ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].LivenessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -80768,12 +80768,12 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if HTTPHealthCheckData, ok := ReadinessCheckData["http_health_check"].(map[string]interface{}); ok {
 													return &WorkloadStatefulServiceContainersReadinessCheckHTTPHealthCheckModel{
-														Headers: UnmarshalStringMap(ctx, HTTPHealthCheckData["headers"], func() types.Map {
+														Headers: UnmarshalStringMapForRead(ctx, HTTPHealthCheckData["headers"], func() types.Map {
 															if len(ContainersExisting) > ContainersIdx && ContainersExisting[ContainersIdx].ReadinessCheck != nil && ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck != nil {
 																return ContainersExisting[ContainersIdx].ReadinessCheck.HTTPHealthCheck.Headers
 															}
 															return types.MapNull(types.StringType)
-														}(), "headers", &resp.Diagnostics),
+														}(), "headers", isImport, &resp.Diagnostics),
 														HostHeader: func() types.String {
 															if v, ok := HTTPHealthCheckData["host_header"].(string); ok && v != "" {
 																return types.StringValue(v)

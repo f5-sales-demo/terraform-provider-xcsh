@@ -42,7 +42,9 @@ func testAccDataGroupDataSourceConfig_basic(name string) string {
 resource "xcsh_data_group" "test" {
   name      = %[1]q
   namespace = "system"
-  string_records {}
+  string_records {
+    records = { fixture = "value" }
+  }
 }
 
 data "xcsh_data_group" "test" {

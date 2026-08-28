@@ -14,6 +14,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -24,11 +25,10 @@ import (
 
 // Client configuration defaults
 const (
-	DefaultTimeout        = 30 * time.Second
-	DefaultMaxRetries     = 3
-	DefaultRetryWaitMin   = 1 * time.Second
-	DefaultRetryWaitMax   = 30 * time.Second
-	DefaultRateLimitDelay = 60 * time.Second
+	DefaultTimeout      = 30 * time.Second
+	DefaultMaxRetries   = 3
+	DefaultRetryWaitMin = 1 * time.Second
+	DefaultRetryWaitMax = 30 * time.Second
 )
 
 // AuthType represents the authentication method used by the client
@@ -295,6 +295,48 @@ func (c *Client) calculateBackoff(attempt int) time.Duration {
 	return time.Duration(backoff)
 }
 
+func isRetryableMethod(method string) bool {
+	switch method {
+	case http.MethodGet, http.MethodHead, http.MethodOptions, http.MethodPut, http.MethodDelete:
+		return true
+	default:
+		return false
+	}
+}
+
+func parseRetryAfter(value string, now time.Time) (time.Duration, bool) {
+	value = strings.TrimSpace(value)
+	if value == "" {
+		return 0, false
+	}
+	if seconds, err := strconv.ParseInt(value, 10, 64); err == nil {
+		if seconds < 0 {
+			return 0, false
+		}
+		return time.Duration(seconds) * time.Second, true
+	}
+	when, err := http.ParseTime(value)
+	if err != nil {
+		return 0, false
+	}
+	delay := when.Sub(now)
+	if delay < 0 {
+		delay = 0
+	}
+	return delay, true
+}
+
+func (c *Client) boundedRetryAfter(value string, now time.Time) (time.Duration, bool) {
+	delay, ok := parseRetryAfter(value, now)
+	if !ok {
+		return 0, false
+	}
+	if delay > c.RetryWaitMax {
+		delay = c.RetryWaitMax
+	}
+	return delay, true
+}
+
 // doRequest performs an HTTP request with retry logic and returns the response
 func (c *Client) doRequest(ctx context.Context, method, path string, body interface{}) ([]byte, error) {
 	var bodyBytes []byte
@@ -336,8 +378,9 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body interf
 		resp, err := c.HTTPClient.Do(req)
 		if err != nil {
 			lastErr = xcsherrors.NewNetworkError(err)
-			// Network errors are retryable
-			if attempt < c.MaxRetries {
+			// A failed mutation may already have reached the API. Retry only methods
+			// whose HTTP semantics are idempotent.
+			if isRetryableMethod(method) && attempt < c.MaxRetries {
 				select {
 				case <-ctx.Done():
 					return nil, xcsherrors.NewTimeoutError("request", method+" "+path, ctx.Err())
@@ -364,14 +407,15 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body interf
 		lastErr = apiErr
 
 		// Check if error is retryable
-		if !isRetryableStatus(resp.StatusCode) || attempt >= c.MaxRetries {
+		if !isRetryableMethod(method) || !isRetryableStatus(resp.StatusCode) || attempt >= c.MaxRetries {
 			return nil, apiErr
 		}
 
-		// Calculate backoff (use longer delay for rate limiting)
+		// Honor a server Retry-After signal without allowing it to exceed the
+		// client's configured retry bound. Otherwise use bounded exponential backoff.
 		backoff := c.calculateBackoff(attempt)
-		if resp.StatusCode == http.StatusTooManyRequests {
-			backoff = DefaultRateLimitDelay
+		if retryAfter, ok := c.boundedRetryAfter(resp.Header.Get("Retry-After"), time.Now()); ok {
+			backoff = retryAfter
 		}
 
 		select {

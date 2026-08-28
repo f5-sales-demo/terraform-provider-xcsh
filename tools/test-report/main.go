@@ -420,7 +420,7 @@ func inferCategory(testName string) TestCategory {
 
 var (
 	httpStatusPattern  = regexp.MustCompile(`(?i)(?:http(?: response error)?(?: statuscode:)?[ \t]+|status(?:[ _-]?code)?(?:\s*[:=]|\s)+)([1-5][0-9]{2})\b`)
-	sourceColonPattern = regexp.MustCompile(`(?m)(?:^|[/\\])([A-Za-z0-9][A-Za-z0-9_-]*_test\.go):([0-9]+)\b`)
+	sourceColonPattern = regexp.MustCompile(`(?m)(?:^|[[:space:]/\\])([A-Za-z0-9][A-Za-z0-9_-]*_test\.go):([0-9]+)\b`)
 	sourceLinePattern  = regexp.MustCompile(`\b([A-Za-z0-9][A-Za-z0-9_-]*_test\.go)\s+line\s+([0-9]+)\b`)
 )
 

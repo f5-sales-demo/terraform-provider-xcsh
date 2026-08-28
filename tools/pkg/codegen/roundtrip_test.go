@@ -33,3 +33,58 @@ func TestMapRoundTrip(t *testing.T) {
 		t.Errorf("Expected UnmarshalStringMap helper invocation in unmarshal code, got:\n%s", unmarshal)
 	}
 }
+
+func TestTopLevelListRoundTripPreservesConfiguredEmptyValueWhenAPIElidesIt(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{
+		{
+			Name:        "required_values",
+			GoName:      "RequiredValues",
+			TfsdkTag:    "required_values",
+			Type:        "list",
+			ElementType: "string",
+			JsonName:    "required_values",
+			IsSpecField: true,
+			Required:    true,
+		},
+	}
+
+	unmarshal, err := RenderSpecUnmarshalCode(attrs, "\t", "Test")
+	if err != nil {
+		t.Fatalf("unexpected unmarshal error: %v", err)
+	}
+
+	for _, want := range []string{
+		`if v, ok := apiResource.Spec["required_values"].([]interface{}); ok {`,
+		`required_valuesList := make([]string, 0, len(v))`,
+		`} else if data.RequiredValues.IsNull() || data.RequiredValues.IsUnknown() {`,
+	} {
+		if !strings.Contains(unmarshal, want) {
+			t.Errorf("generated list unmarshal does not preserve configured empty values; missing %q:\n%s", want, unmarshal)
+		}
+	}
+	if strings.Contains(unmarshal, "ok && len(v) > 0") {
+		t.Errorf("generated list unmarshal incorrectly treats an API-provided empty list as absent:\n%s", unmarshal)
+	}
+}
+
+func TestNestedMapRoundTripUsesImportAwareNullPreservation(t *testing.T) {
+	attr := openapi.TerraformAttribute{
+		Name:        "Labels",
+		GoName:      "Labels",
+		TfsdkTag:    "labels",
+		JsonName:    "labels",
+		Type:        "map",
+		ElementType: "string",
+		Optional:    true,
+	}
+
+	var rendered strings.Builder
+	if err := renderUnmarshalChild(&rendered, "Example", "Item", attr, "itemData", "data.Item", "data.Item != nil", "single", "\t"); err != nil {
+		t.Fatalf("render nested map: %v", err)
+	}
+	got := rendered.String()
+	if !strings.Contains(got, `UnmarshalStringMapForRead(ctx, itemData["labels"]`) ||
+		!strings.Contains(got, `"Labels", isImport, &resp.Diagnostics)`) {
+		t.Fatalf("generated nested map does not preserve null/empty semantics by read mode:\n%s", got)
+	}
+}

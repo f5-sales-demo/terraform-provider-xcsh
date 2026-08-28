@@ -532,8 +532,8 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 			return fmt.Errorf("unsupported list element type %q at field %s", attr.ElementType, attr.Name)
 		}
 		listVar := attr.TfsdkTag + "List"
-		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok && len(v) > 0 {\n", indent, jsonName))
-		sb.WriteString(fmt.Sprintf("%s\tvar %s []%s\n", indent, listVar, goElem))
+		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok {\n", indent, jsonName))
+		sb.WriteString(fmt.Sprintf("%s\t%s := make([]%s, 0, len(v))\n", indent, listVar, goElem))
 		sb.WriteString(fmt.Sprintf("%s\tfor _, item := range v {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tif s, ok := item.(%s); ok {\n", indent, cast))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t%s = append(%s, %s)\n", indent, listVar, listVar, conv))
@@ -544,14 +544,14 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 		sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = listVal\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s} else if data.%s.IsNull() || data.%s.IsUnknown() {\n", indent, fieldName, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, elemType))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "map":
 		if attr.ElementType != "string" {
 			return fmt.Errorf("unsupported map element type %q at field %s", attr.ElementType, attr.Name)
 		}
-		sb.WriteString(fmt.Sprintf("%sdata.%s = UnmarshalStringMap(ctx, apiResource.Spec[\"%s\"], data.%s, %q, &resp.Diagnostics)\n", indent, fieldName, jsonName, fieldName, attr.Name))
+		sb.WriteString(fmt.Sprintf("%sdata.%s = UnmarshalStringMapForRead(ctx, apiResource.Spec[\"%s\"], data.%s, %q, isImport, &resp.Diagnostics)\n", indent, fieldName, jsonName, fieldName, attr.Name))
 	default:
 		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}
@@ -695,12 +695,20 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 	if jsonName == "" {
 		jsonName = attr.TfsdkTag
 	}
-	// Single-block Optional int64/bool preserve prior state on normal read to avoid API default drift.
-	preserve := container == "single" && attr.Optional && stateBase != "" && (attr.Type == "int64" || attr.Type == "bool")
+	// Single-block Optional scalars preserve known prior state on normal read to
+	// avoid API omission/default drift while allowing Optional+Computed unknowns
+	// to resolve from the response.
+	preserve := container == "single" && attr.Optional && stateBase != "" &&
+		(attr.Type == "string" || attr.Type == "int64" || attr.Type == "bool")
 
 	switch attr.Type {
 	case "string":
 		sb.WriteString(fmt.Sprintf("%s%s: func() types.String {\n", indent, fieldName))
+		if preserve {
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
 		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(string); ok && v != \"\" {\n", indent, srcMap, jsonName))
 		sb.WriteString(fmt.Sprintf("%s\t\treturn types.StringValue(v)\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
@@ -788,7 +796,7 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		} else {
 			priorExpr = "types.MapNull(types.StringType)"
 		}
-		sb.WriteString(fmt.Sprintf("%s%s: UnmarshalStringMap(ctx, %s[\"%s\"], %s, %q, &resp.Diagnostics),\n", indent, fieldName, srcMap, jsonName, priorExpr, attr.Name))
+		sb.WriteString(fmt.Sprintf("%s%s: UnmarshalStringMapForRead(ctx, %s[\"%s\"], %s, %q, isImport, &resp.Diagnostics),\n", indent, fieldName, srcMap, jsonName, priorExpr, attr.Name))
 	default:
 		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}
@@ -827,6 +835,19 @@ func hasObjectReferenceDescendant(attr openapi.TerraformAttribute) bool {
 	}
 	for _, child := range attr.NestedAttributes {
 		if hasObjectReferenceDescendant(child) {
+			return true
+		}
+	}
+	return false
+}
+
+// hasComputedDescendant reports whether a nested block contains any server-computed
+// value. Such a block cannot be preserved wholesale on apply because its planned
+// computed leaves may still be unknown; reconstructing it from the API resolves those
+// values while child-level unmarshalling preserves configuration-owned siblings.
+func hasComputedDescendant(attr openapi.TerraformAttribute) bool {
+	for _, child := range attr.NestedAttributes {
+		if child.Computed || hasComputedDescendant(child) {
 			return true
 		}
 	}
@@ -891,7 +912,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	// reference anywhere: an object-ref's tenant/uid/kind are Computed-only and unknown in
 	// state on create, so any block ON THE PATH to a reference must read those leaves from
 	// the API. See #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
-	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr)
+	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr)
 
 	// When a block cannot be preserved whole because it merely CONTAINS a reference on one
 	// arm (a "spine" block), reconstruct from the API but thread the prior-state accessor
@@ -1532,6 +1553,13 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 func RenderConditionalRequiredValidators(attr openapi.TerraformAttribute, indent string) string {
 	required := make([]string, 0)
 	for _, child := range attr.NestedAttributes {
+		// app_firewall detection_settings.violations_view is labeled required by
+		// the create schema but is a view-only catalog populated by the server.
+		// Sending a synthetic empty entry is rejected by the live API; omission is
+		// the supported create shape and response suppression handles the catalog.
+		if child.TfsdkTag == "violations_view" {
+			continue
+		}
 		if child.CreateRequired {
 			required = append(required, child.TfsdkTag)
 		}

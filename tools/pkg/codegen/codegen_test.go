@@ -1175,6 +1175,31 @@ func TestRenderUnmarshalSingleChild_NonRefPreserves(t *testing.T) {
 	}
 }
 
+func TestRenderUnmarshalSingleChild_ComputedDescendantReconstructs(t *testing.T) {
+	block := openapi.TerraformAttribute{
+		GoName: "RateLimiter", JsonName: "rate_limiter", TfsdkTag: "rate_limiter",
+		IsBlock: true, NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "PeriodMultiplier", TfsdkTag: "period_multiplier", JsonName: "period_multiplier", Type: "int64", Optional: true, Computed: true},
+			{GoName: "Unit", TfsdkTag: "unit", JsonName: "unit", Type: "string", Optional: true},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "R", "RateLimitRateLimiter", block,
+		"blockData", "data.RateLimit", "data.RateLimit != nil", "single", "\t")
+	out := sb.String()
+	if strings.Contains(out, "return data.RateLimit.RateLimiter\n") {
+		t.Errorf("block with a Computed descendant must not preserve an unknown planned value:\n%s", out)
+	}
+	if !strings.Contains(out, `RateLimiterData["period_multiplier"]`) {
+		t.Errorf("block with a Computed descendant must reconstruct the leaf from the API response:\n%s", out)
+	}
+	if !strings.Contains(out, `!data.RateLimit.RateLimiter.Unit.IsUnknown()`) ||
+		!strings.Contains(out, `return data.RateLimit.RateLimiter.Unit`) {
+		t.Errorf("reconstructed block must preserve a known configuration-owned string sibling:\n%s", out)
+	}
+}
+
 // #1091: a single nested block that CONTAINS an object-reference descendant at any
 // depth (e.g. custom_api_auth_discovery -> api_discovery_ref) must NOT preserve the
 // planned value either — the planned api_discovery_ref.tenant is unknown (Computed-only),
@@ -1923,6 +1948,19 @@ func TestRenderConditionalRequiredValidators(t *testing.T) {
 				t.Fatalf("got %q, want %q", got, test.want)
 			}
 		})
+	}
+}
+
+func TestRenderConditionalRequiredValidators_ServerMaterializedViolationsView(t *testing.T) {
+	block := openapi.TerraformAttribute{
+		NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{{
+			TfsdkTag:       "violations_view",
+			CreateRequired: true,
+		}},
+	}
+	if got := RenderConditionalRequiredValidators(block, "\t"); got != "" {
+		t.Fatalf("server-materialized violations_view must not be required in configuration: %q", got)
 	}
 }
 
