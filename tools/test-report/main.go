@@ -29,6 +29,7 @@ import (
 	"fmt"
 	"io"
 	"math"
+	"net/http"
 	"os"
 	"regexp"
 	"sort"
@@ -422,6 +423,7 @@ var (
 	httpStatusPattern  = regexp.MustCompile(`(?i)(?:http(?: response error)?(?: statuscode:)?[ \t]+|status(?:[ _-]?code)?(?:\s*[:=]|\s)+)([1-5][0-9]{2})\b`)
 	sourceColonPattern = regexp.MustCompile(`(?m)(?:^|[[:space:]/\\])([A-Za-z0-9][A-Za-z0-9_-]*_test\.go):([0-9]+)\b`)
 	sourceLinePattern  = regexp.MustCompile(`\b([A-Za-z0-9][A-Za-z0-9_-]*_test\.go)\s+line\s+([0-9]+)\b`)
+	operationPattern   = regexp.MustCompile(`(?i)\(operation:\s*(GET|POST|PUT|DELETE)\)`)
 )
 
 var frameworkSummaries = []string{
@@ -435,7 +437,10 @@ var frameworkSummaries = []string{
 // classification. Only constants, numeric HTTP status, and a public Go test
 // source location can cross the tenant-safe reporting boundary.
 func classifyFailureFingerprint(output string) FailureFingerprint {
-	fingerprint := FailureFingerprint{SourceLocation: extractPublicSourceLocation(output)}
+	fingerprint := FailureFingerprint{
+		Summary:        extractPublicOperationSummary(output),
+		SourceLocation: extractPublicSourceLocation(output),
+	}
 	lower := strings.ToLower(output)
 
 	for _, summary := range frameworkSummaries {
@@ -489,6 +494,25 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 	default:
 		fingerprint.Class = FailureClassUnclassified
 		return fingerprint
+	}
+}
+
+func extractPublicOperationSummary(output string) string {
+	match := operationPattern.FindStringSubmatch(output)
+	if len(match) != 2 {
+		return ""
+	}
+	switch strings.ToUpper(match[1]) {
+	case http.MethodGet:
+		return "Read request failed"
+	case http.MethodPost:
+		return "Create request failed"
+	case http.MethodPut:
+		return "Update request failed"
+	case http.MethodDelete:
+		return "Delete request failed"
+	default:
+		return ""
 	}
 }
 

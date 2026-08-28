@@ -63,9 +63,17 @@ func TestClassifyFailureFingerprint(t *testing.T) {
 		},
 		{
 			name:       "server error",
-			output:     "request failed with HTTP 503 Service Unavailable",
+			output:     "request failed with HTTP 503 Service Unavailable (resource: https://private.invalid/id) (operation: DELETE)",
 			wantClass:  FailureClassServerError,
+			wantSum:    "Delete request failed",
 			wantStatus: 503,
+		},
+		{
+			name:       "create operation",
+			output:     "request failed with status: 500 (resource: private-id) (operation: POST)",
+			wantClass:  FailureClassServerError,
+			wantSum:    "Create request failed",
+			wantStatus: 500,
 		},
 		{
 			name:       "http error",
@@ -122,7 +130,7 @@ func TestTenantSafeReportOmitsSensitiveFailureAndSkipOutput(t *testing.T) {
 	}
 	input := strings.Join([]string{
 		goTestEvent("run", "TestAccPrivateFailure", ""),
-		goTestEvent("output", "TestAccPrivateFailure", "    certificate_resource_test.go:417: Error: Missing required argument "+strings.Join(secretValues, " ")+"\n"),
+		goTestEvent("output", "TestAccPrivateFailure", "    certificate_resource_test.go:417: request failed with status: 500 (operation: POST) "+strings.Join(secretValues, " ")+"\n"),
 		goTestEvent("fail", "TestAccPrivateFailure", ""),
 		goTestEvent("run", "TestAccPrivateSkip", ""),
 		goTestEvent("output", "TestAccPrivateSkip", "Skipping tenant "+strings.Join(secretValues, " ")+"\n"),
@@ -135,6 +143,9 @@ func TestTenantSafeReportOmitsSensitiveFailureAndSkipOutput(t *testing.T) {
 	}
 	if report.FailedTests[0].FailureFingerprint == nil {
 		t.Fatal("failed test has no fingerprint")
+	}
+	if got := report.FailedTests[0].FailureFingerprint.Summary; got != "Create request failed" {
+		t.Fatalf("tenant-safe operation summary = %q", got)
 	}
 
 	jsonOutput, err := json.Marshal(report)
