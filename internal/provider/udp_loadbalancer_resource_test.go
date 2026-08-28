@@ -512,8 +512,6 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 53
 
-  udp {}
-
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -522,7 +520,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name)
 }
@@ -564,8 +562,6 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 53
 
-  udp {}
-
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -574,7 +570,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name)
 }
@@ -610,8 +606,6 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 53
 
-  udp {}
-
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -620,7 +614,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name, env, managedBy)
 }
@@ -657,8 +651,6 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 53
 
-  udp {}
-
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -667,7 +659,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name, description)
 }
@@ -707,8 +699,6 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 53
 
-  udp {}
-
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -717,7 +707,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name, value)
 }
@@ -753,8 +743,6 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = %[2]d
 
-  udp {}
-
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -763,7 +751,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name, port)
 }

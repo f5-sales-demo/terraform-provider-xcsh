@@ -792,6 +792,14 @@ func GetRegistrySize() int {
 //	    ExpectNonEmptyPlan: true,
 //	},
 func CheckResourceDisappears(resourceType, resourceName string) resource.TestCheckFunc {
+	return CheckResourceDisappearsAfter(resourceType, resourceName, 0)
+}
+
+// CheckResourceDisappearsAfter waits after creation before simulating an
+// external delete. Some control-plane objects are readable before their
+// idempotent DELETE route has converged; the bounded delay is applied only to
+// live acceptance tests and leaves mock tests fast.
+func CheckResourceDisappearsAfter(resourceType, resourceName string, liveDelay time.Duration) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		rs, ok := s.RootModule().Resources[resourceName]
 		if !ok {
@@ -815,6 +823,15 @@ func CheckResourceDisappears(resourceType, resourceName string) resource.TestChe
 		namespace := rs.Primary.Attributes["namespace"]
 		if namespace == "" {
 			namespace = "system"
+		}
+		if liveDelay > 0 && !IsMockMode() {
+			timer := time.NewTimer(liveDelay)
+			select {
+			case <-ctx.Done():
+				timer.Stop()
+				return ctx.Err()
+			case <-timer.C:
+			}
 		}
 
 		if err := retryIdempotentDelete(ctx, c, deleter, namespace, name, 3, 5*time.Second); err != nil {

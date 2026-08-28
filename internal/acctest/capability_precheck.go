@@ -15,11 +15,38 @@ import (
 )
 
 var capabilityProbeCache sync.Map
+var capabilityProbeMu sync.Mutex
 
-var quotaLimitedCapabilityTests = map[string]string{
-	"TestAccAPICrawlerResource_basic": "/api/config/namespaces/system/api_crawlers",
-	"TestAccFleetDataSource_basic":    "/api/config/namespaces/system/fleets",
-	"TestAccFleetResource_basic":      "/api/config/namespaces/system/fleets",
+type quotaCapabilityFixture struct {
+	path string
+	spec map[string]interface{}
+}
+
+var quotaLimitedCapabilityTests = map[string]quotaCapabilityFixture{
+	"TestAccAPICrawlerResource_basic": {
+		path: "/api/config/namespaces/system/api_crawlers",
+		spec: map[string]interface{}{
+			"domains": []interface{}{map[string]interface{}{"domain": "example.com"}},
+		},
+	},
+	"TestAccFleetDataSource_basic": {
+		path: "/api/config/namespaces/system/fleets",
+		spec: map[string]interface{}{
+			"fleet_label":                          "tf-acc-test-capability",
+			"enable_default_fleet_config_download": false,
+			"operating_system_version":             "default",
+			"volterra_software_version":            "default",
+		},
+	},
+	"TestAccFleetResource_basic": {
+		path: "/api/config/namespaces/system/fleets",
+		spec: map[string]interface{}{
+			"fleet_label":                          "tf-acc-test-capability",
+			"enable_default_fleet_config_download": false,
+			"operating_system_version":             "default",
+			"volterra_software_version":            "default",
+		},
+	},
 }
 
 type capabilityRoute struct {
@@ -139,15 +166,40 @@ func executeCapabilityProbe(ctx context.Context, c interface {
 	return c.Get(ctx, path, &response)
 }
 
+func executeQuotaCapabilityProbe(ctx context.Context, c interface {
+	Post(context.Context, string, interface{}, interface{}) error
+	Delete(context.Context, string) error
+}, fixture quotaCapabilityFixture, name string) (probeErr, cleanupErr error) {
+	spec := make(map[string]interface{}, len(fixture.spec))
+	for key, value := range fixture.spec {
+		spec[key] = value
+	}
+	if _, ok := spec["fleet_label"]; ok {
+		spec["fleet_label"] = name
+	}
+	request := map[string]interface{}{
+		"metadata": map[string]interface{}{
+			"name":      name,
+			"namespace": "system",
+		},
+		"spec": spec,
+	}
+	var response map[string]interface{}
+	if err := c.Post(ctx, fixture.path, request, &response); err != nil {
+		return err, nil
+	}
+	return nil, c.Delete(ctx, fixture.path+"/"+name)
+}
+
 func precheckLiveCapability(t *testing.T) {
 	t.Helper()
 	_, namespaceCreate := namespaceCreationCapabilityTests[t.Name()]
-	quotaPath, quotaLimited := quotaLimitedCapabilityTests[t.Name()]
+	quotaFixture, quotaLimited := quotaLimitedCapabilityTests[t.Name()]
 	path, ok := capabilityProbePath(t.Name())
 	if namespaceCreate {
 		path, ok = "/api/web/namespaces", true
 	} else if quotaLimited {
-		path, ok = quotaPath, true
+		path, ok = quotaFixture.path, true
 	}
 	if !ok {
 		return
@@ -157,9 +209,11 @@ func precheckLiveCapability(t *testing.T) {
 	if mutationProbe {
 		cacheKey = "POST " + path
 	}
+	capabilityProbeMu.Lock()
+	defer capabilityProbeMu.Unlock()
 	if cached, found := capabilityProbeCache.Load(cacheKey); found {
 		if !cached.(bool) {
-			t.Skip("authorized tenant capability preflight returned HTTP 403 for a required surface")
+			t.Skip("authorized tenant capability preflight proved the required surface unavailable")
 		}
 		return
 	}
@@ -168,7 +222,17 @@ func precheckLiveCapability(t *testing.T) {
 	if err != nil {
 		t.Fatalf("capability preflight could not initialize the API client")
 	}
-	probeErr := executeCapabilityProbe(context.Background(), c, path, mutationProbe)
+	var probeErr error
+	if quotaLimited {
+		probeName := RandomName("tf-acc-test-capability")
+		var cleanupErr error
+		probeErr, cleanupErr = executeQuotaCapabilityProbe(context.Background(), c, quotaFixture, probeName)
+		if cleanupErr != nil {
+			t.Fatalf("capability preflight created its disposable object but could not remove it")
+		}
+	} else {
+		probeErr = executeCapabilityProbe(context.Background(), c, path, mutationProbe)
+	}
 	decision := classifyCapabilityProbe(probeErr)
 	if quotaLimited {
 		decision = classifyQuotaCapabilityProbe(probeErr)
@@ -176,7 +240,7 @@ func precheckLiveCapability(t *testing.T) {
 	switch decision {
 	case capabilityDenied:
 		capabilityProbeCache.Store(cacheKey, false)
-		t.Skip("authorized tenant capability preflight returned HTTP 403 for a required surface")
+		t.Skip("authorized tenant capability preflight proved the required surface unavailable")
 	case capabilityAllowed:
 		capabilityProbeCache.Store(cacheKey, true)
 	default:

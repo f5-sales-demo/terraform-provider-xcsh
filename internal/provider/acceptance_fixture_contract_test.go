@@ -89,10 +89,12 @@ func TestLiveAcceptanceFixtureSchemaContracts(t *testing.T) {
 		fixtureRequiresAttributes(t, body, "name", "namespace", "fleet_label", "enable_default_fleet_config_download", "operating_system_version", "volterra_software_version")
 	})
 
-	t.Run("udp load balancer supplies live-required defaults", func(t *testing.T) {
+	t.Run("udp load balancer uses a tenant-neutral advertisement fixture", func(t *testing.T) {
 		body := fixtureResourceBody(t, testAccUDPLoadBalancerConfig_basicSystem("fixture-udp"), "xcsh_udp_loadbalancer")
 		fixtureRequiresAttributes(t, body, "name", "namespace", "dns_volterra_managed", "idle_timeout", "domains", "listen_port")
-		fixtureRequiresBlock(t, body, "udp")
+		fixtureRequiresBlock(t, body, "do_not_advertise")
+		fixtureForbidsBlock(t, body, "advertise_on_public_default_vip")
+		fixtureForbidsBlock(t, body, "udp")
 	})
 }
 
