@@ -27,10 +27,12 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"io"
 	"math"
 	"os"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -65,6 +67,39 @@ const (
 	TransientServerError TransientErrorType = "SERVER_ERROR"
 )
 
+// FailureClass is the deliberately small, tenant-safe failure taxonomy.
+type FailureClass string
+
+const (
+	FailureClassFrameworkDiagnostic FailureClass = "framework_diagnostic"
+	FailureClassHTTPError           FailureClass = "http_error"
+	FailureClassAssertion           FailureClass = "assertion"
+	FailureClassRateLimit           FailureClass = "rate_limit"
+	FailureClassTimeout             FailureClass = "timeout"
+	FailureClassConnection          FailureClass = "connection"
+	FailureClassServerError         FailureClass = "server_error"
+	FailureClassUnclassified        FailureClass = "unclassified"
+)
+
+// FailureFingerprint contains only allowlisted diagnostic facts. It must never
+// contain arbitrary test output, URLs, response bodies, state, or identifiers.
+type FailureFingerprint struct {
+	Class          FailureClass `json:"class"`
+	Summary        string       `json:"summary,omitempty"`
+	HTTPStatus     int          `json:"http_status,omitempty"`
+	SourceLocation string       `json:"source_location,omitempty"`
+}
+
+// FailureFingerprintSummary deterministically groups identical safe failure
+// classes while retaining the public test names needed for reconciliation.
+type FailureFingerprintSummary struct {
+	Class      FailureClass `json:"class"`
+	Summary    string       `json:"summary,omitempty"`
+	HTTPStatus int          `json:"http_status,omitempty"`
+	Count      int          `json:"count"`
+	Tests      []string     `json:"tests"`
+}
+
 // SkipReasonType classifies why tests were skipped
 type SkipReasonType string
 
@@ -80,15 +115,16 @@ const (
 
 // TestResult holds the result of a single test
 type TestResult struct {
-	Name           string             `json:"name"`
-	Package        string             `json:"package"`
-	Category       TestCategory       `json:"category"`
-	Status         string             `json:"status"` // pass, fail, skip
-	Duration       float64            `json:"duration_seconds"`
-	SkipReason     string             `json:"skip_reason,omitempty"`
-	SkipReasonType SkipReasonType     `json:"skip_reason_type,omitempty"`
-	TransientError TransientErrorType `json:"transient_error,omitempty"`
-	FailureOutput  string             `json:"failure_output,omitempty"`
+	Name               string              `json:"name"`
+	Package            string              `json:"package"`
+	Category           TestCategory        `json:"category"`
+	Status             string              `json:"status"` // pass, fail, skip
+	Duration           float64             `json:"duration_seconds"`
+	SkipReason         string              `json:"skip_reason,omitempty"`
+	SkipReasonType     SkipReasonType      `json:"skip_reason_type,omitempty"`
+	TransientError     TransientErrorType  `json:"transient_error,omitempty"`
+	FailureOutput      string              `json:"failure_output,omitempty"`
+	FailureFingerprint *FailureFingerprint `json:"failure_fingerprint,omitempty"`
 }
 
 // CategorySummary holds statistics for a test category
@@ -126,19 +162,20 @@ type DurationStats struct {
 
 // Report is the full test report
 type Report struct {
-	Timestamp       time.Time                         `json:"timestamp"`
-	TotalDuration   float64                           `json:"total_duration_seconds"`
-	TotalTests      int                               `json:"total_tests"`
-	TotalPassed     int                               `json:"total_passed"`
-	TotalFailed     int                               `json:"total_failed"`
-	TotalSkipped    int                               `json:"total_skipped"`
-	ByCategory      map[TestCategory]*CategorySummary `json:"by_category"`
-	Tests           []TestResult                      `json:"tests"`
-	FailedTests     []TestResult                      `json:"failed_tests"`
-	TransientErrors []TransientErrorSummary           `json:"transient_errors,omitempty"`
-	SkipReasons     []SkipReasonSummary               `json:"skip_reasons,omitempty"`
-	SlowestTests    []TestResult                      `json:"slowest_tests,omitempty"`
-	DurationStats   *DurationStats                    `json:"duration_stats,omitempty"`
+	Timestamp           time.Time                         `json:"timestamp"`
+	TotalDuration       float64                           `json:"total_duration_seconds"`
+	TotalTests          int                               `json:"total_tests"`
+	TotalPassed         int                               `json:"total_passed"`
+	TotalFailed         int                               `json:"total_failed"`
+	TotalSkipped        int                               `json:"total_skipped"`
+	ByCategory          map[TestCategory]*CategorySummary `json:"by_category"`
+	Tests               []TestResult                      `json:"tests"`
+	FailedTests         []TestResult                      `json:"failed_tests"`
+	TransientErrors     []TransientErrorSummary           `json:"transient_errors,omitempty"`
+	FailureFingerprints []FailureFingerprintSummary       `json:"failure_fingerprints,omitempty"`
+	SkipReasons         []SkipReasonSummary               `json:"skip_reasons,omitempty"`
+	SlowestTests        []TestResult                      `json:"slowest_tests,omitempty"`
+	DurationStats       *DurationStats                    `json:"duration_stats,omitempty"`
 }
 
 // JUnit XML types
@@ -184,9 +221,10 @@ func main() {
 	output := flag.String("output", "", "Output file (default: stdout)")
 	showAll := flag.Bool("all", false, "Show all tests, not just summary")
 	slowestCount := flag.Int("slowest", 10, "Number of slowest tests to show")
+	tenantSafe := flag.Bool("tenant-safe", false, "Omit raw diagnostic and skip output; retain only allowlisted failure fingerprints")
 	flag.Parse()
 
-	report := parseTestOutput(*slowestCount)
+	report := parseTestOutput(*slowestCount, *tenantSafe)
 
 	var out *os.File
 	var err error
@@ -218,7 +256,11 @@ func main() {
 	}
 }
 
-func parseTestOutput(slowestCount int) *Report {
+func parseTestOutput(slowestCount int, tenantSafe bool) *Report {
+	return parseTestOutputReader(os.Stdin, slowestCount, tenantSafe)
+}
+
+func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) *Report {
 	report := &Report{
 		Timestamp:   time.Now(),
 		ByCategory:  make(map[TestCategory]*CategorySummary),
@@ -235,7 +277,7 @@ func parseTestOutput(slowestCount int) *Report {
 	testResults := make(map[string]*TestResult)
 	testOutputs := make(map[string][]string)
 
-	scanner := bufio.NewScanner(os.Stdin)
+	scanner := bufio.NewScanner(reader)
 	// Increase buffer size for large output lines
 	buf := make([]byte, 0, 1024*1024)
 	scanner.Buffer(buf, 10*1024*1024)
@@ -279,8 +321,12 @@ func parseTestOutput(slowestCount int) *Report {
 				result.Duration = event.Elapsed
 				// Capture failure output and detect transient errors
 				output := strings.Join(testOutputs[key], "")
-				result.FailureOutput = truncateOutput(output, 2000)
+				if !tenantSafe {
+					result.FailureOutput = truncateOutput(output, 2000)
+				}
 				result.TransientError = detectTransientError(output)
+				fingerprint := classifyFailureFingerprint(output)
+				result.FailureFingerprint = &fingerprint
 			}
 
 		case "skip":
@@ -289,8 +335,11 @@ func parseTestOutput(slowestCount int) *Report {
 				result.Duration = event.Elapsed
 				// Extract and classify skip reason
 				output := strings.Join(testOutputs[key], "")
-				result.SkipReason = extractSkipReason(output)
-				result.SkipReasonType = classifySkipReason(result.SkipReason)
+				reason := extractSkipReason(output)
+				if !tenantSafe {
+					result.SkipReason = reason
+				}
+				result.SkipReasonType = classifySkipReason(reason)
 			}
 		}
 	}
@@ -338,12 +387,19 @@ func parseTestOutput(slowestCount int) *Report {
 		}
 		return report.Tests[i].Name < report.Tests[j].Name
 	})
+	sort.Slice(report.FailedTests, func(i, j int) bool {
+		if report.FailedTests[i].Package != report.FailedTests[j].Package {
+			return report.FailedTests[i].Package < report.FailedTests[j].Package
+		}
+		return report.FailedTests[i].Name < report.FailedTests[j].Name
+	})
 
 	// Extract slowest tests
 	report.SlowestTests = extractSlowestTests(report.Tests, slowestCount)
 
 	// Aggregate transient errors
 	report.TransientErrors = aggregateTransientErrors(report.FailedTests)
+	report.FailureFingerprints = aggregateFailureFingerprints(report.FailedTests)
 
 	// Aggregate skip reasons
 	report.SkipReasons = aggregateSkipReasons(report.Tests)
@@ -360,6 +416,102 @@ func inferCategory(testName string) TestCategory {
 	default:
 		return CategoryUnit
 	}
+}
+
+var (
+	httpStatusPattern  = regexp.MustCompile(`(?i)(?:http(?: response error)?(?: statuscode:)?[ \t]+|status(?:[ _-]?code)?(?:\s*[:=]|\s)+)([1-5][0-9]{2})\b`)
+	sourceColonPattern = regexp.MustCompile(`(?m)(?:^|[/\\])([A-Za-z0-9][A-Za-z0-9_-]*_test\.go):([0-9]+)\b`)
+	sourceLinePattern  = regexp.MustCompile(`\b([A-Za-z0-9][A-Za-z0-9_-]*_test\.go)\s+line\s+([0-9]+)\b`)
+)
+
+var frameworkSummaries = []string{
+	"Missing required argument",
+	"Unsupported argument",
+	"Provider produced inconsistent result after apply",
+	"Provider returned invalid result object",
+}
+
+// classifyFailureFingerprint reduces arbitrary failure output to a single safe
+// classification. Only constants, numeric HTTP status, and a public Go test
+// source location can cross the tenant-safe reporting boundary.
+func classifyFailureFingerprint(output string) FailureFingerprint {
+	fingerprint := FailureFingerprint{SourceLocation: extractPublicSourceLocation(output)}
+	lower := strings.ToLower(output)
+
+	for _, summary := range frameworkSummaries {
+		if strings.Contains(lower, strings.ToLower(summary)) {
+			fingerprint.Class = FailureClassFrameworkDiagnostic
+			fingerprint.Summary = summary
+			return fingerprint
+		}
+	}
+
+	status := extractHTTPStatus(output)
+	switch {
+	case status == 429 || strings.Contains(lower, "too many requests") || strings.Contains(lower, "rate limit"):
+		fingerprint.Class = FailureClassRateLimit
+		fingerprint.HTTPStatus = status
+		return fingerprint
+	case strings.Contains(lower, "context deadline exceeded") ||
+		strings.Contains(lower, "client.timeout") ||
+		strings.Contains(lower, "operation timed out") ||
+		strings.Contains(lower, "timed out") ||
+		strings.Contains(lower, "timeout"):
+		fingerprint.Class = FailureClassTimeout
+		return fingerprint
+	case strings.Contains(lower, "connection refused") ||
+		strings.Contains(lower, "no such host") ||
+		strings.Contains(lower, "network is unreachable") ||
+		strings.Contains(lower, "dial tcp"):
+		fingerprint.Class = FailureClassConnection
+		return fingerprint
+	case status >= 500 && status <= 599:
+		fingerprint.Class = FailureClassServerError
+		fingerprint.HTTPStatus = status
+		return fingerprint
+	case strings.Contains(lower, "internal server error") || strings.Contains(lower, "service unavailable"):
+		fingerprint.Class = FailureClassServerError
+		return fingerprint
+	case status != 0:
+		fingerprint.Class = FailureClassHTTPError
+		fingerprint.HTTPStatus = status
+		return fingerprint
+	case strings.Contains(lower, "check failed") ||
+		strings.Contains(lower, "testcheck") ||
+		(strings.Contains(lower, "expected") && strings.Contains(lower, "got")) ||
+		(strings.Contains(lower, "expected") && strings.Contains(lower, "actual")) ||
+		strings.Contains(lower, "does not match"):
+		fingerprint.Class = FailureClassAssertion
+		return fingerprint
+	case strings.Contains(output, "Error: ") || strings.Contains(lower, "diagnostic"):
+		fingerprint.Class = FailureClassFrameworkDiagnostic
+		return fingerprint
+	default:
+		fingerprint.Class = FailureClassUnclassified
+		return fingerprint
+	}
+}
+
+func extractHTTPStatus(output string) int {
+	match := httpStatusPattern.FindStringSubmatch(output)
+	if len(match) != 2 {
+		return 0
+	}
+	status, err := strconv.Atoi(match[1])
+	if err != nil {
+		return 0
+	}
+	return status
+}
+
+func extractPublicSourceLocation(output string) string {
+	for _, pattern := range []*regexp.Regexp{sourceColonPattern, sourceLinePattern} {
+		match := pattern.FindStringSubmatch(output)
+		if len(match) == 3 {
+			return match[1] + ":" + match[2]
+		}
+	}
+	return ""
 }
 
 // detectTransientError checks failure output for patterns indicating transient failures
@@ -576,6 +728,45 @@ func aggregateTransientErrors(failedTests []TestResult) []TransientErrorSummary 
 		return result[i].Count > result[j].Count
 	})
 
+	return result
+}
+
+func aggregateFailureFingerprints(failedTests []TestResult) []FailureFingerprintSummary {
+	type aggregateKey struct {
+		class      FailureClass
+		summary    string
+		httpStatus int
+	}
+
+	counts := make(map[aggregateKey][]string)
+	for _, test := range failedTests {
+		if test.FailureFingerprint == nil {
+			continue
+		}
+		key := aggregateKey{
+			class:      test.FailureFingerprint.Class,
+			summary:    test.FailureFingerprint.Summary,
+			httpStatus: test.FailureFingerprint.HTTPStatus,
+		}
+		counts[key] = append(counts[key], test.Name)
+	}
+
+	result := make([]FailureFingerprintSummary, 0, len(counts))
+	for key, tests := range counts {
+		sort.Strings(tests)
+		result = append(result, FailureFingerprintSummary{
+			Class:      key.class,
+			Summary:    key.summary,
+			HTTPStatus: key.httpStatus,
+			Count:      len(tests),
+			Tests:      tests,
+		})
+	}
+	sort.Slice(result, func(i, j int) bool {
+		left := fmt.Sprintf("%s\x00%s\x00%03d", result[i].Class, result[i].Summary, result[i].HTTPStatus)
+		right := fmt.Sprintf("%s\x00%s\x00%03d", result[j].Class, result[j].Summary, result[j].HTTPStatus)
+		return left < right
+	})
 	return result
 }
 
@@ -851,14 +1042,43 @@ func outputMarkdown(out *os.File, report *Report, showAll bool) {
 	if len(report.FailedTests) > 0 {
 		fmt.Fprintln(out, "## Failed Tests")
 		fmt.Fprintln(out)
-		fmt.Fprintln(out, "| Category | Test Name | Duration | Transient? |")
-		fmt.Fprintln(out, "|----------|-----------|----------|------------|")
+		fmt.Fprintln(out, "| Category | Test Name | Duration | Fingerprint |")
+		fmt.Fprintln(out, "|----------|-----------|----------|-------------|")
 		for _, test := range report.FailedTests {
-			transient := "-"
-			if test.TransientError != TransientNone {
-				transient = string(test.TransientError)
+			fingerprint := "-"
+			if test.FailureFingerprint != nil {
+				fingerprint = string(test.FailureFingerprint.Class)
+				if test.FailureFingerprint.Summary != "" {
+					fingerprint += ": " + test.FailureFingerprint.Summary
+				}
+				if test.FailureFingerprint.HTTPStatus != 0 {
+					fingerprint += fmt.Sprintf(" (HTTP %d)", test.FailureFingerprint.HTTPStatus)
+				}
+				if test.FailureFingerprint.SourceLocation != "" {
+					fingerprint += " at " + test.FailureFingerprint.SourceLocation
+				}
 			}
-			fmt.Fprintf(out, "| %s | `%s` | %.2fs | %s |\n", test.Category, test.Name, test.Duration, transient)
+			fmt.Fprintf(out, "| %s | `%s` | %.2fs | %s |\n", test.Category, test.Name, test.Duration, fingerprint)
+		}
+		fmt.Fprintln(out)
+	}
+
+	if len(report.FailureFingerprints) > 0 {
+		fmt.Fprintln(out, "## Failure Fingerprints")
+		fmt.Fprintln(out)
+		fmt.Fprintln(out, "| Class | Summary | HTTP Status | Count | Tests |")
+		fmt.Fprintln(out, "|-------|---------|------------:|------:|-------|")
+		for _, fingerprint := range report.FailureFingerprints {
+			status := "-"
+			if fingerprint.HTTPStatus != 0 {
+				status = strconv.Itoa(fingerprint.HTTPStatus)
+			}
+			summary := fingerprint.Summary
+			if summary == "" {
+				summary = "-"
+			}
+			fmt.Fprintf(out, "| %s | %s | %s | %d | `%s` |\n",
+				fingerprint.Class, summary, status, fingerprint.Count, strings.Join(fingerprint.Tests, "`, `"))
 		}
 		fmt.Fprintln(out)
 	}

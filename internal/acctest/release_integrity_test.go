@@ -1683,10 +1683,14 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 	realScript := extractWorkflowRunStep(t, "acc-tests.yml", "real-api-tests", "Run real API tests")
 	for _, want := range []string{
 		"TIMEOUT=\"${INPUT_TIMEOUT:-300}\"",
+		"RAW_TEST_OUTPUT=test-reports/test-output-real.json",
+		"trap cleanup_raw_test_output EXIT",
 		"go test -json \\\n  -p 1 \\",
 		"-parallel 1 \\",
 		"-timeout \"${TIMEOUT}m\"",
 		"Suite timeout: ${TIMEOUT}m",
+		"-tenant-safe",
+		"unclassified",
 	} {
 		if !strings.Contains(realScript, want) {
 			t.Fatalf("real acceptance test command does not contain %q", want)
@@ -1760,9 +1764,9 @@ for arg in "$@"; do
 done
 [ -n "$output" ] || exit 2
 if [ "$format" = json ]; then
-  printf '%s\n' '{"total_passed":0,"total_failed":1,"transient_errors":[],"failed_tests":[{"failure_output":"tenant identifier"}]}' > "$output"
+  printf '%s\n' '{"total_passed":0,"total_failed":1,"transient_errors":[],"failed_tests":[{"name":"TestAccFailure","failure_fingerprint":{"class":"framework_diagnostic","summary":"Missing required argument"}}],"failure_fingerprints":[{"class":"framework_diagnostic","summary":"Missing required argument","count":1,"tests":["TestAccFailure"]}]}' > "$output"
 else
-  printf 'report\n' > "$output"
+  printf 'framework_diagnostic: Missing required argument\n' > "$output"
 fi
 exit 1
 `, 0o700)
@@ -1793,7 +1797,8 @@ exit 1
 				if err != nil {
 					t.Fatal(err)
 				}
-				if strings.Contains(string(report), "failure_output") || strings.Contains(string(report), "tenant identifier") {
+				if strings.Contains(string(report), "failure_output") || strings.Contains(string(report), "tenant identifier") ||
+					!strings.Contains(string(report), "failure_fingerprint") {
 					t.Fatalf("real API report retained failure output:\n%s", report)
 				}
 				if _, err := os.Stat(filepath.Join(tmp, "test-reports", "test-output-real.json")); !os.IsNotExist(err) {
