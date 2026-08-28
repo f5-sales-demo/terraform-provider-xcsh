@@ -313,6 +313,28 @@ func TestGenerateProviderRegistration_ReadOnlyDataSource(t *testing.T) {
 	}
 }
 
+func TestGenerateProviderRegistration_FirstClassAction(t *testing.T) {
+	outDir := t.TempDir()
+	GenerateProviderRegistration([]openapi.GenerationResult{{
+		ResourceName: "site_upgrade_sw", Success: true, IsTerraformAction: true, IsResponseOperation: true,
+	}}, outDir)
+	content, err := os.ReadFile(filepath.Join(outDir, "provider.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	source := string(content)
+	for _, want := range []string{"provider.ProviderWithActions", "resp.ActionData = c", "func (p *XCSHProvider) Actions", "NewSiteUpgradeSwAction,"} {
+		if !contains(source, want) {
+			t.Errorf("provider registration missing %q", want)
+		}
+	}
+	for _, forbidden := range []string{"NewSiteUpgradeSwResource,", "NewSiteUpgradeSwDataSource,"} {
+		if contains(source, forbidden) {
+			t.Errorf("provider registration unexpectedly contains %q", forbidden)
+		}
+	}
+}
+
 func TestGenerateCombinedClientTypes(t *testing.T) {
 	// Verify it doesn't panic (it's a no-op)
 	results := []openapi.GenerationResult{

@@ -813,6 +813,50 @@ func TestRenderResourceExampleHCL(t *testing.T) {
 	}
 }
 
+func TestRenderResponseOperationExampleHCL(t *testing.T) {
+	rt := &openapi.ResourceTemplate{Attributes: []openapi.TerraformAttribute{
+		{TfsdkTag: "namespace", Type: "string", Required: true},
+		{TfsdkTag: "name", Type: "string", Required: true},
+		{TfsdkTag: "version", Type: "string", Required: true},
+		{TfsdkTag: "force", Type: "bool"},
+	}}
+	got := RenderResponseOperationExampleHCL(rt, "site_upgrade_sw", "action")
+	for _, want := range []string{
+		`required_version = ">= 1.14"`,
+		`action "xcsh_site_upgrade_sw" "example"`,
+		"  config {",
+		`namespace = "example-value"`,
+		`name = "example-value"`,
+		`version = "example-value"`,
+		"convergence is asynchronous",
+		"does not reconcile a site's pinned software_settings",
+	} {
+		if !strings.Contains(got, want) {
+			t.Errorf("expected action example to contain %q, got:\n%s", want, got)
+		}
+	}
+	if strings.Contains(got, "force =") {
+		t.Errorf("optional force must be omitted so its false default is exercised, got:\n%s", got)
+	}
+
+	data := RenderResponseOperationExampleHCL(&openapi.ResourceTemplate{Attributes: []openapi.TerraformAttribute{
+		{TfsdkTag: "provider_ref", Type: "string", Required: true},
+		{TfsdkTag: "image_download_url", Type: "string", Computed: true, Sensitive: true},
+	}}, "site_image", "data_source")
+	if !strings.Contains(data, `provider_ref = "example-value"`) || strings.Contains(data, "image_download_url =") {
+		t.Fatalf("response data-source example did not follow required/computed schema:\n%s", data)
+	}
+	for _, want := range []string{
+		`output "site_image_result"`,
+		`value = data.xcsh_site_image.example`,
+		`sensitive = true`,
+	} {
+		if !strings.Contains(data, want) {
+			t.Fatalf("response data-source example is missing %q:\n%s", want, data)
+		}
+	}
+}
+
 // An unconfigured (null or empty) nested list block must be preserved as null on normal
 // Read/Create so a server-managed list the user never configured does not drift the plan
 // ("Provider produced inconsistent result after apply"). Import still reads the API.
@@ -2124,6 +2168,8 @@ func TestConcurrencyTokenGenerationIsClientOnlyAndPrivate(t *testing.T) {
 	}
 	for _, want := range []string{
 		"concurrencyTokenPrivateKey",
+		"_, err := r.client.CreateZZTokenProbe(ctx, createReq)",
+		"apiResource, err := r.client.GetZZTokenProbe(ctx",
 		"req.Private.GetKey(ctx, concurrencyTokenPrivateKey)",
 		"encodeConcurrencyToken(apiResource.ResourceVersion)",
 		"apiResource.ResourceVersion = concurrencyToken",
@@ -2134,6 +2180,12 @@ func TestConcurrencyTokenGenerationIsClientOnlyAndPrivate(t *testing.T) {
 		if !strings.Contains(resourceSource, want) {
 			t.Errorf("generated resource is missing concurrency behavior %q", want)
 		}
+	}
+	if strings.Contains(resourceSource, "apiResource, err := r.client.CreateZZTokenProbe(ctx, createReq)") {
+		t.Fatal("concurrency-token Create must discard the response that its mandatory GET replaces")
+	}
+	if strings.Contains(resourceSource, "apiResource = fetched") {
+		t.Fatal("metadata-only Update must not assign a GET response it has no state fields to consume")
 	}
 
 	updateStart := strings.Index(resourceSource, "func (r *ZZTokenProbeResource) Update(")

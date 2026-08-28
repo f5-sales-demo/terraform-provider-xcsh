@@ -135,7 +135,7 @@ func TestParseOperationCatalogPreservesOptionalOperationRole(t *testing.T) {
 	raw := strings.Replace(
 		validOperationCatalog,
 		`"surface": "config"`,
-		`"surface": "config", "role": "query"`,
+		`"surface": "config", "role": "query", "terraformName": "probe_query", "responseSchema": "probeResponse"`,
 		1,
 	)
 	catalog, err := ParseOperationCatalog([]byte(raw))
@@ -154,16 +154,33 @@ func TestParseOperationCatalogPreservesOptionalOperationRole(t *testing.T) {
 	}
 }
 
+func TestParseOperationCatalogPreservesTerraformResponseOperationContract(t *testing.T) {
+	raw := strings.Replace(
+		validOperationCatalog,
+		`"surface": "config"`,
+		`"surface": "config", "role": "collection", "terraformName": "site_registrations", "responseSchema": "registrationListResponse"`,
+		1,
+	)
+	catalog, err := ParseOperationCatalog([]byte(raw))
+	if err != nil {
+		t.Fatalf("ParseOperationCatalog() error = %v", err)
+	}
+	operation := catalog.APIOperations[0].Operations[0]
+	if operation.Role != "collection" || operation.TerraformName != "site_registrations" || operation.ResponseSchema != "registrationListResponse" {
+		t.Fatalf("response operation contract was not preserved exactly: %+v", operation)
+	}
+}
+
 func TestParseOperationCatalogRejectsInvalidOperationRole(t *testing.T) {
 	tests := []struct {
 		name     string
 		fragment string
 		wantErr  string
 	}{
-		{name: "null", fragment: `"role": null`, wantErr: "role must be absent, query, or issuance"},
-		{name: "empty", fragment: `"role": ""`, wantErr: "role must be absent, query, or issuance"},
-		{name: "non-string", fragment: `"role": 42`, wantErr: "role must be absent, query, or issuance"},
-		{name: "unsupported", fragment: `"role": "lookup"`, wantErr: "role must be absent, query, or issuance"},
+		{name: "null", fragment: `"role": null`, wantErr: "role must be absent, action, collection, issuance, or query"},
+		{name: "empty", fragment: `"role": ""`, wantErr: "role must be absent, action, collection, issuance, or query"},
+		{name: "non-string", fragment: `"role": 42`, wantErr: "role must be absent, action, collection, issuance, or query"},
+		{name: "unsupported", fragment: `"role": "lookup"`, wantErr: "role must be absent, action, collection, issuance, or query"},
 		{name: "duplicate", fragment: `"role": "query", "role": "issuance"`, wantErr: "duplicate field"},
 	}
 
@@ -176,6 +193,33 @@ func TestParseOperationCatalogRejectsInvalidOperationRole(t *testing.T) {
 				1,
 			)
 			_, err := ParseOperationCatalog([]byte(raw))
+			if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+				t.Fatalf("ParseOperationCatalog() error = %v, want substring %q", err, tt.wantErr)
+			}
+		})
+	}
+}
+
+func TestParseOperationCatalogRequiresCompleteResponseOperationContract(t *testing.T) {
+	base := strings.Replace(
+		validOperationCatalog,
+		`"surface": "config"`,
+		`"surface": "config", "role": "query", "terraformName": "site_image", "responseSchema": "probeResponse"`,
+		1,
+	)
+	tests := []struct {
+		name    string
+		mutate  func(string) string
+		wantErr string
+	}{
+		{name: "missing name", mutate: func(raw string) string { return strings.Replace(raw, `, "terraformName": "site_image"`, "", 1) }, wantErr: "terraformName is required"},
+		{name: "invalid name", mutate: func(raw string) string { return strings.Replace(raw, `"site_image"`, `"xcsh-site-image"`, 1) }, wantErr: "terraformName"},
+		{name: "missing response", mutate: func(raw string) string { return strings.Replace(raw, `, "responseSchema": "probeResponse"`, "", 1) }, wantErr: "responseSchema is required"},
+		{name: "name without role", mutate: func(raw string) string { return strings.Replace(raw, `, "role": "query"`, "", 1) }, wantErr: "terraformName requires a response-operation role"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			_, err := ParseOperationCatalog([]byte(tt.mutate(base)))
 			if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
 				t.Fatalf("ParseOperationCatalog() error = %v, want substring %q", err, tt.wantErr)
 			}
@@ -345,6 +389,84 @@ func TestOperationCatalogValidatesEveryOperationAgainstOpenAPI(t *testing.T) {
 	delete(spec.Paths, "/api/config/namespaces/{namespace}/irregular_policys/{name}")
 	if err := catalog.ValidateAgainstSpec(spec); err == nil || !strings.Contains(err.Error(), "absent from OpenAPI") {
 		t.Fatalf("ValidateAgainstSpec() missing operation error = %v", err)
+	}
+}
+
+func TestOperationCatalogResolvesEveryResponseOperationRole(t *testing.T) {
+	raw := mutateCatalogDocument(validOperationCatalog, func(document map[string]interface{}) {
+		identity := document["apiOperations"].([]interface{})[0].(map[string]interface{})
+		operations := identity["operations"].([]interface{})
+		for index, role := range []string{"query", "issuance", "collection", "action"} {
+			operation := operations[index].(map[string]interface{})
+			operation["role"] = role
+			operation["terraformName"] = "probe_" + role
+			operation["responseSchema"] = "probeResponse"
+			if operation["method"] != "GET" {
+				operation["method"] = "POST"
+				operation["requestSchema"] = "probeRequest"
+			}
+		}
+	})
+	catalog, err := ParseOperationCatalog([]byte(raw))
+	if err != nil {
+		t.Fatal(err)
+	}
+	spec := catalogProbeSpec()
+	actionPath := spec.Paths["/api/config/namespaces/{metadata.namespace}/irregular_policys/{metadata.name}"].(map[string]interface{})
+	actionPath["post"] = actionPath["put"]
+	delete(actionPath, "put")
+	spec.Components.Schemas["probeRequest"] = Schema{Type: "object"}
+	spec.Components.Schemas["probeResponse"] = Schema{Type: "object"}
+	for _, pathValue := range spec.Paths {
+		for _, methodValue := range pathValue.(map[string]interface{}) {
+			operation := methodValue.(map[string]interface{})
+			operation["responses"] = map[string]interface{}{
+				"200": map[string]interface{}{"content": map[string]interface{}{
+					"application/json": map[string]interface{}{"schema": map[string]interface{}{"$ref": "#/components/schemas/probeResponse"}},
+				}},
+			}
+			if operation["requestBody"] != nil {
+				operation["requestBody"] = map[string]interface{}{"content": map[string]interface{}{
+					"application/json": map[string]interface{}{"schema": map[string]interface{}{"$ref": "#/components/schemas/probeRequest"}},
+				}}
+			}
+		}
+	}
+
+	operations, err := catalog.ResponseOperationsForSpec(spec)
+	if err != nil {
+		t.Fatalf("ResponseOperationsForSpec() error = %v", err)
+	}
+	if len(operations) != 4 {
+		t.Fatalf("len(operations) = %d, want 4: %+v", len(operations), operations)
+	}
+	for index, want := range []string{"probe_action", "probe_collection", "probe_issuance", "probe_query"} {
+		if operations[index].Name != want {
+			t.Fatalf("operations[%d].Name = %q, want %q", index, operations[index].Name, want)
+		}
+	}
+}
+
+func TestOperationCatalogRejectsResponseSchemaDrift(t *testing.T) {
+	raw := strings.Replace(
+		validOperationCatalog,
+		`"surface": "config"`,
+		`"surface": "config", "role": "query", "terraformName": "probe_query", "responseSchema": "probeResponse"`,
+		1,
+	)
+	catalog, err := ParseOperationCatalog([]byte(raw))
+	if err != nil {
+		t.Fatal(err)
+	}
+	spec := catalogProbeSpec()
+	operation := spec.Paths["/api/config/namespaces/{namespace}/irregular_policys"].(map[string]interface{})["get"].(map[string]interface{})
+	operation["responses"] = map[string]interface{}{
+		"200": map[string]interface{}{"content": map[string]interface{}{
+			"application/json": map[string]interface{}{"schema": map[string]interface{}{"$ref": "#/components/schemas/differentResponse"}},
+		}},
+	}
+	if _, err := catalog.ResponseOperationsForSpec(spec); err == nil || !strings.Contains(err.Error(), "response schema") {
+		t.Fatalf("ResponseOperationsForSpec() error = %v, want response-schema mismatch", err)
 	}
 }
 

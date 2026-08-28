@@ -347,6 +347,34 @@ func TestGetLenient_StripsRawControlChars(t *testing.T) {
 	}
 }
 
+func TestPostLenientSendsBodyAndStripsRawControlChars(t *testing.T) {
+	rawBody := "{\"id\":\"12\",\"name\":\"a\x01b\"}"
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			t.Errorf("method = %s, want POST", r.Method)
+		}
+		var body map[string]string
+		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+			t.Errorf("decode request: %v", err)
+		}
+		if body["state"] != "ONLINE" {
+			t.Errorf("request state = %q, want ONLINE", body["state"])
+		}
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(rawBody))
+	}))
+	defer server.Close()
+
+	client := NewClient(server.URL, "test-token")
+	var result testResponse
+	if err := client.PostLenient(context.Background(), "/test", map[string]string{"state": "ONLINE"}, &result); err != nil {
+		t.Fatalf("PostLenient() error = %v", err)
+	}
+	if result.ID != "12" || result.Name != "ab" {
+		t.Fatalf("PostLenient() result = %+v, want sanitized response", result)
+	}
+}
+
 // A CE registration read is the source of the passport the approve action must
 // echo back (#1355), and those payloads embed raw control bytes — the machine_id
 // carries a trailing newline and the infra blob has carried others. Reading the

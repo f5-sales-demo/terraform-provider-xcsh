@@ -513,7 +513,7 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 		}
 	}
 
-	apiResource, err := r.client.CreateNginxServiceDiscovery(ctx, createReq)
+	_, err := r.client.CreateNginxServiceDiscovery(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create NginxServiceDiscovery: %s", err))
 		return
@@ -521,7 +521,7 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetNginxServiceDiscovery(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetNginxServiceDiscovery(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -1214,10 +1214,10 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && (isImport || data.DiscoveryTarget != nil) {
 		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{
 			ConfigSyncGroup: func() *NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel {

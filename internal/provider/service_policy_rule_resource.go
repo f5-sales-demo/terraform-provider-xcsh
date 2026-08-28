@@ -2869,7 +2869,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		createReq.Spec["port_matcher"] = PortMatcherMap
 	}
 
-	apiResource, err := r.client.CreateServicePolicyRule(ctx, createReq)
+	_, err := r.client.CreateServicePolicyRule(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create ServicePolicyRule: %s", err))
 		return
@@ -2877,7 +2877,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetServicePolicyRule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetServicePolicyRule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -7451,10 +7451,10 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["api_group_matcher"].(map[string]interface{}); ok && (isImport || data.APIGroupMatcher != nil) {
 		data.APIGroupMatcher = &ServicePolicyRuleAPIGroupMatcherModel{
 			InvertMatcher: func() types.Bool {

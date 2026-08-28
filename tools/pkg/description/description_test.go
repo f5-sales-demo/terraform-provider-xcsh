@@ -86,6 +86,12 @@ func TestClean(t *testing.T) {
 			path:     "",
 			expected: "A sentence. More text",
 		},
+		{
+			name:     "normalizes type URL possessive",
+			desc:     "The last segment of the URL's path identifies the type.",
+			path:     "",
+			expected: "The last segment of the URL path identifies the type.",
+		},
 	}
 
 	for _, tt := range tests {

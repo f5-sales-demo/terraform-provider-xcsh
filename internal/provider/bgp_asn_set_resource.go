@@ -260,7 +260,7 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 		}
 	}
 
-	apiResource, err := r.client.CreateBGPAsnSet(ctx, createReq)
+	_, err := r.client.CreateBGPAsnSet(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create BGPAsnSet: %s", err))
 		return
@@ -268,7 +268,7 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetBGPAsnSet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetBGPAsnSet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -616,10 +616,10 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok && len(v) > 0 {
 		var as_numbersList []int64
 		for _, item := range v {

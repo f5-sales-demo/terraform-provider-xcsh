@@ -3840,7 +3840,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		createReq.Spec["vpc_attachments"] = VPCAttachmentsMap
 	}
 
-	apiResource, err := r.client.CreateAWSTGWSite(ctx, createReq)
+	_, err := r.client.CreateAWSTGWSite(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create AWSTGWSite: %s", err))
 		return
@@ -3848,7 +3848,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetAWSTGWSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetAWSTGWSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -9179,10 +9179,10 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["aws_parameters"].(map[string]interface{}); ok && (isImport || data.AWSParameters != nil) {
 		data.AWSParameters = &AWSTGWSiteAWSParametersModel{
 			AdminPassword: func() *AWSTGWSiteAWSParametersAdminPasswordModel {

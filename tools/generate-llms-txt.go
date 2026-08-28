@@ -133,7 +133,7 @@ type JSONResource struct {
 	ServerDefaults []string           `json:"server_defaults,omitempty"`
 	MinimalConfig  *JSONMinimalConfig `json:"minimal_config,omitempty"`
 	Dependencies   JSONDependencies   `json:"dependencies"`
-	ImportSyntax   string             `json:"import_syntax"`
+	ImportSyntax   string             `json:"import_syntax,omitempty"`
 }
 
 // categoryDescriptions provides hardcoded descriptions for each category.
@@ -1241,6 +1241,14 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 		idx.Categories = append(idx.Categories, jcat)
 
 		for _, res := range cat.Resources {
+			supportsImport, err := resourceSupportsImport(res.Name)
+			if err != nil {
+				return err
+			}
+			importSyntax := ""
+			if supportsImport {
+				importSyntax = fmt.Sprintf("terraform import xcsh_%s.example namespace/name", res.Name)
+			}
 			var minimalConfig *JSONMinimalConfig
 			if res.MinimalConfig != "" {
 				minimalConfig = &JSONMinimalConfig{
@@ -1271,7 +1279,7 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 				ServerDefaults: res.ServerDefaults,
 				MinimalConfig:  minimalConfig,
 				Dependencies:   deps,
-				ImportSyntax:   fmt.Sprintf("terraform import xcsh_%s.example namespace/name", res.Name),
+				ImportSyntax:   importSyntax,
 			})
 		}
 	}
@@ -1282,4 +1290,13 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 	}
 	data = append(data, '\n')
 	return os.WriteFile("docs/terraform-llms-index.json", data, 0644)
+}
+
+func resourceSupportsImport(resourceName string) (bool, error) {
+	providerPath := filepath.Join("internal", "provider", resourceName+"_resource.go")
+	content, err := os.ReadFile(providerPath)
+	if err != nil {
+		return false, fmt.Errorf("inspect import contract for %s: %w", resourceName, err)
+	}
+	return strings.Contains(string(content), "ResourceWithImportState"), nil
 }

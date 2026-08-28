@@ -1682,7 +1682,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		createReq.Spec["panic_threshold"] = data.PanicThreshold.ValueInt64()
 	}
 
-	apiResource, err := r.client.CreateCluster(ctx, createReq)
+	_, err := r.client.CreateCluster(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Cluster: %s", err))
 		return
@@ -1690,7 +1690,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetCluster(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetCluster(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -4171,10 +4171,10 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok && isImport && data.AutoHTTPConfig == nil {
 		data.AutoHTTPConfig = &ClusterEmptyModel{}
 	}

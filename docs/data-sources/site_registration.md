@@ -88,6 +88,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Identifier of this lookup: the registration name when one is found, otherwise null
 
+<a id="instance-id"></a>&#x2022; [`instance_id`](#instance-id) - Optional String<br>Infrastructure instance identifier reported by the CE registration (`get_spec.infra.instance_id`). This distinguishes rebuilt nodes that reuse the same site and hostname
+
 <a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Registration name (`r-`<uuid>``) to pass to `xcsh_registration_approval`. Null when `found` is `false`
 
 <a id="provider-type"></a>&#x2022; [`provider_type`](#provider-type) - Optional String<br>Infrastructure provider the CE reported, e.g. `AZURE`, `AWS`, `GCP`, `VMWARE`

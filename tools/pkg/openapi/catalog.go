@@ -24,11 +24,12 @@ import (
 var ErrResourceNotManageable = errors.New("API identity is not Terraform-manageable")
 
 var (
-	apiIdentityPattern  = regexp.MustCompile(`^ves\.io\.schema\.[a-z0-9_]+(?:\.[a-z0-9_]+)*$`)
-	catalogVersionRegex = regexp.MustCompile(`^[0-9]+\.[0-9]+\.[0-9]+$`)
-	surfacePattern      = regexp.MustCompile(`^[a-z][a-z0-9_-]*$`)
-	schemaNamePattern   = regexp.MustCompile(`^[A-Za-z_][A-Za-z0-9_.]*$`)
-	placeholderPattern  = regexp.MustCompile(`^\{[A-Za-z_][A-Za-z0-9_.-]*\}$`)
+	apiIdentityPattern   = regexp.MustCompile(`^ves\.io\.schema\.[a-z0-9_]+(?:\.[a-z0-9_]+)*$`)
+	catalogVersionRegex  = regexp.MustCompile(`^[0-9]+\.[0-9]+\.[0-9]+$`)
+	surfacePattern       = regexp.MustCompile(`^[a-z][a-z0-9_-]*$`)
+	terraformNamePattern = regexp.MustCompile(`^[a-z][a-z0-9_]*$`)
+	schemaNamePattern    = regexp.MustCompile(`^[A-Za-z_][A-Za-z0-9_.]*$`)
+	placeholderPattern   = regexp.MustCompile(`^\{[A-Za-z_][A-Za-z0-9_.-]*\}$`)
 )
 
 // CatalogOperation is one exact operation fact published by api-specs-enriched.
@@ -40,6 +41,19 @@ type CatalogOperation struct {
 	OperationID    string
 	Surface        string
 	Role           string
+	TerraformName  string
+	RequestSchema  string
+	ResponseSchema string
+}
+
+// ResolvedResponseOperation is an exact source-owned non-CRUD operation that
+// generates a Terraform query, collection, issuance resource, or action.
+type ResolvedResponseOperation struct {
+	Name           string
+	Role           string
+	Method         string
+	Path           string
+	OperationID    string
 	RequestSchema  string
 	ResponseSchema string
 }
@@ -58,9 +72,10 @@ type APIExclusion struct {
 	Reason         string
 }
 
-// OperationCatalog is the consumer-neutral operation contract published in
-// api-catalog.json. It intentionally contains no Terraform resource names,
-// manageability classifications, or schema roles.
+// OperationCatalog is the enriched operation contract published in
+// api-catalog.json. Lifecycle classification remains provider-owned, while
+// explicitly enriched response operations carry source-owned Terraform names
+// and roles.
 type OperationCatalog struct {
 	Version       string
 	APIOperations []APIOperationIdentity
@@ -108,6 +123,7 @@ type catalogOperationWire struct {
 	Role           json.RawMessage `json:"role"`
 	RequestSchema  json.RawMessage `json:"requestSchema"`
 	ResponseSchema json.RawMessage `json:"responseSchema"`
+	TerraformName  json.RawMessage `json:"terraformName"`
 }
 
 type apiExclusionWire struct {
@@ -177,6 +193,7 @@ func ParseOperationCatalog(data []byte) (*OperationCatalog, error) {
 	}
 	seenMethodPath := make(map[string]string)
 	seenOperationID := make(map[string]string)
+	seenTerraformName := make(map[string]string)
 	for index, raw := range *document.APIOperations {
 		identity, err := parseAPIOperationIdentity(raw)
 		if err != nil {
@@ -195,6 +212,12 @@ func ParseOperationCatalog(data []byte) (*OperationCatalog, error) {
 				return nil, fmt.Errorf("apiOperations[%d].operations[%d]: duplicate operationId %q (already owned by %s)", index, operationIndex, operation.OperationID, owner)
 			}
 			seenOperationID[operation.OperationID] = identity.APIIdentity
+			if operation.TerraformName != "" {
+				if owner, exists := seenTerraformName[operation.TerraformName]; exists {
+					return nil, fmt.Errorf("apiOperations[%d].operations[%d]: duplicate terraformName %q (already owned by %s)", index, operationIndex, operation.TerraformName, owner)
+				}
+				seenTerraformName[operation.TerraformName] = operation.OperationID
+			}
 		}
 		catalog.byIdentity[identity.APIIdentity] = len(catalog.APIOperations)
 		catalog.APIOperations = append(catalog.APIOperations, identity)
@@ -229,6 +252,48 @@ func (catalog *OperationCatalog) Identity(apiIdentity string) (APIOperationIdent
 		return APIOperationIdentity{}, false
 	}
 	return catalog.APIOperations[index], true
+}
+
+// ResponseOperationsForSpec returns the catalog response operations that are
+// present in one domain spec. Public Terraform names come only from the catalog.
+func (catalog *OperationCatalog) ResponseOperationsForSpec(spec *Spec) ([]ResolvedResponseOperation, error) {
+	if catalog == nil {
+		return nil, fmt.Errorf("operation catalog is required")
+	}
+	var results []ResolvedResponseOperation
+	for _, identity := range catalog.APIOperations {
+		for _, operation := range identity.Operations {
+			if operation.Role == "" {
+				continue
+			}
+			present, err := catalogOperationInSpec(spec, operation)
+			if err != nil {
+				return nil, fmt.Errorf("%s operation %s: %w", operation.Role, operation.OperationID, err)
+			}
+			if !present {
+				continue
+			}
+			if _, ok := spec.Components.Schemas[operation.ResponseSchema]; !ok {
+				return nil, fmt.Errorf("%s operation %s response schema %q is absent", operation.Role, operation.OperationID, operation.ResponseSchema)
+			}
+			if operation.RequestSchema != "" {
+				if _, ok := spec.Components.Schemas[operation.RequestSchema]; !ok {
+					return nil, fmt.Errorf("%s operation %s request schema %q is absent", operation.Role, operation.OperationID, operation.RequestSchema)
+				}
+			}
+			results = append(results, ResolvedResponseOperation{
+				Name:           operation.TerraformName,
+				Role:           operation.Role,
+				Method:         operation.Method,
+				Path:           operation.Path,
+				OperationID:    operation.OperationID,
+				RequestSchema:  operation.RequestSchema,
+				ResponseSchema: operation.ResponseSchema,
+			})
+		}
+	}
+	sort.Slice(results, func(i, j int) bool { return results[i].Name < results[j].Name })
+	return results, nil
 }
 
 // HasResourceIdentity reports whether Go's resource name maps to at least one
@@ -566,11 +631,39 @@ func parseCatalogOperation(raw json.RawMessage, apiIdentity string) (CatalogOper
 	role := ""
 	if len(wire.Role) > 0 {
 		if bytes.Equal(bytes.TrimSpace(wire.Role), []byte("null")) {
-			return CatalogOperation{}, fmt.Errorf("role must be absent, query, or issuance")
+			return CatalogOperation{}, fmt.Errorf("role must be absent, action, collection, issuance, or query")
 		}
-		if err := json.Unmarshal(wire.Role, &role); err != nil || (role != "query" && role != "issuance") {
-			return CatalogOperation{}, fmt.Errorf("role must be absent, query, or issuance")
+		if err := json.Unmarshal(wire.Role, &role); err != nil || !map[string]bool{"action": true, "collection": true, "issuance": true, "query": true}[role] {
+			return CatalogOperation{}, fmt.Errorf("role must be absent, action, collection, issuance, or query")
 		}
+	}
+	terraformName := ""
+	if len(wire.TerraformName) > 0 {
+		if bytes.Equal(bytes.TrimSpace(wire.TerraformName), []byte("null")) || json.Unmarshal(wire.TerraformName, &terraformName) != nil || !terraformNamePattern.MatchString(terraformName) {
+			return CatalogOperation{}, fmt.Errorf("terraformName must be absent or match %s", terraformNamePattern)
+		}
+	}
+	if role != "" {
+		if terraformName == "" {
+			return CatalogOperation{}, fmt.Errorf("terraformName is required for %s operations", role)
+		}
+		if responseSchema == "" {
+			return CatalogOperation{}, fmt.Errorf("responseSchema is required for %s operations", role)
+		}
+		if *wire.Method != "GET" && *wire.Method != "POST" {
+			return CatalogOperation{}, fmt.Errorf("%s operation method must be GET or POST", role)
+		}
+		if role == "action" && *wire.Method != "POST" {
+			return CatalogOperation{}, fmt.Errorf("action operation method must be POST")
+		}
+		if *wire.Method == "POST" && requestSchema == "" {
+			return CatalogOperation{}, fmt.Errorf("POST %s operation requestSchema is required", role)
+		}
+		if *wire.Method == "GET" && requestSchema != "" {
+			return CatalogOperation{}, fmt.Errorf("GET %s operation requestSchema must be absent", role)
+		}
+	} else if terraformName != "" {
+		return CatalogOperation{}, fmt.Errorf("terraformName requires a response-operation role")
 	}
 	return CatalogOperation{
 		Method:         *wire.Method,
@@ -578,6 +671,7 @@ func parseCatalogOperation(raw json.RawMessage, apiIdentity string) (CatalogOper
 		OperationID:    *wire.OperationID,
 		Surface:        *wire.Surface,
 		Role:           role,
+		TerraformName:  terraformName,
 		RequestSchema:  requestSchema,
 		ResponseSchema: responseSchema,
 	}, nil
@@ -627,7 +721,50 @@ func catalogOperationInSpec(spec *Spec, operation CatalogOperation) (bool, error
 			return false, fmt.Errorf("OpenAPI request schema = %q, catalog requestSchema = %q", GetRefName(ref), operation.RequestSchema)
 		}
 	}
+	if operation.ResponseSchema != "" {
+		ref, err := responseBodySchemaRef(method)
+		if err != nil {
+			return false, err
+		}
+		if GetRefName(ref) != operation.ResponseSchema {
+			return false, fmt.Errorf("OpenAPI response schema = %q, catalog response schema = %q", GetRefName(ref), operation.ResponseSchema)
+		}
+	}
 	return true, nil
+}
+
+func responseBodySchemaRef(operation map[string]interface{}) (string, error) {
+	responses, ok := operation["responses"].(map[string]interface{})
+	if !ok {
+		return "", fmt.Errorf("OpenAPI responses are absent or not an object")
+	}
+	refs := make(map[string]bool)
+	for status, raw := range responses {
+		if len(status) != 3 || status[0] != '2' {
+			continue
+		}
+		response, ok := raw.(map[string]interface{})
+		if !ok {
+			continue
+		}
+		content, _ := response["content"].(map[string]interface{})
+		jsonContent, _ := content["application/json"].(map[string]interface{})
+		schema, _ := jsonContent["schema"].(map[string]interface{})
+		ref, _ := schema["$ref"].(string)
+		if ref != "" {
+			refs[ref] = true
+		}
+	}
+	if len(refs) == 0 {
+		return "", fmt.Errorf("OpenAPI has no successful JSON response schema")
+	}
+	if len(refs) > 1 {
+		return "", fmt.Errorf("OpenAPI has ambiguous successful JSON response schemas")
+	}
+	for ref := range refs {
+		return ref, nil
+	}
+	return "", fmt.Errorf("OpenAPI has no successful JSON response schema")
 }
 
 func catalogOperationRole(operationID string) string {

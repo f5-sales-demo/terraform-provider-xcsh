@@ -13,10 +13,10 @@ This is a community-maintained provider built from public F5 API documentation.
 ## Requirements
 
 | Name      | Version |
-|-----------|---------|
-| terraform | >= 1.8  |
+| --------- | ------- |
+| terraform | >= 1.14 |
 
-~> **Note:** This provider uses provider-defined functions which require Terraform 1.8 or later. For details, see the [Functions](/docs/functions) documentation.
+~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. For function-specific requirements, see the [Functions](/docs/functions) documentation.
 
 ## Authenticating to F5 Distributed Cloud
 

@@ -986,7 +986,7 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 		createReq.Spec["custom_header_value"] = data.CustomHeaderValue.ValueString()
 	}
 
-	apiResource, err := r.client.CreateAPITesting(ctx, createReq)
+	_, err := r.client.CreateAPITesting(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create APITesting: %s", err))
 		return
@@ -994,7 +994,7 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetAPITesting(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetAPITesting(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -2287,10 +2287,10 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {

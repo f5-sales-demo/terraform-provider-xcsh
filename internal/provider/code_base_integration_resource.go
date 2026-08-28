@@ -1289,7 +1289,7 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 		createReq.Spec["code_base_integration"] = CodeBaseIntegrationMap
 	}
 
-	apiResource, err := r.client.CreateCodeBaseIntegration(ctx, createReq)
+	_, err := r.client.CreateCodeBaseIntegration(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create CodeBaseIntegration: %s", err))
 		return
@@ -1297,7 +1297,7 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetCodeBaseIntegration(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetCodeBaseIntegration(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -2963,10 +2963,10 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["code_base_integration"].(map[string]interface{}); ok && (isImport || data.CodeBaseIntegration != nil) {
 		data.CodeBaseIntegration = &CodeBaseIntegrationCodeBaseIntegrationModel{
 			AzureRepos: func() *CodeBaseIntegrationCodeBaseIntegrationAzureReposModel {

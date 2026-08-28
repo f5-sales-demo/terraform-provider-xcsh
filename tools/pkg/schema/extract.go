@@ -3,6 +3,7 @@
 package schema
 
 import (
+	"encoding/json"
 	"fmt"
 	"sort"
 	"strings"
@@ -21,6 +22,291 @@ type ExtractConfig struct {
 	DependencyMap   map[string]*openapi.ResourceDependencies
 	ReferencedByMap map[string][]string
 	CategoryMap     map[string]string
+}
+
+// ExtractResponseOperationSchema converts one exact catalog response operation
+// into a shared Terraform IR. Path, query, and body bindings remain explicit so
+// generation never guesses a wire location from an attribute name.
+func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.ResolvedResponseOperation) (*openapi.ResponseOperationTemplate, error) {
+	if spec == nil {
+		return nil, fmt.Errorf("response operation %q requires an OpenAPI spec", operation.Name)
+	}
+	if operation.Name == "" || operation.Role == "" || operation.Path == "" || operation.OperationID == "" || operation.ResponseSchema == "" {
+		return nil, fmt.Errorf("response operation is missing a name, role, path, operation ID, or response schema")
+	}
+	pathValue, ok := spec.Paths[operation.Path]
+	if !ok {
+		return nil, fmt.Errorf("response operation %s path %q is absent", operation.Name, operation.Path)
+	}
+	pathItem, ok := pathValue.(map[string]interface{})
+	if !ok {
+		return nil, fmt.Errorf("response operation %s path %q is not an object", operation.Name, operation.Path)
+	}
+	methodValue, ok := pathItem[strings.ToLower(operation.Method)]
+	if !ok {
+		return nil, fmt.Errorf("response operation %s method %s is absent", operation.Name, operation.Method)
+	}
+	method, ok := methodValue.(map[string]interface{})
+	if !ok {
+		return nil, fmt.Errorf("response operation %s method %s is not an object", operation.Name, operation.Method)
+	}
+	if operationID, _ := method["operationId"].(string); operationID != operation.OperationID {
+		return nil, fmt.Errorf("response operation %s OpenAPI operationId %q does not match %q", operation.Name, operationID, operation.OperationID)
+	}
+	if operation.Method == "POST" && operation.RequestSchema == "" {
+		return nil, fmt.Errorf("response operation %s POST request schema is required", operation.Name)
+	}
+
+	required := make(map[string]bool)
+	if rawRequired, ok := method["x-f5xc-required-fields"].([]interface{}); ok {
+		for _, raw := range rawRequired {
+			name, ok := raw.(string)
+			if !ok || name == "" {
+				return nil, fmt.Errorf("response operation %s has an invalid required field", operation.Name)
+			}
+			required[name] = true
+		}
+	}
+
+	inputsByTag := make(map[string]*openapi.ResponseOperationInput)
+	addInput := func(name, location string, property openapi.Schema, isRequired bool) error {
+		attr := ConvertToTerraformAttribute(name, property, isRequired, "", spec)
+		if attr.ConversionError != "" {
+			return fmt.Errorf("response operation %s input %q: %s", operation.Name, name, attr.ConversionError)
+		}
+		if attr.IsBlock || !supportedResponseOperationInput(attr) {
+			return fmt.Errorf("response operation %s input %q has unsupported %s shape", operation.Name, name, location)
+		}
+		// Operation inputs are practitioner configuration, never response-owned
+		// computed values. The one exception below is namespace with a provider
+		// default, which must be Optional+Computed so the default can enter state.
+		attr.Computed = false
+		if !isRequired {
+			attr.Required = false
+			attr.Optional = true
+		}
+		if operation.Name == "site_image" && name == "provider" {
+			attr.GoName = "ProviderRef"
+			attr.TfsdkTag = "provider_ref"
+		}
+		if name == "namespace" && (operation.Name == "site_registrations_by_site" || operation.Name == "site_registrations_by_state") {
+			attr.Required = false
+			attr.Optional = true
+			attr.Computed = true
+			attr.StringDefault = "system"
+		}
+		if operation.Role == "action" && name == "force" {
+			attr.Required = false
+			attr.Optional = true
+			attr.Computed = false
+			attr.Default = false
+			if !strings.Contains(strings.ToLower(attr.Description), "default") {
+				attr.Description = strings.TrimSpace(attr.Description) + " Defaults to `false`."
+			}
+		}
+		existing := inputsByTag[attr.TfsdkTag]
+		if existing == nil {
+			input := &openapi.ResponseOperationInput{Attribute: attr}
+			inputsByTag[attr.TfsdkTag] = input
+			existing = input
+		} else if existing.Attribute.Type != attr.Type || existing.Attribute.JsonName != attr.JsonName {
+			return fmt.Errorf("response operation %s inputs %q and %q collide as Terraform attribute %q", operation.Name, existing.Attribute.Name, name, attr.TfsdkTag)
+		}
+		existing.Attribute.Required = existing.Attribute.Required || attr.Required
+		if existing.Attribute.Required {
+			existing.Attribute.Optional = false
+			existing.Attribute.Computed = false
+		}
+		existing.Bindings = append(existing.Bindings, openapi.OperationBinding{Location: location, Name: name})
+		return nil
+	}
+
+	parameters := make([]interface{}, 0)
+	if pathParameters, ok := pathItem["parameters"].([]interface{}); ok {
+		parameters = append(parameters, pathParameters...)
+	}
+	if operationParameters, ok := method["parameters"].([]interface{}); ok {
+		parameters = append(parameters, operationParameters...)
+	}
+	for _, raw := range parameters {
+		parameter, ok := raw.(map[string]interface{})
+		if !ok {
+			return nil, fmt.Errorf("response operation %s has a non-object parameter", operation.Name)
+		}
+		location, _ := parameter["in"].(string)
+		if location != "path" && location != "query" {
+			continue
+		}
+		name, _ := parameter["name"].(string)
+		if name == "" {
+			return nil, fmt.Errorf("response operation %s has an unnamed %s parameter", operation.Name, location)
+		}
+		property, err := decodeOperationParameterSchema(parameter)
+		if err != nil {
+			return nil, fmt.Errorf("response operation %s parameter %q: %w", operation.Name, name, err)
+		}
+		parameterRequired, _ := parameter["required"].(bool)
+		if err := addInput(name, location, property, required[name] || parameterRequired); err != nil {
+			return nil, err
+		}
+	}
+
+	if operation.RequestSchema != "" {
+		request, ok := spec.Components.Schemas[operation.RequestSchema]
+		if !ok {
+			return nil, fmt.Errorf("response operation %s request schema %q is absent", operation.Name, operation.RequestSchema)
+		}
+		if request.Type != "object" {
+			return nil, fmt.Errorf("response operation %s request schema %q must be an object", operation.Name, operation.RequestSchema)
+		}
+		names := sortedSchemaPropertyNames(request.Properties)
+		for _, name := range names {
+			if err := addInput(name, "body", request.Properties[name], required[name]); err != nil {
+				return nil, err
+			}
+		}
+	}
+	for name := range required {
+		found := false
+		for _, input := range inputsByTag {
+			for _, binding := range input.Bindings {
+				if binding.Name == name {
+					found = true
+				}
+			}
+		}
+		if !found {
+			return nil, fmt.Errorf("response operation %s required field %q has no path, query, or body binding", operation.Name, name)
+		}
+	}
+
+	response, ok := spec.Components.Schemas[operation.ResponseSchema]
+	if !ok {
+		return nil, fmt.Errorf("response operation %s response schema %q is absent", operation.Name, operation.ResponseSchema)
+	}
+	responseAttrs, err := responseOperationAttributes(spec, operation.Name, response)
+	if err != nil {
+		return nil, err
+	}
+	for _, attr := range responseAttrs {
+		if input := inputsByTag[attr.TfsdkTag]; input != nil {
+			return nil, fmt.Errorf("response operation %s input %q collides with response attribute %q", operation.Name, input.Attribute.Name, attr.Name)
+		}
+	}
+
+	inputs := make([]openapi.ResponseOperationInput, 0, len(inputsByTag))
+	for _, input := range inputsByTag {
+		inputs = append(inputs, *input)
+	}
+	sort.Slice(inputs, func(i, j int) bool {
+		if inputs[i].Attribute.Required != inputs[j].Attribute.Required {
+			return inputs[i].Attribute.Required
+		}
+		return inputs[i].Attribute.TfsdkTag < inputs[j].Attribute.TfsdkTag
+	})
+
+	descriptionSource := ""
+	if metadata, ok := method["x-f5xc-operation-metadata"].(map[string]interface{}); ok {
+		descriptionSource, _ = metadata["purpose"].(string)
+	}
+	if descriptionSource == "" {
+		descriptionSource, _ = method["description"].(string)
+	}
+	if descriptionSource == "" {
+		descriptionSource, _ = method["summary"].(string)
+	}
+	descriptionText := description.Clean(descriptionSource, operation.Name)
+	if descriptionText == "" {
+		descriptionText = fmt.Sprintf("Invoke the %s operation.", naming.ToHumanReadableName(operation.Name))
+	} else if !strings.ContainsAny(descriptionText[len(descriptionText)-1:], ".!?") {
+		descriptionText += "."
+	}
+	return &openapi.ResponseOperationTemplate{
+		Name: operation.Name, Role: operation.Role, TitleCase: naming.ToResourceTypeName(operation.Name), Method: operation.Method,
+		APIPath: operation.Path, OperationID: operation.OperationID, RequestSchema: operation.RequestSchema,
+		ResponseSchema: operation.ResponseSchema, Description: descriptionText, Inputs: inputs, ResponseAttributes: responseAttrs,
+		ResponseIsScalar: response.Type != "object",
+	}, nil
+}
+
+func supportedResponseOperationInput(attribute openapi.TerraformAttribute) bool {
+	switch attribute.Type {
+	case "string", "int64", "bool":
+		return true
+	case "list", "map":
+		return attribute.ElementType == "string" || attribute.ElementType == "int64" || attribute.ElementType == "bool"
+	default:
+		return false
+	}
+}
+
+func decodeOperationParameterSchema(parameter map[string]interface{}) (openapi.Schema, error) {
+	schemaMap, ok := parameter["schema"].(map[string]interface{})
+	if !ok {
+		return openapi.Schema{}, fmt.Errorf("schema is absent or not an object")
+	}
+	encoded, err := json.Marshal(schemaMap)
+	if err != nil {
+		return openapi.Schema{}, err
+	}
+	var property openapi.Schema
+	if err := json.Unmarshal(encoded, &property); err != nil {
+		return openapi.Schema{}, err
+	}
+	if property.Description == "" {
+		property.Description, _ = parameter["description"].(string)
+		// F5 path parameters commonly encode a display label, an x-required
+		// marker, and the useful sentence on separate lines. Clean() removes
+		// the marker; preserve a sentence boundary so "Name" and "Site name"
+		// do not collapse into "NameSite name".
+		property.Description = strings.ReplaceAll(property.Description, "\r\n\r\nx-required\r\n", ". ")
+		property.Description = strings.ReplaceAll(property.Description, "\n\nx-required\n", ". ")
+		property.Description = strings.ReplaceAll(property.Description, "\r\nx-required\r\n", ". ")
+		property.Description = strings.ReplaceAll(property.Description, "\nx-required\n", ". ")
+	}
+	return property, nil
+}
+
+func responseOperationAttributes(spec *openapi.Spec, operationName string, response openapi.Schema) ([]openapi.TerraformAttribute, error) {
+	properties := response.Properties
+	if response.Type != "object" {
+		if response.Type != "string" && response.Type != "integer" && response.Type != "boolean" {
+			return nil, fmt.Errorf("response operation %s has unsupported response schema type %q", operationName, response.Type)
+		}
+		properties = map[string]openapi.Schema{"result": response}
+	}
+	attributes := make([]openapi.TerraformAttribute, 0, len(properties))
+	for _, name := range sortedSchemaPropertyNames(properties) {
+		attr := ConvertToTerraformAttribute(name, properties[name], false, "", spec)
+		if attr.ConversionError != "" {
+			return nil, fmt.Errorf("response operation %s response field %q: %s", operationName, name, attr.ConversionError)
+		}
+		markResponseAttributeComputed(&attr)
+		attributes = append(attributes, attr)
+	}
+	return attributes, nil
+}
+
+func markResponseAttributeComputed(attr *openapi.TerraformAttribute) {
+	attr.Required = false
+	attr.Optional = false
+	attr.Computed = true
+	attr.PlanModifier = ""
+	if attr.Sensitive && !strings.Contains(strings.ToLower(attr.Description), "terraform state") {
+		attr.Description = strings.TrimSpace(attr.Description) + " This sensitive value is stored in Terraform state; protect state access accordingly."
+	}
+	for index := range attr.NestedAttributes {
+		markResponseAttributeComputed(&attr.NestedAttributes[index])
+	}
+}
+
+func sortedSchemaPropertyNames(properties map[string]openapi.Schema) []string {
+	names := make([]string, 0, len(properties))
+	for name := range properties {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	return names
 }
 
 // ExtractResourceSchema extracts a Terraform resource schema from an OpenAPI spec.

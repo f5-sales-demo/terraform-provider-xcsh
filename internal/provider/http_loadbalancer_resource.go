@@ -31919,7 +31919,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		createReq.Spec["user_id_client_ip"] = map[string]interface{}{}
 	}
 
-	apiResource, err := r.client.CreateHTTPLoadBalancer(ctx, createReq)
+	_, err := r.client.CreateHTTPLoadBalancer(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create HTTPLoadBalancer: %s", err))
 		return
@@ -31927,7 +31927,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetHTTPLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetHTTPLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -80417,10 +80417,10 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
 		var domainsList []string
 		for _, item := range v {

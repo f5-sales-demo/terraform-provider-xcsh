@@ -57,6 +57,9 @@ func Clean(desc string, fieldPath string) string {
 	// Normalize whitespace
 	desc = regexp.MustCompile(`[\n\r]+`).ReplaceAllString(desc, " ")
 	desc = regexp.MustCompile(`\s+`).ReplaceAllString(desc, " ")
+	// Avoid the ambiguous possessive rejected by the documentation terminology
+	// rules while preserving the meaning of protobuf Any type URL descriptions.
+	desc = strings.ReplaceAll(desc, "the URL's path", "the URL path")
 	// Escape quotes for Go string literals
 	desc = strings.ReplaceAll(desc, `"`, "'")
 	desc = strings.TrimSpace(desc)

@@ -4168,7 +4168,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 		createReq.Spec["address"] = data.Address.ValueString()
 	}
 
-	apiResource, err := r.client.CreateSecuremeshSite(ctx, createReq)
+	_, err := r.client.CreateSecuremeshSite(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create SecuremeshSite: %s", err))
 		return
@@ -4176,7 +4176,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetSecuremeshSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetSecuremeshSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -10383,10 +10383,10 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.MasterNodeConfiguration.IsNull() || len(data.MasterNodeConfiguration.Elements()) == 0) {
 		data.MasterNodeConfiguration = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteMasterNodeConfigurationModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["master_node_configuration"].([]interface{}); ok && len(listData) > 0 {

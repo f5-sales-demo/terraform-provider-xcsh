@@ -384,7 +384,7 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 		createReq.Spec["action"] = data.Action.ValueString()
 	}
 
-	apiResource, err := r.client.CreateProtocolInspection(ctx, createReq)
+	_, err := r.client.CreateProtocolInspection(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create ProtocolInspection: %s", err))
 		return
@@ -392,7 +392,7 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetProtocolInspection(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetProtocolInspection(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -869,10 +869,10 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && (isImport || data.EnableDisableComplianceChecks != nil) {
 		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{
 			DisableComplianceChecks: func() *ProtocolInspectionEmptyModel {

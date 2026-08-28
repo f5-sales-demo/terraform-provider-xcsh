@@ -75,6 +75,7 @@ type SiteRegistrationDataSourceModel struct {
 	ClusterName  types.String `tfsdk:"cluster_name"`
 	ClusterSize  types.Int64  `tfsdk:"cluster_size"`
 	ProviderType types.String `tfsdk:"provider_type"`
+	InstanceID   types.String `tfsdk:"instance_id"`
 }
 
 func (d *SiteRegistrationDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -158,6 +159,10 @@ resource "xcsh_registration_approval" "ce" {
 			},
 			"provider_type": schema.StringAttribute{
 				MarkdownDescription: "Infrastructure provider the CE reported, e.g. `AZURE`, `AWS`, `GCP`, `VMWARE`.",
+				Computed:            true,
+			},
+			"instance_id": schema.StringAttribute{
+				MarkdownDescription: "Infrastructure instance identifier reported by the CE registration (`get_spec.infra.instance_id`). This distinguishes rebuilt nodes that reuse the same site and hostname.",
 				Computed:            true,
 			},
 		},
@@ -295,15 +300,24 @@ func (d *SiteRegistrationDataSource) Read(ctx context.Context, req datasource.Re
 		data.ClusterName = types.StringNull()
 		data.ClusterSize = types.Int64Null()
 		data.ProviderType = types.StringNull()
+		data.InstanceID = types.StringNull()
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 		return
 	}
 
+	applyRegistrationMatch(&data, match)
+	if data.Hostname.IsNull() {
+		data.Hostname = stringOrNull(match.GetSpec.Infra.Hostname)
+	}
+
+	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+}
+
+func applyRegistrationMatch(data *SiteRegistrationDataSourceModel, match *client.RegistrationListItem) {
 	uid := match.UID
 	if uid == "" {
 		uid = match.SystemMetadata.UID
 	}
-
 	data.ID = types.StringValue(match.Name)
 	data.Found = types.BoolValue(true)
 	data.Name = types.StringValue(match.Name)
@@ -315,11 +329,7 @@ func (d *SiteRegistrationDataSource) Read(ctx context.Context, req datasource.Re
 	data.ClusterName = stringOrNull(match.GetSpec.Passport.ClusterName)
 	data.ClusterSize = int64OrNull(match.GetSpec.Passport.ClusterSize)
 	data.ProviderType = stringOrNull(match.GetSpec.Infra.Provider)
-	if data.Hostname.IsNull() {
-		data.Hostname = stringOrNull(match.GetSpec.Infra.Hostname)
-	}
-
-	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	data.InstanceID = stringOrNull(match.GetSpec.Infra.InstanceID)
 }
 
 // stringOrNull maps an omitted (empty) API string to a null attribute value so

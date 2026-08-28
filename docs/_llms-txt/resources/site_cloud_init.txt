@@ -1,0 +1,22 @@
+# xcsh_site_cloud_init
+
+Category: Uncategorized
+Issue site-scoped Customer Edge cloud-init
+
+## Required
+
+- provider_ref
+- site_name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_site_cloud_init" "example" {
+  provider_ref = "example-value"
+  site_name    = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none

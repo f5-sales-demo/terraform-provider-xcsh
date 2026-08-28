@@ -42,7 +42,7 @@ DEPRECATED — do not use: volterraedge/volterra
 - [Load Balancing](_llms-txt/load-balancing.txt) (13 resources): HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
 - [Sites](_llms-txt/sites.txt) (11 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
 - [Kubernetes](_llms-txt/kubernetes.txt) (8 resources): Container registries, workloads, and Kubernetes integrations
-- [Uncategorized](_llms-txt/uncategorized.txt) (7 resources): Resources pending categorization
+- [Uncategorized](_llms-txt/uncategorized.txt) (8 resources): Resources pending categorization
 - [DNS](_llms-txt/dns.txt) (6 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
 - [API Security](_llms-txt/api-security.txt) (5 resources): API definition, discovery, testing, and security controls for web APIs
 - [Applications](_llms-txt/applications.txt) (4 resources): Application settings, types, discovery, and filtering

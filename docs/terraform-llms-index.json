@@ -145,7 +145,7 @@
       "name": "Uncategorized",
       "slug": "uncategorized",
       "description": "Resources pending categorization",
-      "resource_count": 7,
+      "resource_count": 8,
       "resources": [
         "application_profiles",
         "authorization_server",
@@ -153,7 +153,8 @@
         "mitigated_domain",
         "protected_application",
         "protected_domain",
-        "registration_approval"
+        "registration_approval",
+        "site_cloud_init"
       ]
     },
     {
@@ -1568,6 +1569,19 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_registration_approval.example namespace/name"
+    },
+    {
+      "name": "site_cloud_init",
+      "category": "uncategorized",
+      "description": "Issue site-scoped Customer Edge cloud-init",
+      "required": ["provider_ref", "site_name"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/site_cloud_init.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      }
     },
     {
       "name": "dns_compliance_checks",

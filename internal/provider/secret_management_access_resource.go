@@ -1953,7 +1953,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 		createReq.Spec["where"] = WhereMap
 	}
 
-	apiResource, err := r.client.CreateSecretManagementAccess(ctx, createReq)
+	_, err := r.client.CreateSecretManagementAccess(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create SecretManagementAccess: %s", err))
 		return
@@ -1961,7 +1961,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetSecretManagementAccess(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetSecretManagementAccess(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -4747,10 +4747,10 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if v, ok := apiResource.Spec["provider_name"].(string); ok && v != "" {
 		data.ProviderName = types.StringValue(v)
 	} else {

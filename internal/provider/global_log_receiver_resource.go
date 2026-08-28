@@ -4365,7 +4365,7 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 		createReq.Spec["ns_current"] = map[string]interface{}{}
 	}
 
-	apiResource, err := r.client.CreateGlobalLogReceiver(ctx, createReq)
+	_, err := r.client.CreateGlobalLogReceiver(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create GlobalLogReceiver: %s", err))
 		return
@@ -4373,7 +4373,7 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetGlobalLogReceiver(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetGlobalLogReceiver(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -10899,10 +10899,10 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["audit_logs"].(map[string]interface{}); ok && isImport && data.AuditLogs == nil {
 		data.AuditLogs = &GlobalLogReceiverEmptyModel{}
 	}

@@ -24,6 +24,23 @@ func item(name, clusterName, hostname, state string) client.RegistrationListItem
 	}
 }
 
+func TestRegistrationInstanceIDDistinguishesRebuiltIdentity(t *testing.T) {
+	first := item("r-first", "rebuilt-site", "master-0", "ONLINE")
+	first.GetSpec.Infra.InstanceID = "instance-old"
+	second := item("r-second", "rebuilt-site", "master-0", "ONLINE")
+	second.GetSpec.Infra.InstanceID = "instance-new"
+
+	var firstState, secondState SiteRegistrationDataSourceModel
+	applyRegistrationMatch(&firstState, &first)
+	applyRegistrationMatch(&secondState, &second)
+	if firstState.InstanceID.ValueString() != "instance-old" || secondState.InstanceID.ValueString() != "instance-new" {
+		t.Fatalf("instance identities were not preserved: first=%q second=%q", firstState.InstanceID.ValueString(), secondState.InstanceID.ValueString())
+	}
+	if first.GetSpec.Passport.ClusterName != second.GetSpec.Passport.ClusterName || first.GetSpec.Infra.Hostname != second.GetSpec.Infra.Hostname {
+		t.Fatal("fixture must hold hostname and cluster identity constant")
+	}
+}
+
 // A registered single-node site resolves to its one registration.
 func TestSelectRegistration_SingleMatch(t *testing.T) {
 	items := []client.RegistrationListItem{

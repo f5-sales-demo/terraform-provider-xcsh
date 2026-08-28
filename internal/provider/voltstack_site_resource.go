@@ -10171,7 +10171,7 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 		createReq.Spec["address"] = data.Address.ValueString()
 	}
 
-	apiResource, err := r.client.CreateVoltstackSite(ctx, createReq)
+	_, err := r.client.CreateVoltstackSite(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create VoltstackSite: %s", err))
 		return
@@ -10179,7 +10179,7 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetVoltstackSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetVoltstackSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -25215,10 +25215,10 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.MasterNodeConfiguration.IsNull() || len(data.MasterNodeConfiguration.Elements()) == 0) {
 		data.MasterNodeConfiguration = types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteMasterNodeConfigurationModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["master_node_configuration"].([]interface{}); ok && len(listData) > 0 {

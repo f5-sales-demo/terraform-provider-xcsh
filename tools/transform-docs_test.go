@@ -110,6 +110,17 @@ func TestDescriptionDeduplicationPreservesCollapsedSection(t *testing.T) {
 	}
 }
 
+func TestRemoveImportSection(t *testing.T) {
+	input := "# Resource\n\n## Schema\n\nDetails.\n\n## Import\n\nterraform import example\n"
+	got := removeImportSection(input)
+	if strings.Contains(got, "## Import") || got != "# Resource\n\n## Schema\n\nDetails.\n" {
+		t.Fatalf("removeImportSection() = %q", got)
+	}
+	if second := removeImportSection(got); second != got {
+		t.Fatalf("removeImportSection() is not idempotent: %q", second)
+	}
+}
+
 func TestSecuremeshSiteV2DocumentationIsExhaustiveAndCurrent(t *testing.T) {
 	content, err := os.ReadFile("../docs/resources/securemesh_site_v2.md")
 	if err != nil {

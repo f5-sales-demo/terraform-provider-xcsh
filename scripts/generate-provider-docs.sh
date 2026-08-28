@@ -133,12 +133,13 @@ expected_canonical_examples=0
 while IFS= read -r directory; do
   case $directory in
   examples/resources/*) canonical_file="$directory/resource.tf" ;;
-  *) canonical_file="$directory/data-source.tf" ;;
+  examples/data-sources/*) canonical_file="$directory/data-source.tf" ;;
+  *) canonical_file="$directory/action.tf" ;;
   esac
   [ -f "$canonical_file" ] ||
     fail "generated example directory ${directory} has no canonical example file"
   expected_canonical_examples=$((expected_canonical_examples + 1))
-done < <(find examples/resources examples/data-sources \
+done < <(find examples/resources examples/data-sources examples/actions \
   -mindepth 1 -maxdepth 1 -type d -print | LC_ALL=C sort)
 
 # Vacuity floor. The provider ships well over two hundred resources and data
@@ -156,6 +157,7 @@ while IFS= read -r example; do
 done < <({
   find examples/resources -mindepth 2 -maxdepth 2 -type f -name resource.tf -print
   find examples/data-sources -mindepth 2 -maxdepth 2 -type f -name data-source.tf -print
+  find examples/actions -mindepth 2 -maxdepth 2 -type f -name action.tf -print
 } | LC_ALL=C sort)
 [ "$validated_canonical_examples" -eq "$expected_canonical_examples" ] ||
   fail "validated ${validated_canonical_examples} canonical examples, want ${expected_canonical_examples} (one per generated example directory)"

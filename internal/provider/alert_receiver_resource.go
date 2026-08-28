@@ -1486,7 +1486,7 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 		createReq.Spec["webhook"] = WebhookMap
 	}
 
-	apiResource, err := r.client.CreateAlertReceiver(ctx, createReq)
+	_, err := r.client.CreateAlertReceiver(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create AlertReceiver: %s", err))
 		return
@@ -1494,7 +1494,7 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetAlertReceiver(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetAlertReceiver(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -3403,10 +3403,10 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["email"].(map[string]interface{}); ok && (isImport || data.Email != nil) {
 		data.Email = &AlertReceiverEmailModel{
 			Email: func() types.String {
