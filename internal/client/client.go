@@ -556,3 +556,11 @@ func (c *Client) Delete(ctx context.Context, path string) error {
 	_, err := c.doRequest(ctx, http.MethodDelete, path, nil)
 	return err
 }
+
+// DeleteWithBody performs an idempotent DELETE with the operation's request
+// body. A small set of F5 XC routes declare and enforce a DeleteRequest even
+// though the object identity is also present in the path.
+func (c *Client) DeleteWithBody(ctx context.Context, path string, data interface{}) error {
+	_, err := c.doRequest(ctx, http.MethodDelete, path, data)
+	return err
+}

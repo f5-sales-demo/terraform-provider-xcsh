@@ -468,7 +468,12 @@ var resourceDeleterRegistry = map[string]ResourceDeleter{
 	// Alert & Monitoring Resources
 	// ============================================================================
 	"xcsh_alert_policy": func(ctx context.Context, c *client.Client, ns, name string) error {
-		return c.DeleteAlertPolicy(ctx, ns, name)
+		path := fmt.Sprintf("/api/config/namespaces/%s/alert_policys/%s", ns, name)
+		return c.DeleteWithBody(ctx, path, map[string]interface{}{
+			"name":             name,
+			"namespace":        ns,
+			"fail_if_referred": true,
+		})
 	},
 	"xcsh_alert_receiver": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeleteAlertReceiver(ctx, ns, name)
@@ -792,14 +797,6 @@ func GetRegistrySize() int {
 //	    ExpectNonEmptyPlan: true,
 //	},
 func CheckResourceDisappears(resourceType, resourceName string) resource.TestCheckFunc {
-	return CheckResourceDisappearsAfter(resourceType, resourceName, 0)
-}
-
-// CheckResourceDisappearsAfter waits after creation before simulating an
-// external delete. Some control-plane objects are readable before their
-// idempotent DELETE route has converged; the bounded delay is applied only to
-// live acceptance tests and leaves mock tests fast.
-func CheckResourceDisappearsAfter(resourceType, resourceName string, liveDelay time.Duration) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		rs, ok := s.RootModule().Resources[resourceName]
 		if !ok {
@@ -824,16 +821,6 @@ func CheckResourceDisappearsAfter(resourceType, resourceName string, liveDelay t
 		if namespace == "" {
 			namespace = "system"
 		}
-		if liveDelay > 0 && !IsMockMode() {
-			timer := time.NewTimer(liveDelay)
-			select {
-			case <-ctx.Done():
-				timer.Stop()
-				return ctx.Err()
-			case <-timer.C:
-			}
-		}
-
 		if err := retryIdempotentDelete(ctx, c, deleter, namespace, name, 3, 5*time.Second); err != nil {
 			// Ignore "not found" errors - resource may already be deleted
 			if !isNotFoundError(err) {

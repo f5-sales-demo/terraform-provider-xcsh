@@ -47,6 +47,24 @@ var quotaLimitedCapabilityTests = map[string]quotaCapabilityFixture{
 			"volterra_software_version":            "default",
 		},
 	},
+	"TestAccMaliciousUserMitigationResource_captchaChallenge": maliciousUserMitigationQuotaFixture(),
+	"TestAccMaliciousUserMitigationResource_fullLifecycle":    maliciousUserMitigationQuotaFixture(),
+	"TestAccMaliciousUserMitigationResource_jsChallenge":      maliciousUserMitigationQuotaFixture(),
+	"TestAccMaliciousUserMitigationResource_switchAction":     maliciousUserMitigationQuotaFixture(),
+}
+
+func maliciousUserMitigationQuotaFixture() quotaCapabilityFixture {
+	return quotaCapabilityFixture{
+		path: "/api/config/namespaces/system/malicious_user_mitigations",
+		spec: map[string]interface{}{
+			"mitigation_type": map[string]interface{}{
+				"rules": []interface{}{map[string]interface{}{
+					"threat_level":      map[string]interface{}{"high": map[string]interface{}{}},
+					"mitigation_action": map[string]interface{}{"block_temporarily": map[string]interface{}{}},
+				}},
+			},
+		},
+	}
 }
 
 type capabilityRoute struct {

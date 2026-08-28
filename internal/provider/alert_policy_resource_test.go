@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"regexp"
 	"testing"
-	"time"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/knownvalue"
@@ -231,7 +230,7 @@ func TestAccAlertPolicyResource_disappears(t *testing.T) {
 				Config: testAccAlertPolicyConfig_basicSystem(apName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckAlertPolicyExists(resourceName),
-					acctest.CheckResourceDisappearsAfter("xcsh_alert_policy", resourceName, 10*time.Second),
+					acctest.CheckResourceDisappears("xcsh_alert_policy", resourceName),
 				),
 				ExpectNonEmptyPlan: true,
 			},

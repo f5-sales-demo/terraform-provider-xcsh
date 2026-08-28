@@ -4,8 +4,10 @@ package acctest
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"net/http"
+	"net/http/httptest"
 	"testing"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
@@ -38,5 +40,38 @@ func TestRetryIdempotentDeleteRetriesOnlyTransientErrors(t *testing.T) {
 	}, "system", "fixture", 3, 0)
 	if !errors.Is(err, persistent) || attempts != 1 {
 		t.Fatalf("persistent delete error = %v after %d attempts; want original error after one attempt", err, attempts)
+	}
+}
+
+func TestAlertPolicyDisappearanceDeleteUsesRequiredBody(t *testing.T) {
+	t.Parallel()
+	requests := 0
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		requests++
+		if r.Method != http.MethodDelete || r.URL.Path != "/api/config/namespaces/system/alert_policys/fixture" {
+			t.Errorf("delete request = %s %s", r.Method, r.URL.Path)
+		}
+		var body struct {
+			Name           string `json:"name"`
+			Namespace      string `json:"namespace"`
+			FailIfReferred bool   `json:"fail_if_referred"`
+		}
+		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+			t.Errorf("decode delete request: %v", err)
+		}
+		if body.Name != "fixture" || body.Namespace != "system" || !body.FailIfReferred {
+			t.Errorf("delete body = %#v", body)
+		}
+		w.WriteHeader(http.StatusNoContent)
+	}))
+	defer server.Close()
+
+	c := client.NewClient(server.URL, "fixture-token")
+	deleter := resourceDeleterRegistry["xcsh_alert_policy"]
+	if err := deleter(context.Background(), c, "system", "fixture"); err != nil {
+		t.Fatalf("alert-policy external delete: %v", err)
+	}
+	if requests != 1 {
+		t.Fatalf("delete requests = %d, want 1", requests)
 	}
 }
