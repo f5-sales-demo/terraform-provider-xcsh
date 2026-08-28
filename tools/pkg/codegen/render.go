@@ -695,20 +695,12 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 	if jsonName == "" {
 		jsonName = attr.TfsdkTag
 	}
-	// Single-block Optional scalars preserve known prior state on normal read to
-	// avoid API omission/default drift while allowing Optional+Computed unknowns
-	// to resolve from the response.
-	preserve := container == "single" && attr.Optional && stateBase != "" &&
-		(attr.Type == "string" || attr.Type == "int64" || attr.Type == "bool")
+	// Single-block Optional int64/bool preserve prior state on normal read to avoid API default drift.
+	preserve := container == "single" && attr.Optional && stateBase != "" && (attr.Type == "int64" || attr.Type == "bool")
 
 	switch attr.Type {
 	case "string":
 		sb.WriteString(fmt.Sprintf("%s%s: func() types.String {\n", indent, fieldName))
-		if preserve {
-			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
-			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
-			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		}
 		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(string); ok && v != \"\" {\n", indent, srcMap, jsonName))
 		sb.WriteString(fmt.Sprintf("%s\t\treturn types.StringValue(v)\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))

@@ -1181,7 +1181,6 @@ func TestRenderUnmarshalSingleChild_ComputedDescendantReconstructs(t *testing.T)
 		IsBlock: true, NestedBlockType: "single",
 		NestedAttributes: []openapi.TerraformAttribute{
 			{GoName: "PeriodMultiplier", TfsdkTag: "period_multiplier", JsonName: "period_multiplier", Type: "int64", Optional: true, Computed: true},
-			{GoName: "Unit", TfsdkTag: "unit", JsonName: "unit", Type: "string", Optional: true},
 		},
 	}
 	var sb strings.Builder
@@ -1193,10 +1192,6 @@ func TestRenderUnmarshalSingleChild_ComputedDescendantReconstructs(t *testing.T)
 	}
 	if !strings.Contains(out, `RateLimiterData["period_multiplier"]`) {
 		t.Errorf("block with a Computed descendant must reconstruct the leaf from the API response:\n%s", out)
-	}
-	if !strings.Contains(out, `!data.RateLimit.RateLimiter.Unit.IsUnknown()`) ||
-		!strings.Contains(out, `return data.RateLimit.RateLimiter.Unit`) {
-		t.Errorf("reconstructed block must preserve a known configuration-owned string sibling:\n%s", out)
 	}
 }
 
