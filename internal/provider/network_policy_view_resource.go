@@ -1605,7 +1605,7 @@ func (r *NetworkPolicyViewResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.EgressRules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.EgressRules = types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewEgressRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
@@ -1969,7 +1969,7 @@ func (r *NetworkPolicyViewResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.IngressRules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.IngressRules = types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewIngressRulesModelAttrTypes})
 	}
 
@@ -2385,7 +2385,7 @@ func (r *NetworkPolicyViewResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.EgressRules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.EgressRules = types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewEgressRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
@@ -2749,7 +2749,7 @@ func (r *NetworkPolicyViewResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.IngressRules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.IngressRules = types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewIngressRulesModelAttrTypes})
 	}
 
@@ -3498,7 +3498,7 @@ func (r *NetworkPolicyViewResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.EgressRules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.EgressRules = types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewEgressRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
@@ -3862,7 +3862,7 @@ func (r *NetworkPolicyViewResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.IngressRules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.IngressRules = types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyViewIngressRulesModelAttrTypes})
 	}
 

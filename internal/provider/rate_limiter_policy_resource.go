@@ -2309,7 +2309,7 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
@@ -3238,7 +3238,7 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
@@ -4574,7 +4574,7 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {

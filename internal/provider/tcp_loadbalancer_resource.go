@@ -3255,7 +3255,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -3267,7 +3267,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
@@ -3373,7 +3373,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.OriginPoolsWeights = listVal
 		}
-	} else if isImport {
+	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {
@@ -4730,7 +4730,7 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -4742,7 +4742,7 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
@@ -4848,7 +4848,7 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.OriginPoolsWeights = listVal
 		}
-	} else if isImport {
+	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {
@@ -6888,7 +6888,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
 		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -6900,7 +6900,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
@@ -7006,7 +7006,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.OriginPoolsWeights = listVal
 		}
-	} else if isImport {
+	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {

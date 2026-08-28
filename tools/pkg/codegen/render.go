@@ -537,7 +537,7 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 			// An optional list echoed as [] is ambiguous on a normal read: it can mean
 			// either configured-empty or omitted. Preserve the prior configuration in
 			// that case; imports have no prior configuration and remain API-derived.
-			condition += " && (len(v) > 0 || isImport)"
+			condition += fmt.Sprintf(" && (len(v) > 0 || isImport || data.%s.IsUnknown())", fieldName)
 		}
 		sb.WriteString(fmt.Sprintf("%sif %s {\n", indent, condition))
 		sb.WriteString(fmt.Sprintf("%s\t%s := make([]%s, 0, len(v))\n", indent, listVar, goElem))
@@ -551,7 +551,7 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 		sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = listVal\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s} else if isImport && (data.%s.IsNull() || data.%s.IsUnknown()) {\n", indent, fieldName, fieldName))
+		sb.WriteString(fmt.Sprintf("%s} else if isImport || data.%s.IsUnknown() {\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, elemType))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "map":
@@ -616,7 +616,16 @@ func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.Te
 	sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
 	sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = listVal\n", indent, fieldName))
 	sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-	sb.WriteString(fmt.Sprintf("%s} else if isImport {\n", indent))
+	if hasComputedDescendant(attr) {
+		// A planned block with Computed descendants can contain unknown values.
+		// Keeping it after apply produces an invalid result object when the API
+		// omits the block, so resolve the omission to a known null value.
+		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+	} else {
+		// Fully configuration-owned blocks retain their prior value on normal
+		// reads when the API omits them; imports remain API-derived.
+		sb.WriteString(fmt.Sprintf("%s} else if isImport {\n", indent))
+	}
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, objType))
 	sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	return nil

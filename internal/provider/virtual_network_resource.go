@@ -697,7 +697,7 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 		if !resp.Diagnostics.HasError() {
 			data.StaticRoutes = listVal
 		}
-	} else if isImport {
+	} else {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
 	}
 
@@ -990,7 +990,7 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 		if !resp.Diagnostics.HasError() {
 			data.StaticRoutes = listVal
 		}
-	} else if isImport {
+	} else {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
 	}
 
@@ -1388,7 +1388,7 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 		if !resp.Diagnostics.HasError() {
 			data.StaticRoutes = listVal
 		}
-	} else if isImport {
+	} else {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
 	}
 

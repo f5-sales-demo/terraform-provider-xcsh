@@ -638,7 +638,7 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 		if !resp.Diagnostics.HasError() {
 			data.SiteSubnetParams = listVal
 		}
-	} else if isImport {
+	} else {
 		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
@@ -905,7 +905,7 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 		if !resp.Diagnostics.HasError() {
 			data.SiteSubnetParams = listVal
 		}
-	} else if isImport {
+	} else {
 		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
@@ -1263,7 +1263,7 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 		if !resp.Diagnostics.HasError() {
 			data.SiteSubnetParams = listVal
 		}
-	} else if isImport {
+	} else {
 		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {

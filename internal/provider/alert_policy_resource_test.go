@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"regexp"
 	"testing"
+	"time"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/knownvalue"
@@ -217,6 +218,12 @@ func TestAccAlertPolicyResource_updateAnnotations(t *testing.T) {
 func TestAccAlertPolicyResource_disappears(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	if !acctest.IsMockMode() {
+		// This test follows several alert-policy mutations in the serialized live
+		// suite. Give the control plane one bounded cooldown before the single POST;
+		// non-idempotent creates are deliberately never retried.
+		time.Sleep(10 * time.Second)
+	}
 
 	resourceName := "xcsh_alert_policy.test"
 	apName := acctest.RandomName("tf-acc-test-ap")

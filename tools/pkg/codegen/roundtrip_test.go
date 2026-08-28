@@ -56,7 +56,7 @@ func TestTopLevelListRoundTripPreservesConfiguredEmptyValueWhenAPIElidesIt(t *te
 	for _, want := range []string{
 		`if v, ok := apiResource.Spec["required_values"].([]interface{}); ok {`,
 		`required_valuesList := make([]string, 0, len(v))`,
-		`} else if isImport && (data.RequiredValues.IsNull() || data.RequiredValues.IsUnknown()) {`,
+		`} else if isImport || data.RequiredValues.IsUnknown() {`,
 	} {
 		if !strings.Contains(unmarshal, want) {
 			t.Errorf("generated list unmarshal does not preserve configured empty values; missing %q:\n%s", want, unmarshal)
@@ -79,12 +79,52 @@ func TestOptionalTopLevelListPreservesPriorNullOrConfiguredValueWhenAPIEchoesEmp
 		t.Fatalf("unexpected unmarshal error: %v", err)
 	}
 	for _, want := range []string{
-		`ok && (len(v) > 0 || isImport)`,
-		`} else if isImport && (data.Compliances.IsNull() || data.Compliances.IsUnknown()) {`,
+		`ok && (len(v) > 0 || isImport || data.Compliances.IsUnknown())`,
+		`} else if isImport || data.Compliances.IsUnknown() {`,
 	} {
 		if !strings.Contains(unmarshal, want) {
 			t.Errorf("optional list read must preserve prior state when the API echoes empty; missing %q:\n%s", want, unmarshal)
 		}
+	}
+}
+
+func TestOptionalComputedTopLevelListResolvesUnknownPlanWhenAPIOmitsIt(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{{
+		Name: "swagger_specs", GoName: "SwaggerSpecs", TfsdkTag: "swagger_specs",
+		Type: "list", ElementType: "string", JsonName: "swagger_specs",
+		IsSpecField: true, Optional: true, Computed: true,
+	}}
+
+	unmarshal, err := RenderSpecUnmarshalCode(attrs, "\t", "APIDefinition")
+	if err != nil {
+		t.Fatalf("unexpected unmarshal error: %v", err)
+	}
+	for _, want := range []string{
+		`len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()`,
+		`} else if isImport || data.SwaggerSpecs.IsUnknown() {`,
+	} {
+		if !strings.Contains(unmarshal, want) {
+			t.Errorf("optional+computed list must resolve an unknown plan; missing %q:\n%s", want, unmarshal)
+		}
+	}
+}
+
+func TestTopLevelBlockWithComputedDescendantResolvesOmittedAPIValue(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{{
+		Name: "origins", GoName: "Origins", TfsdkTag: "origins", JsonName: "origins",
+		IsSpecField: true, IsBlock: true, NestedBlockType: "list",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string", Optional: true},
+			{GoName: "Tenant", TfsdkTag: "tenant", JsonName: "tenant", Type: "string", Computed: true},
+		},
+	}}
+
+	unmarshal, err := RenderSpecUnmarshalCode(attrs, "\t", "APIDefinition")
+	if err != nil {
+		t.Fatalf("unexpected unmarshal error: %v", err)
+	}
+	if !strings.Contains(unmarshal, "} else {\n\t\tdata.Origins = types.ListNull") {
+		t.Fatalf("computed-descendant block omission must resolve to known null:\n%s", unmarshal)
 	}
 }
 

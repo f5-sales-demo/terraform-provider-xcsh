@@ -17362,7 +17362,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -28090,7 +28090,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -43871,7 +43871,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {

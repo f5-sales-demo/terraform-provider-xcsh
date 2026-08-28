@@ -16117,7 +16117,7 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport || data.WorkerNodes.IsUnknown()) {
 		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -16129,7 +16129,7 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else if isImport && (data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown()) {
+	} else if isImport || data.WorkerNodes.IsUnknown() {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
@@ -22176,7 +22176,7 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport || data.WorkerNodes.IsUnknown()) {
 		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -22188,7 +22188,7 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else if isImport && (data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown()) {
+	} else if isImport || data.WorkerNodes.IsUnknown() {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
@@ -31127,7 +31127,7 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport || data.WorkerNodes.IsUnknown()) {
 		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -31139,7 +31139,7 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else if isImport && (data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown()) {
+	} else if isImport || data.WorkerNodes.IsUnknown() {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {

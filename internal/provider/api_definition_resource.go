@@ -596,7 +596,7 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
 		swagger_specsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -608,7 +608,7 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 		if !resp.Diagnostics.HasError() {
 			data.SwaggerSpecs = listVal
 		}
-	} else if isImport && (data.SwaggerSpecs.IsNull() || data.SwaggerSpecs.IsUnknown()) {
+	} else if isImport || data.SwaggerSpecs.IsUnknown() {
 		data.SwaggerSpecs = types.ListNull(types.StringType)
 	}
 
@@ -850,7 +850,7 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
 		swagger_specsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -862,7 +862,7 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 		if !resp.Diagnostics.HasError() {
 			data.SwaggerSpecs = listVal
 		}
-	} else if isImport && (data.SwaggerSpecs.IsNull() || data.SwaggerSpecs.IsUnknown()) {
+	} else if isImport || data.SwaggerSpecs.IsUnknown() {
 		data.SwaggerSpecs = types.ListNull(types.StringType)
 	}
 
@@ -1197,7 +1197,7 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport) {
+	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
 		swagger_specsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -1209,7 +1209,7 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 		if !resp.Diagnostics.HasError() {
 			data.SwaggerSpecs = listVal
 		}
-	} else if isImport && (data.SwaggerSpecs.IsNull() || data.SwaggerSpecs.IsUnknown()) {
+	} else if isImport || data.SwaggerSpecs.IsUnknown() {
 		data.SwaggerSpecs = types.ListNull(types.StringType)
 	}
 

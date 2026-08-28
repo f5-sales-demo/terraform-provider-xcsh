@@ -512,6 +512,8 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 53
 
+  udp {}
+
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -562,6 +564,8 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 53
 
+  udp {}
+
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -605,6 +609,8 @@ resource "xcsh_udp_loadbalancer" "test" {
 
   domains     = ["%[1]s.example.com"]
   listen_port = 53
+
+  udp {}
 
   origin_pools_weights {
     pool {
@@ -650,6 +656,8 @@ resource "xcsh_udp_loadbalancer" "test" {
 
   domains     = ["%[1]s.example.com"]
   listen_port = 53
+
+  udp {}
 
   origin_pools_weights {
     pool {
@@ -699,6 +707,8 @@ resource "xcsh_udp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 53
 
+  udp {}
+
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -742,6 +752,8 @@ resource "xcsh_udp_loadbalancer" "test" {
 
   domains     = ["%[1]s.example.com"]
   listen_port = %[2]d
+
+  udp {}
 
   origin_pools_weights {
     pool {

@@ -16,6 +16,12 @@ import (
 
 var capabilityProbeCache sync.Map
 
+var quotaLimitedCapabilityTests = map[string]string{
+	"TestAccAPICrawlerResource_basic": "/api/config/namespaces/system/api_crawlers",
+	"TestAccFleetDataSource_basic":    "/api/config/namespaces/system/fleets",
+	"TestAccFleetResource_basic":      "/api/config/namespaces/system/fleets",
+}
+
 type capabilityRoute struct {
 	testPrefix   string
 	resourceType string
@@ -101,22 +107,59 @@ func classifyCapabilityProbe(err error) capabilityDecision {
 	switch apiErr.StatusCode {
 	case http.StatusForbidden:
 		return capabilityDenied
-	case http.StatusNotFound:
+	case http.StatusBadRequest, http.StatusNotFound:
 		return capabilityAllowed
 	default:
 		return capabilityInconclusive
 	}
 }
 
+func classifyQuotaCapabilityProbe(err error) capabilityDecision {
+	var apiErr *xcsherrors.XCSHError
+	if errors.As(err, &apiErr) && apiErr.StatusCode == http.StatusTooManyRequests {
+		return capabilityDenied
+	}
+	return classifyCapabilityProbe(err)
+}
+
+func executeCapabilityProbe(ctx context.Context, c interface {
+	Get(context.Context, string, interface{}) error
+	Post(context.Context, string, interface{}, interface{}) error
+}, path string, namespaceCreate bool) error {
+	var response map[string]interface{}
+	if namespaceCreate {
+		// The deliberately invalid name cannot create an object. Reaching request
+		// validation proves mutation authorization; an authorization failure returns
+		// 403 first. POST is non-idempotent and the client therefore never retries it.
+		request := map[string]interface{}{
+			"metadata": map[string]interface{}{"name": "-"},
+		}
+		return c.Post(ctx, path, request, &response)
+	}
+	return c.Get(ctx, path, &response)
+}
+
 func precheckLiveCapability(t *testing.T) {
 	t.Helper()
+	_, namespaceCreate := namespaceCreationCapabilityTests[t.Name()]
+	quotaPath, quotaLimited := quotaLimitedCapabilityTests[t.Name()]
 	path, ok := capabilityProbePath(t.Name())
+	if namespaceCreate {
+		path, ok = "/api/web/namespaces", true
+	} else if quotaLimited {
+		path, ok = quotaPath, true
+	}
 	if !ok {
 		return
 	}
-	if cached, found := capabilityProbeCache.Load(path); found {
+	cacheKey := "GET " + path
+	mutationProbe := namespaceCreate || quotaLimited
+	if mutationProbe {
+		cacheKey = "POST " + path
+	}
+	if cached, found := capabilityProbeCache.Load(cacheKey); found {
 		if !cached.(bool) {
-			t.Skip("authorized tenant capability preflight returned HTTP 403")
+			t.Skip("authorized tenant capability preflight returned HTTP 403 for a required surface")
 		}
 		return
 	}
@@ -125,14 +168,17 @@ func precheckLiveCapability(t *testing.T) {
 	if err != nil {
 		t.Fatalf("capability preflight could not initialize the API client")
 	}
-	var response map[string]interface{}
-	decision := classifyCapabilityProbe(c.Get(context.Background(), path, &response))
+	probeErr := executeCapabilityProbe(context.Background(), c, path, mutationProbe)
+	decision := classifyCapabilityProbe(probeErr)
+	if quotaLimited {
+		decision = classifyQuotaCapabilityProbe(probeErr)
+	}
 	switch decision {
 	case capabilityDenied:
-		capabilityProbeCache.Store(path, false)
-		t.Skip("authorized tenant capability preflight returned HTTP 403")
+		capabilityProbeCache.Store(cacheKey, false)
+		t.Skip("authorized tenant capability preflight returned HTTP 403 for a required surface")
 	case capabilityAllowed:
-		capabilityProbeCache.Store(path, true)
+		capabilityProbeCache.Store(cacheKey, true)
 	default:
 		t.Log("capability preflight was inconclusive; running the acceptance test")
 	}

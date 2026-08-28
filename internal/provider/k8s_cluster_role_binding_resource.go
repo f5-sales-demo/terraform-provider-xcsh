@@ -498,7 +498,7 @@ func (r *K8SClusterRoleBindingResource) Create(ctx context.Context, req resource
 		if !resp.Diagnostics.HasError() {
 			data.Subjects = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Subjects = types.ListNull(types.ObjectType{AttrTypes: K8SClusterRoleBindingSubjectsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["k8s_cluster_role"].(map[string]interface{}); ok && (isImport || data.K8SClusterRole != nil) {
@@ -705,7 +705,7 @@ func (r *K8SClusterRoleBindingResource) Read(ctx context.Context, req resource.R
 		if !resp.Diagnostics.HasError() {
 			data.Subjects = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Subjects = types.ListNull(types.ObjectType{AttrTypes: K8SClusterRoleBindingSubjectsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["k8s_cluster_role"].(map[string]interface{}); ok && (isImport || data.K8SClusterRole != nil) {
@@ -973,7 +973,7 @@ func (r *K8SClusterRoleBindingResource) Update(ctx context.Context, req resource
 		if !resp.Diagnostics.HasError() {
 			data.Subjects = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Subjects = types.ListNull(types.ObjectType{AttrTypes: K8SClusterRoleBindingSubjectsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["k8s_cluster_role"].(map[string]interface{}); ok && (isImport || data.K8SClusterRole != nil) {

@@ -914,7 +914,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.Receivers = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
 	}
 	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {
@@ -1433,7 +1433,7 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.Receivers = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
 	}
 	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {
@@ -2150,7 +2150,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.Receivers = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
 	}
 	if !isImport && (data.Routes.IsNull() || len(data.Routes.Elements()) == 0) {

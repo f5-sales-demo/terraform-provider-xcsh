@@ -352,7 +352,7 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.SidPrefixes = listVal
 		}
-	} else if isImport && (data.SidPrefixes.IsNull() || data.SidPrefixes.IsUnknown()) {
+	} else if isImport || data.SidPrefixes.IsUnknown() {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
 	// Top-level Optional bool: preserve prior state to avoid API default drift
@@ -528,7 +528,7 @@ func (r *Srv6NetworkSliceResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.SidPrefixes = listVal
 		}
-	} else if isImport && (data.SidPrefixes.IsNull() || data.SidPrefixes.IsUnknown()) {
+	} else if isImport || data.SidPrefixes.IsUnknown() {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
 	// Top-level Optional bool: preserve prior state to avoid API default drift
@@ -764,7 +764,7 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.SidPrefixes = listVal
 		}
-	} else if isImport && (data.SidPrefixes.IsNull() || data.SidPrefixes.IsUnknown()) {
+	} else if isImport || data.SidPrefixes.IsUnknown() {
 		data.SidPrefixes = types.ListNull(types.StringType)
 	}
 	// Top-level Optional bool: preserve prior state to avoid API default drift

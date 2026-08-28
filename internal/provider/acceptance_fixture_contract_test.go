@@ -92,6 +92,7 @@ func TestLiveAcceptanceFixtureSchemaContracts(t *testing.T) {
 	t.Run("udp load balancer supplies live-required defaults", func(t *testing.T) {
 		body := fixtureResourceBody(t, testAccUDPLoadBalancerConfig_basicSystem("fixture-udp"), "xcsh_udp_loadbalancer")
 		fixtureRequiresAttributes(t, body, "name", "namespace", "dns_volterra_managed", "idle_timeout", "domains", "listen_port")
+		fixtureRequiresBlock(t, body, "udp")
 	})
 }
 

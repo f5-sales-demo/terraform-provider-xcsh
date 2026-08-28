@@ -1349,7 +1349,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.PublicIP = listVal
 		}
-	} else if isImport {
+	} else {
 		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
@@ -2095,7 +2095,7 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.PublicIP = listVal
 		}
-	} else if isImport {
+	} else {
 		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
@@ -3167,7 +3167,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.PublicIP = listVal
 		}
-	} else if isImport {
+	} else {
 		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {

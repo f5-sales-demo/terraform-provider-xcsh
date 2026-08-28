@@ -3229,7 +3229,7 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 		if !resp.Diagnostics.HasError() {
 			data.Errors = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Errors = types.ListNull(types.ObjectType{AttrTypes: SiteRegistrationsErrorsModelAttrTypes})
 	}
 	if !isImport && (data.Items.IsNull() || len(data.Items.Elements()) == 0) {
@@ -5682,7 +5682,7 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 		if !resp.Diagnostics.HasError() {
 			data.Items = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Items = types.ListNull(types.ObjectType{AttrTypes: SiteRegistrationsItemsModelAttrTypes})
 	}
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

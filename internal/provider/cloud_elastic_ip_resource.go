@@ -428,7 +428,7 @@ func (r *CloudElasticIPResource) Create(ctx context.Context, req resource.Create
 		if !resp.Diagnostics.HasError() {
 			data.SiteRef = listVal
 		}
-	} else if isImport {
+	} else {
 		data.SiteRef = types.ListNull(types.ObjectType{AttrTypes: CloudElasticIPSiteRefModelAttrTypes})
 	}
 
@@ -617,7 +617,7 @@ func (r *CloudElasticIPResource) Read(ctx context.Context, req resource.ReadRequ
 		if !resp.Diagnostics.HasError() {
 			data.SiteRef = listVal
 		}
-	} else if isImport {
+	} else {
 		data.SiteRef = types.ListNull(types.ObjectType{AttrTypes: CloudElasticIPSiteRefModelAttrTypes})
 	}
 
@@ -850,7 +850,7 @@ func (r *CloudElasticIPResource) Update(ctx context.Context, req resource.Update
 		if !resp.Diagnostics.HasError() {
 			data.SiteRef = listVal
 		}
-	} else if isImport {
+	} else {
 		data.SiteRef = types.ListNull(types.ObjectType{AttrTypes: CloudElasticIPSiteRefModelAttrTypes})
 	}
 

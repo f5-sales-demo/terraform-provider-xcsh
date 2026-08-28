@@ -2178,7 +2178,7 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {
@@ -3220,7 +3220,7 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {
@@ -4707,7 +4707,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: DNSProxyIrulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["lb_algorithm"].(map[string]interface{}); ok && (isImport || data.LBAlgorithm != nil) {

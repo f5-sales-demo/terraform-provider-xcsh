@@ -1238,7 +1238,7 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 		if !resp.Diagnostics.HasError() {
 			data.AppTypeSettings = listVal
 		}
-	} else if isImport {
+	} else {
 		data.AppTypeSettings = types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsModelAttrTypes})
 	}
 
@@ -1782,7 +1782,7 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 		if !resp.Diagnostics.HasError() {
 			data.AppTypeSettings = listVal
 		}
-	} else if isImport {
+	} else {
 		data.AppTypeSettings = types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsModelAttrTypes})
 	}
 
@@ -2511,7 +2511,7 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !resp.Diagnostics.HasError() {
 			data.AppTypeSettings = listVal
 		}
-	} else if isImport {
+	} else {
 		data.AppTypeSettings = types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsModelAttrTypes})
 	}
 

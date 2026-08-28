@@ -785,7 +785,7 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 		if !resp.Diagnostics.HasError() {
 			data.VirtualSite = listVal
 		}
-	} else if isImport {
+	} else {
 		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
 	}
 
@@ -1100,7 +1100,7 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 		if !resp.Diagnostics.HasError() {
 			data.VirtualSite = listVal
 		}
-	} else if isImport {
+	} else {
 		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
 	}
 
@@ -1518,7 +1518,7 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 		if !resp.Diagnostics.HasError() {
 			data.VirtualSite = listVal
 		}
-	} else if isImport {
+	} else {
 		data.VirtualSite = types.ListNull(types.ObjectType{AttrTypes: SiteMeshGroupVirtualSiteModelAttrTypes})
 	}
 

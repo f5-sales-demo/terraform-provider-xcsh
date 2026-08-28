@@ -4985,7 +4985,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
 	}
 
@@ -6958,7 +6958,7 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
 	}
 
@@ -9786,7 +9786,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else if isImport {
+	} else {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: RouteRoutesModelAttrTypes})
 	}
 
