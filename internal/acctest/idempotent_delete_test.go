@@ -54,12 +54,12 @@ func TestAlertPolicyDisappearanceDeleteUsesRequiredBody(t *testing.T) {
 		var body struct {
 			Name           string `json:"name"`
 			Namespace      string `json:"namespace"`
-			FailIfReferred bool   `json:"fail_if_referred"`
+			FailIfReferred *bool  `json:"fail_if_referred"`
 		}
 		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
 			t.Errorf("decode delete request: %v", err)
 		}
-		if body.Name != "fixture" || body.Namespace != "system" || !body.FailIfReferred {
+		if body.Name != "fixture" || body.Namespace != "system" || body.FailIfReferred == nil || *body.FailIfReferred {
 			t.Errorf("delete body = %#v", body)
 		}
 		w.WriteHeader(http.StatusNoContent)

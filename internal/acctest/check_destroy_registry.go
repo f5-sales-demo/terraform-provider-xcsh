@@ -472,7 +472,7 @@ var resourceDeleterRegistry = map[string]ResourceDeleter{
 		return c.DeleteWithBody(ctx, path, map[string]interface{}{
 			"name":             name,
 			"namespace":        ns,
-			"fail_if_referred": true,
+			"fail_if_referred": false,
 		})
 	},
 	"xcsh_alert_receiver": func(ctx context.Context, c *client.Client, ns, name string) error {
