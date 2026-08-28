@@ -14,3 +14,7 @@ terraform {
 data "xcsh_site_registrations_by_state" "example" {
   state = "NOTSET"
 }
+
+output "site_registrations_by_state_result" {
+  value = data.xcsh_site_registrations_by_state.example
+}

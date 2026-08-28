@@ -13,8 +13,8 @@ This is a community-maintained provider built from public F5 API documentation.
 ## Requirements
 
 | Name      | Version |
-|-----------|---------|
-| terraform | >= 1.14  |
+| --------- | ------- |
+| terraform | >= 1.14 |
 
 ~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. For function-specific requirements, see the [Functions](/docs/functions) documentation.
 

@@ -1295,7 +1295,7 @@ func (d *SiteRegistrationsDataSource) Schema(ctx context.Context, req datasource
 							MarkdownDescription: "Contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message. Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type. Example 1: Pack and unpack a..",
 							Attributes: map[string]schema.Attribute{
 								"type_url": schema.StringAttribute{
-									MarkdownDescription: "URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one '/' character. The last segment of the URL's path must represent the fully qualified name of the type (as in ).",
+									MarkdownDescription: "URL/resource name that uniquely identifies the type of the serialized protocol buffer message. This string must contain at least one '/' character. The last segment of the URL path must represent the fully qualified name of the type (as in ).",
 									Computed:            true,
 								},
 								"value": schema.StringAttribute{

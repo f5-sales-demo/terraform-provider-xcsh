@@ -14,3 +14,7 @@ terraform {
 data "xcsh_site_registrations" "example" {
   namespace = "example-value"
 }
+
+output "site_registrations_result" {
+  value = data.xcsh_site_registrations.example
+}

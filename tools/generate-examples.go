@@ -45,6 +45,7 @@ var (
 	quotedRe     = regexp.MustCompile(`"([^"]*)"`)
 	descRe       = regexp.MustCompile(`MarkdownDescription:\s*"((?:[^"\\]|\\.)*)"`)
 	requiredRe   = regexp.MustCompile(`Required:\s*true`)
+	sensitiveRe  = regexp.MustCompile(`Sensitive:\s*true`)
 )
 
 func main() {
@@ -280,10 +281,11 @@ func parseAttributes(region string) []openapi.TerraformAttribute {
 			continue
 		}
 		attr := openapi.TerraformAttribute{
-			Name:     tag,
-			TfsdkTag: tag,
-			Type:     goSchemaKindToType(kind),
-			Required: requiredRe.MatchString(body),
+			Name:      tag,
+			TfsdkTag:  tag,
+			Type:      goSchemaKindToType(kind),
+			Required:  requiredRe.MatchString(body),
+			Sensitive: sensitiveRe.MatchString(body),
 		}
 		if attr.Type == "list" || attr.Type == "map" {
 			attr.ElementType = "string"

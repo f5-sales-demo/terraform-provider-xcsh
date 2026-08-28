@@ -841,10 +841,19 @@ func TestRenderResponseOperationExampleHCL(t *testing.T) {
 
 	data := RenderResponseOperationExampleHCL(&openapi.ResourceTemplate{Attributes: []openapi.TerraformAttribute{
 		{TfsdkTag: "provider_ref", Type: "string", Required: true},
-		{TfsdkTag: "image_download_url", Type: "string", Computed: true},
+		{TfsdkTag: "image_download_url", Type: "string", Computed: true, Sensitive: true},
 	}}, "site_image", "data_source")
 	if !strings.Contains(data, `provider_ref = "example-value"`) || strings.Contains(data, "image_download_url =") {
 		t.Fatalf("response data-source example did not follow required/computed schema:\n%s", data)
+	}
+	for _, want := range []string{
+		`output "site_image_result"`,
+		`value = data.xcsh_site_image.example`,
+		`sensitive = true`,
+	} {
+		if !strings.Contains(data, want) {
+			t.Fatalf("response data-source example is missing %q:\n%s", want, data)
+		}
 	}
 }
 

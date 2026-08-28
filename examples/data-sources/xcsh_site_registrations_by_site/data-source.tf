@@ -14,3 +14,7 @@ terraform {
 data "xcsh_site_registrations_by_site" "example" {
   site_name = "example-value"
 }
+
+output "site_registrations_by_site_result" {
+  value = data.xcsh_site_registrations_by_site.example
+}

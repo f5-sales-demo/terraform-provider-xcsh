@@ -135,6 +135,16 @@ func RenderResponseOperationExampleHCL(rt *openapi.ResourceTemplate, resourceNam
 		sb.WriteString("  }\n")
 	}
 	sb.WriteString("}\n")
+	if surface == "data_source" {
+		sb.WriteString(fmt.Sprintf("\noutput %q {\n  value = data.xcsh_%s.example\n", resourceName+"_result", resourceName))
+		for _, attr := range rt.Attributes {
+			if attr.Sensitive {
+				sb.WriteString("  sensitive = true\n")
+				break
+			}
+		}
+		sb.WriteString("}\n")
+	}
 	return sb.String()
 }
 

@@ -14,3 +14,8 @@ terraform {
 data "xcsh_site_image" "example" {
   provider_ref = "example-value"
 }
+
+output "site_image_result" {
+  value     = data.xcsh_site_image.example
+  sensitive = true
+}
