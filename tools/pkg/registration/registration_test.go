@@ -21,6 +21,12 @@ func TestEveryGeneratedUpdateIsTokenProtectedOrDisabled(t *testing.T) {
 		t.Fatal(err)
 	}
 	for _, path := range files {
+		// The codegen package briefly overlays this named synthetic resource in
+		// the real package for its compile-level test. It is not a provider
+		// surface and that test independently proves the generated code builds.
+		if filepath.Base(path) == "zz_wire_probe_resource.go" {
+			continue
+		}
 		content, readErr := os.ReadFile(path) //nolint:gosec // repository-generated files
 		if readErr != nil {
 			t.Fatal(readErr)

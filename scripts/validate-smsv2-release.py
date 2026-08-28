@@ -40,7 +40,7 @@ def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
         fail("manifest fields are malformed")
     if (
         manifest["schema_version"] != 1
-        or manifest["contract_id"] != "f5xc-ce-automation/v1"
+        or manifest["contract_id"] != "f5xc-ce-automation/v2"
     ):
         fail("manifest contract identity is unsupported")
     if manifest["release"] != {"tag": tag, "commit": commit}:
