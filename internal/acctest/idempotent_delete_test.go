@@ -55,8 +55,7 @@ func TestAlertPolicyDisappearanceDeleteUsesRequiredBody(t *testing.T) {
 		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
 			t.Errorf("decode delete request: %v", err)
 		}
-		failIfReferred, present := body["fail_if_referred"]
-		if len(body) != 1 || !present || failIfReferred != false {
+		if len(body) != 0 {
 			t.Errorf("delete body = %#v", body)
 		}
 		w.WriteHeader(http.StatusNoContent)
