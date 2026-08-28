@@ -3944,7 +3944,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		if !resp.Diagnostics.HasError() {
 			data.OriginServers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.OriginServers = types.ListNull(types.ObjectType{AttrTypes: OriginPoolOriginServersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["advanced_options"].(map[string]interface{}); ok && (isImport || data.AdvancedOptions != nil) {
@@ -4797,7 +4797,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		if !resp.Diagnostics.HasError() {
 			data.Healthcheck = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Healthcheck = types.ListNull(types.ObjectType{AttrTypes: OriginPoolHealthcheckModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["loadbalancer_algorithm"].(string); ok && v != "" {
@@ -5727,7 +5727,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 		if !resp.Diagnostics.HasError() {
 			data.OriginServers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.OriginServers = types.ListNull(types.ObjectType{AttrTypes: OriginPoolOriginServersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["advanced_options"].(map[string]interface{}); ok && (isImport || data.AdvancedOptions != nil) {
@@ -6580,7 +6580,7 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 		if !resp.Diagnostics.HasError() {
 			data.Healthcheck = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Healthcheck = types.ListNull(types.ObjectType{AttrTypes: OriginPoolHealthcheckModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["loadbalancer_algorithm"].(string); ok && v != "" {
@@ -8268,7 +8268,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !resp.Diagnostics.HasError() {
 			data.OriginServers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.OriginServers = types.ListNull(types.ObjectType{AttrTypes: OriginPoolOriginServersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["advanced_options"].(map[string]interface{}); ok && (isImport || data.AdvancedOptions != nil) {
@@ -9121,7 +9121,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !resp.Diagnostics.HasError() {
 			data.Healthcheck = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Healthcheck = types.ListNull(types.ObjectType{AttrTypes: OriginPoolHealthcheckModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["loadbalancer_algorithm"].(string); ok && v != "" {

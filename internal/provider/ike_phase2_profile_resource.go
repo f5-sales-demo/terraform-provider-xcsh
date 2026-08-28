@@ -439,7 +439,7 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else if data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown() {
+	} else if isImport && (data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown()) {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
@@ -454,7 +454,7 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else if data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown() {
+	} else if isImport && (data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown()) {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dh_group_set"].(map[string]interface{}); ok && (isImport || data.DhGroupSet != nil) {
@@ -650,7 +650,7 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else if data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown() {
+	} else if isImport && (data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown()) {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
@@ -665,7 +665,7 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else if data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown() {
+	} else if isImport && (data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown()) {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dh_group_set"].(map[string]interface{}); ok && (isImport || data.DhGroupSet != nil) {
@@ -931,7 +931,7 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else if data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown() {
+	} else if isImport && (data.AuthenticationAlgos.IsNull() || data.AuthenticationAlgos.IsUnknown()) {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
@@ -946,7 +946,7 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else if data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown() {
+	} else if isImport && (data.EncryptionAlgos.IsNull() || data.EncryptionAlgos.IsUnknown()) {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dh_group_set"].(map[string]interface{}); ok && (isImport || data.DhGroupSet != nil) {

@@ -56,7 +56,7 @@ func TestTopLevelListRoundTripPreservesConfiguredEmptyValueWhenAPIElidesIt(t *te
 	for _, want := range []string{
 		`if v, ok := apiResource.Spec["required_values"].([]interface{}); ok {`,
 		`required_valuesList := make([]string, 0, len(v))`,
-		`} else if data.RequiredValues.IsNull() || data.RequiredValues.IsUnknown() {`,
+		`} else if isImport && (data.RequiredValues.IsNull() || data.RequiredValues.IsUnknown()) {`,
 	} {
 		if !strings.Contains(unmarshal, want) {
 			t.Errorf("generated list unmarshal does not preserve configured empty values; missing %q:\n%s", want, unmarshal)
@@ -64,6 +64,27 @@ func TestTopLevelListRoundTripPreservesConfiguredEmptyValueWhenAPIElidesIt(t *te
 	}
 	if strings.Contains(unmarshal, "ok && len(v) > 0") {
 		t.Errorf("generated list unmarshal incorrectly treats an API-provided empty list as absent:\n%s", unmarshal)
+	}
+}
+
+func TestOptionalTopLevelListPreservesPriorNullOrConfiguredValueWhenAPIEchoesEmpty(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{{
+		Name: "compliances", GoName: "Compliances", TfsdkTag: "compliances",
+		Type: "list", ElementType: "string", JsonName: "compliances",
+		IsSpecField: true, Optional: true,
+	}}
+
+	unmarshal, err := RenderSpecUnmarshalCode(attrs, "\t", "DataType")
+	if err != nil {
+		t.Fatalf("unexpected unmarshal error: %v", err)
+	}
+	for _, want := range []string{
+		`ok && (len(v) > 0 || isImport)`,
+		`} else if isImport && (data.Compliances.IsNull() || data.Compliances.IsUnknown()) {`,
+	} {
+		if !strings.Contains(unmarshal, want) {
+			t.Errorf("optional list read must preserve prior state when the API echoes empty; missing %q:\n%s", want, unmarshal)
+		}
 	}
 }
 

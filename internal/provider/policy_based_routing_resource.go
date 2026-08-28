@@ -1430,7 +1430,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 		if !resp.Diagnostics.HasError() {
 			data.ForwardingClassList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ForwardingClassList = types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardingClassListModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["forward_proxy_pbr"].(map[string]interface{}); ok && (isImport || data.ForwardProxyPbr != nil) {
@@ -2205,7 +2205,7 @@ func (r *PolicyBasedRoutingResource) Read(ctx context.Context, req resource.Read
 		if !resp.Diagnostics.HasError() {
 			data.ForwardingClassList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ForwardingClassList = types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardingClassListModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["forward_proxy_pbr"].(map[string]interface{}); ok && (isImport || data.ForwardProxyPbr != nil) {
@@ -3321,7 +3321,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 		if !resp.Diagnostics.HasError() {
 			data.ForwardingClassList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ForwardingClassList = types.ListNull(types.ObjectType{AttrTypes: PolicyBasedRoutingForwardingClassListModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["forward_proxy_pbr"].(map[string]interface{}); ok && (isImport || data.ForwardProxyPbr != nil) {

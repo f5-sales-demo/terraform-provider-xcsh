@@ -14,8 +14,6 @@ import (
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 )
 
-const capabilityProbeName = "xcsh-capability-probe-do-not-create"
-
 var capabilityProbeCache sync.Map
 
 type capabilityRoute struct {
@@ -59,12 +57,16 @@ var capabilityRoutes = []capabilityRoute{
 	{testPrefix: "TestAccCrl", resourceType: "crls"},
 	{testPrefix: "TestAccCluster", resourceType: "clusters"},
 	{testPrefix: "TestAccEndpoint", resourceType: "endpoints"},
+	{testPrefix: "TestAccDNSComplianceChecks", resourceType: "dns_compliance_checkss"},
+	{testPrefix: "TestAccDnsComplianceChecks", resourceType: "dns_compliance_checkss"},
+	{testPrefix: "TestAccIrule", resourceType: "irules"},
 	{testPrefix: "TestAccLogReceiver", resourceType: "log_receivers"},
 	{testPrefix: "TestAccNamespace", webNamespace: true},
 	{testPrefix: "TestAccNetworkPolicy", resourceType: "network_policys"},
 	{testPrefix: "TestAccProxy", resourceType: "proxys"},
 	{testPrefix: "TestAccVirtualHost", resourceType: "virtual_hosts"},
 	{testPrefix: "TestAccVirtualSite", resourceType: "virtual_sites"},
+	{testPrefix: "TestAccUDPLoadBalancer", resourceType: "udp_loadbalancers"},
 }
 
 func capabilityProbePath(testName string) (string, bool) {
@@ -73,9 +75,9 @@ func capabilityProbePath(testName string) (string, bool) {
 			continue
 		}
 		if route.webNamespace {
-			return "/api/web/namespaces/" + capabilityProbeName, true
+			return "/api/web/namespaces", true
 		}
-		return fmt.Sprintf("/api/config/namespaces/system/%s/%s", route.resourceType, capabilityProbeName), true
+		return fmt.Sprintf("/api/config/namespaces/system/%s", route.resourceType), true
 	}
 	return "", false
 }

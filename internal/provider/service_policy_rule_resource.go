@@ -3033,7 +3033,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.ArgMatchers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ArgMatchers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleArgMatchersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["asn_list"].(map[string]interface{}); ok && (isImport || data.AsnList != nil) {
@@ -3327,7 +3327,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.CookieMatchers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.CookieMatchers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleCookieMatchersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["domain_matcher"].(map[string]interface{}); ok && (isImport || data.DomainMatcher != nil) {
@@ -3461,7 +3461,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.Headers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Headers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleHeadersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http_method"].(map[string]interface{}); ok && (isImport || data.HTTPMethod != nil) {
@@ -3718,7 +3718,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.JWTClaims = listVal
 		}
-	} else {
+	} else if isImport {
 		data.JWTClaims = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleJWTClaimsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["label_matcher"].(map[string]interface{}); ok && (isImport || data.LabelMatcher != nil) {
@@ -3952,7 +3952,7 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		if !resp.Diagnostics.HasError() {
 			data.QueryParams = listVal
 		}
-	} else {
+	} else if isImport {
 		data.QueryParams = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleQueryParamsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["request_constraints"].(map[string]interface{}); ok && (isImport || data.RequestConstraints != nil) {
@@ -4853,7 +4853,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.ArgMatchers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ArgMatchers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleArgMatchersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["asn_list"].(map[string]interface{}); ok && (isImport || data.AsnList != nil) {
@@ -5147,7 +5147,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.CookieMatchers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.CookieMatchers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleCookieMatchersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["domain_matcher"].(map[string]interface{}); ok && (isImport || data.DomainMatcher != nil) {
@@ -5281,7 +5281,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.Headers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Headers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleHeadersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http_method"].(map[string]interface{}); ok && (isImport || data.HTTPMethod != nil) {
@@ -5538,7 +5538,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.JWTClaims = listVal
 		}
-	} else {
+	} else if isImport {
 		data.JWTClaims = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleJWTClaimsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["label_matcher"].(map[string]interface{}); ok && (isImport || data.LabelMatcher != nil) {
@@ -5772,7 +5772,7 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 		if !resp.Diagnostics.HasError() {
 			data.QueryParams = listVal
 		}
-	} else {
+	} else if isImport {
 		data.QueryParams = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleQueryParamsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["request_constraints"].(map[string]interface{}); ok && (isImport || data.RequestConstraints != nil) {
@@ -7581,7 +7581,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.ArgMatchers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ArgMatchers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleArgMatchersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["asn_list"].(map[string]interface{}); ok && (isImport || data.AsnList != nil) {
@@ -7875,7 +7875,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.CookieMatchers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.CookieMatchers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleCookieMatchersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["domain_matcher"].(map[string]interface{}); ok && (isImport || data.DomainMatcher != nil) {
@@ -8009,7 +8009,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.Headers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Headers = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleHeadersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http_method"].(map[string]interface{}); ok && (isImport || data.HTTPMethod != nil) {
@@ -8266,7 +8266,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.JWTClaims = listVal
 		}
-	} else {
+	} else if isImport {
 		data.JWTClaims = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleJWTClaimsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["label_matcher"].(map[string]interface{}); ok && (isImport || data.LabelMatcher != nil) {
@@ -8500,7 +8500,7 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		if !resp.Diagnostics.HasError() {
 			data.QueryParams = listVal
 		}
-	} else {
+	} else if isImport {
 		data.QueryParams = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleQueryParamsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["request_constraints"].(map[string]interface{}); ok && (isImport || data.RequestConstraints != nil) {

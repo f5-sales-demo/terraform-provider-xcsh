@@ -31969,7 +31969,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
+	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -38089,7 +38089,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.BlockedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedClients = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBlockedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bot_defense"].(map[string]interface{}); ok && (isImport || data.BotDefense != nil) {
@@ -40863,7 +40863,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.DataGuardRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DataGuardRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDataGuardRulesModelAttrTypes})
 	}
 	if !isImport && (data.DDOSMitigationRules.IsNull() || len(data.DDOSMitigationRules.Elements()) == 0) {
@@ -41071,7 +41071,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.DDOSMitigationRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DDOSMitigationRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDDOSMitigationRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["default_pool"].(map[string]interface{}); ok && (isImport || data.DefaultPool != nil) {
@@ -42984,7 +42984,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.DefaultRoutePools = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DefaultRoutePools = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultRoutePoolsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["disable_caching"].(map[string]interface{}); ok && isImport && data.DisableCaching == nil {
@@ -43586,7 +43586,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.GraphqlRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.GraphqlRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerGraphqlRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
@@ -47697,7 +47697,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.ProtectedCookies = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtectedCookies = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerProtectedCookiesModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["random"].(map[string]interface{}); ok && isImport && data.Random == nil {
@@ -50282,7 +50282,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["sensitive_data_disclosure_rules"].(map[string]interface{}); ok && (isImport || data.SensitiveDataDisclosureRules != nil) {
@@ -50948,7 +50948,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.TrustedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.TrustedClients = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerTrustedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["user_identification"].(map[string]interface{}); ok && (isImport || data.UserIdentification != nil) {
@@ -51638,7 +51638,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
+	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -57758,7 +57758,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.BlockedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedClients = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBlockedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bot_defense"].(map[string]interface{}); ok && (isImport || data.BotDefense != nil) {
@@ -60532,7 +60532,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.DataGuardRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DataGuardRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDataGuardRulesModelAttrTypes})
 	}
 	if !isImport && (data.DDOSMitigationRules.IsNull() || len(data.DDOSMitigationRules.Elements()) == 0) {
@@ -60740,7 +60740,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.DDOSMitigationRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DDOSMitigationRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDDOSMitigationRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["default_pool"].(map[string]interface{}); ok && (isImport || data.DefaultPool != nil) {
@@ -62653,7 +62653,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.DefaultRoutePools = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DefaultRoutePools = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultRoutePoolsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["disable_caching"].(map[string]interface{}); ok && isImport && data.DisableCaching == nil {
@@ -63255,7 +63255,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.GraphqlRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.GraphqlRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerGraphqlRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
@@ -67366,7 +67366,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.ProtectedCookies = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtectedCookies = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerProtectedCookiesModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["random"].(map[string]interface{}); ok && isImport && data.Random == nil {
@@ -69951,7 +69951,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["sensitive_data_disclosure_rules"].(map[string]interface{}); ok && (isImport || data.SensitiveDataDisclosureRules != nil) {
@@ -70617,7 +70617,7 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.TrustedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.TrustedClients = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerTrustedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["user_identification"].(map[string]interface{}); ok && (isImport || data.UserIdentification != nil) {
@@ -80421,7 +80421,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else if data.Domains.IsNull() || data.Domains.IsUnknown() {
+	} else if isImport && (data.Domains.IsNull() || data.Domains.IsUnknown()) {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -86541,7 +86541,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.BlockedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedClients = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBlockedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bot_defense"].(map[string]interface{}); ok && (isImport || data.BotDefense != nil) {
@@ -89315,7 +89315,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.DataGuardRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DataGuardRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDataGuardRulesModelAttrTypes})
 	}
 	if !isImport && (data.DDOSMitigationRules.IsNull() || len(data.DDOSMitigationRules.Elements()) == 0) {
@@ -89523,7 +89523,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.DDOSMitigationRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DDOSMitigationRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDDOSMitigationRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["default_pool"].(map[string]interface{}); ok && (isImport || data.DefaultPool != nil) {
@@ -91436,7 +91436,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.DefaultRoutePools = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DefaultRoutePools = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultRoutePoolsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["disable_caching"].(map[string]interface{}); ok && isImport && data.DisableCaching == nil {
@@ -92038,7 +92038,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.GraphqlRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.GraphqlRules = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerGraphqlRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
@@ -96149,7 +96149,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.ProtectedCookies = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtectedCookies = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerProtectedCookiesModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["random"].(map[string]interface{}); ok && isImport && data.Random == nil {
@@ -98734,7 +98734,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["sensitive_data_disclosure_rules"].(map[string]interface{}); ok && (isImport || data.SensitiveDataDisclosureRules != nil) {
@@ -99400,7 +99400,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.TrustedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.TrustedClients = types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerTrustedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["user_identification"].(map[string]interface{}); ok && (isImport || data.UserIdentification != nil) {

@@ -567,7 +567,7 @@ func (r *FilterSetResource) Create(ctx context.Context, req resource.CreateReque
 		if !resp.Diagnostics.HasError() {
 			data.FilterFields = listVal
 		}
-	} else {
+	} else if isImport {
 		data.FilterFields = types.ListNull(types.ObjectType{AttrTypes: FilterSetFilterFieldsModelAttrTypes})
 	}
 
@@ -801,7 +801,7 @@ func (r *FilterSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.FilterFields = listVal
 		}
-	} else {
+	} else if isImport {
 		data.FilterFields = types.ListNull(types.ObjectType{AttrTypes: FilterSetFilterFieldsModelAttrTypes})
 	}
 
@@ -1112,7 +1112,7 @@ func (r *FilterSetResource) Update(ctx context.Context, req resource.UpdateReque
 		if !resp.Diagnostics.HasError() {
 			data.FilterFields = listVal
 		}
-	} else {
+	} else if isImport {
 		data.FilterFields = types.ListNull(types.ObjectType{AttrTypes: FilterSetFilterFieldsModelAttrTypes})
 	}
 

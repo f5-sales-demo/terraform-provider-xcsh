@@ -387,7 +387,7 @@ func (r *AddressAllocatorResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.AddressPool = listVal
 		}
-	} else if data.AddressPool.IsNull() || data.AddressPool.IsUnknown() {
+	} else if isImport && (data.AddressPool.IsNull() || data.AddressPool.IsUnknown()) {
 		data.AddressPool = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {
@@ -556,7 +556,7 @@ func (r *AddressAllocatorResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.AddressPool = listVal
 		}
-	} else if data.AddressPool.IsNull() || data.AddressPool.IsUnknown() {
+	} else if isImport && (data.AddressPool.IsNull() || data.AddressPool.IsUnknown()) {
 		data.AddressPool = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {

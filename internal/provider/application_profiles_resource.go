@@ -4973,7 +4973,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
@@ -8293,7 +8293,7 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
@@ -12810,7 +12810,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.Irules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {

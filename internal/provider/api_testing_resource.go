@@ -1402,7 +1402,7 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {
@@ -1925,7 +1925,7 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {
@@ -2669,7 +2669,7 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {

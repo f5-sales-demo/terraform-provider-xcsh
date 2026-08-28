@@ -4,6 +4,7 @@ package acctest
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"time"
 
@@ -11,6 +12,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 )
 
 // ResourceVerifier is a function that verifies a resource no longer exists via API
@@ -815,7 +817,7 @@ func CheckResourceDisappears(resourceType, resourceName string) resource.TestChe
 			namespace = "system"
 		}
 
-		if err := deleter(ctx, c, namespace, name); err != nil {
+		if err := retryIdempotentDelete(ctx, c, deleter, namespace, name, 3, 5*time.Second); err != nil {
 			// Ignore "not found" errors - resource may already be deleted
 			if !isNotFoundError(err) {
 				return fmt.Errorf("failed to delete %s %s/%s: %w", resourceType, namespace, name, err)
@@ -824,6 +826,32 @@ func CheckResourceDisappears(resourceType, resourceName string) resource.TestChe
 
 		return nil
 	}
+}
+
+// retryIdempotentDelete gives an immediately-created object a bounded window to
+// become deletable. It retries only structured transient API failures; validation,
+// authorization, and other persistent failures are returned unchanged.
+func retryIdempotentDelete(ctx context.Context, c *client.Client, deleter ResourceDeleter, namespace, name string, maxAttempts int, baseWait time.Duration) error {
+	var lastErr error
+	for attempt := 0; attempt < maxAttempts; attempt++ {
+		lastErr = deleter(ctx, c, namespace, name)
+		if lastErr == nil {
+			return nil
+		}
+		var apiErr *xcsherrors.XCSHError
+		if !errors.As(lastErr, &apiErr) || !apiErr.IsRetryable() || attempt == maxAttempts-1 {
+			return lastErr
+		}
+		wait := baseWait * time.Duration(attempt+1)
+		timer := time.NewTimer(wait)
+		select {
+		case <-ctx.Done():
+			timer.Stop()
+			return ctx.Err()
+		case <-timer.C:
+		}
+	}
+	return lastErr
 }
 
 // RegisterResourceDeleter allows registering additional resource deleters at runtime

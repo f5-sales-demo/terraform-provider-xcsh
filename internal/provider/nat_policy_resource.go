@@ -2024,7 +2024,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["site"].(map[string]interface{}); ok && (isImport || data.Site != nil) {
@@ -2852,7 +2852,7 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["site"].(map[string]interface{}); ok && (isImport || data.Site != nil) {
@@ -3993,7 +3993,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["site"].(map[string]interface{}); ok && (isImport || data.Site != nil) {

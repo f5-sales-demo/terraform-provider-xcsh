@@ -705,7 +705,7 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 		if !resp.Diagnostics.HasError() {
 			data.ServerBlockFilters = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
 	}
 
@@ -993,7 +993,7 @@ func (r *NginxServiceDiscoveryResource) Read(ctx context.Context, req resource.R
 		if !resp.Diagnostics.HasError() {
 			data.ServerBlockFilters = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
 	}
 
@@ -1372,7 +1372,7 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 		if !resp.Diagnostics.HasError() {
 			data.ServerBlockFilters = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
 	}
 

@@ -22953,7 +22953,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.SegmentVrf = listVal
 		}
-	} else {
+	} else if isImport {
 		data.SegmentVrf = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2SegmentVrfModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["site_mesh_group_on_slo"].(map[string]interface{}); ok && (isImport || data.SiteMeshGroupOnSlo != nil) {
@@ -31713,7 +31713,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.SegmentVrf = listVal
 		}
-	} else {
+	} else if isImport {
 		data.SegmentVrf = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2SegmentVrfModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["site_mesh_group_on_slo"].(map[string]interface{}); ok && (isImport || data.SiteMeshGroupOnSlo != nil) {
@@ -44762,7 +44762,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.SegmentVrf = listVal
 		}
-	} else {
+	} else if isImport {
 		data.SegmentVrf = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2SegmentVrfModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["site_mesh_group_on_slo"].(map[string]interface{}); ok && (isImport || data.SiteMeshGroupOnSlo != nil) {

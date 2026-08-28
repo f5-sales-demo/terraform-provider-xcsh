@@ -12,9 +12,10 @@ import (
 func TestCapabilityProbePathUsesExactReadOnlySurface(t *testing.T) {
 	t.Parallel()
 	tests := map[string]string{
-		"TestAccCertificateResource_basic": "/api/config/namespaces/system/certificates/" + capabilityProbeName,
-		"TestAccNamespaceResource_basic":   "/api/web/namespaces/" + capabilityProbeName,
-		"TestAccOriginPoolResource_basic":  "",
+		"TestAccCertificateResource_basic":     "/api/config/namespaces/system/certificates",
+		"TestAccNamespaceResource_basic":       "/api/web/namespaces",
+		"TestAccUDPLoadBalancerResource_basic": "/api/config/namespaces/system/udp_loadbalancers",
+		"TestAccOriginPoolResource_basic":      "",
 	}
 	for testName, want := range tests {
 		got, ok := capabilityProbePath(testName)

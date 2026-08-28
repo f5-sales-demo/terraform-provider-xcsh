@@ -5662,7 +5662,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.BlockedServices = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
@@ -6000,7 +6000,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.InsideVirtualNetwork = listVal
 		}
-	} else {
+	} else if isImport {
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["interface_list"].(map[string]interface{}); ok && (isImport || data.InterfaceList != nil) {
@@ -6181,7 +6181,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.NetworkConnectors = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
 	}
 	if !isImport && (data.NetworkFirewall.IsNull() || len(data.NetworkFirewall.Elements()) == 0) {
@@ -6234,7 +6234,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.NetworkFirewall = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
@@ -6302,7 +6302,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.OutsideVirtualNetwork = listVal
 		}
-	} else {
+	} else if isImport {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
@@ -8814,7 +8814,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		if !resp.Diagnostics.HasError() {
 			data.BlockedServices = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
@@ -9152,7 +9152,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		if !resp.Diagnostics.HasError() {
 			data.InsideVirtualNetwork = listVal
 		}
-	} else {
+	} else if isImport {
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["interface_list"].(map[string]interface{}); ok && (isImport || data.InterfaceList != nil) {
@@ -9333,7 +9333,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		if !resp.Diagnostics.HasError() {
 			data.NetworkConnectors = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
 	}
 	if !isImport && (data.NetworkFirewall.IsNull() || len(data.NetworkFirewall.Elements()) == 0) {
@@ -9386,7 +9386,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		if !resp.Diagnostics.HasError() {
 			data.NetworkFirewall = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
@@ -9454,7 +9454,7 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		if !resp.Diagnostics.HasError() {
 			data.OutsideVirtualNetwork = listVal
 		}
-	} else {
+	} else if isImport {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {
@@ -13465,7 +13465,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.BlockedServices = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bond_device_list"].(map[string]interface{}); ok && (isImport || data.BondDeviceList != nil) {
@@ -13803,7 +13803,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.InsideVirtualNetwork = listVal
 		}
-	} else {
+	} else if isImport {
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["interface_list"].(map[string]interface{}); ok && (isImport || data.InterfaceList != nil) {
@@ -13984,7 +13984,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.NetworkConnectors = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
 	}
 	if !isImport && (data.NetworkFirewall.IsNull() || len(data.NetworkFirewall.Elements()) == 0) {
@@ -14037,7 +14037,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.NetworkFirewall = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
@@ -14105,7 +14105,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.OutsideVirtualNetwork = listVal
 		}
-	} else {
+	} else if isImport {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["performance_enhancement_mode"].(map[string]interface{}); ok && (isImport || data.PerformanceEnhancementMode != nil) {

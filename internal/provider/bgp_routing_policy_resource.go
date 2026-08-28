@@ -773,7 +773,7 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesModelAttrTypes})
 	}
 
@@ -1102,7 +1102,7 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesModelAttrTypes})
 	}
 
@@ -1545,7 +1545,7 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: BGPRoutingPolicyRulesModelAttrTypes})
 	}
 

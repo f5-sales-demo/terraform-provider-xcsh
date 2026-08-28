@@ -646,7 +646,7 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.ProtocolPolicer = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtocolPolicer = types.ListNull(types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerModelAttrTypes})
 	}
 
@@ -925,7 +925,7 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.ProtocolPolicer = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtocolPolicer = types.ListNull(types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerModelAttrTypes})
 	}
 
@@ -1292,7 +1292,7 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.ProtocolPolicer = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtocolPolicer = types.ListNull(types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerModelAttrTypes})
 	}
 

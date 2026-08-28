@@ -1809,7 +1809,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
-	} else {
+	} else if isImport {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
 	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
@@ -1862,7 +1862,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		if !resp.Diagnostics.HasError() {
 			data.Endpoints = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
 	}
 	if !isImport && (data.HealthChecks.IsNull() || len(data.HealthChecks.Elements()) == 0) {
@@ -1915,7 +1915,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		if !resp.Diagnostics.HasError() {
 			data.HealthChecks = listVal
 		}
-	} else {
+	} else if isImport {
 		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && (isImport || data.Http1Config != nil) {
@@ -2803,7 +2803,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
-	} else {
+	} else if isImport {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
 	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
@@ -2856,7 +2856,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		if !resp.Diagnostics.HasError() {
 			data.Endpoints = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
 	}
 	if !isImport && (data.HealthChecks.IsNull() || len(data.HealthChecks.Elements()) == 0) {
@@ -2909,7 +2909,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		if !resp.Diagnostics.HasError() {
 			data.HealthChecks = listVal
 		}
-	} else {
+	} else if isImport {
 		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && (isImport || data.Http1Config != nil) {
@@ -4264,7 +4264,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
-	} else {
+	} else if isImport {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
 	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
@@ -4317,7 +4317,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		if !resp.Diagnostics.HasError() {
 			data.Endpoints = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
 	}
 	if !isImport && (data.HealthChecks.IsNull() || len(data.HealthChecks.Elements()) == 0) {
@@ -4370,7 +4370,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		if !resp.Diagnostics.HasError() {
 			data.HealthChecks = listVal
 		}
-	} else {
+	} else if isImport {
 		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && (isImport || data.Http1Config != nil) {

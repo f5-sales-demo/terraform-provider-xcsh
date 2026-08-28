@@ -598,7 +598,7 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
 	}
 
@@ -872,7 +872,7 @@ func (r *UserIdentificationResource) Read(ctx context.Context, req resource.Read
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
 	}
 
@@ -1226,7 +1226,7 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: UserIdentificationRulesModelAttrTypes})
 	}
 

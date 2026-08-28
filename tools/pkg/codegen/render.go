@@ -532,7 +532,14 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 			return fmt.Errorf("unsupported list element type %q at field %s", attr.ElementType, attr.Name)
 		}
 		listVar := attr.TfsdkTag + "List"
-		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok {\n", indent, jsonName))
+		condition := fmt.Sprintf("v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok", jsonName)
+		if attr.Optional {
+			// An optional list echoed as [] is ambiguous on a normal read: it can mean
+			// either configured-empty or omitted. Preserve the prior configuration in
+			// that case; imports have no prior configuration and remain API-derived.
+			condition += " && (len(v) > 0 || isImport)"
+		}
+		sb.WriteString(fmt.Sprintf("%sif %s {\n", indent, condition))
 		sb.WriteString(fmt.Sprintf("%s\t%s := make([]%s, 0, len(v))\n", indent, listVar, goElem))
 		sb.WriteString(fmt.Sprintf("%s\tfor _, item := range v {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tif s, ok := item.(%s); ok {\n", indent, cast))
@@ -544,7 +551,7 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 		sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = listVal\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s} else if data.%s.IsNull() || data.%s.IsUnknown() {\n", indent, fieldName, fieldName))
+		sb.WriteString(fmt.Sprintf("%s} else if isImport && (data.%s.IsNull() || data.%s.IsUnknown()) {\n", indent, fieldName, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, elemType))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "map":
@@ -609,7 +616,7 @@ func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.Te
 	sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
 	sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = listVal\n", indent, fieldName))
 	sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-	sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+	sb.WriteString(fmt.Sprintf("%s} else if isImport {\n", indent))
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, objType))
 	sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	return nil

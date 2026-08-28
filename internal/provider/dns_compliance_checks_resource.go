@@ -344,10 +344,10 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.DomainDenylist = listVal
 		}
-	} else if data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown() {
+	} else if isImport && (data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown()) {
 		data.DomainDenylist = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		disallowed_query_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -359,10 +359,10 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedQueryTypeList = listVal
 		}
-	} else if data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown() {
+	} else if isImport && (data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown()) {
 		data.DisallowedQueryTypeList = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		disallowed_resource_record_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -374,7 +374,7 @@ func (r *DNSComplianceChecksResource) Create(ctx context.Context, req resource.C
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedResourceRecordTypeList = listVal
 		}
-	} else if data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown() {
+	} else if isImport && (data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown()) {
 		data.DisallowedResourceRecordTypeList = types.ListNull(types.StringType)
 	}
 
@@ -520,10 +520,10 @@ func (r *DNSComplianceChecksResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.DomainDenylist = listVal
 		}
-	} else if data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown() {
+	} else if isImport && (data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown()) {
 		data.DomainDenylist = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		disallowed_query_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -535,10 +535,10 @@ func (r *DNSComplianceChecksResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedQueryTypeList = listVal
 		}
-	} else if data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown() {
+	} else if isImport && (data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown()) {
 		data.DisallowedQueryTypeList = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		disallowed_resource_record_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -550,7 +550,7 @@ func (r *DNSComplianceChecksResource) Read(ctx context.Context, req resource.Rea
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedResourceRecordTypeList = listVal
 		}
-	} else if data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown() {
+	} else if isImport && (data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown()) {
 		data.DisallowedResourceRecordTypeList = types.ListNull(types.StringType)
 	}
 
@@ -742,10 +742,10 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.DomainDenylist = listVal
 		}
-	} else if data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown() {
+	} else if isImport && (data.DomainDenylist.IsNull() || data.DomainDenylist.IsUnknown()) {
 		data.DomainDenylist = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		disallowed_query_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -757,10 +757,10 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedQueryTypeList = listVal
 		}
-	} else if data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown() {
+	} else if isImport && (data.DisallowedQueryTypeList.IsNull() || data.DisallowedQueryTypeList.IsUnknown()) {
 		data.DisallowedQueryTypeList = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		disallowed_resource_record_type_listList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -772,7 +772,7 @@ func (r *DNSComplianceChecksResource) Update(ctx context.Context, req resource.U
 		if !resp.Diagnostics.HasError() {
 			data.DisallowedResourceRecordTypeList = listVal
 		}
-	} else if data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown() {
+	} else if isImport && (data.DisallowedResourceRecordTypeList.IsNull() || data.DisallowedResourceRecordTypeList.IsUnknown()) {
 		data.DisallowedResourceRecordTypeList = types.ListNull(types.StringType)
 	}
 

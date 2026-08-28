@@ -987,7 +987,7 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 		if !resp.Diagnostics.HasError() {
 			data.WAFExclusionRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
 	}
 
@@ -1386,7 +1386,7 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 		if !resp.Diagnostics.HasError() {
 			data.WAFExclusionRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
 	}
 
@@ -1948,7 +1948,7 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 		if !resp.Diagnostics.HasError() {
 			data.WAFExclusionRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.WAFExclusionRules = types.ListNull(types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesModelAttrTypes})
 	}
 

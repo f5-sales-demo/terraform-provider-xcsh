@@ -135,7 +135,7 @@
 		if !resp.Diagnostics.HasError() {
 			data.AdvertisedService = listVal
 		}
-	} else {
+	} else if isImport {
 		data.AdvertisedService = types.ListNull(types.ObjectType{AttrTypes: ZzWireProbeAdvertisedServiceModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {

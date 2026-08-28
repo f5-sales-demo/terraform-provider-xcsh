@@ -905,10 +905,10 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -920,7 +920,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
+	} else if isImport && (data.Compliances.IsNull() || data.Compliances.IsUnknown()) {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	// Top-level Optional bool: preserve prior state to avoid API default drift
@@ -1279,10 +1279,10 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -1294,7 +1294,7 @@ func (r *DataTypeResource) Read(ctx context.Context, req resource.ReadRequest, r
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
+	} else if isImport && (data.Compliances.IsNull() || data.Compliances.IsUnknown()) {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	// Top-level Optional bool: preserve prior state to avoid API default drift
@@ -1808,10 +1808,10 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 		if !resp.Diagnostics.HasError() {
 			data.Rules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		compliancesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -1823,7 +1823,7 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 		if !resp.Diagnostics.HasError() {
 			data.Compliances = listVal
 		}
-	} else if data.Compliances.IsNull() || data.Compliances.IsUnknown() {
+	} else if isImport && (data.Compliances.IsNull() || data.Compliances.IsUnknown()) {
 		data.Compliances = types.ListNull(types.StringType)
 	}
 	// Top-level Optional bool: preserve prior state to avoid API default drift

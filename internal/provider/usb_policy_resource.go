@@ -425,7 +425,7 @@ func (r *UsbPolicyResource) Create(ctx context.Context, req resource.CreateReque
 		if !resp.Diagnostics.HasError() {
 			data.AllowedDevices = listVal
 		}
-	} else {
+	} else if isImport {
 		data.AllowedDevices = types.ListNull(types.ObjectType{AttrTypes: UsbPolicyAllowedDevicesModelAttrTypes})
 	}
 
@@ -615,7 +615,7 @@ func (r *UsbPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.AllowedDevices = listVal
 		}
-	} else {
+	} else if isImport {
 		data.AllowedDevices = types.ListNull(types.ObjectType{AttrTypes: UsbPolicyAllowedDevicesModelAttrTypes})
 	}
 
@@ -858,7 +858,7 @@ func (r *UsbPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 		if !resp.Diagnostics.HasError() {
 			data.AllowedDevices = listVal
 		}
-	} else {
+	} else if isImport {
 		data.AllowedDevices = types.ListNull(types.ObjectType{AttrTypes: UsbPolicyAllowedDevicesModelAttrTypes})
 	}
 

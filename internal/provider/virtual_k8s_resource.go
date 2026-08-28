@@ -510,7 +510,7 @@ func (r *VirtualK8SResource) Create(ctx context.Context, req resource.CreateRequ
 		if !resp.Diagnostics.HasError() {
 			data.VsiteRefs = listVal
 		}
-	} else {
+	} else if isImport {
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
 	}
 
@@ -722,7 +722,7 @@ func (r *VirtualK8SResource) Read(ctx context.Context, req resource.ReadRequest,
 		if !resp.Diagnostics.HasError() {
 			data.VsiteRefs = listVal
 		}
-	} else {
+	} else if isImport {
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
 	}
 
@@ -991,7 +991,7 @@ func (r *VirtualK8SResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !resp.Diagnostics.HasError() {
 			data.VsiteRefs = listVal
 		}
-	} else {
+	} else if isImport {
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
 	}
 

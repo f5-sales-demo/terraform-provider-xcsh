@@ -43,13 +43,16 @@ resource "xcsh_fast_acl" "test" {
   name      = %[1]q
   namespace = "system"
 
-  re_acl {
+  site_acl {
     fast_acl_rules {
       action {
         simple_action = "DENY"
       }
+      metadata {
+        name = "test-rule"
+      }
       prefix {
-        prefix = ["192.0.2.0/24"]
+        prefix = ["10.0.0.0/8"]
       }
     }
   }

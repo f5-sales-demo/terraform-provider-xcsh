@@ -50,13 +50,15 @@ func TestLiveAcceptanceFixtureSchemaContracts(t *testing.T) {
 
 	t.Run("fast acl rule nested blocks", func(t *testing.T) {
 		body := fixtureResourceBody(t, testAccFastAclDataSourceConfig_basic("fixture-fast-acl"), "xcsh_fast_acl")
-		reACL := fixtureRequiresBlock(t, body, "re_acl")
-		rule := fixtureRequiresBlock(t, reACL, "fast_acl_rules")
+		siteACL := fixtureRequiresBlock(t, body, "site_acl")
+		rule := fixtureRequiresBlock(t, siteACL, "fast_acl_rules")
 		action := fixtureRequiresBlock(t, rule, "action")
 		fixtureRequiresAttributes(t, action, "simple_action")
+		metadata := fixtureRequiresBlock(t, rule, "metadata")
+		fixtureRequiresAttributes(t, metadata, "name")
 		prefix := fixtureRequiresBlock(t, rule, "prefix")
 		fixtureRequiresAttributes(t, prefix, "prefix")
-		fixtureForbidsAttributes(t, body, "action", "prefix")
+		fixtureForbidsAttributes(t, body, "action", "metadata", "prefix")
 	})
 
 	dataGroupFixtures := map[string]string{
@@ -80,6 +82,16 @@ func TestLiveAcceptanceFixtureSchemaContracts(t *testing.T) {
 		body := fixtureResourceBody(t, testAccAppFirewallConfig_detectionSettings("fixture-waf"), "xcsh_app_firewall")
 		detection := fixtureRequiresBlock(t, body, "detection_settings")
 		fixtureForbidsBlock(t, detection, "violations_view")
+	})
+
+	t.Run("fleet supplies live-required defaults", func(t *testing.T) {
+		body := fixtureResourceBody(t, testAccFleetConfig_basic("unused", "fixture-fleet"), "xcsh_fleet")
+		fixtureRequiresAttributes(t, body, "name", "namespace", "fleet_label", "enable_default_fleet_config_download", "operating_system_version", "volterra_software_version")
+	})
+
+	t.Run("udp load balancer supplies live-required defaults", func(t *testing.T) {
+		body := fixtureResourceBody(t, testAccUDPLoadBalancerConfig_basicSystem("fixture-udp"), "xcsh_udp_loadbalancer")
+		fixtureRequiresAttributes(t, body, "name", "namespace", "dns_volterra_managed", "idle_timeout", "domains", "listen_port")
 	})
 }
 

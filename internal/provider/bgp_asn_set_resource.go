@@ -310,7 +310,7 @@ func (r *BGPAsnSetResource) Create(ctx context.Context, req resource.CreateReque
 		if !resp.Diagnostics.HasError() {
 			data.AsNumbers = listVal
 		}
-	} else if data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown() {
+	} else if isImport && (data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown()) {
 		data.AsNumbers = types.ListNull(types.Int64Type)
 	}
 
@@ -456,7 +456,7 @@ func (r *BGPAsnSetResource) Read(ctx context.Context, req resource.ReadRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.AsNumbers = listVal
 		}
-	} else if data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown() {
+	} else if isImport && (data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown()) {
 		data.AsNumbers = types.ListNull(types.Int64Type)
 	}
 
@@ -632,7 +632,7 @@ func (r *BGPAsnSetResource) Update(ctx context.Context, req resource.UpdateReque
 		if !resp.Diagnostics.HasError() {
 			data.AsNumbers = listVal
 		}
-	} else if data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown() {
+	} else if isImport && (data.AsNumbers.IsNull() || data.AsNumbers.IsUnknown()) {
 		data.AsNumbers = types.ListNull(types.Int64Type)
 	}
 

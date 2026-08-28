@@ -715,7 +715,7 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.Limits = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Limits = types.ListNull(types.ObjectType{AttrTypes: RateLimiterLimitsModelAttrTypes})
 	}
 	if !isImport && (data.UserIdentification.IsNull() || len(data.UserIdentification.Elements()) == 0) {
@@ -768,7 +768,7 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.UserIdentification = listVal
 		}
-	} else {
+	} else if isImport {
 		data.UserIdentification = types.ListNull(types.ObjectType{AttrTypes: RateLimiterUserIdentificationModelAttrTypes})
 	}
 
@@ -1037,7 +1037,7 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.Limits = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Limits = types.ListNull(types.ObjectType{AttrTypes: RateLimiterLimitsModelAttrTypes})
 	}
 	if !isImport && (data.UserIdentification.IsNull() || len(data.UserIdentification.Elements()) == 0) {
@@ -1090,7 +1090,7 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.UserIdentification = listVal
 		}
-	} else {
+	} else if isImport {
 		data.UserIdentification = types.ListNull(types.ObjectType{AttrTypes: RateLimiterUserIdentificationModelAttrTypes})
 	}
 
@@ -1459,7 +1459,7 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.Limits = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Limits = types.ListNull(types.ObjectType{AttrTypes: RateLimiterLimitsModelAttrTypes})
 	}
 	if !isImport && (data.UserIdentification.IsNull() || len(data.UserIdentification.Elements()) == 0) {
@@ -1512,7 +1512,7 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.UserIdentification = listVal
 		}
-	} else {
+	} else if isImport {
 		data.UserIdentification = types.ListNull(types.ObjectType{AttrTypes: RateLimiterUserIdentificationModelAttrTypes})
 	}
 

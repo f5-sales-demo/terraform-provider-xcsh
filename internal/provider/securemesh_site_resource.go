@@ -4238,7 +4238,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 		if !resp.Diagnostics.HasError() {
 			data.MasterNodeConfiguration = listVal
 		}
-	} else {
+	} else if isImport {
 		data.MasterNodeConfiguration = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteMasterNodeConfigurationModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["volterra_certified_hw"].(string); ok && v != "" {
@@ -6547,7 +6547,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -6559,7 +6559,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else if data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown() {
+	} else if isImport && (data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown()) {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
@@ -6730,7 +6730,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 		if !resp.Diagnostics.HasError() {
 			data.MasterNodeConfiguration = listVal
 		}
-	} else {
+	} else if isImport {
 		data.MasterNodeConfiguration = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteMasterNodeConfigurationModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["volterra_certified_hw"].(string); ok && v != "" {
@@ -9039,7 +9039,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -9051,7 +9051,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else if data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown() {
+	} else if isImport && (data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown()) {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
@@ -10419,7 +10419,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 		if !resp.Diagnostics.HasError() {
 			data.MasterNodeConfiguration = listVal
 		}
-	} else {
+	} else if isImport {
 		data.MasterNodeConfiguration = types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteMasterNodeConfigurationModelAttrTypes})
 	}
 	if v, ok := apiResource.Spec["volterra_certified_hw"].(string); ok && v != "" {
@@ -12728,7 +12728,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok {
+	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport) {
 		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
@@ -12740,7 +12740,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 		if !resp.Diagnostics.HasError() {
 			data.WorkerNodes = listVal
 		}
-	} else if data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown() {
+	} else if isImport && (data.WorkerNodes.IsNull() || data.WorkerNodes.IsUnknown()) {
 		data.WorkerNodes = types.ListNull(types.StringType)
 	}
 	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {

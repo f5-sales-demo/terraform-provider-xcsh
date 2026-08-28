@@ -1998,7 +1998,7 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 		if !resp.Diagnostics.HasError() {
 			data.Peers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Peers = types.ListNull(types.ObjectType{AttrTypes: BGPPeersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bgp_parameters"].(map[string]interface{}); ok && (isImport || data.BGPParameters != nil) {
@@ -2894,7 +2894,7 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 		if !resp.Diagnostics.HasError() {
 			data.Peers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Peers = types.ListNull(types.ObjectType{AttrTypes: BGPPeersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bgp_parameters"].(map[string]interface{}); ok && (isImport || data.BGPParameters != nil) {
@@ -4135,7 +4135,7 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 		if !resp.Diagnostics.HasError() {
 			data.Peers = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Peers = types.ListNull(types.ObjectType{AttrTypes: BGPPeersModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bgp_parameters"].(map[string]interface{}); ok && (isImport || data.BGPParameters != nil) {
