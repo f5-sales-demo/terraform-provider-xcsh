@@ -21,6 +21,7 @@ import (
 
 const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
+const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
 
 var canonicalManagedSocketlessRunsOn = []string{
 	"managed-socketless",
@@ -447,11 +448,14 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 		if !strings.Contains(label, "${{") {
 			continue
 		}
-		if label != repositoryRunnerExpression {
+		switch label {
+		case repositoryRunnerExpression:
+			canonical[index] = repositoryRunnerLabel
+		case sharedSocketlessRunnerExpression:
+			canonical[index] = canonicalManagedSocketlessRunsOn[0]
+		default:
 			*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
-			continue
 		}
-		canonical[index] = repositoryRunnerLabel
 	}
 	return canonical
 }
