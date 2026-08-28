@@ -1034,7 +1034,7 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 		createReq.Spec["use_default_blocking_page"] = map[string]interface{}{}
 	}
 
-	apiResource, err := r.client.CreateAppFirewall(ctx, createReq)
+	_, err := r.client.CreateAppFirewall(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create AppFirewall: %s", err))
 		return
@@ -1042,7 +1042,7 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetAppFirewall(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetAppFirewall(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -2460,10 +2460,10 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["allowed_response_codes"].(map[string]interface{}); ok && (isImport || data.AllowedResponseCodes != nil) {
 		data.AllowedResponseCodes = &AppFirewallAllowedResponseCodesModel{
 			ResponseCode: func() types.List {

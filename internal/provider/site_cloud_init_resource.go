@@ -40,7 +40,7 @@ func (r *SiteCloudInitResource) Metadata(ctx context.Context, req resource.Metad
 	resp.TypeName = req.ProviderTypeName + "_site_cloud_init"
 }
 func (r *SiteCloudInitResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
-	resp.Schema = schema.Schema{MarkdownDescription: "Returns cloud-init counfig for kvm provider with JWT token.",
+	resp.Schema = schema.Schema{MarkdownDescription: "Issue site-scoped Customer Edge cloud-init.",
 		Attributes: map[string]schema.Attribute{
 			"provider_ref": schema.StringAttribute{
 				MarkdownDescription: "Provider for that cloud-init config.",

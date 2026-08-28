@@ -512,7 +512,7 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 		createReq.Spec["jitter_percent"] = data.JitterPercent.ValueInt64()
 	}
 
-	apiResource, err := r.client.CreateHealthcheck(ctx, createReq)
+	_, err := r.client.CreateHealthcheck(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Healthcheck: %s", err))
 		return
@@ -520,7 +520,7 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetHealthcheck(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetHealthcheck(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -1154,10 +1154,10 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if v, ok := apiResource.Spec["healthy_threshold"].(float64); ok {
 		data.HealthyThreshold = types.Int64Value(int64(v))
 	} else {

@@ -33,7 +33,7 @@ func (a *SiteUpgradeSwAction) Metadata(ctx context.Context, req action.MetadataR
 	resp.TypeName = req.ProviderTypeName + "_site_upgrade_sw"
 }
 func (a *SiteUpgradeSwAction) Schema(ctx context.Context, req action.SchemaRequest, resp *action.SchemaResponse) {
-	resp.Schema = schema.Schema{MarkdownDescription: "Upgrade Site SW version.",
+	resp.Schema = schema.Schema{MarkdownDescription: "Request an in-place site software upgrade.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name. Site name.",

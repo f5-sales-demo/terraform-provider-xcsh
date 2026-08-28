@@ -463,7 +463,7 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 		}
 	}
 
-	apiResource, err := r.client.CreateProtocolPolicer(ctx, createReq)
+	_, err := r.client.CreateProtocolPolicer(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create ProtocolPolicer: %s", err))
 		return
@@ -471,7 +471,7 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetProtocolPolicer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetProtocolPolicer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -1143,10 +1143,10 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.ProtocolPolicer.IsNull() || len(data.ProtocolPolicer.Elements()) == 0) {
 		data.ProtocolPolicer = types.ListNull(types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["protocol_policer"].([]interface{}); ok && len(listData) > 0 {

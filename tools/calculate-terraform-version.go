@@ -205,13 +205,9 @@ func compareVersions(v1, v2 string) int {
 
 // updateTemplateFiles updates version references in template files
 func updateTemplateFiles(projectRoot, version string) error {
-	// Update functions.md.tmpl
-	functionsTemplate := filepath.Join(projectRoot, "templates", "functions.md.tmpl")
-	if err := updateVersionInFile(functionsTemplate, version); err != nil {
-		return fmt.Errorf("updating functions template: %w", err)
-	}
-
-	// Update index.md.tmpl if it has version references
+	// The index states the provider-wide minimum. Feature-specific templates
+	// retain their own minimums (for example provider-defined functions remain
+	// available from Terraform 1.8 even when actions raise the provider minimum).
 	indexTemplate := filepath.Join(projectRoot, "templates", "index.md.tmpl")
 	if _, err := os.Stat(indexTemplate); err == nil {
 		if err := updateVersionInFile(indexTemplate, version); err != nil {

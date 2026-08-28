@@ -826,7 +826,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 		createReq.Spec["notification_parameters"] = NotificationParametersMap
 	}
 
-	apiResource, err := r.client.CreateAlertPolicy(ctx, createReq)
+	_, err := r.client.CreateAlertPolicy(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create AlertPolicy: %s", err))
 		return
@@ -834,7 +834,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetAlertPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetAlertPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -2096,10 +2096,10 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.Receivers.IsNull() || len(data.Receivers.Elements()) == 0) {
 		data.Receivers = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyReceiversModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["receivers"].([]interface{}); ok && len(listData) > 0 {

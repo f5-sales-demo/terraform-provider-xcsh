@@ -129,6 +129,9 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 		"renderUpdateComputedFieldsCode":  RenderUpdateComputedFieldsCode,
 		"renderFetchedComputedFieldsCode": RenderFetchedComputedFieldsCode,
 		"filterSpecFields":                schema.FilterSpecFields,
+		"hasSpecFields": func(attrs []openapi.TerraformAttribute) bool {
+			return len(schema.FilterSpecFields(attrs)) > 0
+		},
 		"enumValuesLiteral": func(values []string) string {
 			quoted := make([]string, len(values))
 			for i, v := range values {

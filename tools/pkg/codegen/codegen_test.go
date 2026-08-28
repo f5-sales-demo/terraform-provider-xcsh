@@ -2159,6 +2159,8 @@ func TestConcurrencyTokenGenerationIsClientOnlyAndPrivate(t *testing.T) {
 	}
 	for _, want := range []string{
 		"concurrencyTokenPrivateKey",
+		"_, err := r.client.CreateZZTokenProbe(ctx, createReq)",
+		"apiResource, err := r.client.GetZZTokenProbe(ctx",
 		"req.Private.GetKey(ctx, concurrencyTokenPrivateKey)",
 		"encodeConcurrencyToken(apiResource.ResourceVersion)",
 		"apiResource.ResourceVersion = concurrencyToken",
@@ -2169,6 +2171,12 @@ func TestConcurrencyTokenGenerationIsClientOnlyAndPrivate(t *testing.T) {
 		if !strings.Contains(resourceSource, want) {
 			t.Errorf("generated resource is missing concurrency behavior %q", want)
 		}
+	}
+	if strings.Contains(resourceSource, "apiResource, err := r.client.CreateZZTokenProbe(ctx, createReq)") {
+		t.Fatal("concurrency-token Create must discard the response that its mandatory GET replaces")
+	}
+	if strings.Contains(resourceSource, "apiResource = fetched") {
+		t.Fatal("metadata-only Update must not assign a GET response it has no state fields to consume")
 	}
 
 	updateStart := strings.Index(resourceSource, "func (r *ZZTokenProbeResource) Update(")

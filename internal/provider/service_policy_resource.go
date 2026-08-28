@@ -3815,7 +3815,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 		createReq.Spec["server_name"] = data.ServerName.ValueString()
 	}
 
-	apiResource, err := r.client.CreateServicePolicy(ctx, createReq)
+	_, err := r.client.CreateServicePolicy(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create ServicePolicy: %s", err))
 		return
@@ -3823,7 +3823,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetServicePolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetServicePolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -10141,10 +10141,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["allow_all_requests"].(map[string]interface{}); ok && isImport && data.AllowAllRequests == nil {
 		data.AllowAllRequests = &ServicePolicyEmptyModel{}
 	}

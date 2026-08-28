@@ -420,7 +420,11 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	// Marshal spec fields from Terraform state to API struct
 {{renderSpecMarshalCodeForCreate .Attributes "\t" .TitleCase}}
 
+	{{- if .HasConcurrencyToken}}
+	_, err := r.client.Create{{.TitleCase}}(ctx, createReq)
+	{{- else}}
 	apiResource, err := r.client.Create{{.TitleCase}}(ctx, createReq)
+	{{- end}}
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create {{.TitleCase}}: %s", err))
 		return
@@ -429,7 +433,7 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.Get{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.Get{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -832,9 +836,10 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 {{- end}}
 
 {{renderFetchedComputedFieldsCode .Attributes "\t"}}
+{{- if or .ExposeUID (hasSpecFields .Attributes)}}
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
 {{- if .ExposeUID}}
 	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
 	if apiResource.SystemMetadata != nil {
@@ -843,9 +848,12 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		data.Uid = types.StringNull()
 	}
 {{- end}}
+{{- if hasSpecFields .Attributes}}
 	isImport := false // Update is never an import
 	_ = isImport // May be unused if resource has no blocks needing import detection
 {{renderSpecUnmarshalCode .Attributes "\t" .TitleCase}}
+{{- end}}
+{{- end}}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 {{- end}}

@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"os"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-framework/action"
@@ -20,6 +21,32 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 )
+
+func TestCreateOnceIssuanceDocumentationOmitsImportSyntax(t *testing.T) {
+	data, err := os.ReadFile("../../docs/terraform-llms-index.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var index struct {
+		Resources []struct {
+			Name         string `json:"name"`
+			ImportSyntax string `json:"import_syntax"`
+		} `json:"resources"`
+	}
+	if err := json.Unmarshal(data, &index); err != nil {
+		t.Fatal(err)
+	}
+	for _, item := range index.Resources {
+		if item.Name != "site_cloud_init" {
+			continue
+		}
+		if item.ImportSyntax != "" {
+			t.Fatalf("create-once issuance advertises unsupported import syntax: %q", item.ImportSyntax)
+		}
+		return
+	}
+	t.Fatal("site_cloud_init is absent from the documentation index")
+}
 
 type responseOperationRequest struct {
 	Method string

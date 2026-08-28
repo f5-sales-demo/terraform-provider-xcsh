@@ -31,7 +31,7 @@ func (d *SiteImageDataSource) Metadata(ctx context.Context, req datasource.Metad
 	resp.TypeName = req.ProviderTypeName + "_site_image"
 }
 func (d *SiteImageDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
-	resp.Schema = schema.Schema{MarkdownDescription: "Returns image download URL for each provider.",
+	resp.Schema = schema.Schema{MarkdownDescription: "Retrieve signed Customer Edge image download URLs.",
 		Attributes: map[string]schema.Attribute{
 			"provider_ref": schema.StringAttribute{
 				MarkdownDescription: "Deployment platform identifier for the requested Customer Edge image. Recommended: `KVM`.",

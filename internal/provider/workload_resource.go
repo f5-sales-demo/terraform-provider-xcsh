@@ -26686,7 +26686,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 		createReq.Spec["stateful_service"] = StatefulServiceMap
 	}
 
-	apiResource, err := r.client.CreateWorkload(ctx, createReq)
+	_, err := r.client.CreateWorkload(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Workload: %s", err))
 		return
@@ -26694,7 +26694,7 @@ func (r *WorkloadResource) Create(ctx context.Context, req resource.CreateReques
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetWorkload(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetWorkload(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -65537,10 +65537,10 @@ func (r *WorkloadResource) Update(ctx context.Context, req resource.UpdateReques
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["job"].(map[string]interface{}); ok && (isImport || data.Job != nil) {
 		data.Job = &WorkloadJobModel{
 			Configuration: func() *WorkloadJobConfigurationModel {

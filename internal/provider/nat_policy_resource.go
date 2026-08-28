@@ -1348,7 +1348,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 		createReq.Spec["site"] = SiteMap
 	}
 
-	apiResource, err := r.client.CreateNATPolicy(ctx, createReq)
+	_, err := r.client.CreateNATPolicy(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create NATPolicy: %s", err))
 		return
@@ -1356,7 +1356,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetNATPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetNATPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -3351,10 +3351,10 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {

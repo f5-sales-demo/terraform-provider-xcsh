@@ -1260,7 +1260,7 @@ func (d *SiteRegistrationsBySiteDataSource) Metadata(ctx context.Context, req da
 	resp.TypeName = req.ProviderTypeName + "_site_registrations_by_site"
 }
 func (d *SiteRegistrationsBySiteDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
-	resp.Schema = schema.Schema{MarkdownDescription: "List all registration in site.",
+	resp.Schema = schema.Schema{MarkdownDescription: "List registrations for a Customer Edge site.",
 		Attributes: map[string]schema.Attribute{
 			"site_name": schema.StringAttribute{
 				MarkdownDescription: "SiteName. Site name to be used for registration filtering.",

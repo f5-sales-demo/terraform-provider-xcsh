@@ -1022,7 +1022,7 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 		createReq.Spec["vk8s_namespace_access_deny"] = map[string]interface{}{}
 	}
 
-	apiResource, err := r.client.CreateK8SCluster(ctx, createReq)
+	_, err := r.client.CreateK8SCluster(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create K8SCluster: %s", err))
 		return
@@ -1030,7 +1030,7 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetK8SCluster(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetK8SCluster(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -2339,10 +2339,10 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["cluster_scoped_access_permit"].(map[string]interface{}); ok && isImport && data.ClusterScopedAccessPermit == nil {
 		data.ClusterScopedAccessPermit = &K8SClusterEmptyModel{}
 	}

@@ -502,7 +502,7 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 		createReq.Spec["isolated_nw"] = map[string]interface{}{}
 	}
 
-	apiResource, err := r.client.CreateSubnet(ctx, createReq)
+	_, err := r.client.CreateSubnet(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Subnet: %s", err))
 		return
@@ -510,7 +510,7 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetSubnet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetSubnet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -1161,10 +1161,10 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.SiteSubnetParams.IsNull() || len(data.SiteSubnetParams.Elements()) == 0) {
 		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["site_subnet_params"].([]interface{}); ok && len(listData) > 0 {

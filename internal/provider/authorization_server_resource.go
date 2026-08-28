@@ -254,7 +254,7 @@ func (r *AuthorizationServerResource) Create(ctx context.Context, req resource.C
 		createReq.Spec["jwks_uri"] = data.JwksURI.ValueString()
 	}
 
-	apiResource, err := r.client.CreateAuthorizationServer(ctx, createReq)
+	_, err := r.client.CreateAuthorizationServer(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create AuthorizationServer: %s", err))
 		return
@@ -262,7 +262,7 @@ func (r *AuthorizationServerResource) Create(ctx context.Context, req resource.C
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetAuthorizationServer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetAuthorizationServer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -585,10 +585,10 @@ func (r *AuthorizationServerResource) Update(ctx context.Context, req resource.U
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if v, ok := apiResource.Spec["jwks_uri"].(string); ok && v != "" {
 		data.JwksURI = types.StringValue(v)
 	} else {

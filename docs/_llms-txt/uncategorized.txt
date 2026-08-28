@@ -11,3 +11,4 @@ Resources pending categorization
 - [protected_application](_llms-txt/resources/protected_application.txt) : Applications protected by Bot Defense
 - [protected_domain](_llms-txt/resources/protected_domain.txt) : Domain to protect
 - [registration_approval](_llms-txt/resources/registration_approval.txt) : Request for admission approval. configuration
+- [site_cloud_init](_llms-txt/resources/site_cloud_init.txt) : Issue site-scoped Customer Edge cloud-init

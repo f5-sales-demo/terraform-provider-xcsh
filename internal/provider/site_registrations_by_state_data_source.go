@@ -1260,7 +1260,7 @@ func (d *SiteRegistrationsByStateDataSource) Metadata(ctx context.Context, req d
 	resp.TypeName = req.ProviderTypeName + "_site_registrations_by_state"
 }
 func (d *SiteRegistrationsByStateDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
-	resp.Schema = schema.Schema{MarkdownDescription: "API endpoint for returning Registrations by status, e.g APPROVED, NEW, or RETIRED.",
+	resp.Schema = schema.Schema{MarkdownDescription: "List Customer Edge registrations by state.",
 		Attributes: map[string]schema.Attribute{
 			"state": schema.StringAttribute{
 				MarkdownDescription: "[Enum: NOTSET|NEW|APPROVED|ADMITTED|RETIRED|FAILED|DONE|PENDING|ONLINE|UPGRADING|MAINTENANCE|FAILED_INACTIVE] Defines states for registration object State isn't set Object was created (registration request was received and object created) Registration was approved and waiting for configuration This state can be set by user only if current state is NEW Registration is approved and prepared for to connect.. Possible values are `NOTSET`, `NEW`, `APPROVED`, `ADMITTED`, `RETIRED`, `FAILED`, `DONE`, `PENDING`, `ONLINE`, `UPGRADING`, `MAINTENANCE`, `FAILED_INACTIVE`. Defaults to `NOTSET`.",

@@ -1260,7 +1260,7 @@ func (d *SiteRegistrationsDataSource) Metadata(ctx context.Context, req datasour
 	resp.TypeName = req.ProviderTypeName + "_site_registrations"
 }
 func (d *SiteRegistrationsDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
-	resp.Schema = schema.Schema{MarkdownDescription: "List the set of registration in a namespace.",
+	resp.Schema = schema.Schema{MarkdownDescription: "List Customer Edge registrations.",
 		Attributes: map[string]schema.Attribute{
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace Namespace to scope the listing of registration.",

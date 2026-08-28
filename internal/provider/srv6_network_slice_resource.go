@@ -302,7 +302,7 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 		createReq.Spec["connect_to_internet"] = data.ConnectToInternet.ValueBool()
 	}
 
-	apiResource, err := r.client.CreateSrv6NetworkSlice(ctx, createReq)
+	_, err := r.client.CreateSrv6NetworkSlice(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Srv6NetworkSlice: %s", err))
 		return
@@ -310,7 +310,7 @@ func (r *Srv6NetworkSliceResource) Create(ctx context.Context, req resource.Crea
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetSrv6NetworkSlice(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetSrv6NetworkSlice(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -748,10 +748,10 @@ func (r *Srv6NetworkSliceResource) Update(ctx context.Context, req resource.Upda
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if v, ok := apiResource.Spec["sid_prefixes"].([]interface{}); ok && len(v) > 0 {
 		var sid_prefixesList []string
 		for _, item := range v {

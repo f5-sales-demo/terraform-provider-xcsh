@@ -324,7 +324,7 @@ func (r *CRLResource) Create(ctx context.Context, req resource.CreateRequest, re
 		createReq.Spec["http_access"] = HTTPAccessMap
 	}
 
-	apiResource, err := r.client.CreateCRL(ctx, createReq)
+	_, err := r.client.CreateCRL(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create CRL: %s", err))
 		return
@@ -332,7 +332,7 @@ func (r *CRLResource) Create(ctx context.Context, req resource.CreateRequest, re
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetCRL(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetCRL(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -721,10 +721,10 @@ func (r *CRLResource) Update(ctx context.Context, req resource.UpdateRequest, re
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if v, ok := apiResource.Spec["refresh_interval"].(float64); ok {
 		data.RefreshInterval = types.Int64Value(int64(v))
 	} else {

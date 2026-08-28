@@ -4120,7 +4120,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 		createReq.Spec["palo_alto_fw_service"] = PaloAltoFwServiceMap
 	}
 
-	apiResource, err := r.client.CreateNfvService(ctx, createReq)
+	_, err := r.client.CreateNfvService(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create NfvService: %s", err))
 		return
@@ -4128,7 +4128,7 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetNfvService(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetNfvService(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -9974,10 +9974,10 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if _, ok := apiResource.Spec["disable_https_management"].(map[string]interface{}); ok && isImport && data.DisableHTTPSManagement == nil {
 		data.DisableHTTPSManagement = &NfvServiceEmptyModel{}
 	}

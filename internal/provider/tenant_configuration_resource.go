@@ -610,7 +610,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 		createReq.Spec["user_session_expiration"] = UserSessionExpirationMap
 	}
 
-	apiResource, err := r.client.CreateTenantConfiguration(ctx, createReq)
+	_, err := r.client.CreateTenantConfiguration(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create TenantConfiguration: %s", err))
 		return
@@ -618,7 +618,7 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetTenantConfiguration(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetTenantConfiguration(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -1408,10 +1408,10 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["brute_force_detection"].(map[string]interface{}); ok && (isImport || data.BruteForceDetection != nil) {
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {

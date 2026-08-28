@@ -243,7 +243,7 @@ func (r *NamespaceResource) Create(ctx context.Context, req resource.CreateReque
 
 	// Marshal spec fields from Terraform state to API struct
 
-	apiResource, err := r.client.CreateNamespace(ctx, createReq)
+	_, err := r.client.CreateNamespace(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Namespace: %s", err))
 		return
@@ -251,7 +251,7 @@ func (r *NamespaceResource) Create(ctx context.Context, req resource.CreateReque
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetNamespace(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetNamespace(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -560,11 +560,6 @@ func (r *NamespaceResource) Update(ctx context.Context, req resource.UpdateReque
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

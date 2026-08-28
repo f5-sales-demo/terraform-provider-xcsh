@@ -4038,7 +4038,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		createReq.Spec["server_name"] = data.ServerName.ValueString()
 	}
 
-	apiResource, err := r.client.CreateVirtualHost(ctx, createReq)
+	_, err := r.client.CreateVirtualHost(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create VirtualHost: %s", err))
 		return
@@ -4046,7 +4046,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetVirtualHost(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetVirtualHost(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -10237,10 +10237,10 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.AdvertisePolicies.IsNull() || len(data.AdvertisePolicies.Elements()) == 0) {
 		data.AdvertisePolicies = types.ListNull(types.ObjectType{AttrTypes: VirtualHostAdvertisePoliciesModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["advertise_policies"].([]interface{}); ok && len(listData) > 0 {

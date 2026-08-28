@@ -396,7 +396,7 @@ func (r *ContainerRegistryResource) Create(ctx context.Context, req resource.Cre
 		createReq.Spec["email"] = data.Email.ValueString()
 	}
 
-	apiResource, err := r.client.CreateContainerRegistry(ctx, createReq)
+	_, err := r.client.CreateContainerRegistry(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create ContainerRegistry: %s", err))
 		return
@@ -404,7 +404,7 @@ func (r *ContainerRegistryResource) Create(ctx context.Context, req resource.Cre
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetContainerRegistry(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetContainerRegistry(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -895,10 +895,10 @@ func (r *ContainerRegistryResource) Update(ctx context.Context, req resource.Upd
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if v, ok := apiResource.Spec["registry"].(string); ok && v != "" {
 		data.Registry = types.StringValue(v)
 	} else {

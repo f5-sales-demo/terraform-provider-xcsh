@@ -55,6 +55,28 @@ func TestExtractResponseOperationSchemaBindsPathQueryAndBody(t *testing.T) {
 	}
 }
 
+func TestExtractResponseOperationSchemaUsesEnrichedPurpose(t *testing.T) {
+	spec := responseOperationProbeSpec()
+	pathItem := spec.Paths["/api/register/namespaces/{namespace}/probe"].(map[string]interface{})
+	method := pathItem["get"].(map[string]interface{})
+	method["description"] = "Incorrect upstream description."
+	method["x-f5xc-operation-metadata"] = map[string]interface{}{
+		"purpose": "Issue site-scoped Customer Edge cloud-init",
+	}
+
+	result, err := ExtractResponseOperationSchema(spec, openapi.ResolvedResponseOperation{
+		Name: "site_cloud_init", Role: "issuance", Method: "GET",
+		Path: "/api/register/namespaces/{namespace}/probe", OperationID: "ves.io.schema.probe.CustomAPI.List",
+		ResponseSchema: "probeResponse",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if result.Description != "Issue site-scoped Customer Edge cloud-init." {
+		t.Fatalf("description = %q, want enriched operation purpose", result.Description)
+	}
+}
+
 func TestExtractResponseOperationSchemaActionForceDefaultsFalse(t *testing.T) {
 	spec := responseOperationProbeSpec()
 	request := spec.Components.Schemas["probeRequest"]

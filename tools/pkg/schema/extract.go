@@ -205,13 +205,21 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 		return inputs[i].Attribute.TfsdkTag < inputs[j].Attribute.TfsdkTag
 	})
 
-	descriptionSource, _ := method["description"].(string)
+	descriptionSource := ""
+	if metadata, ok := method["x-f5xc-operation-metadata"].(map[string]interface{}); ok {
+		descriptionSource, _ = metadata["purpose"].(string)
+	}
+	if descriptionSource == "" {
+		descriptionSource, _ = method["description"].(string)
+	}
 	if descriptionSource == "" {
 		descriptionSource, _ = method["summary"].(string)
 	}
 	descriptionText := description.Clean(descriptionSource, operation.Name)
 	if descriptionText == "" {
 		descriptionText = fmt.Sprintf("Invoke the %s operation.", naming.ToHumanReadableName(operation.Name))
+	} else if !strings.ContainsAny(descriptionText[len(descriptionText)-1:], ".!?") {
+		descriptionText += "."
 	}
 	return &openapi.ResponseOperationTemplate{
 		Name: operation.Name, Role: operation.Role, TitleCase: naming.ToResourceTypeName(operation.Name), Method: operation.Method,

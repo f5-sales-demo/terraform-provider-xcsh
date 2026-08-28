@@ -921,7 +921,7 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		createReq.Spec["record_type"] = data.RecordType.ValueString()
 	}
 
-	apiResource, err := r.client.CreateDNSLoadBalancer(ctx, createReq)
+	_, err := r.client.CreateDNSLoadBalancer(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create DNSLoadBalancer: %s", err))
 		return
@@ -929,7 +929,7 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetDNSLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetDNSLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -2144,10 +2144,10 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["fallback_pool"].(map[string]interface{}); ok && (isImport || data.FallbackPool != nil) {
 		data.FallbackPool = &DNSLoadBalancerFallbackPoolModel{
 			Name: func() types.String {

@@ -1035,7 +1035,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 		createReq.Spec["ttl"] = data.TTL.ValueInt64()
 	}
 
-	apiResource, err := r.client.CreateDNSLBPool(ctx, createReq)
+	_, err := r.client.CreateDNSLBPool(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create DNSLBPool: %s", err))
 		return
@@ -1043,7 +1043,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetDNSLBPool(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetDNSLBPool(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -2383,10 +2383,10 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["a_pool"].(map[string]interface{}); ok && (isImport || data.APool != nil) {
 		data.APool = &DNSLBPoolAPoolModel{
 			DisableHealthCheck: func() *DNSLBPoolEmptyModel {

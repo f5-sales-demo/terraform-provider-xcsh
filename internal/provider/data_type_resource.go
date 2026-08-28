@@ -662,7 +662,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 		createReq.Spec["is_sensitive_data"] = data.IsSensitiveData.ValueBool()
 	}
 
-	apiResource, err := r.client.CreateDataType(ctx, createReq)
+	_, err := r.client.CreateDataType(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create DataType: %s", err))
 		return
@@ -670,7 +670,7 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetDataType(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetDataType(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -1599,10 +1599,10 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
 		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {

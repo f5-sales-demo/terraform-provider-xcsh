@@ -298,7 +298,7 @@ func (r *GeoLocationSetResource) Create(ctx context.Context, req resource.Create
 		createReq.Spec["global"] = map[string]interface{}{}
 	}
 
-	apiResource, err := r.client.CreateGeoLocationSet(ctx, createReq)
+	_, err := r.client.CreateGeoLocationSet(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create GeoLocationSet: %s", err))
 		return
@@ -306,7 +306,7 @@ func (r *GeoLocationSetResource) Create(ctx context.Context, req resource.Create
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetGeoLocationSet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetGeoLocationSet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -673,10 +673,10 @@ func (r *GeoLocationSetResource) Update(ctx context.Context, req resource.Update
 
 	// Set computed fields from API response
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["custom_geo_location_selector"].(map[string]interface{}); ok && (isImport || data.CustomGeoLocationSelector != nil) {
 		data.CustomGeoLocationSelector = &GeoLocationSetCustomGeoLocationSelectorModel{
 			Expressions: func() types.List {

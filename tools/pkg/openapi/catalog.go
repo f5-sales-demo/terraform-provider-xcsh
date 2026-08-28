@@ -72,9 +72,10 @@ type APIExclusion struct {
 	Reason         string
 }
 
-// OperationCatalog is the consumer-neutral operation contract published in
-// api-catalog.json. It intentionally contains no Terraform resource names,
-// manageability classifications, or schema roles.
+// OperationCatalog is the enriched operation contract published in
+// api-catalog.json. Lifecycle classification remains provider-owned, while
+// explicitly enriched response operations carry source-owned Terraform names
+// and roles.
 type OperationCatalog struct {
 	Version       string
 	APIOperations []APIOperationIdentity

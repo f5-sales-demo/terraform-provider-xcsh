@@ -1261,7 +1261,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 		createReq.Spec["skip_xff_append"] = data.SkipXffAppend.ValueBool()
 	}
 
-	apiResource, err := r.client.CreateAdvertisePolicy(ctx, createReq)
+	_, err := r.client.CreateAdvertisePolicy(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create AdvertisePolicy: %s", err))
 		return
@@ -1269,7 +1269,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 
 	// The concurrency token is declared only on GET responses. Read back the object
 	// after creation and record that exact server-assigned value for the next replace.
-	apiResource, err = r.client.GetAdvertisePolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetAdvertisePolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Concurrency Token After Create",
@@ -3113,10 +3113,10 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	}
 	// If plan had a value, preserve it
 
-	// Unmarshal spec fields from fetched resource to Terraform state
-	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Unmarshal fields from the complete GET response into Terraform state.
+	apiResource = fetched
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if !isImport && (data.PublicIP.IsNull() || len(data.PublicIP.Elements()) == 0) {
 		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {
