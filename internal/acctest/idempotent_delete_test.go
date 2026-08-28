@@ -51,15 +51,12 @@ func TestAlertPolicyDisappearanceDeleteUsesRequiredBody(t *testing.T) {
 		if r.Method != http.MethodDelete || r.URL.Path != "/api/config/namespaces/system/alert_policys/fixture" {
 			t.Errorf("delete request = %s %s", r.Method, r.URL.Path)
 		}
-		var body struct {
-			Name           string `json:"name"`
-			Namespace      string `json:"namespace"`
-			FailIfReferred *bool  `json:"fail_if_referred"`
-		}
+		var body map[string]interface{}
 		if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
 			t.Errorf("decode delete request: %v", err)
 		}
-		if body.Name != "fixture" || body.Namespace != "system" || body.FailIfReferred == nil || *body.FailIfReferred {
+		failIfReferred, present := body["fail_if_referred"]
+		if len(body) != 1 || !present || failIfReferred != false {
 			t.Errorf("delete body = %#v", body)
 		}
 		w.WriteHeader(http.StatusNoContent)

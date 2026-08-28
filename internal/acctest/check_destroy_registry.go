@@ -470,8 +470,6 @@ var resourceDeleterRegistry = map[string]ResourceDeleter{
 	"xcsh_alert_policy": func(ctx context.Context, c *client.Client, ns, name string) error {
 		path := fmt.Sprintf("/api/config/namespaces/%s/alert_policys/%s", ns, name)
 		return c.DeleteWithBody(ctx, path, map[string]interface{}{
-			"name":             name,
-			"namespace":        ns,
 			"fail_if_referred": false,
 		})
 	},
