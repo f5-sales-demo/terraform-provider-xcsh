@@ -1118,6 +1118,19 @@ func TestResourceTemplate_DeleteRetriesTransient400(t *testing.T) {
 	}
 }
 
+func TestResourceTemplate_AlertPolicyDeleteConfirmsAbsenceAfterError(t *testing.T) {
+	for _, want := range []string{
+		`{{- if eq .TitleCase "AlertPolicy"}}`,
+		`_, verifyErr := r.client.GetAlertPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())`,
+		`verifyErr != nil && (strings.Contains(verifyErr.Error(), "NOT_FOUND") || strings.Contains(verifyErr.Error(), "404"))`,
+		`AlertPolicy delete returned an error after the object disappeared`,
+	} {
+		if !strings.Contains(ResourceTemplate, want) {
+			t.Errorf("AlertPolicy Delete template missing verified-idempotence construct %q", want)
+		}
+	}
+}
+
 // Resources with create-only, API-unreadable fields carry those fields in the import ID
 // (namespace/name/<field>...) so a round-trip import is drift-free. The ImportState
 // template must parse the extra segments and set the attributes.
