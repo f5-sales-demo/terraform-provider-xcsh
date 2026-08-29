@@ -5450,12 +5450,12 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+									CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(), "custom_errors", &resp.Diagnostics),
+									}(), "custom_errors", isImport, &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -6218,12 +6218,12 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+									CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(), "custom_errors", &resp.Diagnostics),
+									}(), "custom_errors", isImport, &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
@@ -7348,12 +7348,12 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							return nil
 						}(),
-						CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+						CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
 							return types.MapNull(types.StringType)
-						}(), "custom_errors", &resp.Diagnostics),
+						}(), "custom_errors", isImport, &resp.Diagnostics),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -8705,12 +8705,12 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return nil
 									}(),
-									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+									CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(), "custom_errors", &resp.Diagnostics),
+									}(), "custom_errors", isImport, &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -9473,12 +9473,12 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return nil
 									}(),
-									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+									CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(), "custom_errors", &resp.Diagnostics),
+									}(), "custom_errors", isImport, &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
@@ -10603,12 +10603,12 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							}
 							return nil
 						}(),
-						CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+						CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
 							return types.MapNull(types.StringType)
-						}(), "custom_errors", &resp.Diagnostics),
+						}(), "custom_errors", isImport, &resp.Diagnostics),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -13434,12 +13434,12 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+									CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(), "custom_errors", &resp.Diagnostics),
+									}(), "custom_errors", isImport, &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -14202,12 +14202,12 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+									CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(), "custom_errors", &resp.Diagnostics),
+									}(), "custom_errors", isImport, &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
@@ -15332,12 +15332,12 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							return nil
 						}(),
-						CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+						CustomErrors: UnmarshalStringMapForRead(ctx, MoreOptionData["custom_errors"], func() types.Map {
 							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
 							return types.MapNull(types.StringType)
-						}(), "custom_errors", &resp.Diagnostics),
+						}(), "custom_errors", isImport, &resp.Diagnostics),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages

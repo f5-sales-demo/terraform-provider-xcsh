@@ -274,6 +274,12 @@ jobs:
           set -o pipefail
           mkdir -p test-reports
 
+          RAW_TEST_OUTPUT=test-reports/test-output-real.json
+          cleanup_raw_test_output() {
+            rm -f "$RAW_TEST_OUTPUT"
+          }
+          trap cleanup_raw_test_output EXIT
+
           TIMEOUT="${INPUT_TIMEOUT:-300}"
 
           echo "Running real API tests SEQUENTIALLY with rate limiting"
@@ -289,14 +295,26 @@ jobs:
             -timeout "${TIMEOUT}m" \
             -run 'TestAcc.*' \
             ./internal/provider/... ./internal/functions/... \
-            > test-reports/test-output-real.json 2>&1 || TEST_STATUS=$?
+            > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
           # Never emit the raw live-tenant stream to logs or artifacts.
           JSON_REPORT_STATUS=0
-          cat test-reports/test-output-real.json | go run tools/test-report/main.go \
-            -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
-          jq -e '.total_passed | numbers' test-reports/real-tests.json >/dev/null || {
-            echo "::error::Real API JSON report was not generated completely"
+          cat "$RAW_TEST_OUTPUT" | go run tools/test-report/main.go \
+            -tenant-safe -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
+          jq -e '
+            (.total_passed | type == "number") and
+            (.total_failed | type == "number") and
+            ((.failed_tests // []) | type == "array") and
+            (.total_failed == ((.failed_tests // []) | length)) and
+            (all((.failed_tests // [])[];
+              (.failure_fingerprint | type == "object") and
+              (.failure_fingerprint.class |
+                IN("framework_diagnostic", "http_error", "assertion", "rate_limit",
+                   "timeout", "connection", "server_error", "unclassified")))) and
+            (all((.failed_tests // [])[]; .failure_fingerprint.class != "unclassified")) and
+            ([.. | objects | has("failure_output")] | all(. == false))
+          ' test-reports/real-tests.json >/dev/null || {
+            echo "::error::Real API JSON report was incomplete, unsafe, or retained unclassified failures"
             exit 1
           }
 
@@ -311,20 +329,19 @@ jobs:
           fi
 
           MARKDOWN_REPORT_STATUS=0
-          cat test-reports/test-output-real.json | go run tools/test-report/main.go \
-            -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
+          cat "$RAW_TEST_OUTPUT" | go run tools/test-report/main.go \
+            -tenant-safe -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
           if [[ ! -s test-reports/real-tests.md ||
                 "$MARKDOWN_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ]]; then
             echo "::error::Real API markdown evidence generation was incomplete or inconsistent"
             exit 1
           fi
 
-          # The markdown report contains aggregates/test names, and failure_output
-          # is removed recursively from JSON evidence before publication.
-          jq 'walk(if type == "object" then del(.failure_output) else . end)' \
-            test-reports/real-tests.json > test-reports/real-tests-sanitized.json
-          mv test-reports/real-tests-sanitized.json test-reports/real-tests.json
-          rm -f test-reports/test-output-real.json
+          if grep -Fq 'failure_output' test-reports/real-tests.json test-reports/real-tests.md; then
+            echo "::error::Tenant-safe evidence retained a raw failure-output field"
+            exit 1
+          fi
+          cleanup_raw_test_output
 
           {
             echo "passed=$PASSED"
@@ -824,11 +841,25 @@ jobs:
             jq -e '
               (.total_passed | type == "number") and
               (.total_failed | type == "number") and
+              ((.failed_tests // []) | type == "array") and
+              (.total_failed == ((.failed_tests // []) | length)) and
+              (all((.failed_tests // [])[];
+                (.failure_fingerprint | type == "object") and
+                (.failure_fingerprint.class |
+                  IN("framework_diagnostic", "http_error", "assertion", "rate_limit",
+                     "timeout", "connection", "server_error", "unclassified")))) and
+              (all((.failed_tests // [])[]; .failure_fingerprint.class != "unclassified")) and
               ([.. | objects | has("failure_output")] | all(. == false))
             ' all-reports/real-api-test-reports/real-tests.json >/dev/null || {
               echo "::error::Real API JSON evidence is malformed or unsanitized"
               exit 1
             }
+            if grep -Fq 'failure_output' \
+              all-reports/real-api-test-reports/real-tests.json \
+              all-reports/real-api-test-reports/real-tests.md; then
+              echo "::error::Real API evidence contains a raw failure-output field"
+              exit 1
+            fi
           fi
           if [[ "$EXPECTED_COMPARE" == success ]]; then
             require_evidence all-reports/comparison-reports/comparison.json

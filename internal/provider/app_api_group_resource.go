@@ -619,7 +619,7 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.Elements = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
@@ -880,7 +880,7 @@ func (r *AppAPIGroupResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.Elements = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
@@ -1229,7 +1229,7 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.Elements = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {

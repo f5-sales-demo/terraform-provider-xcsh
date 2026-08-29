@@ -2107,24 +2107,24 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 						}(),
-						FixedIPMap: UnmarshalStringMap(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+						FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 							if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
 								return data.EthernetInterface.DHCPServer.FixedIPMap
 							}
 							return types.MapNull(types.StringType)
-						}(), "fixed_ip_map", &resp.Diagnostics),
+						}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
 							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
 								return data.EthernetInterface.DHCPServer.InterfaceIPMap
 							}
 							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
 											return data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -2320,24 +2320,24 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 													}
 													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 												}(),
-												FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+												FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 													if data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
 														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
 													}
 													return types.MapNull(types.StringType)
-												}(), "fixed_ip_map", &resp.Diagnostics),
+												}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 													}
 													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-															InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+															InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																if data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																	return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																}
 																return types.MapNull(types.StringType)
-															}(), "interface_ip_map", &resp.Diagnostics),
+															}(), "interface_ip_map", isImport, &resp.Diagnostics),
 														}
 													}
 													return nil
@@ -2453,12 +2453,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -2501,12 +2501,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -2704,12 +2704,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -3168,24 +3168,24 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 						}(),
-						FixedIPMap: UnmarshalStringMap(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+						FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 							if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
 								return data.EthernetInterface.DHCPServer.FixedIPMap
 							}
 							return types.MapNull(types.StringType)
-						}(), "fixed_ip_map", &resp.Diagnostics),
+						}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
 							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
 								return data.EthernetInterface.DHCPServer.InterfaceIPMap
 							}
 							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
 											return data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -3381,24 +3381,24 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 													}
 													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 												}(),
-												FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+												FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 													if data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
 														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
 													}
 													return types.MapNull(types.StringType)
-												}(), "fixed_ip_map", &resp.Diagnostics),
+												}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 													}
 													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-															InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+															InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																if data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																	return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																}
 																return types.MapNull(types.StringType)
-															}(), "interface_ip_map", &resp.Diagnostics),
+															}(), "interface_ip_map", isImport, &resp.Diagnostics),
 														}
 													}
 													return nil
@@ -3514,12 +3514,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -3562,12 +3562,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -3765,12 +3765,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -4685,24 +4685,24 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
 						}(),
-						FixedIPMap: UnmarshalStringMap(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+						FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 							if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
 								return data.EthernetInterface.DHCPServer.FixedIPMap
 							}
 							return types.MapNull(types.StringType)
-						}(), "fixed_ip_map", &resp.Diagnostics),
+						}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 						InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel {
 							if !isImport && data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
 								return data.EthernetInterface.DHCPServer.InterfaceIPMap
 							}
 							if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceDHCPServerInterfaceIPMapModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil && data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
 											return data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -4898,24 +4898,24 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 													}
 													return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModelAttrTypes})
 												}(),
-												FixedIPMap: UnmarshalStringMap(ctx, StatefulData["fixed_ip_map"], func() types.Map {
+												FixedIPMap: UnmarshalStringMapForRead(ctx, StatefulData["fixed_ip_map"], func() types.Map {
 													if data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
 														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap
 													}
 													return types.MapNull(types.StringType)
-												}(), "fixed_ip_map", &resp.Diagnostics),
+												}(), "fixed_ip_map", isImport, &resp.Diagnostics),
 												InterfaceIPMap: func() *NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel {
 													if !isImport && data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 														return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap
 													}
 													if InterfaceIPMapData, ok := StatefulData["interface_ip_map"].(map[string]interface{}); ok {
 														return &NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapModel{
-															InterfaceIPMap: UnmarshalStringMap(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+															InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
 																if data.EthernetInterface != nil && data.EthernetInterface.Ipv6AutoConfig != nil && data.EthernetInterface.Ipv6AutoConfig.Router != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil && data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
 																	return data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap
 																}
 																return types.MapNull(types.StringType)
-															}(), "interface_ip_map", &resp.Diagnostics),
+															}(), "interface_ip_map", isImport, &resp.Diagnostics),
 														}
 													}
 													return nil
@@ -5031,12 +5031,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.StaticIP != nil && data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -5079,12 +5079,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							}
 							if ClusterStaticIPData, ok := StaticIpv6AddressData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.EthernetInterface != nil && data.EthernetInterface.StaticIpv6Address != nil && data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
 											return data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil
@@ -5282,12 +5282,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 							}
 							if ClusterStaticIPData, ok := StaticIPData["cluster_static_ip"].(map[string]interface{}); ok {
 								return &NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModel{
-									InterfaceIPMap: UnmarshalStringMap(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
+									InterfaceIPMap: UnmarshalStringMapForRead(ctx, ClusterStaticIPData["interface_ip_map"], func() types.Map {
 										if data.TunnelInterface != nil && data.TunnelInterface.StaticIP != nil && data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
 											return data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap
 										}
 										return types.MapNull(types.StringType)
-									}(), "interface_ip_map", &resp.Diagnostics),
+									}(), "interface_ip_map", isImport, &resp.Diagnostics),
 								}
 							}
 							return nil

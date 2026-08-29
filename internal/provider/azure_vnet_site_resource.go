@@ -15492,7 +15492,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	} else {
 		data.NodesPerAz = types.Int64Null()
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if v, ok := apiResource.Spec["total_nodes"].(float64); ok {
 		data.TotalNodes = types.Int64Value(int64(v))
 	} else {
@@ -21148,7 +21148,7 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	} else {
 		data.NodesPerAz = types.Int64Null()
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if v, ok := apiResource.Spec["total_nodes"].(float64); ok {
 		data.TotalNodes = types.Int64Value(int64(v))
 	} else {
@@ -29386,7 +29386,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	} else {
 		data.NodesPerAz = types.Int64Null()
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if v, ok := apiResource.Spec["total_nodes"].(float64); ok {
 		data.TotalNodes = types.Int64Value(int64(v))
 	} else {

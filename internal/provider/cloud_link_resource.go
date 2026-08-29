@@ -1149,12 +1149,12 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												return nil
 											}(),
-											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+											Tags: UnmarshalStringMapForRead(ctx, ConnectionsItemMap["tags"], func() types.Map {
 												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												return types.MapNull(types.StringType)
-											}(), "tags", &resp.Diagnostics),
+											}(), "tags", isImport, &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)
@@ -1616,12 +1616,12 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												return nil
 											}(),
-											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+											Tags: UnmarshalStringMapForRead(ctx, ConnectionsItemMap["tags"], func() types.Map {
 												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												return types.MapNull(types.StringType)
-											}(), "tags", &resp.Diagnostics),
+											}(), "tags", isImport, &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)
@@ -2278,12 +2278,12 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												return nil
 											}(),
-											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+											Tags: UnmarshalStringMapForRead(ctx, ConnectionsItemMap["tags"], func() types.Map {
 												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												return types.MapNull(types.StringType)
-											}(), "tags", &resp.Diagnostics),
+											}(), "tags", isImport, &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)

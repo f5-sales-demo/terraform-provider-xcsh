@@ -4922,12 +4922,12 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: UnmarshalStringMap(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
+						Tags: UnmarshalStringMapForRead(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
 							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
 							return types.MapNull(types.StringType)
-						}(), "tags", &resp.Diagnostics),
+						}(), "tags", isImport, &resp.Diagnostics),
 					}
 				}
 				return nil
@@ -7258,12 +7258,12 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: UnmarshalStringMap(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
+						Tags: UnmarshalStringMapForRead(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
 							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
 							return types.MapNull(types.StringType)
-						}(), "tags", &resp.Diagnostics),
+						}(), "tags", isImport, &resp.Diagnostics),
 					}
 				}
 				return nil
@@ -10658,12 +10658,12 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: UnmarshalStringMap(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
+						Tags: UnmarshalStringMapForRead(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
 							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
 							return types.MapNull(types.StringType)
-						}(), "tags", &resp.Diagnostics),
+						}(), "tags", isImport, &resp.Diagnostics),
 					}
 				}
 				return nil

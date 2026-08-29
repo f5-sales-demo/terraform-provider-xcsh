@@ -465,11 +465,11 @@ func TestAccTCPLoadBalancerResource_listenPort(t *testing.T) {
 		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_tcp_loadbalancer"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccTCPLoadBalancerConfig_withListenPortSystem(rName, 8443),
+				Config: testAccTCPLoadBalancerConfig_withListenPortSystem(rName, 443),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
-					resource.TestCheckResourceAttr(resourceName, "listen_port", "8443"),
+					resource.TestCheckResourceAttr(resourceName, "listen_port", "443"),
 				),
 			},
 		},
@@ -794,14 +794,14 @@ func TestAccTCPLoadBalancerResource_fullLifecycle(t *testing.T) {
 				ImportStateIdFunc:       testAccTCPLoadBalancerImportStateIdFunc(resourceName),
 			},
 			{
-				Config: testAccTCPLoadBalancerConfig_withListenPortSystem(rName, 8443),
+				Config: testAccTCPLoadBalancerConfig_withListenPortSystem(rName, 443),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "listen_port", "8443"),
+					resource.TestCheckResourceAttr(resourceName, "listen_port", "443"),
 				),
 			},
 			{
-				Config: testAccTCPLoadBalancerConfig_withListenPortSystem(rName, 8443),
+				Config: testAccTCPLoadBalancerConfig_withListenPortSystem(rName, 443),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
 					PreApply: []plancheck.PlanCheck{
 						plancheck.ExpectEmptyPlan(),

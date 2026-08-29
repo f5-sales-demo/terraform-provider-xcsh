@@ -3269,9 +3269,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 						if GetSpecData, ok := itemMap["get_spec"].(map[string]interface{}); ok {
 							return &SiteRegistrationsItemsGetSpecModel{
 								Infra: func() *SiteRegistrationsItemsGetSpecInfraModel {
-									if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil {
-										return existingItemsItems[listIdx].GetSpec.Infra
-									}
 									if InfraData, ok := GetSpecData["infra"].(map[string]interface{}); ok {
 										return &SiteRegistrationsItemsGetSpecInfraModel{
 											AvailabilityZone: func() types.String {
@@ -3281,9 +3278,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 												return types.StringNull()
 											}(),
 											BondConfig: func() *SiteRegistrationsItemsGetSpecInfraBondConfigModel {
-												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.BondConfig != nil {
-													return existingItemsItems[listIdx].GetSpec.Infra.BondConfig
-												}
 												if BondConfigData, ok := InfraData["bond_config"].(map[string]interface{}); ok {
 													return &SiteRegistrationsItemsGetSpecInfraBondConfigModel{
 														Interfaces: func() types.List {
@@ -3335,15 +3329,9 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 												return types.StringNull()
 											}(),
 											HwInfo: func() *SiteRegistrationsItemsGetSpecInfraHwInfoModel {
-												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil {
-													return existingItemsItems[listIdx].GetSpec.Infra.HwInfo
-												}
 												if HwInfoData, ok := InfraData["hw_info"].(map[string]interface{}); ok {
 													return &SiteRegistrationsItemsGetSpecInfraHwInfoModel{
 														Bios: func() *SiteRegistrationsItemsGetSpecInfraHwInfoBiosModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Bios != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Bios
-															}
 															if BiosData, ok := HwInfoData["bios"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoBiosModel{
 																	Date: func() types.String {
@@ -3369,9 +3357,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return nil
 														}(),
 														Board: func() *SiteRegistrationsItemsGetSpecInfraHwInfoBoardModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Board != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Board
-															}
 															if BoardData, ok := HwInfoData["board"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoBoardModel{
 																	AssetTag: func() types.String {
@@ -3409,9 +3394,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return nil
 														}(),
 														Chassis: func() *SiteRegistrationsItemsGetSpecInfraHwInfoChassisModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Chassis != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Chassis
-															}
 															if ChassisData, ok := HwInfoData["chassis"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoChassisModel{
 																	AssetTag: func() types.String {
@@ -3449,9 +3431,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return nil
 														}(),
 														CPU: func() *SiteRegistrationsItemsGetSpecInfraHwInfoCPUModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.CPU != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.CPU
-															}
 															if CPUData, ok := HwInfoData["cpu"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoCPUModel{
 																	Cache: func() types.Int64 {
@@ -3501,9 +3480,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return nil
 														}(),
 														GPU: func() *SiteRegistrationsItemsGetSpecInfraHwInfoGPUModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.GPU != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.GPU
-															}
 															if GPUData, ok := HwInfoData["gpu"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoGPUModel{
 																	CudaVersion: func() types.String {
@@ -3563,9 +3539,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return nil
 														}(),
 														Kernel: func() *SiteRegistrationsItemsGetSpecInfraHwInfoKernelModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Kernel != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Kernel
-															}
 															if KernelData, ok := HwInfoData["kernel"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoKernelModel{
 																	Architecture: func() types.String {
@@ -3591,9 +3564,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return nil
 														}(),
 														Memory: func() *SiteRegistrationsItemsGetSpecInfraHwInfoMemoryModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Memory != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Memory
-															}
 															if MemoryData, ok := HwInfoData["memory"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoMemoryModel{
 																	SizeMb: func() types.Int64 {
@@ -3703,9 +3673,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return types.Int64Null()
 														}(),
 														OS: func() *SiteRegistrationsItemsGetSpecInfraHwInfoOSModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.OS != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.OS
-															}
 															if OSData, ok := HwInfoData["os"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoOSModel{
 																	Architecture: func() types.String {
@@ -3743,9 +3710,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return nil
 														}(),
 														Product: func() *SiteRegistrationsItemsGetSpecInfraHwInfoProductModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Product != nil {
-																return existingItemsItems[listIdx].GetSpec.Infra.HwInfo.Product
-															}
 															if ProductData, ok := HwInfoData["product"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsGetSpecInfraHwInfoProductModel{
 																	Name: func() types.String {
@@ -3990,9 +3954,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 												return nil
 											}(),
 											InternetProxy: func() *SiteRegistrationsItemsGetSpecInfraInternetProxyModel {
-												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.InternetProxy != nil {
-													return existingItemsItems[listIdx].GetSpec.Infra.InternetProxy
-												}
 												if InternetProxyData, ok := InfraData["internet_proxy"].(map[string]interface{}); ok {
 													return &SiteRegistrationsItemsGetSpecInfraInternetProxyModel{
 														HTTPProxy: func() types.String {
@@ -4042,9 +4003,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 												return types.StringNull()
 											}(),
 											SwInfo: func() *SiteRegistrationsItemsGetSpecInfraSwInfoModel {
-												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && existingItemsItems[listIdx].GetSpec.Infra.SwInfo != nil {
-													return existingItemsItems[listIdx].GetSpec.Infra.SwInfo
-												}
 												if SwInfoData, ok := InfraData["sw_info"].(map[string]interface{}); ok {
 													return &SiteRegistrationsItemsGetSpecInfraSwInfoModel{
 														SwVersion: func() types.String {
@@ -4074,9 +4032,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 									return nil
 								}(),
 								Passport: func() *SiteRegistrationsItemsGetSpecPassportModel {
-									if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Passport != nil {
-										return existingItemsItems[listIdx].GetSpec.Passport
-									}
 									if PassportData, ok := GetSpecData["passport"].(map[string]interface{}); ok {
 										return &SiteRegistrationsItemsGetSpecPassportModel{
 											ClusterName: func() types.String {
@@ -4171,12 +4126,12 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 					Metadata: func() *SiteRegistrationsItemsMetadataModel {
 						if MetadataData, ok := itemMap["metadata"].(map[string]interface{}); ok {
 							return &SiteRegistrationsItemsMetadataModel{
-								Annotations: UnmarshalStringMap(ctx, MetadataData["annotations"], func() types.Map {
+								Annotations: UnmarshalStringMapForRead(ctx, MetadataData["annotations"], func() types.Map {
 									if len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Metadata != nil {
 										return existingItemsItems[listIdx].Metadata.Annotations
 									}
 									return types.MapNull(types.StringType)
-								}(), "annotations", &resp.Diagnostics),
+								}(), "annotations", isImport, &resp.Diagnostics),
 								DescriptionSpec: func() types.String {
 									if v, ok := MetadataData["description"].(string); ok && v != "" {
 										return types.StringValue(v)
@@ -4230,17 +4185,14 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 						if ObjectData, ok := itemMap["object"].(map[string]interface{}); ok {
 							return &SiteRegistrationsItemsObjectModel{
 								Metadata: func() *SiteRegistrationsItemsObjectMetadataModel {
-									if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Metadata != nil {
-										return existingItemsItems[listIdx].Object.Metadata
-									}
 									if MetadataData, ok := ObjectData["metadata"].(map[string]interface{}); ok {
 										return &SiteRegistrationsItemsObjectMetadataModel{
-											Annotations: UnmarshalStringMap(ctx, MetadataData["annotations"], func() types.Map {
+											Annotations: UnmarshalStringMapForRead(ctx, MetadataData["annotations"], func() types.Map {
 												if len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Metadata != nil {
 													return existingItemsItems[listIdx].Object.Metadata.Annotations
 												}
 												return types.MapNull(types.StringType)
-											}(), "annotations", &resp.Diagnostics),
+											}(), "annotations", isImport, &resp.Diagnostics),
 											DescriptionSpec: func() types.String {
 												if v, ok := MetadataData["description"].(string); ok && v != "" {
 													return types.StringValue(v)
@@ -4253,12 +4205,12 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 												}
 												return types.BoolNull()
 											}(),
-											Labels: UnmarshalStringMap(ctx, MetadataData["labels"], func() types.Map {
+											Labels: UnmarshalStringMapForRead(ctx, MetadataData["labels"], func() types.Map {
 												if len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Metadata != nil {
 													return existingItemsItems[listIdx].Object.Metadata.Labels
 												}
 												return types.MapNull(types.StringType)
-											}(), "labels", &resp.Diagnostics),
+											}(), "labels", isImport, &resp.Diagnostics),
 											Name: func() types.String {
 												if v, ok := MetadataData["name"].(string); ok && v != "" {
 													return types.StringValue(v)
@@ -4302,9 +4254,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return types.ListNull(types.StringType)
 														}(),
 														Infra: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil {
-																return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra
-															}
 															if InfraData, ok := GcSpecData["infra"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsObjectSpecGcSpecInfraModel{
 																	AvailabilityZone: func() types.String {
@@ -4314,9 +4263,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																		return types.StringNull()
 																	}(),
 																	BondConfig: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraBondConfigModel {
-																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.BondConfig != nil {
-																			return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.BondConfig
-																		}
 																		if BondConfigData, ok := InfraData["bond_config"].(map[string]interface{}); ok {
 																			return &SiteRegistrationsItemsObjectSpecGcSpecInfraBondConfigModel{
 																				Interfaces: func() types.List {
@@ -4368,15 +4314,9 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																		return types.StringNull()
 																	}(),
 																	HwInfo: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoModel {
-																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil {
-																			return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo
-																		}
 																		if HwInfoData, ok := InfraData["hw_info"].(map[string]interface{}); ok {
 																			return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoModel{
 																				Bios: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoBiosModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Bios != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Bios
-																					}
 																					if BiosData, ok := HwInfoData["bios"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoBiosModel{
 																							Date: func() types.String {
@@ -4402,9 +4342,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																					return nil
 																				}(),
 																				Board: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoBoardModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Board != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Board
-																					}
 																					if BoardData, ok := HwInfoData["board"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoBoardModel{
 																							AssetTag: func() types.String {
@@ -4442,9 +4379,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																					return nil
 																				}(),
 																				Chassis: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoChassisModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Chassis != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Chassis
-																					}
 																					if ChassisData, ok := HwInfoData["chassis"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoChassisModel{
 																							AssetTag: func() types.String {
@@ -4482,9 +4416,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																					return nil
 																				}(),
 																				CPU: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoCPUModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.CPU != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.CPU
-																					}
 																					if CPUData, ok := HwInfoData["cpu"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoCPUModel{
 																							Cache: func() types.Int64 {
@@ -4534,9 +4465,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																					return nil
 																				}(),
 																				GPU: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoGPUModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.GPU != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.GPU
-																					}
 																					if GPUData, ok := HwInfoData["gpu"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoGPUModel{
 																							CudaVersion: func() types.String {
@@ -4596,9 +4524,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																					return nil
 																				}(),
 																				Kernel: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoKernelModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Kernel != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Kernel
-																					}
 																					if KernelData, ok := HwInfoData["kernel"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoKernelModel{
 																							Architecture: func() types.String {
@@ -4624,9 +4549,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																					return nil
 																				}(),
 																				Memory: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoMemoryModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Memory != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Memory
-																					}
 																					if MemoryData, ok := HwInfoData["memory"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoMemoryModel{
 																							SizeMb: func() types.Int64 {
@@ -4736,9 +4658,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																					return types.Int64Null()
 																				}(),
 																				OS: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoOSModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.OS != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.OS
-																					}
 																					if OSData, ok := HwInfoData["os"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoOSModel{
 																							Architecture: func() types.String {
@@ -4776,9 +4695,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																					return nil
 																				}(),
 																				Product: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoProductModel {
-																					if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Product != nil {
-																						return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.HwInfo.Product
-																					}
 																					if ProductData, ok := HwInfoData["product"].(map[string]interface{}); ok {
 																						return &SiteRegistrationsItemsObjectSpecGcSpecInfraHwInfoProductModel{
 																							Name: func() types.String {
@@ -5023,9 +4939,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																		return nil
 																	}(),
 																	InternetProxy: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraInternetProxyModel {
-																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.InternetProxy != nil {
-																			return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.InternetProxy
-																		}
 																		if InternetProxyData, ok := InfraData["internet_proxy"].(map[string]interface{}); ok {
 																			return &SiteRegistrationsItemsObjectSpecGcSpecInfraInternetProxyModel{
 																				HTTPProxy: func() types.String {
@@ -5075,9 +4988,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																		return types.StringNull()
 																	}(),
 																	SwInfo: func() *SiteRegistrationsItemsObjectSpecGcSpecInfraSwInfoModel {
-																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.SwInfo != nil {
-																			return existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.SwInfo
-																		}
 																		if SwInfoData, ok := InfraData["sw_info"].(map[string]interface{}); ok {
 																			return &SiteRegistrationsItemsObjectSpecGcSpecInfraSwInfoModel{
 																				SwVersion: func() types.String {
@@ -5107,9 +5017,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 															return nil
 														}(),
 														Passport: func() *SiteRegistrationsItemsObjectSpecGcSpecPassportModel {
-															if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Passport != nil {
-																return existingItemsItems[listIdx].Object.Spec.GcSpec.Passport
-															}
 															if PassportData, ok := GcSpecData["passport"].(map[string]interface{}); ok {
 																return &SiteRegistrationsItemsObjectSpecGcSpecPassportModel{
 																	ClusterName: func() types.String {
@@ -5269,9 +5176,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 									return nil
 								}(),
 								Status: func() *SiteRegistrationsItemsObjectStatusModel {
-									if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Status != nil {
-										return existingItemsItems[listIdx].Object.Status
-									}
 									if StatusData, ok := ObjectData["status"].(map[string]interface{}); ok {
 										return &SiteRegistrationsItemsObjectStatusModel{
 											CurrentState: func() types.String {
@@ -5281,9 +5185,6 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 												return types.StringNull()
 											}(),
 											ObjectStatus: func() *SiteRegistrationsItemsObjectStatusObjectStatusModel {
-												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Status != nil && existingItemsItems[listIdx].Object.Status.ObjectStatus != nil {
-													return existingItemsItems[listIdx].Object.Status.ObjectStatus
-												}
 												if ObjectStatusData, ok := StatusData["object_status"].(map[string]interface{}); ok {
 													return &SiteRegistrationsItemsObjectStatusObjectStatusModel{
 														Code: func() types.Int64 {

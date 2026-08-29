@@ -473,7 +473,9 @@ resource "xcsh_data_group" "test" {
   name      = %[1]q
   namespace = "system"
 
-  string_records {}
+  string_records {
+    records = { fixture = "value" }
+  }
 }
 `, name)
 }
@@ -494,7 +496,9 @@ resource "xcsh_data_group" "test" {
     owner = "terraform"
   }
 
-  string_records {}
+  string_records {
+    records = { fixture = "value" }
+  }
 }
 `, name)
 }
@@ -513,7 +517,9 @@ resource "xcsh_data_group" "test" {
   labels = {
 %[2]s  }
 
-  string_records {}
+  string_records {
+    records = { fixture = "value" }
+  }
 }
 `, name, labelsStr)
 }
@@ -525,7 +531,9 @@ resource "xcsh_data_group" "test" {
   namespace   = "system"
   description = %[2]q
 
-  string_records {}
+  string_records {
+    records = { fixture = "value" }
+  }
 }
 `, name, description)
 }
@@ -544,7 +552,9 @@ resource "xcsh_data_group" "test" {
   annotations = {
 %[2]s  }
 
-  string_records {}
+  string_records {
+    records = { fixture = "value" }
+  }
 }
 `, name, annotationsStr)
 }
@@ -555,7 +565,9 @@ resource "xcsh_data_group" "test" {
   name      = %[1]q
   namespace = "system"
 
-  string_records {}
+  string_records {
+    records = { fixture = "value" }
+  }
 }
 `, name)
 }

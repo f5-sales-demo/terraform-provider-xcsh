@@ -203,3 +203,46 @@ func TestExecutableMapRoundTripBehavior(t *testing.T) {
 		}
 	})
 }
+
+func TestUnmarshalStringMapForReadPreservesNullAndEmptySemantics(t *testing.T) {
+	t.Parallel()
+	ctx := context.Background()
+	apiEmpty := map[string]interface{}{}
+
+	t.Run("normal read preserves configured null", func(t *testing.T) {
+		var diags diag.Diagnostics
+		got := UnmarshalStringMapForRead(ctx, apiEmpty, types.MapNull(types.StringType), "records", false, &diags)
+		if diags.HasError() {
+			t.Fatalf("unexpected diagnostics: %v", diags)
+		}
+		if !got.IsNull() {
+			t.Fatalf("API empty map changed configured null to %s", got.String())
+		}
+	})
+
+	t.Run("normal read preserves configured empty", func(t *testing.T) {
+		var diags diag.Diagnostics
+		prior, priorDiags := types.MapValueFrom(ctx, types.StringType, map[string]string{})
+		if priorDiags.HasError() {
+			t.Fatalf("constructing prior state: %v", priorDiags)
+		}
+		got := UnmarshalStringMapForRead(ctx, apiEmpty, prior, "labels", false, &diags)
+		if diags.HasError() {
+			t.Fatalf("unexpected diagnostics: %v", diags)
+		}
+		if got.IsNull() || len(got.Elements()) != 0 {
+			t.Fatalf("configured empty map was not preserved: %s", got.String())
+		}
+	})
+
+	t.Run("import derives API empty", func(t *testing.T) {
+		var diags diag.Diagnostics
+		got := UnmarshalStringMapForRead(ctx, apiEmpty, types.MapNull(types.StringType), "records", true, &diags)
+		if diags.HasError() {
+			t.Fatalf("unexpected diagnostics: %v", diags)
+		}
+		if got.IsNull() || len(got.Elements()) != 0 {
+			t.Fatalf("import did not derive the API empty map: %s", got.String())
+		}
+	})
+}

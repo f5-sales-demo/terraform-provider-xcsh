@@ -3498,12 +3498,12 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						return nil
 					}(),
-					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+					Labels: UnmarshalStringMapForRead(ctx, itemMap["labels"], func() types.Map {
 						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
 						return types.MapNull(types.StringType)
-					}(), "labels", &resp.Diagnostics),
+					}(), "labels", isImport, &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -5281,12 +5281,12 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 						}
 						return nil
 					}(),
-					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+					Labels: UnmarshalStringMapForRead(ctx, itemMap["labels"], func() types.Map {
 						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
 						return types.MapNull(types.StringType)
-					}(), "labels", &resp.Diagnostics),
+					}(), "labels", isImport, &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -7822,12 +7822,12 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						return nil
 					}(),
-					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+					Labels: UnmarshalStringMapForRead(ctx, itemMap["labels"], func() types.Map {
 						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
 						return types.MapNull(types.StringType)
-					}(), "labels", &resp.Diagnostics),
+					}(), "labels", isImport, &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{

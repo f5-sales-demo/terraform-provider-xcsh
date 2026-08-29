@@ -36,7 +36,6 @@ import (
 func TestAccUDPLoadBalancerResource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
-	t.Skip("Skipping: udp_loadbalancer requires special permissions for system namespace (FORBIDDEN 403)")
 
 	rName := acctest.RandomName("tf-acc-test-udp-lb")
 	resourceName := "xcsh_udp_loadbalancer.test"
@@ -500,8 +499,10 @@ resource "xcsh_origin_pool" "test" {
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
-  name      = %[1]q
-  namespace = "system"
+  name                 = %[1]q
+  namespace            = "system"
+  dns_volterra_managed = false
+  idle_timeout          = 30000
 
   labels = {
     environment = "test"
@@ -519,7 +520,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name)
 }
@@ -542,9 +543,11 @@ resource "xcsh_origin_pool" "test" {
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
-  name        = %[1]q
-  namespace   = "system"
-  description = "Acceptance test udp loadbalancer with all attributes"
+  name                 = %[1]q
+  namespace            = "system"
+  description          = "Acceptance test udp loadbalancer with all attributes"
+  dns_volterra_managed = false
+  idle_timeout          = 30000
 
   labels = {
     environment = "test"
@@ -567,7 +570,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name)
 }
@@ -590,8 +593,10 @@ resource "xcsh_origin_pool" "test" {
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
-  name      = %[1]q
-  namespace = "system"
+  name                 = %[1]q
+  namespace            = "system"
+  dns_volterra_managed = false
+  idle_timeout          = 30000
 
   labels = {
     environment = %[2]q
@@ -609,7 +614,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name, env, managedBy)
 }
@@ -632,9 +637,11 @@ resource "xcsh_origin_pool" "test" {
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
-  name        = %[1]q
-  namespace   = "system"
-  description = %[2]q
+  name                 = %[1]q
+  namespace            = "system"
+  description          = %[2]q
+  dns_volterra_managed = false
+  idle_timeout          = 30000
 
   labels = {
     environment = "test"
@@ -652,7 +659,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name, description)
 }
@@ -675,8 +682,10 @@ resource "xcsh_origin_pool" "test" {
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
-  name      = %[1]q
-  namespace = "system"
+  name                 = %[1]q
+  namespace            = "system"
+  dns_volterra_managed = false
+  idle_timeout          = 30000
 
   labels = {
     environment = "test"
@@ -698,7 +707,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name, value)
 }
@@ -721,8 +730,10 @@ resource "xcsh_origin_pool" "test" {
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
-  name      = %[1]q
-  namespace = "system"
+  name                 = %[1]q
+  namespace            = "system"
+  dns_volterra_managed = false
+  idle_timeout          = 30000
 
   labels = {
     environment = "test"
@@ -740,7 +751,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  do_not_advertise {}
 }
 `, name, port)
 }

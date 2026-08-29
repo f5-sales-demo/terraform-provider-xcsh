@@ -151,6 +151,8 @@ func PreCheck(t *testing.T) {
 			EnvXCSHCert, EnvXCSHKey,
 			EnvXCSHToken)
 	}
+
+	precheckLiveCapability(t)
 }
 
 // SkipIfNotAccTest skips the test if TF_ACC is not set and mock mode is not enabled.

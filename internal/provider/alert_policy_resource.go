@@ -1176,7 +1176,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["notification_parameters"].(map[string]interface{}); ok && (isImport || data.NotificationParameters != nil) {
@@ -1695,7 +1695,7 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["notification_parameters"].(map[string]interface{}); ok && (isImport || data.NotificationParameters != nil) {
@@ -2412,7 +2412,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.Routes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Routes = types.ListNull(types.ObjectType{AttrTypes: AlertPolicyRoutesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["notification_parameters"].(map[string]interface{}); ok && (isImport || data.NotificationParameters != nil) {
@@ -2538,6 +2538,17 @@ func (r *AlertPolicyResource) Delete(ctx context.Context, req resource.DeleteReq
 		}
 	}
 	if err != nil {
+		// AlertPolicy's DELETE endpoint can return 500 when Terraform repeats a
+		// successful out-of-band deletion. Confirm absence with GET before treating
+		// that response as idempotent success; otherwise preserve the DELETE error.
+		_, verifyErr := r.client.GetAlertPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+		if verifyErr != nil && (strings.Contains(verifyErr.Error(), "NOT_FOUND") || strings.Contains(verifyErr.Error(), "404")) {
+			tflog.Warn(ctx, "AlertPolicy delete returned an error after the object disappeared, removing from state", map[string]interface{}{
+				"name":      data.Name.ValueString(),
+				"namespace": data.Namespace.ValueString(),
+			})
+			return
+		}
 		// If the resource is already gone, consider deletion successful (idempotent delete)
 		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
 			tflog.Warn(ctx, "AlertPolicy already deleted, removing from state", map[string]interface{}{

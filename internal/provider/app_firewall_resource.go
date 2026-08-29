@@ -484,7 +484,6 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"detection_settings": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies detection settings to be used by WAF.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("violations_view")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

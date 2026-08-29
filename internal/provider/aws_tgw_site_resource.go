@@ -4828,7 +4828,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
 			ActiveEastWestServicePolicies: func() *AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel {
@@ -6989,7 +6989,7 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
 			ActiveEastWestServicePolicies: func() *AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel {
@@ -10133,7 +10133,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["tgw_security"].(map[string]interface{}); ok && (isImport || data.TGWSecurity != nil) {
 		data.TGWSecurity = &AWSTGWSiteTGWSecurityModel{
 			ActiveEastWestServicePolicies: func() *AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel {

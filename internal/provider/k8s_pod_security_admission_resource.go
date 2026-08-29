@@ -443,7 +443,7 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 		if !resp.Diagnostics.HasError() {
 			data.PodSecurityAdmissionSpecs = listVal
 		}
-	} else {
+	} else if isImport {
 		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
 	}
 
@@ -651,7 +651,7 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 		if !resp.Diagnostics.HasError() {
 			data.PodSecurityAdmissionSpecs = listVal
 		}
-	} else {
+	} else if isImport {
 		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
 	}
 
@@ -912,7 +912,7 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 		if !resp.Diagnostics.HasError() {
 			data.PodSecurityAdmissionSpecs = listVal
 		}
-	} else {
+	} else if isImport {
 		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
 	}
 

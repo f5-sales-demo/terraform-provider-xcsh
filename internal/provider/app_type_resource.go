@@ -464,7 +464,7 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 		if !resp.Diagnostics.HasError() {
 			data.Features = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
 	}
 
@@ -665,7 +665,7 @@ func (r *AppTypeResource) Read(ctx context.Context, req resource.ReadRequest, re
 		if !resp.Diagnostics.HasError() {
 			data.Features = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
 	}
 
@@ -921,7 +921,7 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 		if !resp.Diagnostics.HasError() {
 			data.Features = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
 	}
 

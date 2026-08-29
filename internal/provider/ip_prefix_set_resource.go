@@ -370,7 +370,7 @@ func (r *IPPrefixSetResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.Ipv4Prefixes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Ipv4Prefixes = types.ListNull(types.ObjectType{AttrTypes: IPPrefixSetIpv4PrefixesModelAttrTypes})
 	}
 
@@ -536,7 +536,7 @@ func (r *IPPrefixSetResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.Ipv4Prefixes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Ipv4Prefixes = types.ListNull(types.ObjectType{AttrTypes: IPPrefixSetIpv4PrefixesModelAttrTypes})
 	}
 
@@ -743,7 +743,7 @@ func (r *IPPrefixSetResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.Ipv4Prefixes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Ipv4Prefixes = types.ListNull(types.ObjectType{AttrTypes: IPPrefixSetIpv4PrefixesModelAttrTypes})
 	}
 

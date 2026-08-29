@@ -1884,8 +1884,8 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
 		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -1896,7 +1896,7 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
@@ -2570,8 +2570,8 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
 		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -2582,7 +2582,7 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
@@ -3576,8 +3576,8 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
 		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
 	}
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -3588,7 +3588,7 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {

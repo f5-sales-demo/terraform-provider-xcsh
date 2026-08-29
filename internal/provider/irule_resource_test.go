@@ -74,9 +74,11 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_irule" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  depends_on       = [time_sleep.wait_for_namespace]
+  name             = %[2]q
+  namespace        = xcsh_namespace.test.name
+  description_spec = "Acceptance test iRule"
+  irule            = "when DNS_REQUEST { DNS::drop }"
 }
 `, nsName, name))
 }

@@ -745,7 +745,7 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 		if !resp.Diagnostics.HasError() {
 			data.Port = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Port = types.ListNull(types.ObjectType{AttrTypes: FastACLRulePortModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["action"].(map[string]interface{}); ok && (isImport || data.Action != nil) {
@@ -1125,7 +1125,7 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.Port = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Port = types.ListNull(types.ObjectType{AttrTypes: FastACLRulePortModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["action"].(map[string]interface{}); ok && (isImport || data.Action != nil) {
@@ -1637,7 +1637,7 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 		if !resp.Diagnostics.HasError() {
 			data.Port = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Port = types.ListNull(types.ObjectType{AttrTypes: FastACLRulePortModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["action"].(map[string]interface{}); ok && (isImport || data.Action != nil) {

@@ -532,8 +532,15 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 			return fmt.Errorf("unsupported list element type %q at field %s", attr.ElementType, attr.Name)
 		}
 		listVar := attr.TfsdkTag + "List"
-		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok && len(v) > 0 {\n", indent, jsonName))
-		sb.WriteString(fmt.Sprintf("%s\tvar %s []%s\n", indent, listVar, goElem))
+		condition := fmt.Sprintf("v, ok := apiResource.Spec[\"%s\"].([]interface{}); ok", jsonName)
+		if attr.Optional {
+			// An optional list echoed as [] is ambiguous on a normal read: it can mean
+			// either configured-empty or omitted. Preserve the prior configuration in
+			// that case; imports have no prior configuration and remain API-derived.
+			condition += fmt.Sprintf(" && (len(v) > 0 || isImport || data.%s.IsUnknown())", fieldName)
+		}
+		sb.WriteString(fmt.Sprintf("%sif %s {\n", indent, condition))
+		sb.WriteString(fmt.Sprintf("%s\t%s := make([]%s, 0, len(v))\n", indent, listVar, goElem))
 		sb.WriteString(fmt.Sprintf("%s\tfor _, item := range v {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tif s, ok := item.(%s); ok {\n", indent, cast))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t%s = append(%s, %s)\n", indent, listVar, listVar, conv))
@@ -544,14 +551,14 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 		sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = listVal\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s} else if isImport || data.%s.IsUnknown() {\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, elemType))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "map":
 		if attr.ElementType != "string" {
 			return fmt.Errorf("unsupported map element type %q at field %s", attr.ElementType, attr.Name)
 		}
-		sb.WriteString(fmt.Sprintf("%sdata.%s = UnmarshalStringMap(ctx, apiResource.Spec[\"%s\"], data.%s, %q, &resp.Diagnostics)\n", indent, fieldName, jsonName, fieldName, attr.Name))
+		sb.WriteString(fmt.Sprintf("%sdata.%s = UnmarshalStringMapForRead(ctx, apiResource.Spec[\"%s\"], data.%s, %q, isImport, &resp.Diagnostics)\n", indent, fieldName, jsonName, fieldName, attr.Name))
 	default:
 		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}
@@ -609,7 +616,16 @@ func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.Te
 	sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
 	sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = listVal\n", indent, fieldName))
 	sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-	sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+	if hasComputedDescendant(attr) {
+		// A planned block with Computed descendants can contain unknown values.
+		// Keeping it after apply produces an invalid result object when the API
+		// omits the block, so resolve the omission to a known null value.
+		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+	} else {
+		// Fully configuration-owned blocks retain their prior value on normal
+		// reads when the API omits them; imports remain API-derived.
+		sb.WriteString(fmt.Sprintf("%s} else if isImport {\n", indent))
+	}
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ListNull(%s)\n", indent, fieldName, objType))
 	sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	return nil
@@ -788,7 +804,7 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		} else {
 			priorExpr = "types.MapNull(types.StringType)"
 		}
-		sb.WriteString(fmt.Sprintf("%s%s: UnmarshalStringMap(ctx, %s[\"%s\"], %s, %q, &resp.Diagnostics),\n", indent, fieldName, srcMap, jsonName, priorExpr, attr.Name))
+		sb.WriteString(fmt.Sprintf("%s%s: UnmarshalStringMapForRead(ctx, %s[\"%s\"], %s, %q, isImport, &resp.Diagnostics),\n", indent, fieldName, srcMap, jsonName, priorExpr, attr.Name))
 	default:
 		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}
@@ -827,6 +843,19 @@ func hasObjectReferenceDescendant(attr openapi.TerraformAttribute) bool {
 	}
 	for _, child := range attr.NestedAttributes {
 		if hasObjectReferenceDescendant(child) {
+			return true
+		}
+	}
+	return false
+}
+
+// hasComputedDescendant reports whether a nested block contains any server-computed
+// value. Such a block cannot be preserved wholesale on apply because its planned
+// computed leaves may still be unknown; reconstructing it from the API resolves those
+// values while child-level unmarshalling preserves configuration-owned siblings.
+func hasComputedDescendant(attr openapi.TerraformAttribute) bool {
+	for _, child := range attr.NestedAttributes {
+		if child.Computed || hasComputedDescendant(child) {
 			return true
 		}
 	}
@@ -891,7 +920,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	// reference anywhere: an object-ref's tenant/uid/kind are Computed-only and unknown in
 	// state on create, so any block ON THE PATH to a reference must read those leaves from
 	// the API. See #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
-	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr)
+	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr)
 
 	// When a block cannot be preserved whole because it merely CONTAINS a reference on one
 	// arm (a "spine" block), reconstruct from the API but thread the prior-state accessor
@@ -1532,6 +1561,13 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 func RenderConditionalRequiredValidators(attr openapi.TerraformAttribute, indent string) string {
 	required := make([]string, 0)
 	for _, child := range attr.NestedAttributes {
+		// app_firewall detection_settings.violations_view is labeled required by
+		// the create schema but is a view-only catalog populated by the server.
+		// Sending a synthetic empty entry is rejected by the live API; omission is
+		// the supported create shape and response suppression handles the catalog.
+		if child.TfsdkTag == "violations_view" {
+			continue
+		}
 		if child.CreateRequired {
 			required = append(required, child.TfsdkTag)
 		}

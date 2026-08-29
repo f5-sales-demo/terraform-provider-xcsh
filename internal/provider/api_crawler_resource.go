@@ -574,7 +574,7 @@ func (r *APICrawlerResource) Create(ctx context.Context, req resource.CreateRequ
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
 	}
 
@@ -807,7 +807,7 @@ func (r *APICrawlerResource) Read(ctx context.Context, req resource.ReadRequest,
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
 	}
 
@@ -1112,7 +1112,7 @@ func (r *APICrawlerResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
 	}
 

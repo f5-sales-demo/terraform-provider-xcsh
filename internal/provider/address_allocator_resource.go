@@ -375,8 +375,8 @@ func (r *AddressAllocatorResource) Create(ctx context.Context, req resource.Crea
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["address_pool"].([]interface{}); ok && len(v) > 0 {
-		var address_poolList []string
+	if v, ok := apiResource.Spec["address_pool"].([]interface{}); ok {
+		address_poolList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				address_poolList = append(address_poolList, s)
@@ -387,7 +387,7 @@ func (r *AddressAllocatorResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.AddressPool = listVal
 		}
-	} else {
+	} else if isImport || data.AddressPool.IsUnknown() {
 		data.AddressPool = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {
@@ -544,8 +544,8 @@ func (r *AddressAllocatorResource) Read(ctx context.Context, req resource.ReadRe
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["address_pool"].([]interface{}); ok && len(v) > 0 {
-		var address_poolList []string
+	if v, ok := apiResource.Spec["address_pool"].([]interface{}); ok {
+		address_poolList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				address_poolList = append(address_poolList, s)
@@ -556,7 +556,7 @@ func (r *AddressAllocatorResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.AddressPool = listVal
 		}
-	} else {
+	} else if isImport || data.AddressPool.IsUnknown() {
 		data.AddressPool = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {

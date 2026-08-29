@@ -77,6 +77,8 @@ resource "xcsh_dns_compliance_checks" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+
+  domain_denylist = ["blocked.example.com"]
 }
 `, nsName, name))
 }

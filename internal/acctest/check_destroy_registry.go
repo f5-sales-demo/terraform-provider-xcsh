@@ -4,6 +4,7 @@ package acctest
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"time"
 
@@ -11,6 +12,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 )
 
 // ResourceVerifier is a function that verifies a resource no longer exists via API
@@ -814,16 +816,85 @@ func CheckResourceDisappears(resourceType, resourceName string) resource.TestChe
 		if namespace == "" {
 			namespace = "system"
 		}
-
-		if err := deleter(ctx, c, namespace, name); err != nil {
+		if err := retryIdempotentDelete(ctx, c, deleter, namespace, name, 3, 5*time.Second); err != nil {
 			// Ignore "not found" errors - resource may already be deleted
 			if !isNotFoundError(err) {
 				return fmt.Errorf("failed to delete %s %s/%s: %w", resourceType, namespace, name, err)
 			}
 		}
 
+		// A successful DELETE can precede the control plane's read-side convergence.
+		// Wait until GET observes NOT_FOUND so Terraform's immediate refresh does not
+		// race a transient 5xx or a still-visible object.
+		if verifier, ok := resourceVerifierRegistry[resourceType]; ok {
+			if err := waitForResourceDisappearance(ctx, c, verifier, namespace, name, 6, 3*time.Second); err != nil {
+				return fmt.Errorf("failed to confirm deletion of %s %s/%s: %w", resourceType, namespace, name, err)
+			}
+		}
+
 		return nil
 	}
+}
+
+// retryIdempotentDelete gives an immediately-created object a bounded window to
+// become deletable. It retries only structured transient API failures; validation,
+// authorization, and other persistent failures are returned unchanged.
+func retryIdempotentDelete(ctx context.Context, c *client.Client, deleter ResourceDeleter, namespace, name string, maxAttempts int, baseWait time.Duration) error {
+	var lastErr error
+	for attempt := 0; attempt < maxAttempts; attempt++ {
+		lastErr = deleter(ctx, c, namespace, name)
+		if lastErr == nil {
+			return nil
+		}
+		var apiErr *xcsherrors.XCSHError
+		if !errors.As(lastErr, &apiErr) || !apiErr.IsRetryable() || attempt == maxAttempts-1 {
+			return lastErr
+		}
+		wait := baseWait * time.Duration(attempt+1)
+		timer := time.NewTimer(wait)
+		select {
+		case <-ctx.Done():
+			timer.Stop()
+			return ctx.Err()
+		case <-timer.C:
+		}
+	}
+	return lastErr
+}
+
+// waitForResourceDisappearance gives an asynchronous delete a bounded window
+// to become visible to subsequent reads. A still-present resource and transient
+// API failures are retried; persistent API errors are returned unchanged.
+func waitForResourceDisappearance(ctx context.Context, c *client.Client, verifier ResourceVerifier, namespace, name string, maxAttempts int, wait time.Duration) error {
+	var lastErr error
+	for attempt := 0; attempt < maxAttempts; attempt++ {
+		lastErr = verifier(ctx, c, namespace, name)
+		if isNotFoundError(lastErr) {
+			return nil
+		}
+		if lastErr != nil {
+			var apiErr *xcsherrors.XCSHError
+			if !errors.As(lastErr, &apiErr) || !apiErr.IsRetryable() {
+				return lastErr
+			}
+		}
+		if attempt == maxAttempts-1 {
+			break
+		}
+		timer := time.NewTimer(wait)
+		select {
+		case <-ctx.Done():
+			if !timer.Stop() {
+				<-timer.C
+			}
+			return ctx.Err()
+		case <-timer.C:
+		}
+	}
+	if lastErr != nil {
+		return lastErr
+	}
+	return errors.New("resource remained visible after deletion")
 }
 
 // RegisterResourceDeleter allows registering additional resource deleters at runtime

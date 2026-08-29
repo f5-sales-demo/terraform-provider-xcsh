@@ -583,6 +583,28 @@ func (s *Server) ensureResourceVersionLocked(path string, resource interface{}) 
 func (s *Server) applyResourceDefaults(spec map[string]interface{}, resourceType string) {
 	// First, apply manually-maintained defaults for specific resource types
 	switch resourceType {
+	case "data_groups":
+		// The live API materializes an omitted records map inside a selected
+		// data-group oneof arm. This exercises provider null-vs-empty handling.
+		for _, arm := range []string{"address_records", "integer_records", "string_records"} {
+			if recordsBlock, ok := spec[arm].(map[string]interface{}); ok {
+				if _, exists := recordsBlock["records"]; !exists {
+					recordsBlock["records"] = map[string]interface{}{}
+				}
+			}
+		}
+	case "origin_pools":
+		// Origin servers are returned with an empty labels map even when labels
+		// were omitted from configuration.
+		if servers, ok := spec["origin_servers"].([]interface{}); ok {
+			for _, server := range servers {
+				if serverMap, ok := server.(map[string]interface{}); ok {
+					if _, exists := serverMap["labels"]; !exists {
+						serverMap["labels"] = map[string]interface{}{}
+					}
+				}
+			}
+		}
 	case "secret_policy_rules", "service_policy_rules":
 		// Policy rules have a default action of DENY
 		if _, ok := spec["action"]; !ok {

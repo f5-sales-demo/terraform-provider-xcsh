@@ -523,7 +523,7 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 		if !resp.Diagnostics.HasError() {
 			data.APIInventoryExclusionList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.APIInventoryExclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes})
 	}
 	if !isImport && (data.APIInventoryInclusionList.IsNull() || len(data.APIInventoryInclusionList.Elements()) == 0) {
@@ -558,7 +558,7 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 		if !resp.Diagnostics.HasError() {
 			data.APIInventoryInclusionList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.APIInventoryInclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryInclusionListModelAttrTypes})
 	}
 	if !isImport && (data.NonAPIEndpoints.IsNull() || len(data.NonAPIEndpoints.Elements()) == 0) {
@@ -593,11 +593,11 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 		if !resp.Diagnostics.HasError() {
 			data.NonAPIEndpoints = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && len(v) > 0 {
-		var swagger_specsList []string
+	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
+		swagger_specsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				swagger_specsList = append(swagger_specsList, s)
@@ -608,7 +608,7 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 		if !resp.Diagnostics.HasError() {
 			data.SwaggerSpecs = listVal
 		}
-	} else {
+	} else if isImport || data.SwaggerSpecs.IsUnknown() {
 		data.SwaggerSpecs = types.ListNull(types.StringType)
 	}
 
@@ -777,7 +777,7 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 		if !resp.Diagnostics.HasError() {
 			data.APIInventoryExclusionList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.APIInventoryExclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes})
 	}
 	if !isImport && (data.APIInventoryInclusionList.IsNull() || len(data.APIInventoryInclusionList.Elements()) == 0) {
@@ -812,7 +812,7 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 		if !resp.Diagnostics.HasError() {
 			data.APIInventoryInclusionList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.APIInventoryInclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryInclusionListModelAttrTypes})
 	}
 	if !isImport && (data.NonAPIEndpoints.IsNull() || len(data.NonAPIEndpoints.Elements()) == 0) {
@@ -847,11 +847,11 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 		if !resp.Diagnostics.HasError() {
 			data.NonAPIEndpoints = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && len(v) > 0 {
-		var swagger_specsList []string
+	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
+		swagger_specsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				swagger_specsList = append(swagger_specsList, s)
@@ -862,7 +862,7 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 		if !resp.Diagnostics.HasError() {
 			data.SwaggerSpecs = listVal
 		}
-	} else {
+	} else if isImport || data.SwaggerSpecs.IsUnknown() {
 		data.SwaggerSpecs = types.ListNull(types.StringType)
 	}
 
@@ -1124,7 +1124,7 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 		if !resp.Diagnostics.HasError() {
 			data.APIInventoryExclusionList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.APIInventoryExclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes})
 	}
 	if !isImport && (data.APIInventoryInclusionList.IsNull() || len(data.APIInventoryInclusionList.Elements()) == 0) {
@@ -1159,7 +1159,7 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 		if !resp.Diagnostics.HasError() {
 			data.APIInventoryInclusionList = listVal
 		}
-	} else {
+	} else if isImport {
 		data.APIInventoryInclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryInclusionListModelAttrTypes})
 	}
 	if !isImport && (data.NonAPIEndpoints.IsNull() || len(data.NonAPIEndpoints.Elements()) == 0) {
@@ -1194,11 +1194,11 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 		if !resp.Diagnostics.HasError() {
 			data.NonAPIEndpoints = listVal
 		}
-	} else {
+	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
 	}
-	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && len(v) > 0 {
-		var swagger_specsList []string
+	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
+		swagger_specsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				swagger_specsList = append(swagger_specsList, s)
@@ -1209,7 +1209,7 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 		if !resp.Diagnostics.HasError() {
 			data.SwaggerSpecs = listVal
 		}
-	} else {
+	} else if isImport || data.SwaggerSpecs.IsUnknown() {
 		data.SwaggerSpecs = types.ListNull(types.StringType)
 	}
 

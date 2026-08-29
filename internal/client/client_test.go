@@ -41,6 +41,63 @@ func TestPutConflictIsReturnedAfterExactlyOneAttempt(t *testing.T) {
 	}
 }
 
+func TestPostRateLimitIsNotRetried(t *testing.T) {
+	requests := 0
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		requests++
+		w.Header().Set("Retry-After", "0")
+		w.WriteHeader(http.StatusTooManyRequests)
+		_, _ = w.Write([]byte(`{"code":"RATE_LIMITED","message":"try later"}`))
+	}))
+	defer server.Close()
+
+	client := NewClient(server.URL, "test-token", WithMaxRetries(3), WithRetryWait(time.Millisecond, 10*time.Millisecond))
+	ctx, cancel := context.WithTimeout(context.Background(), 50*time.Millisecond)
+	defer cancel()
+	err := client.Post(ctx, "/mutate", map[string]string{"value": "new"}, nil)
+	if err == nil {
+		t.Fatal("expected rate-limit error")
+	}
+	if requests != 1 {
+		t.Fatalf("POST rate limit made %d requests, want exactly 1", requests)
+	}
+	var apiErr *xcsherrors.XCSHError
+	if !errors.As(err, &apiErr) || apiErr.StatusCode != http.StatusTooManyRequests {
+		t.Fatalf("expected unchanged typed 429 error, got %T: %v", err, err)
+	}
+}
+
+func TestGetHonorsBoundedRetryAfter(t *testing.T) {
+	requests := 0
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		requests++
+		if requests == 1 {
+			w.Header().Set("Retry-After", "120")
+			w.WriteHeader(http.StatusTooManyRequests)
+			_, _ = w.Write([]byte(`{"code":"RATE_LIMITED","message":"try later"}`))
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(`{"ok":true}`))
+	}))
+	defer server.Close()
+
+	client := NewClient(server.URL, "test-token", WithMaxRetries(1), WithRetryWait(time.Millisecond, 10*time.Millisecond))
+	var result map[string]interface{}
+	ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
+	defer cancel()
+	started := time.Now()
+	if err := client.Get(ctx, "/read", &result); err != nil {
+		t.Fatalf("GET after bounded Retry-After: %v", err)
+	}
+	if requests != 2 {
+		t.Fatalf("GET made %d requests, want 2", requests)
+	}
+	if elapsed := time.Since(started); elapsed > 500*time.Millisecond {
+		t.Fatalf("Retry-After was not bounded by client maximum: %s", elapsed)
+	}
+}
+
 // =============================================================================
 // Tests for isRetryableStatus()
 // =============================================================================
@@ -917,55 +974,5 @@ func TestDefaultConstants(t *testing.T) {
 	}
 	if DefaultRetryWaitMax != 30*time.Second {
 		t.Errorf("DefaultRetryWaitMax = %v, want 30s", DefaultRetryWaitMax)
-	}
-	if DefaultRateLimitDelay != 60*time.Second {
-		t.Errorf("DefaultRateLimitDelay = %v, want 60s", DefaultRateLimitDelay)
-	}
-}
-
-// =============================================================================
-// Tests for rate limit handling
-// =============================================================================
-
-func TestRateLimitHandlingUsesLongerDelay(t *testing.T) {
-	// This test verifies that 429 responses are recognized as retryable
-	// and that the client attempts to retry them.
-	// Note: The actual DefaultRateLimitDelay (60s) is used for 429 responses,
-	// which is too long for unit tests. We use a short context timeout to
-	// verify the retry behavior without waiting the full 60 seconds.
-
-	attemptCount := 0
-
-	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		attemptCount++
-		w.WriteHeader(http.StatusTooManyRequests)
-		w.Write([]byte(`{"code": "RATE_LIMIT", "message": "Too many requests"}`))
-	}))
-	defer server.Close()
-
-	client := NewClient(server.URL, "test-token",
-		WithMaxRetries(3),
-		WithRetryWait(1*time.Millisecond, 10*time.Millisecond),
-	)
-
-	// Use a short context timeout to avoid waiting 60 seconds
-	ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
-	defer cancel()
-
-	err := client.Get(ctx, "/test", nil)
-
-	// Should have made at least one attempt
-	if attemptCount < 1 {
-		t.Errorf("Server should have been hit at least once, got %d attempts", attemptCount)
-	}
-
-	// Should fail due to context timeout (not retries exhausted)
-	if err == nil {
-		t.Error("Expected error due to context timeout or rate limit")
-	}
-
-	// Verify 429 is recognized as retryable
-	if !isRetryableStatus(http.StatusTooManyRequests) {
-		t.Error("429 should be recognized as retryable status")
 	}
 }

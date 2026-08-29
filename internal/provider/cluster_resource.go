@@ -1809,7 +1809,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
-	} else {
+	} else if isImport {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
 	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
@@ -2803,7 +2803,7 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
-	} else {
+	} else if isImport {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
 	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
@@ -4264,7 +4264,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		if !resp.Diagnostics.HasError() {
 			data.EndpointSubsets = listVal
 		}
-	} else {
+	} else if isImport {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
 	}
 	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {

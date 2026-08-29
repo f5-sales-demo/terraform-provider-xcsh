@@ -1061,12 +1061,12 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: UnmarshalStringMap(ctx, blockData["session_tags"], func() types.Map {
+			SessionTags: UnmarshalStringMapForRead(ctx, blockData["session_tags"], func() types.Map {
 				if data.AWSAssumeRole != nil {
 					return data.AWSAssumeRole.SessionTags
 				}
 				return types.MapNull(types.StringType)
-			}(), "session_tags", &resp.Diagnostics),
+			}(), "session_tags", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["aws_secret_key"].(map[string]interface{}); ok && (isImport || data.AWSSecretKey != nil) {
@@ -1551,12 +1551,12 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: UnmarshalStringMap(ctx, blockData["session_tags"], func() types.Map {
+			SessionTags: UnmarshalStringMapForRead(ctx, blockData["session_tags"], func() types.Map {
 				if data.AWSAssumeRole != nil {
 					return data.AWSAssumeRole.SessionTags
 				}
 				return types.MapNull(types.StringType)
-			}(), "session_tags", &resp.Diagnostics),
+			}(), "session_tags", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["aws_secret_key"].(map[string]interface{}); ok && (isImport || data.AWSSecretKey != nil) {
@@ -2241,12 +2241,12 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: UnmarshalStringMap(ctx, blockData["session_tags"], func() types.Map {
+			SessionTags: UnmarshalStringMapForRead(ctx, blockData["session_tags"], func() types.Map {
 				if data.AWSAssumeRole != nil {
 					return data.AWSAssumeRole.SessionTags
 				}
 				return types.MapNull(types.StringType)
-			}(), "session_tags", &resp.Diagnostics),
+			}(), "session_tags", isImport, &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["aws_secret_key"].(map[string]interface{}); ok && (isImport || data.AWSSecretKey != nil) {

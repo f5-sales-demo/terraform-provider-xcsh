@@ -230,7 +230,7 @@ func TestAccAlertPolicyResource_disappears(t *testing.T) {
 				Config: testAccAlertPolicyConfig_basicSystem(apName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckAlertPolicyExists(resourceName),
-					acctest.CheckAlertPolicyDisappears(resourceName),
+					acctest.CheckResourceDisappears("xcsh_alert_policy", resourceName),
 				),
 				ExpectNonEmptyPlan: true,
 			},

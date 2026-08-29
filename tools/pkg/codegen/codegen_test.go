@@ -1118,6 +1118,19 @@ func TestResourceTemplate_DeleteRetriesTransient400(t *testing.T) {
 	}
 }
 
+func TestResourceTemplate_AlertPolicyDeleteConfirmsAbsenceAfterError(t *testing.T) {
+	for _, want := range []string{
+		`{{- if eq .TitleCase "AlertPolicy"}}`,
+		`_, verifyErr := r.client.GetAlertPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())`,
+		`verifyErr != nil && (strings.Contains(verifyErr.Error(), "NOT_FOUND") || strings.Contains(verifyErr.Error(), "404"))`,
+		`AlertPolicy delete returned an error after the object disappeared`,
+	} {
+		if !strings.Contains(ResourceTemplate, want) {
+			t.Errorf("AlertPolicy Delete template missing verified-idempotence construct %q", want)
+		}
+	}
+}
+
 // Resources with create-only, API-unreadable fields carry those fields in the import ID
 // (namespace/name/<field>...) so a round-trip import is drift-free. The ImportState
 // template must parse the extra segments and set the attributes.
@@ -1172,6 +1185,26 @@ func TestRenderUnmarshalSingleChild_NonRefPreserves(t *testing.T) {
 		"blockData", "data", "data != nil", "single", "\t")
 	if !strings.Contains(sb.String(), "return data.Policy") {
 		t.Errorf("non-reference single block must keep the drift-preserving early return:\n%s", sb.String())
+	}
+}
+
+func TestRenderUnmarshalSingleChild_ComputedDescendantReconstructs(t *testing.T) {
+	block := openapi.TerraformAttribute{
+		GoName: "RateLimiter", JsonName: "rate_limiter", TfsdkTag: "rate_limiter",
+		IsBlock: true, NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "PeriodMultiplier", TfsdkTag: "period_multiplier", JsonName: "period_multiplier", Type: "int64", Optional: true, Computed: true},
+		},
+	}
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "R", "RateLimitRateLimiter", block,
+		"blockData", "data.RateLimit", "data.RateLimit != nil", "single", "\t")
+	out := sb.String()
+	if strings.Contains(out, "return data.RateLimit.RateLimiter\n") {
+		t.Errorf("block with a Computed descendant must not preserve an unknown planned value:\n%s", out)
+	}
+	if !strings.Contains(out, `RateLimiterData["period_multiplier"]`) {
+		t.Errorf("block with a Computed descendant must reconstruct the leaf from the API response:\n%s", out)
 	}
 }
 
@@ -1923,6 +1956,19 @@ func TestRenderConditionalRequiredValidators(t *testing.T) {
 				t.Fatalf("got %q, want %q", got, test.want)
 			}
 		})
+	}
+}
+
+func TestRenderConditionalRequiredValidators_ServerMaterializedViolationsView(t *testing.T) {
+	block := openapi.TerraformAttribute{
+		NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{{
+			TfsdkTag:       "violations_view",
+			CreateRequired: true,
+		}},
+	}
+	if got := RenderConditionalRequiredValidators(block, "\t"); got != "" {
+		t.Fatalf("server-materialized violations_view must not be required in configuration: %q", got)
 	}
 }
 

@@ -840,7 +840,7 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 		if !resp.Diagnostics.HasError() {
 			data.CustomAuthTypes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
 	}
 
@@ -1181,7 +1181,7 @@ func (r *APIDiscoveryResource) Read(ctx context.Context, req resource.ReadReques
 		if !resp.Diagnostics.HasError() {
 			data.CustomAuthTypes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
 	}
 
@@ -1642,7 +1642,7 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 		if !resp.Diagnostics.HasError() {
 			data.CustomAuthTypes = listVal
 		}
-	} else {
+	} else if isImport {
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
 	}
 

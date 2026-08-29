@@ -17350,8 +17350,8 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -17362,7 +17362,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -21031,7 +21031,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.BlockedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedClients = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bot_defense"].(map[string]interface{}); ok && (isImport || data.BotDefense != nil) {
@@ -23135,7 +23135,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.DataGuardRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DataGuardRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerDataGuardRulesModelAttrTypes})
 	}
 	if !isImport && (data.DDOSMitigationRules.IsNull() || len(data.DDOSMitigationRules.Elements()) == 0) {
@@ -23343,7 +23343,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.DDOSMitigationRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DDOSMitigationRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerDDOSMitigationRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["default_cache_action"].(map[string]interface{}); ok && (isImport || data.DefaultCacheAction != nil) {
@@ -23969,7 +23969,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.GraphqlRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.GraphqlRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerGraphqlRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
@@ -27101,7 +27101,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.ProtectedCookies = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtectedCookies = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerProtectedCookiesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["rate_limit"].(map[string]interface{}); ok && (isImport || data.RateLimit != nil) {
@@ -27243,9 +27243,6 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -27616,7 +27613,7 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		if !resp.Diagnostics.HasError() {
 			data.TrustedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.TrustedClients = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["user_id_client_ip"].(map[string]interface{}); ok && isImport && data.UserIDClientIP == nil {
@@ -28081,8 +28078,8 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -28093,7 +28090,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -31762,7 +31759,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.BlockedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedClients = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bot_defense"].(map[string]interface{}); ok && (isImport || data.BotDefense != nil) {
@@ -33866,7 +33863,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.DataGuardRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DataGuardRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerDataGuardRulesModelAttrTypes})
 	}
 	if !isImport && (data.DDOSMitigationRules.IsNull() || len(data.DDOSMitigationRules.Elements()) == 0) {
@@ -34074,7 +34071,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.DDOSMitigationRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DDOSMitigationRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerDDOSMitigationRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["default_cache_action"].(map[string]interface{}); ok && (isImport || data.DefaultCacheAction != nil) {
@@ -34700,7 +34697,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.GraphqlRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.GraphqlRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerGraphqlRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
@@ -37832,7 +37829,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.ProtectedCookies = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtectedCookies = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerProtectedCookiesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["rate_limit"].(map[string]interface{}); ok && (isImport || data.RateLimit != nil) {
@@ -37974,9 +37971,6 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -38347,7 +38341,7 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 		if !resp.Diagnostics.HasError() {
 			data.TrustedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.TrustedClients = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["user_id_client_ip"].(map[string]interface{}); ok && isImport && data.UserIDClientIP == nil {
@@ -43865,8 +43859,8 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && len(v) > 0 {
-		var domainsList []string
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				domainsList = append(domainsList, s)
@@ -43877,7 +43871,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.Domains = listVal
 		}
-	} else {
+	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
@@ -47546,7 +47540,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.BlockedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.BlockedClients = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerBlockedClientsModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["bot_defense"].(map[string]interface{}); ok && (isImport || data.BotDefense != nil) {
@@ -49650,7 +49644,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.DataGuardRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DataGuardRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerDataGuardRulesModelAttrTypes})
 	}
 	if !isImport && (data.DDOSMitigationRules.IsNull() || len(data.DDOSMitigationRules.Elements()) == 0) {
@@ -49858,7 +49852,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.DDOSMitigationRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.DDOSMitigationRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerDDOSMitigationRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["default_cache_action"].(map[string]interface{}); ok && (isImport || data.DefaultCacheAction != nil) {
@@ -50484,7 +50478,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.GraphqlRules = listVal
 		}
-	} else {
+	} else if isImport {
 		data.GraphqlRules = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerGraphqlRulesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
@@ -53616,7 +53610,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.ProtectedCookies = listVal
 		}
-	} else {
+	} else if isImport {
 		data.ProtectedCookies = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerProtectedCookiesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["rate_limit"].(map[string]interface{}); ok && (isImport || data.RateLimit != nil) {
@@ -53758,9 +53752,6 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				return nil
 			}(),
 			RateLimiter: func() *CDNLoadBalancerRateLimitRateLimiterModel {
-				if !isImport && data.RateLimit != nil && data.RateLimit.RateLimiter != nil {
-					return data.RateLimit.RateLimiter
-				}
 				if RateLimiterData, ok := blockData["rate_limiter"].(map[string]interface{}); ok {
 					return &CDNLoadBalancerRateLimitRateLimiterModel{
 						ActionBlock: func() *CDNLoadBalancerRateLimitRateLimiterActionBlockModel {
@@ -54131,7 +54122,7 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		if !resp.Diagnostics.HasError() {
 			data.TrustedClients = listVal
 		}
-	} else {
+	} else if isImport {
 		data.TrustedClients = types.ListNull(types.ObjectType{AttrTypes: CDNLoadBalancerTrustedClientsModelAttrTypes})
 	}
 	if _, ok := apiResource.Spec["user_id_client_ip"].(map[string]interface{}); ok && isImport && data.UserIDClientIP == nil {

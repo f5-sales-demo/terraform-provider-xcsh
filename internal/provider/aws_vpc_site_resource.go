@@ -7264,7 +7264,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &AWSVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {
@@ -10169,7 +10169,7 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &AWSVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {
@@ -14461,7 +14461,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	data.Tags = UnmarshalStringMap(ctx, apiResource.Spec["tags"], data.Tags, "tags", &resp.Diagnostics)
+	data.Tags = UnmarshalStringMapForRead(ctx, apiResource.Spec["tags"], data.Tags, "tags", isImport, &resp.Diagnostics)
 	if blockData, ok := apiResource.Spec["voltstack_cluster"].(map[string]interface{}); ok && (isImport || data.VoltstackCluster != nil) {
 		data.VoltstackCluster = &AWSVPCSiteVoltstackClusterModel{
 			ActiveEnhancedFirewallPolicies: func() *AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel {

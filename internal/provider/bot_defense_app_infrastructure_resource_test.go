@@ -13,7 +13,6 @@ import (
 )
 
 func TestAccBotDefenseAppInfrastructureResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires Bot Defense license/subscription")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

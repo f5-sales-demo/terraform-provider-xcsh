@@ -427,8 +427,8 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok && len(v) > 0 {
-		var authentication_algosList []string
+	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok {
+		authentication_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				authentication_algosList = append(authentication_algosList, s)
@@ -439,11 +439,11 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else {
+	} else if isImport || data.AuthenticationAlgos.IsUnknown() {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok && len(v) > 0 {
-		var encryption_algosList []string
+	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
+		encryption_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				encryption_algosList = append(encryption_algosList, s)
@@ -454,7 +454,7 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else {
+	} else if isImport || data.EncryptionAlgos.IsUnknown() {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dh_group_set"].(map[string]interface{}); ok && (isImport || data.DhGroupSet != nil) {
@@ -638,8 +638,8 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok && len(v) > 0 {
-		var authentication_algosList []string
+	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok {
+		authentication_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				authentication_algosList = append(authentication_algosList, s)
@@ -650,11 +650,11 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else {
+	} else if isImport || data.AuthenticationAlgos.IsUnknown() {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok && len(v) > 0 {
-		var encryption_algosList []string
+	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
+		encryption_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				encryption_algosList = append(encryption_algosList, s)
@@ -665,7 +665,7 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else {
+	} else if isImport || data.EncryptionAlgos.IsUnknown() {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dh_group_set"].(map[string]interface{}); ok && (isImport || data.DhGroupSet != nil) {
@@ -919,8 +919,8 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok && len(v) > 0 {
-		var authentication_algosList []string
+	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok {
+		authentication_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				authentication_algosList = append(authentication_algosList, s)
@@ -931,11 +931,11 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.AuthenticationAlgos = listVal
 		}
-	} else {
+	} else if isImport || data.AuthenticationAlgos.IsUnknown() {
 		data.AuthenticationAlgos = types.ListNull(types.StringType)
 	}
-	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok && len(v) > 0 {
-		var encryption_algosList []string
+	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
+		encryption_algosList := make([]string, 0, len(v))
 		for _, item := range v {
 			if s, ok := item.(string); ok {
 				encryption_algosList = append(encryption_algosList, s)
@@ -946,7 +946,7 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		if !resp.Diagnostics.HasError() {
 			data.EncryptionAlgos = listVal
 		}
-	} else {
+	} else if isImport || data.EncryptionAlgos.IsUnknown() {
 		data.EncryptionAlgos = types.ListNull(types.StringType)
 	}
 	if blockData, ok := apiResource.Spec["dh_group_set"].(map[string]interface{}); ok && (isImport || data.DhGroupSet != nil) {
