@@ -77,6 +77,46 @@ func TestWorkloadBenchmarkTrustAndRunnerContract(t *testing.T) {
 	}
 }
 
+func TestBenchmarkWorkloadsUseOnlyFixedModes(t *testing.T) {
+	helper, err := os.ReadFile(filepath.Join("..", "scripts", "run-fixed-benchmark-workload.sh"))
+	if err != nil {
+		t.Fatalf("read fixed benchmark helper: %v", err)
+	}
+	helperText := string(helper)
+	for _, workload := range []string{
+		"go-build", "go-vet", "go-race", "provider-generation",
+		"documentation-generation", "terraform-example-validation",
+		"release-source-reproduction",
+	} {
+		if !strings.Contains(helperText, workload+")") {
+			t.Errorf("fixed benchmark helper is missing %q", workload)
+		}
+	}
+	if strings.Contains(helperText, `eval `) || strings.Contains(helperText, `"$@"`) {
+		t.Error("fixed benchmark helper exposes arbitrary command execution")
+	}
+
+	docs, err := os.ReadFile(filepath.Join("..", "scripts", "generate-provider-docs.sh"))
+	if err != nil {
+		t.Fatalf("read documentation generator: %v", err)
+	}
+	docsText := string(docs)
+	for _, fragment := range []string{"--generate-docs-only", "--validate-examples-only", "EXAMPLE_WORKERS", "wait -n"} {
+		if !strings.Contains(docsText, fragment) {
+			t.Errorf("documentation generator lacks independent bounded mode %q", fragment)
+		}
+	}
+
+	reproduction, err := os.ReadFile(filepath.Join("..", "scripts", "reproduce-release-source.sh"))
+	if err != nil {
+		t.Fatalf("read release reproduction helper: %v", err)
+	}
+	if !strings.Contains(string(reproduction), "generate-all-schemas.go") ||
+		!strings.Contains(string(reproduction), "generate-provider-docs.sh") {
+		t.Error("release reproduction helper does not cover provider and documentation outputs")
+	}
+}
+
 func TestOnMergeRegenerationSubjectBindsSquashPRNumber(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
 	if err != nil {
@@ -626,7 +666,7 @@ func validateWorkflowBytes(filename string, content []byte, policySchema int) []
 	contracts := map[string]jobContract{}
 	for _, contract := range protectedJobs {
 		if contract.workflow == filename {
-			if (policySchema == 3 || policySchema == 4) && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
+			if policySchema >= 3 && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
 				contract.runsOn = canonicalManagedSocketlessRunsOn
 			}
 			contracts[contract.job] = contract
@@ -855,6 +895,18 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		delete(expected, "require-linked-issue.yml/check")
 		expected["require-linked-issue.yml/check-linked-issues"] = true
 		expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
+	case 5:
+		// Schema v5 adds exact ARC attestations and restricted compute routes.
+		expected["auto-merge.yml/require-token"] = true
+		expected["dependabot-auto-merge.yml/auto-merge"] = true
+		expected["semgrep.yml/semgrep"] = true
+		expected["workflow-security-audit.yml/audit"] = true
+		delete(expected, "enforce-repo-settings.yml/resolve-source")
+		delete(expected, "require-linked-issue.yml/check")
+		expected["require-linked-issue.yml/check-linked-issues"] = true
+		expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
+		expected["workload-benchmark.yml/aggregate"] = true
+		expected["workload-benchmark.yml/benchmark-d8"] = true
 	default:
 		t.Fatalf("unsupported runner policy schema version: %d", policy.SchemaVersion)
 	}

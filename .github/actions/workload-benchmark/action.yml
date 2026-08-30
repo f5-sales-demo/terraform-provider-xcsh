@@ -2,8 +2,21 @@
 name: Attest provider benchmark runner
 description: Record a sanitized attestation for one fixed provider runner profile.
 inputs:
+  baseline-dir:
+    description: Downloaded D8 validation receipts; required only by d16.
+    required: false
+    default: ''
   profile:
     description: Fixed runner profile identifier (d8 or d16).
+    required: true
+  token:
+    description: Read-only token for the pinned public specification release.
+    required: true
+  variant:
+    description: Fixed profile configuration identifier.
+    required: true
+  workload:
+    description: Fixed workload identifier.
     required: true
 runs:
   using: composite
@@ -117,7 +130,62 @@ runs:
       if: always()
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
       with:
-        name: runner-attestation-${{ inputs.profile }}-${{ github.run_id }}-${{ github.run_attempt }}
+        name: runner-attestation-${{ inputs.profile }}-${{ inputs.workload }}-${{ inputs.variant }}-${{ github.run_id }}-${{ github.run_attempt }}
         path: ${{ runner.temp }}/workload-attestation/*.json
+        if-no-files-found: error
+        retention-days: 30
+
+    - name: Download pinned API specifications once
+      uses: ./.github/actions/download-api-specs
+      with:
+        token: ${{ inputs.token }}
+
+    - name: Run fixed D8 workload samples
+      if: inputs.profile == 'd8'
+      shell: bash
+      env:
+        BENCHMARK_COMMIT: ${{ github.event.pull_request.head.sha }}
+        BENCHMARK_PROFILE: ${{ inputs.profile }}
+        BENCHMARK_VARIANT: ${{ inputs.variant }}
+        BENCHMARK_WORKLOAD: ${{ inputs.workload }}
+      run: |
+        go run ./tools/workload-benchmark run \
+          --profile "$BENCHMARK_PROFILE" \
+          --workload "$BENCHMARK_WORKLOAD" \
+          --variant "$BENCHMARK_VARIANT" \
+          --commit "$BENCHMARK_COMMIT" \
+          --source-root "$GITHUB_WORKSPACE" \
+          --spec-source "$GITHUB_WORKSPACE/docs/specifications/api" \
+          --cache-root "$RUNNER_TEMP/workload-cache" \
+          --output-dir "$RUNNER_TEMP/workload-receipts"
+
+    - name: Run fixed D16 workload samples
+      if: inputs.profile == 'd16'
+      shell: bash
+      env:
+        BASELINE_DIR: ${{ inputs.baseline-dir }}
+        BENCHMARK_COMMIT: ${{ github.event.pull_request.head.sha }}
+        BENCHMARK_PROFILE: ${{ inputs.profile }}
+        BENCHMARK_VARIANT: ${{ inputs.variant }}
+        BENCHMARK_WORKLOAD: ${{ inputs.workload }}
+      run: |
+        test -n "$BASELINE_DIR"
+        go run ./tools/workload-benchmark run \
+          --profile "$BENCHMARK_PROFILE" \
+          --workload "$BENCHMARK_WORKLOAD" \
+          --variant "$BENCHMARK_VARIANT" \
+          --commit "$BENCHMARK_COMMIT" \
+          --source-root "$GITHUB_WORKSPACE" \
+          --spec-source "$GITHUB_WORKSPACE/docs/specifications/api" \
+          --cache-root "$RUNNER_TEMP/workload-cache" \
+          --output-dir "$RUNNER_TEMP/workload-receipts" \
+          --baseline-dir "$BASELINE_DIR"
+
+    - name: Upload sanitized workload receipts
+      if: always()
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: workload-receipts-${{ inputs.profile }}-${{ inputs.workload }}-${{ inputs.variant }}-${{ github.run_id }}-${{ github.run_attempt }}
+        path: ${{ runner.temp }}/workload-receipts/*.json
         if-no-files-found: error
         retention-days: 30
