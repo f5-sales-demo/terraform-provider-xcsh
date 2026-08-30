@@ -9,6 +9,14 @@ set -euo pipefail
 export GOFLAGS="${GOFLAGS:--p=1}"
 export GOMAXPROCS="${GOMAXPROCS:-2}"
 export GOMEMLIMIT="${GOMEMLIMIT:-1200MiB}"
+example_workers=${EXAMPLE_WORKERS:-1}
+case $example_workers in
+1 | 2 | 4 | 8) ;;
+*)
+  echo "documentation generation failed: EXAMPLE_WORKERS must be 1, 2, 4, or 8" >&2
+  exit 1
+  ;;
+esac
 
 repository_root=$(git rev-parse --show-toplevel)
 cd "$repository_root"
@@ -18,21 +26,23 @@ fail() {
   exit 1
 }
 
-validate_examples_only=false
+generation_mode=full
 case ${1:-} in
 "") ;;
---validate-examples-only) validate_examples_only=true ;;
+--generate-docs-only) generation_mode=docs ;;
+--validate-examples-only) generation_mode=examples ;;
 *) fail "unknown argument: $1" ;;
 esac
+[ "$#" -le 1 ] || fail "only one fixed generation mode is accepted"
 
 required_commands=(go jq terraform)
-if [ "$validate_examples_only" = false ]; then
+if [ "$generation_mode" != examples ]; then
   required_commands+=(tfplugindocs npx)
 fi
 for command in "${required_commands[@]}"; do
   command -v "$command" >/dev/null 2>&1 || fail "required command is unavailable: $command"
 done
-if [ "$validate_examples_only" = false ]; then
+if [ "$generation_mode" != examples ]; then
   [ -f docs/specifications/api/index.json ] ||
     fail "verified API specifications are missing; download the pinned release first"
   [ -d docs/specifications/api/domains ] ||
@@ -51,7 +61,7 @@ installed_terraform_version=$(terraform version -json | jq -er '.terraform_versi
 temporary_root=$(mktemp -d)
 trap 'rm -rf "$temporary_root"' EXIT
 
-if [ "$validate_examples_only" = false ]; then
+if [ "$generation_mode" != examples ]; then
   echo "::group::Calculate minimum Terraform version"
   go run tools/calculate-terraform-version.go --update-templates
   echo "::endgroup::"
@@ -86,25 +96,30 @@ printf '%s\n' \
   '  }' \
   '}' >"$terraform_cli_config"
 
-plugin_cache_dir="$temporary_root/plugin-cache"
+plugin_cache_dir=${TF_PLUGIN_CACHE_DIR:-"$temporary_root/plugin-cache"}
 mkdir -p "$plugin_cache_dir"
 
 validate_example() {
   local source_file=$1
-  local case_dir case_name init_log selected_version validate_log version_log
+  local worker_id=$2
+  local case_dir case_name case_plugin_cache init_log selected_version validate_log version_log
   case_dir=$(mktemp -d "${temporary_root}/example.XXXXXX")
   case_name=${source_file#examples/}
+  case_plugin_cache="$plugin_cache_dir/worker-$worker_id"
+  mkdir -p "$case_plugin_cache"
   init_log="$case_dir/init.log"
   validate_log="$case_dir/validate.log"
   version_log="$case_dir/version.json"
   install -m 0600 "$source_file" "$case_dir/main.tf"
-  if ! TF_CLI_CONFIG_FILE="$terraform_cli_config" TF_PLUGIN_CACHE_DIR="$plugin_cache_dir" \
+  if ! TF_CLI_CONFIG_FILE="$terraform_cli_config" TF_PLUGIN_CACHE_DIR="$case_plugin_cache" \
+    TF_DATA_DIR="$case_dir/terraform-data" \
     terraform -chdir="$case_dir" init -backend=false -input=false -no-color \
     >"$init_log" 2>&1; then
     cat "$init_log" >&2
     fail "terraform init rejected generated example ${case_name}"
   fi
-  if ! TF_CLI_CONFIG_FILE="$terraform_cli_config" TF_PLUGIN_CACHE_DIR="$plugin_cache_dir" \
+  if ! TF_CLI_CONFIG_FILE="$terraform_cli_config" TF_PLUGIN_CACHE_DIR="$case_plugin_cache" \
+    TF_DATA_DIR="$case_dir/terraform-data" \
     terraform -chdir="$case_dir" version -json >"$version_log" 2>&1; then
     cat "$version_log" >&2
     fail "terraform could not report the provider selected for generated example ${case_name}"
@@ -115,97 +130,128 @@ validate_example() {
     fail "generated example ${case_name} did not select f5-sales-demo/xcsh"
   [ "$selected_version" = "$provider_version" ] ||
     fail "generated example ${case_name} selected xcsh ${selected_version}, want local ${provider_version}"
-  if ! TF_CLI_CONFIG_FILE="$terraform_cli_config" TF_PLUGIN_CACHE_DIR="$plugin_cache_dir" \
+  if ! TF_CLI_CONFIG_FILE="$terraform_cli_config" TF_PLUGIN_CACHE_DIR="$case_plugin_cache" \
+    TF_DATA_DIR="$case_dir/terraform-data" \
     terraform -chdir="$case_dir" validate -no-color >"$validate_log" 2>&1; then
     cat "$validate_log" >&2
     fail "terraform validate rejected generated example ${case_name}"
   fi
 }
 
-echo "::group::Validate every canonical generated example"
-# The expected total is derived from the generated tree, not written down here.
-# Every generated example directory owes exactly one canonical file, so the
-# directory count IS the expectation. A literal total is only correct until the
-# next spec release changes how many types the provider ships — this check was
-# pinned at 279 from enriched spec v2.1.207 and went stale the moment the
-# provider moved to 277, reporting a spec bump as a generation failure.
-expected_canonical_examples=0
-while IFS= read -r directory; do
-  case $directory in
-  examples/resources/*) canonical_file="$directory/resource.tf" ;;
-  examples/data-sources/*) canonical_file="$directory/data-source.tf" ;;
-  *) canonical_file="$directory/action.tf" ;;
-  esac
-  [ -f "$canonical_file" ] ||
-    fail "generated example directory ${directory} has no canonical example file"
-  expected_canonical_examples=$((expected_canonical_examples + 1))
-done < <(find examples/resources examples/data-sources examples/actions \
-  -mindepth 1 -maxdepth 1 -type d -print | LC_ALL=C sort)
+validate_example_list() {
+  local list_file=$1 active=0 validation_status=0 worker_id line_index example
+  for ((worker_id = 0; worker_id < example_workers; worker_id++)); do
+    (
+      line_index=0
+      while IFS= read -r example; do
+        if ((line_index % example_workers == worker_id)); then
+          validate_example "$example" "$worker_id"
+        fi
+        line_index=$((line_index + 1))
+      done <"$list_file"
+    ) &
+    active=$((active + 1))
+  done
+  while [ "$active" -gt 0 ]; do
+    wait -n || validation_status=1
+    active=$((active - 1))
+  done
+  return "$validation_status"
+}
 
-# Vacuity floor. The provider ships well over two hundred resources and data
-# sources; a collapse to a handful means the generator or this walk broke, and a
-# coverage check that has lost sight of the tree must fail rather than pass
-# everything that remains.
-minimum_canonical_examples=200
-[ "$expected_canonical_examples" -ge "$minimum_canonical_examples" ] ||
-  fail "found only ${expected_canonical_examples} generated example directories, want at least ${minimum_canonical_examples}; the generated tree is incomplete"
+if [ "$generation_mode" = docs ]; then
+  skip_example_validation=true
+else
+  skip_example_validation=false
+fi
 
-validated_canonical_examples=0
-while IFS= read -r example; do
-  validate_example "$example"
-  validated_canonical_examples=$((validated_canonical_examples + 1))
-done < <({
-  find examples/resources -mindepth 2 -maxdepth 2 -type f -name resource.tf -print
-  find examples/data-sources -mindepth 2 -maxdepth 2 -type f -name data-source.tf -print
-  find examples/actions -mindepth 2 -maxdepth 2 -type f -name action.tf -print
-} | LC_ALL=C sort)
-[ "$validated_canonical_examples" -eq "$expected_canonical_examples" ] ||
-  fail "validated ${validated_canonical_examples} canonical examples, want ${expected_canonical_examples} (one per generated example directory)"
-echo "Validated ${validated_canonical_examples} canonical generated examples"
-echo "::endgroup::"
+if [ "$skip_example_validation" = false ]; then
+  echo "::group::Validate every canonical generated example"
+  # The expected total is derived from the generated tree, not written down here.
+  # Every generated example directory owes exactly one canonical file, so the
+  # directory count IS the expectation. A literal total is only correct until the
+  # next spec release changes how many types the provider ships — this check was
+  # pinned at 279 from enriched spec v2.1.207 and went stale the moment the
+  # provider moved to 277, reporting a spec bump as a generation failure.
+  expected_canonical_examples=0
+  while IFS= read -r directory; do
+    case $directory in
+    examples/resources/*) canonical_file="$directory/resource.tf" ;;
+    examples/data-sources/*) canonical_file="$directory/data-source.tf" ;;
+    *) canonical_file="$directory/action.tf" ;;
+    esac
+    [ -f "$canonical_file" ] ||
+      fail "generated example directory ${directory} has no canonical example file"
+    expected_canonical_examples=$((expected_canonical_examples + 1))
+  done < <(find examples/resources examples/data-sources examples/actions \
+    -mindepth 1 -maxdepth 1 -type d -print | LC_ALL=C sort)
 
-echo "::group::Validate every named acceptance-derived example"
-# Derived the same way as the canonical count above: the named examples are
-# extracted from the acceptance suite, so their number changes whenever that
-# suite does. Requiring each listed directory to contribute at least one example
-# catches under-collection without a literal total that goes stale silently.
-validated_named_examples=0
-named_example_directories=(
-  examples/resources/xcsh_http_loadbalancer
-  examples/resources/xcsh_tcp_loadbalancer
-  examples/resources/xcsh_healthcheck
-  examples/resources/xcsh_app_firewall
-  examples/resources/xcsh_origin_pool
-  examples/resources/xcsh_rate_limiter
-  examples/resources/xcsh_service_policy
-  examples/resources/xcsh_user_identification
-  examples/resources/xcsh_malicious_user_mitigation
-)
-for directory in "${named_example_directories[@]}"; do
-  [ -d "$directory" ] ||
-    fail "named example directory ${directory} does not exist"
-  named_in_directory=$(find "$directory" -maxdepth 1 -type f -name '*.tf' \
-    ! -name resource.tf -print | wc -l | tr -d '[:space:]')
-  [ "$named_in_directory" -gt 0 ] ||
-    fail "named example directory ${directory} contributed no examples"
-done
+  # Vacuity floor. The provider ships well over two hundred resources and data
+  # sources; a collapse to a handful means the generator or this walk broke, and a
+  # coverage check that has lost sight of the tree must fail rather than pass
+  # everything that remains.
+  minimum_canonical_examples=200
+  [ "$expected_canonical_examples" -ge "$minimum_canonical_examples" ] ||
+    fail "found only ${expected_canonical_examples} generated example directories, want at least ${minimum_canonical_examples}; the generated tree is incomplete"
 
-while IFS= read -r example; do
-  validate_example "$example"
-  validated_named_examples=$((validated_named_examples + 1))
-done < <(find "${named_example_directories[@]}" \
-  -maxdepth 1 -type f -name '*.tf' ! -name resource.tf -print | LC_ALL=C sort)
+  canonical_examples="$temporary_root/canonical-examples"
+  {
+    find examples/resources -mindepth 2 -maxdepth 2 -type f -name resource.tf -print
+    find examples/data-sources -mindepth 2 -maxdepth 2 -type f -name data-source.tf -print
+    find examples/actions -mindepth 2 -maxdepth 2 -type f -name action.tf -print
+  } | LC_ALL=C sort >"$canonical_examples"
+  validated_canonical_examples=$(wc -l <"$canonical_examples" | tr -d '[:space:]')
+  validate_example_list "$canonical_examples" ||
+    fail "one or more canonical generated examples failed validation"
+  [ "$validated_canonical_examples" -eq "$expected_canonical_examples" ] ||
+    fail "validated ${validated_canonical_examples} canonical examples, want ${expected_canonical_examples} (one per generated example directory)"
+  echo "Validated ${validated_canonical_examples} canonical generated examples"
+  echo "::endgroup::"
 
-# Vacuity floor: the acceptance suite yields several examples per listed
-# resource. Dropping to a handful means extraction broke, and a check that has
-# lost sight of its inputs must fail rather than pass the remainder.
-minimum_named_examples=40
-[ "$validated_named_examples" -ge "$minimum_named_examples" ] ||
-  fail "validated only ${validated_named_examples} named examples, want at least ${minimum_named_examples}; acceptance-derived extraction is incomplete"
-echo "Validated ${validated_named_examples} named generated examples"
-echo "::endgroup::"
+  echo "::group::Validate every named acceptance-derived example"
+  # Derived the same way as the canonical count above: the named examples are
+  # extracted from the acceptance suite, so their number changes whenever that
+  # suite does. Requiring each listed directory to contribute at least one example
+  # catches under-collection without a literal total that goes stale silently.
+  named_example_directories=(
+    examples/resources/xcsh_http_loadbalancer
+    examples/resources/xcsh_tcp_loadbalancer
+    examples/resources/xcsh_healthcheck
+    examples/resources/xcsh_app_firewall
+    examples/resources/xcsh_origin_pool
+    examples/resources/xcsh_rate_limiter
+    examples/resources/xcsh_service_policy
+    examples/resources/xcsh_user_identification
+    examples/resources/xcsh_malicious_user_mitigation
+  )
+  for directory in "${named_example_directories[@]}"; do
+    [ -d "$directory" ] ||
+      fail "named example directory ${directory} does not exist"
+    named_in_directory=$(find "$directory" -maxdepth 1 -type f -name '*.tf' \
+      ! -name resource.tf -print | wc -l | tr -d '[:space:]')
+    [ "$named_in_directory" -gt 0 ] ||
+      fail "named example directory ${directory} contributed no examples"
+  done
 
-if [ "$validate_examples_only" = true ]; then
+  named_examples="$temporary_root/named-examples"
+  find "${named_example_directories[@]}" \
+    -maxdepth 1 -type f -name '*.tf' ! -name resource.tf -print | LC_ALL=C sort >"$named_examples"
+  validated_named_examples=$(wc -l <"$named_examples" | tr -d '[:space:]')
+  validate_example_list "$named_examples" ||
+    fail "one or more named generated examples failed validation"
+
+  # Vacuity floor: the acceptance suite yields several examples per listed
+  # resource. Dropping to a handful means extraction broke, and a check that has
+  # lost sight of its inputs must fail rather than pass the remainder.
+  minimum_named_examples=40
+  [ "$validated_named_examples" -ge "$minimum_named_examples" ] ||
+    fail "validated only ${validated_named_examples} named examples, want at least ${minimum_named_examples}; acceptance-derived extraction is incomplete"
+  echo "Validated ${validated_named_examples} named generated examples"
+  echo "::endgroup::"
+
+fi
+
+if [ "$generation_mode" = examples ]; then
   exit 0
 fi
 

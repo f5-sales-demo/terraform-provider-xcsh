@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/f5-sales-demo/terraform-provider-xcsh/tools/workload-benchmark/receipt.schema.json",
+  "title": "Sanitized provider workload benchmark receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "identity", "toolchain", "runner", "workload", "configuration", "cache", "metrics", "output_tree_sha256", "exit", "sample_kind", "sample_index"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit", "run_id", "job_id", "run_attempt", "pair_id"],
+      "properties": {
+        "repository": {"const": "f5-sales-demo/terraform-provider-xcsh"},
+        "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "run_id": {"type": "string", "minLength": 1},
+        "job_id": {"enum": ["benchmark-d8", "benchmark-d16"]},
+        "run_attempt": {"type": "string", "minLength": 1},
+        "pair_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spec_release", "spec_pin_sha256", "go_version", "terraform_version", "documentation_tool", "action_checkout", "runner_image"],
+      "properties": {
+        "spec_release": {"const": "v4.0.2"},
+        "spec_pin_sha256": {"const": "sha256:a3ed1000e5bf0b4d0f694fd70041e07f4f7b59e46f699282389d58b3a31d6972"},
+        "go_version": {"const": "go1.25.12"},
+        "terraform_version": {"const": "1.15.8"},
+        "documentation_tool": {"const": "github.com/hashicorp/terraform-plugin-docs@v0.25.0"},
+        "action_checkout": {"const": "3d3c42e5aac5ba805825da76410c181273ba90b1"},
+        "runner_image": {"const": "sha256:8817d93949ce0429b16bbcae686065b81d976b43df22e15e90379b5978c6dc2b"}
+      }
+    },
+    "runner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "profile", "vm_size", "cpu_limit", "memory_limit", "docker_socket"],
+      "properties": {
+        "label": {"enum": ["managed-socketless", "terraform-provider-xcsh-compute"]},
+        "profile": {"enum": ["socketless", "compute"]},
+        "vm_size": {"enum": ["Standard_D8ads_v5", "Standard_D16ads_v5"]},
+        "cpu_limit": {"enum": [7, 15]},
+        "memory_limit": {"enum": [30064771072, 60129542144]},
+        "docker_socket": {"const": false}
+      }
+    },
+    "workload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "argv"],
+      "properties": {
+        "id": {"enum": ["go-build", "go-vet", "go-race", "provider-generation", "documentation-generation", "terraform-example-validation", "release-source-reproduction"]},
+        "argv": {"type": "array", "items": {"type": "string"}, "minItems": 2, "maxItems": 2}
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["variant_id", "goflags", "gomaxprocs", "example_concurrency"],
+      "properties": {
+        "variant_id": {"type": "string", "pattern": "^d(8|16)-(current|n(1|2|4|8|16))(-examples-c(1|2|4|8))?$"},
+        "goflags": {"enum": ["", "-p=1", "-p=2", "-p=4", "-p=8", "-p=16"]},
+        "gomaxprocs": {"enum": [0, 1, 2, 4, 8, 16]},
+        "example_concurrency": {"enum": [1, 2, 4, 8]}
+      }
+    },
+    "cache": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "key"],
+      "properties": {
+        "state": {"enum": ["cold", "warm"]},
+        "key": {"type": "string", "minLength": 1}
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["elapsed_seconds", "cpu_usage_usec", "cpu_user_usec", "cpu_system_usec", "cpu_throttled_usec", "peak_memory_bytes", "memory_limit_bytes", "peak_memory_ratio", "oom_events"],
+      "properties": {
+        "elapsed_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "cpu_usage_usec": {"type": "integer", "minimum": 0},
+        "cpu_user_usec": {"type": "integer", "minimum": 0},
+        "cpu_system_usec": {"type": "integer", "minimum": 0},
+        "cpu_throttled_usec": {"type": "integer", "minimum": 0},
+        "peak_memory_bytes": {"type": "integer", "minimum": 0},
+        "memory_limit_bytes": {"enum": [30064771072, 60129542144]},
+        "peak_memory_ratio": {"type": "number", "minimum": 0},
+        "oom_events": {"type": "integer", "minimum": 0}
+      }
+    },
+    "output_tree_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "exit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "error_category"],
+      "properties": {
+        "code": {"type": "integer", "minimum": 0, "maximum": 255},
+        "error_category": {"enum": ["none", "command_failed", "attestation_failed", "digest_failed", "infrastructure_error"]}
+      }
+    },
+    "sample_kind": {"enum": ["validation", "measured"]},
+    "sample_index": {"type": "integer", "minimum": 0, "maximum": 5}
+  }
+}
