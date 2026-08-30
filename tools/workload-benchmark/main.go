@@ -11,7 +11,6 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
-	"net/http"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -19,7 +18,6 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/workloadbench"
 )
@@ -262,7 +260,7 @@ func executeSeed(options runOptions, configuration workloadbench.Configuration, 
 	}
 	defer cleanup()
 	argv, _ := workloadbench.FixedArgv(options.workload)
-	command := exec.Command(filepath.Join(worktree, argv[0]), argv[1:]...)
+	command := exec.Command("bash", filepath.Join(worktree, argv[0]), argv[1])
 	command.Dir = worktree
 	command.Env = benchmarkEnvironment(configuration, cache)
 	return command.Run()
@@ -509,7 +507,15 @@ func inspectToolchain(root string) (toolIdentity, error) {
 }
 
 func commandOutput(directory, name string, args ...string) (string, error) {
-	command := exec.Command(name, args...)
+	var command *exec.Cmd
+	switch name {
+	case "go":
+		command = exec.Command("go", args...)
+	case "terraform":
+		command = exec.Command("terraform", args...)
+	default:
+		return "", fmt.Errorf("identity command %q is not fixed", name)
+	}
 	command.Dir = directory
 	output, err := command.Output()
 	if err != nil {
@@ -586,22 +592,19 @@ func fieldsFromFile(path string) ([]string, error) {
 }
 
 func azureVMSize() (string, error) {
-	client := &http.Client{Transport: &http.Transport{Proxy: nil}, Timeout: 10 * time.Second}
-	request, err := http.NewRequest(http.MethodGet, "http://169.254.169.254/metadata/instance/compute/vmSize?api-version=2021-02-01&format=text", nil)
+	command := exec.Command(
+		"curl", "--fail", "--silent", "--show-error", "--max-time", "10",
+		"--noproxy", "*", "-H", "Metadata:true",
+		"http://169.254.169.254/metadata/instance/compute/vmSize?api-version=2021-02-01&format=text",
+	)
+	output, err := command.Output()
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("query Azure VM size: %w", err)
 	}
-	request.Header.Set("Metadata", "true")
-	response, err := client.Do(request)
-	if err != nil {
-		return "", err
+	if len(output) > 128 {
+		return "", errors.New("Azure VM size response is oversized")
 	}
-	defer response.Body.Close()
-	if response.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("Azure metadata returned %s", response.Status)
-	}
-	body, err := io.ReadAll(io.LimitReader(response.Body, 128))
-	return strings.TrimSpace(string(body)), err
+	return strings.TrimSpace(string(output)), nil
 }
 
 func readRawProfile(path string) (rawProfile, error) {
