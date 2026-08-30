@@ -44,6 +44,39 @@ type jobContract struct {
 
 func strptr(value string) *string { return &value }
 
+func TestWorkloadBenchmarkTrustAndRunnerContract(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "workload-benchmark.yml"))
+	if err != nil {
+		t.Fatalf("read workload benchmark workflow: %v", err)
+	}
+	workflow := string(content)
+	required := []string{
+		"types: [labeled]",
+		"github.event.label.name == 'compute-benchmark-approved'",
+		"github.event.pull_request.head.repo.full_name == github.repository",
+		"ref: ${{ github.event.pull_request.head.sha }}",
+		"persist-credentials: false",
+		"runs-on: managed-socketless",
+		"runs-on: terraform-provider-xcsh-compute",
+		"benchmark-d8:",
+		"benchmark-d16:",
+	}
+	for _, fragment := range required {
+		if !strings.Contains(workflow, fragment) {
+			t.Errorf("workload benchmark security contract is missing %q", fragment)
+		}
+	}
+	for _, forbidden := range []string{
+		"workflow_dispatch:",
+		"runs-on: ${{ inputs.",
+		"runs-on: ${{ matrix.",
+	} {
+		if strings.Contains(workflow, forbidden) {
+			t.Errorf("workload benchmark security contract contains forbidden fragment %q", forbidden)
+		}
+	}
+}
+
 func TestOnMergeRegenerationSubjectBindsSquashPRNumber(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
 	if err != nil {

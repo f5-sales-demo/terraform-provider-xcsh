@@ -1,0 +1,44 @@
+---
+name: Workload Benchmark
+
+on:
+  pull_request:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: workload-benchmark-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  benchmark-d8:
+    name: Attest D8 baseline
+    if: github.event_name == 'pull_request' && github.event.action == 'labeled' && github.event.label.name == 'compute-benchmark-approved' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: managed-socketless
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact pull request head
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: ./.github/actions/workload-benchmark
+        with:
+          profile: d8
+
+  benchmark-d16:
+    name: Attest D16 candidate
+    if: github.event_name == 'pull_request' && github.event.action == 'labeled' && github.event.label.name == 'compute-benchmark-approved' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: terraform-provider-xcsh-compute
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact pull request head
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: ./.github/actions/workload-benchmark
+        with:
+          profile: d16
