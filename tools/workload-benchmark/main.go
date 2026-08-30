@@ -167,7 +167,12 @@ func runCommand(args []string) error {
 		if probeErr != nil {
 			return probeErr
 		}
-		if baseline.Exit.Code != 0 || baseline.Metrics.PeakMemoryRatio >= 0.80 || baseline.Metrics.OOMEvents != 0 {
+		// The disposable baseline probe exists only to establish the canonical
+		// output digest for this independently scheduled D8 candidate. Apply
+		// memory and OOM eligibility gates to the candidate's own validation
+		// receipt below; otherwise a resource-ineligible baseline can suppress
+		// the candidate receipt entirely.
+		if !baselineProbeProvidesDigest(baseline) {
 			return nil
 		}
 		expectedBaselineDigest = baseline.OutputTreeSHA256
@@ -227,6 +232,10 @@ func runCommand(args []string) error {
 		}
 	}
 	return nil
+}
+
+func baselineProbeProvidesDigest(receipt workloadbench.Receipt) bool {
+	return receipt.Exit.Code == 0
 }
 
 func runExampleSuiteCommand(args []string) error {
