@@ -29,9 +29,10 @@ const (
 )
 
 var (
-	commitPattern = regexp.MustCompile(`^[0-9a-f]{40}$`)
-	digestPattern = regexp.MustCompile(`^sha256:[0-9a-f]{64}$`)
-	workloadArgv  = map[string][]string{
+	commitPattern         = regexp.MustCompile(`^[0-9a-f]{40}$`)
+	currentVariantPattern = regexp.MustCompile(`^d(8|16)-current(?:-examples-c(1|2|4|8))?$`)
+	digestPattern         = regexp.MustCompile(`^sha256:[0-9a-f]{64}$`)
+	workloadArgv          = map[string][]string{
 		"go-build":                     {"scripts/run-fixed-benchmark-workload.sh", "go-build"},
 		"go-vet":                       {"scripts/run-fixed-benchmark-workload.sh", "go-vet"},
 		"go-race":                      {"scripts/run-fixed-benchmark-workload.sh", "go-race"},
@@ -235,7 +236,7 @@ func validateConfiguration(configuration Configuration, workload string) error {
 		return errors.New("variant identity is empty")
 	}
 	if configuration.GOMAXPROCS == 0 {
-		if configuration.GOFLAGS != "" || !strings.HasSuffix(configuration.VariantID, "-current") {
+		if configuration.GOFLAGS != "" || !currentVariantPattern.MatchString(configuration.VariantID) {
 			return errors.New("current configuration is malformed")
 		}
 	} else if configuration.GOFLAGS != "-p="+strconv.Itoa(configuration.GOMAXPROCS) ||

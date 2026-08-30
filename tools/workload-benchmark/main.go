@@ -70,6 +70,8 @@ func main() {
 	switch os.Args[1] {
 	case "run":
 		err = runCommand(os.Args[2:])
+	case "run-example-suite":
+		err = runExampleSuiteCommand(os.Args[2:])
 	case "aggregate":
 		err = aggregateCommand(os.Args[2:])
 	default:
@@ -218,6 +220,183 @@ func runCommand(args []string) error {
 			receipt, sampleErr := executeSample(options, tools, runner, configuration, plan, "measured", state, sample)
 			if sampleErr != nil {
 				return sampleErr
+			}
+			if receipt.Exit.Code != 0 {
+				return nil
+			}
+		}
+	}
+	return nil
+}
+
+func runExampleSuiteCommand(args []string) error {
+	set := flag.NewFlagSet("run-example-suite", flag.ContinueOnError)
+	options := runOptions{workload: "terraform-example-validation"}
+	set.StringVar(&options.profile, "profile", "", "fixed profile: d8 or d16")
+	set.StringVar(&options.commit, "commit", "", "exact pull request head")
+	set.StringVar(&options.sourceRoot, "source-root", ".", "source repository")
+	set.StringVar(&options.specSource, "spec-source", "docs/specifications/api", "verified specification directory")
+	set.StringVar(&options.cacheRoot, "cache-root", "", "run-local cache root")
+	set.StringVar(&options.outputDir, "output-dir", "", "sanitized receipt directory")
+	set.StringVar(&options.baselineDir, "baseline-dir", "", "D8 validation receipt directory")
+	if err := set.Parse(args); err != nil {
+		return err
+	}
+	if set.NArg() != 0 || (options.profile != "d8" && options.profile != "d16") {
+		return errors.New("example suite accepts only a fixed d8 or d16 profile")
+	}
+	if !regexp.MustCompile(`^[0-9a-f]{40}$`).MatchString(options.commit) || options.cacheRoot == "" || options.outputDir == "" {
+		return errors.New("example suite requires an exact commit and run-local cache/output roots")
+	}
+	if options.profile == "d16" && options.baselineDir == "" {
+		return errors.New("d16 example suite requires D8 baseline receipts")
+	}
+	var err error
+	options.sourceRoot, err = filepath.Abs(options.sourceRoot)
+	if err != nil {
+		return err
+	}
+	options.specSource, err = filepath.Abs(options.specSource)
+	if err != nil {
+		return err
+	}
+	if err := requireDirectory(options.specSource); err != nil {
+		return fmt.Errorf("verified specification bundle: %w", err)
+	}
+	if err := os.MkdirAll(options.outputDir, 0o755); err != nil {
+		return err
+	}
+	tools, err := inspectToolchain(options.sourceRoot)
+	if err != nil {
+		return err
+	}
+	runner, err := attestRunner(options.profile)
+	if err != nil {
+		return err
+	}
+
+	variants := []string{options.profile + "-current", options.profile + "-n1", options.profile + "-n2", options.profile + "-n4", options.profile + "-n8"}
+	if options.profile == "d16" {
+		variants = append(variants, "d16-n16")
+	}
+	baselineDigest := ""
+	if options.profile == "d16" {
+		baselineDigest, err = findBaselineDigest(options.baselineDir, options.workload)
+		if err != nil {
+			return err
+		}
+	}
+
+	type screened struct {
+		configuration workloadbench.Configuration
+		duration      float64
+	}
+	var candidates []screened
+	for _, variant := range variants {
+		configuration, parseErr := parseVariant(options.profile, options.workload, variant)
+		if parseErr != nil {
+			return parseErr
+		}
+		probeOptions := options
+		probeOptions.variant = variant
+		plan, planErr := validationCache(options, variant)
+		if planErr != nil {
+			return planErr
+		}
+		receipt, probeErr := executeSample(probeOptions, tools, runner, configuration, plan, "validation", "cold", 0)
+		if probeErr != nil {
+			return probeErr
+		}
+		if options.profile == "d8" && variant == "d8-current" {
+			baselineDigest = receipt.OutputTreeSHA256
+		}
+		if receipt.Exit.Code == 0 && receipt.Metrics.PeakMemoryRatio < 0.80 && receipt.Metrics.OOMEvents == 0 && receipt.OutputTreeSHA256 == baselineDigest {
+			candidates = append(candidates, screened{configuration: configuration, duration: receipt.Metrics.ElapsedSeconds})
+		}
+	}
+	if len(candidates) == 0 {
+		return nil
+	}
+	sort.Slice(candidates, func(i, j int) bool {
+		if candidates[i].duration != candidates[j].duration {
+			return candidates[i].duration < candidates[j].duration
+		}
+		if candidates[i].configuration.GOMAXPROCS != candidates[j].configuration.GOMAXPROCS {
+			return candidates[i].configuration.GOMAXPROCS < candidates[j].configuration.GOMAXPROCS
+		}
+		return candidates[i].configuration.VariantID < candidates[j].configuration.VariantID
+	})
+	selected := candidates[0].configuration
+
+	if options.profile == "d8" {
+		baselineConfiguration, _ := parseVariant("d8", options.workload, "d8-current")
+		baselineOptions := options
+		baselineOptions.variant = baselineConfiguration.VariantID
+		if err := measureSamples(baselineOptions, tools, runner, baselineConfiguration); err != nil {
+			return err
+		}
+	}
+	for _, concurrency := range []int{1, 2, 4, 8} {
+		configuration := selected
+		if concurrency > 1 {
+			configuration.VariantID += "-examples-c" + strconv.Itoa(concurrency)
+		}
+		configuration.ExampleConcurrency = concurrency
+		if options.profile == "d8" && configuration.VariantID == "d8-current" {
+			continue
+		}
+		variantOptions := options
+		variantOptions.variant = configuration.VariantID
+		plan, planErr := validationCache(options, configuration.VariantID)
+		if planErr != nil {
+			return planErr
+		}
+		validation, validationErr := executeSample(variantOptions, tools, runner, configuration, plan, "validation", "cold", 0)
+		if validationErr != nil {
+			return validationErr
+		}
+		if validation.Exit.Code != 0 || validation.Metrics.PeakMemoryRatio >= 0.80 || validation.Metrics.OOMEvents != 0 || validation.OutputTreeSHA256 != baselineDigest {
+			continue
+		}
+		if err := measureSamples(variantOptions, tools, runner, configuration); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func validationCache(options runOptions, variant string) (workloadbench.CachePlan, error) {
+	plan, err := workloadbench.PlanCache(options.cacheRoot, options.profile, options.workload, variant, "cold", 1)
+	if err != nil {
+		return workloadbench.CachePlan{}, err
+	}
+	plan.Root = filepath.Join(options.cacheRoot, options.profile, options.workload, variant, "validation")
+	plan.GoBuild = filepath.Join(plan.Root, "go-build")
+	plan.GoModules = filepath.Join(plan.Root, "go-mod")
+	plan.Terraform = filepath.Join(plan.Root, "terraform")
+	plan.PackageManager = filepath.Join(plan.Root, "package-manager")
+	return plan, nil
+}
+
+func measureSamples(options runOptions, tools toolIdentity, runner workloadbench.RunnerAttestation, configuration workloadbench.Configuration) error {
+	for _, state := range []string{"cold", "warm"} {
+		if state == "warm" {
+			plan, err := workloadbench.PlanCache(options.cacheRoot, options.profile, options.workload, options.variant, state, 1)
+			if err != nil {
+				return err
+			}
+			if err := executeSeed(options, configuration, plan); err != nil {
+				return fmt.Errorf("warm cache seed: %w", err)
+			}
+		}
+		for sample := 1; sample <= 5; sample++ {
+			plan, err := workloadbench.PlanCache(options.cacheRoot, options.profile, options.workload, options.variant, state, sample)
+			if err != nil {
+				return err
+			}
+			receipt, err := executeSample(options, tools, runner, configuration, plan, "measured", state, sample)
+			if err != nil {
+				return err
 			}
 			if receipt.Exit.Code != 0 {
 				return nil
@@ -693,7 +872,11 @@ func aggregateCommand(args []string) error {
 		}
 		results = append(results, result)
 	}
-	payload, err := json.MarshalIndent(map[string]any{"schema_version": 1, "workloads": results}, "", "  ")
+	receiptBundleDigest, err := workloadbench.CanonicalTreeDigest(input)
+	if err != nil {
+		return fmt.Errorf("digest receipt bundle: %w", err)
+	}
+	payload, err := json.MarshalIndent(map[string]any{"schema_version": 1, "receipt_bundle_sha256": receiptBundleDigest, "workloads": results}, "", "  ")
 	if err != nil {
 		return err
 	}
@@ -704,6 +887,7 @@ func aggregateCommand(args []string) error {
 	hash := sha256.Sum256(payload)
 	var summary strings.Builder
 	summary.WriteString("## Provider workload benchmark\n\n")
+	summary.WriteString("Receipt bundle SHA-256: `" + receiptBundleDigest + "`\n\n")
 	summary.WriteString("Aggregate SHA-256: `sha256:" + hex.EncodeToString(hash[:]) + "`\n\n")
 	summary.WriteString("| Workload | Winner | Production compute eligible |\n|---|---|---|\n")
 	for _, result := range results {

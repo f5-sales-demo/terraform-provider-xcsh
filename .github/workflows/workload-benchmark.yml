@@ -24,19 +24,10 @@ jobs:
       matrix:
         workload: [go-build, go-vet, go-race, provider-generation, documentation-generation, terraform-example-validation, release-source-reproduction]
         variant: [d8-current, d8-n1, d8-n2, d8-n4, d8-n8]
+        exclude:
+          - workload: terraform-example-validation
         include:
-          - {workload: terraform-example-validation, variant: d8-n1-examples-c2}
-          - {workload: terraform-example-validation, variant: d8-n1-examples-c4}
-          - {workload: terraform-example-validation, variant: d8-n1-examples-c8}
-          - {workload: terraform-example-validation, variant: d8-n2-examples-c2}
-          - {workload: terraform-example-validation, variant: d8-n2-examples-c4}
-          - {workload: terraform-example-validation, variant: d8-n2-examples-c8}
-          - {workload: terraform-example-validation, variant: d8-n4-examples-c2}
-          - {workload: terraform-example-validation, variant: d8-n4-examples-c4}
-          - {workload: terraform-example-validation, variant: d8-n4-examples-c8}
-          - {workload: terraform-example-validation, variant: d8-n8-examples-c2}
-          - {workload: terraform-example-validation, variant: d8-n8-examples-c4}
-          - {workload: terraform-example-validation, variant: d8-n8-examples-c8}
+          - {workload: terraform-example-validation, variant: d8-example-suite}
     steps:
       - name: Checkout exact pull request head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -63,22 +54,10 @@ jobs:
       matrix:
         workload: [go-build, go-vet, go-race, provider-generation, documentation-generation, terraform-example-validation, release-source-reproduction]
         variant: [d16-current, d16-n1, d16-n2, d16-n4, d16-n8, d16-n16]
+        exclude:
+          - workload: terraform-example-validation
         include:
-          - {workload: terraform-example-validation, variant: d16-n1-examples-c2}
-          - {workload: terraform-example-validation, variant: d16-n1-examples-c4}
-          - {workload: terraform-example-validation, variant: d16-n1-examples-c8}
-          - {workload: terraform-example-validation, variant: d16-n2-examples-c2}
-          - {workload: terraform-example-validation, variant: d16-n2-examples-c4}
-          - {workload: terraform-example-validation, variant: d16-n2-examples-c8}
-          - {workload: terraform-example-validation, variant: d16-n4-examples-c2}
-          - {workload: terraform-example-validation, variant: d16-n4-examples-c4}
-          - {workload: terraform-example-validation, variant: d16-n4-examples-c8}
-          - {workload: terraform-example-validation, variant: d16-n8-examples-c2}
-          - {workload: terraform-example-validation, variant: d16-n8-examples-c4}
-          - {workload: terraform-example-validation, variant: d16-n8-examples-c8}
-          - {workload: terraform-example-validation, variant: d16-n16-examples-c2}
-          - {workload: terraform-example-validation, variant: d16-n16-examples-c4}
-          - {workload: terraform-example-validation, variant: d16-n16-examples-c8}
+          - {workload: terraform-example-validation, variant: d16-example-suite}
     steps:
       - name: Checkout exact pull request head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -89,7 +68,7 @@ jobs:
       - name: Download D8 validation receipts
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          pattern: workload-receipts-d8-*-d8-current-${{ github.run_id }}-${{ github.run_attempt }}
+          pattern: workload-receipts-d8-*-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/d8-baselines
           merge-multiple: true
       - uses: ./.github/actions/workload-benchmark
