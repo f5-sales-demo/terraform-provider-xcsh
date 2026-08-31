@@ -50,7 +50,7 @@ runs:
             ;;
         esac
 
-        expected_image=sha256:8817d93949ce0429b16bbcae686065b81d976b43df22e15e90379b5978c6dc2b
+        expected_image=sha256:2a0243be5404daa0f52bae16384f53dbc04554e31406ed0db45152d92f6187e1
         output_dir="$RUNNER_TEMP/workload-attestation"
         output="$output_dir/$BENCHMARK_PROFILE.json"
         mkdir -p "$output_dir"
