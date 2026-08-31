@@ -3,4 +3,4 @@
 schema_version: 1
 repository: terraform-provider-xcsh
 workload: super-linter
-purpose: profiling-canary
+purpose: native-optimization-canary
