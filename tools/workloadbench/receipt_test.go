@@ -36,7 +36,7 @@ func validReceipt(variant, profile, cache string, sample int, duration float64) 
 			GoVersion:     "go1.25.12", TerraformVersion: "1.15.8",
 			DocumentationTool: "github.com/hashicorp/terraform-plugin-docs@v0.25.0+dirty",
 			ActionCheckout:    "3d3c42e5aac5ba805825da76410c181273ba90b1",
-			RunnerImage:       "sha256:8817d93949ce0429b16bbcae686065b81d976b43df22e15e90379b5978c6dc2b",
+			RunnerImage:       "sha256:2a0243be5404daa0f52bae16384f53dbc04554e31406ed0db45152d92f6187e1",
 		},
 		Runner:           RunnerAttestation{Label: label, Profile: map[string]string{"d8": "socketless", "d16": "compute"}[profile], VMSize: vm, CPULimit: cpu, MemoryLimit: memory, DockerSocket: false},
 		Workload:         WorkloadIdentity{ID: "go-build", Argv: []string{"scripts/run-fixed-benchmark-workload.sh", "go-build"}},

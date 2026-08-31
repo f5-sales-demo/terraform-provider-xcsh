@@ -724,7 +724,7 @@ func attestRunner(profile string) (workloadbench.RunnerAttestation, error) {
 	if strings.Contains(image, "@") {
 		image = image[strings.LastIndex(image, "@")+1:]
 	}
-	if image != "sha256:8817d93949ce0429b16bbcae686065b81d976b43df22e15e90379b5978c6dc2b" {
+	if image != "sha256:2a0243be5404daa0f52bae16384f53dbc04554e31406ed0db45152d92f6187e1" {
 		return workloadbench.RunnerAttestation{}, errors.New("observed runner image mismatch")
 	}
 	cgroup, err := currentCgroup()

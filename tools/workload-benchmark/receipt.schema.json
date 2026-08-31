@@ -31,7 +31,7 @@
         "terraform_version": {"const": "1.15.8"},
         "documentation_tool": {"const": "github.com/hashicorp/terraform-plugin-docs@v0.25.0+dirty"},
         "action_checkout": {"const": "3d3c42e5aac5ba805825da76410c181273ba90b1"},
-        "runner_image": {"const": "sha256:8817d93949ce0429b16bbcae686065b81d976b43df22e15e90379b5978c6dc2b"}
+        "runner_image": {"const": "sha256:2a0243be5404daa0f52bae16384f53dbc04554e31406ed0db45152d92f6187e1"}
       }
     },
     "runner": {

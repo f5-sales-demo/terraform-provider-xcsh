@@ -25,7 +25,7 @@ import (
 const (
 	ReceiptSchemaVersion = 1
 	expectedRepository   = "f5-sales-demo/terraform-provider-xcsh"
-	expectedRunnerImage  = "sha256:8817d93949ce0429b16bbcae686065b81d976b43df22e15e90379b5978c6dc2b"
+	expectedRunnerImage  = "sha256:2a0243be5404daa0f52bae16384f53dbc04554e31406ed0db45152d92f6187e1"
 )
 
 var (
