@@ -32,6 +32,8 @@ terraform {
 resource "xcsh_service_policy_rule" "example" {
   name      = "example-service-policy-rule"
   namespace = "staging"
+
+  action = "DENY"
 }
 ```
 
@@ -59,7 +61,7 @@ resource "xcsh_service_policy_rule" "example" {
 
 ### Spec Argument Reference
 
-<a id="action"></a>&#x2022; [`action`](#action) - Optional String  Defaults to `DENY`<br>Possible values are `DENY`, `ALLOW`, `NEXT_POLICY`<br>[Enum: DENY|ALLOW|NEXT_POLICY] The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of
+<a id="action"></a>&#x2022; [`action`](#action) - Required String  Defaults to `DENY`<br>Possible values are `DENY`, `ALLOW`, `NEXT_POLICY`<br>[Enum: DENY|ALLOW|NEXT_POLICY] The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of
 the request is terminated and an appropriate message/code returned to
 
 -> **One of the following:**
