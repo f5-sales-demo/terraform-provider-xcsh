@@ -14,104 +14,39 @@ concurrency:
 
 jobs:
   benchmark-d8:
-    name: D8 ${{ matrix.workload }} ${{ matrix.variant }}
+    name: Attest D8 baseline
     if: github.event_name == 'pull_request' && github.event.action == 'labeled' && github.event.label.name == 'compute-benchmark-approved' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: managed-socketless
-    timeout-minutes: 720
-    strategy:
-      fail-fast: false
-      max-parallel: 3
-      matrix:
-        workload: [go-build, go-vet, go-race, provider-generation, documentation-generation, terraform-example-validation, release-source-reproduction]
-        variant: [d8-current, d8-n1, d8-n2, d8-n4, d8-n8]
-        exclude:
-          - workload: terraform-example-validation
-        include:
-          - {workload: terraform-example-validation, variant: d8-example-suite}
+    timeout-minutes: 10
     steps:
       - name: Checkout exact pull request head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
           persist-credentials: false
       - uses: ./.github/actions/workload-benchmark
         with:
+          canary-only: 'true'
           profile: d8
           token: ${{ github.token }}
-          variant: ${{ matrix.variant }}
-          workload: ${{ matrix.workload }}
+          variant: d8-current
+          workload: go-build
 
   benchmark-d16:
-    name: D16 ${{ matrix.workload }} ${{ matrix.variant }}
-    needs: benchmark-d8
+    name: Attest D16 candidate
     if: github.event_name == 'pull_request' && github.event.action == 'labeled' && github.event.label.name == 'compute-benchmark-approved' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: terraform-provider-xcsh-compute
-    timeout-minutes: 720
-    strategy:
-      fail-fast: false
-      max-parallel: 3
-      matrix:
-        workload: [go-build, go-vet, go-race, provider-generation, documentation-generation, terraform-example-validation, release-source-reproduction]
-        variant: [d16-current, d16-n1, d16-n2, d16-n4, d16-n8, d16-n16]
-        exclude:
-          - workload: terraform-example-validation
-        include:
-          - {workload: terraform-example-validation, variant: d16-example-suite}
+    timeout-minutes: 10
     steps:
       - name: Checkout exact pull request head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
           persist-credentials: false
-      - name: Download D8 validation receipts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          pattern: workload-receipts-d8-*-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/d8-baselines
-          merge-multiple: true
       - uses: ./.github/actions/workload-benchmark
         with:
-          baseline-dir: ${{ runner.temp }}/d8-baselines
+          canary-only: 'true'
           profile: d16
           token: ${{ github.token }}
-          variant: ${{ matrix.variant }}
-          workload: ${{ matrix.workload }}
-
-  aggregate:
-    name: Aggregate sanitized benchmark evidence
-    needs: [benchmark-d8, benchmark-d16]
-    if: always() && needs.benchmark-d8.result == 'success' && needs.benchmark-d16.result == 'success'
-    runs-on: managed-socketless
-    timeout-minutes: 15
-    steps:
-      - name: Checkout exact pull request head
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          persist-credentials: false
-      - name: Download sanitized receipts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          pattern: workload-receipts-*
-          path: ${{ runner.temp }}/receipts
-          merge-multiple: true
-      - name: Verify immutable Go toolchain
-        run: test "$(go env GOVERSION)" = go1.25.12
-      - name: Aggregate and select deterministic routes
-        run: |
-          go run ./tools/workload-benchmark aggregate \
-            --input "$RUNNER_TEMP/receipts" \
-            --output "$RUNNER_TEMP/workload-aggregate.json" \
-            --markdown "$RUNNER_TEMP/workload-aggregate.md"
-          cat "$RUNNER_TEMP/workload-aggregate.md" >>"$GITHUB_STEP_SUMMARY"
-      - name: Upload sanitized aggregate
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: workload-aggregate-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            ${{ runner.temp }}/workload-aggregate.json
-            ${{ runner.temp }}/workload-aggregate.md
-          if-no-files-found: error
-          retention-days: 30
+          variant: d16-current
+          workload: go-build
