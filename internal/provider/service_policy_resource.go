@@ -1372,6 +1372,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"spec": schema.SingleNestedBlock{
 									MarkdownDescription: "Shape of service_policy_rule in the storage backend.",
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("action", "waf_action")},
 									Attributes: map[string]schema.Attribute{
 										"action": schema.StringAttribute{
 											MarkdownDescription: "[Enum: DENY|ALLOW|NEXT_POLICY] The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of the request is terminated and an appropriate message/code returned to.. Possible values are `DENY`, `ALLOW`, `NEXT_POLICY`. Defaults to `DENY`.",
