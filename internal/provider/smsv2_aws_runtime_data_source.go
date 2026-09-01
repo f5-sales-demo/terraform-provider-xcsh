@@ -69,7 +69,7 @@ func (d *Smsv2AWSRuntimeDataSource) Metadata(_ context.Context, req datasource.M
 }
 
 func (d *Smsv2AWSRuntimeDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
-	resp.Schema = schema.Schema{MarkdownDescription: "Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and site-global health.", Attributes: map[string]schema.Attribute{
+	resp.Schema = schema.Schema{MarkdownDescription: "Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and node health.", Attributes: map[string]schema.Attribute{
 		"id":        schema.StringAttribute{Computed: true},
 		"namespace": schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.OneOf("system")}},
 		"site":      schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
@@ -254,10 +254,10 @@ func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []s
 	}
 	healthNode, healthState := stringField(health, "hostname"), strings.ToUpper(stringField(health, "state"))
 	if healthNode == "" || healthState == "" {
-		return nil, fmt.Errorf("SMSv2 site-global health observation is incomplete")
+		return nil, fmt.Errorf("SMSv2 node health observation is incomplete")
 	}
 	if _, exists := configuredNodes[healthNode]; !exists {
-		return nil, fmt.Errorf("SMSv2 site-global health node %q is not configured for this site", healthNode)
+		return nil, fmt.Errorf("SMSv2 node health node %q is not configured for this site", healthNode)
 	}
 	siteHealthy := healthState == "PROVISIONED"
 	result := make(map[string]smsv2RuntimeInterfaceModel, len(bindings))
