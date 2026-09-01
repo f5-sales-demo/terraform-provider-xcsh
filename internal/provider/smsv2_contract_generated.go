@@ -6,7 +6,7 @@ const (
 	smsv2ContractID        = "f5xc-ce-automation/v2"
 	smsv2ContractVersion   = "5.0.0"
 	smsv2APIReleaseTag     = "v5.0.0"
-	smsv2APIReleaseCommit  = "3a647f1bf0c2447a71750c69136fab96fb073902"
+	smsv2SourceCommit      = "3a647f1bf0c2447a71750c69136fab96fb073902"
 	smsv2TelemetrySchemaID = "f5xc-smsv2-aws-tgw-telemetry/v1"
 )
 

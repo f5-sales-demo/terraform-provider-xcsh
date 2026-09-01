@@ -69,7 +69,7 @@ const (
 	smsv2ContractID = %q
 	smsv2ContractVersion = %q
 	smsv2APIReleaseTag = %q
-	smsv2APIReleaseCommit = %q
+	smsv2SourceCommit = %q
 	smsv2TelemetrySchemaID = %q
 )
 

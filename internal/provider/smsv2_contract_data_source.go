@@ -62,7 +62,7 @@ func (d *Smsv2ContractDataSource) Read(ctx context.Context, _ datasource.ReadReq
 	state := Smsv2ContractDataSourceModel{
 		ID: types.StringValue(smsv2ContractID + "@" + smsv2ContractVersion), ContractID: types.StringValue(smsv2ContractID),
 		ContractVersion: types.StringValue(smsv2ContractVersion), APIReleaseTag: types.StringValue(smsv2APIReleaseTag),
-		APIReleaseCommit: types.StringValue(smsv2APIReleaseCommit), TelemetrySchema: types.StringValue(smsv2TelemetrySchemaID),
+		APIReleaseCommit: types.StringValue(smsv2SourceCommit), TelemetrySchema: types.StringValue(smsv2TelemetrySchemaID),
 		Capabilities: capabilities, F5XCAuthorities: f5xc, AWSAuthorities: aws,
 	}
 	resp.Diagnostics.Append(resp.State.Set(ctx, &state)...)
