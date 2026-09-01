@@ -22,6 +22,7 @@ import (
 const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
+const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
 
 var canonicalManagedSocketlessRunsOn = []string{
 	"managed-socketless",
@@ -453,6 +454,8 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 			canonical[index] = repositoryRunnerLabel
 		case sharedSocketlessRunnerExpression:
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
+		case docsSocketlessRunnerExpression:
+			canonical[index] = canonicalManagedSocketlessRunsOn[0]
 		default:
 			*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
 		}
@@ -761,7 +764,8 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		}
 		for jobID, job := range workflow.Jobs {
 			runsOn, _ := stringSlice(job["runs-on"])
-			if slicesContain(runsOn, "managed-socketless") {
+			canonicalRunsOn := canonicalizeRunsOn(runsOn, &[]string{}, jobID)
+			if slicesContain(canonicalRunsOn, "managed-socketless") {
 				managedSocketless[filename+"/"+jobID] = true
 			}
 			steps, _ := job["steps"].([]any)
@@ -806,9 +810,14 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	// Schema v5 is the sole supported prerelease contract. It preserves the
 	// managed routes while adding attested compute-runner policy.
 	expected["auto-merge.yml/require-token"] = true
-	expected["dependabot-auto-merge.yml/auto-merge"] = true
 	expected["semgrep.yml/semgrep"] = true
+	expected["super-linter.yml/linked-issue"] = true
 	expected["workflow-security-audit.yml/audit"] = true
+	if _, err := os.Stat(filepath.Join(workflowDir, "dependabot-auto-merge.yml")); err == nil {
+		expected["dependabot-auto-merge.yml/auto-merge"] = true
+	} else if !os.IsNotExist(err) {
+		t.Fatalf("stat managed Dependabot workflow: %v", err)
+	}
 	delete(expected, "enforce-repo-settings.yml/resolve-source")
 	delete(expected, "require-linked-issue.yml/check")
 	expected["require-linked-issue.yml/check-linked-issues"] = true
@@ -881,6 +890,11 @@ jobs:
 `)
 	if issues := validateWorkflowBytes("fixture.yml", valid); len(issues) != 0 {
 		t.Fatalf("canonical repository runner expression failed: %v", issues)
+	}
+
+	docsSocketless := []byte(strings.Replace(string(valid), "[self-hosted, Linux, X64, \"${{ github.event.repository.name }}\", ubuntu-24.04]", docsSocketlessRunnerExpression, 1))
+	if issues := validateWorkflowBytes("fixture.yml", docsSocketless); len(issues) != 0 {
+		t.Fatalf("canonical docs socketless runner expression failed: %v", issues)
 	}
 
 	unsafe := []byte(strings.Replace(string(valid), "github.event.repository.name", "github.event.inputs.runner", 1))
