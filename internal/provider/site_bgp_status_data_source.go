@@ -52,10 +52,6 @@ type smsv2PeerStatusModel struct {
 	Established        types.Bool   `tfsdk:"established"`
 }
 
-var smsv2ExpectedPeerAttrTypes = map[string]attr.Type{
-	"node": types.StringType, "role": types.StringType, "mac": types.StringType,
-	"peer_address": types.StringType, "expected_routes": types.SetType{ElemType: types.StringType},
-}
 var smsv2PeerStatusAttrTypes = map[string]attr.Type{
 	"node": types.StringType, "role": types.StringType, "mac": types.StringType,
 	"interface_name": types.StringType, "peer_address": types.StringType, "state": types.StringType,

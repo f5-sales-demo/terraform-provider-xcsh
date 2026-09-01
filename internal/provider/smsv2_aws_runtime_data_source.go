@@ -42,7 +42,6 @@ type smsv2RuntimeInterfaceModel struct {
 	Healthy       types.Bool   `tfsdk:"healthy"`
 }
 
-var smsv2BindingAttrTypes = map[string]attr.Type{"node": types.StringType, "role": types.StringType, "mac": types.StringType}
 var smsv2RuntimeInterfaceAttrTypes = map[string]attr.Type{
 	"node": types.StringType, "role": types.StringType, "mac": types.StringType,
 	"interface_name": types.StringType, "mtu": types.Int64Type, "healthy": types.BoolType,
