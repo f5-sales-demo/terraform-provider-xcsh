@@ -2,12 +2,12 @@
 page_title: "xcsh_smsv2_aws_runtime Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
-  Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and node health.
+  Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and site-global health.
 ---
 
 # xcsh_smsv2_aws_runtime (Data Source)
 
-Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and node health. This is a read-only data source.
+Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and site-global health. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -15,7 +15,7 @@ Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and nod
 
 ```terraform
 # Correlate stable logical node keys and AWS-authoritative ENI MAC addresses
-# with the SMSv2 interface configuration and runtime health observed by F5 XC.
+# with the SMSv2 interface configuration and site-global health observed by F5 XC.
 
 terraform {
   required_version = ">= 1.0"

@@ -3,6 +3,7 @@
 package provider
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 	"time"
@@ -25,6 +26,20 @@ func runtimeConfiguration() client.SMSv2Observation {
 			},
 		},
 	}
+}
+
+func multiNodeRuntimeConfiguration() client.SMSv2Observation {
+	nodes := []interface{}{}
+	for index, hostname := range []string{"master-0", "master-1", "master-2"} {
+		nodes = append(nodes, map[string]interface{}{
+			"hostname": hostname,
+			"interface_list": []interface{}{
+				map[string]interface{}{"name": "slo", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"mac": fmt.Sprintf("02:aa:bb:cc:%02x:01", index)}, "network_option": map[string]interface{}{"site_local_network": map[string]interface{}{}}},
+				map[string]interface{}{"name": "sli", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"mac": fmt.Sprintf("02:aa:bb:cc:%02x:02", index)}, "network_option": map[string]interface{}{"site_local_inside_network": map[string]interface{}{}}},
+			},
+		})
+	}
+	return client.SMSv2Observation{"spec": map[string]interface{}{"aws": map[string]interface{}{"not_managed": map[string]interface{}{"node_list": nodes}}}}
 }
 
 func TestExtractAndCorrelateSMSv2Runtime(t *testing.T) {
@@ -65,6 +80,86 @@ func TestSMSv2RuntimeRejectsDuplicateAndMismatch(t *testing.T) {
 	bindings, _ = validateSMSv2Bindings(bindings)
 	if _, err := correlateSMSv2Runtime(bindings, configured, client.SMSv2Observation{"hostname": "master-0", "state": "PROVISIONED"}); err == nil {
 		t.Fatal("expected node mismatch")
+	}
+}
+
+func TestSMSv2RuntimeCorrelatesMultiNodeSiteGlobalHealth(t *testing.T) {
+	configured, err := extractSMSv2ConfiguredInterfaces(multiNodeRuntimeConfiguration())
+	if err != nil {
+		t.Fatal(err)
+	}
+	bindings := map[string]smsv2BindingModel{}
+	for index, hostname := range []string{"master-0", "master-1", "master-2"} {
+		bindings[fmt.Sprintf("node_%d_slo", index)] = smsv2BindingModel{Node: types.StringValue(hostname), Role: types.StringValue("slo"), MAC: types.StringValue(fmt.Sprintf("02:aa:bb:cc:%02x:01", index))}
+		bindings[fmt.Sprintf("node_%d_sli", index)] = smsv2BindingModel{Node: types.StringValue(hostname), Role: types.StringValue("sli"), MAC: types.StringValue(fmt.Sprintf("02:aa:bb:cc:%02x:02", index))}
+	}
+	bindings, err = validateSMSv2Bindings(bindings)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	got, err := correlateSMSv2Runtime(bindings, configured, client.SMSv2Observation{"hostname": "master-1", "state": "PROVISIONED"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != 6 {
+		t.Fatalf("got %d interfaces, want 6", len(got))
+	}
+	for key, iface := range got {
+		if !iface.Healthy.ValueBool() {
+			t.Fatalf("interface %q is not healthy: %#v", key, iface)
+		}
+	}
+}
+
+func TestSMSv2RuntimeRejectsForeignOrIncompleteSiteHealth(t *testing.T) {
+	configured, err := extractSMSv2ConfiguredInterfaces(multiNodeRuntimeConfiguration())
+	if err != nil {
+		t.Fatal(err)
+	}
+	bindings := map[string]smsv2BindingModel{
+		"outside": {Node: types.StringValue("master-0"), Role: types.StringValue("slo"), MAC: types.StringValue("02:aa:bb:cc:00:01")},
+	}
+	bindings, err = validateSMSv2Bindings(bindings)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	for name, health := range map[string]client.SMSv2Observation{
+		"foreign node":  {"hostname": "other-site-node", "state": "PROVISIONED"},
+		"missing node":  {"state": "PROVISIONED"},
+		"missing state": {"hostname": "master-0"},
+	} {
+		t.Run(name, func(t *testing.T) {
+			if _, err := correlateSMSv2Runtime(bindings, configured, health); err == nil {
+				t.Fatal("expected invalid site health error")
+			}
+		})
+	}
+}
+
+func TestSMSv2RuntimePropagatesUnhealthySiteState(t *testing.T) {
+	configured, err := extractSMSv2ConfiguredInterfaces(multiNodeRuntimeConfiguration())
+	if err != nil {
+		t.Fatal(err)
+	}
+	bindings := map[string]smsv2BindingModel{
+		"outside": {Node: types.StringValue("master-0"), Role: types.StringValue("slo"), MAC: types.StringValue("02:aa:bb:cc:00:01")},
+		"inside":  {Node: types.StringValue("master-1"), Role: types.StringValue("sli"), MAC: types.StringValue("02:aa:bb:cc:01:02")},
+	}
+	bindings, err = validateSMSv2Bindings(bindings)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	got, err := correlateSMSv2Runtime(bindings, configured, client.SMSv2Observation{"hostname": "master-2", "state": "WAITING_FOR_CONFIG"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	for key, iface := range got {
+		if iface.Healthy.ValueBool() {
+			t.Fatalf("interface %q unexpectedly healthy: %#v", key, iface)
+		}
 	}
 }
 
