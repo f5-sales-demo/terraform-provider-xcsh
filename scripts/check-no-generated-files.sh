@@ -39,7 +39,10 @@ MANUALLY_MAINTAINED_FILES=(
   "internal/provider/site_registration_data_source.go"
   "examples/data-sources/addon_service/data-source.tf"
   "examples/data-sources/addon_service_activation_status/data-source.tf"
+  "examples/data-sources/xcsh_site_bgp_status/data-source.tf"
   "examples/data-sources/site_registration/data-source.tf"
+  "examples/data-sources/xcsh_smsv2_aws_runtime/data-source.tf"
+  "examples/data-sources/xcsh_smsv2_contract/data-source.tf"
   # MkDocs documentation site index files (navigation, not provider docs)
   "docs/resources/index.md"
   "docs/data-sources/index.md"
