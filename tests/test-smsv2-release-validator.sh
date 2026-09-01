@@ -15,11 +15,37 @@ jq -n --arg observed "$observed" '{
   receipts:[{sanitized:true,redaction:"fixture"}]
 }' >"$work/smsv2-evidence-receipt.json"
 jq -n '{
+  version:"5.0.0",
   contract_id:"f5xc-ce-automation/v2",
+  resource:"securemesh_site_v2",
   api:{namespace:"system",operations:["create","read","replace","delete"]},
-  providers:{aws:{availability:"evidence_backed",capabilities:{
-    aws_ce_create:"available",runtime_status:"unavailable",tgw_connect:"unavailable"
-  }}}
+  providers:{aws:{
+    availability:"evidence_backed",
+    node_list_path:"aws.not_managed.node_list[]",
+    interface_list_path:"aws.not_managed.node_list[].interface_list[]",
+    capabilities:{aws_ce_create:"available",runtime_status:"available",tgw_connect:"available"},
+    interface_identity:{field:"ethernet_interface.mac",guest_device:"observational_only",known_macs:"non_empty_unique_per_node"},
+    roles:[{name:"slo",network_option:"site_local_network"},{name:"sli",network_option:"site_local_inside_network"}],
+    telemetry_intake:{
+      schema_id:"f5xc-smsv2-aws-tgw-telemetry/v1",availability:"available",complete:true,
+      required_facts:["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
+      observed_facts:["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
+      unavailable_facts:[]
+    },
+    runtime:{
+      configuration:{method:"GET",path:"/api/config/namespaces/{namespace}/securemesh_site_v2s/{site}",operation_id:"ves.io.schema.views.securemesh_site_v2.API.Get",response_schema:"securemesh_site_v2GetResponse"},
+      health:{method:"GET",path:"/api/operate/namespaces/system/sites/{site}/vpm/debug/global/health",operation_id:"ves.io.schema.operate.debug.CustomPublicAPI.HealthPublic",response_schema:"debugHealthResponse"},
+      bgp_peers:{method:"GET",path:"/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_peers",operation_id:"ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPPeers",response_schema:"bgpBGPPeersResponse"},
+      bgp_routes:{method:"GET",path:"/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_routes",operation_id:"ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPRoutes",response_schema:"bgpBGPRoutesResponse"},
+      simplified_routes:{method:"POST",path:"/api/operate/namespaces/{namespace}/sites/{site}/ver/simplified_routes",operation_id:"ves.io.schema.operate.route.CustomPublicAPI.ShowSimplifiedRoutes",request_schema:"routeSimplifiedRouteRequest",response_schema:"routeSimplifiedRouteResponse"}
+    },
+    authorities:{
+      f5xc:["smsv2_configuration","runtime_health","bgp_peers","bgp_routes","simplified_routes"],
+      aws:["eni","transit_gateway","transit_gateway_connect","gre_endpoints","bgp_inside_cidrs"]
+    },
+    prohibited_legacy_apis:["aws_vpc_site","aws_tgw_site"],
+    unavailable_capabilities:[]
+  }}
 }' >"$work/smsv2-contract.json"
 jq -n '{
   version:"9.9.9",eligible_count:1,covered_count:1,excluded_count:1,
@@ -35,52 +61,55 @@ jq -n '{
     "spec.segment_vrf[].segment_config.secondary_nameserver_v6"
   ]
 }' >"$work/smsv2_parity_manifest.json"
-contract_sha="sha256:$(sha256sum "$work/smsv2-contract.json" | awk '{print $1}')"
-evidence_sha="sha256:$(sha256sum "$work/smsv2-evidence-receipt.json" | awk '{print $1}')"
-jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" '{
-  schema_version:1,
-  contract_id:"f5xc-ce-automation/v2",
-  contract_version:"1.0.0",
-  release:{tag:$tag,commit:$commit},
-  assets:{"smsv2-contract.json":$contract,"smsv2-evidence-receipt.json":$evidence}
-}' >"$work/smsv2-contract-manifest.json"
 
+refresh_manifest() {
+  local directory=$1
+  local contract_sha evidence_sha
+  contract_sha="sha256:$(sha256sum "$directory/smsv2-contract.json" | awk '{print $1}')"
+  evidence_sha="sha256:$(sha256sum "$directory/smsv2-evidence-receipt.json" | awk '{print $1}')"
+  jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" '{
+    schema_version:1,contract_id:"f5xc-ce-automation/v2",contract_version:"5.0.0",
+    release:{tag:$tag,commit:$commit},
+    assets:{"smsv2-contract.json":$contract,"smsv2-evidence-receipt.json":$evidence}
+  }' >"$directory/smsv2-contract-manifest.json"
+}
+
+reject_contract_mutation() {
+  local name=$1 filter=$2 directory="$work/$1"
+  mkdir "$directory"
+  cp "$work"/*.json "$directory/"
+  jq "$filter" "$directory/smsv2-contract.json" >"$directory/updated.json"
+  mv "$directory/updated.json" "$directory/smsv2-contract.json"
+  refresh_manifest "$directory"
+  if python3 "$validator" "$directory" "$tag" "$commit" >/dev/null 2>&1; then
+    printf 'invalid contract was accepted: %s\n' "$name" >&2
+    exit 1
+  fi
+}
+
+refresh_manifest "$work"
 python3 "$validator" "$work" "$tag" "$commit"
-retired="$work/retired-v1"
-mkdir "$retired"
-cp "$work/smsv2-contract.json" "$work/smsv2-evidence-receipt.json" "$work/smsv2-contract-manifest.json" \
-  "$work/concurrency_contracts.json" "$work/smsv2_parity_manifest.json" "$retired/"
-for retired_asset in smsv2-contract.json smsv2-evidence-receipt.json smsv2-contract-manifest.json; do
-  jq '.contract_id = "f5xc-ce-automation/v1"' "$retired/$retired_asset" >"$retired/updated.json"
-  mv "$retired/updated.json" "$retired/$retired_asset"
-done
-retired_contract_sha="sha256:$(sha256sum "$retired/smsv2-contract.json" | awk '{print $1}')"
-retired_evidence_sha="sha256:$(sha256sum "$retired/smsv2-evidence-receipt.json" | awk '{print $1}')"
-jq --arg contract "$retired_contract_sha" --arg evidence "$retired_evidence_sha" '
-  .assets["smsv2-contract.json"] = $contract |
-  .assets["smsv2-evidence-receipt.json"] = $evidence
-' "$retired/smsv2-contract-manifest.json" >"$retired/updated.json"
-mv "$retired/updated.json" "$retired/smsv2-contract-manifest.json"
-if python3 "$validator" "$retired" "$tag" "$commit" >/dev/null 2>&1; then
-  echo "retired v1 contract identity was accepted" >&2
-  exit 1
-fi
+reject_contract_mutation retired-v1 '.contract_id = "f5xc-ce-automation/v1"'
+reject_contract_mutation unavailable-only '.providers.aws.capabilities.runtime_status = "unavailable"'
+reject_contract_mutation incomplete-telemetry '.providers.aws.telemetry_intake.complete = false'
+reject_contract_mutation legacy-interface-path '.providers.aws.runtime.configuration.path = "/api/config/namespaces/{namespace}/sites/{site}/interface"'
+reject_contract_mutation general-routes-path '.providers.aws.runtime.simplified_routes.path = "/api/operate/namespaces/{namespace}/sites/{site}/ver/routes"'
+reject_contract_mutation guest-device-identity '.providers.aws.interface_identity.field = "ethernet_interface.device"'
+reject_contract_mutation authority-mismatch '.providers.aws.authorities.aws += ["runtime_health"]'
+
 naive="$work/naive"
 mkdir "$naive"
-cp "$work/smsv2-contract.json" "$work/smsv2-evidence-receipt.json" "$work/smsv2-contract-manifest.json" \
-  "$work/concurrency_contracts.json" "$work/smsv2_parity_manifest.json" "$naive/"
+cp "$work"/*.json "$naive/"
 jq '.observed_at = "2026-08-01T12:00:00"' "$naive/smsv2-evidence-receipt.json" >"$naive/evidence.json"
 mv "$naive/evidence.json" "$naive/smsv2-evidence-receipt.json"
-naive_evidence_sha="sha256:$(sha256sum "$naive/smsv2-evidence-receipt.json" | awk '{print $1}')"
-jq --arg digest "$naive_evidence_sha" '.assets["smsv2-evidence-receipt.json"] = $digest' "$naive/smsv2-contract-manifest.json" >"$naive/manifest.json"
-mv "$naive/manifest.json" "$naive/smsv2-contract-manifest.json"
+refresh_manifest "$naive"
 if python3 "$validator" "$naive" "$tag" "$commit" >/dev/null 2>&1; then
   echo "timezone-naive evidence was accepted" >&2
   exit 1
 fi
 printf x >>"$work/smsv2-contract.json"
-if python3 "$validator" "$work" "$tag" "$commit"; then
+if python3 "$validator" "$work" "$tag" "$commit" >/dev/null 2>&1; then
   echo "tampered contract was accepted" >&2
   exit 1
 fi
-echo "SMSv2 release validator tests passed"
+printf '%s\n' 'SMSv2 v2 release validator tests passed'

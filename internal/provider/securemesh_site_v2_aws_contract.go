@@ -5,15 +5,16 @@ package provider
 import (
 	"context"
 	"fmt"
+	"net"
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 )
 
-// validateSecuremeshSiteV2AWSContract enforces the configuration-only portion
-// of the published AWS SMSv2 contract. Runtime status and TGW Connect have no
-// authoritative telemetry contract and intentionally have no provider surface.
+// validateSecuremeshSiteV2AWSContract enforces the MAC-bound configuration
+// portion of the published AWS SMSv2 v2 contract. Unknown Terraform values are
+// deferred until they are known; known invalid values fail immediately.
 func validateSecuremeshSiteV2AWSContract(
 	ctx context.Context,
 	data SecuremeshSiteV2ResourceModel,
@@ -30,12 +31,15 @@ func validateSecuremeshSiteV2AWSContract(
 		)
 		return
 	}
-	if data.AWS.NotManaged == nil || data.AWS.NotManaged.NodeList.IsNull() || data.AWS.NotManaged.NodeList.IsUnknown() {
+	if data.AWS.NotManaged == nil || data.AWS.NotManaged.NodeList.IsNull() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("aws").AtName("not_managed").AtName("node_list"),
 			"AWS SMSv2 Nodes Are Required",
 			"AWS CE configuration requires an ordered non-empty node_list.",
 		)
+		return
+	}
+	if data.AWS.NotManaged.NodeList.IsUnknown() {
 		return
 	}
 	var nodes []SecuremeshSiteV2AWSNotManagedNodeListModel
@@ -52,12 +56,15 @@ func validateSecuremeshSiteV2AWSContract(
 		return
 	}
 	for nodeIndex, node := range nodes {
-		if node.InterfaceList.IsNull() || node.InterfaceList.IsUnknown() {
+		if node.InterfaceList.IsNull() {
 			resp.Diagnostics.AddAttributeError(
 				path.Root("aws").AtName("not_managed").AtName("node_list").AtListIndex(nodeIndex).AtName("interface_list"),
 				"AWS SMSv2 Interfaces Are Required",
-				"Every AWS CE node requires an ordered MAC-bound interface_list with exactly one SLO.",
+				"Every AWS CE node requires an ordered MAC-bound interface_list with exactly one SLO and one SLI.",
 			)
+			continue
+		}
+		if node.InterfaceList.IsUnknown() {
 			continue
 		}
 		var interfaces []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
@@ -68,16 +75,30 @@ func validateSecuremeshSiteV2AWSContract(
 		}
 		macs := map[string]bool{}
 		roles := map[string]bool{}
+		unknownInterface := false
 		for interfaceIndex, iface := range interfaces {
 			interfacePath := path.Root("aws").AtName("not_managed").AtName("node_list").AtListIndex(nodeIndex).AtName("interface_list").AtListIndex(interfaceIndex)
-			if iface.EthernetInterface == nil || iface.EthernetInterface.Mac.IsNull() || iface.EthernetInterface.Mac.IsUnknown() || iface.EthernetInterface.Mac.ValueString() == "" {
+			if iface.EthernetInterface == nil || iface.EthernetInterface.Mac.IsNull() {
 				resp.Diagnostics.AddAttributeError(interfacePath, "AWS SMSv2 Interface MAC Is Required", "Each AWS CE interface must be bound to its ENI MAC address.")
+				continue
+			}
+			if iface.EthernetInterface.Mac.IsUnknown() {
+				unknownInterface = true
+				continue
+			}
+			if strings.TrimSpace(iface.EthernetInterface.Mac.ValueString()) == "" {
+				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("mac"), "AWS SMSv2 Interface MAC Is Required", "Each AWS CE interface must be bound to its ENI MAC address.")
 				continue
 			}
 			if !iface.EthernetInterface.Device.IsNull() && !iface.EthernetInterface.Device.IsUnknown() {
 				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "Guest Interface Inference Is Unsupported", "Do not configure a guest interface name; the verified contract binds interfaces by MAC only.")
 			}
-			mac := strings.ToLower(iface.EthernetInterface.Mac.ValueString())
+			parsedMAC, err := net.ParseMAC(strings.TrimSpace(iface.EthernetInterface.Mac.ValueString()))
+			if err != nil || len(parsedMAC) != 6 {
+				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("mac"), "AWS SMSv2 Interface MAC Is Invalid", "Each interface MAC must be a six-octet IEEE 802 MAC address.")
+				continue
+			}
+			mac := strings.ToLower(parsedMAC.String())
 			if macs[mac] {
 				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("mac"), "AWS SMSv2 Interface MAC Is Duplicate", "Each interface MAC must be unique within its CE node.")
 			}
@@ -102,11 +123,18 @@ func validateSecuremeshSiteV2AWSContract(
 			}
 			roles[role] = true
 		}
-		if !roles["slo"] {
+		if !roles["slo"] && !unknownInterface {
 			resp.Diagnostics.AddAttributeError(
 				path.Root("aws").AtName("not_managed").AtName("node_list").AtListIndex(nodeIndex).AtName("interface_list"),
 				"AWS SMSv2 SLO Is Required",
 				"Every AWS CE node must declare exactly one MAC-bound SLO interface.",
+			)
+		}
+		if !roles["sli"] && !unknownInterface {
+			resp.Diagnostics.AddAttributeError(
+				path.Root("aws").AtName("not_managed").AtName("node_list").AtListIndex(nodeIndex).AtName("interface_list"),
+				"AWS SMSv2 SLI Is Required",
+				"Every AWS CE node must declare exactly one MAC-bound SLI interface.",
 			)
 		}
 	}

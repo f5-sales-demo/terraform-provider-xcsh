@@ -10,6 +10,71 @@ import pathlib
 import sys
 from typing import NoReturn
 
+CONTRACT_ID = "f5xc-ce-automation/v2"
+TELEMETRY_SCHEMA_ID = "f5xc-smsv2-aws-tgw-telemetry/v1"
+REQUIRED_FACTS = {
+    "runtime",
+    "gre",
+    "bgp",
+    "mtu",
+    "route",
+    "bgp_inside_cidr_block",
+}
+CAPABILITIES = {
+    "aws_ce_create": "available",
+    "runtime_status": "available",
+    "tgw_connect": "available",
+}
+AUTHORITIES = {
+    "f5xc": [
+        "smsv2_configuration",
+        "runtime_health",
+        "bgp_peers",
+        "bgp_routes",
+        "simplified_routes",
+    ],
+    "aws": [
+        "eni",
+        "transit_gateway",
+        "transit_gateway_connect",
+        "gre_endpoints",
+        "bgp_inside_cidrs",
+    ],
+}
+RUNTIME = {
+    "configuration": {
+        "method": "GET",
+        "path": "/api/config/namespaces/{namespace}/securemesh_site_v2s/{site}",
+        "operation_id": "ves.io.schema.views.securemesh_site_v2.API.Get",
+        "response_schema": "securemesh_site_v2GetResponse",
+    },
+    "health": {
+        "method": "GET",
+        "path": "/api/operate/namespaces/system/sites/{site}/vpm/debug/global/health",
+        "operation_id": "ves.io.schema.operate.debug.CustomPublicAPI.HealthPublic",
+        "response_schema": "debugHealthResponse",
+    },
+    "bgp_peers": {
+        "method": "GET",
+        "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_peers",
+        "operation_id": "ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPPeers",
+        "response_schema": "bgpBGPPeersResponse",
+    },
+    "bgp_routes": {
+        "method": "GET",
+        "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_routes",
+        "operation_id": "ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPRoutes",
+        "response_schema": "bgpBGPRoutesResponse",
+    },
+    "simplified_routes": {
+        "method": "POST",
+        "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/simplified_routes",
+        "operation_id": "ves.io.schema.operate.route.CustomPublicAPI.ShowSimplifiedRoutes",
+        "request_schema": "routeSimplifiedRouteRequest",
+        "response_schema": "routeSimplifiedRouteResponse",
+    },
+}
+
 
 def fail(message: str) -> NoReturn:
     """Exit with a release-validation failure."""
@@ -38,10 +103,7 @@ def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
         "schema_version",
     }:
         fail("manifest fields are malformed")
-    if (
-        manifest["schema_version"] != 1
-        or manifest["contract_id"] != "f5xc-ce-automation/v2"
-    ):
+    if manifest["schema_version"] != 1 or manifest["contract_id"] != CONTRACT_ID:
         fail("manifest contract identity is unsupported")
     if manifest["release"] != {"tag": tag, "commit": commit}:
         fail("manifest release identity does not match the resolved tag")
@@ -57,19 +119,14 @@ def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
 
 
 def validate_contract(contract: dict, contract_id: str) -> None:
-    """Validate the evidence-backed SMSv2 provider and CRUD contract."""
+    """Validate the exact MAC-bound SMSv2 runtime and authority contract."""
     aws = contract.get("providers", {}).get("aws", {})
     if (
         contract.get("contract_id") != contract_id
+        or contract.get("resource") != "securemesh_site_v2"
         or aws.get("availability") != "evidence_backed"
     ):
         fail("AWS contract identity or evidence state is invalid")
-    if aws.get("capabilities") != {
-        "aws_ce_create": "available",
-        "runtime_status": "unavailable",
-        "tgw_connect": "unavailable",
-    }:
-        fail("AWS capability declaration is unsupported")
     api = contract.get("api", {})
     if api.get("namespace") != "system" or set(api.get("operations", [])) != {
         "create",
@@ -78,6 +135,47 @@ def validate_contract(contract: dict, contract_id: str) -> None:
         "delete",
     }:
         fail("system-namespace CRUD declaration is incomplete")
+    if aws.get("capabilities") != CAPABILITIES:
+        fail("AWS capability declaration is unsupported")
+    if (
+        aws.get("node_list_path") != "aws.not_managed.node_list[]"
+        or aws.get("interface_list_path")
+        != "aws.not_managed.node_list[].interface_list[]"
+    ):
+        fail("AWS SMSv2 configuration paths are unsupported")
+    if aws.get("interface_identity") != {
+        "field": "ethernet_interface.mac",
+        "guest_device": "observational_only",
+        "known_macs": "non_empty_unique_per_node",
+    }:
+        fail("AWS interface identity must be MAC-bound")
+    if aws.get("roles") != [
+        {"name": "slo", "network_option": "site_local_network"},
+        {"name": "sli", "network_option": "site_local_inside_network"},
+    ]:
+        fail("AWS interface role declarations are incomplete")
+    intake = aws.get("telemetry_intake", {})
+    expected_intake = {
+        "schema_id": TELEMETRY_SCHEMA_ID,
+        "availability": "available",
+        "complete": True,
+        "unavailable_facts": [],
+    }
+    if any(intake.get(field) != value for field, value in expected_intake.items()):
+        fail("AWS runtime availability requires complete telemetry")
+    if (
+        set(intake.get("required_facts", [])) != REQUIRED_FACTS
+        or set(intake.get("observed_facts", [])) != REQUIRED_FACTS
+    ):
+        fail("AWS runtime availability requires complete telemetry")
+    if aws.get("runtime") != RUNTIME:
+        fail("F5 runtime endpoints or schemas are incomplete or legacy")
+    if aws.get("authorities") != AUTHORITIES:
+        fail("F5 and AWS authority declarations do not match the v2 contract")
+    if aws.get("prohibited_legacy_apis") != ["aws_vpc_site", "aws_tgw_site"]:
+        fail("legacy AWS site APIs must remain prohibited")
+    if aws.get("unavailable_capabilities") != []:
+        fail("available v2 capabilities cannot retain unavailable declarations")
 
 
 def validate_evidence(evidence: dict, contract_id: str) -> None:
