@@ -22,6 +22,7 @@ import (
 const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
+const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
 
 var canonicalManagedSocketlessRunsOn = []string{
 	"managed-socketless",
@@ -452,7 +453,7 @@ var protectedJobs = []jobContract{
 	{"on-merge.yml", "create-regeneration-pr", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
 	{"on-merge.yml", "tag-release", nil, "", map[string]string{"contents": "write"}, []string{"push", "workflow_dispatch"}, nil, []string{"GPG_PRIVATE_KEY", "PASSPHRASE", "REPO_SYNC_TOKEN"}},
 	{"on-merge.yml", "receipt-spec-delivery", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
-	{"auto-merge.yml", "require-token", []string{"ubuntu-latest"}, "repository-settings", map[string]string{}, []string{"pull_request"}, nil, []string{"REPO_SYNC_TOKEN"}},
+	{"auto-merge.yml", "require-token", canonicalManagedSocketlessRunsOn, "repository-settings", map[string]string{}, []string{"pull_request"}, nil, []string{"REPO_SYNC_TOKEN"}},
 }
 
 type workflowDocument struct {
@@ -525,6 +526,8 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 		case repositoryRunnerExpression:
 			canonical[index] = repositoryRunnerLabel
 		case sharedSocketlessRunnerExpression:
+			canonical[index] = canonicalManagedSocketlessRunsOn[0]
+		case docsSocketlessRunnerExpression:
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
 		default:
 			*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
@@ -635,7 +638,7 @@ func recursivelyCollectSecrets(value any, path []string, found map[string]bool, 
 	}
 }
 
-func validateWorkflowBytes(filename string, content []byte, policySchema int) []string {
+func validateWorkflowBytes(filename string, content []byte) []string {
 	var workflow workflowDocument
 	if err := yaml.Unmarshal(content, &workflow); err != nil {
 		return []string{err.Error()}
@@ -666,9 +669,6 @@ func validateWorkflowBytes(filename string, content []byte, policySchema int) []
 	contracts := map[string]jobContract{}
 	for _, contract := range protectedJobs {
 		if contract.workflow == filename {
-			if policySchema >= 3 && contract.workflow == "auto-merge.yml" && contract.job == "require-token" {
-				contract.runsOn = canonicalManagedSocketlessRunsOn
-			}
 			contracts[contract.job] = contract
 		}
 	}
@@ -828,7 +828,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 			t.Fatal(err)
 		}
 		filename := filepath.Base(path)
-		for _, issue := range validateWorkflowBytes(filename, content, policy.SchemaVersion) {
+		for _, issue := range validateWorkflowBytes(filename, content) {
 			t.Errorf("%s: %s", filename, issue)
 		}
 		var workflow workflowDocument
@@ -837,7 +837,8 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		}
 		for jobID, job := range workflow.Jobs {
 			runsOn, _ := stringSlice(job["runs-on"])
-			if slicesContain(runsOn, "managed-socketless") {
+			canonicalRunsOn := canonicalizeRunsOn(runsOn, &[]string{}, jobID)
+			if slicesContain(canonicalRunsOn, "managed-socketless") {
 				managedSocketless[filename+"/"+jobID] = true
 			}
 			steps, _ := job["steps"].([]any)
@@ -876,40 +877,26 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		"security-audit.yml/govulncheck":           true,
 		"sync-openapi.yml/sync":                    true,
 	}
-	switch policy.SchemaVersion {
-	case 1:
-		// Schema v1 routes governed jobs to GitHub-hosted runners.
-	case 3:
-		// Schema v3 routes governed jobs to the managed socketless Docker fleet.
-		expected["auto-merge.yml/require-token"] = true
-		expected["dependabot-auto-merge.yml/auto-merge"] = true
-		expected["semgrep.yml/semgrep"] = true
-		expected["workflow-security-audit.yml/audit"] = true
-	case 4:
-		// Schema v4 retains the managed fleet and adds its tool-cache smoke test.
-		expected["auto-merge.yml/require-token"] = true
-		expected["dependabot-auto-merge.yml/auto-merge"] = true
-		expected["semgrep.yml/semgrep"] = true
-		expected["workflow-security-audit.yml/audit"] = true
-		delete(expected, "enforce-repo-settings.yml/resolve-source")
-		delete(expected, "require-linked-issue.yml/check")
-		expected["require-linked-issue.yml/check-linked-issues"] = true
-		expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
-	case 5:
-		// Schema v5 adds exact ARC attestations and restricted compute routes.
-		expected["auto-merge.yml/require-token"] = true
-		expected["dependabot-auto-merge.yml/auto-merge"] = true
-		expected["semgrep.yml/semgrep"] = true
-		expected["workflow-security-audit.yml/audit"] = true
-		delete(expected, "enforce-repo-settings.yml/resolve-source")
-		delete(expected, "require-linked-issue.yml/check")
-		expected["require-linked-issue.yml/check-linked-issues"] = true
-		expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
-		expected["workload-benchmark.yml/aggregate"] = true
-		expected["workload-benchmark.yml/benchmark-d8"] = true
-	default:
+	if policy.SchemaVersion != 5 {
 		t.Fatalf("unsupported runner policy schema version: %d", policy.SchemaVersion)
 	}
+	// Schema v5 is the sole supported prerelease contract. It preserves the
+	// managed routes while adding attested compute-runner policy.
+	expected["auto-merge.yml/require-token"] = true
+	expected["semgrep.yml/semgrep"] = true
+	expected["super-linter.yml/linked-issue"] = true
+	expected["workflow-security-audit.yml/audit"] = true
+	if _, err := os.Stat(filepath.Join(workflowDir, "dependabot-auto-merge.yml")); err == nil {
+		expected["dependabot-auto-merge.yml/auto-merge"] = true
+	} else if !os.IsNotExist(err) {
+		t.Fatalf("stat managed Dependabot workflow: %v", err)
+	}
+	delete(expected, "enforce-repo-settings.yml/resolve-source")
+	delete(expected, "require-linked-issue.yml/check")
+	expected["require-linked-issue.yml/check-linked-issues"] = true
+	expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
+	expected["workload-benchmark.yml/aggregate"] = true
+	expected["workload-benchmark.yml/benchmark-d8"] = true
 	if !reflect.DeepEqual(managedSocketless, expected) {
 		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
 	}
@@ -961,7 +948,7 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 			if mutated == string(base) {
 				t.Fatal("mutation did not apply")
 			}
-			if issues := validateWorkflowBytes("acc-tests.yml", []byte(mutated), 1); len(issues) == 0 {
+			if issues := validateWorkflowBytes("acc-tests.yml", []byte(mutated)); len(issues) == 0 {
 				t.Fatal("unsafe mutation passed validation")
 			}
 		})
@@ -976,12 +963,17 @@ jobs:
   check:
     runs-on: [self-hosted, Linux, X64, "${{ github.event.repository.name }}", ubuntu-24.04]
 `)
-	if issues := validateWorkflowBytes("fixture.yml", valid, 1); len(issues) != 0 {
+	if issues := validateWorkflowBytes("fixture.yml", valid); len(issues) != 0 {
 		t.Fatalf("canonical repository runner expression failed: %v", issues)
 	}
 
+	docsSocketless := []byte(strings.Replace(string(valid), "[self-hosted, Linux, X64, \"${{ github.event.repository.name }}\", ubuntu-24.04]", docsSocketlessRunnerExpression, 1))
+	if issues := validateWorkflowBytes("fixture.yml", docsSocketless); len(issues) != 0 {
+		t.Fatalf("canonical docs socketless runner expression failed: %v", issues)
+	}
+
 	unsafe := []byte(strings.Replace(string(valid), "github.event.repository.name", "github.event.inputs.runner", 1))
-	if issues := validateWorkflowBytes("fixture.yml", unsafe, 1); len(issues) == 0 {
+	if issues := validateWorkflowBytes("fixture.yml", unsafe); len(issues) == 0 {
 		t.Fatal("non-canonical dynamic runner passed validation")
 	}
 }

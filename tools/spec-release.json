@@ -1,18 +1,18 @@
 {
   "assets": {
-    "api-catalog.json": "sha256:88d9b3e225e3556251ff87bfe5897d27ae3ba5a62bdc4f6b051055254ddc4423",
-    "concurrency_contracts.json": "sha256:2a9c689a76e47856be068689fafc8eae8a2868175d9a38f482cb620c4060eba8",
-    "f5xc-api-specs-v4.0.2.zip": "sha256:49f508559c9b63b74110ead41e62f6e43c7a6ecb23d7178a6e721ac5ae573923",
-    "index.json": "sha256:6d0a5972bcf573beb471bc3faa8fd4ba043578a830a55a88321e8f9189993266",
-    "minimal-export-defaults.json": "sha256:e06f2177a331e057495ba555df4cbc91ce6351c80b5c0b05329e9e187e215112",
-    "openapi.json": "sha256:48cf6797c184f8fc9934c39324cb73aadd4b5133c210a9a28acfdda8df84e6d2",
-    "smsv2-contract-manifest.json": "sha256:3f7e2e5f44bea6bb8640063992f68e2eb447acce2a41d3c93df31ffb0643205c",
-    "smsv2-contract.json": "sha256:72e0eadb74387c6e6e20857894dcd1fa54bbfc9f198706a72a406018a36214d4",
+    "api-catalog.json": "sha256:4f9bbdee039a1868783f5f25c9199c975b95cf8570c742d1447b990f4c499830",
+    "concurrency_contracts.json": "sha256:8026f82a4c19cf827005208f4fd6ad9e71871e649a3c94cc599470dda68ab360",
+    "f5xc-api-specs-v5.0.0.zip": "sha256:34cbc5b92f6049e50cbf030eb12c074b3c0be6bade02e0c6ca50db0a0879f8be",
+    "index.json": "sha256:78e9c84f306a9e4017ae30ad3a491316b1fba0d4c4133232825625797404d37e",
+    "minimal-export-defaults.json": "sha256:95beb3b5a13f14e2b40597772ad70e893df6301a3a0625c72d5e75effc914688",
+    "openapi.json": "sha256:ae6e28129122c2861c23f51d3d87213879e0b0365a108fec746d5314f0f342b4",
+    "smsv2-contract-manifest.json": "sha256:b5f0a7003925f68515b45664b44bd0abc4d55c8ded6ebc8362bf63765a840d21",
+    "smsv2-contract.json": "sha256:6c2e7fba74b6246b55be39cc16e9a64a4401af6493f1011ba5ea75148969058f",
     "smsv2-evidence-receipt.json": "sha256:355e8e70a1b436f2e578fae6f2765ab5b513dc7a4dab89b0236b6f55f038a6a2",
-    "smsv2_parity_manifest.json": "sha256:0c56efb82d13e250cf62c773d6d280bcddab64bc533fd22220ddb1496e942411",
+    "smsv2_parity_manifest.json": "sha256:bc3fccac12aaee48df2c77c9b8e62ee3f693eee813dae99aa2ab7c2aa6ad9b98",
     "upstream-contract-removals.json": "sha256:aa1674550ad10b051bf03a4b860145f8d01724bc89b438c84fc99d94aa261957"
   },
-  "release_tag": "v4.0.2",
-  "target_commit": "01bb4c0c89800ccc039b7901bab3928dc64744e4",
-  "version": "4.0.2"
+  "release_tag": "v5.0.0",
+  "target_commit": "3a647f1bf0c2447a71750c69136fab96fb073902",
+  "version": "5.0.0"
 }

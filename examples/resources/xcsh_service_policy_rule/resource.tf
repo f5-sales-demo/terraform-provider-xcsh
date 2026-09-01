@@ -16,4 +16,6 @@ terraform {
 resource "xcsh_service_policy_rule" "example" {
   name      = "example-service-policy-rule"
   namespace = "staging"
+
+  action = "DENY"
 }

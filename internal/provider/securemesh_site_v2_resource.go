@@ -4932,7 +4932,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -5351,7 +5351,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -5770,7 +5770,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -6449,7 +6449,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -6871,7 +6871,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -7290,7 +7290,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -8273,7 +8273,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -8692,7 +8692,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -9124,7 +9124,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -9543,7 +9543,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",
@@ -10418,7 +10418,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
 														Attributes: map[string]schema.Attribute{
 															"device": schema.StringAttribute{
 																MarkdownDescription: "Select an Ethernet device from the discovered interfaces to configure. Once configured, this interface will be part of this sites dataplane and can participate in the networking services configured on this site.",

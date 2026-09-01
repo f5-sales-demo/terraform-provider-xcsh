@@ -1,6 +1,6 @@
 {
   "legacy_version": "0.11.49",
-  "current_version": "4.0.2",
+  "current_version": "5.0.0",
   "legacy_source_url": "https://github.com/volterraedge/terraform-provider-volterra/blob/v0.11.49/volterra/resource_auto_volterra_securemesh_site_v2.go",
   "legacy_source_sha256": "sha256:f5342edd61ab37dc0c0087d6f57ab844d8f833431055ebcb0359a324a67bb3fa",
   "legacy_path_count": 1938,
@@ -10,11 +10,11 @@
   "unclassified_legacy_paths": [],
   "classification_counts": {
     "current_only": 41,
-    "current_parity": 444,
+    "current_parity": 422,
     "current_platform_removal": 2,
     "deprecated_exclusion": 622,
     "generator_gap": 13,
-    "modernized_semantics": 857
+    "modernized_semantics": 879
   },
   "entries": [
     {
@@ -3641,8 +3641,8 @@
     {
       "legacy_path": "aws.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "aws.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -3656,8 +3656,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -3668,8 +3668,8 @@
     {
       "legacy_path": "aws.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "aws.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -3683,8 +3683,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -7685,8 +7685,8 @@
     {
       "legacy_path": "azure.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "azure.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -7700,8 +7700,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -7712,8 +7712,8 @@
     {
       "legacy_path": "azure.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "azure.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -7727,8 +7727,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -10454,8 +10454,8 @@
     {
       "legacy_path": "baremetal.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "baremetal.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -10469,8 +10469,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -10481,8 +10481,8 @@
     {
       "legacy_path": "baremetal.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "baremetal.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -10496,8 +10496,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -14710,8 +14710,8 @@
     {
       "legacy_path": "equinix.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "equinix.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -14725,8 +14725,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -14737,8 +14737,8 @@
     {
       "legacy_path": "equinix.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "equinix.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -14752,8 +14752,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -18738,8 +18738,8 @@
     {
       "legacy_path": "gcp.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "gcp.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -18753,8 +18753,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -18765,8 +18765,8 @@
     {
       "legacy_path": "gcp.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "gcp.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -18780,8 +18780,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -21507,8 +21507,8 @@
     {
       "legacy_path": "kvm.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "kvm.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -21522,8 +21522,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -21534,8 +21534,8 @@
     {
       "legacy_path": "kvm.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "kvm.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -21549,8 +21549,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -27276,8 +27276,8 @@
     {
       "legacy_path": "nutanix.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "nutanix.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -27291,8 +27291,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -27303,8 +27303,8 @@
     {
       "legacy_path": "nutanix.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "nutanix.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -27318,8 +27318,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -30045,8 +30045,8 @@
     {
       "legacy_path": "oci.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "oci.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -30060,8 +30060,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -30072,8 +30072,8 @@
     {
       "legacy_path": "oci.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "oci.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -30087,8 +30087,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -32899,8 +32899,8 @@
     {
       "legacy_path": "openshift_virtualization.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "openshift_virtualization.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -32914,8 +32914,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -32926,8 +32926,8 @@
     {
       "legacy_path": "openshift_virtualization.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "openshift_virtualization.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -32941,8 +32941,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -35668,8 +35668,8 @@
     {
       "legacy_path": "openstack.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "openstack.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -35683,8 +35683,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -35695,8 +35695,8 @@
     {
       "legacy_path": "openstack.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "openstack.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -35710,8 +35710,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -42405,8 +42405,8 @@
     {
       "legacy_path": "vmware.not_managed.node_list[].interface_list[].ethernet_interface.device",
       "current_path": "vmware.not_managed.node_list[].interface_list[].ethernet_interface.device",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -42420,8 +42420,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": true,
-        "optional": false,
+        "required": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
@@ -42432,8 +42432,8 @@
     {
       "legacy_path": "vmware.not_managed.node_list[].interface_list[].ethernet_interface.mac",
       "current_path": "vmware.not_managed.node_list[].interface_list[].ethernet_interface.mac",
-      "classification": "current_parity",
-      "reason": "path and normalized Terraform semantics match",
+      "classification": "modernized_semantics",
+      "reason": "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -42447,8 +42447,8 @@
       "current": {
         "type": "string",
         "cardinality": "single",
-        "required": false,
-        "optional": true,
+        "required": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,

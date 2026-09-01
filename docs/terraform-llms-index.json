@@ -600,7 +600,7 @@
       "name": "service_policy_rule",
       "category": "security",
       "description": "Service_policy_rule creates a new object in the storage backend for metadata.namespace",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "action"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/service_policy_rule.txt#minimal-valid-config"
