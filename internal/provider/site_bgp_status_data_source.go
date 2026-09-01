@@ -276,13 +276,13 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.TimeoutSeconds.IsNull() {
+	if data.TimeoutSeconds.IsNull() || data.TimeoutSeconds.IsUnknown() {
 		data.TimeoutSeconds = types.Int64Value(300)
 	}
-	if data.PollIntervalSeconds.IsNull() {
+	if data.PollIntervalSeconds.IsNull() || data.PollIntervalSeconds.IsUnknown() {
 		data.PollIntervalSeconds = types.Int64Value(10)
 	}
-	if data.MaxObservationAgeSeconds.IsNull() {
+	if data.MaxObservationAgeSeconds.IsNull() || data.MaxObservationAgeSeconds.IsUnknown() {
 		data.MaxObservationAgeSeconds = types.Int64Value(120)
 	}
 	expected := map[string]smsv2ExpectedPeerModel{}
