@@ -155,13 +155,17 @@ def validate_contract(contract: dict, contract_id: str) -> None:
     ]:
         fail("AWS interface role declarations are incomplete")
     intake = aws.get("telemetry_intake", {})
+    expected_intake = {
+        "schema_id": TELEMETRY_SCHEMA_ID,
+        "availability": "available",
+        "complete": True,
+        "unavailable_facts": [],
+    }
+    if any(intake.get(field) != value for field, value in expected_intake.items()):
+        fail("AWS runtime availability requires complete telemetry")
     if (
-        intake.get("schema_id") != TELEMETRY_SCHEMA_ID
-        or intake.get("availability") != "available"
-        or intake.get("complete") is not True
-        or set(intake.get("required_facts", [])) != REQUIRED_FACTS
+        set(intake.get("required_facts", [])) != REQUIRED_FACTS
         or set(intake.get("observed_facts", [])) != REQUIRED_FACTS
-        or intake.get("unavailable_facts") != []
     ):
         fail("AWS runtime availability requires complete telemetry")
     if aws.get("runtime") != RUNTIME:
