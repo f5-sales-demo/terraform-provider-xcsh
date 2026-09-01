@@ -30,12 +30,15 @@ const providerDir = "internal/provider"
 
 // manuallyMaintained lists resources/data sources whose examples are hand-authored (not
 // generated) — they have non-standard schemas or bespoke lookups. See the exceptions in
-// scripts/check-no-generated-files.sh. Their example dirs use no xcsh_ prefix, so generating
-// xcsh_-prefixed examples for them would be both wrong and duplicative.
+// scripts/check-no-generated-files.sh. Bespoke examples that use the xcsh_ prefix are retained
+// explicitly in the surface keep set.
 var manuallyMaintained = map[string]bool{
 	"addon_service":                   true,
 	"addon_service_activation_status": true,
+	"site_bgp_status":                 true,
 	"site_registration":               true,
+	"smsv2_aws_runtime":               true,
+	"smsv2_contract":                  true,
 }
 
 var (
@@ -94,10 +97,10 @@ func main() {
 
 	for _, f := range dsFiles {
 		name := strings.TrimSuffix(filepath.Base(f), "_data_source.go")
+		dataSourceKeep[name] = true
 		if manuallyMaintained[name] {
 			continue
 		}
-		dataSourceKeep[name] = true
 		rt, err := correspondingResourceTemplate(name)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "❌ %s (data source): %v\n", name, err)
