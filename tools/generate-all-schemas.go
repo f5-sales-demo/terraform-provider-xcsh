@@ -417,6 +417,23 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("❌ SMSv2 parity validation failed: %v\n", err)
 		os.Exit(1)
 	}
+	contractJSON, err := os.ReadFile(filepath.Join(specDir, "smsv2-contract.json"))
+	if err != nil {
+		fmt.Printf("❌ SMSv2 data-source contract read failed: %v\n", err)
+		os.Exit(1)
+	}
+	smsv2Templates, err := codegen.SMSv2DataSourceTemplates(contractJSON)
+	if !dryRun && err == nil {
+		smsv2Templates, err = codegen.GenerateSMSv2ContractConstants(specDir, outputDir)
+	}
+	if err != nil {
+		fmt.Printf("❌ SMSv2 data-source generation failed: %v\n", err)
+		os.Exit(1)
+	}
+	for _, template := range smsv2Templates {
+		results = append(results, GenerationResult{ResourceName: template.Name, Success: true, IsReadOnly: true})
+		successCount++
+	}
 
 	return results, successCount, failCount
 }
