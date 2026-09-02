@@ -197,6 +197,21 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
         fail("AWS contract availability is unsupported")
 
 
+def validate_openapi(openapi: dict) -> None:
+    """Require the SMSv2 node wire schema used by the fail-closed evidence."""
+    public_ip = (
+        openapi.get("components", {})
+        .get("schemas", {})
+        .get("viewssecuremesh_site_v2Node", {})
+        .get("properties", {})
+        .get("public_ip")
+    )
+    if not isinstance(public_ip, dict) or public_ip.get("type") != "string":
+        fail("SMSv2 node public_ip schema is missing or malformed")
+    if public_ip.get("nullable") is not True:
+        fail("SMSv2 node public_ip must preserve the null wire value")
+
+
 def validate_evidence(evidence: dict, contract_id: str, availability: str) -> None:
     """Validate the age and sanitization of the behavioral evidence."""
     try:
@@ -323,6 +338,7 @@ def main() -> None:
     manifest = validate_manifest(directory, tag, commit)
     contract = load_json(directory / "smsv2-contract.json", "SMSv2 contract")
     evidence = load_json(directory / "smsv2-evidence-receipt.json", "SMSv2 evidence")
+    openapi = load_json(directory / "openapi.json", "OpenAPI specification")
     concurrency = load_json(
         directory / "concurrency_contracts.json", "concurrency inventory"
     )
@@ -332,6 +348,7 @@ def main() -> None:
     contract_id = manifest["contract_id"]
     version = tag.removeprefix("v")
     validate_contract(contract, contract_id, manifest["contract_version"])
+    validate_openapi(openapi)
     validate_evidence(
         evidence, contract_id, contract["providers"]["aws"]["availability"]
     )

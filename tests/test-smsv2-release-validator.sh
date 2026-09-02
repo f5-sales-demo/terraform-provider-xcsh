@@ -61,6 +61,11 @@ jq -n '{
     "spec.segment_vrf[].segment_config.secondary_nameserver_v6"
   ]
 }' >"$work/smsv2_parity_manifest.json"
+jq -n '{
+  components:{schemas:{viewssecuremesh_site_v2Node:{properties:{
+    public_ip:{type:"string",nullable:true}
+  }}}}
+}' >"$work/openapi.json"
 
 refresh_manifest() {
   local directory=$1
@@ -116,6 +121,17 @@ mv "$bad_blocker/evidence.json" "$bad_blocker/smsv2-evidence-receipt.json"
 refresh_manifest "$bad_blocker"
 if python3 "$validator" "$bad_blocker" "$tag" "$commit" >/dev/null 2>&1; then
   echo "schema-only contract with unverified blocker was accepted" >&2
+  exit 1
+fi
+
+non_nullable="$work/non-nullable-public-ip"
+mkdir "$non_nullable"
+cp "$schema_only"/*.json "$non_nullable/"
+jq 'del(.components.schemas.viewssecuremesh_site_v2Node.properties.public_ip.nullable)' \
+  "$non_nullable/openapi.json" >"$non_nullable/updated.json"
+mv "$non_nullable/updated.json" "$non_nullable/openapi.json"
+if python3 "$validator" "$non_nullable" "$tag" "$commit" >/dev/null 2>&1; then
+  echo "non-nullable SMSv2 node public_ip was accepted" >&2
   exit 1
 fi
 
