@@ -218,5 +218,8 @@ runs:
       with:
         name: workload-receipts-${{ inputs.profile }}-${{ inputs.workload }}-${{ inputs.variant }}-${{ github.run_id }}-${{ github.run_attempt }}
         path: ${{ runner.temp }}/workload-receipts/*.json
+        # Benchmark probes retain their sanitized raw receipts under a dot-prefixed
+        # filename so interrupted or failed samples remain auditable.
+        include-hidden-files: true
         if-no-files-found: error
         retention-days: 30

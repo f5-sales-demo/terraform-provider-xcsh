@@ -78,6 +78,17 @@ func TestWorkloadBenchmarkTrustAndRunnerContract(t *testing.T) {
 	}
 }
 
+func TestWorkloadBenchmarkUploadsHiddenRawReceipts(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "actions", "workload-benchmark", "action.yml"))
+	if err != nil {
+		t.Fatalf("read workload benchmark action: %v", err)
+	}
+	action := string(content)
+	if !strings.Contains(action, "include-hidden-files: true") {
+		t.Fatal("workload receipt upload must include dot-prefixed raw receipts")
+	}
+}
+
 func TestBenchmarkWorkloadsUseOnlyFixedModes(t *testing.T) {
 	helper, err := os.ReadFile(filepath.Join("..", "scripts", "run-fixed-benchmark-workload.sh"))
 	if err != nil {
