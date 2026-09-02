@@ -17,6 +17,8 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+const testSMSv2OpenAPI = `{"openapi":"3.0.0","paths":{},"components":{"schemas":{"viewssecuremesh_site_v2Node":{"properties":{"public_ip":{"type":"string","nullable":true}}}}}}`
+
 // The download-api-specs composite action probes for an existing bundle before
 // downloading. Its target directory is gitignored, so on a hosted runner it does not
 // exist — which is precisely the case the probe has to survive.
@@ -205,7 +207,7 @@ func TestDownloadSpecsActionUsesPinnedReleaseAndRetainsCatalog(t *testing.T) {
 		t.Fatal(err)
 	}
 	openapi := filepath.Join(tmp, "openapi.json")
-	if err := os.WriteFile(openapi, []byte(`{"openapi":"3.0.0","paths":{}}`), 0o600); err != nil {
+	if err := os.WriteFile(openapi, []byte(testSMSv2OpenAPI), 0o600); err != nil {
 		t.Fatal(err)
 	}
 	smsv2Assets := writeTestSMSv2Assets(t, tmp, "v2.1.208", strings.Repeat("a", 40))
@@ -842,7 +844,7 @@ func writeTestSpecBundle(t *testing.T, path string) {
 		body string
 	}{
 		{"index.json", `{"specifications":[{"file":"domains/sites.json"}]}`},
-		{"openapi.json", `{"openapi":"3.0.0","paths":{}}`},
+		{"openapi.json", testSMSv2OpenAPI},
 		{"domains/sites.json", `{"openapi":"3.0.0","paths":{}}`},
 	}
 	for _, item := range entries {
