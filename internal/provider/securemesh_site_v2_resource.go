@@ -10719,12 +10719,6 @@ func (r *SecuremeshSiteV2Resource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.AWS != nil {
-		if err := requireSMSv2Capabilities("aws_ce_create"); err != nil {
-			resp.Diagnostics.AddAttributeError(path.Root("aws"), "SMSv2 AWS Configuration Unavailable", err.Error())
-			return
-		}
-	}
 	validateSecuremeshSiteV2AWSContract(ctx, data, resp)
 	if resp.Diagnostics.HasError() {
 		return
@@ -10782,6 +10776,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	var data SecuremeshSiteV2ResourceModel
 	resp.Diagnostics.Append(req.Plan.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
+		return
+	}
+	if err := validateSecuremeshSiteV2AWSCreateCapability(data, smsv2ContractCapabilities, smsv2APIReleaseTag); err != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "SMSv2 AWS Configuration Unavailable", err.Error())
 		return
 	}
 

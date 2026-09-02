@@ -12,6 +12,23 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 )
 
+// validateSecuremeshSiteV2AWSCreateCapability keeps an actual AWS CE create
+// fail-closed against the immutable contract compiled into this provider. It
+// deliberately runs during Create rather than ValidateConfig: Terraform test
+// mocks can override the contract data source for a structural plan, while a
+// real apply still cannot create an AWS CE until this release publishes the
+// capability as available.
+func validateSecuremeshSiteV2AWSCreateCapability(
+	data SecuremeshSiteV2ResourceModel,
+	capabilities map[string]string,
+	apiRelease string,
+) error {
+	if data.AWS == nil {
+		return nil
+	}
+	return validateSMSv2Capabilities(capabilities, apiRelease, "aws_ce_create")
+}
+
 // validateSecuremeshSiteV2AWSContract enforces the MAC-bound configuration
 // portion of the published AWS SMSv2 v2 contract. Unknown Terraform values are
 // deferred until they are known; known invalid values fail immediately.
