@@ -339,7 +339,7 @@ func TestSyncOpenAPIDownloadPromotesExactReleaseCatalog(t *testing.T) {
 		t.Fatal(err)
 	}
 	openapi := filepath.Join(tmp, "openapi.json")
-	openapiBody := `{"openapi":"3.0.0","paths":{}}`
+	openapiBody := testSMSv2OpenAPI
 	if err := os.WriteFile(openapi, []byte(openapiBody), 0o600); err != nil {
 		t.Fatal(err)
 	}
