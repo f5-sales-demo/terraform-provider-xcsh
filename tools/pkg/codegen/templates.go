@@ -272,6 +272,12 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 {{.ConflictCheckCode}}
 {{- end}}
 {{- if eq .Name "securemesh_site_v2"}}
+	if data.AWS != nil {
+		if err := requireSMSv2Capabilities("aws_ce_create"); err != nil {
+			resp.Diagnostics.AddAttributeError(path.Root("aws"), "SMSv2 AWS Configuration Unavailable", err.Error())
+			return
+		}
+	}
 	validateSecuremeshSiteV2AWSContract(ctx, data, resp)
 	if resp.Diagnostics.HasError() {
 		return
