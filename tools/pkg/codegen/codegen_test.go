@@ -2000,6 +2000,22 @@ func TestTemplates_DiscoveryLabelFilterIsResourceOnly_Issue1391(t *testing.T) {
 	}
 }
 
+func TestResourceTemplate_SMSv2AWSCapabilityGateRunsAtCreate(t *testing.T) {
+	validateStart := strings.Index(ResourceTemplate, "// ValidateConfig implements resource.ResourceWithValidateConfig")
+	createStart := strings.Index(ResourceTemplate, "func (r *{{.TitleCase}}Resource) Create(")
+	if validateStart == -1 || createStart == -1 || createStart <= validateStart {
+		t.Fatal("could not locate ValidateConfig and Create in ResourceTemplate")
+	}
+	validate := ResourceTemplate[validateStart:createStart]
+	if strings.Contains(validate, "requireSMSv2Capabilities(\"aws_ce_create\")") {
+		t.Fatal("SMSv2 AWS capability must not be statically rejected during ValidateConfig")
+	}
+	create := ResourceTemplate[createStart:]
+	if !strings.Contains(create, "validateSecuremeshSiteV2AWSCreateCapability(data, smsv2ContractCapabilities, smsv2APIReleaseTag)") {
+		t.Fatal("Create must fail closed against the immutable SMSv2 AWS capability")
+	}
+}
+
 // #1396: F5 XC replaces metadata.labels on write, so a PUT built only from the
 // configuration erases the platform's discovery labels — measured live, a site holding
 // all six came back holding none after an apply. Read stashes them in private state and
