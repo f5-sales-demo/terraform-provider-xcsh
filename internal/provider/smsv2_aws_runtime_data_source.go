@@ -281,6 +281,10 @@ func (d *Smsv2AWSRuntimeDataSource) Read(ctx context.Context, req datasource.Rea
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if err := requireSMSv2Capabilities("runtime_status"); err != nil {
+		resp.Diagnostics.AddError("SMSv2 Runtime Unavailable", err.Error())
+		return
+	}
 	bindings := map[string]smsv2BindingModel{}
 	resp.Diagnostics.Append(data.Nodes.ElementsAs(ctx, &bindings, false)...)
 	if resp.Diagnostics.HasError() {

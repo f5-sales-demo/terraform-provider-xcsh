@@ -21,9 +21,19 @@ type smsv2ReleaseContract struct {
 	ContractID string `json:"contract_id"`
 	Providers  struct {
 		AWS struct {
-			Capabilities map[string]string            `json:"capabilities"`
-			Runtime      map[string]map[string]string `json:"runtime"`
-			Authorities  map[string][]string          `json:"authorities"`
+			Availability            string                       `json:"availability"`
+			Capabilities            map[string]string            `json:"capabilities"`
+			UnavailableCapabilities []string                     `json:"unavailable_capabilities"`
+			Runtime                 map[string]map[string]string `json:"runtime"`
+			Authorities             map[string][]string          `json:"authorities"`
+			Telemetry               struct {
+				SchemaID         string   `json:"schema_id"`
+				Availability     string   `json:"availability"`
+				Complete         bool     `json:"complete"`
+				RequiredFacts    []string `json:"required_facts"`
+				ObservedFacts    []string `json:"observed_facts"`
+				UnavailableFacts []string `json:"unavailable_facts"`
+			} `json:"telemetry_intake"`
 		} `json:"aws"`
 	} `json:"providers"`
 }
@@ -39,10 +49,6 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 	major, err := strconv.Atoi(majorText)
 	if err != nil || !found || major < 5 || contract.ContractID != "f5xc-ce-automation/v2" {
 		return nil, fmt.Errorf("SMSv2 data sources require the v5 clean-break v2 contract")
-	}
-	wantCapabilities := map[string]string{"aws_ce_create": "available", "runtime_status": "available", "tgw_connect": "available"}
-	if !equalStringMap(contract.Providers.AWS.Capabilities, wantCapabilities) {
-		return nil, fmt.Errorf("SMSv2 v2 capabilities are incomplete")
 	}
 	wantRuntime := map[string]struct {
 		method string
@@ -67,6 +73,32 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 	wantAWS := []string{"eni", "transit_gateway", "transit_gateway_connect", "gre_endpoints", "bgp_inside_cidrs"}
 	if !equalStrings(contract.Providers.AWS.Authorities["f5xc"], wantF5XC) || !equalStrings(contract.Providers.AWS.Authorities["aws"], wantAWS) {
 		return nil, fmt.Errorf("SMSv2 v2 authority mapping is incomplete")
+	}
+	wantFacts := []string{"runtime", "gre", "bgp", "mtu", "route", "bgp_inside_cidr_block"}
+	telemetry := contract.Providers.AWS.Telemetry
+	if telemetry.SchemaID != "f5xc-smsv2-aws-tgw-telemetry/v1" ||
+		!equalStringSets(telemetry.RequiredFacts, wantFacts) ||
+		!equalStringSets(telemetry.ObservedFacts, wantFacts) ||
+		len(telemetry.UnavailableFacts) != 0 {
+		return nil, fmt.Errorf("SMSv2 v2 telemetry declaration is incomplete")
+	}
+	available := map[string]string{"aws_ce_create": "available", "runtime_status": "available", "tgw_connect": "available"}
+	unavailable := map[string]string{"aws_ce_create": "unavailable", "runtime_status": "unavailable", "tgw_connect": "unavailable"}
+	switch contract.Providers.AWS.Availability {
+	case "evidence_backed":
+		if !equalStringMap(contract.Providers.AWS.Capabilities, available) ||
+			len(contract.Providers.AWS.UnavailableCapabilities) != 0 ||
+			telemetry.Availability != "available" || !telemetry.Complete {
+			return nil, fmt.Errorf("SMSv2 evidence-backed capabilities are incoherent")
+		}
+	case "schema_only":
+		if !equalStringMap(contract.Providers.AWS.Capabilities, unavailable) ||
+			!equalStringSets(contract.Providers.AWS.UnavailableCapabilities, []string{"aws_ce_create", "runtime_status", "tgw_connect"}) ||
+			telemetry.Availability != "unavailable" || telemetry.Complete {
+			return nil, fmt.Errorf("SMSv2 schema-only capabilities must fail closed")
+		}
+	default:
+		return nil, fmt.Errorf("SMSv2 AWS availability is unsupported")
 	}
 	return []SMSv2DataSourceTemplate{
 		{Name: "smsv2_contract", Kind: "contract"},
@@ -93,6 +125,25 @@ func equalStrings(left, right []string) bool {
 	}
 	for index := range right {
 		if left[index] != right[index] {
+			return false
+		}
+	}
+	return true
+}
+
+func equalStringSets(left, right []string) bool {
+	if len(left) != len(right) {
+		return false
+	}
+	values := make(map[string]struct{}, len(left))
+	for _, value := range left {
+		if _, exists := values[value]; exists {
+			return false
+		}
+		values[value] = struct{}{}
+	}
+	for _, value := range right {
+		if _, exists := values[value]; !exists {
 			return false
 		}
 	}
