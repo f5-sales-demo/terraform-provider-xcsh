@@ -9,7 +9,7 @@
 # Build: docker build -t f5xc-runner .
 # Run:   docker-compose up -d
 
-FROM ubuntu:22.04
+FROM ubuntu:26.04
 
 # Versions - update these as needed
 ARG RUNNER_VERSION=2.329.0
