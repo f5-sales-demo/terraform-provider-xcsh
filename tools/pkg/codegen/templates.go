@@ -272,12 +272,6 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 {{.ConflictCheckCode}}
 {{- end}}
 {{- if eq .Name "securemesh_site_v2"}}
-	if data.AWS != nil {
-		if err := requireSMSv2Capabilities("aws_ce_create"); err != nil {
-			resp.Diagnostics.AddAttributeError(path.Root("aws"), "SMSv2 AWS Configuration Unavailable", err.Error())
-			return
-		}
-	}
 	validateSecuremeshSiteV2AWSContract(ctx, data, resp)
 	if resp.Diagnostics.HasError() {
 		return
@@ -340,6 +334,12 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	if resp.Diagnostics.HasError() {
 		return
 	}
+{{- if eq .Name "securemesh_site_v2"}}
+	if err := validateSecuremeshSiteV2AWSCreateCapability(data, smsv2ContractCapabilities, smsv2APIReleaseTag); err != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "SMSv2 AWS Configuration Unavailable", err.Error())
+		return
+	}
+{{- end}}
 
 	createTimeout, diags := data.Timeouts.Create(ctx, inttimeouts.DefaultCreate)
 	resp.Diagnostics.Append(diags...)

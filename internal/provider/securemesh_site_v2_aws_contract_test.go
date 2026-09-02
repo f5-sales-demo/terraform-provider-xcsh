@@ -49,6 +49,46 @@ func TestValidateSecuremeshSiteV2AWSContract(t *testing.T) {
 	}
 }
 
+func TestValidateSecuremeshSiteV2AWSCreateCapability(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name         string
+		data         SecuremeshSiteV2ResourceModel
+		capabilities map[string]string
+		wantError    string
+	}{
+		{
+			name:         "non AWS site does not require AWS capability",
+			data:         SecuremeshSiteV2ResourceModel{},
+			capabilities: map[string]string{"aws_ce_create": "unavailable"},
+		},
+		{
+			name:         "available contract permits AWS create",
+			data:         SecuremeshSiteV2ResourceModel{AWS: &SecuremeshSiteV2AWSModel{}},
+			capabilities: map[string]string{"aws_ce_create": "available"},
+		},
+		{
+			name:         "unavailable contract fails closed at create",
+			data:         SecuremeshSiteV2ResourceModel{AWS: &SecuremeshSiteV2AWSModel{}},
+			capabilities: map[string]string{"aws_ce_create": "unavailable"},
+			wantError:    "aws_ce_create",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			err := validateSecuremeshSiteV2AWSCreateCapability(test.data, test.capabilities, "v5.0.1")
+			if test.wantError == "" && err != nil {
+				t.Fatalf("unexpected error: %v", err)
+			}
+			if test.wantError != "" && (err == nil || !strings.Contains(err.Error(), test.wantError)) {
+				t.Fatalf("error = %v, want containing %q", err, test.wantError)
+			}
+		})
+	}
+}
+
 func TestValidateSecuremeshSiteV2AWSContractDefersUnknownValues(t *testing.T) {
 	t.Parallel()
 	tests := []SecuremeshSiteV2ResourceModel{
