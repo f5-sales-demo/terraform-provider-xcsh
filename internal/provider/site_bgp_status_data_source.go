@@ -52,10 +52,6 @@ type smsv2PeerStatusModel struct {
 	Established        types.Bool   `tfsdk:"established"`
 }
 
-var smsv2ExpectedPeerAttrTypes = map[string]attr.Type{
-	"node": types.StringType, "role": types.StringType, "mac": types.StringType,
-	"peer_address": types.StringType, "expected_routes": types.SetType{ElemType: types.StringType},
-}
 var smsv2PeerStatusAttrTypes = map[string]attr.Type{
 	"node": types.StringType, "role": types.StringType, "mac": types.StringType,
 	"interface_name": types.StringType, "peer_address": types.StringType, "state": types.StringType,
@@ -274,6 +270,10 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 	var data SiteBGPStatusDataSourceModel
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
+		return
+	}
+	if err := requireSMSv2Capabilities("runtime_status", "tgw_connect"); err != nil {
+		resp.Diagnostics.AddError("SMSv2 BGP Status Unavailable", err.Error())
 		return
 	}
 	if data.TimeoutSeconds.IsNull() || data.TimeoutSeconds.IsUnknown() {

@@ -42,7 +42,6 @@ type smsv2RuntimeInterfaceModel struct {
 	Healthy       types.Bool   `tfsdk:"healthy"`
 }
 
-var smsv2BindingAttrTypes = map[string]attr.Type{"node": types.StringType, "role": types.StringType, "mac": types.StringType}
 var smsv2RuntimeInterfaceAttrTypes = map[string]attr.Type{
 	"node": types.StringType, "role": types.StringType, "mac": types.StringType,
 	"interface_name": types.StringType, "mtu": types.Int64Type, "healthy": types.BoolType,
@@ -248,13 +247,19 @@ func validateSMSv2Bindings(bindings map[string]smsv2BindingModel) (map[string]sm
 
 func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []smsv2ConfiguredInterface, health client.SMSv2Observation) (map[string]smsv2RuntimeInterfaceModel, error) {
 	byMAC := map[string][]smsv2ConfiguredInterface{}
+	configuredNodes := map[string]struct{}{}
 	for _, iface := range configured {
 		byMAC[iface.MAC] = append(byMAC[iface.MAC], iface)
+		configuredNodes[iface.Node] = struct{}{}
 	}
 	healthNode, healthState := stringField(health, "hostname"), strings.ToUpper(stringField(health, "state"))
 	if healthNode == "" || healthState == "" {
-		return nil, fmt.Errorf("SMSv2 health observation is incomplete")
+		return nil, fmt.Errorf("SMSv2 node health observation is incomplete")
 	}
+	if _, exists := configuredNodes[healthNode]; !exists {
+		return nil, fmt.Errorf("SMSv2 node health node %q is not configured for this site", healthNode)
+	}
+	siteHealthy := healthState == "PROVISIONED"
 	result := make(map[string]smsv2RuntimeInterfaceModel, len(bindings))
 	for key, expected := range bindings {
 		matches := byMAC[expected.MAC.ValueString()]
@@ -265,10 +270,7 @@ func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []s
 		if got.Node != expected.Node.ValueString() || got.Role != expected.Role.ValueString() {
 			return nil, fmt.Errorf("binding %q disagrees with F5 XC configuration: got node=%q role=%q", key, got.Node, got.Role)
 		}
-		if healthNode != got.Node {
-			return nil, fmt.Errorf("health observation for node %q does not match binding %q node %q", healthNode, key, got.Node)
-		}
-		result[key] = smsv2RuntimeInterfaceModel{Node: types.StringValue(got.Node), Role: types.StringValue(got.Role), MAC: types.StringValue(got.MAC), InterfaceName: types.StringValue(got.Name), MTU: types.Int64Value(got.MTU), Healthy: types.BoolValue(healthState == "PROVISIONED")}
+		result[key] = smsv2RuntimeInterfaceModel{Node: types.StringValue(got.Node), Role: types.StringValue(got.Role), MAC: types.StringValue(got.MAC), InterfaceName: types.StringValue(got.Name), MTU: types.Int64Value(got.MTU), Healthy: types.BoolValue(siteHealthy)}
 	}
 	return result, nil
 }
@@ -277,6 +279,10 @@ func (d *Smsv2AWSRuntimeDataSource) Read(ctx context.Context, req datasource.Rea
 	var data Smsv2AWSRuntimeDataSourceModel
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
+		return
+	}
+	if err := requireSMSv2Capabilities("runtime_status"); err != nil {
+		resp.Diagnostics.AddError("SMSv2 Runtime Unavailable", err.Error())
 		return
 	}
 	bindings := map[string]smsv2BindingModel{}

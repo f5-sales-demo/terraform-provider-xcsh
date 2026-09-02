@@ -25,6 +25,15 @@ CAPABILITIES = {
     "runtime_status": "available",
     "tgw_connect": "available",
 }
+UNAVAILABLE_CAPABILITIES = {
+    "aws_ce_create": "unavailable",
+    "runtime_status": "unavailable",
+    "tgw_connect": "unavailable",
+}
+BLOCKING_CONDITIONS = [
+    "mac_only_interface_rejected_by_live_api",
+    "public_ip_empty_string_null_round_trip",
+]
 AUTHORITIES = {
     "f5xc": [
         "smsv2_configuration",
@@ -118,15 +127,15 @@ def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
     return manifest
 
 
-def validate_contract(contract: dict, contract_id: str) -> None:
+def validate_contract(contract: dict, contract_id: str, contract_version: str) -> None:
     """Validate the exact MAC-bound SMSv2 runtime and authority contract."""
     aws = contract.get("providers", {}).get("aws", {})
     if (
         contract.get("contract_id") != contract_id
+        or contract.get("version") != contract_version
         or contract.get("resource") != "securemesh_site_v2"
-        or aws.get("availability") != "evidence_backed"
     ):
-        fail("AWS contract identity or evidence state is invalid")
+        fail("AWS contract identity is invalid")
     api = contract.get("api", {})
     if api.get("namespace") != "system" or set(api.get("operations", [])) != {
         "create",
@@ -135,8 +144,6 @@ def validate_contract(contract: dict, contract_id: str) -> None:
         "delete",
     }:
         fail("system-namespace CRUD declaration is incomplete")
-    if aws.get("capabilities") != CAPABILITIES:
-        fail("AWS capability declaration is unsupported")
     if (
         aws.get("node_list_path") != "aws.not_managed.node_list[]"
         or aws.get("interface_list_path")
@@ -155,30 +162,42 @@ def validate_contract(contract: dict, contract_id: str) -> None:
     ]:
         fail("AWS interface role declarations are incomplete")
     intake = aws.get("telemetry_intake", {})
-    expected_intake = {
-        "schema_id": TELEMETRY_SCHEMA_ID,
-        "availability": "available",
-        "complete": True,
-        "unavailable_facts": [],
-    }
-    if any(intake.get(field) != value for field, value in expected_intake.items()):
-        fail("AWS runtime availability requires complete telemetry")
     if (
-        set(intake.get("required_facts", [])) != REQUIRED_FACTS
+        intake.get("schema_id") != TELEMETRY_SCHEMA_ID
+        or intake.get("unavailable_facts") != []
+        or set(intake.get("required_facts", [])) != REQUIRED_FACTS
         or set(intake.get("observed_facts", [])) != REQUIRED_FACTS
     ):
-        fail("AWS runtime availability requires complete telemetry")
+        fail("AWS telemetry declaration is incomplete")
     if aws.get("runtime") != RUNTIME:
         fail("F5 runtime endpoints or schemas are incomplete or legacy")
     if aws.get("authorities") != AUTHORITIES:
         fail("F5 and AWS authority declarations do not match the v2 contract")
     if aws.get("prohibited_legacy_apis") != ["aws_vpc_site", "aws_tgw_site"]:
         fail("legacy AWS site APIs must remain prohibited")
-    if aws.get("unavailable_capabilities") != []:
-        fail("available v2 capabilities cannot retain unavailable declarations")
+    availability = aws.get("availability")
+    if availability == "evidence_backed":
+        if (
+            aws.get("capabilities") != CAPABILITIES
+            or aws.get("unavailable_capabilities") != []
+            or intake.get("availability") != "available"
+            or intake.get("complete") is not True
+        ):
+            fail("evidence-backed AWS capabilities and telemetry are incoherent")
+    elif availability == "schema_only":
+        if (
+            aws.get("capabilities") != UNAVAILABLE_CAPABILITIES
+            or set(aws.get("unavailable_capabilities", []))
+            != set(UNAVAILABLE_CAPABILITIES)
+            or intake.get("availability") != "unavailable"
+            or intake.get("complete") is not False
+        ):
+            fail("schema-only AWS capabilities and telemetry must fail closed")
+    else:
+        fail("AWS contract availability is unsupported")
 
 
-def validate_evidence(evidence: dict, contract_id: str) -> None:
+def validate_evidence(evidence: dict, contract_id: str, availability: str) -> None:
     """Validate the age and sanitization of the behavioral evidence."""
     try:
         observed_at = dt.datetime.fromisoformat(
@@ -201,6 +220,16 @@ def validate_evidence(evidence: dict, contract_id: str) -> None:
         item.get("sanitized") is True and item.get("redaction") for item in receipts
     ):
         fail("evidence receipt is not sanitized")
+    if availability == "schema_only":
+        if len(receipts) != 1:
+            fail("schema-only evidence must contain one blocking receipt")
+        receipt = receipts[0]
+        if (
+            receipt.get("operations") != ["replace"]
+            or receipt.get("result") != "rejected"
+            or receipt.get("blocking_conditions") != BLOCKING_CONDITIONS
+        ):
+            fail("schema-only evidence does not match the live API blockers")
 
 
 def validate_concurrency(concurrency: dict, version: str) -> None:
@@ -302,8 +331,10 @@ def main() -> None:
     )
     contract_id = manifest["contract_id"]
     version = tag.removeprefix("v")
-    validate_contract(contract, contract_id)
-    validate_evidence(evidence, contract_id)
+    validate_contract(contract, contract_id, manifest["contract_version"])
+    validate_evidence(
+        evidence, contract_id, contract["providers"]["aws"]["availability"]
+    )
     validate_concurrency(concurrency, version)
     validate_parity(parity, version)
 

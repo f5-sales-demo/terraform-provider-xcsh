@@ -12,7 +12,15 @@ const syntheticSMSv2V5Contract = `{
   "version":"5.0.0",
   "contract_id":"f5xc-ce-automation/v2",
   "providers":{"aws":{
+	"availability":"evidence_backed",
     "capabilities":{"aws_ce_create":"available","runtime_status":"available","tgw_connect":"available"},
+	"unavailable_capabilities":[],
+	"telemetry_intake":{
+	  "schema_id":"f5xc-smsv2-aws-tgw-telemetry/v1","availability":"available","complete":true,
+	  "required_facts":["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
+	  "observed_facts":["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
+	  "unavailable_facts":[]
+	},
     "runtime":{
       "configuration":{"method":"GET","path":"/api/config/namespaces/{namespace}/securemesh_site_v2s/{site}","operation_id":"config.get","response_schema":"securemesh_site_v2GetResponse"},
       "health":{"method":"GET","path":"/api/operate/namespaces/system/sites/{site}/vpm/debug/global/health","operation_id":"health.get","response_schema":"debugHealthResponse"},
@@ -60,5 +68,22 @@ func TestSMSv2DataSourceTemplatesRejectsLegacyAndIncompleteContracts(t *testing.
 				t.Fatal("expected contract selection error")
 			}
 		})
+	}
+}
+
+func TestSMSv2DataSourceTemplatesRetainsSchemasWhenCapabilitiesFailClosed(t *testing.T) {
+	t.Parallel()
+	fixture := strings.NewReplacer(
+		`"availability":"evidence_backed"`, `"availability":"schema_only"`,
+		`"aws_ce_create":"available","runtime_status":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","runtime_status":"unavailable","tgw_connect":"unavailable"`,
+		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","runtime_status","tgw_connect"]`,
+		`"availability":"available","complete":true`, `"availability":"unavailable","complete":false`,
+	).Replace(syntheticSMSv2V5Contract)
+	got, err := SMSv2DataSourceTemplates([]byte(fixture))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != 3 {
+		t.Fatalf("templates = %#v, want all three fail-closed schemas", got)
 	}
 }

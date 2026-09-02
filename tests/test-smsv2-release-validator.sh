@@ -12,7 +12,7 @@ observed=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 jq -n --arg observed "$observed" '{
   contract_id:"f5xc-ce-automation/v2",
   observed_at:$observed,
-  receipts:[{sanitized:true,redaction:"fixture"}]
+  receipts:[{operations:["create","read","replace","delete"],result:"accepted",sanitized:true,redaction:"fixture"}]
 }' >"$work/smsv2-evidence-receipt.json"
 jq -n '{
   version:"5.0.0",
@@ -89,7 +89,38 @@ reject_contract_mutation() {
 
 refresh_manifest "$work"
 python3 "$validator" "$work" "$tag" "$commit"
+
+schema_only="$work/schema-only"
+mkdir "$schema_only"
+cp "$work"/*.json "$schema_only/"
+jq '.providers.aws.availability = "schema_only"
+  | .providers.aws.capabilities = {aws_ce_create:"unavailable",runtime_status:"unavailable",tgw_connect:"unavailable"}
+  | .providers.aws.unavailable_capabilities = ["aws_ce_create","runtime_status","tgw_connect"]
+  | .providers.aws.telemetry_intake.availability = "unavailable"
+  | .providers.aws.telemetry_intake.complete = false' "$schema_only/smsv2-contract.json" >"$schema_only/contract.json"
+mv "$schema_only/contract.json" "$schema_only/smsv2-contract.json"
+jq '.receipts = [{
+  operations:["replace"],result:"rejected",
+  blocking_conditions:["mac_only_interface_rejected_by_live_api","public_ip_empty_string_null_round_trip"],
+  sanitized:true,redaction:"fixture"
+}]' "$schema_only/smsv2-evidence-receipt.json" >"$schema_only/evidence.json"
+mv "$schema_only/evidence.json" "$schema_only/smsv2-evidence-receipt.json"
+refresh_manifest "$schema_only"
+python3 "$validator" "$schema_only" "$tag" "$commit"
+
+bad_blocker="$work/bad-blocker"
+mkdir "$bad_blocker"
+cp "$schema_only"/*.json "$bad_blocker/"
+jq '.receipts[0].blocking_conditions = ["unverified"]' "$bad_blocker/smsv2-evidence-receipt.json" >"$bad_blocker/evidence.json"
+mv "$bad_blocker/evidence.json" "$bad_blocker/smsv2-evidence-receipt.json"
+refresh_manifest "$bad_blocker"
+if python3 "$validator" "$bad_blocker" "$tag" "$commit" >/dev/null 2>&1; then
+  echo "schema-only contract with unverified blocker was accepted" >&2
+  exit 1
+fi
+
 reject_contract_mutation retired-v1 '.contract_id = "f5xc-ce-automation/v1"'
+reject_contract_mutation contract-version-mismatch '.version = "5.0.1"'
 reject_contract_mutation unavailable-only '.providers.aws.capabilities.runtime_status = "unavailable"'
 reject_contract_mutation incomplete-telemetry '.providers.aws.telemetry_intake.complete = false'
 reject_contract_mutation legacy-interface-path '.providers.aws.runtime.configuration.path = "/api/config/namespaces/{namespace}/sites/{site}/interface"'
