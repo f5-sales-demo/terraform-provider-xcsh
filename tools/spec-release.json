@@ -1,18 +1,18 @@
 {
   "assets": {
-    "api-catalog.json": "sha256:4f9bbdee039a1868783f5f25c9199c975b95cf8570c742d1447b990f4c499830",
-    "concurrency_contracts.json": "sha256:8026f82a4c19cf827005208f4fd6ad9e71871e649a3c94cc599470dda68ab360",
-    "f5xc-api-specs-v5.0.0.zip": "sha256:34cbc5b92f6049e50cbf030eb12c074b3c0be6bade02e0c6ca50db0a0879f8be",
-    "index.json": "sha256:78e9c84f306a9e4017ae30ad3a491316b1fba0d4c4133232825625797404d37e",
-    "minimal-export-defaults.json": "sha256:95beb3b5a13f14e2b40597772ad70e893df6301a3a0625c72d5e75effc914688",
-    "openapi.json": "sha256:ae6e28129122c2861c23f51d3d87213879e0b0365a108fec746d5314f0f342b4",
-    "smsv2-contract-manifest.json": "sha256:b5f0a7003925f68515b45664b44bd0abc4d55c8ded6ebc8362bf63765a840d21",
-    "smsv2-contract.json": "sha256:6c2e7fba74b6246b55be39cc16e9a64a4401af6493f1011ba5ea75148969058f",
-    "smsv2-evidence-receipt.json": "sha256:355e8e70a1b436f2e578fae6f2765ab5b513dc7a4dab89b0236b6f55f038a6a2",
-    "smsv2_parity_manifest.json": "sha256:bc3fccac12aaee48df2c77c9b8e62ee3f693eee813dae99aa2ab7c2aa6ad9b98",
+    "api-catalog.json": "sha256:e10559bd757c62c66ab8700b67b2fc3d15d4e32853d68a1392a09fe1fa137fbf",
+    "concurrency_contracts.json": "sha256:0477bee423d3b210644a21227ebdea59792658c204138fc85202ef90d3deb8ad",
+    "f5xc-api-specs-v5.0.1.zip": "sha256:8935f961d18f1a31f12a863d35b2c191a1ab31eeb2ab388010a7b2e30758e7a8",
+    "index.json": "sha256:1c9de2e6df7e5a532bb308a6841e86579967a117ce6dfa68cb8de71fa2f788f2",
+    "minimal-export-defaults.json": "sha256:368954ca02f86a38d4725af85c567466792e55783583e8ca031b0c10ce71a3e9",
+    "openapi.json": "sha256:5f917dec3f3906250fc9fc884d1bd6b70c55ae87bfb1a082393321733a87b589",
+    "smsv2-contract-manifest.json": "sha256:6e73065516d19711cbf7d164ff1a9a233f298da3d5bcabe0a2c8951112077af6",
+    "smsv2-contract.json": "sha256:e28dcf0e8c71a3f15c76b7ca21608ba46130e4630ca9eadf299b5f823841ea65",
+    "smsv2-evidence-receipt.json": "sha256:7649eaa88d88980d77c92d57470257b2772428df7acfc3e6f55217e73169a10f",
+    "smsv2_parity_manifest.json": "sha256:7008c08be03ab22a3db2d67581581326bd9a9627783c0e51a883f89d7473929a",
     "upstream-contract-removals.json": "sha256:aa1674550ad10b051bf03a4b860145f8d01724bc89b438c84fc99d94aa261957"
   },
-  "release_tag": "v5.0.0",
-  "target_commit": "3a647f1bf0c2447a71750c69136fab96fb073902",
-  "version": "5.0.0"
+  "release_tag": "v5.0.1",
+  "target_commit": "03297e8b403ac7df1cb0b897387edd74f836114a",
+  "version": "5.0.1"
 }
