@@ -31,8 +31,8 @@ func validReceipt(variant, profile, cache string, sample int, duration float64) 
 			PairID:     "go-build/" + cache + "/" + string(rune('0'+sample)),
 		},
 		Toolchain: Toolchain{
-			SpecRelease:   "v5.0.0",
-			SpecPinSHA256: "sha256:1a3c92cfe72f3e6db1bf953cb2ed1187736b69d8388bd6e9a8f2b5ac6f3c2003",
+			SpecRelease:   "v5.0.1",
+			SpecPinSHA256: "sha256:f606c2b53ec7d073c8d1d7b0bb5670a0660cb9082cfb07173fef8cda6934e477",
 			GoVersion:     "go1.25.12", TerraformVersion: "1.15.8",
 			DocumentationTool: "github.com/hashicorp/terraform-plugin-docs@v0.25.0+dirty",
 			ActionCheckout:    "3d3c42e5aac5ba805825da76410c181273ba90b1",
