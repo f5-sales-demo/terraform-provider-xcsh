@@ -390,15 +390,17 @@ func Aggregate(receipts []Receipt, baselineID string) (AggregateResult, error) {
 		return AggregateResult{}, errors.New("baseline variant is absent")
 	}
 	baseline := aggregateVariant(baselineID, baselineGroups, nil)
-	if len(baseline.RejectionReasons) != 0 {
-		return AggregateResult{}, fmt.Errorf("baseline is incomplete: %s", strings.Join(baseline.RejectionReasons, ", "))
-	}
 	result := AggregateResult{Workload: workload, Baseline: baseline}
 	for variantID, samples := range groups {
 		if variantID == baselineID {
 			continue
 		}
 		candidate := aggregateVariant(variantID, samples, &baseline)
+		if len(baseline.RejectionReasons) != 0 {
+			candidate.RejectionReasons = append(candidate.RejectionReasons, "baseline did not satisfy qualification gates")
+			candidate.RejectionReasons = uniqueStrings(candidate.RejectionReasons)
+			candidate.Eligible = false
+		}
 		result.Candidates = append(result.Candidates, candidate)
 	}
 	sort.Slice(result.Candidates, func(i, j int) bool { return rankLess(result.Candidates[i], result.Candidates[j]) })

@@ -191,7 +191,7 @@ func runCommand(args []string) error {
 	if err != nil {
 		return err
 	}
-	if validation.Exit.Code != 0 || validation.Metrics.PeakMemoryRatio >= 0.80 || validation.Metrics.OOMEvents != 0 {
+	if !validationAllowsMeasurement(options.profile, options.variant, validation) {
 		return nil
 	}
 	if expectedBaselineDigest != "" && validation.OutputTreeSHA256 != expectedBaselineDigest {
@@ -236,6 +236,16 @@ func runCommand(args []string) error {
 
 func baselineProbeProvidesDigest(receipt workloadbench.Receipt) bool {
 	return receipt.Exit.Code == 0
+}
+
+func validationAllowsMeasurement(profile, variant string, receipt workloadbench.Receipt) bool {
+	if receipt.Exit.Code != 0 || receipt.Metrics.OOMEvents != 0 {
+		return false
+	}
+	// Always establish complete D8-current distributions. A resource-ineligible
+	// baseline must yield a reproducible negative aggregate rather than prevent
+	// the aggregate from reporting why no compute route may be selected.
+	return profile == "d8" && variant == "d8-current" || receipt.Metrics.PeakMemoryRatio < 0.80
 }
 
 func runExampleSuiteCommand(args []string) error {

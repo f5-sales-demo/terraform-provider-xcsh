@@ -212,3 +212,27 @@ func TestAggregateRejectsDigestDriftIncompleteSamplesAndMemory(t *testing.T) {
 		})
 	}
 }
+
+func TestAggregateReportsAnIneligibleBaselineWithoutDiscardingEvidence(t *testing.T) {
+	var receipts []Receipt
+	for _, cache := range []string{"cold", "warm"} {
+		for sample := 1; sample <= 5; sample++ {
+			baseline := validReceipt("d8-current", "d8", cache, sample, 10)
+			baseline.Metrics.PeakMemoryRatio = 0.90
+			receipts = append(receipts, baseline, validReceipt("d16-n8", "d16", cache, sample, 7))
+		}
+	}
+	result, err := Aggregate(receipts, "d8-current")
+	if err != nil {
+		t.Fatalf("aggregate must report a resource-ineligible baseline: %v", err)
+	}
+	if result.Winner != "" {
+		t.Fatalf("winner = %q, want no route when baseline breaches memory gate", result.Winner)
+	}
+	if len(result.Baseline.RejectionReasons) == 0 || result.Baseline.RejectionReasons[0] != "memory gate failed" {
+		t.Fatalf("baseline rejection reasons = %v, want memory gate failure", result.Baseline.RejectionReasons)
+	}
+	if len(result.Candidates) != 1 || result.Candidates[0].Eligible || !strings.Contains(strings.Join(result.Candidates[0].RejectionReasons, ","), "baseline did not satisfy qualification gates") {
+		t.Fatalf("candidate must be explicitly rejected by the baseline gate: %+v", result.Candidates)
+	}
+}
