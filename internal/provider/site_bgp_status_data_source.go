@@ -272,6 +272,10 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if err := requireSMSv2Capabilities("runtime_status", "tgw_connect"); err != nil {
+		resp.Diagnostics.AddError("SMSv2 BGP Status Unavailable", err.Error())
+		return
+	}
 	if data.TimeoutSeconds.IsNull() || data.TimeoutSeconds.IsUnknown() {
 		data.TimeoutSeconds = types.Int64Value(300)
 	}

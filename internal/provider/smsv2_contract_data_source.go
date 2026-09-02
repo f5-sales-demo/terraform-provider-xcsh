@@ -4,6 +4,8 @@ package provider
 
 import (
 	"context"
+	"fmt"
+	"strings"
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
@@ -66,4 +68,21 @@ func (d *Smsv2ContractDataSource) Read(ctx context.Context, _ datasource.ReadReq
 		Capabilities: capabilities, F5XCAuthorities: f5xc, AWSAuthorities: aws,
 	}
 	resp.Diagnostics.Append(resp.State.Set(ctx, &state)...)
+}
+
+func requireSMSv2Capabilities(names ...string) error {
+	return validateSMSv2Capabilities(smsv2ContractCapabilities, smsv2APIReleaseTag, names...)
+}
+
+func validateSMSv2Capabilities(capabilities map[string]string, release string, names ...string) error {
+	var unavailable []string
+	for _, name := range names {
+		if capabilities[name] != "available" {
+			unavailable = append(unavailable, name)
+		}
+	}
+	if len(unavailable) != 0 {
+		return fmt.Errorf("API release %s does not make SMSv2 capabilities available: %s", release, strings.Join(unavailable, ", "))
+	}
+	return nil
 }

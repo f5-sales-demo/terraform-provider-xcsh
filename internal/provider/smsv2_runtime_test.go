@@ -42,6 +42,19 @@ func multiNodeRuntimeConfiguration() client.SMSv2Observation {
 	return client.SMSv2Observation{"spec": map[string]interface{}{"aws": map[string]interface{}{"not_managed": map[string]interface{}{"node_list": nodes}}}}
 }
 
+func TestSMSv2CapabilitiesFailClosedBeforeRuntimeReads(t *testing.T) {
+	t.Parallel()
+	capabilities := map[string]string{
+		"aws_ce_create":  "unavailable",
+		"runtime_status": "unavailable",
+		"tgw_connect":    "unavailable",
+	}
+	err := validateSMSv2Capabilities(capabilities, "v5.0.1", "runtime_status", "tgw_connect")
+	if err == nil || !strings.Contains(err.Error(), "runtime_status, tgw_connect") {
+		t.Fatalf("fail-closed capability error = %v", err)
+	}
+}
+
 func TestExtractAndCorrelateSMSv2Runtime(t *testing.T) {
 	configured, err := extractSMSv2ConfiguredInterfaces(runtimeConfiguration())
 	if err != nil {

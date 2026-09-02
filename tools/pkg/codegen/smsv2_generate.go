@@ -8,20 +8,9 @@ import (
 	"go/format"
 	"os"
 	"path/filepath"
+	"strconv"
+	"strings"
 )
-
-type smsv2GenerationContract struct {
-	Version    string `json:"version"`
-	ContractID string `json:"contract_id"`
-	Providers  struct {
-		AWS struct {
-			Telemetry struct {
-				SchemaID string `json:"schema_id"`
-				Complete bool   `json:"complete"`
-			} `json:"telemetry_intake"`
-		} `json:"aws"`
-	} `json:"providers"`
-}
 
 type smsv2GenerationManifest struct {
 	ContractID      string `json:"contract_id"`
@@ -43,12 +32,9 @@ func GenerateSMSv2ContractConstants(specDir, outputDir string) ([]SMSv2DataSourc
 	if err != nil {
 		return nil, err
 	}
-	var contract smsv2GenerationContract
+	var contract smsv2ReleaseContract
 	if err := json.Unmarshal(contractJSON, &contract); err != nil {
 		return nil, fmt.Errorf("decode SMSv2 contract: %w", err)
-	}
-	if contract.Providers.AWS.Telemetry.SchemaID != "f5xc-smsv2-aws-tgw-telemetry/v1" || !contract.Providers.AWS.Telemetry.Complete {
-		return nil, fmt.Errorf("SMSv2 telemetry contract is incomplete")
 	}
 	manifestJSON, err := os.ReadFile(filepath.Join(specDir, "smsv2-contract-manifest.json"))
 	if err != nil {
@@ -58,9 +44,19 @@ func GenerateSMSv2ContractConstants(specDir, outputDir string) ([]SMSv2DataSourc
 	if err := json.Unmarshal(manifestJSON, &manifest); err != nil {
 		return nil, fmt.Errorf("decode SMSv2 contract manifest: %w", err)
 	}
-	if manifest.ContractID != contract.ContractID || manifest.ContractVersion != contract.Version || manifest.Release.Tag != "v"+contract.Version || len(manifest.Release.Commit) != 40 {
+	contractMajor, _, contractFound := strings.Cut(contract.Version, ".")
+	releaseMajor, _, releaseFound := strings.Cut(strings.TrimPrefix(manifest.Release.Tag, "v"), ".")
+	if manifest.ContractID != contract.ContractID || manifest.ContractVersion != contract.Version ||
+		!strings.HasPrefix(manifest.Release.Tag, "v") || !contractFound || !releaseFound ||
+		contractMajor != releaseMajor || len(manifest.Release.Commit) != 40 {
 		return nil, fmt.Errorf("SMSv2 contract manifest identity mismatch")
 	}
+	capabilities := fmt.Sprintf("map[string]string{%q: %q, %q: %q, %q: %q}",
+		"aws_ce_create", contract.Providers.AWS.Capabilities["aws_ce_create"],
+		"runtime_status", contract.Providers.AWS.Capabilities["runtime_status"],
+		"tgw_connect", contract.Providers.AWS.Capabilities["tgw_connect"])
+	f5xcAuthorities := goStringSlice(contract.Providers.AWS.Authorities["f5xc"])
+	awsAuthorities := goStringSlice(contract.Providers.AWS.Authorities["aws"])
 	source := fmt.Sprintf(`// Code generated from api-specs-enriched %s smsv2-contract.json. DO NOT EDIT.
 
 package provider
@@ -73,10 +69,10 @@ const (
 	smsv2TelemetrySchemaID = %q
 )
 
-var smsv2ContractCapabilities = map[string]string{"aws_ce_create": "available", "runtime_status": "available", "tgw_connect": "available"}
-var smsv2ContractF5XCAuthorities = []string{"smsv2_configuration", "runtime_health", "bgp_peers", "bgp_routes", "simplified_routes"}
-var smsv2ContractAWSAuthorities = []string{"eni", "transit_gateway", "transit_gateway_connect", "gre_endpoints", "bgp_inside_cidrs"}
-`, manifest.Release.Tag, contract.ContractID, contract.Version, manifest.Release.Tag, manifest.Release.Commit, contract.Providers.AWS.Telemetry.SchemaID)
+var smsv2ContractCapabilities = %s
+var smsv2ContractF5XCAuthorities = %s
+var smsv2ContractAWSAuthorities = %s
+`, manifest.Release.Tag, contract.ContractID, contract.Version, manifest.Release.Tag, manifest.Release.Commit, contract.Providers.AWS.Telemetry.SchemaID, capabilities, f5xcAuthorities, awsAuthorities)
 	formatted, err := format.Source([]byte(source))
 	if err != nil {
 		return nil, fmt.Errorf("format SMSv2 generated constants: %w", err)
@@ -85,4 +81,12 @@ var smsv2ContractAWSAuthorities = []string{"eni", "transit_gateway", "transit_ga
 		return nil, fmt.Errorf("write SMSv2 generated constants: %w", err)
 	}
 	return templates, nil
+}
+
+func goStringSlice(values []string) string {
+	quoted := make([]string, len(values))
+	for index, value := range values {
+		quoted[index] = strconv.Quote(value)
+	}
+	return "[]string{" + strings.Join(quoted, ", ") + "}"
 }
