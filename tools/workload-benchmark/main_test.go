@@ -23,6 +23,17 @@ func TestBaselineProbeGateOnlyRequiresSuccessfulOutput(t *testing.T) {
 	}
 }
 
+func TestBaselineProbeOptionsRetainEvidenceDirectory(t *testing.T) {
+	options := runOptions{variant: "d8-n4", outputDir: "/receipts"}
+	probe := baselineProbeOptions(options)
+	if probe.variant != "d8-current" {
+		t.Fatalf("probe variant = %q, want d8-current", probe.variant)
+	}
+	if probe.outputDir != options.outputDir {
+		t.Fatalf("probe output directory = %q, want %q", probe.outputDir, options.outputDir)
+	}
+}
+
 func TestValidationAllowsMeasurementForResourceIneligibleD8Baseline(t *testing.T) {
 	receipt := workloadbench.Receipt{Exit: workloadbench.Exit{Code: 0}, Metrics: workloadbench.Metrics{PeakMemoryRatio: 0.95}}
 	if !validationAllowsMeasurement("d8", "d8-current", receipt) {

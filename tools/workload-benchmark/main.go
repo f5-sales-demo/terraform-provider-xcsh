@@ -146,13 +146,7 @@ func runCommand(args []string) error {
 	}
 	expectedBaselineDigest := ""
 	if options.profile == "d8" && options.variant != "d8-current" {
-		baselineOptions := options
-		baselineOptions.variant = "d8-current"
-		baselineOptions.outputDir, err = os.MkdirTemp(os.TempDir(), "xcsh-baseline-probe-")
-		if err != nil {
-			return err
-		}
-		defer os.RemoveAll(baselineOptions.outputDir)
+		baselineOptions := baselineProbeOptions(options)
 		baselineConfiguration := workloadbench.Configuration{VariantID: "d8-current", ExampleConcurrency: 1}
 		baselinePlan, planErr := workloadbench.PlanCache(options.cacheRoot, "d8", options.workload, "d8-current", "cold", 1)
 		if planErr != nil {
@@ -167,11 +161,13 @@ func runCommand(args []string) error {
 		if probeErr != nil {
 			return probeErr
 		}
-		// The disposable baseline probe exists only to establish the canonical
-		// output digest for this independently scheduled D8 candidate. Apply
-		// memory and OOM eligibility gates to the candidate's own validation
-		// receipt below; otherwise a resource-ineligible baseline can suppress
-		// the candidate receipt entirely.
+		// Retain the baseline-probe receipt with the job evidence even when the
+		// probe fails. The aggregate ignores validation samples for its measured
+		// distributions, while the retained receipt prevents an upload failure
+		// from hiding an intended benchmark rejection.
+		// Apply memory and OOM eligibility gates to the candidate's own
+		// validation receipt below; otherwise a resource-ineligible baseline can
+		// suppress the candidate receipt entirely.
 		if !baselineProbeProvidesDigest(baseline) {
 			return nil
 		}
@@ -232,6 +228,12 @@ func runCommand(args []string) error {
 		}
 	}
 	return nil
+}
+
+func baselineProbeOptions(options runOptions) runOptions {
+	probe := options
+	probe.variant = "d8-current"
+	return probe
 }
 
 func baselineProbeProvidesDigest(receipt workloadbench.Receipt) bool {
