@@ -1,0 +1,8 @@
+{
+  "delivery_id": "117a1b3078b08cf5d67dada6913681de03d1354a7b69dc0f62c540611352350f",
+  "release_tag": "v5.0.1",
+  "source_commit": "3d0e32640ed9def685b05d2611e99c82150c39c8",
+  "spec_release_sha256": "f606c2b53ec7d073c8d1d7b0bb5670a0660cb9082cfb07173fef8cda6934e477",
+  "target_commit": "03297e8b403ac7df1cb0b897387edd74f836114a",
+  "version": "5.0.1"
+}
