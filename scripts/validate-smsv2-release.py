@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# pylint: disable=invalid-name
+# pylint: disable=invalid-name,too-many-branches
 # ruff: noqa: TRY003,EM102,PLR2004,FURB162
 """Reject unproven or tampered AWS SMSv2 release capability assets."""
 
