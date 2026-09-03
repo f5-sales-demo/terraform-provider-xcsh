@@ -1,18 +1,18 @@
 {
   "assets": {
-    "api-catalog.json": "sha256:909839875f564947e6f9f002d13da239db7970be39d186f82900372a0ad721ee",
-    "concurrency_contracts.json": "sha256:6be53d27bd6ec5488dced15e45502f3515e148fe61bdb7fe4a8c18d6ca4a707f",
-    "f5xc-api-specs-v6.0.0.zip": "sha256:52dabb4155c3c37e7c486384e0f356edb9be7556a4f5bfa543271d7f49378c07",
-    "index.json": "sha256:9a67ff25a1c6bb45fb5447a67b3c02bb10c7897c19ac41a2a176f6dc4e51baad",
-    "minimal-export-defaults.json": "sha256:77c4e16b37fa193d97f036c12e9df8bba16123b8aa7beed750159b350e48d81d",
-    "openapi.json": "sha256:123039a51e5ae7004178cd3d3163a4651eac0abd97086437633b7f23461c78d4",
-    "smsv2-contract-manifest.json": "sha256:a4e56258b6b2905c659f0c19356d892b2837fce5adb4e5adbe03a18f8548fa98",
-    "smsv2-contract.json": "sha256:e30d64d504c54b6c9c9e51b384f46881e7edf24abd03f6e7c6e15c78b9984677",
-    "smsv2-evidence-receipt.json": "sha256:fa8c29e611ce25f7fbc3d4c86fec1d969be9526e2990401d7efecbcd4af5366a",
-    "smsv2_parity_manifest.json": "sha256:bcdf7f9dc07a57d61abbefcc4c1936eb99a7474b94d035088ba78d5e2269aca9",
-    "upstream-contract-removals.json": "sha256:aa1674550ad10b051bf03a4b860145f8d01724bc89b438c84fc99d94aa261957"
+    "api-catalog.json": "sha256:7a6cf1ca60af740d677d52f7a2be5b2b1385313646ba5ace93d1bd8fd647aa7d",
+    "concurrency_contracts.json": "sha256:a9b78cf07961d56291ebf96297e95b1417f9d45d06cf4331ce2405c49703742e",
+    "f5xc-api-specs-v6.0.1.zip": "sha256:11a949feb3d8bacff7778cf2a9af305c333394465cfba81a54f43d410a834236",
+    "index.json": "sha256:b362e5a087b4d689df218c1c1bd174a742ecbb40639993a384619bdc645de929",
+    "minimal-export-defaults.json": "sha256:f6b5cb00d54437f5ad85e7159c9f3c24c1df4e531f38022101cac36123fe6838",
+    "openapi.json": "sha256:a77199af76fdbeca678b5e4561b7511d01166afc16ba848fc22de14fa8d6fce9",
+    "smsv2-contract-manifest.json": "sha256:93be82ccf196ca111702c32fcb39ec1d0c14e214e00705ebd1ee118fb68c036c",
+    "smsv2-contract.json": "sha256:7e7127185764c643d790cc0badae485865da8054b56491c2be4720fa42f09cbe",
+    "smsv2-evidence-receipt.json": "sha256:1e6ac82388b5b481013f421185fb81d6ff5a1f2f4bcfa593027c2533c47e8868",
+    "smsv2_parity_manifest.json": "sha256:23001cc5db8db03dc0b37f6f2367964f43aff0b39184f8ab4915eb476e1c3a4f",
+    "upstream-contract-removals.json": "sha256:c5a6ad2157e81b0fc76591cdeaa475fcaf2d85a9bc74f10bb0c7addecc2ba565"
   },
-  "release_tag": "v6.0.0",
-  "target_commit": "8a48ca67ad9fc23174d086c0d63a2783e531044b",
-  "version": "6.0.0"
+  "release_tag": "v6.0.1",
+  "target_commit": "22fe8a431569268c0bc6790bd97f12a19b97ce35",
+  "version": "6.0.1"
 }
