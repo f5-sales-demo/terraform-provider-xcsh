@@ -34,9 +34,8 @@ data "xcsh_site_bgp_status" "site" {
     }
   }
 
-  timeout_seconds             = 300
-  poll_interval_seconds       = 10
-  max_observation_age_seconds = 120
+  timeout_seconds       = 300
+  poll_interval_seconds = 10
 }
 
 output "bgp_converged" {

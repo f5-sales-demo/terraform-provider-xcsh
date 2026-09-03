@@ -10,8 +10,8 @@ import pathlib
 import sys
 from typing import NoReturn
 
-CONTRACT_ID = "f5xc-ce-automation/v2"
-TELEMETRY_SCHEMA_ID = "f5xc-smsv2-aws-tgw-telemetry/v1"
+CONTRACT_ID = "f5xc-ce-automation/v3"
+TELEMETRY_SCHEMA_ID = "f5xc-smsv2-aws-tgw-telemetry/v2"
 REQUIRED_FACTS = {
     "runtime",
     "gre",
@@ -48,32 +48,41 @@ AUTHORITIES = {
         "transit_gateway_connect",
         "gre_endpoints",
         "bgp_inside_cidrs",
+        "autonomous_system_numbers",
     ],
 }
-RUNTIME = {
+RUNTIME_ENDPOINTS = {
     "configuration": {
         "method": "GET",
         "path": "/api/config/namespaces/{namespace}/securemesh_site_v2s/{site}",
         "operation_id": "ves.io.schema.views.securemesh_site_v2.API.Get",
         "response_schema": "securemesh_site_v2GetResponse",
+        "authority": "f5xc",
+        "semantics": "configuration",
     },
     "health": {
         "method": "GET",
         "path": "/api/operate/namespaces/system/sites/{site}/vpm/debug/global/health",
         "operation_id": "ves.io.schema.operate.debug.CustomPublicAPI.HealthPublic",
         "response_schema": "debugHealthResponse",
+        "authority": "f5xc",
+        "semantics": "observational_read_only",
     },
     "bgp_peers": {
         "method": "GET",
         "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_peers",
         "operation_id": "ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPPeers",
         "response_schema": "bgpBGPPeersResponse",
+        "authority": "f5xc",
+        "semantics": "observational_read_only",
     },
     "bgp_routes": {
         "method": "GET",
         "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_routes",
         "operation_id": "ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPRoutes",
         "response_schema": "bgpBGPRoutesResponse",
+        "authority": "f5xc",
+        "semantics": "observational_read_only",
     },
     "simplified_routes": {
         "method": "POST",
@@ -81,6 +90,8 @@ RUNTIME = {
         "operation_id": "ves.io.schema.operate.route.CustomPublicAPI.ShowSimplifiedRoutes",
         "request_schema": "routeSimplifiedRouteRequest",
         "response_schema": "routeSimplifiedRouteResponse",
+        "authority": "f5xc",
+        "semantics": "observational_read_only",
     },
 }
 
@@ -151,9 +162,23 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
     ):
         fail("AWS SMSv2 configuration paths are unsupported")
     if aws.get("interface_identity") != {
-        "field": "ethernet_interface.mac",
-        "guest_device": "observational_only",
-        "known_macs": "non_empty_unique_per_node",
+        "fields": ["node", "ethernet_interface.mac"],
+        "guest_device": "rejected",
+        "known_value_policy": "reject_null_incomplete_malformed_ambiguous_or_inconsistent",
+        "mac": {
+            "configuration_path": "spec.aws.not_managed.node_list[].interface_list[].ethernet_interface.mac",
+            "input_field": "mac",
+            "normalization": "ieee802_lowercase_colon",
+            "nullable": False,
+        },
+        "node": {
+            "configuration_path": "spec.aws.not_managed.node_list[].hostname",
+            "input_field": "node",
+            "normalization": "trim",
+            "nullable": False,
+        },
+        "uniqueness_scope": "node",
+        "unknown_value_policy": "defer",
     }:
         fail("AWS interface identity must be MAC-bound")
     if aws.get("roles") != [
@@ -169,10 +194,32 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
         or set(intake.get("observed_facts", [])) != REQUIRED_FACTS
     ):
         fail("AWS telemetry declaration is incomplete")
-    if aws.get("runtime") != RUNTIME:
-        fail("F5 runtime endpoints or schemas are incomplete or legacy")
+    runtime = aws.get("runtime", {})
+    if set(runtime) != set(RUNTIME_ENDPOINTS):
+        fail("F5 runtime endpoint inventory is incomplete")
+    for name, expected in RUNTIME_ENDPOINTS.items():
+        actual = runtime.get(name, {})
+        if any(actual.get(key) != value for key, value in expected.items()):
+            fail(f"F5 runtime endpoint {name} is incomplete or legacy")
+        mappings = actual.get("response_mappings")
+        if not isinstance(mappings, dict) or not mappings:
+            fail(f"F5 runtime endpoint {name} has no response mappings")
+    if runtime["configuration"].get("correlation") != ["node", "normalized_mac"]:
+        fail("configuration correlation must use node and normalized MAC")
+    if (
+        runtime["bgp_peers"].get("response_mappings", {}).get("state_changed_at")
+        != "ver[].peer[].up_down_timestamp"
+    ):
+        fail("BGP state timestamp mapping is incomplete")
+    if "observed_at" in runtime["bgp_peers"].get("response_mappings", {}):
+        fail("BGP observation freshness is unsupported")
+    if runtime["simplified_routes"].get("request_mappings") != {
+        "node_scope": "all_nodes",
+        "roles": ["slo", "sli"],
+    }:
+        fail("simplified route request mapping is incomplete")
     if aws.get("authorities") != AUTHORITIES:
-        fail("F5 and AWS authority declarations do not match the v2 contract")
+        fail("F5 and AWS authority declarations do not match the v3 contract")
     if aws.get("prohibited_legacy_apis") != ["aws_vpc_site", "aws_tgw_site"]:
         fail("legacy AWS site APIs must remain prohibited")
     availability = aws.get("availability")
@@ -216,7 +263,7 @@ def validate_evidence(evidence: dict, contract_id: str, availability: str) -> No
     """Validate the age and sanitization of the behavioral evidence."""
     try:
         observed_at = dt.datetime.fromisoformat(
-            evidence["observed_at"].replace("Z", "+00:00")
+            evidence["recorded_at"].replace("Z", "+00:00")
         )
         if observed_at.tzinfo is None or observed_at.utcoffset() is None:
             fail("evidence observation timestamp must include a timezone")

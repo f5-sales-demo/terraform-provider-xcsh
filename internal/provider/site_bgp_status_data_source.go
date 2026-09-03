@@ -27,9 +27,40 @@ var (
 	_ datasource.DataSourceWithConfigure = &SiteBGPStatusDataSource{}
 )
 
-type SiteBGPStatusDataSource struct{ client *client.Client }
+type SiteBGPStatusDataSource struct {
+	client *client.Client
+	now    func() time.Time
+	wait   func(context.Context, time.Duration) error
+}
 
-func NewSiteBGPStatusDataSource() datasource.DataSource { return &SiteBGPStatusDataSource{} }
+func NewSiteBGPStatusDataSource() datasource.DataSource {
+	return &SiteBGPStatusDataSource{now: time.Now, wait: waitForSMSv2Poll}
+}
+
+func waitForSMSv2Poll(ctx context.Context, delay time.Duration) error {
+	timer := time.NewTimer(delay)
+	defer timer.Stop()
+	select {
+	case <-ctx.Done():
+		return ctx.Err()
+	case <-timer.C:
+		return nil
+	}
+}
+
+func (d *SiteBGPStatusDataSource) nowTime() time.Time {
+	if d.now != nil {
+		return d.now()
+	}
+	return time.Now()
+}
+
+func (d *SiteBGPStatusDataSource) waitFor(ctx context.Context, delay time.Duration) error {
+	if d.wait != nil {
+		return d.wait(ctx, delay)
+	}
+	return waitForSMSv2Poll(ctx, delay)
+}
 
 type smsv2ExpectedPeerModel struct {
 	Node           types.String `tfsdk:"node"`
@@ -46,7 +77,7 @@ type smsv2PeerStatusModel struct {
 	InterfaceName      types.String `tfsdk:"interface_name"`
 	PeerAddress        types.String `tfsdk:"peer_address"`
 	State              types.String `tfsdk:"state"`
-	ObservedAt         types.String `tfsdk:"observed_at"`
+	StateChangedAt     types.String `tfsdk:"state_changed_at"`
 	ReceivedPrefixes   types.Int64  `tfsdk:"received_prefix_count"`
 	AdvertisedPrefixes types.Int64  `tfsdk:"advertised_prefix_count"`
 	Established        types.Bool   `tfsdk:"established"`
@@ -55,28 +86,27 @@ type smsv2PeerStatusModel struct {
 var smsv2PeerStatusAttrTypes = map[string]attr.Type{
 	"node": types.StringType, "role": types.StringType, "mac": types.StringType,
 	"interface_name": types.StringType, "peer_address": types.StringType, "state": types.StringType,
-	"observed_at": types.StringType, "received_prefix_count": types.Int64Type,
+	"state_changed_at": types.StringType, "received_prefix_count": types.Int64Type,
 	"advertised_prefix_count": types.Int64Type, "established": types.BoolType,
 }
 
 type SiteBGPStatusDataSourceModel struct {
-	ID                       types.String `tfsdk:"id"`
-	Namespace                types.String `tfsdk:"namespace"`
-	Site                     types.String `tfsdk:"site"`
-	ExpectedPeers            types.Map    `tfsdk:"expected_peers"`
-	TimeoutSeconds           types.Int64  `tfsdk:"timeout_seconds"`
-	PollIntervalSeconds      types.Int64  `tfsdk:"poll_interval_seconds"`
-	MaxObservationAgeSeconds types.Int64  `tfsdk:"max_observation_age_seconds"`
-	Peers                    types.Map    `tfsdk:"peers"`
-	BGPRoutesJSON            types.String `tfsdk:"bgp_routes_json"`
-	SLORoutesJSON            types.String `tfsdk:"slo_routes_json"`
-	SLIRoutesJSON            types.String `tfsdk:"sli_routes_json"`
-	Converged                types.Bool   `tfsdk:"converged"`
+	ID                  types.String `tfsdk:"id"`
+	Namespace           types.String `tfsdk:"namespace"`
+	Site                types.String `tfsdk:"site"`
+	ExpectedPeers       types.Map    `tfsdk:"expected_peers"`
+	TimeoutSeconds      types.Int64  `tfsdk:"timeout_seconds"`
+	PollIntervalSeconds types.Int64  `tfsdk:"poll_interval_seconds"`
+	Peers               types.Map    `tfsdk:"peers"`
+	BGPRoutesJSON       types.String `tfsdk:"bgp_routes_json"`
+	SLORoutesJSON       types.String `tfsdk:"slo_routes_json"`
+	SLIRoutesJSON       types.String `tfsdk:"sli_routes_json"`
+	Converged           types.Bool   `tfsdk:"converged"`
 }
 
 type observedBGPPeer struct {
-	Node, InterfaceName, PeerAddress, State, ObservedAt string
-	ReceivedPrefixes, AdvertisedPrefixes                int64
+	Node, InterfaceName, PeerAddress, State, StateChangedAt string
+	ReceivedPrefixes, AdvertisedPrefixes                    int64
 }
 
 func (d *SiteBGPStatusDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -93,13 +123,12 @@ func (d *SiteBGPStatusDataSource) Schema(_ context.Context, _ datasource.SchemaR
 			"mac": schema.StringAttribute{Required: true}, "peer_address": schema.StringAttribute{Required: true},
 			"expected_routes": schema.SetAttribute{Required: true, ElementType: types.StringType},
 		}}},
-		"timeout_seconds":             schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 1800)}},
-		"poll_interval_seconds":       schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 60)}},
-		"max_observation_age_seconds": schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 3600)}},
+		"timeout_seconds":       schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 1800)}},
+		"poll_interval_seconds": schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 60)}},
 		"peers": schema.MapNestedAttribute{Computed: true, NestedObject: schema.NestedAttributeObject{Attributes: map[string]schema.Attribute{
 			"node": schema.StringAttribute{Computed: true}, "role": schema.StringAttribute{Computed: true}, "mac": schema.StringAttribute{Computed: true},
 			"interface_name": schema.StringAttribute{Computed: true}, "peer_address": schema.StringAttribute{Computed: true},
-			"state": schema.StringAttribute{Computed: true}, "observed_at": schema.StringAttribute{Computed: true},
+			"state": schema.StringAttribute{Computed: true}, "state_changed_at": schema.StringAttribute{Computed: true},
 			"received_prefix_count": schema.Int64Attribute{Computed: true}, "advertised_prefix_count": schema.Int64Attribute{Computed: true},
 			"established": schema.BoolAttribute{Computed: true},
 		}}},
@@ -154,60 +183,145 @@ func extractSMSv2BGPPeers(observation client.SMSv2Observation) ([]observedBGPPee
 			if !ok {
 				return nil, fmt.Errorf("BGP peer observation is malformed")
 			}
-			result = append(result, observedBGPPeer{Node: name, InterfaceName: stringField(peer, "interface_name"), PeerAddress: peerAddress(peer["peer_address"]), State: stringField(peer, "protocol_status"), ObservedAt: stringField(peer, "observed_at"), ReceivedPrefixes: int64Field(peer, "received_prefix_count"), AdvertisedPrefixes: int64Field(peer, "advertised_prefix_count")})
+			result = append(result, observedBGPPeer{Node: name, InterfaceName: stringField(peer, "interface_name"), PeerAddress: peerAddress(peer["peer_address"]), State: stringField(peer, "protocol_status"), StateChangedAt: stringField(peer, "up_down_timestamp"), ReceivedPrefixes: int64Field(peer, "received_prefix_count"), AdvertisedPrefixes: int64Field(peer, "advertised_prefix_count")})
 		}
 	}
 	return result, nil
 }
 
-func collectRoutePrefixes(value interface{}, result map[string]struct{}) {
-	switch item := value.(type) {
-	case map[string]interface{}:
-		for key, child := range item {
-			if key == "prefix" || key == "subnet" {
-				if text, ok := child.(string); ok {
-					if _, _, err := net.ParseCIDR(strings.TrimSpace(text)); err == nil {
-						result[strings.TrimSpace(text)] = struct{}{}
-					}
-				}
-			}
-			collectRoutePrefixes(child, result)
-		}
-	case []interface{}:
-		for _, child := range item {
-			collectRoutePrefixes(child, result)
-		}
+func routeArray(value map[string]interface{}, key string) ([]interface{}, error) {
+	routes, ok := value[key].([]interface{})
+	if !ok {
+		return nil, fmt.Errorf("route response field %q is missing or malformed", key)
 	}
+	return routes, nil
 }
 
-func canonicalJSON(value interface{}) string { bytes, _ := json.Marshal(value); return string(bytes) }
-
-func validateObservationAge(observedAt string, maximum time.Duration, now time.Time) error {
-	if observedAt == "" {
-		return nil
+func addRouteSubnets(routes []interface{}, node string, result map[string]map[string]struct{}) error {
+	if result[node] == nil {
+		result[node] = map[string]struct{}{}
 	}
-	timestamp, err := time.Parse(time.RFC3339, observedAt)
-	if err != nil {
-		return fmt.Errorf("malformed observation timestamp %q", observedAt)
-	}
-	if now.Sub(timestamp) > maximum {
-		return fmt.Errorf("observation timestamp %q is stale", observedAt)
+	for _, rawRoute := range routes {
+		route, ok := rawRoute.(map[string]interface{})
+		if !ok {
+			return fmt.Errorf("route observation for node %q is malformed", node)
+		}
+		prefix := stringField(route, "subnet")
+		if _, _, err := net.ParseCIDR(prefix); err != nil {
+			return fmt.Errorf("route observation for node %q has invalid subnet %q", node, prefix)
+		}
+		result[node][prefix] = struct{}{}
 	}
 	return nil
 }
 
-func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []smsv2ConfiguredInterface, peers []observedBGPPeer, bgpRoutes, sloRoutes, sliRoutes client.SMSv2Observation, maximumAge time.Duration, now time.Time) (map[string]smsv2PeerStatusModel, bool, string) {
+func extractBGPRoutePrefixes(observation client.SMSv2Observation) (map[string]map[string]struct{}, error) {
+	result := map[string]map[string]struct{}{}
+	rawNodes, ok := observation["ver"].([]interface{})
+	if !ok {
+		return nil, fmt.Errorf("BGP route response has no ver observations")
+	}
+	for _, rawNode := range rawNodes {
+		node, ok := rawNode.(map[string]interface{})
+		if !ok {
+			return nil, fmt.Errorf("BGP route node observation is malformed")
+		}
+		name := stringField(node, "name")
+		if name == "" {
+			return nil, fmt.Errorf("BGP route node observation has no name")
+		}
+		routingInstances, err := routeArray(node, "ri_table")
+		if err != nil {
+			return nil, err
+		}
+		for _, rawInstance := range routingInstances {
+			instance, ok := rawInstance.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("BGP routing instance for node %q is malformed", name)
+			}
+			tables, err := routeArray(instance, "rt_table")
+			if err != nil {
+				return nil, err
+			}
+			for _, rawTable := range tables {
+				table, ok := rawTable.(map[string]interface{})
+				if !ok {
+					return nil, fmt.Errorf("BGP route table for node %q is malformed", name)
+				}
+				for _, key := range []string{"imported", "exported"} {
+					routes, err := routeArray(table, key)
+					if err != nil {
+						return nil, err
+					}
+					if err := addRouteSubnets(routes, name, result); err != nil {
+						return nil, err
+					}
+				}
+			}
+		}
+	}
+	return result, nil
+}
+
+func extractSimplifiedRoutePrefixes(observation client.SMSv2Observation) (map[string]map[string]struct{}, error) {
+	result := map[string]map[string]struct{}{}
+	rawNodes, ok := observation["ver_routes"].([]interface{})
+	if !ok {
+		return nil, fmt.Errorf("simplified route response has no ver_routes observations")
+	}
+	for _, rawNode := range rawNodes {
+		node, ok := rawNode.(map[string]interface{})
+		if !ok {
+			return nil, fmt.Errorf("simplified route node observation is malformed")
+		}
+		name := stringField(node, "node")
+		if name == "" {
+			return nil, fmt.Errorf("simplified route observation has no node")
+		}
+		routes, err := routeArray(node, "route")
+		if err != nil {
+			return nil, err
+		}
+		if result[name] == nil {
+			result[name] = map[string]struct{}{}
+		}
+		for _, rawRoute := range routes {
+			route, ok := rawRoute.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("simplified route for node %q is malformed", name)
+			}
+			prefix := stringField(route, "prefix")
+			if _, _, err := net.ParseCIDR(prefix); err != nil {
+				return nil, fmt.Errorf("simplified route for node %q has invalid prefix %q", name, prefix)
+			}
+			result[name][prefix] = struct{}{}
+		}
+	}
+	return result, nil
+}
+
+func canonicalJSON(value interface{}) string { bytes, _ := json.Marshal(value); return string(bytes) }
+
+func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []smsv2ConfiguredInterface, peers []observedBGPPeer, bgpRoutes, sloRoutes, sliRoutes client.SMSv2Observation) (map[string]smsv2PeerStatusModel, bool, string) {
 	if len(expected) == 0 {
 		return nil, false, "expected_peers must not be empty"
 	}
-	configuredByMAC := map[string][]smsv2ConfiguredInterface{}
+	configuredByIdentity := map[string][]smsv2ConfiguredInterface{}
 	for _, iface := range configured {
-		configuredByMAC[iface.MAC] = append(configuredByMAC[iface.MAC], iface)
+		configuredByIdentity[iface.Node+"\x00"+iface.MAC] = append(configuredByIdentity[iface.Node+"\x00"+iface.MAC], iface)
 	}
-	bgpPrefixes, sloPrefixes, sliPrefixes := map[string]struct{}{}, map[string]struct{}{}, map[string]struct{}{}
-	collectRoutePrefixes(map[string]interface{}(bgpRoutes), bgpPrefixes)
-	collectRoutePrefixes(map[string]interface{}(sloRoutes), sloPrefixes)
-	collectRoutePrefixes(map[string]interface{}(sliRoutes), sliPrefixes)
+	bgpPrefixes, err := extractBGPRoutePrefixes(bgpRoutes)
+	if err != nil {
+		return nil, false, err.Error()
+	}
+	sloPrefixes, err := extractSimplifiedRoutePrefixes(sloRoutes)
+	if err != nil {
+		return nil, false, err.Error()
+	}
+	sliPrefixes, err := extractSimplifiedRoutePrefixes(sliRoutes)
+	if err != nil {
+		return nil, false, err.Error()
+	}
 	result := make(map[string]smsv2PeerStatusModel, len(expected))
 	keys := make([]string, 0, len(expected))
 	for key := range expected {
@@ -220,7 +334,7 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 		if err != nil {
 			return nil, false, fmt.Sprintf("peer %q: %v", key, err)
 		}
-		interfaces := configuredByMAC[mac]
+		interfaces := configuredByIdentity[strings.TrimSpace(want.Node.ValueString())+"\x00"+mac]
 		if len(interfaces) != 1 {
 			return nil, false, fmt.Sprintf("peer %q MAC %s resolved to %d interfaces", key, mac, len(interfaces))
 		}
@@ -238,9 +352,6 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 			return nil, false, fmt.Sprintf("peer %q resolved to %d BGP observations", key, len(matches))
 		}
 		got := matches[0]
-		if err := validateObservationAge(got.ObservedAt, maximumAge, now); err != nil {
-			return nil, false, fmt.Sprintf("peer %q: %v", key, err)
-		}
 		if got.State != "Established" {
 			return nil, false, fmt.Sprintf("peer %q state is %q", key, got.State)
 		}
@@ -249,19 +360,19 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 		if diags.HasError() {
 			return nil, false, fmt.Sprintf("peer %q expected routes are invalid", key)
 		}
-		rolePrefixes := sloPrefixes
+		rolePrefixes := sloPrefixes[iface.Node]
 		if iface.Role == "sli" {
-			rolePrefixes = sliPrefixes
+			rolePrefixes = sliPrefixes[iface.Node]
 		}
 		for _, route := range routes {
-			if _, ok := bgpPrefixes[route]; !ok {
-				return nil, false, fmt.Sprintf("peer %q BGP route %s is missing", key, route)
+			if _, ok := bgpPrefixes[iface.Node][route]; !ok {
+				return nil, false, fmt.Sprintf("peer %q BGP route %s is missing on node %q", key, route, iface.Node)
 			}
 			if _, ok := rolePrefixes[route]; !ok {
-				return nil, false, fmt.Sprintf("peer %q %s route %s is missing", key, iface.Role, route)
+				return nil, false, fmt.Sprintf("peer %q %s route %s is missing on node %q", key, iface.Role, route, iface.Node)
 			}
 		}
-		result[key] = smsv2PeerStatusModel{Node: types.StringValue(iface.Node), Role: types.StringValue(iface.Role), MAC: types.StringValue(mac), InterfaceName: types.StringValue(iface.Name), PeerAddress: types.StringValue(got.PeerAddress), State: types.StringValue(got.State), ObservedAt: types.StringValue(got.ObservedAt), ReceivedPrefixes: types.Int64Value(got.ReceivedPrefixes), AdvertisedPrefixes: types.Int64Value(got.AdvertisedPrefixes), Established: types.BoolValue(true)}
+		result[key] = smsv2PeerStatusModel{Node: types.StringValue(iface.Node), Role: types.StringValue(iface.Role), MAC: types.StringValue(mac), InterfaceName: types.StringValue(iface.Name), PeerAddress: types.StringValue(got.PeerAddress), State: types.StringValue(got.State), StateChangedAt: types.StringValue(got.StateChangedAt), ReceivedPrefixes: types.Int64Value(got.ReceivedPrefixes), AdvertisedPrefixes: types.Int64Value(got.AdvertisedPrefixes), Established: types.BoolValue(true)}
 	}
 	return result, true, ""
 }
@@ -270,6 +381,13 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 	var data SiteBGPStatusDataSourceModel
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
+		return
+	}
+	if data.Namespace.IsUnknown() || data.Site.IsUnknown() || data.ExpectedPeers.IsUnknown() ||
+		data.TimeoutSeconds.IsUnknown() || data.PollIntervalSeconds.IsUnknown() {
+		if req.ClientCapabilities.DeferralAllowed {
+			resp.Deferred = &datasource.Deferred{Reason: datasource.DeferredReasonDataSourceConfigUnknown}
+		}
 		return
 	}
 	if err := requireSMSv2Capabilities("runtime_status", "tgw_connect"); err != nil {
@@ -282,26 +400,44 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 	if data.PollIntervalSeconds.IsNull() || data.PollIntervalSeconds.IsUnknown() {
 		data.PollIntervalSeconds = types.Int64Value(10)
 	}
-	if data.MaxObservationAgeSeconds.IsNull() || data.MaxObservationAgeSeconds.IsUnknown() {
-		data.MaxObservationAgeSeconds = types.Int64Value(120)
-	}
 	expected := map[string]smsv2ExpectedPeerModel{}
-	resp.Diagnostics.Append(data.ExpectedPeers.ElementsAs(ctx, &expected, false)...)
+	resp.Diagnostics.Append(data.ExpectedPeers.ElementsAs(ctx, &expected, true)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
 	seenMAC := map[string]string{}
 	for key, peer := range expected {
+		if peer.Node.IsUnknown() || peer.Role.IsUnknown() || peer.MAC.IsUnknown() ||
+			peer.PeerAddress.IsUnknown() || peer.ExpectedRoutes.IsUnknown() {
+			if req.ClientCapabilities.DeferralAllowed {
+				resp.Deferred = &datasource.Deferred{Reason: datasource.DeferredReasonDataSourceConfigUnknown}
+			}
+			return
+		}
+		if peer.Node.IsNull() || peer.Role.IsNull() || peer.MAC.IsNull() ||
+			peer.PeerAddress.IsNull() || peer.ExpectedRoutes.IsNull() {
+			resp.Diagnostics.AddError("Invalid BGP Peer Identity", fmt.Sprintf("peer %q is incomplete", key))
+			return
+		}
+		node := strings.TrimSpace(peer.Node.ValueString())
+		role := strings.TrimSpace(peer.Role.ValueString())
+		if node == "" || (role != "slo" && role != "sli") {
+			resp.Diagnostics.AddError("Invalid BGP Peer Identity", fmt.Sprintf("peer %q has invalid node or role", key))
+			return
+		}
 		mac, err := normalizeSMSv2MAC(peer.MAC.ValueString())
 		if err != nil {
 			resp.Diagnostics.AddError("Invalid BGP Peer Identity", fmt.Sprintf("peer %q: %v", key, err))
 			return
 		}
-		if old, exists := seenMAC[mac]; exists {
-			resp.Diagnostics.AddError("Duplicate BGP Peer MAC", fmt.Sprintf("peers %q and %q use MAC %s", old, key, mac))
+		identity := node + "\x00" + mac
+		if old, exists := seenMAC[identity]; exists {
+			resp.Diagnostics.AddError("Duplicate BGP Peer MAC", fmt.Sprintf("peers %q and %q use MAC %s within node %q", old, key, mac, node))
 			return
 		}
-		seenMAC[mac] = key
+		seenMAC[identity] = key
+		peer.Node = types.StringValue(node)
+		peer.Role = types.StringValue(role)
 		peer.MAC = types.StringValue(mac)
 		expected[key] = peer
 	}
@@ -315,7 +451,7 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 		resp.Diagnostics.AddError("Invalid SMSv2 Configuration Observation", err.Error())
 		return
 	}
-	deadline := time.Now().Add(time.Duration(data.TimeoutSeconds.ValueInt64()) * time.Second)
+	deadline := d.nowTime().Add(time.Duration(data.TimeoutSeconds.ValueInt64()) * time.Second)
 	var peerStatus map[string]smsv2PeerStatusModel
 	var peers, bgpRoutes, sloRoutes, sliRoutes client.SMSv2Observation
 	reason := "no observations"
@@ -335,7 +471,7 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 			observed, err = extractSMSv2BGPPeers(peers)
 			if err == nil {
 				var converged bool
-				peerStatus, converged, reason = convergeSMSv2BGP(expected, configured, observed, bgpRoutes, sloRoutes, sliRoutes, time.Duration(data.MaxObservationAgeSeconds.ValueInt64())*time.Second, time.Now())
+				peerStatus, converged, reason = convergeSMSv2BGP(expected, configured, observed, bgpRoutes, sloRoutes, sliRoutes)
 				if converged {
 					break
 				}
@@ -344,15 +480,18 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 		if err != nil {
 			reason = err.Error()
 		}
-		if !time.Now().Before(deadline) {
+		remaining := deadline.Sub(d.nowTime())
+		if remaining <= 0 {
 			resp.Diagnostics.AddError("SMSv2 BGP Convergence Timed Out", reason)
 			return
 		}
-		select {
-		case <-ctx.Done():
-			resp.Diagnostics.AddError("SMSv2 BGP Convergence Canceled", ctx.Err().Error())
+		delay := time.Duration(data.PollIntervalSeconds.ValueInt64()) * time.Second
+		if delay > remaining {
+			delay = remaining
+		}
+		if err := d.waitFor(ctx, delay); err != nil {
+			resp.Diagnostics.AddError("SMSv2 BGP Convergence Canceled", err.Error())
 			return
-		case <-time.After(time.Duration(data.PollIntervalSeconds.ValueInt64()) * time.Second):
 		}
 	}
 	value, diags := types.MapValueFrom(ctx, types.ObjectType{AttrTypes: smsv2PeerStatusAttrTypes}, peerStatus)

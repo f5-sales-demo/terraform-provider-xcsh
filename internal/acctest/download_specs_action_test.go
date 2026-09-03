@@ -731,8 +731,8 @@ func fileSHA256(t *testing.T, path string) string {
 func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]string {
 	t.Helper()
 	contract := map[string]any{
-		"version":     "5.0.0",
-		"contract_id": "f5xc-ce-automation/v2",
+		"version":     "6.0.0",
+		"contract_id": "f5xc-ce-automation/v3",
 		"resource":    "securemesh_site_v2",
 		"api":         map[string]any{"namespace": "system", "operations": []string{"create", "read", "replace", "delete"}},
 		"providers": map[string]any{"aws": map[string]any{
@@ -740,30 +740,63 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 			"node_list_path":      "aws.not_managed.node_list[]",
 			"interface_list_path": "aws.not_managed.node_list[].interface_list[]",
 			"capabilities":        map[string]string{"aws_ce_create": "available", "runtime_status": "available", "tgw_connect": "available"},
-			"interface_identity":  map[string]string{"field": "ethernet_interface.mac", "guest_device": "observational_only", "known_macs": "non_empty_unique_per_node"},
-			"roles":               []map[string]string{{"name": "slo", "network_option": "site_local_network"}, {"name": "sli", "network_option": "site_local_inside_network"}},
+			"interface_identity": map[string]any{
+				"fields":             []string{"node", "ethernet_interface.mac"},
+				"guest_device":       "rejected",
+				"known_value_policy": "reject_null_incomplete_malformed_ambiguous_or_inconsistent",
+				"mac": map[string]any{
+					"configuration_path": "spec.aws.not_managed.node_list[].interface_list[].ethernet_interface.mac",
+					"input_field":        "mac", "normalization": "ieee802_lowercase_colon", "nullable": false,
+				},
+				"node": map[string]any{
+					"configuration_path": "spec.aws.not_managed.node_list[].hostname", "input_field": "node", "normalization": "trim", "nullable": false,
+				},
+				"uniqueness_scope": "node", "unknown_value_policy": "defer",
+			},
+			"roles": []map[string]string{{"name": "slo", "network_option": "site_local_network"}, {"name": "sli", "network_option": "site_local_inside_network"}},
 			"telemetry_intake": map[string]any{
-				"schema_id": "f5xc-smsv2-aws-tgw-telemetry/v1", "availability": "available", "complete": true,
+				"schema_id": "f5xc-smsv2-aws-tgw-telemetry/v2", "availability": "available", "complete": true,
 				"required_facts":    []string{"runtime", "gre", "bgp", "mtu", "route", "bgp_inside_cidr_block"},
 				"observed_facts":    []string{"runtime", "gre", "bgp", "mtu", "route", "bgp_inside_cidr_block"},
 				"unavailable_facts": []any{},
 			},
 			"runtime": map[string]any{
-				"configuration":     map[string]string{"method": "GET", "path": "/api/config/namespaces/{namespace}/securemesh_site_v2s/{site}", "operation_id": "ves.io.schema.views.securemesh_site_v2.API.Get", "response_schema": "securemesh_site_v2GetResponse"},
-				"health":            map[string]string{"method": "GET", "path": "/api/operate/namespaces/system/sites/{site}/vpm/debug/global/health", "operation_id": "ves.io.schema.operate.debug.CustomPublicAPI.HealthPublic", "response_schema": "debugHealthResponse"},
-				"bgp_peers":         map[string]string{"method": "GET", "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_peers", "operation_id": "ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPPeers", "response_schema": "bgpBGPPeersResponse"},
-				"bgp_routes":        map[string]string{"method": "GET", "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_routes", "operation_id": "ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPRoutes", "response_schema": "bgpBGPRoutesResponse"},
-				"simplified_routes": map[string]string{"method": "POST", "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/simplified_routes", "operation_id": "ves.io.schema.operate.route.CustomPublicAPI.ShowSimplifiedRoutes", "request_schema": "routeSimplifiedRouteRequest", "response_schema": "routeSimplifiedRouteResponse"},
+				"configuration": map[string]any{
+					"method": "GET", "path": "/api/config/namespaces/{namespace}/securemesh_site_v2s/{site}", "operation_id": "ves.io.schema.views.securemesh_site_v2.API.Get", "response_schema": "securemesh_site_v2GetResponse",
+					"authority": "f5xc", "semantics": "configuration", "correlation": []string{"node", "normalized_mac"},
+					"response_mappings": map[string]string{"nodes": "spec.aws.not_managed.node_list[]"},
+				},
+				"health": map[string]any{
+					"method": "GET", "path": "/api/operate/namespaces/system/sites/{site}/vpm/debug/global/health", "operation_id": "ves.io.schema.operate.debug.CustomPublicAPI.HealthPublic", "response_schema": "debugHealthResponse",
+					"authority": "f5xc", "semantics": "observational_read_only",
+					"response_mappings": map[string]string{"node": "hostname"},
+				},
+				"bgp_peers": map[string]any{
+					"method": "GET", "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_peers", "operation_id": "ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPPeers", "response_schema": "bgpBGPPeersResponse",
+					"authority": "f5xc", "semantics": "observational_read_only",
+					"response_mappings": map[string]string{"state_changed_at": "ver[].peer[].up_down_timestamp"},
+				},
+				"bgp_routes": map[string]any{
+					"method": "GET", "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_routes", "operation_id": "ves.io.schema.operate.bgp.CustomPublicAPI.ShowBGPRoutes", "response_schema": "bgpBGPRoutesResponse",
+					"authority": "f5xc", "semantics": "observational_read_only",
+					"response_mappings": map[string]string{"nodes": "ver[]"},
+				},
+				"simplified_routes": map[string]any{
+					"method": "POST", "path": "/api/operate/namespaces/{namespace}/sites/{site}/ver/simplified_routes", "operation_id": "ves.io.schema.operate.route.CustomPublicAPI.ShowSimplifiedRoutes", "request_schema": "routeSimplifiedRouteRequest", "response_schema": "routeSimplifiedRouteResponse",
+					"authority": "f5xc", "semantics": "observational_read_only",
+					"request_mappings":  map[string]any{"node_scope": "all_nodes", "roles": []string{"slo", "sli"}},
+					"response_mappings": map[string]string{"nodes": "ver_routes[]"},
+				},
 			},
 			"authorities": map[string][]string{
 				"f5xc": {"smsv2_configuration", "runtime_health", "bgp_peers", "bgp_routes", "simplified_routes"},
-				"aws":  {"eni", "transit_gateway", "transit_gateway_connect", "gre_endpoints", "bgp_inside_cidrs"},
+				"aws":  {"eni", "transit_gateway", "transit_gateway_connect", "gre_endpoints", "bgp_inside_cidrs", "autonomous_system_numbers"},
 			},
 			"prohibited_legacy_apis":   []string{"aws_vpc_site", "aws_tgw_site"},
 			"unavailable_capabilities": []any{},
 		}},
 	}
-	evidence := map[string]any{"contract_id": "f5xc-ce-automation/v2", "observed_at": time.Now().UTC().Format(time.RFC3339), "receipts": []map[string]any{{"redaction": "fixture", "sanitized": true}}}
+	evidence := map[string]any{"contract_id": "f5xc-ce-automation/v3", "recorded_at": time.Now().UTC().Format(time.RFC3339), "receipts": []map[string]any{{"redaction": "fixture", "sanitized": true}}}
 	writeJSON := func(name string, value any) {
 		body, err := json.Marshal(value)
 		if err != nil {
@@ -790,7 +823,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 	})
 	writeJSON("upstream-contract-removals.json", map[string]any{"version": version, "removals": []any{}})
 	assets := map[string]string{"smsv2-contract.json": fileSHA256(t, filepath.Join(root, "smsv2-contract.json")), "smsv2-evidence-receipt.json": fileSHA256(t, filepath.Join(root, "smsv2-evidence-receipt.json"))}
-	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-ce-automation/v2", "contract_version": "5.0.0", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
+	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-ce-automation/v3", "contract_version": "6.0.0", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
 	assets["smsv2-contract-manifest.json"] = fileSHA256(t, filepath.Join(root, "smsv2-contract-manifest.json"))
 	for _, name := range []string{"concurrency_contracts.json", "smsv2_parity_manifest.json", "upstream-contract-removals.json"} {
 		assets[name] = fileSHA256(t, filepath.Join(root, name))

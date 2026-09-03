@@ -78,3 +78,22 @@ func TestBuildSMSv2MatrixClassifiesSupportedCases(t *testing.T) {
 		}
 	}
 }
+
+func TestFlattenTerraformAttributesUsesWireNamesForReservedNames(t *testing.T) {
+	t.Parallel()
+	attributes := []openapi.TerraformAttribute{
+		{Name: "description", TfsdkTag: "description_spec", JsonName: "description", IsSpecField: true},
+		{Name: "provider", TfsdkTag: "provider_ref", JsonName: "provider", IsSpecField: true},
+	}
+	got := flattenTerraformAttributes(attributes)
+	for _, path := range []string{"spec.description", "spec.provider"} {
+		if _, ok := got[path]; !ok {
+			t.Errorf("missing wire path %q", path)
+		}
+	}
+	for _, path := range []string{"spec.description_spec", "spec.provider_ref"} {
+		if _, ok := got[path]; ok {
+			t.Errorf("Terraform-only alias leaked into parity path %q", path)
+		}
+	}
+}

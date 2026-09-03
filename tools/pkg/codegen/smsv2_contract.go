@@ -21,11 +21,11 @@ type smsv2ReleaseContract struct {
 	ContractID string `json:"contract_id"`
 	Providers  struct {
 		AWS struct {
-			Availability            string                       `json:"availability"`
-			Capabilities            map[string]string            `json:"capabilities"`
-			UnavailableCapabilities []string                     `json:"unavailable_capabilities"`
-			Runtime                 map[string]map[string]string `json:"runtime"`
-			Authorities             map[string][]string          `json:"authorities"`
+			Availability            string                    `json:"availability"`
+			Capabilities            map[string]string         `json:"capabilities"`
+			UnavailableCapabilities []string                  `json:"unavailable_capabilities"`
+			Runtime                 map[string]map[string]any `json:"runtime"`
+			Authorities             map[string][]string       `json:"authorities"`
 			Telemetry               struct {
 				SchemaID         string   `json:"schema_id"`
 				Availability     string   `json:"availability"`
@@ -39,7 +39,7 @@ type smsv2ReleaseContract struct {
 }
 
 // SMSv2DataSourceTemplates selects the clean-break provider surfaces only from
-// a v5-or-newer contract with complete F5 and AWS authority declarations.
+// a v6-or-newer contract with complete F5 and AWS authority declarations.
 func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, error) {
 	var contract smsv2ReleaseContract
 	if err := json.Unmarshal(contractJSON, &contract); err != nil {
@@ -47,8 +47,8 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 	}
 	majorText, _, found := strings.Cut(contract.Version, ".")
 	major, err := strconv.Atoi(majorText)
-	if err != nil || !found || major < 5 || contract.ContractID != "f5xc-ce-automation/v2" {
-		return nil, fmt.Errorf("SMSv2 data sources require the v5 clean-break v2 contract")
+	if err != nil || !found || major < 6 || contract.ContractID != "f5xc-ce-automation/v3" {
+		return nil, fmt.Errorf("SMSv2 data sources require the v6 clean-break v3 contract")
 	}
 	wantRuntime := map[string]struct {
 		method string
@@ -61,26 +61,26 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		"simplified_routes": {"POST", "/api/operate/namespaces/{namespace}/sites/{site}/ver/simplified_routes"},
 	}
 	if len(contract.Providers.AWS.Runtime) != len(wantRuntime) {
-		return nil, fmt.Errorf("SMSv2 v2 runtime endpoint set is incomplete")
+		return nil, fmt.Errorf("SMSv2 v3 runtime endpoint set is incomplete")
 	}
 	for name, want := range wantRuntime {
 		got := contract.Providers.AWS.Runtime[name]
 		if got["method"] != want.method || got["path"] != want.path || got["operation_id"] == "" || got["response_schema"] == "" {
-			return nil, fmt.Errorf("SMSv2 v2 runtime endpoint %q is incomplete", name)
+			return nil, fmt.Errorf("SMSv2 v3 runtime endpoint %q is incomplete", name)
 		}
 	}
 	wantF5XC := []string{"smsv2_configuration", "runtime_health", "bgp_peers", "bgp_routes", "simplified_routes"}
-	wantAWS := []string{"eni", "transit_gateway", "transit_gateway_connect", "gre_endpoints", "bgp_inside_cidrs"}
+	wantAWS := []string{"eni", "transit_gateway", "transit_gateway_connect", "gre_endpoints", "bgp_inside_cidrs", "autonomous_system_numbers"}
 	if !equalStrings(contract.Providers.AWS.Authorities["f5xc"], wantF5XC) || !equalStrings(contract.Providers.AWS.Authorities["aws"], wantAWS) {
-		return nil, fmt.Errorf("SMSv2 v2 authority mapping is incomplete")
+		return nil, fmt.Errorf("SMSv2 v3 authority mapping is incomplete")
 	}
 	wantFacts := []string{"runtime", "gre", "bgp", "mtu", "route", "bgp_inside_cidr_block"}
 	telemetry := contract.Providers.AWS.Telemetry
-	if telemetry.SchemaID != "f5xc-smsv2-aws-tgw-telemetry/v1" ||
+	if telemetry.SchemaID != "f5xc-smsv2-aws-tgw-telemetry/v2" ||
 		!equalStringSets(telemetry.RequiredFacts, wantFacts) ||
 		!equalStringSets(telemetry.ObservedFacts, wantFacts) ||
 		len(telemetry.UnavailableFacts) != 0 {
-		return nil, fmt.Errorf("SMSv2 v2 telemetry declaration is incomplete")
+		return nil, fmt.Errorf("SMSv2 v3 telemetry declaration is incomplete")
 	}
 	available := map[string]string{"aws_ce_create": "available", "runtime_status": "available", "tgw_connect": "available"}
 	unavailable := map[string]string{"aws_ce_create": "unavailable", "runtime_status": "unavailable", "tgw_connect": "unavailable"}

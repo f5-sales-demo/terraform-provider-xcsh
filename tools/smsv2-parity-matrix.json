@@ -1,6 +1,6 @@
 {
   "legacy_version": "0.11.49",
-  "current_version": "5.0.1",
+  "current_version": "6.0.0",
   "legacy_source_url": "https://github.com/volterraedge/terraform-provider-volterra/blob/v0.11.49/volterra/resource_auto_volterra_securemesh_site_v2.go",
   "legacy_source_sha256": "sha256:f5342edd61ab37dc0c0087d6f57ab844d8f833431055ebcb0359a324a67bb3fa",
   "legacy_path_count": 1938,
@@ -10,11 +10,11 @@
   "unclassified_legacy_paths": [],
   "classification_counts": {
     "current_only": 41,
-    "current_parity": 422,
+    "current_parity": 435,
     "current_platform_removal": 2,
     "deprecated_exclusion": 622,
-    "generator_gap": 13,
-    "modernized_semantics": 879
+    "generator_gap": 5,
+    "modernized_semantics": 874
   },
   "entries": [
     {
@@ -1219,8 +1219,8 @@
     {
       "legacy_path": "admin_user_credentials.admin_password.clear_secret_info.provider",
       "current_path": "admin_user_credentials.admin_password.clear_secret_info.provider",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -1235,11 +1235,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "provider"
+        "wire_key": "provider",
+        "generated": true
       }
     },
     {
@@ -3210,8 +3211,8 @@
     {
       "legacy_path": "aws.not_managed.node_list[].interface_list[].description",
       "current_path": "aws.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -3226,11 +3227,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -7254,8 +7256,8 @@
     {
       "legacy_path": "azure.not_managed.node_list[].interface_list[].description",
       "current_path": "azure.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -7270,11 +7272,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -10023,8 +10026,8 @@
     {
       "legacy_path": "baremetal.not_managed.node_list[].interface_list[].description",
       "current_path": "baremetal.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -10039,11 +10042,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -12481,8 +12485,8 @@
     {
       "legacy_path": "blocked_services.blocked_sevice[]",
       "current_path": "blocked_services.blocked_service[]",
-      "classification": "modernized_semantics",
-      "reason": "corrected legacy blocked_sevice spelling while preserving the current blocked_service wire key",
+      "classification": "generator_gap",
+      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
       "legacy": {
         "type": "list",
         "cardinality": "list",
@@ -12497,19 +12501,18 @@
         "type": "list",
         "cardinality": "list",
         "required": false,
-        "optional": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "blocked_sevice",
-        "generated": true
+        "wire_key": "blocked_service"
       }
     },
     {
       "legacy_path": "blocked_services.blocked_sevice[].dns",
       "current_path": "blocked_services.blocked_service[].dns",
-      "classification": "modernized_semantics",
-      "reason": "corrected legacy blocked_sevice spelling while preserving the current blocked_service wire key",
+      "classification": "generator_gap",
+      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
       "legacy": {
         "type": "boolean",
         "cardinality": "single",
@@ -12524,22 +12527,21 @@
         "type": "object",
         "cardinality": "single",
         "required": false,
-        "optional": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": [
           "blocked_services.blocked_service[].ssh",
           "blocked_services.blocked_service[].web_user_interface"
         ],
-        "wire_key": "dns",
-        "generated": true
+        "wire_key": "dns"
       }
     },
     {
       "legacy_path": "blocked_services.blocked_sevice[].network_type",
       "current_path": "blocked_services.blocked_service[].network_type",
-      "classification": "modernized_semantics",
-      "reason": "corrected legacy blocked_sevice spelling while preserving the current blocked_service wire key",
+      "classification": "generator_gap",
+      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -12554,20 +12556,18 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
-        "default": "VIRTUAL_NETWORK_SITE_LOCAL",
         "conflicts_with": null,
-        "wire_key": "network_type",
-        "generated": true
+        "wire_key": "network_type"
       }
     },
     {
       "legacy_path": "blocked_services.blocked_sevice[].ssh",
       "current_path": "blocked_services.blocked_service[].ssh",
-      "classification": "modernized_semantics",
-      "reason": "corrected legacy blocked_sevice spelling while preserving the current blocked_service wire key",
+      "classification": "generator_gap",
+      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
       "legacy": {
         "type": "boolean",
         "cardinality": "single",
@@ -12582,22 +12582,21 @@
         "type": "object",
         "cardinality": "single",
         "required": false,
-        "optional": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": [
           "blocked_services.blocked_service[].dns",
           "blocked_services.blocked_service[].web_user_interface"
         ],
-        "wire_key": "ssh",
-        "generated": true
+        "wire_key": "ssh"
       }
     },
     {
       "legacy_path": "blocked_services.blocked_sevice[].web_user_interface",
       "current_path": "blocked_services.blocked_service[].web_user_interface",
-      "classification": "modernized_semantics",
-      "reason": "corrected legacy blocked_sevice spelling while preserving the current blocked_service wire key",
+      "classification": "generator_gap",
+      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
       "legacy": {
         "type": "boolean",
         "cardinality": "single",
@@ -12612,15 +12611,14 @@
         "type": "object",
         "cardinality": "single",
         "required": false,
-        "optional": true,
+        "optional": false,
         "computed": false,
         "force_new": false,
         "conflicts_with": [
           "blocked_services.blocked_service[].dns",
           "blocked_services.blocked_service[].ssh"
         ],
-        "wire_key": "web_user_interface",
-        "generated": true
+        "wire_key": "web_user_interface"
       }
     },
     {
@@ -12939,8 +12937,8 @@
     {
       "legacy_path": "custom_proxy.password.clear_secret_info.provider",
       "current_path": "custom_proxy.password.clear_secret_info.provider",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -12955,11 +12953,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "provider"
+        "wire_key": "provider",
+        "generated": true
       }
     },
     {
@@ -14279,8 +14278,8 @@
     {
       "legacy_path": "equinix.not_managed.node_list[].interface_list[].description",
       "current_path": "equinix.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -14295,11 +14294,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -18307,8 +18307,8 @@
     {
       "legacy_path": "gcp.not_managed.node_list[].interface_list[].description",
       "current_path": "gcp.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -18323,11 +18323,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -21076,8 +21077,8 @@
     {
       "legacy_path": "kvm.not_managed.node_list[].interface_list[].description",
       "current_path": "kvm.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -21092,11 +21093,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -26845,8 +26847,8 @@
     {
       "legacy_path": "nutanix.not_managed.node_list[].interface_list[].description",
       "current_path": "nutanix.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -26861,11 +26863,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -29614,8 +29617,8 @@
     {
       "legacy_path": "oci.not_managed.node_list[].interface_list[].description",
       "current_path": "oci.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -29630,11 +29633,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -32468,8 +32472,8 @@
     {
       "legacy_path": "openshift_virtualization.not_managed.node_list[].interface_list[].description",
       "current_path": "openshift_virtualization.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -32484,11 +32488,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -35237,8 +35242,8 @@
     {
       "legacy_path": "openstack.not_managed.node_list[].interface_list[].description",
       "current_path": "openstack.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -35253,11 +35258,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
@@ -41974,8 +41980,8 @@
     {
       "legacy_path": "vmware.not_managed.node_list[].interface_list[].description",
       "current_path": "vmware.not_managed.node_list[].interface_list[].description",
-      "classification": "generator_gap",
-      "reason": "legacy capability exists in the current API but is absent from the generated Terraform schema",
+      "classification": "current_parity",
+      "reason": "path and normalized Terraform semantics match",
       "legacy": {
         "type": "string",
         "cardinality": "single",
@@ -41990,11 +41996,12 @@
         "type": "string",
         "cardinality": "single",
         "required": false,
-        "optional": false,
+        "optional": true,
         "computed": false,
         "force_new": false,
         "conflicts_with": null,
-        "wire_key": "description"
+        "wire_key": "description",
+        "generated": true
       }
     },
     {
