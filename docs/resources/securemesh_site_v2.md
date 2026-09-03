@@ -154,7 +154,8 @@ configuration for upto 7
 
 <a id="site-mesh-group-on-slo"></a>&#x2022; [`site_mesh_group_on_slo`](#site-mesh-group-on-slo) - Optional Block<br>Select how the site mesh group will be connected. By default, public IPs of the control nodes of the site will be used
 
-<a id="software-settings"></a>&#x2022; [`software_settings`](#software-settings) - Optional Block<br>Select OS and Software version for the site. All nodes in the site will run the same OS and Software version. These settings cannot be changed after the site is created
+<a id="software-settings"></a>&#x2022; [`software_settings`](#software-settings) - Optional Block<br>Select OS and Software version for the site. All nodes in the site will run the same OS and Software version. These settings cannot be changed after the site is created. This block is a create-only, write-only input; changing it replaces the resource, and refresh preserves the configured value
+without claiming XC observed it
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 

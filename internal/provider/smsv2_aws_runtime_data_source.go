@@ -200,10 +200,11 @@ func extractSMSv2ConfiguredInterfaces(configuration client.SMSv2Observation) ([]
 			if role == "" {
 				return nil, fmt.Errorf("SMSv2 MAC %s has no SLO/SLI role", mac)
 			}
-			if previous, exists := seen[mac]; exists {
-				return nil, fmt.Errorf("SMSv2 MAC %s is duplicated on nodes %q and %q", mac, previous, hostname)
+			identity := hostname + "\x00" + mac
+			if _, exists := seen[identity]; exists {
+				return nil, fmt.Errorf("SMSv2 MAC %s is duplicated within node %q", mac, hostname)
 			}
-			seen[mac] = hostname
+			seen[identity] = hostname
 			name := stringField(iface, "name")
 			if name == "" {
 				return nil, fmt.Errorf("SMSv2 MAC %s has no authoritative interface name", mac)
@@ -227,18 +228,28 @@ func validateSMSv2Bindings(bindings map[string]smsv2BindingModel) (map[string]sm
 		if strings.TrimSpace(key) == "" || binding.Node.IsNull() || binding.Role.IsNull() || binding.MAC.IsNull() {
 			return nil, fmt.Errorf("binding %q is incomplete", key)
 		}
-		role := binding.Role.ValueString()
+		if binding.Node.IsUnknown() || binding.Role.IsUnknown() || binding.MAC.IsUnknown() {
+			return nil, fmt.Errorf("binding %q contains unknown identity values", key)
+		}
+		node := strings.TrimSpace(binding.Node.ValueString())
+		if node == "" {
+			return nil, fmt.Errorf("binding %q has an empty node identity", key)
+		}
+		role := strings.TrimSpace(binding.Role.ValueString())
 		if role != "slo" && role != "sli" {
-			return nil, fmt.Errorf("binding %q has unsupported role %q", key, role)
+			return nil, fmt.Errorf("binding %q has unsupported role %q; only slo and sli are valid", key, role)
 		}
 		mac, err := normalizeSMSv2MAC(binding.MAC.ValueString())
 		if err != nil {
 			return nil, fmt.Errorf("binding %q: %w", key, err)
 		}
-		if previous, exists := seen[mac]; exists {
-			return nil, fmt.Errorf("bindings %q and %q use duplicate MAC %s", previous, key, mac)
+		identity := node + "\x00" + mac
+		if previous, exists := seen[identity]; exists {
+			return nil, fmt.Errorf("bindings %q and %q use duplicate MAC %s within node %q", previous, key, mac, node)
 		}
-		seen[mac] = key
+		seen[identity] = key
+		binding.Node = types.StringValue(node)
+		binding.Role = types.StringValue(role)
 		binding.MAC = types.StringValue(mac)
 		bindings[key] = binding
 	}
@@ -246,10 +257,10 @@ func validateSMSv2Bindings(bindings map[string]smsv2BindingModel) (map[string]sm
 }
 
 func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []smsv2ConfiguredInterface, health client.SMSv2Observation) (map[string]smsv2RuntimeInterfaceModel, error) {
-	byMAC := map[string][]smsv2ConfiguredInterface{}
+	byIdentity := map[string][]smsv2ConfiguredInterface{}
 	configuredNodes := map[string]struct{}{}
 	for _, iface := range configured {
-		byMAC[iface.MAC] = append(byMAC[iface.MAC], iface)
+		byIdentity[iface.Node+"\x00"+iface.MAC] = append(byIdentity[iface.Node+"\x00"+iface.MAC], iface)
 		configuredNodes[iface.Node] = struct{}{}
 	}
 	healthNode, healthState := stringField(health, "hostname"), strings.ToUpper(stringField(health, "state"))
@@ -262,7 +273,7 @@ func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []s
 	siteHealthy := healthState == "PROVISIONED"
 	result := make(map[string]smsv2RuntimeInterfaceModel, len(bindings))
 	for key, expected := range bindings {
-		matches := byMAC[expected.MAC.ValueString()]
+		matches := byIdentity[expected.Node.ValueString()+"\x00"+expected.MAC.ValueString()]
 		if len(matches) != 1 {
 			return nil, fmt.Errorf("binding %q MAC %s resolved to %d configured interfaces", key, expected.MAC.ValueString(), len(matches))
 		}
@@ -270,7 +281,7 @@ func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []s
 		if got.Node != expected.Node.ValueString() || got.Role != expected.Role.ValueString() {
 			return nil, fmt.Errorf("binding %q disagrees with F5 XC configuration: got node=%q role=%q", key, got.Node, got.Role)
 		}
-		result[key] = smsv2RuntimeInterfaceModel{Node: types.StringValue(got.Node), Role: types.StringValue(got.Role), MAC: types.StringValue(got.MAC), InterfaceName: types.StringValue(got.Name), MTU: types.Int64Value(got.MTU), Healthy: types.BoolValue(siteHealthy)}
+		result[key] = smsv2RuntimeInterfaceModel{Node: types.StringValue(got.Node), Role: types.StringValue(got.Role), MAC: types.StringValue(got.MAC), InterfaceName: types.StringValue(got.Name), MTU: types.Int64Value(got.MTU), Healthy: types.BoolValue(siteHealthy && got.Node == healthNode)}
 	}
 	return result, nil
 }
@@ -281,14 +292,28 @@ func (d *Smsv2AWSRuntimeDataSource) Read(ctx context.Context, req datasource.Rea
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.Namespace.IsUnknown() || data.Site.IsUnknown() || data.Nodes.IsUnknown() {
+		if req.ClientCapabilities.DeferralAllowed {
+			resp.Deferred = &datasource.Deferred{Reason: datasource.DeferredReasonDataSourceConfigUnknown}
+		}
+		return
+	}
 	if err := requireSMSv2Capabilities("runtime_status"); err != nil {
 		resp.Diagnostics.AddError("SMSv2 Runtime Unavailable", err.Error())
 		return
 	}
 	bindings := map[string]smsv2BindingModel{}
-	resp.Diagnostics.Append(data.Nodes.ElementsAs(ctx, &bindings, false)...)
+	resp.Diagnostics.Append(data.Nodes.ElementsAs(ctx, &bindings, true)...)
 	if resp.Diagnostics.HasError() {
 		return
+	}
+	for _, binding := range bindings {
+		if binding.Node.IsUnknown() || binding.Role.IsUnknown() || binding.MAC.IsUnknown() {
+			if req.ClientCapabilities.DeferralAllowed {
+				resp.Deferred = &datasource.Deferred{Reason: datasource.DeferredReasonDataSourceConfigUnknown}
+			}
+			return
+		}
 	}
 	bindings, err := validateSMSv2Bindings(bindings)
 	if err != nil {

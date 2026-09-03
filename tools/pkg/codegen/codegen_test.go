@@ -2353,3 +2353,34 @@ func TestRenderMarshalOmitsComputedOnlyNestedFields(t *testing.T) {
 		}
 	}
 }
+
+func TestSecuremeshSoftwareSettingsIsCreateOnlyAndWriteOnly(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{{
+		Name: "software_settings", TfsdkTag: "software_settings", JsonName: "software_settings",
+		GoName: "SoftwareSettings", IsSpecField: true, IsBlock: true, NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{{
+			Name: "version", TfsdkTag: "version", JsonName: "version", GoName: "Version", Type: "string", Optional: true,
+		}},
+	}}
+	createCode, err := RenderSpecMarshalCodeForCreate(attrs, "\t", "SecuremeshSiteV2")
+	if err != nil {
+		t.Fatal(err)
+	}
+	updateCode, err := RenderSpecMarshalCode(attrs, "\t", "SecuremeshSiteV2")
+	if err != nil {
+		t.Fatal(err)
+	}
+	unmarshalCode, err := RenderSpecUnmarshalCode(attrs, "\t", "SecuremeshSiteV2")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(createCode, "software_settings") {
+		t.Fatalf("create omitted software_settings: %s", createCode)
+	}
+	if updateCode != "" {
+		t.Fatalf("update marshaled create-only software_settings: %s", updateCode)
+	}
+	if unmarshalCode != "" {
+		t.Fatalf("read claimed write-only software_settings from XC: %s", unmarshalCode)
+	}
+}

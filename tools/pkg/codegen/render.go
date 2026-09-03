@@ -170,6 +170,10 @@ func RenderSpecMarshalCodeWithVar(attrs []openapi.TerraformAttribute, indent str
 
 	var sb strings.Builder
 	for _, attr := range specFields {
+		// software_settings is accepted only by create for securemesh_site_v2.
+		if resourceTitleCase == "SecuremeshSiteV2" && varName != "createReq" && attr.TfsdkTag == "software_settings" {
+			continue
+		}
 		if attr.IsBlock {
 			// Top-level list blocks are always modeled as types.List (RenderBlockFields);
 			// single blocks as pointers.
@@ -443,6 +447,10 @@ func RenderSpecUnmarshalCode(attrs []openapi.TerraformAttribute, indent string, 
 
 	var sb strings.Builder
 	for _, attr := range specFields {
+		// XC does not return this write-only create input. Preserve configured state.
+		if resourceTitleCase == "SecuremeshSiteV2" && attr.TfsdkTag == "software_settings" {
+			continue
+		}
 		if attr.IsBlock {
 			if attr.NestedBlockType == "list" {
 				if err := renderUnmarshalTopLevelList(&sb, resourceTitleCase, attr, indent); err != nil {

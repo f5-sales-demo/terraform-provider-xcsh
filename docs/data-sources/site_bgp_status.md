@@ -50,9 +50,8 @@ data "xcsh_site_bgp_status" "site" {
     }
   }
 
-  timeout_seconds             = 300
-  poll_interval_seconds       = 10
-  max_observation_age_seconds = 120
+  timeout_seconds       = 300
+  poll_interval_seconds = 10
 }
 
 output "bgp_converged" {
@@ -77,8 +76,6 @@ output "bgp_peers" {
 ### Spec Argument Reference
 
 <a id="expected-peers"></a>&#x2022; [`expected_peers`](#expected-peers) - Required Map
-
-<a id="max-observation-age-seconds"></a>&#x2022; [`max_observation_age_seconds`](#max-observation-age-seconds) - Optional Number
 
 <a id="poll-interval-seconds"></a>&#x2022; [`poll_interval_seconds`](#poll-interval-seconds) - Optional Number
 
@@ -128,8 +125,6 @@ A [`peers`](#peers) block supports the following:
 
 <a id="nestedatt--peers-node"></a>&#x2022; [`node`](#nestedatt--peers-node) - Optional String
 
-<a id="nestedatt--peers-observed-at"></a>&#x2022; [`observed_at`](#nestedatt--peers-observed-at) - Optional String
-
 <a id="nestedatt--peers-peer-address"></a>&#x2022; [`peer_address`](#nestedatt--peers-peer-address) - Optional String
 
 <a id="nestedatt--peers-received-prefix-count"></a>&#x2022; [`received_prefix_count`](#nestedatt--peers-received-prefix-count) - Optional Number
@@ -137,6 +132,8 @@ A [`peers`](#peers) block supports the following:
 <a id="nestedatt--peers-role"></a>&#x2022; [`role`](#nestedatt--peers-role) - Optional String
 
 <a id="nestedatt--peers-state"></a>&#x2022; [`state`](#nestedatt--peers-state) - Optional String
+
+<a id="nestedatt--peers-state-changed-at"></a>&#x2022; [`state_changed_at`](#nestedatt--peers-state-changed-at) - Optional String
 
 ---
 

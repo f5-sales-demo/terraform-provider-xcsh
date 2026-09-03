@@ -6,17 +6,17 @@ validator="$root/scripts/validate-smsv2-release.py"
 work=$(mktemp -d)
 trap 'rm -rf "$work"' EXIT
 
-tag=v9.9.9
+tag=v6.0.0
 commit=0123456789abcdef0123456789abcdef01234567
 observed=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 jq -n --arg observed "$observed" '{
-  contract_id:"f5xc-ce-automation/v2",
-  observed_at:$observed,
+  contract_id:"f5xc-ce-automation/v3",
+  recorded_at:$observed,
   receipts:[{operations:["create","read","replace","delete"],result:"accepted",sanitized:true,redaction:"fixture"}]
 }' >"$work/smsv2-evidence-receipt.json"
 jq -n '{
-  version:"5.0.0",
-  contract_id:"f5xc-ce-automation/v2",
+  version:"6.0.0",
+  contract_id:"f5xc-ce-automation/v3",
   resource:"securemesh_site_v2",
   api:{namespace:"system",operations:["create","read","replace","delete"]},
   providers:{aws:{
@@ -27,7 +27,7 @@ jq -n '{
     interface_identity:{field:"ethernet_interface.mac",guest_device:"observational_only",known_macs:"non_empty_unique_per_node"},
     roles:[{name:"slo",network_option:"site_local_network"},{name:"sli",network_option:"site_local_inside_network"}],
     telemetry_intake:{
-      schema_id:"f5xc-smsv2-aws-tgw-telemetry/v1",availability:"available",complete:true,
+      schema_id:"f5xc-smsv2-aws-tgw-telemetry/v2",availability:"available",complete:true,
       required_facts:["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
       observed_facts:["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
       unavailable_facts:[]
@@ -47,13 +47,50 @@ jq -n '{
     unavailable_capabilities:[]
   }}
 }' >"$work/smsv2-contract.json"
+jq '
+  .providers.aws.interface_identity = {
+    fields:["node","ethernet_interface.mac"],
+    guest_device:"rejected",
+    known_value_policy:"reject_null_incomplete_malformed_ambiguous_or_inconsistent",
+    mac:{configuration_path:"spec.aws.not_managed.node_list[].interface_list[].ethernet_interface.mac",input_field:"mac",normalization:"ieee802_lowercase_colon",nullable:false},
+    node:{configuration_path:"spec.aws.not_managed.node_list[].hostname",input_field:"node",normalization:"trim",nullable:false},
+    uniqueness_scope:"node",
+    unknown_value_policy:"defer"
+  }
+  | .providers.aws.authorities.aws += ["autonomous_system_numbers"]
+  | .providers.aws.runtime.configuration += {
+      authority:"f5xc",semantics:"configuration",correlation:["node","normalized_mac"],
+      response_mappings:{nodes:"spec.aws.not_managed.node_list[]"},
+      normalization:{mac:"ieee802_lowercase_colon",node:"trim",role:"slo_or_sli"},
+      nullability:{all_identity_fields:"non_null",public_ip:"nullable"}
+    }
+  | .providers.aws.runtime.health += {
+      authority:"f5xc",semantics:"observational_read_only",
+      correlation:["node"],response_mappings:{node:"hostname"}
+    }
+  | .providers.aws.runtime.bgp_peers += {
+      authority:"f5xc",semantics:"observational_read_only",
+      correlation:["node","peer_address"],
+      response_mappings:{state_changed_at:"ver[].peer[].up_down_timestamp"}
+    }
+  | .providers.aws.runtime.bgp_routes += {
+      authority:"f5xc",semantics:"observational_read_only",
+      correlation:["node"],response_mappings:{nodes:"ver[]"}
+    }
+  | .providers.aws.runtime.simplified_routes += {
+      authority:"f5xc",semantics:"observational_read_only",
+      correlation:["node","role"],request_mappings:{node_scope:"all_nodes",roles:["slo","sli"]},
+      response_mappings:{nodes:"ver_routes[]"}
+    }
+' "$work/smsv2-contract.json" >"$work/contract-v3.json"
+mv "$work/contract-v3.json" "$work/smsv2-contract.json"
 jq -n '{
-  version:"9.9.9",eligible_count:1,covered_count:1,excluded_count:1,
+  version:"6.0.0",eligible_count:1,covered_count:1,excluded_count:1,
   resources:[{api_identity:"ves.io.schema.probe.API",get:{schema:"probeGetResponse"},replace:{schema:"probeReplaceRequest"},token:"resource_version"}],
   exclusions:[{api_identity:"ves.io.schema.command.API",reason:"command endpoint"}]
 }' >"$work/concurrency_contracts.json"
 jq -n '{
-  version:"9.9.9",resource:"securemesh_site_v2",path_count:1,
+  version:"6.0.0",resource:"securemesh_site_v2",path_count:1,
   paths:[{path:"spec.segment_vrf[].segment_network",type:"object"}],choice_groups:{},
   deprecated_exclusions:["spec.log_receiver","spec.private_adn","spec.rseries"],
   current_platform_removals:[
@@ -73,7 +110,7 @@ refresh_manifest() {
   contract_sha="sha256:$(sha256sum "$directory/smsv2-contract.json" | awk '{print $1}')"
   evidence_sha="sha256:$(sha256sum "$directory/smsv2-evidence-receipt.json" | awk '{print $1}')"
   jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" '{
-    schema_version:1,contract_id:"f5xc-ce-automation/v2",contract_version:"5.0.0",
+    schema_version:1,contract_id:"f5xc-ce-automation/v3",contract_version:"6.0.0",
     release:{tag:$tag,commit:$commit},
     assets:{"smsv2-contract.json":$contract,"smsv2-evidence-receipt.json":$evidence}
   }' >"$directory/smsv2-contract-manifest.json"
@@ -147,7 +184,7 @@ reject_contract_mutation authority-mismatch '.providers.aws.authorities.aws += [
 naive="$work/naive"
 mkdir "$naive"
 cp "$work"/*.json "$naive/"
-jq '.observed_at = "2026-08-01T12:00:00"' "$naive/smsv2-evidence-receipt.json" >"$naive/evidence.json"
+jq '.recorded_at = "2026-08-01T12:00:00"' "$naive/smsv2-evidence-receipt.json" >"$naive/evidence.json"
 mv "$naive/evidence.json" "$naive/smsv2-evidence-receipt.json"
 refresh_manifest "$naive"
 if python3 "$validator" "$naive" "$tag" "$commit" >/dev/null 2>&1; then
@@ -159,4 +196,4 @@ if python3 "$validator" "$work" "$tag" "$commit" >/dev/null 2>&1; then
   echo "tampered contract was accepted" >&2
   exit 1
 fi
-printf '%s\n' 'SMSv2 v2 release validator tests passed'
+printf '%s\n' 'SMSv2 v3 release validator tests passed'

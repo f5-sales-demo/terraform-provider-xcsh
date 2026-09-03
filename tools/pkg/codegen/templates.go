@@ -16,6 +16,9 @@ import (
 	"errors"
 	{{- end}}
 	"fmt"
+	{{- if eq .Name "securemesh_site_v2"}}
+	"reflect"
+	{{- end}}
 	"strings"
 	"time"
 
@@ -226,7 +229,7 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- range .Attributes}}
 {{- if .IsBlock}}
 			"{{.TfsdkTag}}": schema.{{if eq .NestedBlockType "single"}}SingleNestedBlock{{else if eq .NestedBlockType "list"}}ListNestedBlock{{else}}SingleNestedBlock{{end}}{
-				MarkdownDescription: "{{.Description}}",
+				MarkdownDescription: "{{.Description}}{{if and (eq $.Name "securemesh_site_v2") (eq .TfsdkTag "software_settings")}} This block is a create-only, write-only input; changing it replaces the resource, and refresh preserves the configured value without claiming XC observed it.{{end}}",
 {{renderConditionalRequired . "\t\t\t\t"}}
 {{- if eq .NestedBlockType "list"}}
 				NestedObject: schema.NestedBlockObject{
@@ -326,6 +329,20 @@ func (r *{{.TitleCase}}Resource) ModifyPlan(ctx context.Context, req resource.Mo
 			)
 		}
 	}
+{{- if eq .Name "securemesh_site_v2"}}
+
+	if !req.State.Raw.IsNull() {
+		var plan, state {{.TitleCase}}ResourceModel
+		resp.Diagnostics.Append(req.Plan.Get(ctx, &plan)...)
+		resp.Diagnostics.Append(req.State.Get(ctx, &state)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !reflect.DeepEqual(plan.SoftwareSettings, state.SoftwareSettings) {
+			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("software_settings"))
+		}
+	}
+{{- end}}
 }
 
 func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
