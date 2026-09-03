@@ -1560,7 +1560,7 @@
       "name": "registration_approval",
       "category": "uncategorized",
       "description": "Request for admission approval. configuration",
-      "required": ["name", "namespace"],
+      "required": ["name", "namespace", "cluster_size"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/registration_approval.txt#minimal-valid-config"

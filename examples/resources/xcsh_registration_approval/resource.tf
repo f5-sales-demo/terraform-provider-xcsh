@@ -16,4 +16,6 @@ terraform {
 resource "xcsh_registration_approval" "example" {
   name      = "example-registration-approval"
   namespace = "staging"
+
+  cluster_size = 1
 }
