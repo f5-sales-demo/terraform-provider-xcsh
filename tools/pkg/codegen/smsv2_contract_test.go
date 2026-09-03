@@ -8,15 +8,15 @@ import (
 	"testing"
 )
 
-const syntheticSMSv2V5Contract = `{
-  "version":"5.0.0",
-  "contract_id":"f5xc-ce-automation/v2",
+const syntheticSMSv2V6Contract = `{
+  "version":"6.0.0",
+  "contract_id":"f5xc-ce-automation/v3",
   "providers":{"aws":{
 	"availability":"evidence_backed",
     "capabilities":{"aws_ce_create":"available","runtime_status":"available","tgw_connect":"available"},
 	"unavailable_capabilities":[],
 	"telemetry_intake":{
-	  "schema_id":"f5xc-smsv2-aws-tgw-telemetry/v1","availability":"available","complete":true,
+	  "schema_id":"f5xc-smsv2-aws-tgw-telemetry/v2","availability":"available","complete":true,
 	  "required_facts":["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
 	  "observed_facts":["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
 	  "unavailable_facts":[]
@@ -30,14 +30,14 @@ const syntheticSMSv2V5Contract = `{
     },
     "authorities":{
       "f5xc":["smsv2_configuration","runtime_health","bgp_peers","bgp_routes","simplified_routes"],
-      "aws":["eni","transit_gateway","transit_gateway_connect","gre_endpoints","bgp_inside_cidrs"]
+      "aws":["eni","transit_gateway","transit_gateway_connect","gre_endpoints","bgp_inside_cidrs","autonomous_system_numbers"]
     }
   }}
 }`
 
 func TestSMSv2DataSourceTemplatesSelectsCleanBreakSurfaces(t *testing.T) {
 	t.Parallel()
-	got, err := SMSv2DataSourceTemplates([]byte(syntheticSMSv2V5Contract))
+	got, err := SMSv2DataSourceTemplates([]byte(syntheticSMSv2V6Contract))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -54,8 +54,8 @@ func TestSMSv2DataSourceTemplatesRejectsLegacyAndIncompleteContracts(t *testing.
 		from string
 		to   string
 	}{
-		{name: "v1 identity", from: "f5xc-ce-automation/v2", to: "f5xc-ce-automation/v1"},
-		{name: "pre-v5 release", from: `"version":"5.0.0"`, to: `"version":"4.9.9"`},
+		{name: "v2 identity", from: "f5xc-ce-automation/v3", to: "f5xc-ce-automation/v2"},
+		{name: "pre-v6 release", from: `"version":"6.0.0"`, to: `"version":"5.9.9"`},
 		{name: "unavailable runtime", from: `"runtime_status":"available"`, to: `"runtime_status":"unavailable"`},
 		{name: "legacy interface endpoint", from: "/securemesh_site_v2s/{site}", to: "/sites/{site}/interface"},
 		{name: "legacy routes endpoint", from: "/ver/simplified_routes", to: "/ver/routes"},
@@ -63,7 +63,7 @@ func TestSMSv2DataSourceTemplatesRejectsLegacyAndIncompleteContracts(t *testing.
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			fixture := strings.Replace(syntheticSMSv2V5Contract, test.from, test.to, 1)
+			fixture := strings.Replace(syntheticSMSv2V6Contract, test.from, test.to, 1)
 			if _, err := SMSv2DataSourceTemplates([]byte(fixture)); err == nil {
 				t.Fatal("expected contract selection error")
 			}
@@ -78,7 +78,7 @@ func TestSMSv2DataSourceTemplatesRetainsSchemasWhenCapabilitiesFailClosed(t *tes
 		`"aws_ce_create":"available","runtime_status":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","runtime_status":"unavailable","tgw_connect":"unavailable"`,
 		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","runtime_status","tgw_connect"]`,
 		`"availability":"available","complete":true`, `"availability":"unavailable","complete":false`,
-	).Replace(syntheticSMSv2V5Contract)
+	).Replace(syntheticSMSv2V6Contract)
 	got, err := SMSv2DataSourceTemplates([]byte(fixture))
 	if err != nil {
 		t.Fatal(err)

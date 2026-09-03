@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"strings"
 	"testing"
-	"time"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -119,8 +118,9 @@ func TestSMSv2RuntimeCorrelatesMultiNodeSiteGlobalHealth(t *testing.T) {
 		t.Fatalf("got %d interfaces, want 6", len(got))
 	}
 	for key, iface := range got {
-		if !iface.Healthy.ValueBool() {
-			t.Fatalf("interface %q is not healthy: %#v", key, iface)
+		wantHealthy := iface.Node.ValueString() == "master-1"
+		if iface.Healthy.ValueBool() != wantHealthy {
+			t.Fatalf("interface %q health = %v, want %v", key, iface.Healthy.ValueBool(), wantHealthy)
 		}
 	}
 }
@@ -176,21 +176,85 @@ func TestSMSv2RuntimePropagatesUnhealthySiteState(t *testing.T) {
 	}
 }
 
-func TestSMSv2BGPConvergenceAndStaleness(t *testing.T) {
+func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
 	configured, err := extractSMSv2ConfiguredInterfaces(runtimeConfiguration())
 	if err != nil {
 		t.Fatal(err)
 	}
-	expected := map[string]smsv2ExpectedPeerModel{"peer-a": {Node: types.StringValue("master-0"), Role: types.StringValue("slo"), MAC: types.StringValue("02:aa:bb:cc:dd:01"), PeerAddress: types.StringValue("169.254.10.1"), ExpectedRoutes: types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.10.0.0/16")})}}
-	now := time.Now().UTC().Truncate(time.Second)
-	peers := []observedBGPPeer{{Node: "master-0", InterfaceName: "eth0", PeerAddress: "169.254.10.1", State: "Established", ObservedAt: now.Format(time.RFC3339), ReceivedPrefixes: 1, AdvertisedPrefixes: 1}}
-	routes := client.SMSv2Observation{"routes": []interface{}{map[string]interface{}{"subnet": "10.10.0.0/16"}}}
-	status, converged, reason := convergeSMSv2BGP(expected, configured, peers, routes, client.SMSv2Observation{"ver_routes": []interface{}{map[string]interface{}{"route": []interface{}{map[string]interface{}{"prefix": "10.10.0.0/16"}}}}}, client.SMSv2Observation{}, time.Minute, now)
+	expected := map[string]smsv2ExpectedPeerModel{"peer-a": {
+		Node: types.StringValue("master-0"), Role: types.StringValue("slo"),
+		MAC: types.StringValue("02:aa:bb:cc:dd:01"), PeerAddress: types.StringValue("169.254.10.1"),
+		ExpectedRoutes: types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.10.0.0/16")}),
+	}}
+	peers := []observedBGPPeer{{
+		Node: "master-0", InterfaceName: "eth0", PeerAddress: "169.254.10.1",
+		State: "Established", StateChangedAt: "2026-09-03T00:00:00Z",
+		ReceivedPrefixes: 1, AdvertisedPrefixes: 1,
+	}}
+	bgpRoutes := client.SMSv2Observation{"ver": []interface{}{map[string]interface{}{
+		"name": "master-0", "ri_table": []interface{}{map[string]interface{}{
+			"rt_table": []interface{}{map[string]interface{}{
+				"imported": []interface{}{map[string]interface{}{"subnet": "10.10.0.0/16"}},
+				"exported": []interface{}{},
+			}},
+		}},
+	}}}
+	simplified := client.SMSv2Observation{"ver_routes": []interface{}{map[string]interface{}{
+		"node": "master-0", "route": []interface{}{map[string]interface{}{"prefix": "10.10.0.0/16"}},
+	}}}
+	status, converged, reason := convergeSMSv2BGP(expected, configured, peers, bgpRoutes, simplified, simplified)
 	if !converged || reason != "" || !status["peer-a"].Established.ValueBool() {
 		t.Fatalf("converged=%v reason=%q status=%#v", converged, reason, status)
 	}
-	peers[0].ObservedAt = now.Add(-2 * time.Minute).Format(time.RFC3339)
-	if _, converged, reason = convergeSMSv2BGP(expected, configured, peers, routes, routes, routes, time.Minute, now); converged || !strings.Contains(reason, "stale") {
-		t.Fatalf("converged=%v reason=%q", converged, reason)
+	if got := status["peer-a"].StateChangedAt.ValueString(); got != "2026-09-03T00:00:00Z" {
+		t.Fatalf("state_changed_at = %q", got)
+	}
+	peers[0].StateChangedAt = "not-a-freshness-claim"
+	if _, converged, reason = convergeSMSv2BGP(expected, configured, peers, bgpRoutes, simplified, simplified); !converged || reason != "" {
+		t.Fatalf("state change timestamp was incorrectly treated as freshness: converged=%v reason=%q", converged, reason)
+	}
+}
+
+func TestSMSv2BindingIdentityValidation(t *testing.T) {
+	sharedMAC := "02:aa:bb:cc:dd:01"
+	accepted := map[string]smsv2BindingModel{
+		"node0": {Node: types.StringValue("master-0"), Role: types.StringValue("slo"), MAC: types.StringValue(sharedMAC)},
+		"node1": {Node: types.StringValue("master-1"), Role: types.StringValue("sli"), MAC: types.StringValue(sharedMAC)},
+	}
+	if _, err := validateSMSv2Bindings(accepted); err != nil {
+		t.Fatalf("same MAC on distinct nodes was rejected: %v", err)
+	}
+
+	cases := map[string]smsv2BindingModel{
+		"null node": {
+			Node: types.StringNull(), Role: types.StringValue("slo"), MAC: types.StringValue(sharedMAC),
+		},
+		"unknown role": {
+			Node: types.StringValue("master-0"), Role: types.StringUnknown(), MAC: types.StringValue(sharedMAC),
+		},
+		"empty node": {
+			Node: types.StringValue(" "), Role: types.StringValue("slo"), MAC: types.StringValue(sharedMAC),
+		},
+		"malformed MAC": {
+			Node: types.StringValue("master-0"), Role: types.StringValue("slo"), MAC: types.StringValue("not-a-mac"),
+		},
+		"guest device role": {
+			Node: types.StringValue("master-0"), Role: types.StringValue("eth0"), MAC: types.StringValue(sharedMAC),
+		},
+	}
+	for name, binding := range cases {
+		t.Run(name, func(t *testing.T) {
+			if _, err := validateSMSv2Bindings(map[string]smsv2BindingModel{"candidate": binding}); err == nil {
+				t.Fatal("invalid binding was accepted")
+			}
+		})
+	}
+
+	duplicate := map[string]smsv2BindingModel{
+		"one": {Node: types.StringValue("master-0"), Role: types.StringValue("slo"), MAC: types.StringValue(sharedMAC)},
+		"two": {Node: types.StringValue("master-0"), Role: types.StringValue("sli"), MAC: types.StringValue("02-AA-BB-CC-DD-01")},
+	}
+	if _, err := validateSMSv2Bindings(duplicate); err == nil || !strings.Contains(err.Error(), "within node") {
+		t.Fatalf("within-node duplicate error = %v", err)
 	}
 }

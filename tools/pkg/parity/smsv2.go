@@ -374,7 +374,10 @@ func flattenTerraformAttributes(attrs []openapi.TerraformAttribute) map[string]o
 	var walk func([]openapi.TerraformAttribute, string)
 	walk = func(fields []openapi.TerraformAttribute, prefix string) {
 		for _, attr := range fields {
-			name := attr.TfsdkTag
+			name := attr.JsonName
+			if name == "" {
+				name = attr.TfsdkTag
+			}
 			if name == "" {
 				name = attr.Name
 			}

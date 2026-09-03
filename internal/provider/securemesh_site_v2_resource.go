@@ -7,6 +7,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"reflect"
 	"strings"
 	"time"
 
@@ -10190,7 +10191,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"software_settings": schema.SingleNestedBlock{
-				MarkdownDescription: "Select OS and Software version for the site. All nodes in the site will run the same OS and Software version. These settings cannot be changed after the site is created.",
+				MarkdownDescription: "Select OS and Software version for the site. All nodes in the site will run the same OS and Software version. These settings cannot be changed after the site is created. This block is a create-only, write-only input; changing it replaces the resource, and refresh preserves the configured value without claiming XC observed it.",
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -10768,6 +10769,18 @@ func (r *SecuremeshSiteV2Resource) ModifyPlan(ctx context.Context, req resource.
 				"Unknown Resource Name",
 				"The resource name is not yet known. This may affect planning for dependent resources.",
 			)
+		}
+	}
+
+	if !req.State.Raw.IsNull() {
+		var plan, state SecuremeshSiteV2ResourceModel
+		resp.Diagnostics.Append(req.Plan.Get(ctx, &plan)...)
+		resp.Diagnostics.Append(req.State.Get(ctx, &state)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !reflect.DeepEqual(plan.SoftwareSettings, state.SoftwareSettings) {
+			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("software_settings"))
 		}
 	}
 }
@@ -23016,60 +23029,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
-	if blockData, ok := apiResource.Spec["software_settings"].(map[string]interface{}); ok && (isImport || data.SoftwareSettings != nil) {
-		data.SoftwareSettings = &SecuremeshSiteV2SoftwareSettingsModel{
-			OS: func() *SecuremeshSiteV2SoftwareSettingsOSModel {
-				if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.OS != nil {
-					return data.SoftwareSettings.OS
-				}
-				if OSData, ok := blockData["os"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2SoftwareSettingsOSModel{
-						DefaultOSVersion: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.OS != nil {
-								return data.SoftwareSettings.OS.DefaultOSVersion
-							}
-							if _, ok := OSData["default_os_version"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						OperatingSystemVersion: func() types.String {
-							if v, ok := OSData["operating_system_version"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			Sw: func() *SecuremeshSiteV2SoftwareSettingsSwModel {
-				if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.Sw != nil {
-					return data.SoftwareSettings.Sw
-				}
-				if SwData, ok := blockData["sw"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2SoftwareSettingsSwModel{
-						DefaultSwVersion: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.Sw != nil {
-								return data.SoftwareSettings.Sw.DefaultSwVersion
-							}
-							if _, ok := SwData["default_sw_version"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						VolterraSoftwareVersion: func() types.String {
-							if v, ok := SwData["volterra_software_version"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["upgrade_settings"].(map[string]interface{}); ok && (isImport || data.UpgradeSettings != nil) {
 		data.UpgradeSettings = &SecuremeshSiteV2UpgradeSettingsModel{
 			KubernetesUpgradeDrain: func() *SecuremeshSiteV2UpgradeSettingsKubernetesUpgradeDrainModel {
@@ -31776,60 +31735,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
-	if blockData, ok := apiResource.Spec["software_settings"].(map[string]interface{}); ok && (isImport || data.SoftwareSettings != nil) {
-		data.SoftwareSettings = &SecuremeshSiteV2SoftwareSettingsModel{
-			OS: func() *SecuremeshSiteV2SoftwareSettingsOSModel {
-				if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.OS != nil {
-					return data.SoftwareSettings.OS
-				}
-				if OSData, ok := blockData["os"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2SoftwareSettingsOSModel{
-						DefaultOSVersion: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.OS != nil {
-								return data.SoftwareSettings.OS.DefaultOSVersion
-							}
-							if _, ok := OSData["default_os_version"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						OperatingSystemVersion: func() types.String {
-							if v, ok := OSData["operating_system_version"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			Sw: func() *SecuremeshSiteV2SoftwareSettingsSwModel {
-				if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.Sw != nil {
-					return data.SoftwareSettings.Sw
-				}
-				if SwData, ok := blockData["sw"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2SoftwareSettingsSwModel{
-						DefaultSwVersion: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.Sw != nil {
-								return data.SoftwareSettings.Sw.DefaultSwVersion
-							}
-							if _, ok := SwData["default_sw_version"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						VolterraSoftwareVersion: func() types.String {
-							if v, ok := SwData["volterra_software_version"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["upgrade_settings"].(map[string]interface{}); ok && (isImport || data.UpgradeSettings != nil) {
 		data.UpgradeSettings = &SecuremeshSiteV2UpgradeSettingsModel{
 			KubernetesUpgradeDrain: func() *SecuremeshSiteV2UpgradeSettingsKubernetesUpgradeDrainModel {
@@ -36505,30 +36410,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			SiteMeshGroupOnSloMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		apiResource.Spec["site_mesh_group_on_slo"] = SiteMeshGroupOnSloMap
-	}
-	if data.SoftwareSettings != nil {
-		SoftwareSettingsMap := make(map[string]interface{})
-		if data.SoftwareSettings.OS != nil {
-			SoftwareSettingsOSMap := make(map[string]interface{})
-			if data.SoftwareSettings.OS.DefaultOSVersion != nil {
-				SoftwareSettingsOSMap["default_os_version"] = map[string]interface{}{}
-			}
-			if !data.SoftwareSettings.OS.OperatingSystemVersion.IsNull() && !data.SoftwareSettings.OS.OperatingSystemVersion.IsUnknown() {
-				SoftwareSettingsOSMap["operating_system_version"] = data.SoftwareSettings.OS.OperatingSystemVersion.ValueString()
-			}
-			SoftwareSettingsMap["os"] = SoftwareSettingsOSMap
-		}
-		if data.SoftwareSettings.Sw != nil {
-			SoftwareSettingsSwMap := make(map[string]interface{})
-			if data.SoftwareSettings.Sw.DefaultSwVersion != nil {
-				SoftwareSettingsSwMap["default_sw_version"] = map[string]interface{}{}
-			}
-			if !data.SoftwareSettings.Sw.VolterraSoftwareVersion.IsNull() && !data.SoftwareSettings.Sw.VolterraSoftwareVersion.IsUnknown() {
-				SoftwareSettingsSwMap["volterra_software_version"] = data.SoftwareSettings.Sw.VolterraSoftwareVersion.ValueString()
-			}
-			SoftwareSettingsMap["sw"] = SoftwareSettingsSwMap
-		}
-		apiResource.Spec["software_settings"] = SoftwareSettingsMap
 	}
 	if data.UpgradeSettings != nil {
 		UpgradeSettingsMap := make(map[string]interface{})
@@ -44820,60 +44701,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
 					return &SecuremeshSiteV2EmptyModel{}
-				}
-				return nil
-			}(),
-		}
-	}
-	if blockData, ok := apiResource.Spec["software_settings"].(map[string]interface{}); ok && (isImport || data.SoftwareSettings != nil) {
-		data.SoftwareSettings = &SecuremeshSiteV2SoftwareSettingsModel{
-			OS: func() *SecuremeshSiteV2SoftwareSettingsOSModel {
-				if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.OS != nil {
-					return data.SoftwareSettings.OS
-				}
-				if OSData, ok := blockData["os"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2SoftwareSettingsOSModel{
-						DefaultOSVersion: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.OS != nil {
-								return data.SoftwareSettings.OS.DefaultOSVersion
-							}
-							if _, ok := OSData["default_os_version"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						OperatingSystemVersion: func() types.String {
-							if v, ok := OSData["operating_system_version"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			Sw: func() *SecuremeshSiteV2SoftwareSettingsSwModel {
-				if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.Sw != nil {
-					return data.SoftwareSettings.Sw
-				}
-				if SwData, ok := blockData["sw"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2SoftwareSettingsSwModel{
-						DefaultSwVersion: func() *SecuremeshSiteV2EmptyModel {
-							if !isImport && data.SoftwareSettings != nil && data.SoftwareSettings.Sw != nil {
-								return data.SoftwareSettings.Sw.DefaultSwVersion
-							}
-							if _, ok := SwData["default_sw_version"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
-							}
-							return nil
-						}(),
-						VolterraSoftwareVersion: func() types.String {
-							if v, ok := SwData["volterra_software_version"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
 				}
 				return nil
 			}(),
