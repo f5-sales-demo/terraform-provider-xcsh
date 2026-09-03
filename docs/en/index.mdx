@@ -1,0 +1,72 @@
+---
+title: F5 Distributed Cloud Terraform Provider
+description: Declarative infrastructure as code management for F5 Distributed Cloud load balancers, security policies, and multi-cloud networking.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+The **XCSH Terraform Provider** enables declarative infrastructure-as-code (IaC) management for F5 Distributed Cloud (XC) platform capabilities. Manage HTTP/TCP load balancers, origin pools, Web Application Firewall (WAF) policies, Multi-Cloud Networking (MCN) sites, and DNS zones directly from Terraform.
+
+## Provider Overview
+
+<CardGrid>
+  <Card title="Full Resource Lifecycle" icon="puzzle">
+    Declarative CRUD operations across 300+ F5 Distributed Cloud resources, data sources, and custom actions.
+  </Card>
+  <Card title="Blindfold Encryption Functions" icon="seti:lock">
+    Native cryptographic functions (<code>xcsh_blindfold</code>, <code>xcsh_blindfold_file</code>) for secure secret sealing.
+  </Card>
+  <Card title="Authentication Flexibility" icon="star">
+    Support for API Tokens, PKCS#12 certificates, and PEM certificate/key pairs across environments.
+  </Card>
+  <Card title="AI-Ready Schema Feeds" icon="document">
+    Machine-readable <code>llms.txt</code> and structured per-resource dependency graphs for agentic workflows.
+  </Card>
+</CardGrid>
+
+## Quick Start Configuration
+
+```hcl
+terraform {
+  required_version = ">= 1.14"
+
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+provider "xcsh" {
+  api_url   = "https://<XC_TENANT>.console.ves.volterra.io"
+  api_token = var.xcsh_api_token
+}
+
+variable "xcsh_api_token" {
+  description = "F5 Distributed Cloud API Token"
+  type        = string
+  sensitive   = true
+}
+
+# Declarative Namespace Creation
+resource "xcsh_namespace" "example" {
+  name = "example-namespace"
+}
+
+# Declarative HTTP Load Balancer
+resource "xcsh_http_loadbalancer" "example" {
+  name      = "example-load-balancer"
+  namespace = xcsh_namespace.example.name
+  domains   = ["app.example.com"]
+}
+```
+
+## Core Capabilities Matrix
+
+| Capability | Supported Resources | Documentation |
+| :--- | :--- | :--- |
+| **Application Delivery** | `xcsh_http_loadbalancer`, `xcsh_origin_pool`, `xcsh_route` | [HTTP Load Balancer Guide](../guides/http-loadbalancer) |
+| **Security & WAF** | `xcsh_app_firewall`, `xcsh_service_policy`, `xcsh_rate_limiter` | [WAF Policy Guide](../guides/advanced-http-loadbalancer) |
+| **Multi-Cloud Networking** | `xcsh_aws_vpc_site`, `xcsh_azure_vnet_site`, `xcsh_bgp` | [MCN Architecture](../guides/addon-activation) |
+| **Secret Management** | `provider::xcsh::blindfold()`, `provider::xcsh::blindfold_file()` | [Blindfold Guide](../guides/blindfold) |
