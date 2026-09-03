@@ -32,6 +32,8 @@ terraform {
 resource "xcsh_registration_approval" "example" {
   name      = "example-registration-approval"
   namespace = "staging"
+
+  cluster_size = 1
 }
 ```
 
@@ -50,6 +52,8 @@ resource "xcsh_registration_approval" "example" {
 ### Spec Argument Reference
 
 <a id="backup-connected-region"></a>&#x2022; [`backup_connected_region`](#backup-connected-region) - Optional String
+
+<a id="cluster-size"></a>&#x2022; [`cluster_size`](#cluster-size) - Required Number<br>Number of nodes in the registration's site cluster. Use 1 for a single-node site and the complete node count for an HA site
 
 <a id="connected-region"></a>&#x2022; [`connected_region`](#connected-region) - Optional String
 

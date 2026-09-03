@@ -15,9 +15,10 @@ description: |-
   }
 
   resource "xcsh_registration_approval" "ce" {
-    count     = data.xcsh_site_registration.ce.found ? 1 : 0
-    name      = data.xcsh_site_registration.ce.name
-    namespace = demo-app
+    count        = data.xcsh_site_registration.ce.found ? 1 : 0
+    name         = data.xcsh_site_registration.ce.name
+    namespace    = data.xcsh_site_registration.ce.namespace
+    cluster_size = 1
   }
 
   Possible state values: NOTSET, NEW, APPROVED, ADMITTED, RETIRED, FAILED, DONE, PENDING, ONLINE, UPGRADING, MAINTENANCE, FAILED_INACTIVE.
@@ -41,9 +42,10 @@ data "xcsh_site_registration" "ce" {
 }
 
 resource "xcsh_registration_approval" "ce" {
-  count     = data.xcsh_site_registration.ce.found ? 1 : 0
-  name      = data.xcsh_site_registration.ce.name
-  namespace = demo-app
+  count        = data.xcsh_site_registration.ce.found ? 1 : 0
+  name         = data.xcsh_site_registration.ce.name
+  namespace    = data.xcsh_site_registration.ce.namespace
+  cluster_size = 1
 }
 ```
 
