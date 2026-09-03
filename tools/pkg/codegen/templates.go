@@ -341,6 +341,12 @@ func (r *{{.TitleCase}}Resource) ModifyPlan(ctx context.Context, req resource.Mo
 		if !reflect.DeepEqual(plan.SoftwareSettings, state.SoftwareSettings) {
 			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("software_settings"))
 		}
+		// The live API rejects replacement-style PUT updates for HA sites. AWS
+		// topology is therefore create-only: make the destroy/create lifecycle
+		// explicit in Terraform whenever its configured shape changes.
+		if plan.AWS != nil && state.AWS != nil && !reflect.DeepEqual(plan.AWS, state.AWS) {
+			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("aws"))
+		}
 	}
 {{- end}}
 }
@@ -1487,9 +1493,15 @@ import (
 	"fmt"
 	"strings"
 
+	{{- if eq .TitleCase "RegistrationApproval"}}
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
+	{{- end}}
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	{{- if eq .TitleCase "RegistrationApproval"}}
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
+	{{- end}}
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -1520,8 +1532,53 @@ type {{.TitleCase}}ResourceModel struct {
 {{- range .Attributes}}
 	{{.GoName}} types.String ` + "`" + `tfsdk:"{{.TfsdkTag}}"` + "`" + `
 {{- end}}
+	{{- if eq .TitleCase "RegistrationApproval"}}
+	ClusterSize types.Int64 ` + "`" + `tfsdk:"cluster_size"` + "`" + `
+	{{- end}}
 	ID types.String ` + "`" + `tfsdk:"id"` + "`" + `
 }
+{{- if eq .TitleCase "RegistrationApproval"}}
+
+func registrationApprovalAlreadySatisfied(sourceObj map[string]interface{}, desiredClusterSize int64) (bool, error) {
+	stateValue, ok := client.LookupNestedField(sourceObj, "object.status.current_state", "object.status.state", "status.current_state", "status.state", "state")
+	if !ok {
+		return false, nil
+	}
+	state, ok := stateValue.(string)
+	if !ok {
+		return false, fmt.Errorf("registration state is not a string")
+	}
+	switch strings.ToUpper(state) {
+	case "APPROVED", "ADMITTED", "ONLINE", "UPGRADING", "MAINTENANCE":
+	default:
+		return false, nil
+	}
+
+	passportValue, ok := client.LookupNestedField(sourceObj, "object.spec.gc_spec.passport", "spec.gc_spec.passport", "spec.passport")
+	if !ok {
+		return false, fmt.Errorf("registration in %s state has no passport", state)
+	}
+	passport, ok := passportValue.(map[string]interface{})
+	if !ok {
+		return false, fmt.Errorf("registration in %s state has a malformed passport", state)
+	}
+	var reportedClusterSize int64
+	switch value := passport["cluster_size"].(type) {
+	case float64:
+		reportedClusterSize = int64(value)
+	case int64:
+		reportedClusterSize = value
+	case int:
+		reportedClusterSize = int64(value)
+	default:
+		return false, fmt.Errorf("registration in %s state has no numeric cluster_size", state)
+	}
+	if reportedClusterSize != desiredClusterSize {
+		return false, fmt.Errorf("registration has already progressed to %s with cluster_size %d; changing it to %d requires reprovisioning the node", state, reportedClusterSize, desiredClusterSize)
+	}
+	return true, nil
+}
+{{- end}}
 
 func (r *{{.TitleCase}}Resource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
 	resp.TypeName = req.ProviderTypeName + "_{{.Name}}"
@@ -1563,6 +1620,18 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 				},
 			},
 {{- end}}
+			{{- if eq .TitleCase "RegistrationApproval"}}
+			"cluster_size": schema.Int64Attribute{
+				MarkdownDescription: "Number of nodes in the registration's site cluster. Use 1 for a single-node site and the complete node count for an HA site.",
+				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.OneOf(1, 3),
+				},
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.RequiresReplace(),
+				},
+			},
+			{{- end}}
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
 				Computed:            true,
@@ -1641,6 +1710,24 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	}
 {{- end}}
 {{- end}}
+	{{- if eq .TitleCase "RegistrationApproval"}}
+	if satisfied, err := registrationApprovalAlreadySatisfied(sourceObj, data.ClusterSize.ValueInt64()); err != nil {
+		resp.Diagnostics.AddError("Registration Approval Contract Mismatch", err.Error())
+		return
+	} else if satisfied {
+		data.ID = types.StringValue(data.Name.ValueString())
+		data.State = types.StringValue("APPROVED")
+		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		return
+	}
+	passport, ok := body.Passport.(map[string]interface{})
+	if !ok {
+		resp.Diagnostics.AddError("Invalid Server-Derived Field", "The registration passport is not an object, so its required cluster_size cannot be set.")
+		return
+	}
+	passport["cluster_size"] = data.ClusterSize.ValueInt64()
+	body.Passport = passport
+	{{- end}}
 
 	actionPath := fmt.Sprintf("{{.ActionPath}}", data.Namespace.ValueString(), data.Name.ValueString())
 	if err := r.client.Post(ctx, actionPath, body, nil); err != nil {
@@ -1649,10 +1736,19 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 {{- if .ActionDerivedFields}}
 			var checkObj map[string]interface{}
 			if checkErr := r.client.GetLenient(ctx, sourcePath, &checkObj); checkErr == nil {
+				{{- if eq .TitleCase "RegistrationApproval"}}
+				if satisfied, checkErr := registrationApprovalAlreadySatisfied(checkObj, data.ClusterSize.ValueInt64()); checkErr != nil {
+					err = checkErr
+				} else if satisfied {
+					tflog.Info(ctx, "Action target has already progressed past {{$.ActionState}} with the requested cluster size, treating action as idempotent success")
+					err = nil
+				}
+				{{- else}}
 				if currentState, ok := client.LookupNestedField(checkObj, "object.status.state", "status.state", "state"); ok && currentState == "{{$.ActionState}}" {
 					tflog.Info(ctx, "Action target is already in {{$.ActionState}} state, treating action as idempotent success")
 					err = nil
 				}
+				{{- end}}
 			}
 {{- end}}
 		}

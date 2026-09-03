@@ -94,6 +94,7 @@ func TestValidateSecuremeshSiteV2AWSContractDefersUnknownValues(t *testing.T) {
 	tests := []SecuremeshSiteV2ResourceModel{
 		{Namespace: types.StringUnknown(), AWS: &SecuremeshSiteV2AWSModel{NotManaged: &SecuremeshSiteV2AWSNotManagedModel{NodeList: types.ListUnknown(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes})}}},
 		awsSMSv2ContractFixture(t, []contractInterface{{mac: "unknown", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli"}}),
+		awsSMSv2ContractFixture(t, []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "unknown"}, {mac: "02:00:00:00:00:02", role: "sli"}}),
 	}
 	for _, data := range tests {
 		var resp resource.ValidateConfigResponse
@@ -116,7 +117,9 @@ func TestValidateSecuremeshSiteV2AWSContractKnownValues(t *testing.T) {
 		{name: "empty mac", interfaces: []contractInterface{{mac: "  ", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "MAC Is Required"},
 		{name: "malformed mac", interfaces: []contractInterface{{mac: "not-a-mac", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "MAC Is Invalid"},
 		{name: "normalized duplicate mac", interfaces: []contractInterface{{mac: "02-00-00-00-00-01", role: "slo"}, {mac: "02:00:00:00:00:01", role: "sli"}}, want: "MAC Is Duplicate"},
-		{name: "guest device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "eth1"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Guest Interface Inference"},
+		{name: "missing device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "null"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Is Required"},
+		{name: "empty device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "empty"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Is Required"},
+		{name: "device role mismatch", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "eth1"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Does Not Match Role"},
 		{name: "missing sli", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}}, want: "SLI Is Required"},
 		{name: "duplicate role", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "slo"}}, want: "Role Is Duplicate"},
 		{name: "ambiguous role", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "ambiguous"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Role Is Ambiguous"},
@@ -149,9 +152,22 @@ func awsSMSv2ContractFixture(t *testing.T, fixtures []contractInterface) Securem
 		if fixture.mac == "unknown" {
 			mac = types.StringUnknown()
 		}
-		device := types.StringNull()
-		if fixture.device != "" {
+		deviceName := map[string]string{"slo": "eth0", "sli": "eth1", "ambiguous": "eth0"}[fixture.role]
+		if deviceName == "" {
+			deviceName = "eth0"
+		}
+		device := types.StringValue(deviceName)
+		if fixture.device != "" && fixture.device != "null" && fixture.device != "empty" && fixture.device != "unknown" {
 			device = types.StringValue(fixture.device)
+		}
+		if fixture.device == "null" {
+			device = types.StringNull()
+		}
+		if fixture.device == "empty" {
+			device = types.StringValue("  ")
+		}
+		if fixture.device == "unknown" {
+			device = types.StringUnknown()
 		}
 		role := &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListNetworkOptionModel{}
 		switch fixture.role {

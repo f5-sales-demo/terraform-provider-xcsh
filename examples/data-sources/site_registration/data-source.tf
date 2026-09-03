@@ -48,6 +48,7 @@ output "ha_node_0_registration_name" {
 resource "xcsh_registration_approval" "ce" {
   count = data.xcsh_site_registration.ce.found ? 1 : 0
 
-  name      = data.xcsh_site_registration.ce.name
-  namespace = data.xcsh_site_registration.ce.namespace
+  name         = data.xcsh_site_registration.ce.name
+  namespace    = data.xcsh_site_registration.ce.namespace
+  cluster_size = 1
 }

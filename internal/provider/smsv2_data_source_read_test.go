@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
@@ -46,7 +47,8 @@ func runtimeDataSourceConfig(t *testing.T, schemaResponse *datasource.SchemaResp
 	t.Helper()
 	model := Smsv2AWSRuntimeDataSourceModel{
 		ID: types.StringNull(), Namespace: types.StringValue("system"), Site: types.StringValue("lab-site"),
-		Nodes: nodes, Interfaces: types.MapNull(types.ObjectType{AttrTypes: smsv2RuntimeInterfaceAttrTypes}), Healthy: types.BoolNull(),
+		Nodes: nodes, TimeoutSeconds: types.Int64Value(2), PollIntervalSeconds: types.Int64Value(1),
+		Interfaces: types.MapNull(types.ObjectType{AttrTypes: smsv2RuntimeInterfaceAttrTypes}), Healthy: types.BoolNull(),
 	}
 	return datasource.ReadRequest{Config: tfsdk.Config{
 		Schema: schemaResponse.Schema,
@@ -71,6 +73,7 @@ func TestSMSv2AWSRuntimeDataSourceReadAndHTTPFailure(t *testing.T) {
 	withSMSv2Capabilities(t, map[string]string{"aws_ce_create": "unavailable", "runtime_status": "available", "tgw_connect": "unavailable"})
 	ctx := context.Background()
 	fail := false
+	transientHealthFailures := 0
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, request *http.Request) {
 		if fail {
 			http.Error(w, "fixture failure", http.StatusBadGateway)
@@ -81,13 +84,21 @@ func TestSMSv2AWSRuntimeDataSourceReadAndHTTPFailure(t *testing.T) {
 		case "/api/config/namespaces/system/securemesh_site_v2s/lab-site":
 			_ = json.NewEncoder(w).Encode(runtimeConfiguration())
 		case "/api/operate/namespaces/system/sites/lab-site/vpm/debug/global/health":
+			if transientHealthFailures > 0 {
+				transientHealthFailures--
+				http.Error(w, "unresolved DNS", http.StatusBadGateway)
+				return
+			}
 			_, _ = w.Write([]byte("{\"hostname\":\"master-0\",\"state\":\"PROVISIONED\"}"))
 		default:
 			http.NotFound(w, request)
 		}
 	}))
 	defer server.Close()
-	dataSource := &Smsv2AWSRuntimeDataSource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
+	dataSource := &Smsv2AWSRuntimeDataSource{
+		client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0)),
+		wait:   func(context.Context, time.Duration) error { return nil },
+	}
 	schemaResponse := &datasource.SchemaResponse{}
 	dataSource.Schema(ctx, datasource.SchemaRequest{}, schemaResponse)
 	request := runtimeDataSourceConfig(t, schemaResponse, runtimeBindings(t))
@@ -102,7 +113,19 @@ func TestSMSv2AWSRuntimeDataSourceReadAndHTTPFailure(t *testing.T) {
 		t.Fatalf("unexpected runtime state: %#v diagnostics=%v", state, response.Diagnostics)
 	}
 
+	transientHealthFailures = 1
+	response = datasource.ReadResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
+	dataSource.Read(ctx, request, &response)
+	if response.Diagnostics.HasError() || transientHealthFailures != 0 {
+		t.Fatalf("runtime Read did not recover from transient health failure: diagnostics=%v", response.Diagnostics)
+	}
+
 	fail = true
+	nowCalls := 0
+	dataSource.now = func() time.Time {
+		nowCalls++
+		return time.Unix(0, 0).Add(time.Duration(nowCalls) * time.Second)
+	}
 	response = datasource.ReadResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
 	dataSource.Read(ctx, request, &response)
 	if !response.Diagnostics.HasError() {

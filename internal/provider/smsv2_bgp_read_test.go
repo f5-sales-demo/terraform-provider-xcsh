@@ -54,20 +54,34 @@ func bgpReadRequest(t *testing.T, schemaResponse *datasource.SchemaResponse, exp
 
 func bgpPeerFixture(state string) map[string]interface{} {
 	return map[string]interface{}{"ver": []interface{}{map[string]interface{}{
-		"name": "master-0", "peer": []interface{}{map[string]interface{}{
-			"interface_name": "eth0", "peer_address": map[string]interface{}{"ipv4": "169.254.10.1"},
+		"name": "master-0.example.internal", "peer": []interface{}{map[string]interface{}{
+			"interface_name": "tap-bgp-observation", "peer_address": map[string]interface{}{"ipv4": map[string]interface{}{"addr": "169.254.10.1"}},
 			"protocol_status": state, "up_down_timestamp": "2026-09-03T00:00:00Z",
 			"received_prefix_count": float64(1), "advertised_prefix_count": float64(1),
 		}},
 	}}}
 }
 
+func TestPeerAddressLiveShape(t *testing.T) {
+	for name, fixture := range map[string]interface{}{
+		"ipv4 object":          map[string]interface{}{"ipv4": map[string]interface{}{"addr": "169.254.10.1"}},
+		"ipv6 object":          map[string]interface{}{"ipv6": map[string]interface{}{"addr": "2001:db8::1"}},
+		"legacy direct string": map[string]interface{}{"ipv4": "169.254.10.1"},
+	} {
+		t.Run(name, func(t *testing.T) {
+			if got := peerAddress(fixture); got == "" {
+				t.Fatal("peer address was not extracted")
+			}
+		})
+	}
+}
+
 func bgpRoutesFixture() map[string]interface{} {
 	return map[string]interface{}{"ver": []interface{}{map[string]interface{}{
-		"name": "master-0", "ri_table": []interface{}{map[string]interface{}{
+		"name": "master-0.example.internal", "ri_table": []interface{}{map[string]interface{}{
 			"rt_table": []interface{}{map[string]interface{}{
 				"imported": []interface{}{map[string]interface{}{"subnet": "10.10.0.0/16"}},
-				"exported": []interface{}{},
+				"exported": []interface{}{map[string]interface{}{"subnet": "10.20.0.0/16"}},
 			}},
 		}},
 	}}}
@@ -75,7 +89,7 @@ func bgpRoutesFixture() map[string]interface{} {
 
 func simplifiedRoutesFixture() map[string]interface{} {
 	return map[string]interface{}{"ver_routes": []interface{}{map[string]interface{}{
-		"node": "master-0", "route": []interface{}{map[string]interface{}{"prefix": "10.10.0.0/16"}},
+		"node": "master-0.example.internal", "route": []interface{}{map[string]interface{}{"prefix": "10.20.0.0/16"}},
 	}}}
 }
 

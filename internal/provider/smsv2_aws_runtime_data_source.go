@@ -7,7 +7,9 @@ import (
 	"fmt"
 	"net"
 	"strings"
+	"time"
 
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
@@ -23,9 +25,29 @@ var (
 	_ datasource.DataSourceWithConfigure = &Smsv2AWSRuntimeDataSource{}
 )
 
-type Smsv2AWSRuntimeDataSource struct{ client *client.Client }
+type Smsv2AWSRuntimeDataSource struct {
+	client *client.Client
+	now    func() time.Time
+	wait   func(context.Context, time.Duration) error
+}
 
-func NewSmsv2AWSRuntimeDataSource() datasource.DataSource { return &Smsv2AWSRuntimeDataSource{} }
+func NewSmsv2AWSRuntimeDataSource() datasource.DataSource {
+	return &Smsv2AWSRuntimeDataSource{now: time.Now, wait: waitForSMSv2Poll}
+}
+
+func (d *Smsv2AWSRuntimeDataSource) nowTime() time.Time {
+	if d.now != nil {
+		return d.now()
+	}
+	return time.Now()
+}
+
+func (d *Smsv2AWSRuntimeDataSource) waitFor(ctx context.Context, delay time.Duration) error {
+	if d.wait != nil {
+		return d.wait(ctx, delay)
+	}
+	return waitForSMSv2Poll(ctx, delay)
+}
 
 type smsv2BindingModel struct {
 	Node types.String `tfsdk:"node"`
@@ -48,12 +70,14 @@ var smsv2RuntimeInterfaceAttrTypes = map[string]attr.Type{
 }
 
 type Smsv2AWSRuntimeDataSourceModel struct {
-	ID         types.String `tfsdk:"id"`
-	Namespace  types.String `tfsdk:"namespace"`
-	Site       types.String `tfsdk:"site"`
-	Nodes      types.Map    `tfsdk:"nodes"`
-	Interfaces types.Map    `tfsdk:"interfaces"`
-	Healthy    types.Bool   `tfsdk:"healthy"`
+	ID                  types.String `tfsdk:"id"`
+	Namespace           types.String `tfsdk:"namespace"`
+	Site                types.String `tfsdk:"site"`
+	Nodes               types.Map    `tfsdk:"nodes"`
+	TimeoutSeconds      types.Int64  `tfsdk:"timeout_seconds"`
+	PollIntervalSeconds types.Int64  `tfsdk:"poll_interval_seconds"`
+	Interfaces          types.Map    `tfsdk:"interfaces"`
+	Healthy             types.Bool   `tfsdk:"healthy"`
 }
 
 type smsv2ConfiguredInterface struct {
@@ -64,15 +88,23 @@ type smsv2ConfiguredInterface struct {
 	MTU  int64
 }
 
+func smsv2NodeMatches(configured, observed string) bool {
+	configured = strings.TrimSpace(configured)
+	observed = strings.TrimSpace(observed)
+	return configured != "" && (observed == configured || strings.HasPrefix(observed, configured+"."))
+}
+
 func (d *Smsv2AWSRuntimeDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
 	resp.TypeName = req.ProviderTypeName + "_smsv2_aws_runtime"
 }
 
 func (d *Smsv2AWSRuntimeDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = schema.Schema{MarkdownDescription: "Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and node health.", Attributes: map[string]schema.Attribute{
-		"id":        schema.StringAttribute{Computed: true},
-		"namespace": schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.OneOf("system")}},
-		"site":      schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
+		"id":                    schema.StringAttribute{Computed: true},
+		"namespace":             schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.OneOf("system")}},
+		"site":                  schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
+		"timeout_seconds":       schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 1800)}},
+		"poll_interval_seconds": schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 60)}},
 		"nodes": schema.MapNestedAttribute{Required: true, NestedObject: schema.NestedAttributeObject{Attributes: map[string]schema.Attribute{
 			"node": schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
 			"role": schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.OneOf("slo", "sli")}},
@@ -144,6 +176,14 @@ func int64Field(value map[string]interface{}, key string) int64 {
 }
 
 func extractSMSv2ConfiguredInterfaces(configuration client.SMSv2Observation) ([]smsv2ConfiguredInterface, error) {
+	metadata, ok := nestedMap(map[string]interface{}(configuration), "metadata")
+	if !ok {
+		return nil, fmt.Errorf("SMSv2 configuration response has no metadata object")
+	}
+	siteName := stringField(metadata, "name")
+	if siteName == "" {
+		return nil, fmt.Errorf("SMSv2 configuration response has no metadata.name")
+	}
 	spec, ok := nestedMap(map[string]interface{}(configuration), "spec")
 	if !ok {
 		return nil, fmt.Errorf("SMSv2 configuration response has no spec object")
@@ -184,6 +224,10 @@ func extractSMSv2ConfiguredInterfaces(configuration client.SMSv2Observation) ([]
 			if err != nil {
 				return nil, fmt.Errorf("SMSv2 node %q: %w", hostname, err)
 			}
+			device := stringField(ethernet, "device")
+			if device == "" {
+				return nil, fmt.Errorf("SMSv2 node %q MAC %s has no authoritative ethernet device", hostname, mac)
+			}
 			role := ""
 			network, _ := nestedMap(iface, "network_option")
 			if network != nil {
@@ -205,10 +249,9 @@ func extractSMSv2ConfiguredInterfaces(configuration client.SMSv2Observation) ([]
 				return nil, fmt.Errorf("SMSv2 MAC %s is duplicated within node %q", mac, hostname)
 			}
 			seen[identity] = hostname
-			name := stringField(iface, "name")
-			if name == "" {
-				return nil, fmt.Errorf("SMSv2 MAC %s has no authoritative interface name", mac)
-			}
+			// External Connector addresses the platform-owned network_interface
+			// object, not the user-facing role label in interface_list.name.
+			name := fmt.Sprintf("ves-io-securemesh-site-v2-%s-network-%s-%s-0", siteName, hostname, device)
 			mtu := int64Field(iface, "mtu")
 			if mtu <= 0 {
 				return nil, fmt.Errorf("SMSv2 MAC %s has invalid MTU %d", mac, mtu)
@@ -267,9 +310,20 @@ func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []s
 	if healthNode == "" || healthState == "" {
 		return nil, fmt.Errorf("SMSv2 node health observation is incomplete")
 	}
-	if _, exists := configuredNodes[healthNode]; !exists {
+	healthNodeMatches := 0
+	for configuredNode := range configuredNodes {
+		if smsv2NodeMatches(configuredNode, healthNode) {
+			healthNodeMatches++
+		}
+	}
+	if healthNodeMatches != 1 {
 		return nil, fmt.Errorf("SMSv2 node health node %q is not configured for this site", healthNode)
 	}
+	// The API route is explicitly global to the site. On an HA site its
+	// response contains one representative configured hostname, not one health
+	// record per node. A PROVISIONED response therefore establishes site-wide
+	// readiness; the hostname check above still rejects a response routed from
+	// another site.
 	siteHealthy := healthState == "PROVISIONED"
 	result := make(map[string]smsv2RuntimeInterfaceModel, len(bindings))
 	for key, expected := range bindings {
@@ -281,7 +335,7 @@ func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []s
 		if got.Node != expected.Node.ValueString() || got.Role != expected.Role.ValueString() {
 			return nil, fmt.Errorf("binding %q disagrees with F5 XC configuration: got node=%q role=%q", key, got.Node, got.Role)
 		}
-		result[key] = smsv2RuntimeInterfaceModel{Node: types.StringValue(got.Node), Role: types.StringValue(got.Role), MAC: types.StringValue(got.MAC), InterfaceName: types.StringValue(got.Name), MTU: types.Int64Value(got.MTU), Healthy: types.BoolValue(siteHealthy && got.Node == healthNode)}
+		result[key] = smsv2RuntimeInterfaceModel{Node: types.StringValue(got.Node), Role: types.StringValue(got.Role), MAC: types.StringValue(got.MAC), InterfaceName: types.StringValue(got.Name), MTU: types.Int64Value(got.MTU), Healthy: types.BoolValue(siteHealthy)}
 	}
 	return result, nil
 }
@@ -320,29 +374,55 @@ func (d *Smsv2AWSRuntimeDataSource) Read(ctx context.Context, req datasource.Rea
 		resp.Diagnostics.AddError("Invalid SMSv2 Runtime Identity", err.Error())
 		return
 	}
-	configuration, err := d.client.GetSMSv2Configuration(ctx, data.Namespace.ValueString(), data.Site.ValueString())
-	if err != nil {
-		resp.Diagnostics.AddError("SMSv2 Configuration Read Failed", err.Error())
-		return
+	if data.TimeoutSeconds.IsNull() || data.TimeoutSeconds.IsUnknown() {
+		data.TimeoutSeconds = types.Int64Value(600)
 	}
-	health, err := d.client.GetSMSv2Health(ctx, data.Site.ValueString())
-	if err != nil {
-		resp.Diagnostics.AddError("SMSv2 Health Read Failed", err.Error())
-		return
+	if data.PollIntervalSeconds.IsNull() || data.PollIntervalSeconds.IsUnknown() {
+		data.PollIntervalSeconds = types.Int64Value(10)
 	}
-	configured, err := extractSMSv2ConfiguredInterfaces(configuration)
-	if err != nil {
-		resp.Diagnostics.AddError("Invalid SMSv2 Configuration Observation", err.Error())
-		return
-	}
-	interfaces, err := correlateSMSv2Runtime(bindings, configured, health)
-	if err != nil {
-		resp.Diagnostics.AddError("Inconsistent SMSv2 Runtime Observation", err.Error())
-		return
-	}
-	healthy := true
-	for _, iface := range interfaces {
-		healthy = healthy && iface.Healthy.ValueBool()
+	deadline := d.nowTime().Add(time.Duration(data.TimeoutSeconds.ValueInt64()) * time.Second)
+	var interfaces map[string]smsv2RuntimeInterfaceModel
+	var reason string
+	for {
+		configuration, readErr := d.client.GetSMSv2Configuration(ctx, data.Namespace.ValueString(), data.Site.ValueString())
+		if readErr == nil {
+			var health client.SMSv2Observation
+			health, readErr = d.client.GetSMSv2Health(ctx, data.Site.ValueString())
+			if readErr == nil {
+				var configured []smsv2ConfiguredInterface
+				configured, readErr = extractSMSv2ConfiguredInterfaces(configuration)
+				if readErr == nil {
+					interfaces, readErr = correlateSMSv2Runtime(bindings, configured, health)
+				}
+			}
+		}
+		healthy := readErr == nil && len(interfaces) == len(bindings)
+		if healthy {
+			for _, iface := range interfaces {
+				healthy = healthy && iface.Healthy.ValueBool()
+			}
+		}
+		if healthy {
+			break
+		}
+		if readErr != nil {
+			reason = readErr.Error()
+		} else {
+			reason = "the site has not reached PROVISIONED health for every configured interface"
+		}
+		remaining := deadline.Sub(d.nowTime())
+		if remaining <= 0 {
+			resp.Diagnostics.AddError("SMSv2 Runtime Readiness Timed Out", reason)
+			return
+		}
+		delay := time.Duration(data.PollIntervalSeconds.ValueInt64()) * time.Second
+		if delay > remaining {
+			delay = remaining
+		}
+		if err := d.waitFor(ctx, delay); err != nil {
+			resp.Diagnostics.AddError("SMSv2 Runtime Readiness Canceled", err.Error())
+			return
+		}
 	}
 	value, diags := types.MapValueFrom(ctx, types.ObjectType{AttrTypes: smsv2RuntimeInterfaceAttrTypes}, interfaces)
 	resp.Diagnostics.Append(diags...)
@@ -351,6 +431,6 @@ func (d *Smsv2AWSRuntimeDataSource) Read(ctx context.Context, req datasource.Rea
 	}
 	data.ID = types.StringValue(data.Namespace.ValueString() + "/" + data.Site.ValueString())
 	data.Interfaces = value
-	data.Healthy = types.BoolValue(healthy)
+	data.Healthy = types.BoolValue(true)
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
