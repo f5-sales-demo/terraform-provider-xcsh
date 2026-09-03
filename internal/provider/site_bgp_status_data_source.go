@@ -154,10 +154,22 @@ func peerAddress(value interface{}) string {
 		return strings.TrimSpace(text)
 	}
 	if object, ok := value.(map[string]interface{}); ok {
-		if value := stringField(object, "ipv4"); value != "" {
-			return value
+		for _, family := range []string{"ipv4", "ipv6"} {
+			value, exists := object[family]
+			if !exists {
+				continue
+			}
+			if text, ok := value.(string); ok {
+				if address := strings.TrimSpace(text); address != "" {
+					return address
+				}
+			}
+			if address, ok := value.(map[string]interface{}); ok {
+				if text := stringField(address, "addr"); text != "" {
+					return text
+				}
+			}
 		}
-		return stringField(object, "ipv6")
 	}
 	return ""
 }
@@ -215,7 +227,7 @@ func addRouteSubnets(routes []interface{}, node string, result map[string]map[st
 	return nil
 }
 
-func extractBGPRoutePrefixes(observation client.SMSv2Observation) (map[string]map[string]struct{}, error) {
+func extractBGPRoutePrefixesForDirections(observation client.SMSv2Observation, directions ...string) (map[string]map[string]struct{}, error) {
 	result := map[string]map[string]struct{}{}
 	rawNodes, ok := observation["ver"].([]interface{})
 	if !ok {
@@ -248,7 +260,7 @@ func extractBGPRoutePrefixes(observation client.SMSv2Observation) (map[string]ma
 				if !ok {
 					return nil, fmt.Errorf("BGP route table for node %q is malformed", name)
 				}
-				for _, key := range []string{"imported", "exported"} {
+				for _, key := range directions {
 					routes, err := routeArray(table, key)
 					if err != nil {
 						return nil, err
@@ -261,6 +273,10 @@ func extractBGPRoutePrefixes(observation client.SMSv2Observation) (map[string]ma
 		}
 	}
 	return result, nil
+}
+
+func extractBGPRoutePrefixes(observation client.SMSv2Observation) (map[string]map[string]struct{}, error) {
+	return extractBGPRoutePrefixesForDirections(observation, "imported", "exported")
 }
 
 func extractSimplifiedRoutePrefixes(observation client.SMSv2Observation) (map[string]map[string]struct{}, error) {
@@ -302,6 +318,19 @@ func extractSimplifiedRoutePrefixes(observation client.SMSv2Observation) (map[st
 
 func canonicalJSON(value interface{}) string { bytes, _ := json.Marshal(value); return string(bytes) }
 
+func routePrefixesForNode(prefixes map[string]map[string]struct{}, configuredNode, observation string) (map[string]struct{}, error) {
+	matches := make([]map[string]struct{}, 0, 1)
+	for observedNode, routes := range prefixes {
+		if smsv2NodeMatches(configuredNode, observedNode) {
+			matches = append(matches, routes)
+		}
+	}
+	if len(matches) != 1 {
+		return nil, fmt.Errorf("%s node %q resolved to %d observations", observation, configuredNode, len(matches))
+	}
+	return matches[0], nil
+}
+
 func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []smsv2ConfiguredInterface, peers []observedBGPPeer, bgpRoutes, sloRoutes, sliRoutes client.SMSv2Observation) (map[string]smsv2PeerStatusModel, bool, string) {
 	if len(expected) == 0 {
 		return nil, false, "expected_peers must not be empty"
@@ -311,6 +340,10 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 		configuredByIdentity[iface.Node+"\x00"+iface.MAC] = append(configuredByIdentity[iface.Node+"\x00"+iface.MAC], iface)
 	}
 	bgpPrefixes, err := extractBGPRoutePrefixes(bgpRoutes)
+	if err != nil {
+		return nil, false, err.Error()
+	}
+	bgpExportedPrefixes, err := extractBGPRoutePrefixesForDirections(bgpRoutes, "exported")
 	if err != nil {
 		return nil, false, err.Error()
 	}
@@ -339,12 +372,15 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 			return nil, false, fmt.Sprintf("peer %q MAC %s resolved to %d interfaces", key, mac, len(interfaces))
 		}
 		iface := interfaces[0]
-		if iface.Node != want.Node.ValueString() || iface.Role != want.Role.ValueString() {
-			return nil, false, fmt.Sprintf("peer %q MAC identity disagrees with configured node/role", key)
+		if iface.Node != want.Node.ValueString() {
+			return nil, false, fmt.Sprintf("peer %q MAC identity disagrees with configured node", key)
 		}
 		var matches []observedBGPPeer
 		for _, peer := range peers {
-			if peer.Node == iface.Node && peer.InterfaceName == iface.Name && peer.PeerAddress == want.PeerAddress.ValueString() {
+			// API v6 defines BGP observation identity as node plus peer address.
+			// interface_name is retained as observed status, but it is not the
+			// SMSv2 network-interface object name and must not be used as identity.
+			if smsv2NodeMatches(iface.Node, peer.Node) && peer.PeerAddress == want.PeerAddress.ValueString() {
 				matches = append(matches, peer)
 			}
 		}
@@ -355,24 +391,42 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 		if got.State != "Established" {
 			return nil, false, fmt.Sprintf("peer %q state is %q", key, got.State)
 		}
+		nodeBGPPrefixes, err := routePrefixesForNode(bgpPrefixes, iface.Node, "BGP route")
+		if err != nil {
+			return nil, false, err.Error()
+		}
+		nodeExportedPrefixes, err := routePrefixesForNode(bgpExportedPrefixes, iface.Node, "exported BGP route")
+		if err != nil {
+			return nil, false, err.Error()
+		}
+		if len(nodeExportedPrefixes) == 0 {
+			return nil, false, fmt.Sprintf("peer %q has no exported BGP routes on node %q", key, iface.Node)
+		}
+		routeRole := want.Role.ValueString()
+		rolePrefixSets := sloPrefixes
+		if routeRole == "sli" {
+			rolePrefixSets = sliPrefixes
+		}
+		rolePrefixes, err := routePrefixesForNode(rolePrefixSets, iface.Node, routeRole+" route")
+		if err != nil {
+			return nil, false, err.Error()
+		}
 		var routes []string
 		diags := want.ExpectedRoutes.ElementsAs(context.Background(), &routes, false)
 		if diags.HasError() {
 			return nil, false, fmt.Sprintf("peer %q expected routes are invalid", key)
 		}
-		rolePrefixes := sloPrefixes[iface.Node]
-		if iface.Role == "sli" {
-			rolePrefixes = sliPrefixes[iface.Node]
-		}
 		for _, route := range routes {
-			if _, ok := bgpPrefixes[iface.Node][route]; !ok {
+			if _, ok := nodeBGPPrefixes[route]; !ok {
 				return nil, false, fmt.Sprintf("peer %q BGP route %s is missing on node %q", key, route, iface.Node)
 			}
+		}
+		for route := range nodeExportedPrefixes {
 			if _, ok := rolePrefixes[route]; !ok {
-				return nil, false, fmt.Sprintf("peer %q %s route %s is missing on node %q", key, iface.Role, route, iface.Node)
+				return nil, false, fmt.Sprintf("peer %q exported BGP route %s is missing from the %s route view on node %q", key, route, routeRole, iface.Node)
 			}
 		}
-		result[key] = smsv2PeerStatusModel{Node: types.StringValue(iface.Node), Role: types.StringValue(iface.Role), MAC: types.StringValue(mac), InterfaceName: types.StringValue(iface.Name), PeerAddress: types.StringValue(got.PeerAddress), State: types.StringValue(got.State), StateChangedAt: types.StringValue(got.StateChangedAt), ReceivedPrefixes: types.Int64Value(got.ReceivedPrefixes), AdvertisedPrefixes: types.Int64Value(got.AdvertisedPrefixes), Established: types.BoolValue(true)}
+		result[key] = smsv2PeerStatusModel{Node: types.StringValue(iface.Node), Role: types.StringValue(routeRole), MAC: types.StringValue(mac), InterfaceName: types.StringValue(got.InterfaceName), PeerAddress: types.StringValue(got.PeerAddress), State: types.StringValue(got.State), StateChangedAt: types.StringValue(got.StateChangedAt), ReceivedPrefixes: types.Int64Value(got.ReceivedPrefixes), AdvertisedPrefixes: types.Int64Value(got.AdvertisedPrefixes), Established: types.BoolValue(true)}
 	}
 	return result, true, ""
 }

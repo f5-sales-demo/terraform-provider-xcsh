@@ -29,9 +29,10 @@ func validateSecuremeshSiteV2AWSCreateCapability(
 	return validateSMSv2Capabilities(capabilities, apiRelease, "aws_ce_create")
 }
 
-// validateSecuremeshSiteV2AWSContract enforces the MAC-bound configuration
-// portion of the published AWS SMSv2 v2 contract. Unknown Terraform values are
-// deferred until they are known; known invalid values fail immediately.
+// validateSecuremeshSiteV2AWSContract enforces the device-and-MAC-bound
+// configuration portion of the published AWS SMSv2 v3 contract. Unknown
+// Terraform values are deferred until they are known; known invalid values
+// fail immediately.
 func validateSecuremeshSiteV2AWSContract(
 	ctx context.Context,
 	data SecuremeshSiteV2ResourceModel,
@@ -107,8 +108,18 @@ func validateSecuremeshSiteV2AWSContract(
 				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("mac"), "AWS SMSv2 Interface MAC Is Required", "Each AWS CE interface must be bound to its ENI MAC address.")
 				continue
 			}
-			if !iface.EthernetInterface.Device.IsNull() && !iface.EthernetInterface.Device.IsUnknown() {
-				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "Guest Interface Inference Is Unsupported", "Do not configure a guest interface name; the verified contract binds interfaces by MAC only.")
+			if iface.EthernetInterface.Device.IsNull() {
+				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "AWS SMSv2 Interface Device Is Required", "Each AWS CE interface must declare the guest device required by the live API contract.")
+				continue
+			}
+			if iface.EthernetInterface.Device.IsUnknown() {
+				unknownInterface = true
+				continue
+			}
+			device := strings.TrimSpace(iface.EthernetInterface.Device.ValueString())
+			if device == "" {
+				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "AWS SMSv2 Interface Device Is Required", "Each AWS CE interface must declare the guest device required by the live API contract.")
+				continue
 			}
 			parsedMAC, err := net.ParseMAC(strings.TrimSpace(iface.EthernetInterface.Mac.ValueString()))
 			if err != nil || len(parsedMAC) != 6 {
@@ -132,8 +143,12 @@ func validateSecuremeshSiteV2AWSContract(
 				role = "sli"
 			}
 			if role == "" {
-				resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Required", "Each interface must declare an explicit SLO or SLI role; guest-interface inference is unsupported.")
+				resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Required", "Each interface must declare an explicit SLO or SLI role.")
 				continue
+			}
+			expectedDevice := map[string]string{"slo": "eth0", "sli": "eth1"}[role]
+			if device != expectedDevice {
+				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "AWS SMSv2 Interface Device Does Not Match Role", fmt.Sprintf("Role %q must use guest device %q; got %q.", role, expectedDevice, device))
 			}
 			if roles[role] {
 				resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Duplicate", fmt.Sprintf("Role %q may appear only once per CE node.", role))

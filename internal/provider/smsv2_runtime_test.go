@@ -14,11 +14,12 @@ import (
 
 func runtimeConfiguration() client.SMSv2Observation {
 	interfaces := []interface{}{
-		map[string]interface{}{"name": "eth0", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"mac": "02:AA:BB:CC:DD:01"}, "network_option": map[string]interface{}{"site_local_network": map[string]interface{}{}}},
-		map[string]interface{}{"name": "eth1", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"mac": "02:aa:bb:cc:dd:02"}, "network_option": map[string]interface{}{"site_local_inside_network": map[string]interface{}{}}},
+		map[string]interface{}{"name": "slo", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"device": "eth0", "mac": "02:AA:BB:CC:DD:01"}, "network_option": map[string]interface{}{"site_local_network": map[string]interface{}{}}},
+		map[string]interface{}{"name": "sli", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"device": "eth1", "mac": "02:aa:bb:cc:dd:02"}, "network_option": map[string]interface{}{"site_local_inside_network": map[string]interface{}{}}},
 	}
 	nodes := []interface{}{map[string]interface{}{"hostname": "master-0", "interface_list": interfaces}}
 	return client.SMSv2Observation{
+		"metadata": map[string]interface{}{"name": "lab-site", "namespace": "system"},
 		"spec": map[string]interface{}{
 			"aws": map[string]interface{}{
 				"not_managed": map[string]interface{}{"node_list": nodes},
@@ -33,12 +34,12 @@ func multiNodeRuntimeConfiguration() client.SMSv2Observation {
 		nodes = append(nodes, map[string]interface{}{
 			"hostname": hostname,
 			"interface_list": []interface{}{
-				map[string]interface{}{"name": "slo", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"mac": fmt.Sprintf("02:aa:bb:cc:%02x:01", index)}, "network_option": map[string]interface{}{"site_local_network": map[string]interface{}{}}},
-				map[string]interface{}{"name": "sli", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"mac": fmt.Sprintf("02:aa:bb:cc:%02x:02", index)}, "network_option": map[string]interface{}{"site_local_inside_network": map[string]interface{}{}}},
+				map[string]interface{}{"name": "slo", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"device": "eth0", "mac": fmt.Sprintf("02:aa:bb:cc:%02x:01", index)}, "network_option": map[string]interface{}{"site_local_network": map[string]interface{}{}}},
+				map[string]interface{}{"name": "sli", "mtu": float64(1500), "ethernet_interface": map[string]interface{}{"device": "eth1", "mac": fmt.Sprintf("02:aa:bb:cc:%02x:02", index)}, "network_option": map[string]interface{}{"site_local_inside_network": map[string]interface{}{}}},
 			},
 		})
 	}
-	return client.SMSv2Observation{"spec": map[string]interface{}{"aws": map[string]interface{}{"not_managed": map[string]interface{}{"node_list": nodes}}}}
+	return client.SMSv2Observation{"metadata": map[string]interface{}{"name": "lab-site", "namespace": "system"}, "spec": map[string]interface{}{"aws": map[string]interface{}{"not_managed": map[string]interface{}{"node_list": nodes}}}}
 }
 
 func TestSMSv2CapabilitiesFailClosedBeforeRuntimeReads(t *testing.T) {
@@ -71,7 +72,7 @@ func TestExtractAndCorrelateSMSv2Runtime(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(got) != 2 || got["outside"].InterfaceName.ValueString() != "eth0" || !got["inside"].Healthy.ValueBool() {
+	if len(got) != 2 || got["outside"].InterfaceName.ValueString() != "ves-io-securemesh-site-v2-lab-site-network-master-0-eth0-0" || !got["inside"].Healthy.ValueBool() {
 		t.Fatalf("unexpected correlation: %#v", got)
 	}
 }
@@ -110,7 +111,7 @@ func TestSMSv2RuntimeCorrelatesMultiNodeSiteGlobalHealth(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	got, err := correlateSMSv2Runtime(bindings, configured, client.SMSv2Observation{"hostname": "master-1", "state": "PROVISIONED"})
+	got, err := correlateSMSv2Runtime(bindings, configured, client.SMSv2Observation{"hostname": "master-1.us-east-2.compute.internal", "state": "PROVISIONED"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -118,9 +119,8 @@ func TestSMSv2RuntimeCorrelatesMultiNodeSiteGlobalHealth(t *testing.T) {
 		t.Fatalf("got %d interfaces, want 6", len(got))
 	}
 	for key, iface := range got {
-		wantHealthy := iface.Node.ValueString() == "master-1"
-		if iface.Healthy.ValueBool() != wantHealthy {
-			t.Fatalf("interface %q health = %v, want %v", key, iface.Healthy.ValueBool(), wantHealthy)
+		if !iface.Healthy.ValueBool() {
+			t.Fatalf("interface %q unexpectedly unhealthy for provisioned global site health", key)
 		}
 	}
 }
@@ -187,7 +187,7 @@ func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
 		ExpectedRoutes: types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.10.0.0/16")}),
 	}}
 	peers := []observedBGPPeer{{
-		Node: "master-0", InterfaceName: "eth0", PeerAddress: "169.254.10.1",
+		Node: "master-0", InterfaceName: "ves-io-securemesh-site-v2-lab-site-network-master-0-eth0-0", PeerAddress: "169.254.10.1",
 		State: "Established", StateChangedAt: "2026-09-03T00:00:00Z",
 		ReceivedPrefixes: 1, AdvertisedPrefixes: 1,
 	}}
@@ -195,12 +195,12 @@ func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
 		"name": "master-0", "ri_table": []interface{}{map[string]interface{}{
 			"rt_table": []interface{}{map[string]interface{}{
 				"imported": []interface{}{map[string]interface{}{"subnet": "10.10.0.0/16"}},
-				"exported": []interface{}{},
+				"exported": []interface{}{map[string]interface{}{"subnet": "10.20.0.0/16"}},
 			}},
 		}},
 	}}}
 	simplified := client.SMSv2Observation{"ver_routes": []interface{}{map[string]interface{}{
-		"node": "master-0", "route": []interface{}{map[string]interface{}{"prefix": "10.10.0.0/16"}},
+		"node": "master-0", "route": []interface{}{map[string]interface{}{"prefix": "10.20.0.0/16"}},
 	}}}
 	status, converged, reason := convergeSMSv2BGP(expected, configured, peers, bgpRoutes, simplified, simplified)
 	if !converged || reason != "" || !status["peer-a"].Established.ValueBool() {
@@ -212,6 +212,16 @@ func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
 	peers[0].StateChangedAt = "not-a-freshness-claim"
 	if _, converged, reason = convergeSMSv2BGP(expected, configured, peers, bgpRoutes, simplified, simplified); !converged || reason != "" {
 		t.Fatalf("state change timestamp was incorrectly treated as freshness: converged=%v reason=%q", converged, reason)
+	}
+}
+
+func TestRoutePrefixesForNodeRejectsAmbiguousFQDNObservations(t *testing.T) {
+	prefixes := map[string]map[string]struct{}{
+		"master-0.example.internal": {"10.10.0.0/16": {}},
+		"master-0.other.internal":   {"10.20.0.0/16": {}},
+	}
+	if _, err := routePrefixesForNode(prefixes, "master-0", "route"); err == nil || !strings.Contains(err.Error(), "2 observations") {
+		t.Fatalf("ambiguous node observations were not rejected: %v", err)
 	}
 }
 

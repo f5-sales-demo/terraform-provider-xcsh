@@ -69,7 +69,11 @@ output "smsv2_healthy" {
 
 <a id="nodes"></a>&#x2022; [`nodes`](#nodes) - Required Map
 
+<a id="poll-interval-seconds"></a>&#x2022; [`poll_interval_seconds`](#poll-interval-seconds) - Optional Number
+
 <a id="site"></a>&#x2022; [`site`](#site) - Required String
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional Number
 
 ### Attributes Reference
 
