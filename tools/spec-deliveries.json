@@ -20,6 +20,11 @@
       "target_commit": "3a647f1bf0c2447a71750c69136fab96fb073902",
       "version": "5.0.0"
     },
+    "205e2d9507d3a748e6a6be07ef4421e9098698882aa15d102939f84a4440be18": {
+      "release_tag": "v6.0.2",
+      "target_commit": "17751d9a1de68b6831b9091fa0d17718952d659d",
+      "version": "6.0.2"
+    },
     "242c0b63225d30265f0c0f29862f869b5f6bd02a39c1b417ab4e9c5d4d24c7ea": {
       "release_tag": "v2.1.219",
       "target_commit": "1ee061b8d04e9ed8f3d90273b571502e597b141e",
