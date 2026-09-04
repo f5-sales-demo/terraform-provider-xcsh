@@ -6,8 +6,6 @@ package provider
 import (
 	"context"
 	"fmt"
-	"strings"
-
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
@@ -19,6 +17,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"strings"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
@@ -98,16 +97,6 @@ func (r *RegistrationApprovalResource) Schema(ctx context.Context, req resource.
 	resp.Schema = schema.Schema{
 		MarkdownDescription: "Manages a Registration Approval resource in F5 Distributed Cloud for request for admission approval. configuration.",
 		Attributes: map[string]schema.Attribute{
-			"cluster_size": schema.Int64Attribute{
-				MarkdownDescription: "Number of nodes in the registration's site cluster. Use 1 for a single-node site and the complete node count for an HA site.",
-				Required:            true,
-				Validators: []validator.Int64{
-					int64validator.OneOf(1, 3),
-				},
-				PlanModifiers: []planmodifier.Int64{
-					int64planmodifier.RequiresReplace(),
-				},
-			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "",
 				Required:            true,
@@ -156,6 +145,16 @@ func (r *RegistrationApprovalResource) Schema(ctx context.Context, req resource.
 				Default:             stringdefault.StaticString("APPROVED"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
+				},
+			},
+			"cluster_size": schema.Int64Attribute{
+				MarkdownDescription: "Number of nodes in the registration's site cluster. Use 1 for a single-node site and the complete node count for an HA site.",
+				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.OneOf(1, 3),
+				},
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.RequiresReplace(),
 				},
 			},
 			"id": schema.StringAttribute{
