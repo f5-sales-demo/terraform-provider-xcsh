@@ -54,3 +54,35 @@ func (c *Client) GetSMSv2SimplifiedRoutes(ctx context.Context, namespace, site, 
 	err := c.Post(ctx, path, body, &result)
 	return result, err
 }
+
+func (c *Client) GetSMSv2SiteUpgradeStatus(ctx context.Context, namespace, site string) (SMSv2Observation, error) {
+	var result SMSv2Observation
+	path := fmt.Sprintf("/api/config/namespaces/%s/sites/%s", escapeSMSv2Path(namespace), escapeSMSv2Path(site))
+	err := c.Get(ctx, path, &result)
+	return result, err
+}
+
+func (c *Client) GetSMSv2UpgradableSoftwareVersions(ctx context.Context, currentOS, currentSoftware string) (SMSv2Observation, error) {
+	var result SMSv2Observation
+	query := url.Values{}
+	query.Set("current_os_version", currentOS)
+	query.Set("current_sw_version", currentSoftware)
+	err := c.Get(ctx, "/api/maurice/upgradable_sw_versions?"+query.Encode(), &result)
+	return result, err
+}
+
+func (c *Client) GetSMSv2PreUpgradeCheck(ctx context.Context, namespace, site, softwareVersion string) (SMSv2Observation, error) {
+	var result SMSv2Observation
+	query := url.Values{}
+	query.Set("sw_version", softwareVersion)
+	path := fmt.Sprintf("/api/maurice/namespaces/%s/sites/%s/pre_upgrade_check?%s", escapeSMSv2Path(namespace), escapeSMSv2Path(site), query.Encode())
+	err := c.Get(ctx, path, &result)
+	return result, err
+}
+
+func (c *Client) GetSMSv2UpgradeProgress(ctx context.Context, namespace, site string) (SMSv2Observation, error) {
+	var result SMSv2Observation
+	path := fmt.Sprintf("/api/maurice/namespaces/%s/sites/%s/upgrade_status", escapeSMSv2Path(namespace), escapeSMSv2Path(site))
+	err := c.Get(ctx, path, &result)
+	return result, err
+}

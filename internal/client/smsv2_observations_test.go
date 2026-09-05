@@ -17,6 +17,10 @@ func TestSMSv2ObservationEndpoints(t *testing.T) {
 		{http.MethodGet, "/api/operate/namespaces/system/sites/lab-site/ver/bgp_peers"},
 		{http.MethodGet, "/api/operate/namespaces/system/sites/lab-site/ver/bgp_routes"},
 		{http.MethodPost, "/api/operate/namespaces/system/sites/lab-site/ver/simplified_routes"},
+		{http.MethodGet, "/api/config/namespaces/system/sites/lab-site"},
+		{http.MethodGet, "/api/maurice/upgradable_sw_versions"},
+		{http.MethodGet, "/api/maurice/namespaces/system/sites/lab-site/pre_upgrade_check"},
+		{http.MethodGet, "/api/maurice/namespaces/system/sites/lab-site/upgrade_status"},
 	}
 	index := 0
 	server := httptest.NewServer(http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
@@ -58,6 +62,18 @@ func TestSMSv2ObservationEndpoints(t *testing.T) {
 		t.Fatal(err)
 	}
 	if _, err := c.GetSMSv2SimplifiedRoutes(ctx, "system", "lab-site", "slo"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := c.GetSMSv2SiteUpgradeStatus(ctx, "system", "lab-site"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := c.GetSMSv2UpgradableSoftwareVersions(ctx, "9.2026.10", "crt-20251002-0027"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := c.GetSMSv2PreUpgradeCheck(ctx, "system", "lab-site", "crt-20260201-0179"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := c.GetSMSv2UpgradeProgress(ctx, "system", "lab-site"); err != nil {
 		t.Fatal(err)
 	}
 	if index != len(requests) {

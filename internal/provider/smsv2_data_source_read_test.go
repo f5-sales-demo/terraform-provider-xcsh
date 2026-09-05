@@ -37,8 +37,10 @@ func TestSMSv2ContractDataSourceRead(t *testing.T) {
 	}
 	var state Smsv2ContractDataSourceModel
 	response.Diagnostics.Append(response.State.Get(ctx, &state)...)
+	siteUpgrade, hasSiteUpgrade := state.Capabilities.Elements()["site_upgrade"].(types.String)
 	if response.Diagnostics.HasError() || state.ContractID.ValueString() != "f5xc-ce-automation/v3" ||
-		state.ContractVersion.ValueString() != "6.0.0" || state.TelemetrySchema.ValueString() != "f5xc-smsv2-aws-tgw-telemetry/v2" {
+		state.ContractVersion.ValueString() != "6.1.0" || state.TelemetrySchema.ValueString() != "f5xc-smsv2-aws-tgw-telemetry/v2" ||
+		!hasSiteUpgrade || siteUpgrade.ValueString() != "available" {
 		t.Fatalf("unexpected contract state: %#v diagnostics=%v", state, response.Diagnostics)
 	}
 }
