@@ -59,6 +59,10 @@ func RenderResourceExampleHCL(rt *openapi.ResourceTemplate, resourceName, namesp
 	sb.WriteString(fmt.Sprintf("resource \"xcsh_%s\" \"example\" {\n", resourceName))
 	sb.WriteString(fmt.Sprintf("  name      = \"example-%s\"\n", strings.ReplaceAll(resourceName, "_", "-")))
 	sb.WriteString(fmt.Sprintf("  %s = %q\n", "namespace", namespaceVal))
+	if resourceName == "token" {
+		sb.WriteString("  type      = 1\n")
+		sb.WriteString("  site_name = \"example-securemesh-site\"\n")
+	}
 
 	// Required top-level, non-block spec attributes with schema-valid values.
 	var required []openapi.TerraformAttribute

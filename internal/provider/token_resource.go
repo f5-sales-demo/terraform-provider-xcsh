@@ -15,6 +15,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -54,6 +55,9 @@ type TokenResourceModel struct {
 	Labels      types.Map      `tfsdk:"labels"`
 	ID          types.String   `tfsdk:"id"`
 	Uid         types.String   `tfsdk:"uid"`
+	Content     types.String   `tfsdk:"content"`
+	SiteName    types.String   `tfsdk:"site_name"`
+	Type        types.Int64    `tfsdk:"type"`
 	Timeouts    timeouts.Value `tfsdk:"timeouts"`
 }
 
@@ -114,11 +118,32 @@ func (r *TokenResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				},
 			},
 			"uid": schema.StringAttribute{
-				MarkdownDescription: "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured.",
+				MarkdownDescription: "Effective sensitive CE registration credential. NORMAL tokens use `system_metadata.uid`; JWT tokens use `spec.content`. This value is stored in plain text in the Terraform state file; ensure your state file is properly secured.",
 				Computed:            true,
 				Sensitive:           true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"content": schema.StringAttribute{
+				MarkdownDescription: "Server-issued JWT registration credential.",
+				Computed:            true,
+				Sensitive:           true,
+			},
+			"site_name": schema.StringAttribute{
+				MarkdownDescription: "Secure Mesh Site v2 name bound into a JWT token.",
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
+			},
+			"type": schema.Int64Attribute{
+				MarkdownDescription: "[Enum: 0|1] Token type, where 0 is NORMAL and 1 is JWT. Possible values are `0`, `1`.",
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.RequiresReplace(),
 				},
 			},
 		},
@@ -154,6 +179,23 @@ func (r *TokenResource) ValidateConfig(ctx context.Context, req resource.Validat
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
+	}
+	if !data.Type.IsNull() && !data.Type.IsUnknown() {
+		tokenType := data.Type.ValueInt64()
+		if tokenType != 0 && tokenType != 1 {
+			resp.Diagnostics.AddAttributeError(
+				path.Root("type"),
+				"Invalid Token Type",
+				"Token type must be 0 (NORMAL) or 1 (JWT).",
+			)
+		} else if tokenType == 1 && !data.SiteName.IsUnknown() &&
+			(data.SiteName.IsNull() || strings.TrimSpace(data.SiteName.ValueString()) == "") {
+			resp.Diagnostics.AddAttributeError(
+				path.Root("site_name"),
+				"Missing JWT Site Binding",
+				"site_name must identify the Secure Mesh Site v2 when type is 1 (JWT).",
+			)
+		}
 	}
 }
 
@@ -255,6 +297,12 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 
 	// Marshal spec fields from Terraform state to API struct
+	if !data.SiteName.IsNull() && !data.SiteName.IsUnknown() {
+		createReq.Spec["site_name"] = data.SiteName.ValueString()
+	}
+	if !data.Type.IsNull() && !data.Type.IsUnknown() {
+		createReq.Spec["type"] = data.Type.ValueInt64()
+	}
 
 	_, err := r.client.CreateToken(ctx, createReq)
 	if err != nil {
@@ -289,17 +337,26 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 
 	data.ID = types.StringValue(apiResource.Metadata.Name)
-	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
-	if apiResource.SystemMetadata != nil {
-		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
-	} else {
-		data.Uid = types.StringNull()
-	}
 
 	// Unmarshal spec fields from API response to Terraform state
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
+	if v, ok := apiResource.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
+	} else {
+		data.SiteName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else {
+		data.Type = types.Int64Null()
+	}
+
+	if err := populateTokenCredentialState(&data, apiResource); err != nil {
+		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
+		return
+	}
 
 	tflog.Trace(ctx, "created Token resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -362,12 +419,6 @@ func (r *TokenResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
-	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
-	if apiResource.SystemMetadata != nil {
-		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
-	} else {
-		data.Uid = types.StringNull()
-	}
 
 	// Read description from metadata
 	if apiResource.Metadata.Description != "" {
@@ -437,6 +488,21 @@ func (r *TokenResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
+	if v, ok := apiResource.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
+	} else {
+		data.SiteName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else {
+		data.Type = types.Int64Null()
+	}
+
+	if err := populateTokenCredentialState(&data, apiResource); err != nil {
+		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
+		return
+	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
 	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
@@ -531,6 +597,12 @@ func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 
 	// Marshal spec fields from Terraform state to API struct
+	if !data.SiteName.IsNull() && !data.SiteName.IsUnknown() {
+		apiResource.Spec["site_name"] = data.SiteName.ValueString()
+	}
+	if !data.Type.IsNull() && !data.Type.IsUnknown() {
+		apiResource.Spec["type"] = data.Type.ValueInt64()
+	}
 
 	_, err := r.client.UpdateToken(ctx, apiResource)
 	if err != nil {
@@ -584,13 +656,40 @@ func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		return
 	}
 
+	// Set computed fields from API response
+	if v, ok := fetched.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
+	} else if data.SiteName.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.SiteName = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else if data.Type.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Type = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+
 	// Unmarshal fields from the complete GET response into Terraform state.
 	apiResource = fetched
-	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
-	if apiResource.SystemMetadata != nil {
-		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
+	if v, ok := apiResource.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
 	} else {
-		data.Uid = types.StringNull()
+		data.SiteName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else {
+		data.Type = types.Int64Null()
+	}
+
+	if err := populateTokenCredentialState(&data, apiResource); err != nil {
+		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
+		return
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

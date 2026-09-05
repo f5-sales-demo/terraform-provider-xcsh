@@ -65,3 +65,84 @@ func TestMockTokenResource_basic(t *testing.T) {
 		},
 	})
 }
+
+func TestMockTokenResource_siteBoundJWT(t *testing.T) {
+	resourceName := "xcsh_token.test"
+
+	acctest.SkipIfNoMockMode(t)
+	mockCfg := acctest.SetupMockTest(t)
+	defer mockCfg.Cleanup()
+
+	resource.Test(t, resource.TestCase{
+		ProtoV6ProviderFactories: mockCfg.ProtoV6ProviderFactories(),
+		Steps: []resource.TestStep{
+			{
+				Config: `
+				resource "xcsh_token" "test" {
+					name      = "test-token-jwt"
+					namespace = "system"
+					type      = 1
+					site_name = "example-securemesh-site"
+				}
+
+				output "jwt_credential" {
+					value     = xcsh_token.test.uid
+					sensitive = true
+				}
+				`,
+				ConfigPlanChecks: resource.ConfigPlanChecks{
+					PreApply: []plancheck.PlanCheck{
+						plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionCreate),
+						plancheck.ExpectSensitiveValue(resourceName, tfjsonpath.New("uid")),
+						plancheck.ExpectSensitiveValue(resourceName, tfjsonpath.New("content")),
+					},
+				},
+				Check: resource.ComposeAggregateTestCheckFunc(
+					resource.TestCheckResourceAttr(resourceName, "type", "1"),
+					resource.TestCheckResourceAttr(resourceName, "site_name", "example-securemesh-site"),
+					resource.TestCheckResourceAttr(resourceName, "uid", "mock-jwt-credential"),
+					resource.TestCheckResourceAttr(resourceName, "content", "mock-jwt-credential"),
+				),
+			},
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateId:           "system/test-token-jwt",
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"timeouts"},
+			},
+		},
+	})
+}
+
+func TestMockTokenResource_rejectsInvalidJWTConfiguration(t *testing.T) {
+	acctest.SkipIfNoMockMode(t)
+	mockCfg := acctest.SetupMockTest(t)
+	defer mockCfg.Cleanup()
+
+	resource.Test(t, resource.TestCase{
+		ProtoV6ProviderFactories: mockCfg.ProtoV6ProviderFactories(),
+		Steps: []resource.TestStep{
+			{
+				Config: `
+				resource "xcsh_token" "test" {
+					name      = "invalid-token-type"
+					namespace = "system"
+					type      = 2
+				}
+				`,
+				ExpectError: regexp.MustCompile(`Token type must be 0 \(NORMAL\) or 1 \(JWT\)`),
+			},
+			{
+				Config: `
+				resource "xcsh_token" "test" {
+					name      = "jwt-without-site"
+					namespace = "system"
+					type      = 1
+				}
+				`,
+				ExpectError: regexp.MustCompile("site_name must identify the Secure Mesh Site v2"),
+			},
+		},
+	})
+}

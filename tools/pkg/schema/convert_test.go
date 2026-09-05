@@ -336,6 +336,22 @@ func TestConvertToTerraformAttribute_ServerDefault(t *testing.T) {
 	}
 }
 
+func TestConvertToTerraformAttribute_OptionalImmutablePreservesRequiresReplace(t *testing.T) {
+	schema := openapi.Schema{
+		Type:             "string",
+		Description:      "An immutable optional field",
+		XFieldMutability: "immutable",
+	}
+	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{}}}
+	attr := ConvertToTerraformAttributeWithDepth("site_name", schema, false, "", spec, 0, "site_name")
+	if !attr.Optional || !attr.Computed {
+		t.Fatalf("optional immutable scalar must remain Optional+Computed, got Optional=%v Computed=%v", attr.Optional, attr.Computed)
+	}
+	if attr.PlanModifier != "RequiresReplace" {
+		t.Fatalf("optional immutable scalar PlanModifier = %q, want RequiresReplace", attr.PlanModifier)
+	}
+}
+
 func TestConvertToTerraformAttribute_ServerDefault_RequiredSkipsComputed(t *testing.T) {
 	schema := openapi.Schema{
 		Type:               "string",

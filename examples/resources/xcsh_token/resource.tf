@@ -16,4 +16,6 @@ terraform {
 resource "xcsh_token" "example" {
   name      = "example-token"
   namespace = "system"
+  type      = 1
+  site_name = "example-securemesh-site"
 }

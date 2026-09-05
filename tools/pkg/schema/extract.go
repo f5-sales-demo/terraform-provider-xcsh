@@ -936,7 +936,7 @@ func SystemMetadataUIDAttribute(resourceName string) openapi.TerraformAttribute 
 	uidDesc := "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation."
 	uidSens := false
 	if naming.ToResourceTypeName(resourceName) == "Token" {
-		uidDesc += " For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured."
+		uidDesc = "Effective sensitive CE registration credential. NORMAL tokens use `system_metadata.uid`; JWT tokens use `spec.content`. This value is stored in plain text in the Terraform state file; ensure your state file is properly secured."
 		uidSens = true
 	}
 	return openapi.TerraformAttribute{

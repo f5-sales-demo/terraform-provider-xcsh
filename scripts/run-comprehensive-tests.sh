@@ -43,6 +43,7 @@ TIMEOUT=10
 PARALLEL=4
 DRY_RUN=false
 VERBOSE=false
+TEST_COMMAND_FAILED=0
 
 # Colors for output
 RED='\033[0;31m'
@@ -183,11 +184,13 @@ run_mock_tests() {
   fi
 
   # Mock tests run in parallel - no rate limiting needed for local tests
-  TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
+  if ! TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
     -parallel "$PARALLEL" \
     -timeout "${TIMEOUT}m" \
     -run 'TestMock.*' \
-    ./internal/provider/... 2>&1 | tee "$output_file" || true
+    ./internal/provider/... 2>&1 | tee "$output_file"; then
+    TEST_COMMAND_FAILED=1
+  fi
 
   log_verbose "Mock test output saved to: $output_file"
   return 0
@@ -216,11 +219,13 @@ run_real_api_tests() {
   log_info "Rate limiting: $BATCH_SIZE tests, then ${BATCH_DELAY}s delay"
 
   # Run tests sequentially
-  go test -json \
+  if ! go test -json \
     -parallel 1 \
     -timeout "${TIMEOUT}m" \
     -run 'TestAcc.*' \
-    ./internal/provider/... 2>&1 | tee "$output_file" || true
+    ./internal/provider/... 2>&1 | tee "$output_file"; then
+    TEST_COMMAND_FAILED=1
+  fi
 
   log_verbose "Real API test output saved to: $output_file"
   return 0
@@ -238,10 +243,12 @@ run_unit_tests() {
   fi
 
   # Unit tests run in parallel
-  go test -json \
+  if ! go test -json \
     -parallel "$PARALLEL" \
     -timeout "${TIMEOUT}m" \
-    ./internal/... 2>&1 | tee "$output_file" || true
+    ./internal/... 2>&1 | tee "$output_file"; then
+    TEST_COMMAND_FAILED=1
+  fi
 
   log_verbose "Unit test output saved to: $output_file"
   return 0
@@ -249,12 +256,21 @@ run_unit_tests() {
 
 # Combine JSON outputs
 combine_outputs() {
-  log_info "Combining test outputs..."
+  # This function is evaluated through command substitution, so diagnostics
+  # must not be written to stdout alongside the returned file name.
+  log_info "Combining test outputs..." >&2
 
   local combined_file="$OUTPUT_DIR/test-output-combined.json"
 
-  # Combine all JSON outputs
-  cat "$OUTPUT_DIR"/test-output-*.json >"$combined_file" 2>/dev/null || true
+  # Combine only primary test outputs. Excluding the previous combined report
+  # keeps repeated local runs from recursively duplicating their results.
+  : >"$combined_file"
+  local output_file
+  for output_file in "$OUTPUT_DIR"/test-output-{mock,real,unit}.json; do
+    if [[ -f "$output_file" ]]; then
+      cat "$output_file" >>"$combined_file"
+    fi
+  done
 
   echo "$combined_file"
 }
@@ -312,6 +328,10 @@ print_summary() {
 # Check if any tests failed
 check_failures() {
   local report_file="$OUTPUT_DIR/test-report.json"
+
+  if [[ "$TEST_COMMAND_FAILED" -ne 0 ]]; then
+    return 1
+  fi
 
   if [[ ! -f "$report_file" ]]; then
     return 0

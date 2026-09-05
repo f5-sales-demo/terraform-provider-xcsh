@@ -379,6 +379,11 @@ func TestExtractResourceSchema_ExposesUIDForToken(t *testing.T) {
 	if !strings.Contains(uid.Description, "plain text in the Terraform state file") {
 		t.Errorf("uid description must warn about state file storage, got %q", uid.Description)
 	}
+	for _, source := range []string{"system_metadata.uid", "spec.content"} {
+		if !strings.Contains(uid.Description, source) {
+			t.Errorf("uid description must identify credential source %q, got %q", source, uid.Description)
+		}
+	}
 }
 
 func TestExtractReadOnlyResourceSchema_ExposesUIDForToken(t *testing.T) {

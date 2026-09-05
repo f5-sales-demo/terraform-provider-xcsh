@@ -1492,6 +1492,88 @@ func TestGenerateClientTypes_ExposeUID(t *testing.T) {
 	}
 }
 
+func TestGenerateTokenUsesSiteBoundJWTCredentialContract(t *testing.T) {
+	t.Parallel()
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "token",
+		TitleCase:          "Token",
+		Description:        "Registration token.",
+		APIPath:            "/api/register/namespaces/%s/tokens",
+		APIPathItem:        "/api/register/namespaces/%s/tokens/%s",
+		HasNamespaceInPath: true,
+		ExposeUID:          true,
+		UpdateDisabled:     true,
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", JsonName: "name", Type: "string", Required: true},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", JsonName: "namespace", Type: "string", Required: true},
+			{Name: "id", GoName: "ID", TfsdkTag: "id", Type: "string", Computed: true},
+			{Name: "uid", GoName: "Uid", TfsdkTag: "uid", Type: "string", Computed: true, Sensitive: true},
+			{Name: "type", GoName: "Type", TfsdkTag: "type", JsonName: "type", Type: "int64", Required: true, IsSpecField: true, PlanModifier: "RequiresReplace"},
+			{Name: "site_name", GoName: "SiteName", TfsdkTag: "site_name", JsonName: "site_name", Type: "string", Optional: true, IsSpecField: true, PlanModifier: "RequiresReplace"},
+			{Name: "content", GoName: "Content", TfsdkTag: "content", JsonName: "content", Type: "string", Computed: true, Sensitive: true, IsSpecField: true},
+		},
+	}
+
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatalf("GenerateResourceFile: %v", err)
+	}
+	if err := GenerateDataSource(tmpl, dir); err != nil {
+		t.Fatalf("GenerateDataSource: %v", err)
+	}
+
+	resourceBytes, err := os.ReadFile(filepath.Join(dir, "token_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	resourceSource := string(resourceBytes)
+	for _, want := range []string{
+		"tfsdk:\"type\"",
+		"tfsdk:\"site_name\"",
+		"tfsdk:\"content\"",
+		"content\": schema.StringAttribute{",
+		"Computed:            true",
+		"Sensitive:           true",
+		"int64planmodifier.RequiresReplace()",
+		"stringplanmodifier.RequiresReplace()",
+		"Token type must be 0 (NORMAL) or 1 (JWT).",
+		"site_name must identify the Secure Mesh Site v2 when type is 1 (JWT).",
+		"populateTokenCredentialState(&data, apiResource)",
+	} {
+		if !strings.Contains(resourceSource, want) {
+			t.Errorf("generated token resource is missing %q", want)
+		}
+	}
+	if strings.Contains(resourceSource, "spec[\"content\"] =") {
+		t.Fatal("generated token request must not marshal read-only JWT content")
+	}
+	if strings.Contains(resourceSource, "data.Uid = types.StringValue(apiResource.SystemMetadata.UID)") {
+		t.Fatal("generated token lifecycle bypasses token credential selection")
+	}
+	if got := strings.Count(resourceSource, "populateTokenCredentialState(&data, apiResource)"); got != 2 {
+		t.Fatalf("generated token Create/Read credential population calls = %d, want 2", got)
+	}
+
+	dataSourceBytes, err := os.ReadFile(filepath.Join(dir, "token_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	dataSourceSource := string(dataSourceBytes)
+	for _, want := range []string{
+		"uid\": schema.StringAttribute{",
+		"Sensitive:           true",
+		"credential, _, err := tokenCredential(resource, 0)",
+		"data.Uid = types.StringValue(credential)",
+	} {
+		if !strings.Contains(dataSourceSource, want) {
+			t.Errorf("generated token data source is missing %q", want)
+		}
+	}
+	if strings.Contains(dataSourceSource, "resource.SystemMetadata.UID") {
+		t.Fatal("generated token data source bypasses token credential selection")
+	}
+}
+
 // TestActionResourceApprove verifies the action-resource codegen: Create issues
 // the action POST to the singular path with state=APPROVED, Read does a lenient
 // GET on the pluralized sibling path with 404 -> remove-from-state, Delete is a
