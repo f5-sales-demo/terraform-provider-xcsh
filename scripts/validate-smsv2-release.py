@@ -20,21 +20,26 @@ REQUIRED_FACTS = {
     "route",
     "bgp_inside_cidr_block",
 }
-CAPABILITIES = {
+BASE_CAPABILITIES = {
     "aws_ce_create": "available",
     "runtime_status": "available",
     "tgw_connect": "available",
 }
-UNAVAILABLE_CAPABILITIES = {
+UPGRADE_CAPABILITIES = {**BASE_CAPABILITIES, "site_upgrade": "available"}
+BASE_UNAVAILABLE_CAPABILITIES = {
     "aws_ce_create": "unavailable",
     "runtime_status": "unavailable",
     "tgw_connect": "unavailable",
+}
+UPGRADE_UNAVAILABLE_CAPABILITIES = {
+    **BASE_UNAVAILABLE_CAPABILITIES,
+    "site_upgrade": "unavailable",
 }
 BLOCKING_CONDITIONS = [
     "mac_only_interface_rejected_by_live_api",
     "public_ip_empty_string_null_round_trip",
 ]
-AUTHORITIES = {
+BASE_AUTHORITIES = {
     "f5xc": [
         "smsv2_configuration",
         "runtime_health",
@@ -50,6 +55,10 @@ AUTHORITIES = {
         "bgp_inside_cidrs",
         "autonomous_system_numbers",
     ],
+}
+UPGRADE_AUTHORITIES = {
+    **BASE_AUTHORITIES,
+    "f5xc": [*BASE_AUTHORITIES["f5xc"], "site_upgrade_observation"],
 }
 RUNTIME_ENDPOINTS = {
     "configuration": {
@@ -94,6 +103,116 @@ RUNTIME_ENDPOINTS = {
         "semantics": "observational_read_only",
     },
 }
+SITE_UPGRADE_OPERATIONS = {
+    "site_status": {
+        "method": "GET",
+        "path": "/api/config/namespaces/{namespace}/sites/{site}",
+        "operation_id": "ves.io.schema.site.API.Get",
+        "response_schema": "siteGetResponse",
+        "response_mappings": {
+            "software_installed_version": "status[].volterra_software_status.last_installed_version",
+            "software_available_version": "status[].volterra_software_status.available_version",
+            "software_deployment_phase": "status[].volterra_software_status.deployment_state.phase",
+            "software_deployment_result": "status[].volterra_software_status.deployment_state.result",
+            "os_installed_version": "status[].operating_system_status.deployment_state.version",
+            "os_available_version": "status[].operating_system_status.available_version",
+            "os_deployment_phase": "status[].operating_system_status.deployment_state.phase",
+            "os_deployment_result": "status[].operating_system_status.deployment_state.result",
+            "site_state": "spec.site_state",
+        },
+    },
+    "target_discovery": {
+        "method": "GET",
+        "path": "/api/maurice/upgradable_sw_versions",
+        "operation_id": "ves.io.schema.upgrade_status.UpgradeStatusCustomApi.GetUpgradableSWVersions",
+        "response_schema": "upgrade_statusGetUpgradableSWVersionsResponse",
+        "query_mappings": {
+            "installed_os_version": "current_os_version",
+            "installed_software_version": "current_sw_version",
+        },
+        "response_mappings": {"upgradable_software_versions": "sw_versions[]"},
+    },
+    "precheck": {
+        "method": "GET",
+        "path": "/api/maurice/namespaces/{namespace}/sites/{site}/pre_upgrade_check",
+        "operation_id": "ves.io.schema.upgrade_status.UpgradeStatusCustomApi.PreUpgradeCheck",
+        "response_schema": "upgrade_statusPreUpgradeCheckResponse",
+        "query_mappings": {"software_version": "sw_version"},
+        "response_mappings": {
+            "checks": "checklist[]",
+            "name": "checklist[].item",
+            "status": "checklist[].status",
+        },
+        "passing_statuses": ["CHECKLIST_PASSED", "CHECKLIST_WARNING"],
+        "failure_statuses": ["CHECKLIST_FAILED", "CHECKLIST_UNKNOWN"],
+    },
+    "upgrade_status": {
+        "method": "GET",
+        "path": "/api/maurice/namespaces/{namespace}/sites/{site}/upgrade_status",
+        "operation_id": "ves.io.schema.upgrade_status.UpgradeStatusCustomApi.GetUpgradeStatus",
+        "response_schema": "upgrade_statusGetUpgradeStatusResponse",
+        "response_mappings": {
+            "version": "upgrade_status.sw_upgrade_progress.version",
+            "status": "upgrade_status.sw_upgrade_progress.status",
+            "site_level_status": "upgrade_status.sw_upgrade_progress.site_level_upgrade.status",
+            "node_level_status": "upgrade_status.sw_upgrade_progress.node_level_upgrade.status",
+            "validation_status": "upgrade_status.sw_upgrade_progress.validation.status",
+            "os_setup_status": "upgrade_status.sw_upgrade_progress.os_setup.status",
+        },
+    },
+    "software_upgrade": {
+        "method": "POST",
+        "path": "/api/config/namespaces/{namespace}/sites/{site}/upgrade_sw",
+        "operation_id": "ves.io.schema.site.UpgradeAPI.UpgradeSW",
+        "request_schema": "siteUpgradeSWRequest",
+        "request_mappings": {
+            "site": "name",
+            "software_version": "version",
+            "force": "force",
+        },
+        "force": False,
+        "semantics": "asynchronous",
+    },
+    "os_upgrade": {
+        "method": "POST",
+        "path": "/api/config/namespaces/{namespace}/sites/{site}/upgrade_os",
+        "operation_id": "ves.io.schema.site.UpgradeAPI.UpgradeOS",
+        "request_schema": "siteUpgradeOSRequest",
+        "request_mappings": {
+            "site": "name",
+            "os_version": "version",
+            "force": "force",
+        },
+        "force": False,
+        "semantics": "asynchronous",
+    },
+}
+SITE_UPGRADE_SEMANTICS = {
+    "eligibility": {
+        "site_state": "ONLINE",
+        "os_target": "equals_advertised_os_available_version",
+        "software_target": "listed_in_upgradable_software_versions",
+        "software_prechecks": "all_pass_or_warning",
+    },
+    "polling": {
+        "transient_failure_values": ["UPGRADE_FAILED", "FAILED"],
+        "failure_semantics": "transient_until_bounded_timeout",
+        "completion": "supplied_targets_installed_and_site_online",
+        "timeout_authority": "caller",
+    },
+    "redaction": {
+        "exported": "sanitized_status_fields_only",
+        "prohibited": ["raw_api_messages", "node_identifiers", "urls"],
+    },
+}
+SITE_UPGRADE_EVIDENCE_FACTS = {
+    "installed_and_available_versions",
+    "deployment_phase_and_result",
+    "site_state",
+    "software_target_advertised",
+    "software_prechecks_passed",
+    "transient_failure_observed",
+}
 
 
 def fail(message: str) -> NoReturn:
@@ -110,6 +229,52 @@ def load_json(path: pathlib.Path, description: str) -> dict:
     if not isinstance(value, dict):
         fail(f"malformed {description}: expected an object")
     return value
+
+
+def version_at_least(version: object, minimum: tuple[int, int]) -> bool:
+    """Return whether a dotted contract version meets the required major/minor."""
+    if not isinstance(version, str):
+        return False
+    parts = version.split(".")
+    if len(parts) != 3 or not all(part.isdigit() for part in parts):
+        return False
+    return tuple(int(part) for part in parts[:2]) >= minimum
+
+
+def validate_site_upgrade(site_upgrade: object, contract_version: object) -> None:
+    """Validate exact upgrade operations and fail-closed observation semantics."""
+    if not isinstance(site_upgrade, dict) or not version_at_least(
+        contract_version, (6, 1)
+    ):
+        fail("site upgrade requires a v6.1-or-newer contract")
+    expected_keys = {
+        *SITE_UPGRADE_OPERATIONS,
+        *SITE_UPGRADE_SEMANTICS,
+        "verified_path",
+    }
+    if set(site_upgrade) != expected_keys:
+        fail("site upgrade operation inventory is incomplete")
+    for name, expected in SITE_UPGRADE_OPERATIONS.items():
+        if site_upgrade.get(name) != expected:
+            fail(f"site upgrade operation {name} is incomplete or legacy")
+    for name, expected in SITE_UPGRADE_SEMANTICS.items():
+        if site_upgrade.get(name) != expected:
+            fail(f"site upgrade {name} contract is incomplete")
+    verified_path = site_upgrade.get("verified_path")
+    if not isinstance(verified_path, dict) or set(verified_path) != {
+        "installed_os",
+        "installed_software",
+        "software_prechecks",
+        "target_os",
+        "target_software",
+    }:
+        fail("site upgrade verified path is incomplete")
+    if verified_path.get("software_prechecks") != "passed" or not all(
+        isinstance(value, str) and value
+        for key, value in verified_path.items()
+        if key != "software_prechecks"
+    ):
+        fail("site upgrade verified path is not evidence-backed")
 
 
 def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
@@ -218,14 +383,27 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
         "roles": ["slo", "sli"],
     }:
         fail("simplified route request mapping is incomplete")
-    if aws.get("authorities") != AUTHORITIES:
+    site_upgrade = aws.get("site_upgrade")
+    has_site_upgrade = site_upgrade is not None
+    if has_site_upgrade:
+        validate_site_upgrade(site_upgrade, contract_version)
+    expected_authorities = UPGRADE_AUTHORITIES if has_site_upgrade else BASE_AUTHORITIES
+    if aws.get("authorities") != expected_authorities:
         fail("F5 and AWS authority declarations do not match the v3 contract")
     if aws.get("prohibited_legacy_apis") != ["aws_vpc_site", "aws_tgw_site"]:
         fail("legacy AWS site APIs must remain prohibited")
     availability = aws.get("availability")
+    available_capabilities = (
+        UPGRADE_CAPABILITIES if has_site_upgrade else BASE_CAPABILITIES
+    )
+    unavailable_capabilities = (
+        UPGRADE_UNAVAILABLE_CAPABILITIES
+        if has_site_upgrade
+        else BASE_UNAVAILABLE_CAPABILITIES
+    )
     if availability == "evidence_backed":
         if (
-            aws.get("capabilities") != CAPABILITIES
+            aws.get("capabilities") != available_capabilities
             or aws.get("unavailable_capabilities") != []
             or intake.get("availability") != "available"
             or intake.get("complete") is not True
@@ -233,9 +411,9 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
             fail("evidence-backed AWS capabilities and telemetry are incoherent")
     elif availability == "schema_only":
         if (
-            aws.get("capabilities") != UNAVAILABLE_CAPABILITIES
+            aws.get("capabilities") != unavailable_capabilities
             or set(aws.get("unavailable_capabilities", []))
-            != set(UNAVAILABLE_CAPABILITIES)
+            != set(unavailable_capabilities)
             or intake.get("availability") != "unavailable"
             or intake.get("complete") is not False
         ):
@@ -259,7 +437,9 @@ def validate_openapi(openapi: dict) -> None:
         fail("SMSv2 node public_ip must preserve the null wire value")
 
 
-def validate_evidence(evidence: dict, contract_id: str, availability: str) -> None:
+def validate_evidence(
+    evidence: dict, contract_id: str, availability: str, site_upgrade: object
+) -> None:
     """Validate the age and sanitization of the behavioral evidence."""
     try:
         observed_at = dt.datetime.fromisoformat(
@@ -282,6 +462,28 @@ def validate_evidence(evidence: dict, contract_id: str, availability: str) -> No
         item.get("sanitized") is True and item.get("redaction") for item in receipts
     ):
         fail("evidence receipt is not sanitized")
+    if isinstance(site_upgrade, dict) and availability == "evidence_backed":
+        upgrade_receipts = [
+            item
+            for item in receipts
+            if item.get("operations")
+            == [
+                "site_status",
+                "target_discovery",
+                "precheck",
+                "software_upgrade",
+                "os_upgrade",
+            ]
+        ]
+        if len(upgrade_receipts) != 1:
+            fail("site upgrade evidence receipt is missing or ambiguous")
+        receipt = upgrade_receipts[0]
+        if (
+            receipt.get("result") != "accepted"
+            or receipt.get("upgrade_path") != site_upgrade.get("verified_path")
+            or set(receipt.get("validated_facts", [])) != SITE_UPGRADE_EVIDENCE_FACTS
+        ):
+            fail("site upgrade evidence does not match the contract")
     if availability == "schema_only":
         if len(receipts) != 1:
             fail("schema-only evidence must contain one blocking receipt")
@@ -397,7 +599,10 @@ def main() -> None:
     validate_contract(contract, contract_id, manifest["contract_version"])
     validate_openapi(openapi)
     validate_evidence(
-        evidence, contract_id, contract["providers"]["aws"]["availability"]
+        evidence,
+        contract_id,
+        contract["providers"]["aws"]["availability"],
+        contract["providers"]["aws"].get("site_upgrade"),
     )
     validate_concurrency(concurrency, version)
     validate_parity(parity, version)
