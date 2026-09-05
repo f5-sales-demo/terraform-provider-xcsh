@@ -16,6 +16,8 @@ while IFS= read -r path; do
     tools/pkg/schema/scan_test.go | \
     internal/acctest/release_integrity_test.go | \
     scripts/generate-provider-docs.sh | \
+    scripts/validate-smsv2-release.py | \
+    tests/test-smsv2-release-validator.sh | \
     scripts/check-spec-version-freshness.sh | \
     scripts/classify-spec-release-semantics.sh | \
     scripts/test-classify-spec-release-semantics.sh | \

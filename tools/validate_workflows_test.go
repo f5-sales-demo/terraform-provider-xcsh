@@ -118,6 +118,14 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 			allowed: true,
 		},
 		{
+			name: "SMSv2 release validator recovery",
+			paths: strings.Join([]string{
+				"scripts/validate-smsv2-release.py",
+				"tests/test-smsv2-release-validator.sh",
+			}, "\n"),
+			allowed: true,
+		},
+		{
 			name: "generator recovery",
 			paths: strings.Join([]string{
 				"tools/generate-all-schemas.go",
