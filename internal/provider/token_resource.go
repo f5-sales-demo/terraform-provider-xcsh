@@ -15,6 +15,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -54,6 +55,9 @@ type TokenResourceModel struct {
 	Labels      types.Map      `tfsdk:"labels"`
 	ID          types.String   `tfsdk:"id"`
 	Uid         types.String   `tfsdk:"uid"`
+	Content     types.String   `tfsdk:"content"`
+	SiteName    types.String   `tfsdk:"site_name"`
+	Type        types.Int64    `tfsdk:"type"`
 	Timeouts    timeouts.Value `tfsdk:"timeouts"`
 }
 
@@ -119,6 +123,27 @@ func (r *TokenResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Sensitive:           true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"content": schema.StringAttribute{
+				MarkdownDescription: "Server-issued JWT registration credential.",
+				Computed:            true,
+				Sensitive:           true,
+			},
+			"site_name": schema.StringAttribute{
+				MarkdownDescription: "Secure Mesh Site v2 name bound into a JWT token.",
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"type": schema.Int64Attribute{
+				MarkdownDescription: "[Enum: 0|1] Token type, where 0 is NORMAL and 1 is JWT. Possible values are `0`, `1`.",
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Int64{
+					int64planmodifier.UseStateForUnknown(),
 				},
 			},
 		},
@@ -255,6 +280,12 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 
 	// Marshal spec fields from Terraform state to API struct
+	if !data.SiteName.IsNull() && !data.SiteName.IsUnknown() {
+		createReq.Spec["site_name"] = data.SiteName.ValueString()
+	}
+	if !data.Type.IsNull() && !data.Type.IsUnknown() {
+		createReq.Spec["type"] = data.Type.ValueInt64()
+	}
 
 	_, err := r.client.CreateToken(ctx, createReq)
 	if err != nil {
@@ -300,6 +331,16 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
+	if v, ok := apiResource.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
+	} else {
+		data.SiteName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else {
+		data.Type = types.Int64Null()
+	}
 
 	tflog.Trace(ctx, "created Token resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -437,6 +478,16 @@ func (r *TokenResource) Read(ctx context.Context, req resource.ReadRequest, resp
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
+	if v, ok := apiResource.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
+	} else {
+		data.SiteName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else {
+		data.Type = types.Int64Null()
+	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
 	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
@@ -531,6 +582,12 @@ func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 
 	// Marshal spec fields from Terraform state to API struct
+	if !data.SiteName.IsNull() && !data.SiteName.IsUnknown() {
+		apiResource.Spec["site_name"] = data.SiteName.ValueString()
+	}
+	if !data.Type.IsNull() && !data.Type.IsUnknown() {
+		apiResource.Spec["type"] = data.Type.ValueInt64()
+	}
 
 	_, err := r.client.UpdateToken(ctx, apiResource)
 	if err != nil {
@@ -584,6 +641,22 @@ func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		return
 	}
 
+	// Set computed fields from API response
+	if v, ok := fetched.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
+	} else if data.SiteName.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.SiteName = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else if data.Type.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.Type = types.Int64Null()
+	}
+	// If plan had a value, preserve it
+
 	// Unmarshal fields from the complete GET response into Terraform state.
 	apiResource = fetched
 	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
@@ -591,6 +664,18 @@ func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
 	} else {
 		data.Uid = types.StringNull()
+	}
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
+	if v, ok := apiResource.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
+	} else {
+		data.SiteName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else {
+		data.Type = types.Int64Null()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

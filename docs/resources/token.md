@@ -59,11 +59,17 @@ resource "xcsh_token" "example" {
 
 ### Spec Argument Reference
 
+<a id="site-name"></a>&#x2022; [`site_name`](#site-name) - Optional String<br>Secure Mesh Site v2 name bound into a JWT token
+
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
+
+<a id="type"></a>&#x2022; [`type`](#type) - Optional Number<br>Possible values are `0`, `1`<br>[Enum: 0|1] Token type, where 0 is NORMAL and 1 is JWT
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
+
+<a id="content"></a>&#x2022; [`content`](#content) - Optional String<br>Server-issued JWT registration credential
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
