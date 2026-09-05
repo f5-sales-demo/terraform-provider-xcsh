@@ -51,9 +51,10 @@ func GenerateSMSv2ContractConstants(specDir, outputDir string) ([]SMSv2DataSourc
 		contractMajor != releaseMajor || len(manifest.Release.Commit) != 40 {
 		return nil, fmt.Errorf("SMSv2 contract manifest identity mismatch")
 	}
-	capabilities := fmt.Sprintf("map[string]string{%q: %q, %q: %q, %q: %q}",
+	capabilities := fmt.Sprintf("map[string]string{%q: %q, %q: %q, %q: %q, %q: %q}",
 		"aws_ce_create", contract.Providers.AWS.Capabilities["aws_ce_create"],
 		"runtime_status", contract.Providers.AWS.Capabilities["runtime_status"],
+		"site_upgrade", contract.Providers.AWS.Capabilities["site_upgrade"],
 		"tgw_connect", contract.Providers.AWS.Capabilities["tgw_connect"])
 	f5xcAuthorities := goStringSlice(contract.Providers.AWS.Authorities["f5xc"])
 	awsAuthorities := goStringSlice(contract.Providers.AWS.Authorities["aws"])

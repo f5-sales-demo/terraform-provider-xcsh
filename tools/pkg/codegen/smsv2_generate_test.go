@@ -14,11 +14,11 @@ func TestGenerateSMSv2ContractConstantsIsDeterministic(t *testing.T) {
 	specDir, outputDir := t.TempDir(), t.TempDir()
 	contract := strings.NewReplacer(
 		`"availability":"evidence_backed"`, `"availability":"schema_only"`,
-		`"aws_ce_create":"available","runtime_status":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","runtime_status":"unavailable","tgw_connect":"unavailable"`,
-		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","runtime_status","tgw_connect"]`,
+		`"aws_ce_create":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","runtime_status":"unavailable","site_upgrade":"unavailable","tgw_connect":"unavailable"`,
+		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","runtime_status","site_upgrade","tgw_connect"]`,
 		`"availability":"available","complete":true`, `"availability":"unavailable","complete":false`,
 	).Replace(syntheticSMSv2V6Contract)
-	manifest := `{"contract_id":"f5xc-ce-automation/v3","contract_version":"6.0.0","release":{"tag":"v6.0.0","commit":"3a647f1bf0c2447a71750c69136fab96fb073902"}}`
+	manifest := `{"contract_id":"f5xc-ce-automation/v3","contract_version":"6.1.0","release":{"tag":"v6.1.0","commit":"3a647f1bf0c2447a71750c69136fab96fb073902"}}`
 	if err := os.WriteFile(filepath.Join(specDir, "smsv2-contract.json"), []byte(contract), 0o600); err != nil {
 		t.Fatal(err)
 	}
@@ -42,7 +42,7 @@ func TestGenerateSMSv2ContractConstantsIsDeterministic(t *testing.T) {
 	if string(first) != string(second) {
 		t.Fatal("SMSv2 contract generation is not deterministic")
 	}
-	for _, want := range []string{"f5xc-ce-automation/v3", "v6.0.0", `"aws_ce_create": "unavailable"`, "3a647f1bf0c2447a71750c69136fab96fb073902", "f5xc-smsv2-aws-tgw-telemetry/v2"} {
+	for _, want := range []string{"f5xc-ce-automation/v3", "v6.1.0", `"aws_ce_create": "unavailable"`, `"site_upgrade": "unavailable"`, "3a647f1bf0c2447a71750c69136fab96fb073902", "f5xc-smsv2-aws-tgw-telemetry/v2"} {
 		if !strings.Contains(string(first), want) {
 			t.Errorf("generated constants missing %q", want)
 		}

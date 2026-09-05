@@ -483,6 +483,7 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewSiteRegistrationsBySiteDataSource,
 		NewSiteRegistrationsByStateDataSource,
 		NewSiteRegistrationsDataSource,
+		NewSiteUpgradeStatusDataSource,
 		NewSmsv2AWSRuntimeDataSource,
 		NewSmsv2ContractDataSource,
 		NewSrv6NetworkSliceDataSource,
