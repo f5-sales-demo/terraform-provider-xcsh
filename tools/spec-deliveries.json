@@ -35,6 +35,11 @@
       "target_commit": "6931752088bc2f0d5dd16aee63755cbbcfd804dd",
       "version": "4.0.3"
     },
+    "435ad635981c3e33766067365e3a45163b1a17dd1f7d1dd06d9c8f04dae49d26": {
+      "release_tag": "v6.1.0",
+      "target_commit": "5c93ab3660c278b6f2dbe5d10ea24a1a64229532",
+      "version": "6.1.0"
+    },
     "476cb65ed8edb04d890076c30b8c7403b8f8310a51f625be3a50fb59be152c02": {
       "release_tag": "v2.1.225",
       "target_commit": "1926dc8d6cb6d593a23311dc3aac9d8b47b510ef",
