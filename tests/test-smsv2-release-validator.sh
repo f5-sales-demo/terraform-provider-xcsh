@@ -106,11 +106,12 @@ jq -n '{
 
 refresh_manifest() {
   local directory=$1
-  local contract_sha evidence_sha
+  local contract_sha evidence_sha contract_version
   contract_sha="sha256:$(sha256sum "$directory/smsv2-contract.json" | awk '{print $1}')"
   evidence_sha="sha256:$(sha256sum "$directory/smsv2-evidence-receipt.json" | awk '{print $1}')"
-  jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" '{
-    schema_version:1,contract_id:"f5xc-ce-automation/v3",contract_version:"6.0.0",
+  contract_version=${2:-$(jq -r .version "$directory/smsv2-contract.json")}
+  jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" --arg contract_version "$contract_version" '{
+    schema_version:1,contract_id:"f5xc-ce-automation/v3",contract_version:$contract_version,
     release:{tag:$tag,commit:$commit},
     assets:{"smsv2-contract.json":$contract,"smsv2-evidence-receipt.json":$evidence}
   }' >"$directory/smsv2-contract-manifest.json"
@@ -122,7 +123,11 @@ reject_contract_mutation() {
   cp "$work"/*.json "$directory/"
   jq "$filter" "$directory/smsv2-contract.json" >"$directory/updated.json"
   mv "$directory/updated.json" "$directory/smsv2-contract.json"
-  refresh_manifest "$directory"
+  if [ "$name" = contract-version-mismatch ]; then
+    refresh_manifest "$directory" 6.0.0
+  else
+    refresh_manifest "$directory"
+  fi
   if python3 "$validator" "$directory" "$tag" "$commit" >/dev/null 2>&1; then
     printf 'invalid contract was accepted: %s\n' "$name" >&2
     exit 1
@@ -191,9 +196,65 @@ if python3 "$validator" "$naive" "$tag" "$commit" >/dev/null 2>&1; then
   echo "timezone-naive evidence was accepted" >&2
   exit 1
 fi
+site_upgrade="$work/site-upgrade"
+mkdir "$site_upgrade"
+cp "$work"/*.json "$site_upgrade/"
+tag=v6.1.0
+jq '
+  .version = "6.1.0"
+  | .providers.aws.capabilities.site_upgrade = "available"
+  | .providers.aws.authorities.f5xc += ["site_upgrade_observation"]
+  | .providers.aws.site_upgrade = {
+      site_status:{method:"GET",path:"/api/config/namespaces/{namespace}/sites/{site}",operation_id:"ves.io.schema.site.API.Get",response_schema:"siteGetResponse",response_mappings:{software_installed_version:"status[].volterra_software_status.last_installed_version",software_available_version:"status[].volterra_software_status.available_version",software_deployment_phase:"status[].volterra_software_status.deployment_state.phase",software_deployment_result:"status[].volterra_software_status.deployment_state.result",os_installed_version:"status[].operating_system_status.deployment_state.version",os_available_version:"status[].operating_system_status.available_version",os_deployment_phase:"status[].operating_system_status.deployment_state.phase",os_deployment_result:"status[].operating_system_status.deployment_state.result",site_state:"spec.site_state"}},
+      target_discovery:{method:"GET",path:"/api/maurice/upgradable_sw_versions",operation_id:"ves.io.schema.upgrade_status.UpgradeStatusCustomApi.GetUpgradableSWVersions",response_schema:"upgrade_statusGetUpgradableSWVersionsResponse",query_mappings:{installed_os_version:"current_os_version",installed_software_version:"current_sw_version"},response_mappings:{upgradable_software_versions:"sw_versions[]"}},
+      precheck:{method:"GET",path:"/api/maurice/namespaces/{namespace}/sites/{site}/pre_upgrade_check",operation_id:"ves.io.schema.upgrade_status.UpgradeStatusCustomApi.PreUpgradeCheck",response_schema:"upgrade_statusPreUpgradeCheckResponse",query_mappings:{software_version:"sw_version"},response_mappings:{checks:"checklist[]",name:"checklist[].item",status:"checklist[].status"},passing_statuses:["CHECKLIST_PASSED","CHECKLIST_WARNING"],failure_statuses:["CHECKLIST_FAILED","CHECKLIST_UNKNOWN"]},
+      upgrade_status:{method:"GET",path:"/api/maurice/namespaces/{namespace}/sites/{site}/upgrade_status",operation_id:"ves.io.schema.upgrade_status.UpgradeStatusCustomApi.GetUpgradeStatus",response_schema:"upgrade_statusGetUpgradeStatusResponse",response_mappings:{version:"upgrade_status.sw_upgrade_progress.version",status:"upgrade_status.sw_upgrade_progress.status",site_level_status:"upgrade_status.sw_upgrade_progress.site_level_upgrade.status",node_level_status:"upgrade_status.sw_upgrade_progress.node_level_upgrade.status",validation_status:"upgrade_status.sw_upgrade_progress.validation.status",os_setup_status:"upgrade_status.sw_upgrade_progress.os_setup.status"}},
+      software_upgrade:{method:"POST",path:"/api/config/namespaces/{namespace}/sites/{site}/upgrade_sw",operation_id:"ves.io.schema.site.UpgradeAPI.UpgradeSW",request_schema:"siteUpgradeSWRequest",request_mappings:{site:"name",software_version:"version",force:"force"},force:false,semantics:"asynchronous"},
+      os_upgrade:{method:"POST",path:"/api/config/namespaces/{namespace}/sites/{site}/upgrade_os",operation_id:"ves.io.schema.site.UpgradeAPI.UpgradeOS",request_schema:"siteUpgradeOSRequest",request_mappings:{site:"name",os_version:"version",force:"force"},force:false,semantics:"asynchronous"},
+      eligibility:{site_state:"ONLINE",os_target:"equals_advertised_os_available_version",software_target:"listed_in_upgradable_software_versions",software_prechecks:"all_pass_or_warning"},
+      polling:{transient_failure_values:["UPGRADE_FAILED","FAILED"],failure_semantics:"transient_until_bounded_timeout",completion:"supplied_targets_installed_and_site_online",timeout_authority:"caller"},
+      redaction:{exported:"sanitized_status_fields_only",prohibited:["raw_api_messages","node_identifiers","urls"]},
+      verified_path:{installed_software:"crt-20251002-0027",installed_os:"9.2026.10",target_software:"crt-20260201-0179",target_os:"9.2026.17",software_prechecks:"passed"}
+    }
+' "$site_upgrade/smsv2-contract.json" >"$site_upgrade/updated.json"
+mv "$site_upgrade/updated.json" "$site_upgrade/smsv2-contract.json"
+jq '.receipts += [{
+  operations:["site_status","target_discovery","precheck","software_upgrade","os_upgrade"],
+  result:"accepted",sanitized:true,redaction:"fixture",
+  upgrade_path:{installed_software:"crt-20251002-0027",installed_os:"9.2026.10",target_software:"crt-20260201-0179",target_os:"9.2026.17",software_prechecks:"passed"},
+  validated_facts:["installed_and_available_versions","deployment_phase_and_result","site_state","software_target_advertised","software_prechecks_passed","transient_failure_observed"]
+}]' "$site_upgrade/smsv2-evidence-receipt.json" >"$site_upgrade/evidence.json"
+mv "$site_upgrade/evidence.json" "$site_upgrade/smsv2-evidence-receipt.json"
+jq '.version = "6.1.0"' "$site_upgrade/concurrency_contracts.json" >"$site_upgrade/concurrency.json"
+mv "$site_upgrade/concurrency.json" "$site_upgrade/concurrency_contracts.json"
+jq '.version = "6.1.0"' "$site_upgrade/smsv2_parity_manifest.json" >"$site_upgrade/parity.json"
+mv "$site_upgrade/parity.json" "$site_upgrade/smsv2_parity_manifest.json"
+refresh_manifest "$site_upgrade"
+python3 "$validator" "$site_upgrade" "$tag" "$commit"
+
+reject_upgrade_mutation() {
+  local name=$1 filter=$2 directory="$work/upgrade-$1"
+  mkdir "$directory"
+  cp "$site_upgrade"/*.json "$directory/"
+  jq "$filter" "$directory/smsv2-contract.json" >"$directory/updated.json"
+  mv "$directory/updated.json" "$directory/smsv2-contract.json"
+  refresh_manifest "$directory"
+  if python3 "$validator" "$directory" "$tag" "$commit" >/dev/null 2>&1; then
+    printf 'invalid site upgrade contract was accepted: %s\n' "$name" >&2
+    exit 1
+  fi
+}
+
+reject_upgrade_mutation status-mapping '.providers.aws.site_upgrade.site_status.response_mappings.site_state = "status[].site_state"'
+reject_upgrade_mutation mutable-force '.providers.aws.site_upgrade.software_upgrade.force = true'
+reject_upgrade_mutation terminal-failure '.providers.aws.site_upgrade.polling.failure_semantics = "terminal"'
+reject_upgrade_mutation raw-export '.providers.aws.site_upgrade.redaction.exported = "raw_response"'
+
+tag=v6.0.0
 printf x >>"$work/smsv2-contract.json"
 if python3 "$validator" "$work" "$tag" "$commit" >/dev/null 2>&1; then
   echo "tampered contract was accepted" >&2
   exit 1
 fi
+
 printf '%s\n' 'SMSv2 v3 release validator tests passed'
