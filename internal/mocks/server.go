@@ -583,6 +583,13 @@ func (s *Server) ensureResourceVersionLocked(path string, resource interface{}) 
 func (s *Server) applyResourceDefaults(spec map[string]interface{}, resourceType string) {
 	// First, apply manually-maintained defaults for specific resource types
 	switch resourceType {
+	case "tokens":
+		// JWT token content is server-issued and never accepted from practitioner
+		// configuration. Mirror that contract so provider tests exercise the
+		// site-bound credential path without using a real credential.
+		if tokenType, ok := spec["type"].(float64); ok && tokenType == 1 {
+			spec["content"] = "mock-jwt-credential"
+		}
 	case "data_groups":
 		// The live API materializes an omitted records map inside a selected
 		// data-group oneof arm. This exercises provider null-vs-empty handling.

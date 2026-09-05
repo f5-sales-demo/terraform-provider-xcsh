@@ -72,7 +72,7 @@ func (d *TokenDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 				ElementType:         types.StringType,
 			},
 			"uid": schema.StringAttribute{
-				MarkdownDescription: "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured.",
+				MarkdownDescription: "Effective sensitive CE registration credential. NORMAL tokens use `system_metadata.uid`; JWT tokens use `spec.content`. This value is stored in plain text in the Terraform state file; ensure your state file is properly secured.",
 				Computed:            true,
 				Sensitive:           true,
 			},
@@ -106,10 +106,15 @@ func (d *TokenDataSource) Read(ctx context.Context, req datasource.ReadRequest, 
 	}
 
 	data.ID = types.StringValue(resource.Metadata.Name)
-	if resource.SystemMetadata != nil {
-		data.Uid = types.StringValue(resource.SystemMetadata.UID)
-	} else {
+	credential, _, err := tokenCredential(resource, 0)
+	if err != nil {
+		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
+		return
+	}
+	if credential == "" {
 		data.Uid = types.StringNull()
+	} else {
+		data.Uid = types.StringValue(credential)
 	}
 	data.Name = types.StringValue(resource.Metadata.Name)
 	data.Namespace = types.StringValue(resource.Metadata.Namespace)

@@ -46,3 +46,38 @@ func TestMockTokenDataSource_basic(t *testing.T) {
 		},
 	})
 }
+
+func TestMockTokenDataSource_siteBoundJWT(t *testing.T) {
+	dataSourceName := "data.xcsh_token.test"
+
+	acctest.SkipIfNoMockMode(t)
+	mockCfg := acctest.SetupMockTest(t)
+	defer mockCfg.Cleanup()
+
+	resource.Test(t, resource.TestCase{
+		ProtoV6ProviderFactories: mockCfg.ProtoV6ProviderFactories(),
+		Steps: []resource.TestStep{
+			{
+				Config: `
+				resource "xcsh_token" "test" {
+					name      = "test-token-ds-jwt"
+					namespace = "system"
+					type      = 1
+					site_name = "example-securemesh-site"
+				}
+
+				data "xcsh_token" "test" {
+					name      = xcsh_token.test.name
+					namespace = xcsh_token.test.namespace
+				}
+				`,
+				ConfigStateChecks: []statecheck.StateCheck{
+					statecheck.ExpectSensitiveValue(dataSourceName, tfjsonpath.New("uid")),
+				},
+				Check: resource.ComposeAggregateTestCheckFunc(
+					resource.TestCheckResourceAttr(dataSourceName, "uid", "mock-jwt-credential"),
+				),
+			},
+		},
+	})
+}

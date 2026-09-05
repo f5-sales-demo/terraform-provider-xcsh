@@ -271,6 +271,25 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+{{- if eq .Name "token"}}
+	if !data.Type.IsNull() && !data.Type.IsUnknown() {
+		tokenType := data.Type.ValueInt64()
+		if tokenType != 0 && tokenType != 1 {
+			resp.Diagnostics.AddAttributeError(
+				path.Root("type"),
+				"Invalid Token Type",
+				"Token type must be 0 (NORMAL) or 1 (JWT).",
+			)
+		} else if tokenType == 1 && !data.SiteName.IsUnknown() &&
+			(data.SiteName.IsNull() || strings.TrimSpace(data.SiteName.ValueString()) == "") {
+			resp.Diagnostics.AddAttributeError(
+				path.Root("site_name"),
+				"Missing JWT Site Binding",
+				"site_name must identify the Secure Mesh Site v2 when type is 1 (JWT).",
+			)
+		}
+	}
+{{- end}}
 {{- if .HasConflicts}}
 {{.ConflictCheckCode}}
 {{- end}}
@@ -494,7 +513,7 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	// For resources without namespace in API path, namespace is computed from API response
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
 {{- end}}
-{{- if .ExposeUID}}
+{{- if and .ExposeUID (ne .Name "token")}}
 	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
 	if apiResource.SystemMetadata != nil {
 		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
@@ -508,6 +527,12 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	isImport := false // Create is never an import
 	_ = isImport // May be unused if resource has no blocks needing import detection
 {{renderSpecUnmarshalCode .Attributes "\t" .TitleCase}}
+{{- if eq .Name "token"}}
+	if err := populateTokenCredentialState(&data, apiResource); err != nil {
+		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
+		return
+	}
+{{- end}}
 
 	tflog.Trace(ctx, "created {{.TitleCase}} resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
@@ -572,7 +597,7 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
-{{- if .ExposeUID}}
+{{- if and .ExposeUID (ne .Name "token")}}
 	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
 	if apiResource.SystemMetadata != nil {
 		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
@@ -650,6 +675,12 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
 {{renderSpecUnmarshalCode .Attributes "\t" .TitleCase}}
+{{- if eq .Name "token"}}
+	if err := populateTokenCredentialState(&data, apiResource); err != nil {
+		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
+		return
+	}
+{{- end}}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
 	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
@@ -869,7 +900,7 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 
 	// Unmarshal fields from the complete GET response into Terraform state.
 	apiResource = fetched
-{{- if .ExposeUID}}
+{{- if and .ExposeUID (ne .Name "token")}}
 	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
 	if apiResource.SystemMetadata != nil {
 		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
@@ -881,6 +912,12 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 	isImport := false // Update is never an import
 	_ = isImport // May be unused if resource has no blocks needing import detection
 {{renderSpecUnmarshalCode .Attributes "\t" .TitleCase}}
+{{- end}}
+{{- if eq .Name "token"}}
+	if err := populateTokenCredentialState(&data, apiResource); err != nil {
+		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
+		return
+	}
 {{- end}}
 {{- end}}
 
@@ -1233,7 +1270,18 @@ func (d *{{.TitleCase}}DataSource) Read(ctx context.Context, req datasource.Read
 	}
 
 	data.ID = types.StringValue(resource.Metadata.Name)
-{{- if .ExposeUID}}
+{{- if eq .Name "token"}}
+	credential, _, err := tokenCredential(resource, 0)
+	if err != nil {
+		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
+		return
+	}
+	if credential == "" {
+		data.Uid = types.StringNull()
+	} else {
+		data.Uid = types.StringValue(credential)
+	}
+{{- else if .ExposeUID}}
 	if resource.SystemMetadata != nil {
 		data.Uid = types.StringValue(resource.SystemMetadata.UID)
 	} else {

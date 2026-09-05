@@ -64,7 +64,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
-<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Effective sensitive CE registration credential. NORMAL tokens use `system_metadata.uid`; JWT tokens use `spec.content`. This value is stored in plain text in the Terraform state file; ensure your state file is properly secured
 
 ---
 

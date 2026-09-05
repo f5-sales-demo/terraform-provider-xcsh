@@ -602,7 +602,9 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	if depth == 0 && attr.Optional && !attr.IsBlock && !attr.Required {
 		if attr.Type == "string" || attr.Type == "bool" || attr.Type == "int64" {
 			attr.Computed = true
-			attr.PlanModifier = "UseStateForUnknown"
+			if attr.PlanModifier == "" {
+				attr.PlanModifier = "UseStateForUnknown"
+			}
 		}
 	}
 

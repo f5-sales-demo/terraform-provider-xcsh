@@ -103,33 +103,47 @@ fmt:
 	@echo "Formatting code..."
 	$(GOFMT) -s -w .
 
-# Download latest F5 XC API specs from enriched repo
+# Download the exact pinned F5 XC API specs from the enriched repository.
 download-specs:
-	@echo "Downloading latest F5 XC API specs..."
+	@echo "Downloading pinned F5 XC API specs..."
 	@mkdir -p $(SPEC_DIR)
-	@LATEST=$$(gh api repos/$(ENRICHED_REPO)/releases --jq '.[0].tag_name'); \
-	echo "Version: $$LATEST"; \
-	ASSET_ID=$$(gh api repos/$(ENRICHED_REPO)/releases --jq \
-		'[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id'); \
-	gh api repos/$(ENRICHED_REPO)/releases/assets/$$ASSET_ID \
-		-H "Accept: application/octet-stream" > /tmp/specs.zip; \
-	rm -rf $(SPEC_DIR)/*; \
-	unzip -o /tmp/specs.zip -d $(SPEC_DIR); \
-	rm /tmp/specs.zip; \
-	AID=$$(gh api repos/$(ENRICHED_REPO)/releases --jq \
-		'[.[0].assets[] | select(.name=="api-catalog.json")] | .[0].id'); \
-	gh api repos/$(ENRICHED_REPO)/releases/assets/$$AID \
-		-H "Accept: application/octet-stream" > $(SPEC_DIR)/api-catalog.json; \
-	MID=$$(gh api repos/$(ENRICHED_REPO)/releases --jq \
-		'[.[0].assets[] | select(.name=="minimal-export-defaults.json")] | .[0].id'); \
-	if [ -n "$$MID" ]; then \
-		gh api repos/$(ENRICHED_REPO)/releases/assets/$$MID \
-			-H "Accept: application/octet-stream" > $(SPEC_DIR)/minimal-export-defaults.json; \
-		echo "Downloaded minimal-export-defaults.json"; \
-	else \
-		echo "Note: minimal-export-defaults.json absent from latest release; server_defaults fall back to docs markers"; \
-	fi; \
-	echo "Specs downloaded to $(SPEC_DIR)"
+	@RELEASE_TAG=$$(tr -d '[:space:]' < tools/spec-version.txt); \
+		echo "Version: $$RELEASE_TAG"; \
+		STAGING_ROOT=$$(mktemp -d); \
+		trap 'rm -rf "$$STAGING_ROOT"' EXIT; \
+		SPEC_ZIP="$$STAGING_ROOT/specs.zip"; \
+		BUNDLE_NAME="f5xc-api-specs-$$RELEASE_TAG.zip"; \
+		ASSET_ID=$$(gh api repos/$(ENRICHED_REPO)/releases/tags/$$RELEASE_TAG --jq \
+			"[.assets[] | select(.name==\"$$BUNDLE_NAME\")] | if length == 1 then .[0].id else empty end"); \
+		[ -n "$$ASSET_ID" ] || { echo "Missing required release asset: $$BUNDLE_NAME" >&2; exit 1; }; \
+		gh api repos/$(ENRICHED_REPO)/releases/assets/$$ASSET_ID \
+			-H "Accept: application/octet-stream" > "$$SPEC_ZIP"; \
+		EXPECTED_SHA=$$(jq -r --arg name "$$BUNDLE_NAME" '.assets[$$name]' tools/spec-release.json); \
+		ACTUAL_SHA="sha256:$$(sha256sum "$$SPEC_ZIP" | awk '{print $$1}')"; \
+		[ "$$ACTUAL_SHA" = "$$EXPECTED_SHA" ] || { echo "Release digest mismatch: $$BUNDLE_NAME" >&2; exit 1; }; \
+		rm -rf $(SPEC_DIR)/*; \
+		unzip -o "$$SPEC_ZIP" -d $(SPEC_DIR); \
+		for asset in \
+			api-catalog.json \
+			concurrency_contracts.json \
+			index.json \
+			minimal-export-defaults.json \
+			openapi.json \
+			smsv2-contract-manifest.json \
+			smsv2-contract.json \
+			smsv2-evidence-receipt.json \
+			smsv2_parity_manifest.json \
+			upstream-contract-removals.json; do \
+			AID=$$(gh api repos/$(ENRICHED_REPO)/releases/tags/$$RELEASE_TAG --jq \
+				"[.assets[] | select(.name==\"$$asset\")] | if length == 1 then .[0].id else empty end"); \
+			[ -n "$$AID" ] || { echo "Missing required release asset: $$asset" >&2; exit 1; }; \
+			gh api repos/$(ENRICHED_REPO)/releases/assets/$$AID \
+				-H "Accept: application/octet-stream" > $(SPEC_DIR)/$$asset; \
+			EXPECTED_SHA=$$(jq -r --arg name "$$asset" '.assets[$$name]' tools/spec-release.json); \
+			ACTUAL_SHA="sha256:$$(sha256sum $(SPEC_DIR)/$$asset | awk '{print $$1}')"; \
+			[ "$$ACTUAL_SHA" = "$$EXPECTED_SHA" ] || { echo "Release digest mismatch: $$asset" >&2; exit 1; }; \
+		done; \
+		echo "Specs downloaded to $(SPEC_DIR)"
 
 # Generate resources from OpenAPI specs
 generate: generate-schemas

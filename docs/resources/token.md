@@ -32,6 +32,8 @@ terraform {
 resource "xcsh_token" "example" {
   name      = "example-token"
   namespace = "system"
+  type      = 1
+  site_name = "example-securemesh-site"
 }
 ```
 
@@ -59,15 +61,21 @@ resource "xcsh_token" "example" {
 
 ### Spec Argument Reference
 
+<a id="site-name"></a>&#x2022; [`site_name`](#site-name) - Optional String<br>Secure Mesh Site v2 name bound into a JWT token
+
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
+
+<a id="type"></a>&#x2022; [`type`](#type) - Optional Number<br>Possible values are `0`, `1`<br>[Enum: 0|1] Token type, where 0 is NORMAL and 1 is JWT
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="content"></a>&#x2022; [`content`](#content) - Optional String<br>Server-issued JWT registration credential
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
-<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value is stored in plain text in the Terraform state file; ensure your state file is properly secured
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Effective sensitive CE registration credential. NORMAL tokens use `system_metadata.uid`; JWT tokens use `spec.content`. This value is stored in plain text in the Terraform state file; ensure your state file is properly secured
 
 ---
 
