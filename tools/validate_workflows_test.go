@@ -45,6 +45,90 @@ type jobContract struct {
 
 func strptr(value string) *string { return &value }
 
+func TestWorkloadBenchmarkTrustAndRunnerContract(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "workload-benchmark.yml"))
+	if err != nil {
+		t.Fatalf("read workload benchmark workflow: %v", err)
+	}
+	workflow := string(content)
+	required := []string{
+		"types: [labeled]",
+		"github.event.label.name == 'compute-benchmark-approved'",
+		"github.event.pull_request.head.repo.full_name == github.repository",
+		"ref: ${{ github.event.pull_request.head.sha }}",
+		"persist-credentials: false",
+		"runs-on: managed-socketless",
+		"runs-on: terraform-provider-xcsh-compute",
+		"benchmark-d8:",
+		"benchmark-d16:",
+	}
+	for _, fragment := range required {
+		if !strings.Contains(workflow, fragment) {
+			t.Errorf("workload benchmark security contract is missing %q", fragment)
+		}
+	}
+	for _, forbidden := range []string{
+		"workflow_dispatch:",
+		"runs-on: ${{ inputs.",
+		"runs-on: ${{ matrix.",
+	} {
+		if strings.Contains(workflow, forbidden) {
+			t.Errorf("workload benchmark security contract contains forbidden fragment %q", forbidden)
+		}
+	}
+}
+
+func TestWorkloadBenchmarkUploadsHiddenRawReceipts(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "actions", "workload-benchmark", "action.yml"))
+	if err != nil {
+		t.Fatalf("read workload benchmark action: %v", err)
+	}
+	action := string(content)
+	if !strings.Contains(action, "include-hidden-files: true") {
+		t.Fatal("workload receipt upload must include dot-prefixed raw receipts")
+	}
+}
+
+func TestBenchmarkWorkloadsUseOnlyFixedModes(t *testing.T) {
+	helper, err := os.ReadFile(filepath.Join("..", "scripts", "run-fixed-benchmark-workload.sh"))
+	if err != nil {
+		t.Fatalf("read fixed benchmark helper: %v", err)
+	}
+	helperText := string(helper)
+	for _, workload := range []string{
+		"go-build", "go-vet", "go-race", "provider-generation",
+		"documentation-generation", "terraform-example-validation",
+		"release-source-reproduction",
+	} {
+		if !strings.Contains(helperText, workload+")") {
+			t.Errorf("fixed benchmark helper is missing %q", workload)
+		}
+	}
+	if strings.Contains(helperText, `eval `) || strings.Contains(helperText, `"$@"`) {
+		t.Error("fixed benchmark helper exposes arbitrary command execution")
+	}
+
+	docs, err := os.ReadFile(filepath.Join("..", "scripts", "generate-provider-docs.sh"))
+	if err != nil {
+		t.Fatalf("read documentation generator: %v", err)
+	}
+	docsText := string(docs)
+	for _, fragment := range []string{"--generate-docs-only", "--validate-examples-only", "EXAMPLE_WORKERS", "wait -n"} {
+		if !strings.Contains(docsText, fragment) {
+			t.Errorf("documentation generator lacks independent bounded mode %q", fragment)
+		}
+	}
+
+	reproduction, err := os.ReadFile(filepath.Join("..", "scripts", "reproduce-release-source.sh"))
+	if err != nil {
+		t.Fatalf("read release reproduction helper: %v", err)
+	}
+	if !strings.Contains(string(reproduction), "generate-all-schemas.go") ||
+		!strings.Contains(string(reproduction), "generate-provider-docs.sh") {
+		t.Error("release reproduction helper does not cover provider and documentation outputs")
+	}
+}
+
 func TestOnMergeRegenerationSubjectBindsSquashPRNumber(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
 	if err != nil {
@@ -830,6 +914,8 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	delete(expected, "require-linked-issue.yml/check")
 	expected["require-linked-issue.yml/check-linked-issues"] = true
 	expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
+	expected["workload-benchmark.yml/aggregate"] = true
+	expected["workload-benchmark.yml/benchmark-d8"] = true
 	if !reflect.DeepEqual(managedSocketless, expected) {
 		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
 	}
