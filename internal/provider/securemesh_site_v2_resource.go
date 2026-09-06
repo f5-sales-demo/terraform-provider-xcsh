@@ -10782,10 +10782,9 @@ func (r *SecuremeshSiteV2Resource) ModifyPlan(ctx context.Context, req resource.
 		if !reflect.DeepEqual(plan.SoftwareSettings, state.SoftwareSettings) {
 			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("software_settings"))
 		}
-		// The live API rejects replacement-style PUT updates for HA sites. AWS
-		// topology is therefore create-only: make the destroy/create lifecycle
-		// explicit in Terraform whenever its configured shape changes.
-		if plan.AWS != nil && state.AWS != nil && !reflect.DeepEqual(plan.AWS, state.AWS) {
+		// Preserve replacement for unverified AWS topology edits. The API
+		// supports device-only edits on explicitly non-HA, single-node sites.
+		if plan.AWS != nil && state.AWS != nil && !reflect.DeepEqual(plan.AWS, state.AWS) && !canUpdateSMSv2AWSDevices(ctx, plan, state) {
 			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("aws"))
 		}
 	}

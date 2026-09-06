@@ -54,6 +54,14 @@ The validator accepts discovered guest device names and rejects duplicate device
 within a node. The previous requirement that SLO and SLI use `eth0` and `eth1`
 was unsupported by the API's EthernetInterfaceType contract.
 
+A saved Terraform plan exposed a second limitation: the generated AWS rule forced
+whole-site replacement for a device-only edit. An isolated, unregistered non-HA
+site accepted a device-only PUT, returned the changed device, and was deleted.
+Changing its node count was separately rejected by the API. The generator now
+permits only device-only edits on explicitly non-HA, single-node sites to update
+in place; other AWS topology edits retain replacement behavior. The rejected
+replacement plan was not applied to the lab.
+
 The interface-list status arrays were empty in live observations. The existing
 runtime `healthy` output still reflects global site provisioning and must not be
 used as proof of per-interface health. Replacing that health contract and supporting
@@ -87,7 +95,9 @@ The documented read-only Site CLI commands work through `exec-user` using the
 configured short node name. On the first CE, BGP summary and neighbor commands
 returned successfully with no substantive output. Its forwarding table correlated
 the SLO MAC with physical `ens5`; the configured SLI MAC was absent. AWS still
-reported both matching ENIs attached. This is a testable device-discovery hypothesis,
+reported both matching ENIs attached. The same instance's console boot output
+independently correlated those MACs with `ens5` and `ens6`.
+This is a testable device-discovery hypothesis,
 not an established cause. No device name was guessed or applied to the lab.
 See F5's [Site CLI reference](https://docs.cloud.f5.com/docs-v2/multi-cloud-network-connect/reference/ea-sitecli-ref).
 
@@ -96,8 +106,9 @@ to `15897bb91e06ef5ed5b6057c1ee73159f59a0af7`.
 
 The existing MCN sites were inspected read-only. The isolated JWT test objects
 were created and deleted; no AWS deployment was changed. Existing v7.4.1 remains
-unchanged, and no PR or release has been published. The governed publication hold is not
-yet installed; substantive merges remain pending because the current release
+unchanged, and no PR or release has been published. The full generation command remains blocked: the pinned v6.1.1 manifest has
+584 unresolved paths, while the corrected local enrichment manifest has 579.
+The governed publication hold is not yet installed; substantive merges remain pending because the current release
 workflows publish automatically. Complete parity, live traffic/redundancy/upgrades,
 the second rebuild, refreshed no-change plan, final artifact receipts and direct
 AGY review remain outstanding.
