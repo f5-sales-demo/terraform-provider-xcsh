@@ -40,6 +40,25 @@ site-bound JWT, obtained no-change refresh plans before and after token import,
 and deleted both objects. Subsequent GET requests returned 404 and the local
 state was empty. This does not prove registered-node runtime discovery.
 
+## Interface object discovery
+
+Runtime and BGP readers resolve physical interface objects from the platform list
+API, requesting the realized specification and ownership metadata. They correlate
+the site's immutable UID, namespace, node and ethernet device with the configured
+MAC, role and MTU. Names come from the matching object rather than a naming formula.
+Missing, duplicated, foreign-owned, inconsistent and partially returned objects
+fail discovery. This preserves a distinction between the physical transport object
+and a tunnel interface reported by BGP.
+
+The validator accepts discovered guest device names and rejects duplicate devices
+within a node. The previous requirement that SLO and SLI use `eth0` and `eth1`
+was unsupported by the API's EthernetInterfaceType contract.
+
+The interface-list status arrays were empty in live observations. The existing
+runtime `healthy` output still reflects global site provisioning and must not be
+used as proof of per-interface health. Replacing that health contract and supporting
+registered discovered nodes remain release blockers.
+
 ## BGP session behavior
 
 `xcsh_site_bgp_status` accepts distinct remote IP addresses on one node/MAC. It
@@ -64,6 +83,14 @@ Scoped read-only checks on the existing three-site AWS lab returned all six
 physical network-interface objects and all six BGP-referenced tunnel-interface
 objects. Names matched configuration references. Each site still returned zero BGP
 observations. This does not establish interface health or explain the missing peers.
+The documented read-only Site CLI commands work through `exec-user` using the
+configured short node name. On the first CE, BGP summary and neighbor commands
+returned successfully with no substantive output. Its forwarding table correlated
+the SLO MAC with physical `ens5`; the configured SLI MAC was absent. AWS still
+reported both matching ENIs attached. This is a testable device-discovery hypothesis,
+not an established cause. No device name was guessed or applied to the lab.
+See F5's [Site CLI reference](https://docs.cloud.f5.com/docs-v2/multi-cloud-network-connect/reference/ea-sitecli-ref).
+
 The reference deployment's live status remains unverified; its checkout is pinned
 to `15897bb91e06ef5ed5b6057c1ee73159f59a0af7`.
 

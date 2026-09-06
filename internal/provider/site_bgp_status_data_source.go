@@ -520,6 +520,14 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 		resp.Diagnostics.AddError("Invalid SMSv2 Configuration Observation", err.Error())
 		return
 	}
+	objects, err := d.client.ListSMSv2NetworkInterfaces(ctx, data.Namespace.ValueString())
+	if err == nil {
+		configured, err = resolveSMSv2InterfaceObjects(configuration, configured, objects)
+	}
+	if err != nil {
+		resp.Diagnostics.AddError("SMSv2 Interface Discovery Failed", err.Error())
+		return
+	}
 	deadline := d.nowTime().Add(time.Duration(data.TimeoutSeconds.ValueInt64()) * time.Second)
 	var peerStatus map[string]smsv2PeerStatusModel
 	var peers, bgpRoutes, sloRoutes, sliRoutes client.SMSv2Observation

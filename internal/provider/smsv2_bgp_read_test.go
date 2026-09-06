@@ -103,6 +103,9 @@ func bgpFixtureServer(t *testing.T, state *string, fail *bool) *httptest.Server 
 		w.Header().Set("Content-Type", "application/json")
 		var payload interface{}
 		switch request.URL.Path {
+		case "/api/config/namespaces/system/network_interfaces":
+			_ = json.NewEncoder(w).Encode(runtimeInterfaceObjects(runtimeConfiguration()))
+			return
 		case "/api/config/namespaces/system/securemesh_site_v2s/lab-site":
 			payload = runtimeConfiguration()
 		case "/api/operate/namespaces/system/sites/lab-site/ver/bgp_peers":
@@ -262,6 +265,9 @@ func TestSiteBGPStatusSessionIdentity(t *testing.T) {
 				requests++
 				var payload interface{}
 				switch r.URL.Path {
+				case "/api/config/namespaces/system/network_interfaces":
+					_ = json.NewEncoder(w).Encode(runtimeInterfaceObjects(runtimeConfiguration()))
+					return
 				case "/api/config/namespaces/system/securemesh_site_v2s/lab-site":
 					payload = runtimeConfiguration()
 				case "/api/operate/namespaces/system/sites/lab-site/ver/bgp_peers":

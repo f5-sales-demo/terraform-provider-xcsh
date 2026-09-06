@@ -87,6 +87,7 @@ func validateSecuremeshSiteV2AWSContract(
 			continue
 		}
 		macs := map[string]bool{}
+		devices := map[string]bool{}
 		roles := map[string]bool{}
 		unknownInterface := false
 		for interfaceIndex, iface := range interfaces {
@@ -141,10 +142,12 @@ func validateSecuremeshSiteV2AWSContract(
 				resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Required", "Each interface must declare an explicit SLO or SLI role.")
 				continue
 			}
-			expectedDevice := map[string]string{"slo": "eth0", "sli": "eth1"}[role]
-			if device != expectedDevice {
-				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "AWS SMSv2 Interface Device Does Not Match Role", fmt.Sprintf("Role %q must use guest device %q; got %q.", role, expectedDevice, device))
+			// The API requires a discovered ethernet device, whose name depends on
+			// the guest image and hardware. SLO/SLI do not imply eth0/eth1.
+			if devices[device] {
+				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "AWS SMSv2 Interface Device Is Duplicate", "Each ethernet device may be configured only once within its CE node.")
 			}
+			devices[device] = true
 			if roles[role] {
 				resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Duplicate", fmt.Sprintf("Role %q may appear only once per CE node.", role))
 			}

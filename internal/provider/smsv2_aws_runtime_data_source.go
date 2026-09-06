@@ -81,11 +81,12 @@ type Smsv2AWSRuntimeDataSourceModel struct {
 }
 
 type smsv2ConfiguredInterface struct {
-	Node string
-	Role string
-	MAC  string
-	Name string
-	MTU  int64
+	Device string
+	Node   string
+	Role   string
+	MAC    string
+	Name   string
+	MTU    int64
 }
 
 func smsv2NodeMatches(configured, observed string) bool {
@@ -249,14 +250,11 @@ func extractSMSv2ConfiguredInterfaces(configuration client.SMSv2Observation) ([]
 				return nil, fmt.Errorf("SMSv2 MAC %s is duplicated within node %q", mac, hostname)
 			}
 			seen[identity] = hostname
-			// External Connector addresses the platform-owned network_interface
-			// object, not the user-facing role label in interface_list.name.
-			name := fmt.Sprintf("ves-io-securemesh-site-v2-%s-network-%s-%s-0", siteName, hostname, device)
 			mtu := int64Field(iface, "mtu")
 			if mtu <= 0 {
 				return nil, fmt.Errorf("SMSv2 MAC %s has invalid MTU %d", mac, mtu)
 			}
-			result = append(result, smsv2ConfiguredInterface{Node: hostname, Role: role, MAC: mac, Name: name, MTU: mtu})
+			result = append(result, smsv2ConfiguredInterface{Node: hostname, Role: role, MAC: mac, Device: device, MTU: mtu})
 		}
 	}
 	return result, nil
@@ -332,6 +330,9 @@ func correlateSMSv2Runtime(bindings map[string]smsv2BindingModel, configured []s
 			return nil, fmt.Errorf("binding %q MAC %s resolved to %d configured interfaces", key, expected.MAC.ValueString(), len(matches))
 		}
 		got := matches[0]
+		if got.Name == "" {
+			return nil, fmt.Errorf("binding %q has no resolved network_interface object", key)
+		}
 		if got.Node != expected.Node.ValueString() || got.Role != expected.Role.ValueString() {
 			return nil, fmt.Errorf("binding %q disagrees with F5 XC configuration: got node=%q role=%q", key, got.Node, got.Role)
 		}
@@ -391,6 +392,13 @@ func (d *Smsv2AWSRuntimeDataSource) Read(ctx context.Context, req datasource.Rea
 			if readErr == nil {
 				var configured []smsv2ConfiguredInterface
 				configured, readErr = extractSMSv2ConfiguredInterfaces(configuration)
+				if readErr == nil {
+					var objects client.SMSv2Observation
+					objects, readErr = d.client.ListSMSv2NetworkInterfaces(ctx, data.Namespace.ValueString())
+					if readErr == nil {
+						configured, readErr = resolveSMSv2InterfaceObjects(configuration, configured, objects)
+					}
+				}
 				if readErr == nil {
 					interfaces, readErr = correlateSMSv2Runtime(bindings, configured, health)
 				}

@@ -117,7 +117,7 @@ func TestValidateSecuremeshSiteV2AWSContractKnownValues(t *testing.T) {
 		{name: "normalized duplicate mac", interfaces: []contractInterface{{mac: "02-00-00-00-00-01", role: "slo"}, {mac: "02:00:00:00:00:01", role: "sli"}}, want: "MAC Is Duplicate"},
 		{name: "missing device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "null"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Is Required"},
 		{name: "empty device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "empty"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Is Required"},
-		{name: "device role mismatch", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "eth1"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Does Not Match Role"},
+		{name: "duplicate device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "eth1"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Is Duplicate"},
 		{name: "missing sli", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}}, want: "SLI Is Required"},
 		{name: "duplicate role", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "slo"}}, want: "Role Is Duplicate"},
 		{name: "ambiguous role", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "ambiguous"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Role Is Ambiguous"},
@@ -215,5 +215,17 @@ func TestValidateSecuremeshSiteV2AWSDiscovery(t *testing.T) {
 		if response.Diagnostics.HasError() {
 			t.Fatalf("discovery configuration rejected: %v", response.Diagnostics)
 		}
+	}
+}
+
+func TestValidateSecuremeshSiteV2AWSDiscoveredDevices(t *testing.T) {
+	data := awsSMSv2ContractFixture(t, []contractInterface{
+		{mac: "02:00:00:00:00:01", role: "slo", device: "ens5"},
+		{mac: "02:00:00:00:00:02", role: "sli", device: "ens6"},
+	})
+	var resp resource.ValidateConfigResponse
+	validateSecuremeshSiteV2AWSContract(context.Background(), data, &resp)
+	if resp.Diagnostics.HasError() {
+		t.Fatalf("rejected discovered device names: %v", resp.Diagnostics)
 	}
 }
