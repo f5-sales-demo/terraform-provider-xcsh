@@ -40,13 +40,23 @@ type LegacyField struct {
 }
 
 type CurrentManifest struct {
-	Version                 string              `json:"version"`
-	Resource                string              `json:"resource"`
-	PathCount               int                 `json:"path_count"`
-	Paths                   []CurrentField      `json:"paths"`
-	ChoiceGroups            map[string][]string `json:"choice_groups"`
-	DeprecatedExclusions    []string            `json:"deprecated_exclusions"`
-	CurrentPlatformRemovals []string            `json:"current_platform_removals"`
+	Version                 string                     `json:"version"`
+	Resource                string                     `json:"resource"`
+	PathCount               int                        `json:"path_count"`
+	Paths                   []CurrentField             `json:"paths"`
+	ChoiceGroups            map[string][]string        `json:"choice_groups"`
+	DeprecatedExclusions    []string                   `json:"deprecated_exclusions"`
+	PlatformRemovalEvidence map[string]RemovalEvidence `json:"platform_removal_evidence"`
+	CurrentPlatformRemovals []string                   `json:"current_platform_removals"`
+}
+
+type RemovalEvidence struct {
+	ProofKind           string `json:"proof_kind"`
+	HTTPStatus          int    `json:"http_status"`
+	ServerMessage       string `json:"server_message"`
+	ObservedDate        string `json:"observed_date"`
+	LegacyFixtureSHA256 string `json:"legacy_fixture_sha256"`
+	ProbeReceiptSHA256  string `json:"probe_receipt_sha256"`
 }
 
 type CurrentField struct {
@@ -76,14 +86,15 @@ type FieldSemantics struct {
 }
 
 type MatrixEntry struct {
-	LegacyPath       string          `json:"legacy_path,omitempty"`
-	CurrentPath      string          `json:"current_path,omitempty"`
-	Classification   string          `json:"classification"`
-	Reason           string          `json:"reason"`
-	OwningRepository string          `json:"owning_repository,omitempty"`
-	RequiredTests    []string        `json:"required_tests,omitempty"`
-	Legacy           *FieldSemantics `json:"legacy,omitempty"`
-	Current          *FieldSemantics `json:"current,omitempty"`
+	RemovalEvidence  *RemovalEvidence `json:"removal_evidence,omitempty"`
+	LegacyPath       string           `json:"legacy_path,omitempty"`
+	CurrentPath      string           `json:"current_path,omitempty"`
+	Classification   string           `json:"classification"`
+	Reason           string           `json:"reason"`
+	OwningRepository string           `json:"owning_repository,omitempty"`
+	RequiredTests    []string         `json:"required_tests,omitempty"`
+	Legacy           *FieldSemantics  `json:"legacy,omitempty"`
+	Current          *FieldSemantics  `json:"current,omitempty"`
 }
 
 type Matrix struct {
@@ -196,6 +207,15 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 	consumedCurrent := make(map[string]bool, len(current.Paths))
 	for _, field := range legacy.Paths {
 		entry := classifyLegacyField(field, currentByPath, conflicts, generated)
+		if entry.Classification == "" {
+			if proof := verifiedRemoval(apiPath(field.Path), current); proof != nil {
+				entry.Classification = "current_platform_removal"
+				entry.Reason = proof.ServerMessage
+				entry.RemovalEvidence = proof
+				entry.OwningRepository = "f5-sales-demo/api-specs-enriched"
+				entry.RequiredTests = []string{"explicit platform rejection", "legacy fixture and live receipt digest verification"}
+			}
+		}
 		if entry.Classification == "" {
 			entry.Classification = "missing"
 			entry.Reason = "legacy capability has no independently verified current mapping or platform-removal evidence"
@@ -448,4 +468,32 @@ func apiPath(terraform string) string {
 
 func terraformPath(api string) string {
 	return strings.TrimPrefix(strings.TrimPrefix(api, "metadata."), "spec.")
+}
+
+// verifiedRemoval requires scoped evidence; a deprecated annotation or a bare
+// exclusion list cannot establish platform removal.
+func verifiedRemoval(path string, current *CurrentManifest) *RemovalEvidence {
+	for _, root := range current.CurrentPlatformRemovals {
+		if path != root && !strings.HasPrefix(path, root+".") {
+			continue
+		}
+		proof, ok := current.PlatformRemovalEvidence[root]
+		if !ok || proof.ProofKind != "explicit_api_rejection" || proof.ServerMessage == "" || proof.ObservedDate == "" || !validSHA256(proof.LegacyFixtureSHA256) || !validSHA256(proof.ProbeReceiptSHA256) {
+			continue
+		}
+		if proof.HTTPStatus != 400 && proof.HTTPStatus != 410 && proof.HTTPStatus != 422 {
+			continue
+		}
+		present := false
+		for _, field := range current.Paths {
+			if field.Path == root || strings.HasPrefix(field.Path, root+".") {
+				present = true
+				break
+			}
+		}
+		if !present {
+			return &proof
+		}
+	}
+	return nil
 }

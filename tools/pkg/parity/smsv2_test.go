@@ -3,6 +3,8 @@
 package parity
 
 import (
+	"encoding/json"
+	"strings"
 	"testing"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
@@ -144,5 +146,30 @@ func TestGeneratedParitySeparatesSchemaPathFromWireName(t *testing.T) {
 	}
 	if len(matrix.Entries) != 1 || !matrix.Entries[0].Current.Generated || matrix.Entries[0].Current.WireKey != "blocked_sevice" {
 		t.Fatalf("wire identity lost: %+v", matrix)
+	}
+}
+
+func TestVerifiedPlatformRemovalIsScopedAndRetainsEvidence(t *testing.T) {
+	proof := `{"current_platform_removals":["spec.rseries"],"platform_removal_evidence":{"spec.rseries":{"proof_kind":"explicit_api_rejection","http_status":400,"server_message":"Rseries provider is not supported for SecureMeshSite","observed_date":"2026-09-06","legacy_fixture_sha256":"sha256:` + strings.Repeat("a", 64) + `","probe_receipt_sha256":"sha256:` + strings.Repeat("b", 64) + `"}}}`
+	var current CurrentManifest
+	if err := json.Unmarshal([]byte(proof), &current); err != nil {
+		t.Fatal(err)
+	}
+	legacy := &LegacyManifest{Paths: []LegacyField{{Path: "rseries"}, {Path: "rseries.not_managed.node_list[].hostname"}, {Path: "rseries_other"}}}
+	matrix, err := BuildSMSv2Matrix(legacy, &current)
+	if err == nil || len(matrix.Unclassified) != 1 || matrix.Unclassified[0] != "rseries_other" || matrix.Classification["current_platform_removal"] != 2 {
+		t.Fatalf("removal scope incorrect: %+v %v", matrix, err)
+	}
+	data, _ := json.Marshal(matrix)
+	if !strings.Contains(string(data), "probe_receipt_sha256") {
+		t.Fatal("matrix discarded evidence provenance")
+	}
+	var unsupported CurrentManifest
+	if err := json.Unmarshal([]byte(strings.ReplaceAll(proof, "explicit_api_rejection", "deprecation_annotation")), &unsupported); err != nil {
+		t.Fatal(err)
+	}
+	matrix, _ = BuildSMSv2Matrix(legacy, &unsupported)
+	if len(matrix.Unclassified) != 3 {
+		t.Fatal("unsupported removal must remain unresolved")
 	}
 }

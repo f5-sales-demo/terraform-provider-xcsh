@@ -101,8 +101,8 @@ legacy platform branch. Repeating the AWS capture is byte-identical.
 
 Eleven discovery/software-default requests also matched the current locally
 built provider requests exactly. The twelfth, `rseries`, is absent from the
-current Terraform schema and fails before sending a request. This is a missing
-capability, not verified platform removal. In that fixture, legacy `enable_ha = false` is
+current Terraform schema and fails before sending a request. A subsequent live request received an explicit unsupported-platform rejection;
+its evidence now establishes platform removal. In that fixture, legacy `enable_ha = false` is
 omitted rather than serialized as a disable-HA choice. These captures prove
 request serialization only; discovery, realized nodes and platform lifecycles
 still require their separate acceptance evidence.
@@ -139,8 +139,8 @@ selected zero CEs and the expected VIP route was absent. The first CE now carrie
 site selector exposed a second defect: its ReplaceSpecType is empty and the
 server ignored the spec change. Enrichment now marks selector/site type immutable;
 the generator preserves mutability through references and emits block replacement
-modifiers. A regenerated, tested provider must recreate the virtual site before
-VIP placement can be verified. The other tunnels and traffic remain unverified. Separate AWS boot-console reads correlated all three
+modifiers. The regenerated and reviewed provider recreated the virtual site; independent
+read-back confirms its selector and selection of CE01. The other tunnels and traffic remain unverified. Separate AWS boot-console reads correlated all three
 sites' ENI MACs with guest devices `ens5` and `ens6`; only the first SLI has been
 changed so far.
 See F5's [Site CLI reference](https://docs.cloud.f5.com/docs-v2/multi-cloud-network-connect/reference/ea-sitecli-ref).
@@ -150,10 +150,11 @@ to `15897bb91e06ef5ed5b6057c1ee73159f59a0af7`.
 
 The first existing MCN site received the single SLI device update described above;
 its remote Terraform state was refreshed by apply. The other two sites were
-inspected read-only. The isolated JWT test objects were created and deleted; no
-AWS resources were changed or replaced. Existing v7.4.1 remains
+inspected read-only. The isolated JWT test objects were created and deleted. The first SLI Connect
+attachment association and propagation were added; CE instances remain intact. Existing v7.4.1 remains
 unchanged, and no PR or release has been published. The full generation command remains blocked: the pinned v6.1.1 manifest has
-584 unresolved paths, while the corrected local enrichment manifest has 579.
+584 unresolved paths. The corrected local manifest and verified rSeries removal
+now leave 467 unresolved paths.
 An operational publication hold is installed and verified in GitHub: provider
 `on-merge.yml`, `release-manual.yml`, `_tag-release.yml` and enrichment
 `sync-and-enrich.yml` are disabled, with no active runs at installation.
@@ -194,3 +195,25 @@ The [KVM deployment instructions](https://docs.cloud.f5.com/docs-v2/multi-cloud-
 list DHCP client and static IP as interface-address choices. These documents,
 legacy serialization and current schema absence must be evaluated separately;
 they do not justify silently classifying the repeated missing paths as parity.
+
+## Verified platform removal and virtual-site recovery
+
+The current XC API rejected the exact pinned legacy rSeries discovery request
+with HTTP 400: `Rseries provider is not supported for SecureMeshSite`. The
+sanitized enrichment evidence binds that result to the legacy fixture and
+protected live receipt digests. All 112 rSeries paths are recorded as verified
+platform removal; rSeries is not carried forward. The regenerated matrix leaves
+467 unresolved paths, with no other removal inferred from deprecation alone.
+
+Provider candidate `9fd9cc817230` passed local tests, affected race checks, lint,
+pre-commit and direct AGY review. Its reviewed saved Terraform plan replaced
+only the VIP virtual site. Independent API reads confirmed a new UID, the desired
+`mcn-topology` selector and selection of CE01. This establishes selector lifecycle
+behavior and placement selection; traffic and complete-topology acceptance remain
+separate requirements.
+
+Following the selector replacement, the bounded HTTP request from the owned AWS
+workload instance to the configured VIP and Host returned HTTP 200. Both first-SLI
+BGP sessions remained established and each accepted the workload prefix. This is
+first-tunnel recovery evidence, not acceptance of the remaining topology,
+redundancy, upgrades or rebuilds.
