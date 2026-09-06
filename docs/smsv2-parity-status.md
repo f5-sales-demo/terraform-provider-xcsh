@@ -252,3 +252,30 @@ configuration and recovery of CE02/CE03 remain outstanding.
 The addressing candidate passed full internal and tooling suites, affected
 provider race tests and deterministic regeneration (679 provider/client Go files
 were byte-identical). Enrichment commit `9c93baac` passed direct AGY review.
+
+## Twelve-session recovery evidence
+
+Fresh independent observations on September 6 confirmed all twelve sessions
+Established in XC and up in AWS across the three CEs and six Connect peers. Each
+session's imported route path contains the expected workload prefix and its exact
+AWS endpoint. A bounded request from the owned workload instance to the shared
+VIP returned HTTP 200. The evidence receipt has SHA256
+`a3915c42a4733c67d6b480bac22db36ecb09855669bf8ab7c496765e15c7c290`;
+its protected content-addressed archive preserves the observations and local
+provider artifact `55914ce5b92bd391840d4802b073869387f7d7b6`.
+
+CE02 and CE03 recovered through separate reviewed device, connector and BGP
+updates. Their site UIDs were preserved, and physical user-visible interfaces
+matched the verified devices by MAC. This supersedes the partial topology status
+above. Shared VIP availability does not identify which CE carried that request.
+Per-session redundancy, CE failover, VIP route identity, the multihop contract,
+serial upgrades, the second rebuild and a refresh-enabled no-change plan remain
+outstanding. The 236 unresolved parity paths still block publication.
+
+The route checker previously pooled imported and exported prefixes across a
+node. A route learned through another session could therefore satisfy an
+expected peer's route requirement. The new regression requires an imported path
+whose remote address matches that session; missing path identity and exported
+routes alone cannot satisfy it. This behavioral correction is part of the same
+consolidated provider PR. The twelve-session receipt predates this correction
+and does not validate its final artifact.

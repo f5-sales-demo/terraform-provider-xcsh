@@ -80,7 +80,7 @@ func bgpRoutesFixture() map[string]interface{} {
 	return map[string]interface{}{"ver": []interface{}{map[string]interface{}{
 		"name": "master-0.example.internal", "ri_table": []interface{}{map[string]interface{}{
 			"rt_table": []interface{}{map[string]interface{}{
-				"imported": []interface{}{map[string]interface{}{"subnet": "10.10.0.0/16"}},
+				"imported": []interface{}{map[string]interface{}{"subnet": "10.10.0.0/16", "path": []interface{}{map[string]interface{}{"peer": "169.254.10.1"}, map[string]interface{}{"peer": "169.254.10.2"}}}},
 				"exported": []interface{}{map[string]interface{}{"subnet": "10.20.0.0/16"}},
 			}},
 		}},
