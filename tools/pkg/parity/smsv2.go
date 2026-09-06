@@ -381,12 +381,14 @@ func flattenTerraformAttributes(attrs []openapi.TerraformAttribute) map[string]o
 	var walk func([]openapi.TerraformAttribute, string)
 	walk = func(fields []openapi.TerraformAttribute, prefix string) {
 		for _, attr := range fields {
-			name := attr.JsonName
+			// Manifest paths identify enriched properties; JsonName preserves the
+			// outgoing API key, which can differ after a deliberate rename.
+			name := attr.Name
 			if name == "" {
-				name = attr.TfsdkTag
+				name = attr.JsonName
 			}
 			if name == "" {
-				name = attr.Name
+				name = attr.TfsdkTag
 			}
 			if name == "" {
 				continue

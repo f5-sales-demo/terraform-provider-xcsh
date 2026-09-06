@@ -147,6 +147,9 @@ func HasInt64RangeValidatorsAny(attributes []openapi.TerraformAttribute) bool {
 // ScanPlanModifierUsage recursively scans attributes to determine which plan modifier imports are needed.
 func ScanPlanModifierUsage(attributes []openapi.TerraformAttribute) (usesBool, usesInt64, usesString, usesList, usesMap bool) {
 	for _, attr := range attributes {
+		if attr.IsBlock && attr.NestedBlockType == "list" && attr.PlanModifier == "RequiresReplace" {
+			usesList = true
+		}
 		if attr.PlanModifier != "" && !attr.IsBlock {
 			switch attr.Type {
 			case "bool":
@@ -173,12 +176,26 @@ func ScanPlanModifierUsage(attributes []openapi.TerraformAttribute) (usesBool, u
 	return
 }
 
+// HasImmutableObjectBlock reports whether any nested object requires replacement.
+func HasImmutableObjectBlock(attributes []openapi.TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if attr.IsBlock && attr.NestedBlockType != "list" && attr.PlanModifier == "RequiresReplace" {
+			return true
+		}
+		if HasImmutableObjectBlock(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
 // RefreshResourcePlanModifierUsage recalculates template import flags after a
 // caller mutates resource attributes. Generator orchestration can apply
 // RequiresReplace after extraction (for resources without an update
 // operation), so the flags captured during extraction are no longer
 // authoritative at render time.
 func RefreshResourcePlanModifierUsage(resource *openapi.ResourceTemplate) {
+	resource.UsesObjectPlanModifier = HasImmutableObjectBlock(resource.Attributes)
 	resource.UsesBoolPlanModifier,
 		resource.UsesInt64PlanModifier,
 		resource.UsesStringPlanModifier,

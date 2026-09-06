@@ -32,6 +32,9 @@ import (
 {{- if .UsesInt64PlanModifier}}
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 {{- end}}
+{{- if .UsesObjectPlanModifier}}
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
+{{- end}}
 {{- if .UsesListPlanModifier}}
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
 {{- end}}
@@ -230,7 +233,7 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- if .IsBlock}}
 			"{{.TfsdkTag}}": schema.{{if eq .NestedBlockType "single"}}SingleNestedBlock{{else if eq .NestedBlockType "list"}}ListNestedBlock{{else}}SingleNestedBlock{{end}}{
 				MarkdownDescription: "{{.Description}}{{if and (eq $.Name "securemesh_site_v2") (eq .TfsdkTag "software_settings")}} This block is a create-only, write-only input; changing it replaces the resource, and refresh preserves the configured value without claiming XC observed it.{{end}}",
-{{renderConditionalRequired . "\t\t\t\t"}}
+{{renderConditionalRequired . "\t\t\t\t"}}{{renderBlockPlanModifiers . "\t\t\t\t"}}
 {{- if eq .NestedBlockType "list"}}
 				NestedObject: schema.NestedBlockObject{
 {{- if .NestedAttributes}}

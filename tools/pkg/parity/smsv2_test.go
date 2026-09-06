@@ -133,3 +133,16 @@ func TestPlatformRemovalRequiresIndependentEvidence(t *testing.T) {
 		t.Fatalf("a hard-coded field name is not removal evidence: %+v %v", matrix, err)
 	}
 }
+
+func TestGeneratedParitySeparatesSchemaPathFromWireName(t *testing.T) {
+	legacy := &LegacyManifest{Paths: []LegacyField{{Path: "blocked_services.blocked_sevice[]", WireKey: "blocked_sevice", Type: "list", Cardinality: "list", Optional: true}}}
+	current := &CurrentManifest{Paths: []CurrentField{{Path: "spec.blocked_services.blocked_service[]", WireKey: "blocked_sevice", Type: "array", Cardinality: "list"}}}
+	attrs := []openapi.TerraformAttribute{{Name: "blocked_services", IsBlock: true, NestedBlockType: "single", NestedAttributes: []openapi.TerraformAttribute{{Name: "blocked_service", JsonName: "blocked_sevice", TfsdkTag: "blocked_service", IsBlock: true, NestedBlockType: "list", Optional: true}}}}
+	matrix, err := BuildSMSv2MatrixFromTerraform(legacy, current, attrs)
+	if err != nil {
+		t.Fatalf("logical rename must retain generated capability: %v", err)
+	}
+	if len(matrix.Entries) != 1 || !matrix.Entries[0].Current.Generated || matrix.Entries[0].Current.WireKey != "blocked_sevice" {
+		t.Fatalf("wire identity lost: %+v", matrix)
+	}
+}

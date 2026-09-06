@@ -2466,3 +2466,36 @@ func TestSecuremeshSoftwareSettingsIsCreateOnlyAndWriteOnly(t *testing.T) {
 		t.Fatalf("read claimed write-only software_settings from XC: %s", unmarshalCode)
 	}
 }
+
+func TestImmutableNestedBlocksRequireReplacement(t *testing.T) {
+	for _, kind := range []string{"single", "list"} {
+		t.Run(kind, func(t *testing.T) {
+			attr := openapi.TerraformAttribute{Name: "selector", GoName: "Selector", TfsdkTag: "selector", Type: "object", IsBlock: true, NestedBlockType: kind, PlanModifier: "RequiresReplace"}
+			actual := RenderNestedBlocks([]openapi.TerraformAttribute{attr}, "")
+			modifier := "objectplanmodifier.RequiresReplace()"
+			if kind == "list" {
+				modifier = "listplanmodifier.RequiresReplace()"
+			}
+			if !strings.Contains(actual, modifier) {
+				t.Fatalf("immutable %s block lost replacement semantics: %s", kind, actual)
+			}
+		})
+	}
+}
+
+func TestImmutableTopLevelBlockRequiresReplacement(t *testing.T) {
+	dir := t.TempDir()
+	r := &openapi.ResourceTemplate{Name: "selector_fixture", TitleCase: "SelectorFixture", HasBlocks: true, Attributes: []openapi.TerraformAttribute{
+		{Name: "selector", GoName: "Selector", TfsdkTag: "selector", Type: "object", IsBlock: true, NestedBlockType: "single", PlanModifier: "RequiresReplace"},
+	}}
+	if err := GenerateResourceFile(r, dir); err != nil {
+		t.Fatal(err)
+	}
+	contents, err := os.ReadFile(filepath.Join(dir, "selector_fixture_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(contents), "objectplanmodifier.RequiresReplace()") {
+		t.Fatal("top-level immutable block lost replacement semantics")
+	}
+}

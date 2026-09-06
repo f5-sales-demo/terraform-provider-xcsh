@@ -1537,6 +1537,7 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 		sb.WriteString(fmt.Sprintf("%s\t\"%s\": schema.%s{\n", indent, attr.TfsdkTag, blockType))
 		sb.WriteString(fmt.Sprintf("%s\t\tMarkdownDescription: \"%s\",\n", indent, desc))
 		sb.WriteString(RenderConditionalRequiredValidators(attr, indent+"\t\t"))
+		sb.WriteString(RenderBlockPlanModifiers(attr, indent+"\t\t"))
 
 		if attr.NestedBlockType == "list" {
 			sb.WriteString(fmt.Sprintf("%s\t\tNestedObject: schema.NestedBlockObject{\n", indent))
@@ -1560,6 +1561,17 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 
 	sb.WriteString(indent + "},\n")
 	return sb.String()
+}
+
+// RenderBlockPlanModifiers preserves immutable semantics at every block depth.
+func RenderBlockPlanModifiers(attr openapi.TerraformAttribute, indent string) string {
+	if attr.PlanModifier != "RequiresReplace" {
+		return ""
+	}
+	if attr.NestedBlockType == "list" {
+		return fmt.Sprintf("%sPlanModifiers: []planmodifier.List{listplanmodifier.RequiresReplace()},\n", indent)
+	}
+	return fmt.Sprintf("%sPlanModifiers: []planmodifier.Object{objectplanmodifier.RequiresReplace()},\n", indent)
 }
 
 // RenderConditionalRequiredValidators emits a parent-block validator for

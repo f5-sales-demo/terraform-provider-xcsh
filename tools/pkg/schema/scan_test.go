@@ -255,3 +255,21 @@ func TestHasInt64RangeValidatorsAny_MinZero(t *testing.T) {
 		t.Error("want true for a field with HasMinimum (minimum:0)")
 	}
 }
+
+func TestImmutableBlockModifierImports(t *testing.T) {
+	resource := &openapi.ResourceTemplate{Attributes: []openapi.TerraformAttribute{
+		{IsBlock: true, NestedAttributes: []openapi.TerraformAttribute{
+			{IsBlock: true, NestedBlockType: "single", PlanModifier: "RequiresReplace"},
+			{IsBlock: true, NestedBlockType: "list", PlanModifier: "RequiresReplace"},
+		}},
+	}}
+	RefreshResourcePlanModifierUsage(resource)
+	if !resource.UsesObjectPlanModifier || !resource.UsesListPlanModifier {
+		t.Fatal("nested immutable blocks need object and list plan-modifier imports")
+	}
+	resource.Attributes = nil
+	RefreshResourcePlanModifierUsage(resource)
+	if resource.UsesObjectPlanModifier || resource.UsesListPlanModifier {
+		t.Fatal("stale block plan-modifier imports survived refresh")
+	}
+}

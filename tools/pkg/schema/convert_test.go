@@ -543,3 +543,21 @@ func TestExtractNestedAttributes_ObjectReferenceServerFieldsComputedOnly(t *test
 		t.Errorf("namespace must stay Optional+Computed+UseStateForUnknown, got %+v", ns)
 	}
 }
+
+func TestReferencedFieldPreservesPropertyMutability(t *testing.T) {
+	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{
+		"Selector": {Type: "object", Properties: map[string]openapi.Schema{"expressions": {Type: "array", Items: &openapi.Schema{Type: "string"}}}},
+	}}}
+	for _, direct := range []bool{false, true} {
+		field := openapi.Schema{XFieldMutability: "immutable"}
+		if direct {
+			field.Ref = "#/components/schemas/Selector"
+		} else {
+			field.AllOf = []openapi.Schema{{Ref: "#/components/schemas/Selector"}}
+		}
+		got := ConvertToTerraformAttribute("site_selector", field, false, "", spec)
+		if !got.Immutable || got.PlanModifier != "RequiresReplace" || !got.IsBlock {
+			t.Fatalf("reference lost property mutability (direct=%v): %+v", direct, got)
+		}
+	}
+}

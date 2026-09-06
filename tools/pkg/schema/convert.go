@@ -250,6 +250,7 @@ func ConvertToTerraformAttribute(name string, schema openapi.Schema, required bo
 func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, required bool, oneOfGroup string, spec *openapi.Spec, depth int, fieldPath string) openapi.TerraformAttribute {
 	// Preserve extensions from original schema before resolving $ref
 	// Extensions like x-f5xc-server-default are on the property, not the referenced schema
+	fieldMutability := schema.XFieldMutability
 	serverDefault := schema.XF5XCServerDefault
 	defaultValue := schema.Default // Preserve actual default value
 	descShort := schema.XF5XCDescriptionShort
@@ -280,6 +281,9 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	if schema.Ref != "" {
 		schema = ResolveRef(schema.Ref, spec)
 		// Restore preserved extensions (property-level extensions take precedence)
+		if fieldMutability != "" {
+			schema.XFieldMutability = fieldMutability
+		}
 		if serverDefault {
 			schema.XF5XCServerDefault = serverDefault
 		}

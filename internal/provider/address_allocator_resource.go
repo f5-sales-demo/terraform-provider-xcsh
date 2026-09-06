@@ -20,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -178,6 +179,7 @@ func (r *AddressAllocatorResource) Schema(ctx context.Context, req resource.Sche
 			"address_allocation_scheme": schema.SingleNestedBlock{
 				MarkdownDescription: "Decides the scheme to be used to allocate addresses from the configured address pool.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("allocation_unit")},
+				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
 
 				Attributes: map[string]schema.Attribute{
 					"allocation_unit": schema.Int64Attribute{

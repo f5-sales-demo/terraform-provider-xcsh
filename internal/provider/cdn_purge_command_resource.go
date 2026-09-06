@@ -17,6 +17,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -186,16 +187,20 @@ func (r *CDNPurgeCommandResource) Schema(ctx context.Context, req resource.Schem
 			}),
 			"hard_purge": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: hard_purge, soft_purge] Enable this option",
+				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
 			},
 			"purge_all": schema.SingleNestedBlock{
 				MarkdownDescription: "Enable this option",
+				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
 			},
 			"soft_purge": schema.SingleNestedBlock{
 				MarkdownDescription: "Enable this option",
+				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
 			},
 			"virtual_host": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
 
 				Attributes: map[string]schema.Attribute{
 					"name": schema.StringAttribute{

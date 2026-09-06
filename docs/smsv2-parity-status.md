@@ -91,6 +91,22 @@ The first recovered session reports an external-neighbor hop limit of 255.
 It establishes, but that observation does not prove the documented TTL 2 contract;
 packet-level evidence and a supported configuration path remain outstanding.
 
+## Independent request captures
+
+`tools/capture-legacy-smsv2.py` runs the pinned Linux amd64 Volterra 0.12.2
+binary against an isolated loopback HTTPS API. It checks the binary digest,
+uses a temporary test certificate and state, and never loads cloud credentials.
+The twelve discovery fixtures in `tools/testdata/legacy-smsv2/` cover every
+legacy platform branch. Repeating the AWS capture is byte-identical.
+
+Eleven discovery/software-default requests also matched the current locally
+built provider requests exactly. The twelfth, `rseries`, is absent from the
+current Terraform schema and fails before sending a request. This is a missing
+capability, not verified platform removal. In that fixture, legacy `enable_ha = false` is
+omitted rather than serialized as a disable-HA choice. These captures prove
+request serialization only; discovery, realized nodes and platform lifecycles
+still require their separate acceptance evidence.
+
 ## Live findings and release boundary
 
 Scoped read-only checks on the existing three-site AWS lab returned all six
@@ -119,8 +135,12 @@ associations and propagation. Separate reviewed plans enabled those settings for
 the SLI attachment. Both sessions then accepted the workload prefix, AWS reported
 both sessions up, and the local provider confirmed both same-MAC sessions and
 workload route agreement. HTTP to the VIP still timed out: the virtual site
-selected zero CEs and the expected VIP route was absent. MCN placement is being
-repaired with explicit site labels. The other tunnels and traffic remain unverified. Separate AWS boot-console reads correlated all three
+selected zero CEs and the expected VIP route was absent. The first CE now carries the explicit MCN topology label. Updating the virtual
+site selector exposed a second defect: its ReplaceSpecType is empty and the
+server ignored the spec change. Enrichment now marks selector/site type immutable;
+the generator preserves mutability through references and emits block replacement
+modifiers. A regenerated, tested provider must recreate the virtual site before
+VIP placement can be verified. The other tunnels and traffic remain unverified. Separate AWS boot-console reads correlated all three
 sites' ENI MACs with guest devices `ens5` and `ens6`; only the first SLI has been
 changed so far.
 See F5's [Site CLI reference](https://docs.cloud.f5.com/docs-v2/multi-cloud-network-connect/reference/ea-sitecli-ref).
@@ -141,3 +161,36 @@ PR checks remain enabled. The final digest-bound governed promotion gate remains
 outstanding; the hold must stay in place until its acceptance conditions are met. Complete parity, live traffic/redundancy/upgrades,
 the second rebuild, refreshed no-change plan, final artifact receipts and direct
 AGY review remain outstanding.
+
+## Consolidated delivery
+
+Issue #2031 will deliver the provider parity repairs in one consolidated PR.
+Keep the failing-regression, implementation, regeneration and verification loop
+local until the complete candidate is reviewable. Enrichment #1738 and MCN #1097
+remain linked changes in their owning repositories; do not split individual
+parity repairs into additional PRs or push each local iteration into CI.
+
+This is a clean-break prerelease. Compatibility shims and rollback support are
+not acceptance requirements. The authorized MCN development environment is
+ephemeral and may be destroyed and rebuilt to verify idempotence. Exact target
+identity, reviewed saved plans and preservation of unrelated resources still
+apply.
+
+## Interface-addressing evidence
+
+The installed legacy binary accepts explicit-node `static-dns` and `dhcp-server`
+fixtures. Their captures retain the synthetic Terraform inputs alongside the
+outgoing request, so omitted enum defaults can be distinguished from unconfigured
+fields. In the AWS capture, the deprecated static `dns_server` is transmitted.
+The DHCP capture transmits option 82, fixed MAC assignments and excluded address
+pools. The explicitly configured include-pools enum is omitted on the wire as its
+protobuf default. These observations do not establish that a cloud API accepts or
+realizes these settings.
+
+The current [F5 SMSv2 FAQ](https://docs.cloud.f5.com/docs-v2/multi-cloud-network-connect/faqs/smsv2-faqs),
+checked on September 6, 2026, lists DHCP server support on baremetal as a feature
+gap. Its scope does not establish removal across all legacy platform branches.
+The [KVM deployment instructions](https://docs.cloud.f5.com/docs-v2/multi-cloud-network-connect/how-to/site-management/deploy-sms-kvm-clickops)
+list DHCP client and static IP as interface-address choices. These documents,
+legacy serialization and current schema absence must be evaluated separately;
+they do not justify silently classifying the repeated missing paths as parity.

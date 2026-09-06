@@ -19,6 +19,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -541,6 +542,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 			"infra": schema.SingleNestedBlock{
 				MarkdownDescription: "InfraMetadata stores information about instance infrastructure.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("hostname", "interfaces")},
+				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
 
 				Attributes: map[string]schema.Attribute{
 					"availability_zone": schema.StringAttribute{
@@ -1085,6 +1087,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 			"passport": schema.SingleNestedBlock{
 				MarkdownDescription: "Passport stores information about identification and node configuration provided by CE during registration. It can be manually updated by user during approval.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_name", "cluster_type", "latitude", "longitude")},
+				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
 
 				Attributes: map[string]schema.Attribute{
 					"cluster_name": schema.StringAttribute{
