@@ -279,3 +279,19 @@ whose remote address matches that session; missing path identity and exported
 routes alone cannot satisfy it. This behavioral correction is part of the same
 consolidated provider PR. The twelve-session receipt predates this correction
 and does not validate its final artifact.
+
+## Physical transport readiness
+
+The runtime reader now requires registered-site interface status in addition to
+site provisioning and resolved interface objects. Each requested transport must
+match its configured node, MAC, device and physical SLO/SLI network role in one
+published interface-status document that is not marked stale. Its Ethernet link
+must report up. Missing, ambiguous, stale and down observations fail bounded
+readiness polling with a physical-link diagnostic. Backup interfaces remain
+healthy when their physical link is up.
+
+Read-only observations of the recovered three-CE lab show all six physical links
+up with the expected MAC and device identities. These observations establish the
+API response shape; the revised provider's artifact-bound live validation remains
+separate. The API's status publication metadata identifies the node; the reader
+does not construct a VER instance name or infer physical health from tunnel status.

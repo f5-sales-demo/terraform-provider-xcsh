@@ -71,7 +71,7 @@ func TestSMSv2ObservationEndpoints(t *testing.T) {
 	if _, err := c.GetSMSv2SimplifiedRoutes(ctx, "system", "lab-site", "slo"); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := c.GetSMSv2SiteUpgradeStatus(ctx, "system", "lab-site"); err != nil {
+	if _, err := c.GetSMSv2SiteStatus(ctx, "system", "lab-site"); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := c.GetSMSv2UpgradableSoftwareVersions(ctx, "9.2026.10", "crt-20251002-0027"); err != nil {

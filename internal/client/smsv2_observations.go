@@ -55,7 +55,7 @@ func (c *Client) GetSMSv2SimplifiedRoutes(ctx context.Context, namespace, site, 
 	return result, err
 }
 
-func (c *Client) GetSMSv2SiteUpgradeStatus(ctx context.Context, namespace, site string) (SMSv2Observation, error) {
+func (c *Client) GetSMSv2SiteStatus(ctx context.Context, namespace, site string) (SMSv2Observation, error) {
 	var result SMSv2Observation
 	path := fmt.Sprintf("/api/config/namespaces/%s/sites/%s", escapeSMSv2Path(namespace), escapeSMSv2Path(site))
 	err := c.Get(ctx, path, &result)

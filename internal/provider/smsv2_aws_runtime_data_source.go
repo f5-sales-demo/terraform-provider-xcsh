@@ -100,7 +100,7 @@ func (d *Smsv2AWSRuntimeDataSource) Metadata(_ context.Context, req datasource.M
 }
 
 func (d *Smsv2AWSRuntimeDataSource) Schema(_ context.Context, _ datasource.SchemaRequest, resp *datasource.SchemaResponse) {
-	resp.Schema = schema.Schema{MarkdownDescription: "Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and node health.", Attributes: map[string]schema.Attribute{
+	resp.Schema = schema.Schema{MarkdownDescription: "Correlates AWS ENI identities with SMSv2 configuration, site provisioning and published physical-link status.", Attributes: map[string]schema.Attribute{
 		"id":                    schema.StringAttribute{Computed: true},
 		"namespace":             schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.OneOf("system")}},
 		"site":                  schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
@@ -401,6 +401,13 @@ func (d *Smsv2AWSRuntimeDataSource) Read(ctx context.Context, req datasource.Rea
 				}
 				if readErr == nil {
 					interfaces, readErr = correlateSMSv2Runtime(bindings, configured, health)
+				}
+				if readErr == nil {
+					var siteStatus client.SMSv2Observation
+					siteStatus, readErr = d.client.GetSMSv2SiteStatus(ctx, data.Namespace.ValueString(), data.Site.ValueString())
+					if readErr == nil {
+						readErr = validateSMSv2PhysicalLinks(configuration, siteStatus, configured, bindings)
+					}
 				}
 			}
 		}

@@ -83,6 +83,8 @@ func TestSMSv2AWSRuntimeDataSourceReadAndHTTPFailure(t *testing.T) {
 		}
 		w.Header().Set("Content-Type", "application/json")
 		switch request.URL.Path {
+		case "/api/config/namespaces/system/sites/lab-site":
+			_ = json.NewEncoder(w).Encode(runtimePhysicalLinkStatus())
 		case "/api/config/namespaces/system/network_interfaces":
 			_ = json.NewEncoder(w).Encode(runtimeInterfaceObjects(runtimeConfiguration()))
 		case "/api/config/namespaces/system/securemesh_site_v2s/lab-site":
