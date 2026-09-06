@@ -4615,14 +4615,16 @@ var SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes =
 
 // SecuremeshSiteV2RESelectModel represents re_select block
 type SecuremeshSiteV2RESelectModel struct {
-	GeoProximity *SecuremeshSiteV2EmptyModel              `tfsdk:"geo_proximity"`
-	SpecificRE   *SecuremeshSiteV2RESelectSpecificREModel `tfsdk:"specific_re"`
+	SpecificGeography types.String                             `tfsdk:"specific_geography"`
+	GeoProximity      *SecuremeshSiteV2EmptyModel              `tfsdk:"geo_proximity"`
+	SpecificRE        *SecuremeshSiteV2RESelectSpecificREModel `tfsdk:"specific_re"`
 }
 
 // SecuremeshSiteV2RESelectModelAttrTypes defines the attribute types for SecuremeshSiteV2RESelectModel
 var SecuremeshSiteV2RESelectModelAttrTypes = map[string]attr.Type{
-	"geo_proximity": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"specific_re":   types.ObjectType{AttrTypes: SecuremeshSiteV2RESelectSpecificREModelAttrTypes},
+	"specific_geography": types.StringType,
+	"geo_proximity":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"specific_re":        types.ObjectType{AttrTypes: SecuremeshSiteV2RESelectSpecificREModelAttrTypes},
 }
 
 // SecuremeshSiteV2RESelectSpecificREModel represents specific_re block
@@ -4913,18 +4915,20 @@ var SecuremeshSiteV2UpgradeSettingsKubernetesUpgradeDrainModelAttrTypes = map[st
 
 // SecuremeshSiteV2UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
 type SecuremeshSiteV2UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
-	DrainMaxUnavailableNodeCount types.Int64                 `tfsdk:"drain_max_unavailable_node_count"`
-	DrainNodeTimeout             types.Int64                 `tfsdk:"drain_node_timeout"`
-	DisableVegaUpgradeMode       *SecuremeshSiteV2EmptyModel `tfsdk:"disable_vega_upgrade_mode"`
-	EnableVegaUpgradeMode        *SecuremeshSiteV2EmptyModel `tfsdk:"enable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64                 `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64                 `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64                 `tfsdk:"drain_node_timeout"`
+	DisableVegaUpgradeMode            *SecuremeshSiteV2EmptyModel `tfsdk:"disable_vega_upgrade_mode"`
+	EnableVegaUpgradeMode             *SecuremeshSiteV2EmptyModel `tfsdk:"enable_vega_upgrade_mode"`
 }
 
 // SecuremeshSiteV2UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for SecuremeshSiteV2UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainModel
 var SecuremeshSiteV2UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
-	"drain_max_unavailable_node_count": types.Int64Type,
-	"drain_node_timeout":               types.Int64Type,
-	"disable_vega_upgrade_mode":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_vega_upgrade_mode":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"drain_max_unavailable_node_count":      types.Int64Type,
+	"drain_max_unavailable_node_percentage": types.Int64Type,
+	"drain_node_timeout":                    types.Int64Type,
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecuremeshSiteV2VmwareModel represents vmware block
@@ -11797,7 +11801,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			"re_select": schema.SingleNestedBlock{
 				MarkdownDescription: "Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s).",
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"specific_geography": schema.StringAttribute{
+						MarkdownDescription: "Geographic selection for the site's Regional Edge connections.",
+						Optional:            true,
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"geo_proximity": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for geo proximity.",
@@ -12197,6 +12206,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 										Validators: []validator.Int64{
 											int64validator.Between(1, 5000),
 										},
+									},
+									"drain_max_unavailable_node_percentage": schema.Int64Attribute{
+										MarkdownDescription: "Maximum percentage of nodes unavailable during upgrade draining.",
+										Optional:            true,
 									},
 									"drain_node_timeout": schema.Int64Attribute{
 										MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
@@ -17526,6 +17539,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		if data.RESelect.GeoProximity != nil {
 			RESelectMap["geo_proximity"] = map[string]interface{}{}
 		}
+		if !data.RESelect.SpecificGeography.IsNull() && !data.RESelect.SpecificGeography.IsUnknown() {
+			RESelectMap["specific_geography"] = data.RESelect.SpecificGeography.ValueString()
+		}
 		if data.RESelect.SpecificRE != nil {
 			RESelectSpecificREMap := make(map[string]interface{})
 			if !data.RESelect.SpecificRE.BackupRE.IsNull() && !data.RESelect.SpecificRE.BackupRE.IsUnknown() {
@@ -17794,6 +17810,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				if !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 					UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+				}
+				if !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+					UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
 				}
 				if !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 					UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
@@ -27421,6 +27440,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				return nil
 			}(),
+			SpecificGeography: func() types.String {
+				if v, ok := blockData["specific_geography"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
 			SpecificRE: func() *SecuremeshSiteV2RESelectSpecificREModel {
 				if !isImport && data.RESelect != nil && data.RESelect.SpecificRE != nil {
 					return data.RESelect.SpecificRE
@@ -27953,6 +27978,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											return data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 										}
 										if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									DrainMaxUnavailableNodePercentage: func() types.Int64 {
+										if !isImport && data.UpgradeSettings != nil && data.UpgradeSettings.KubernetesUpgradeDrain != nil && data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+											return data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+										}
+										if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
@@ -38085,6 +38119,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return nil
 			}(),
+			SpecificGeography: func() types.String {
+				if v, ok := blockData["specific_geography"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
 			SpecificRE: func() *SecuremeshSiteV2RESelectSpecificREModel {
 				if !isImport && data.RESelect != nil && data.RESelect.SpecificRE != nil {
 					return data.RESelect.SpecificRE
@@ -38617,6 +38657,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 											return data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 										}
 										if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									DrainMaxUnavailableNodePercentage: func() types.Int64 {
+										if !isImport && data.UpgradeSettings != nil && data.UpgradeSettings.KubernetesUpgradeDrain != nil && data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+											return data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+										}
+										if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()
@@ -44154,6 +44203,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		if data.RESelect.GeoProximity != nil {
 			RESelectMap["geo_proximity"] = map[string]interface{}{}
 		}
+		if !data.RESelect.SpecificGeography.IsNull() && !data.RESelect.SpecificGeography.IsUnknown() {
+			RESelectMap["specific_geography"] = data.RESelect.SpecificGeography.ValueString()
+		}
 		if data.RESelect.SpecificRE != nil {
 			RESelectSpecificREMap := make(map[string]interface{})
 			if !data.RESelect.SpecificRE.BackupRE.IsNull() && !data.RESelect.SpecificRE.BackupRE.IsUnknown() {
@@ -44398,6 +44450,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				if !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 					UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+				}
+				if !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+					UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
 				}
 				if !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 					UpgradeSettingsKubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
@@ -54059,6 +54114,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				return nil
 			}(),
+			SpecificGeography: func() types.String {
+				if v, ok := blockData["specific_geography"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
 			SpecificRE: func() *SecuremeshSiteV2RESelectSpecificREModel {
 				if !isImport && data.RESelect != nil && data.RESelect.SpecificRE != nil {
 					return data.RESelect.SpecificRE
@@ -54591,6 +54652,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											return data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 										}
 										if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									DrainMaxUnavailableNodePercentage: func() types.Int64 {
+										if !isImport && data.UpgradeSettings != nil && data.UpgradeSettings.KubernetesUpgradeDrain != nil && data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+											return data.UpgradeSettings.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+										}
+										if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 											return types.Int64Value(int64(v))
 										}
 										return types.Int64Null()

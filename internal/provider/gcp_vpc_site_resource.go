@@ -981,18 +981,20 @@ var GCPVPCSiteKubernetesUpgradeDrainModelAttrTypes = map[string]attr.Type{
 
 // GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
 type GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
-	DrainMaxUnavailableNodeCount types.Int64           `tfsdk:"drain_max_unavailable_node_count"`
-	DrainNodeTimeout             types.Int64           `tfsdk:"drain_node_timeout"`
-	DisableVegaUpgradeMode       *GCPVPCSiteEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
-	EnableVegaUpgradeMode        *GCPVPCSiteEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64           `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64           `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64           `tfsdk:"drain_node_timeout"`
+	DisableVegaUpgradeMode            *GCPVPCSiteEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
+	EnableVegaUpgradeMode             *GCPVPCSiteEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
 }
 
 // GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel
 var GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
-	"drain_max_unavailable_node_count": types.Int64Type,
-	"drain_node_timeout":               types.Int64Type,
-	"disable_vega_upgrade_mode":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_vega_upgrade_mode":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"drain_max_unavailable_node_count":      types.Int64Type,
+	"drain_max_unavailable_node_percentage": types.Int64Type,
+	"drain_node_timeout":                    types.Int64Type,
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteLogReceiverModel represents log_receiver block
@@ -2824,6 +2826,10 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									int64validator.Between(1, 5000),
 								},
 							},
+							"drain_max_unavailable_node_percentage": schema.Int64Attribute{
+								MarkdownDescription: "Maximum percentage of nodes unavailable during upgrade draining.",
+								Optional:            true,
+							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
 								Optional:            true,
@@ -4460,6 +4466,9 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
@@ -6522,6 +6531,15 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -9199,6 +9217,15 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return types.Int64Null()
 						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
 						DrainNodeTimeout: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
@@ -11016,6 +11043,9 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
@@ -13112,6 +13142,15 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()

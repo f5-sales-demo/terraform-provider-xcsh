@@ -315,3 +315,22 @@ The sanitized enrichment evidence binds the captures and live receipt by digest.
 The new provider retains the network-aware interface without a legacy alias.
 Live log delivery remains unverified, so the four legacy logging paths remain
 unresolved. Configuration normalization alone does not close the capability gap.
+
+## Geographic selection and upgrade drain settings
+
+The pinned legacy binary sends `re_select.specific_geography` and
+`drain_max_unavailable_node_percentage`. Isolated current-API create/read probes
+retained both configured values. The drain response also added the default
+`disable_vega_upgrade_mode` choice. Source enrichment regressions first failed
+for the missing properties, then passed after restoring the properties and their
+mutually exclusive choice membership.
+
+Regeneration from enrichment commit `f54e7874` leaves 234 unresolved legacy
+paths. The parity gate continues to fail until those capabilities are classified
+with adequate evidence; rSeries remains absent.
+
+A separate legacy private-ADN request was accepted, but the field was absent
+from read-back. That result does not establish an equivalent replacement or
+verified removal. Private ADN remains unresolved and is not added to the provider.
+All probe objects were removed and their absence verified. Actual Regional Edge
+selection and percentage-based draining during an upgrade remain unverified.

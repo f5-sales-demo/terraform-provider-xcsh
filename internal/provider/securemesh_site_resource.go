@@ -1072,18 +1072,20 @@ var SecuremeshSiteKubernetesUpgradeDrainModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
 type SecuremeshSiteKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
-	DrainMaxUnavailableNodeCount types.Int64               `tfsdk:"drain_max_unavailable_node_count"`
-	DrainNodeTimeout             types.Int64               `tfsdk:"drain_node_timeout"`
-	DisableVegaUpgradeMode       *SecuremeshSiteEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
-	EnableVegaUpgradeMode        *SecuremeshSiteEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64               `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64               `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64               `tfsdk:"drain_node_timeout"`
+	DisableVegaUpgradeMode            *SecuremeshSiteEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
+	EnableVegaUpgradeMode             *SecuremeshSiteEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
 }
 
 // SecuremeshSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for SecuremeshSiteKubernetesUpgradeDrainEnableUpgradeDrainModel
 var SecuremeshSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
-	"drain_max_unavailable_node_count": types.Int64Type,
-	"drain_node_timeout":               types.Int64Type,
-	"disable_vega_upgrade_mode":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_vega_upgrade_mode":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"drain_max_unavailable_node_count":      types.Int64Type,
+	"drain_max_unavailable_node_percentage": types.Int64Type,
+	"drain_node_timeout":                    types.Int64Type,
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecuremeshSiteLogReceiverModel represents log_receiver block
@@ -2760,6 +2762,10 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 									int64validator.Between(1, 5000),
 								},
 							},
+							"drain_max_unavailable_node_percentage": schema.Int64Attribute{
+								MarkdownDescription: "Maximum percentage of nodes unavailable during upgrade draining.",
+								Optional:            true,
+							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
 								Optional:            true,
@@ -4111,6 +4117,9 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
@@ -6431,6 +6440,15 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -8951,6 +8969,15 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							return types.Int64Null()
 						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
 						DrainNodeTimeout: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout
@@ -10325,6 +10352,9 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
@@ -12672,6 +12702,15 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()

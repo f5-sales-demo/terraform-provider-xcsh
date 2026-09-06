@@ -175,7 +175,27 @@ def capture(binary: Path, platform: str, scenario: str = "discovery") -> dict[st
                 resource["log_receiver_with_net"] = [
                     {"log_receiver": receiver, "use_slo_sli": True}
                 ]
-        if scenario not in ("discovery", "logging", "logging-network"):
+        resource = config["resource"]["volterra_securemesh_site_v2"]["fixture"]
+        if scenario == "specific-geography":
+            resource["re_select"] = [{"specific_geography": "US"}]
+        elif scenario == "drain-percentage":
+            resource["upgrade_settings"] = [
+                {
+                    "kubernetes_upgrade_drain": [
+                        {
+                            "enable_upgrade_drain": [
+                                {
+                                    "drain_max_unavailable_node_percentage": 50,
+                                    "drain_node_timeout": 300,
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        elif scenario == "private-adn":
+            resource["private_adn"] = [{"private_adn": "parity-private-adn"}]
+        if scenario in ("static-dns", "dhcp-server", "dhcpv6-server"):
             interface = {
                 "name": "parity-interface",
                 "ethernet_interface": [{"device": "ens6", "mac": "02:00:00:00:00:06"}],
@@ -326,6 +346,9 @@ def main() -> None:
             "dhcpv6-server",
             "logging",
             "logging-network",
+            "specific-geography",
+            "drain-percentage",
+            "private-adn",
         ),
         default="discovery",
     )
