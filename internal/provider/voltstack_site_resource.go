@@ -476,6 +476,7 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceMode
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel represents dhcp_server block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                                           `tfsdk:"dhcp_option82_tag"`
 	FixedIPMap         types.Map                                                                                              `tfsdk:"fixed_ip_map"`
 	AutomaticFromEnd   *VoltstackSiteEmptyModel                                                                               `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *VoltstackSiteEmptyModel                                                                               `tfsdk:"automatic_from_start"`
@@ -485,6 +486,7 @@ type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHC
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
 	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
 	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -519,12 +521,14 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCP
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel represents pools block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel struct {
 	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
 	StartIP types.String `tfsdk:"start_ip"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
 	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
 	"start_ip": types.StringType,
 }
 
@@ -679,12 +683,14 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStat
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -713,12 +719,14 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStat
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -769,12 +777,14 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStatic
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -2234,6 +2244,7 @@ var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorage
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel represents dhcp_server block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                                                        `tfsdk:"dhcp_option82_tag"`
 	FixedIPMap         types.Map                                                                                                           `tfsdk:"fixed_ip_map"`
 	AutomaticFromEnd   *VoltstackSiteEmptyModel                                                                                            `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *VoltstackSiteEmptyModel                                                                                            `tfsdk:"automatic_from_start"`
@@ -2243,6 +2254,7 @@ type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorag
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
 	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
 	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -2277,12 +2289,14 @@ var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorage
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel represents pools block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel struct {
 	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
 	StartIP types.String `tfsdk:"start_ip"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
 	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
 	"start_ip": types.StringType,
 }
 
@@ -2437,12 +2451,14 @@ var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorage
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -2471,12 +2487,14 @@ var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorage
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -3627,6 +3645,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Configuration parameter for dhcp server.",
 													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 													Attributes: map[string]schema.Attribute{
+														"dhcp_option82_tag": schema.StringAttribute{
+															MarkdownDescription: "DHCP option 82 tag.",
+															Optional:            true,
+														},
 														"fixed_ip_map": schema.MapAttribute{
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
 															Optional:            true,
@@ -3690,6 +3712,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																						stringvalidator.LengthAtMost(1024),
 																						validators.IPv4Validator(),
 																					},
+																				},
+																				"exclude": schema.BoolAttribute{
+																					MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																					Optional:            true,
 																				},
 																				"start_ip": schema.StringAttribute{
 																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
@@ -3903,6 +3929,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		validators.IPValidator(),
 																	},
 																},
+																"dns_server": schema.StringAttribute{
+																	MarkdownDescription: "DNS server address for the static interface configuration.",
+																	Optional:            true,
+																},
 																"ip_address": schema.StringAttribute{
 																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
@@ -3940,6 +3970,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		stringvalidator.LengthAtMost(1024),
 																		validators.IPValidator(),
 																	},
+																},
+																"dns_server": schema.StringAttribute{
+																	MarkdownDescription: "DNS server address for the static interface configuration.",
+																	Optional:            true,
 																},
 																"ip_address": schema.StringAttribute{
 																	MarkdownDescription: "IP address of the interface and prefix length.",
@@ -4024,6 +4058,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		stringvalidator.LengthAtMost(1024),
 																		validators.IPValidator(),
 																	},
+																},
+																"dns_server": schema.StringAttribute{
+																	MarkdownDescription: "DNS server address for the static interface configuration.",
+																	Optional:            true,
 																},
 																"ip_address": schema.StringAttribute{
 																	MarkdownDescription: "IP address of the interface and prefix length.",
@@ -6193,6 +6231,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Configuration parameter for dhcp server.",
 													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 													Attributes: map[string]schema.Attribute{
+														"dhcp_option82_tag": schema.StringAttribute{
+															MarkdownDescription: "DHCP option 82 tag.",
+															Optional:            true,
+														},
 														"fixed_ip_map": schema.MapAttribute{
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
 															Optional:            true,
@@ -6256,6 +6298,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																						stringvalidator.LengthAtMost(1024),
 																						validators.IPv4Validator(),
 																					},
+																				},
+																				"exclude": schema.BoolAttribute{
+																					MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																					Optional:            true,
 																				},
 																				"start_ip": schema.StringAttribute{
 																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
@@ -6469,6 +6515,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		validators.IPValidator(),
 																	},
 																},
+																"dns_server": schema.StringAttribute{
+																	MarkdownDescription: "DNS server address for the static interface configuration.",
+																	Optional:            true,
+																},
 																"ip_address": schema.StringAttribute{
 																	MarkdownDescription: "IP address of the interface and prefix length.",
 																	Optional:            true,
@@ -6506,6 +6556,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		stringvalidator.LengthAtMost(1024),
 																		validators.IPValidator(),
 																	},
+																},
+																"dns_server": schema.StringAttribute{
+																	MarkdownDescription: "DNS server address for the static interface configuration.",
+																	Optional:            true,
 																},
 																"ip_address": schema.StringAttribute{
 																	MarkdownDescription: "IP address of the interface and prefix length.",
@@ -7718,6 +7772,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
 														}
+														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
 														}
@@ -7733,6 +7790,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 									}
+								}
+								if !InterfacesItem.EthernetInterface.DHCPServer.DHCPOption82Tag.IsNull() && !InterfacesItem.EthernetInterface.DHCPServer.DHCPOption82Tag.IsUnknown() {
+									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["dhcp_option82_tag"] = InterfacesItem.EthernetInterface.DHCPServer.DHCPOption82Tag.ValueString()
 								}
 								if !InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
 									var FixedIPMapMap map[string]string
@@ -7916,6 +7976,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									if !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPMap["default_gw"] = InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 									}
+									if !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPMap["dns_server"] = InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
+									}
 									if !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPMap["ip_address"] = InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 									}
@@ -7941,6 +8004,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 									if !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+									}
+									if !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 									}
 									if !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -7998,6 +8064,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPMap := make(map[string]interface{})
 									if !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPMap["default_gw"] = InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+									}
+									if !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPMap["dns_server"] = InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
 									}
 									if !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPMap["ip_address"] = InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
@@ -9491,6 +9560,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
 														}
+														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
 														}
@@ -9506,6 +9578,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 									}
+								}
+								if !StorageInterfacesItem.StorageInterface.DHCPServer.DHCPOption82Tag.IsNull() && !StorageInterfacesItem.StorageInterface.DHCPServer.DHCPOption82Tag.IsUnknown() {
+									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerMap["dhcp_option82_tag"] = StorageInterfacesItem.StorageInterface.DHCPServer.DHCPOption82Tag.ValueString()
 								}
 								if !StorageInterfacesItem.StorageInterface.DHCPServer.FixedIPMap.IsNull() && !StorageInterfacesItem.StorageInterface.DHCPServer.FixedIPMap.IsUnknown() {
 									var FixedIPMapMap map[string]string
@@ -9689,6 +9764,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									if !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPMap["default_gw"] = StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 									}
+									if !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPMap["dns_server"] = StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
+									}
 									if !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPMap["ip_address"] = StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 									}
@@ -9714,6 +9792,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 									if !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPMap["default_gw"] = StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+									}
+									if !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPMap["dns_server"] = StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 									}
 									if !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPMap["ip_address"] = StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -11003,6 +11084,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																												}
 																												return types.StringNull()
 																											}(),
+																											Exclude: func() types.Bool {
+																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																													return types.BoolValue(v)
+																												}
+																												return types.BoolNull()
+																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																													return types.StringValue(v)
@@ -11033,6 +11120,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																			return listVal
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																	}(),
+																	DHCPOption82Tag: func() types.String {
+																		if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
 																	}(),
 																	FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 																		if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
@@ -11402,6 +11495,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					}
 																					return types.StringNull()
 																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
 																				IPAddress: func() types.String {
 																					if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 																						return types.StringValue(v)
@@ -11446,6 +11545,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -11579,6 +11684,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -14723,6 +14834,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																												}
 																												return types.StringNull()
 																											}(),
+																											Exclude: func() types.Bool {
+																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																													return types.BoolValue(v)
+																												}
+																												return types.BoolNull()
+																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																													return types.StringValue(v)
@@ -14753,6 +14870,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																			return listVal
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																	}(),
+																	DHCPOption82Tag: func() types.String {
+																		if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
 																	}(),
 																	FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 																		if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
@@ -15122,6 +15245,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					}
 																					return types.StringNull()
 																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
 																				IPAddress: func() types.String {
 																					if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 																						return types.StringValue(v)
@@ -15166,6 +15295,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -17062,6 +17197,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																												}
 																												return types.StringNull()
 																											}(),
+																											Exclude: func() types.Bool {
+																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																													return types.BoolValue(v)
+																												}
+																												return types.BoolNull()
+																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																													return types.StringValue(v)
@@ -17092,6 +17233,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																			return listVal
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																	}(),
+																	DHCPOption82Tag: func() types.String {
+																		if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
 																	}(),
 																	FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 																		if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
@@ -17461,6 +17608,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					}
 																					return types.StringNull()
 																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
 																				IPAddress: func() types.String {
 																					if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 																						return types.StringValue(v)
@@ -17505,6 +17658,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -17638,6 +17797,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -20782,6 +20947,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																												}
 																												return types.StringNull()
 																											}(),
+																											Exclude: func() types.Bool {
+																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																													return types.BoolValue(v)
+																												}
+																												return types.BoolNull()
+																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																													return types.StringValue(v)
@@ -20812,6 +20983,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																			return listVal
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																	}(),
+																	DHCPOption82Tag: func() types.String {
+																		if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
 																	}(),
 																	FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 																		if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
@@ -21181,6 +21358,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					}
 																					return types.StringNull()
 																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
 																				IPAddress: func() types.String {
 																					if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 																						return types.StringValue(v)
@@ -21225,6 +21408,12 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -22701,6 +22890,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
 														}
+														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
 														}
@@ -22716,6 +22908,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 									}
+								}
+								if !InterfacesItem.EthernetInterface.DHCPServer.DHCPOption82Tag.IsNull() && !InterfacesItem.EthernetInterface.DHCPServer.DHCPOption82Tag.IsUnknown() {
+									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerMap["dhcp_option82_tag"] = InterfacesItem.EthernetInterface.DHCPServer.DHCPOption82Tag.ValueString()
 								}
 								if !InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !InterfacesItem.EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
 									var FixedIPMapMap map[string]string
@@ -22899,6 +23094,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPMap["default_gw"] = InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 									}
+									if !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPMap["dns_server"] = InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
+									}
 									if !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIPNodeStaticIPMap["ip_address"] = InterfacesItem.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 									}
@@ -22924,6 +23122,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 									if !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+									}
+									if !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 									}
 									if !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfacesItem.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -22981,6 +23182,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPMap := make(map[string]interface{})
 									if !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPMap["default_gw"] = InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+									}
+									if !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPMap["dns_server"] = InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
 									}
 									if !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPMap["ip_address"] = InterfacesItem.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
@@ -24474,6 +24678,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
 														}
+														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
 														}
@@ -24489,6 +24696,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 									}
+								}
+								if !StorageInterfacesItem.StorageInterface.DHCPServer.DHCPOption82Tag.IsNull() && !StorageInterfacesItem.StorageInterface.DHCPServer.DHCPOption82Tag.IsUnknown() {
+									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerMap["dhcp_option82_tag"] = StorageInterfacesItem.StorageInterface.DHCPServer.DHCPOption82Tag.ValueString()
 								}
 								if !StorageInterfacesItem.StorageInterface.DHCPServer.FixedIPMap.IsNull() && !StorageInterfacesItem.StorageInterface.DHCPServer.FixedIPMap.IsUnknown() {
 									var FixedIPMapMap map[string]string
@@ -24672,6 +24882,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPMap["default_gw"] = StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 									}
+									if !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPMap["dns_server"] = StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
+									}
 									if !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIPNodeStaticIPMap["ip_address"] = StorageInterfacesItem.StorageInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 									}
@@ -24697,6 +24910,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 									if !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPMap["default_gw"] = StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+									}
+									if !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPMap["dns_server"] = StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 									}
 									if !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 										CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPMap["ip_address"] = StorageInterfacesItem.StorageInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -26013,6 +26229,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																												}
 																												return types.StringNull()
 																											}(),
+																											Exclude: func() types.Bool {
+																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																													return types.BoolValue(v)
+																												}
+																												return types.BoolNull()
+																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																													return types.StringValue(v)
@@ -26043,6 +26265,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																			return listVal
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																	}(),
+																	DHCPOption82Tag: func() types.String {
+																		if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
 																	}(),
 																	FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 																		if len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
@@ -26412,6 +26640,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					}
 																					return types.StringNull()
 																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
 																				IPAddress: func() types.String {
 																					if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 																						return types.StringValue(v)
@@ -26456,6 +26690,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -26589,6 +26829,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																			return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesTunnelInterfaceStaticIPNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -29733,6 +29979,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																												}
 																												return types.StringNull()
 																											}(),
+																											Exclude: func() types.Bool {
+																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																													return types.BoolValue(v)
+																												}
+																												return types.BoolNull()
+																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																													return types.StringValue(v)
@@ -29763,6 +30015,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																			return listVal
 																		}
 																		return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+																	}(),
+																	DHCPOption82Tag: func() types.String {
+																		if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
 																	}(),
 																	FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 																		if len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
@@ -30132,6 +30390,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					}
 																					return types.StringNull()
 																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
 																				IPAddress: func() types.String {
 																					if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 																						return types.StringValue(v)
@@ -30176,6 +30440,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																			return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceStaticIpv6AddressNodeStaticIPModel{
 																				DefaultGw: func() types.String {
 																					if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				DNSServer: func() types.String {
+																					if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()

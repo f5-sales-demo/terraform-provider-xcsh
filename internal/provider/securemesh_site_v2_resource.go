@@ -200,6 +200,7 @@ type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                               `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                               `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                               `tfsdk:"monitor"`
@@ -225,6 +226,7 @@ var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes = map[strin
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -267,6 +269,74 @@ type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListBondInterfaceLacpModel st
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                     `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                        `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                      `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                      `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                       `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -412,12 +482,14 @@ var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListNetworkOptionModelAttrType
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -446,12 +518,14 @@ var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressClusterSt
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -514,6 +588,7 @@ type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                                 `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                                 `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                                 `tfsdk:"monitor"`
@@ -539,6 +614,7 @@ var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes = map[str
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -581,6 +657,74 @@ type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListBondInterfaceLacpModel 
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                       `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                          `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                        `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                        `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                         `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -726,12 +870,14 @@ var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListNetworkOptionModelAttrTy
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -760,12 +906,14 @@ var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressCluster
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -828,6 +976,7 @@ type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                                     `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                                     `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                                     `tfsdk:"monitor"`
@@ -853,6 +1002,7 @@ var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes = map
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -895,6 +1045,74 @@ type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListBondInterfaceLacpMo
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                           `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                              `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                            `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                            `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                             `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -1040,12 +1258,14 @@ var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListNetworkOptionModelAt
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -1074,12 +1294,14 @@ var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressClu
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -1300,6 +1522,7 @@ type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                                   `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                                   `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                                   `tfsdk:"monitor"`
@@ -1325,6 +1548,7 @@ var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes = map[s
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1367,6 +1591,74 @@ type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListBondInterfaceLacpMode
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                         `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                            `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                          `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                          `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                           `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -1512,12 +1804,14 @@ var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListNetworkOptionModelAttr
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -1546,12 +1840,14 @@ var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressClust
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -1614,6 +1910,7 @@ type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                               `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                               `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                               `tfsdk:"monitor"`
@@ -1639,6 +1936,7 @@ var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes = map[strin
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1681,6 +1979,74 @@ type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListBondInterfaceLacpModel st
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                     `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                        `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                      `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                      `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                       `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -1826,12 +2192,14 @@ var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListNetworkOptionModelAttrType
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -1860,12 +2228,14 @@ var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressClusterSt
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -1928,6 +2298,7 @@ type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                               `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                               `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                               `tfsdk:"monitor"`
@@ -1953,6 +2324,7 @@ var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes = map[strin
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1995,6 +2367,74 @@ type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListBondInterfaceLacpModel st
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                     `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                        `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                      `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                      `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                       `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -2140,12 +2580,14 @@ var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListNetworkOptionModelAttrType
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -2174,12 +2616,14 @@ var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressClusterSt
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -2616,6 +3060,7 @@ type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                                   `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                                   `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                                   `tfsdk:"monitor"`
@@ -2641,6 +3086,7 @@ var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes = map[s
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -2683,6 +3129,74 @@ type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListBondInterfaceLacpMode
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                         `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                            `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                          `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                          `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                           `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -2828,12 +3342,14 @@ var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListNetworkOptionModelAttr
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -2862,12 +3378,14 @@ var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressClust
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -2930,6 +3448,7 @@ type SecuremeshSiteV2OciNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                               `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2OciNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                               `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2OciNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                               `tfsdk:"monitor"`
@@ -2955,6 +3474,7 @@ var SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes = map[strin
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -2997,6 +3517,74 @@ type SecuremeshSiteV2OciNotManagedNodeListInterfaceListBondInterfaceLacpModel st
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2OciNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                     `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                        `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                      `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                      `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                       `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -3142,12 +3730,14 @@ var SecuremeshSiteV2OciNotManagedNodeListInterfaceListNetworkOptionModelAttrType
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -3176,12 +3766,14 @@ var SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressClusterSt
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -3256,6 +3848,7 @@ type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModel
 	Priority                                types.Int64                                                                                   `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                                                   `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                                                   `tfsdk:"monitor"`
@@ -3281,6 +3874,7 @@ var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelA
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -3323,6 +3917,74 @@ type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListBondI
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                                         `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                                            `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                                          `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                                          `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                                           `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -3468,12 +4130,14 @@ var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListNetwor
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -3502,12 +4166,14 @@ var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStatic
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -3570,6 +4236,7 @@ type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                                     `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                                     `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                                     `tfsdk:"monitor"`
@@ -3595,6 +4262,7 @@ var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes = map
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -3637,6 +4305,74 @@ type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListBondInterfaceLacpMo
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                           `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                              `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                            `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                            `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                             `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -3782,12 +4518,14 @@ var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListNetworkOptionModelAt
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -3816,12 +4554,14 @@ var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressClu
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -4234,6 +4974,7 @@ type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModel struct {
 	Priority                                types.Int64                                                                  `tfsdk:"priority"`
 	BondInterface                           *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListBondInterfaceModel     `tfsdk:"bond_interface"`
 	DHCPClient                              *SecuremeshSiteV2EmptyModel                                                  `tfsdk:"dhcp_client"`
+	DHCPServer                              *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel        `tfsdk:"dhcp_server"`
 	EthernetInterface                       *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModel `tfsdk:"ethernet_interface"`
 	Ipv6AutoConfig                          *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigModel    `tfsdk:"ipv6_auto_config"`
 	Monitor                                 *SecuremeshSiteV2EmptyModel                                                  `tfsdk:"monitor"`
@@ -4259,6 +5000,7 @@ var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes = map[st
 	"priority":           types.Int64Type,
 	"bond_interface":     types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListBondInterfaceModelAttrTypes},
 	"dhcp_client":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_server":        types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModelAttrTypes},
 	"ethernet_interface": types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModelAttrTypes},
 	"ipv6_auto_config":   types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListIpv6AutoConfigModelAttrTypes},
 	"monitor":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -4301,6 +5043,74 @@ type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListBondInterfaceLacpModel
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListBondInterfaceLacpModel
 var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListBondInterfaceLacpModelAttrTypes = map[string]attr.Type{
 	"rate": types.Int64Type,
+}
+
+// SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel represents dhcp_server block
+type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                                        `tfsdk:"dhcp_option82_tag"`
+	FixedIPMap         types.Map                                                                           `tfsdk:"fixed_ip_map"`
+	AutomaticFromEnd   *SecuremeshSiteV2EmptyModel                                                         `tfsdk:"automatic_from_end"`
+	AutomaticFromStart *SecuremeshSiteV2EmptyModel                                                         `tfsdk:"automatic_from_start"`
+	DHCPNetworks       types.List                                                                          `tfsdk:"dhcp_networks"`
+	InterfaceIPMap     *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel
+var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
+	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
+	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dhcp_networks":        types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}},
+	"interface_ip_map":     types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes},
+}
+
+// SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel represents dhcp_networks block
+type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel struct {
+	DgwAddress    types.String                `tfsdk:"dgw_address"`
+	DNSAddress    types.String                `tfsdk:"dns_address"`
+	NetworkPrefix types.String                `tfsdk:"network_prefix"`
+	PoolSettings  types.String                `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteV2EmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteV2EmptyModel `tfsdk:"last_address"`
+	Pools         types.List                  `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteV2EmptyModel `tfsdk:"same_as_dgw"`
+}
+
+// SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel represents pools block
+type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel struct {
+	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
+	StartIP types.String `tfsdk:"start_ip"`
+}
+
+// SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
+	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
+	"start_ip": types.StringType,
+}
+
+// SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel represents interface_ip_map block
+type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel struct {
+	InterfaceIPMap types.Map `tfsdk:"interface_ip_map"`
+}
+
+// SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel
+var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModelAttrTypes = map[string]attr.Type{
+	"interface_ip_map": types.MapType{ElemType: types.StringType},
 }
 
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModel represents ethernet_interface block
@@ -4446,12 +5256,14 @@ var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListNetworkOptionModelAttrT
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIPModel represents static_ip block
 type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIPModel
 var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -4480,12 +5292,14 @@ var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressCluste
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel
 var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -4931,6 +5745,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -5130,6 +6049,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -5165,6 +6088,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -5350,6 +6277,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -5549,6 +6581,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -5584,6 +6620,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -5769,6 +6809,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -5968,6 +7113,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -6003,6 +7152,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -6448,6 +7601,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -6647,6 +7905,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -6682,6 +7944,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -6870,6 +8136,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -7069,6 +8440,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -7104,6 +8479,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -7289,6 +8668,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -7488,6 +8972,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -7523,6 +9011,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -8272,6 +9764,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -8471,6 +10068,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -8506,6 +10107,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -8691,6 +10296,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -8890,6 +10600,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -8925,6 +10639,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -9123,6 +10841,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -9322,6 +11145,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -9357,6 +11184,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -9542,6 +11373,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -9741,6 +11677,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -9776,6 +11716,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -10417,6 +12361,111 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"dhcp_client": schema.SingleNestedBlock{
 														MarkdownDescription: "Enable this option",
 													},
+													"dhcp_server": schema.SingleNestedBlock{
+														MarkdownDescription: "DHCPServerParametersType.",
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Attributes: map[string]schema.Attribute{
+															"dhcp_option82_tag": schema.StringAttribute{
+																MarkdownDescription: "DHCP option 82 tag.",
+																Optional:            true,
+															},
+															"fixed_ip_map": schema.MapAttribute{
+																MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
+																Optional:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"automatic_from_end": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from end.",
+															},
+															"automatic_from_start": schema.SingleNestedBlock{
+																MarkdownDescription: "Configuration parameter for automatic from start.",
+															},
+															"dhcp_networks": schema.ListNestedBlock{
+																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{
+																		"dgw_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [first_address last_address] Enter a IPv4 address from the network prefix to be used as the default gateway.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"dns_address": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [same_as_dgw] Enter a IPv4 address from the network prefix to be used as the DNS server.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
+																			},
+																		},
+																		"network_prefix": schema.StringAttribute{
+																			MarkdownDescription: "Exclusive with [] Set the network prefix for the site. Ex: 192.0.2.0/24.",
+																			Optional:            true,
+																		},
+																		"pool_settings": schema.StringAttribute{
+																			MarkdownDescription: "[Enum: INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS|EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS] Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation. Possible values are `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`, `EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`. Defaults to `INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS`.",
+																			Optional:            true,
+																			Validators: []validator.String{
+																				stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS", "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
+																			},
+																		},
+																	},
+																	Blocks: map[string]schema.Block{
+																		"first_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"last_address": schema.SingleNestedBlock{
+																			MarkdownDescription: "Enable this option",
+																		},
+																		"pools": schema.ListNestedBlock{
+																			MarkdownDescription: "List of non overlapping IP address ranges.",
+																			NestedObject: schema.NestedBlockObject{
+																				Attributes: map[string]schema.Attribute{
+																					"end_ip": schema.StringAttribute{
+																						MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																					"exclude": schema.BoolAttribute{
+																						MarkdownDescription: "Exclude this address range from DHCP allocation.",
+																						Optional:            true,
+																					},
+																					"start_ip": schema.StringAttribute{
+																						MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
+																						Optional:            true,
+																						Validators: []validator.String{
+																							stringvalidator.LengthAtMost(1024),
+																							validators.IPv4Validator(),
+																						},
+																					},
+																				},
+																			},
+																		},
+																		"same_as_dgw": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for same as dgw.",
+																		},
+																	},
+																},
+															},
+															"interface_ip_map": schema.SingleNestedBlock{
+																MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
+																Attributes: map[string]schema.Attribute{
+																	"interface_ip_map": schema.MapAttribute{
+																		MarkdownDescription: "Specify static IPv4 addresses per site:node.",
+																		Optional:            true,
+																		ElementType:         types.StringType,
+																	},
+																},
+															},
+														},
+													},
 													"ethernet_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for ethernet interface.",
 														Validators:          []validator.Object{validators.RequiredObjectAttributes("mac")},
@@ -10616,6 +12665,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	validators.IPValidator(),
 																},
 															},
+															"dns_server": schema.StringAttribute{
+																MarkdownDescription: "DNS server address for the static interface configuration.",
+																Optional:            true,
+															},
 															"ip_address": schema.StringAttribute{
 																MarkdownDescription: "IP address of the interface and prefix length.",
 																Optional:            true,
@@ -10651,6 +12704,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			stringvalidator.LengthAtMost(1024),
 																			validators.IPValidator(),
 																		},
+																	},
+																	"dns_server": schema.StringAttribute{
+																		MarkdownDescription: "DNS server address for the static interface configuration.",
+																		Optional:            true,
 																	},
 																	"ip_address": schema.StringAttribute{
 																		MarkdownDescription: "IP address of the interface and prefix length.",
@@ -11022,6 +13079,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
 									}
+									if InterfaceListItem.DHCPServer != nil {
+										AWSNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											AWSNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											AWSNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												AWSNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											AWSNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												AWSNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											AWSNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = AWSNotManagedNodeListInterfaceListDHCPServerMap
+									}
 									if InterfaceListItem.EthernetInterface != nil {
 										AWSNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
 										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
@@ -11193,6 +13339,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											AWSNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											AWSNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											AWSNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -11216,6 +13365,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -11313,6 +13465,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										AzureNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											AzureNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											AzureNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												AzureNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											AzureNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												AzureNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											AzureNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = AzureNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										AzureNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -11485,6 +13726,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											AzureNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											AzureNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											AzureNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -11508,6 +13752,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -11605,6 +13852,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										BaremetalNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											BaremetalNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											BaremetalNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												BaremetalNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											BaremetalNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												BaremetalNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											BaremetalNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = BaremetalNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										BaremetalNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -11777,6 +14113,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											BaremetalNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											BaremetalNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											BaremetalNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -11800,6 +14139,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -12072,6 +14414,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
 									}
+									if InterfaceListItem.DHCPServer != nil {
+										EquinixNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											EquinixNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											EquinixNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												EquinixNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											EquinixNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												EquinixNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											EquinixNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = EquinixNotManagedNodeListInterfaceListDHCPServerMap
+									}
 									if InterfaceListItem.EthernetInterface != nil {
 										EquinixNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
 										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
@@ -12243,6 +14674,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											EquinixNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											EquinixNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											EquinixNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -12266,6 +14700,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -12366,6 +14803,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										GCPNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											GCPNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											GCPNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												GCPNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											GCPNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												GCPNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											GCPNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = GCPNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										GCPNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -12538,6 +15064,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											GCPNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											GCPNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											GCPNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -12561,6 +15090,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -12658,6 +15190,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										KvmNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											KvmNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											KvmNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												KvmNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											KvmNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												KvmNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											KvmNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = KvmNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										KvmNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -12830,6 +15451,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											KvmNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											KvmNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											KvmNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -12853,6 +15477,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -13372,6 +15999,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
 									}
+									if InterfaceListItem.DHCPServer != nil {
+										NutanixNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											NutanixNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											NutanixNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												NutanixNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											NutanixNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												NutanixNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											NutanixNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = NutanixNotManagedNodeListInterfaceListDHCPServerMap
+									}
 									if InterfaceListItem.EthernetInterface != nil {
 										NutanixNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
 										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
@@ -13543,6 +16259,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											NutanixNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											NutanixNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											NutanixNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -13566,6 +16285,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -13663,6 +16385,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										OciNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											OciNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											OciNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												OciNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											OciNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												OciNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											OciNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = OciNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										OciNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -13835,6 +16646,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											OciNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											OciNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											OciNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -13858,6 +16672,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -13965,6 +16782,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										OpenshiftVirtualizationNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -14137,6 +17043,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -14160,6 +17069,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -14257,6 +17169,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										OpenstackNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											OpenstackNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											OpenstackNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												OpenstackNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											OpenstackNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												OpenstackNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											OpenstackNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = OpenstackNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										OpenstackNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -14429,6 +17430,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											OpenstackNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											OpenstackNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											OpenstackNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -14452,6 +17456,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -14860,6 +17867,95 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
 									}
+									if InterfaceListItem.DHCPServer != nil {
+										VmwareNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											VmwareNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											VmwareNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												VmwareNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											VmwareNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												VmwareNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											VmwareNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = VmwareNotManagedNodeListInterfaceListDHCPServerMap
+									}
 									if InterfaceListItem.EthernetInterface != nil {
 										VmwareNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
 										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
@@ -15031,6 +18127,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											VmwareNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											VmwareNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											VmwareNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -15054,6 +18153,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 											VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -15422,6 +18524,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -15783,6 +19051,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -15820,6 +19094,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -16018,6 +19298,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -16382,6 +19828,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -16419,6 +19871,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -16617,6 +20075,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -16981,6 +20605,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -17018,6 +20648,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -17546,6 +21182,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -17907,6 +21709,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -17944,6 +21752,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -18145,6 +21959,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -18509,6 +22489,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -18546,6 +22532,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -18744,6 +22736,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -19108,6 +23266,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -19145,6 +23309,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -20177,6 +24347,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -20538,6 +24874,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -20575,6 +24917,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -20773,6 +25121,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -21137,6 +25651,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -21174,6 +25694,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -21394,6 +25920,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -21758,6 +26450,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -21795,6 +26493,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -21993,6 +26697,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -22357,6 +27227,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -22394,6 +27270,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -23230,6 +28112,172 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -23591,6 +28639,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -23628,6 +28682,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -24128,6 +29188,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -24489,6 +29715,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -24526,6 +29758,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -24724,6 +29962,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -25088,6 +30492,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -25125,6 +30535,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -25323,6 +30739,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -25687,6 +31269,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -25724,6 +31312,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -26252,6 +31846,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -26613,6 +32373,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -26650,6 +32416,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -26851,6 +32623,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -27215,6 +33153,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -27252,6 +33196,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -27450,6 +33400,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -27814,6 +33930,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -27851,6 +33973,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -28883,6 +35011,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -29244,6 +35538,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -29281,6 +35581,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -29479,6 +35785,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -29843,6 +36315,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -29880,6 +36358,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -30100,6 +36584,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -30464,6 +37114,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -30501,6 +37157,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -30699,6 +37361,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -31063,6 +37891,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -31100,6 +37934,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -31936,6 +38776,172 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -32297,6 +39303,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -32334,6 +39346,12 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -32689,6 +39707,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
 									}
+									if InterfaceListItem.DHCPServer != nil {
+										AWSNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											AWSNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											AWSNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												AWSNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											AWSNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												AWSNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											AWSNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = AWSNotManagedNodeListInterfaceListDHCPServerMap
+									}
 									if InterfaceListItem.EthernetInterface != nil {
 										AWSNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
 										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
@@ -32860,6 +39967,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											AWSNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											AWSNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											AWSNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -32883,6 +39993,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -32980,6 +40093,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										AzureNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											AzureNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											AzureNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												AzureNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											AzureNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												AzureNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											AzureNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = AzureNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										AzureNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -33152,6 +40354,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											AzureNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											AzureNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											AzureNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -33175,6 +40380,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -33272,6 +40480,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										BaremetalNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											BaremetalNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											BaremetalNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												BaremetalNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											BaremetalNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												BaremetalNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											BaremetalNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = BaremetalNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										BaremetalNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -33444,6 +40741,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											BaremetalNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											BaremetalNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											BaremetalNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -33467,6 +40767,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -33739,6 +41042,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
 									}
+									if InterfaceListItem.DHCPServer != nil {
+										EquinixNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											EquinixNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											EquinixNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												EquinixNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											EquinixNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												EquinixNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											EquinixNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = EquinixNotManagedNodeListInterfaceListDHCPServerMap
+									}
 									if InterfaceListItem.EthernetInterface != nil {
 										EquinixNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
 										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
@@ -33910,6 +41302,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											EquinixNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											EquinixNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											EquinixNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -33933,6 +41328,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -34033,6 +41431,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										GCPNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											GCPNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											GCPNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												GCPNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											GCPNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												GCPNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											GCPNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = GCPNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										GCPNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -34205,6 +41692,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											GCPNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											GCPNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											GCPNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -34228,6 +41718,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -34325,6 +41818,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										KvmNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											KvmNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											KvmNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												KvmNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											KvmNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												KvmNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											KvmNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = KvmNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										KvmNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -34497,6 +42079,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											KvmNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											KvmNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											KvmNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -34520,6 +42105,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -35039,6 +42627,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
 									}
+									if InterfaceListItem.DHCPServer != nil {
+										NutanixNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											NutanixNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											NutanixNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												NutanixNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											NutanixNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												NutanixNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											NutanixNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = NutanixNotManagedNodeListInterfaceListDHCPServerMap
+									}
 									if InterfaceListItem.EthernetInterface != nil {
 										NutanixNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
 										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
@@ -35210,6 +42887,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											NutanixNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											NutanixNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											NutanixNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -35233,6 +42913,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -35330,6 +43013,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										OciNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											OciNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											OciNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												OciNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											OciNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												OciNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											OciNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = OciNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										OciNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -35502,6 +43274,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											OciNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											OciNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											OciNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -35525,6 +43300,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -35632,6 +43410,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										OpenshiftVirtualizationNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -35804,6 +43671,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -35827,6 +43697,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -35924,6 +43797,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
+									}
+									if InterfaceListItem.DHCPServer != nil {
+										OpenstackNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											OpenstackNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											OpenstackNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												OpenstackNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											OpenstackNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												OpenstackNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											OpenstackNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = OpenstackNotManagedNodeListInterfaceListDHCPServerMap
 									}
 									if InterfaceListItem.EthernetInterface != nil {
 										OpenstackNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
@@ -36096,6 +44058,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											OpenstackNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											OpenstackNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											OpenstackNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -36119,6 +44084,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -36503,6 +44471,95 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									if InterfaceListItem.DHCPClient != nil {
 										InterfaceListItemMap["dhcp_client"] = map[string]interface{}{}
 									}
+									if InterfaceListItem.DHCPServer != nil {
+										VmwareNotManagedNodeListInterfaceListDHCPServerMap := make(map[string]interface{})
+										if InterfaceListItem.DHCPServer.AutomaticFromEnd != nil {
+											VmwareNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+										}
+										if InterfaceListItem.DHCPServer.AutomaticFromStart != nil {
+											VmwareNotManagedNodeListInterfaceListDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPNetworks.IsNull() && !InterfaceListItem.DHCPServer.DHCPNetworks.IsUnknown() {
+											var DHCPNetworksElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+											diags := InterfaceListItem.DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(DHCPNetworksElems) > 0 {
+												var DHCPNetworksList []map[string]interface{}
+												for _, DHCPNetworksItem := range DHCPNetworksElems {
+													DHCPNetworksItemMap := make(map[string]interface{})
+													if !DHCPNetworksItem.DgwAddress.IsNull() && !DHCPNetworksItem.DgwAddress.IsUnknown() {
+														DHCPNetworksItemMap["dgw_address"] = DHCPNetworksItem.DgwAddress.ValueString()
+													}
+													if !DHCPNetworksItem.DNSAddress.IsNull() && !DHCPNetworksItem.DNSAddress.IsUnknown() {
+														DHCPNetworksItemMap["dns_address"] = DHCPNetworksItem.DNSAddress.ValueString()
+													}
+													if DHCPNetworksItem.FirstAddress != nil {
+														DHCPNetworksItemMap["first_address"] = map[string]interface{}{}
+													}
+													if DHCPNetworksItem.LastAddress != nil {
+														DHCPNetworksItemMap["last_address"] = map[string]interface{}{}
+													}
+													if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
+														DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
+													}
+													if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
+														DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
+													}
+													if !DHCPNetworksItem.Pools.IsNull() && !DHCPNetworksItem.Pools.IsUnknown() {
+														var PoolsElems []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+														diags := DHCPNetworksItem.Pools.ElementsAs(ctx, &PoolsElems, false)
+														resp.Diagnostics.Append(diags...)
+														if !resp.Diagnostics.HasError() && len(PoolsElems) > 0 {
+															var PoolsList []map[string]interface{}
+															for _, PoolsItem := range PoolsElems {
+																PoolsItemMap := make(map[string]interface{})
+																if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
+																	PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
+																}
+																if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+																	PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+																}
+																if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
+																	PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
+																}
+																PoolsList = append(PoolsList, PoolsItemMap)
+															}
+															DHCPNetworksItemMap["pools"] = PoolsList
+														}
+													}
+													if DHCPNetworksItem.SameAsDgw != nil {
+														DHCPNetworksItemMap["same_as_dgw"] = map[string]interface{}{}
+													}
+													DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
+												}
+												VmwareNotManagedNodeListInterfaceListDHCPServerMap["dhcp_networks"] = DHCPNetworksList
+											}
+										}
+										if !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsNull() && !InterfaceListItem.DHCPServer.DHCPOption82Tag.IsUnknown() {
+											VmwareNotManagedNodeListInterfaceListDHCPServerMap["dhcp_option82_tag"] = InterfaceListItem.DHCPServer.DHCPOption82Tag.ValueString()
+										}
+										if !InterfaceListItem.DHCPServer.FixedIPMap.IsNull() && !InterfaceListItem.DHCPServer.FixedIPMap.IsUnknown() {
+											var FixedIPMapMap map[string]string
+											diags := InterfaceListItem.DHCPServer.FixedIPMap.ElementsAs(ctx, &FixedIPMapMap, false)
+											resp.Diagnostics.Append(diags...)
+											if !diags.HasError() {
+												VmwareNotManagedNodeListInterfaceListDHCPServerMap["fixed_ip_map"] = FixedIPMapMap
+											}
+										}
+										if InterfaceListItem.DHCPServer.InterfaceIPMap != nil {
+											VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap := make(map[string]interface{})
+											if !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsNull() && !InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.IsUnknown() {
+												var InterfaceIPMapMap map[string]string
+												diags := InterfaceListItem.DHCPServer.InterfaceIPMap.InterfaceIPMap.ElementsAs(ctx, &InterfaceIPMapMap, false)
+												resp.Diagnostics.Append(diags...)
+												if !diags.HasError() {
+													VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap["interface_ip_map"] = InterfaceIPMapMap
+												}
+											}
+											VmwareNotManagedNodeListInterfaceListDHCPServerMap["interface_ip_map"] = VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapMap
+										}
+										InterfaceListItemMap["dhcp_server"] = VmwareNotManagedNodeListInterfaceListDHCPServerMap
+									}
 									if InterfaceListItem.EthernetInterface != nil {
 										VmwareNotManagedNodeListInterfaceListEthernetInterfaceMap := make(map[string]interface{})
 										if !InterfaceListItem.EthernetInterface.Device.IsNull() && !InterfaceListItem.EthernetInterface.Device.IsUnknown() {
@@ -36674,6 +44731,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 										if !InterfaceListItem.StaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIP.DefaultGw.IsUnknown() {
 											VmwareNotManagedNodeListInterfaceListStaticIPMap["default_gw"] = InterfaceListItem.StaticIP.DefaultGw.ValueString()
 										}
+										if !InterfaceListItem.StaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIP.DNSServer.IsUnknown() {
+											VmwareNotManagedNodeListInterfaceListStaticIPMap["dns_server"] = InterfaceListItem.StaticIP.DNSServer.ValueString()
+										}
 										if !InterfaceListItem.StaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIP.IPAddress.IsUnknown() {
 											VmwareNotManagedNodeListInterfaceListStaticIPMap["ip_address"] = InterfaceListItem.StaticIP.IPAddress.ValueString()
 										}
@@ -36697,6 +44757,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 											VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 												VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["default_gw"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+											}
+											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+												VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["dns_server"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 											}
 											if !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 												VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPMap["ip_address"] = InterfaceListItem.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -37099,6 +45162,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -37460,6 +45689,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -37497,6 +45732,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -37695,6 +45936,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -38059,6 +46466,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -38096,6 +46509,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2AzureNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -38294,6 +46713,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -38658,6 +47243,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -38695,6 +47286,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -39223,6 +47820,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -39584,6 +48347,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -39621,6 +48390,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -39822,6 +48597,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -40186,6 +49127,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -40223,6 +49170,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2GCPNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -40421,6 +49374,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -40785,6 +49904,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -40822,6 +49947,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2KvmNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -41854,6 +50985,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -42215,6 +51512,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -42252,6 +51555,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -42450,6 +51759,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -42814,6 +52289,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -42851,6 +52332,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2OciNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -43071,6 +52558,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -43435,6 +53088,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -43472,6 +53131,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -43670,6 +53335,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	if _, ok := InterfaceListItemMap["dhcp_client"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2EmptyModel{}
+																	}
+																	return nil
+																}(),
+																DHCPServer: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
 																	}
 																	return nil
 																}(),
@@ -44034,6 +53865,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -44071,6 +53908,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()
@@ -44907,6 +54750,172 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return nil
 																}(),
+																DHCPServer: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel {
+																	if DHCPServerData, ok := InterfaceListItemMap["dhcp_server"].(map[string]interface{}); ok {
+																		return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerModel{
+																			AutomaticFromEnd: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromEnd
+																				}
+																				if _, ok := DHCPServerData["automatic_from_end"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			AutomaticFromStart: func() *SecuremeshSiteV2EmptyModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.AutomaticFromStart
+																				}
+																				if _, ok := DHCPServerData["automatic_from_start"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2EmptyModel{}
+																				}
+																				return nil
+																			}(),
+																			DHCPNetworks: func() types.List {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && (InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() || len(InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																				}
+																				var DHCPNetworksExisting []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsNull() && !InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.IsUnknown() {
+																					InterfaceListExisting[InterfaceListIdx].DHCPServer.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+																				}
+																				if rawList, ok := DHCPServerData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+																					var DHCPNetworksResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel
+																					for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+																						_ = DHCPNetworksIdx
+																						if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+																							DHCPNetworksResult = append(DHCPNetworksResult, SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModel{
+																								DgwAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dgw_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								DNSAddress: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["dns_address"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								FirstAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								LastAddress: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
+																									}
+																									if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																								NetworkPrefix: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								PoolSettings: func() types.String {
+																									if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
+																										return types.StringValue(v)
+																									}
+																									return types.StringNull()
+																								}(),
+																								Pools: func() types.List {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																										return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																									}
+																									var PoolsExisting []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																										DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																									}
+																									if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
+																										var PoolsResult []SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel
+																										for PoolsIdx, PoolsItem := range rawList {
+																											_ = PoolsIdx
+																											if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
+																												PoolsResult = append(PoolsResult, SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModel{
+																													EndIP: func() types.String {
+																														if v, ok := PoolsItemMap["end_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																													Exclude: func() types.Bool {
+																														if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																															return types.BoolValue(v)
+																														}
+																														return types.BoolNull()
+																													}(),
+																													StartIP: func() types.String {
+																														if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
+																															return types.StringValue(v)
+																														}
+																														return types.StringNull()
+																													}(),
+																												})
+																											}
+																										}
+																										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes}, PoolsResult)
+																										return listVal
+																									}
+																									return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																								}(),
+																								SameAsDgw: func() *SecuremeshSiteV2EmptyModel {
+																									if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																										return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
+																									}
+																									if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
+																										return &SecuremeshSiteV2EmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerDHCPNetworksModelAttrTypes})
+																			}(),
+																			DHCPOption82Tag: func() types.String {
+																				if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
+																				if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.FixedIPMap
+																				}
+																				return types.MapNull(types.StringType)
+																			}(), "fixed_ip_map", isImport, &resp.Diagnostics),
+																			InterfaceIPMap: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel {
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																					return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap
+																				}
+																				if InterfaceIPMapData, ok := DHCPServerData["interface_ip_map"].(map[string]interface{}); ok {
+																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListDHCPServerInterfaceIPMapModel{
+																						InterfaceIPMap: UnmarshalStringMapForRead(ctx, InterfaceIPMapData["interface_ip_map"], func() types.Map {
+																							if len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].DHCPServer != nil && InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap != nil {
+																								return InterfaceListExisting[InterfaceListIdx].DHCPServer.InterfaceIPMap.InterfaceIPMap
+																							}
+																							return types.MapNull(types.StringType)
+																						}(), "interface_ip_map", isImport, &resp.Diagnostics),
+																					}
+																				}
+																				return nil
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
 																EthernetInterface: func() *SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModel {
 																	if EthernetInterfaceData, ok := InterfaceListItemMap["ethernet_interface"].(map[string]interface{}); ok {
 																		return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListEthernetInterfaceModel{
@@ -45268,6 +55277,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				}
 																				return types.StringNull()
 																			}(),
+																			DNSServer: func() types.String {
+																				if v, ok := StaticIPData["dns_server"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
 																			IPAddress: func() types.String {
 																				if v, ok := StaticIPData["ip_address"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -45305,6 +55320,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																					return &SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListStaticIpv6AddressNodeStaticIPModel{
 																						DefaultGw: func() types.String {
 																							if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						DNSServer: func() types.String {
+																							if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 																								return types.StringValue(v)
 																							}
 																							return types.StringNull()

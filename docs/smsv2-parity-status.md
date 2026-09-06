@@ -217,3 +217,38 @@ workload instance to the configured VIP and Host returned HTTP 200. Both first-S
 BGP sessions remained established and each accepted the workload prefix. This is
 first-tunnel recovery evidence, not acceptance of the remaining topology,
 redundancy, upgrades or rebuilds.
+
+## Current API addressing correction
+
+Isolated current-API create/read probes retained the configured static DNS and
+DHCP-server fields, including option 82 and excluded pools. Each unregistered
+probe object was deleted and its absence verified. Enrichment commit `9c93baac`
+corrects the shared interface schema with those observed fields and choice
+membership. Enrichment regressions and pre-commit passed. A provider regression
+first failed on all eleven supported platform branches and then passed after
+regeneration; it also asserts that rSeries remains absent. The regenerated matrix
+now has 236 unresolved paths. Realized DHCP behavior remains unverified.
+
+A separate reviewed saved plan changed only CE01's SLO device from `eth0` to
+`ens5`, in place, using provider candidate `9fd9cc817230`. The site UID was
+preserved. API read-back and physical user-visible forwarding interfaces now
+agree on both MAC-correlated devices, `ens5` and `ens6`. Two BGP observations
+remain; SLO connector and session recovery continues serially.
+
+Topology labels were applied in separate reviewed plans to CE02 and CE03 and
+verified on both SMSv2 and registered-site objects. A fresh plan then changed only
+CE01's SLO connector reference to the actual `ens5` interface object plus its
+runtime observation state. Node neighbor output subsequently showed three
+established BGP sessions: the first SLO endpoint and both SLI endpoints. The SLI
+sessions still received the workload prefix; SLO route advertisement and its
+second endpoint remain separate verification steps.
+
+A reviewed BGP-only update added the second AWS-assigned SLO endpoint without
+changing existing peer inputs. Node neighbor output now confirms four established
+sessions on CE01, two per tunnel. Both SLI sessions accept the workload prefix;
+both SLO sessions currently accept zero prefixes. SLO route-table attachment
+configuration and recovery of CE02/CE03 remain outstanding.
+
+The addressing candidate passed full internal and tooling suites, affected
+provider race tests and deterministic regeneration (679 provider/client Go files
+were byte-identical). Enrichment commit `9c93baac` passed direct AGY review.

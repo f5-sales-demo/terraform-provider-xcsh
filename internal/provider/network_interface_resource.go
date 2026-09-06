@@ -143,6 +143,7 @@ var NetworkInterfaceEthernetInterfaceModelAttrTypes = map[string]attr.Type{
 
 // NetworkInterfaceEthernetInterfaceDHCPServerModel represents dhcp_server block
 type NetworkInterfaceEthernetInterfaceDHCPServerModel struct {
+	DHCPOption82Tag    types.String                                                    `tfsdk:"dhcp_option82_tag"`
 	FixedIPMap         types.Map                                                       `tfsdk:"fixed_ip_map"`
 	AutomaticFromEnd   *NetworkInterfaceEmptyModel                                     `tfsdk:"automatic_from_end"`
 	AutomaticFromStart *NetworkInterfaceEmptyModel                                     `tfsdk:"automatic_from_start"`
@@ -152,6 +153,7 @@ type NetworkInterfaceEthernetInterfaceDHCPServerModel struct {
 
 // NetworkInterfaceEthernetInterfaceDHCPServerModelAttrTypes defines the attribute types for NetworkInterfaceEthernetInterfaceDHCPServerModel
 var NetworkInterfaceEthernetInterfaceDHCPServerModelAttrTypes = map[string]attr.Type{
+	"dhcp_option82_tag":    types.StringType,
 	"fixed_ip_map":         types.MapType{ElemType: types.StringType},
 	"automatic_from_end":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"automatic_from_start": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -186,12 +188,14 @@ var NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes = map[
 // NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel represents pools block
 type NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel struct {
 	EndIP   types.String `tfsdk:"end_ip"`
+	Exclude types.Bool   `tfsdk:"exclude"`
 	StartIP types.String `tfsdk:"start_ip"`
 }
 
 // NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
 var NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
 	"end_ip":   types.StringType,
+	"exclude":  types.BoolType,
 	"start_ip": types.StringType,
 }
 
@@ -346,12 +350,14 @@ var NetworkInterfaceEthernetInterfaceStaticIPClusterStaticIPModelAttrTypes = map
 // NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
 type NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModelAttrTypes defines the attribute types for NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModel
 var NetworkInterfaceEthernetInterfaceStaticIPNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -380,12 +386,14 @@ var NetworkInterfaceEthernetInterfaceStaticIpv6AddressClusterStaticIPModelAttrTy
 // NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel represents node_static_ip block
 type NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModelAttrTypes defines the attribute types for NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel
 var NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -486,12 +494,14 @@ var NetworkInterfaceTunnelInterfaceStaticIPClusterStaticIPModelAttrTypes = map[s
 // NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel represents node_static_ip block
 type NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel struct {
 	DefaultGw types.String `tfsdk:"default_gw"`
+	DNSServer types.String `tfsdk:"dns_server"`
 	IPAddress types.String `tfsdk:"ip_address"`
 }
 
 // NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModelAttrTypes defines the attribute types for NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel
 var NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModelAttrTypes = map[string]attr.Type{
 	"default_gw": types.StringType,
+	"dns_server": types.StringType,
 	"ip_address": types.StringType,
 }
 
@@ -732,6 +742,10 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Configuration parameter for dhcp server.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
 						Attributes: map[string]schema.Attribute{
+							"dhcp_option82_tag": schema.StringAttribute{
+								MarkdownDescription: "DHCP option 82 tag.",
+								Optional:            true,
+							},
 							"fixed_ip_map": schema.MapAttribute{
 								MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
 								Optional:            true,
@@ -795,6 +809,10 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 															stringvalidator.LengthAtMost(1024),
 															validators.IPv4Validator(),
 														},
+													},
+													"exclude": schema.BoolAttribute{
+														MarkdownDescription: "Exclude this address range from DHCP allocation.",
+														Optional:            true,
 													},
 													"start_ip": schema.StringAttribute{
 														MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
@@ -1008,6 +1026,10 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											validators.IPValidator(),
 										},
 									},
+									"dns_server": schema.StringAttribute{
+										MarkdownDescription: "DNS server address for the static interface configuration.",
+										Optional:            true,
+									},
 									"ip_address": schema.StringAttribute{
 										MarkdownDescription: "IP address of the interface and prefix length.",
 										Optional:            true,
@@ -1045,6 +1067,10 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											stringvalidator.LengthAtMost(1024),
 											validators.IPValidator(),
 										},
+									},
+									"dns_server": schema.StringAttribute{
+										MarkdownDescription: "DNS server address for the static interface configuration.",
+										Optional:            true,
 									},
 									"ip_address": schema.StringAttribute{
 										MarkdownDescription: "IP address of the interface and prefix length.",
@@ -1192,6 +1218,10 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											stringvalidator.LengthAtMost(1024),
 											validators.IPValidator(),
 										},
+									},
+									"dns_server": schema.StringAttribute{
+										MarkdownDescription: "DNS server address for the static interface configuration.",
+										Optional:            true,
 									},
 									"ip_address": schema.StringAttribute{
 										MarkdownDescription: "IP address of the interface and prefix length.",
@@ -1467,6 +1497,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 									if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 										PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
 									}
+									if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+										PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+									}
 									if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 										PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
 									}
@@ -1482,6 +1515,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 					}
 					EthernetInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 				}
+			}
+			if !data.EthernetInterface.DHCPServer.DHCPOption82Tag.IsNull() && !data.EthernetInterface.DHCPServer.DHCPOption82Tag.IsUnknown() {
+				EthernetInterfaceDHCPServerMap["dhcp_option82_tag"] = data.EthernetInterface.DHCPServer.DHCPOption82Tag.ValueString()
 			}
 			if !data.EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !data.EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
 				var FixedIPMapMap map[string]string
@@ -1665,6 +1701,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				if !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 					EthernetInterfaceStaticIPNodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 				}
+				if !data.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+					EthernetInterfaceStaticIPNodeStaticIPMap["dns_server"] = data.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
+				}
 				if !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 					EthernetInterfaceStaticIPNodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 				}
@@ -1690,6 +1729,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				EthernetInterfaceStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["dns_server"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 				}
 				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -1778,6 +1820,9 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 				TunnelInterfaceStaticIPNodeStaticIPMap := make(map[string]interface{})
 				if !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 					TunnelInterfaceStaticIPNodeStaticIPMap["default_gw"] = data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+					TunnelInterfaceStaticIPNodeStaticIPMap["dns_server"] = data.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
 				}
 				if !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 					TunnelInterfaceStaticIPNodeStaticIPMap["ip_address"] = data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
@@ -2076,6 +2121,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 																	}
 																	return types.StringNull()
 																}(),
+																Exclude: func() types.Bool {
+																	if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																StartIP: func() types.String {
 																	if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																		return types.StringValue(v)
@@ -2106,6 +2157,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+						}(),
+						DHCPOption82Tag: func() types.String {
+							if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
 						}(),
 						FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 							if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
@@ -2475,6 +2532,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 										}
 										return types.StringNull()
 									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
 									IPAddress: func() types.String {
 										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 											return types.StringValue(v)
@@ -2519,6 +2582,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 									DefaultGw: func() types.String {
 										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -2722,6 +2791,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {
 										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -3137,6 +3212,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 																	}
 																	return types.StringNull()
 																}(),
+																Exclude: func() types.Bool {
+																	if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																StartIP: func() types.String {
 																	if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																		return types.StringValue(v)
@@ -3167,6 +3248,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+						}(),
+						DHCPOption82Tag: func() types.String {
+							if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
 						}(),
 						FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 							if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
@@ -3536,6 +3623,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 										}
 										return types.StringNull()
 									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
 									IPAddress: func() types.String {
 										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 											return types.StringValue(v)
@@ -3580,6 +3673,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 									DefaultGw: func() types.String {
 										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -3783,6 +3882,12 @@ func (r *NetworkInterfaceResource) Read(ctx context.Context, req resource.ReadRe
 								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {
 										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -4025,6 +4130,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 									if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 										PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
 									}
+									if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
+										PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
+									}
 									if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 										PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
 									}
@@ -4040,6 +4148,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 					}
 					EthernetInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 				}
+			}
+			if !data.EthernetInterface.DHCPServer.DHCPOption82Tag.IsNull() && !data.EthernetInterface.DHCPServer.DHCPOption82Tag.IsUnknown() {
+				EthernetInterfaceDHCPServerMap["dhcp_option82_tag"] = data.EthernetInterface.DHCPServer.DHCPOption82Tag.ValueString()
 			}
 			if !data.EthernetInterface.DHCPServer.FixedIPMap.IsNull() && !data.EthernetInterface.DHCPServer.FixedIPMap.IsUnknown() {
 				var FixedIPMapMap map[string]string
@@ -4223,6 +4334,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				if !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 					EthernetInterfaceStaticIPNodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 				}
+				if !data.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+					EthernetInterfaceStaticIPNodeStaticIPMap["dns_server"] = data.EthernetInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
+				}
 				if !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 					EthernetInterfaceStaticIPNodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 				}
@@ -4248,6 +4362,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				EthernetInterfaceStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
 					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.IsUnknown() {
+					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["dns_server"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DNSServer.ValueString()
 				}
 				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
 					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
@@ -4336,6 +4453,9 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 				TunnelInterfaceStaticIPNodeStaticIPMap := make(map[string]interface{})
 				if !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
 					TunnelInterfaceStaticIPNodeStaticIPMap["default_gw"] = data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+				}
+				if !data.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.IsUnknown() {
+					TunnelInterfaceStaticIPNodeStaticIPMap["dns_server"] = data.TunnelInterface.StaticIP.NodeStaticIP.DNSServer.ValueString()
 				}
 				if !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
 					TunnelInterfaceStaticIPNodeStaticIPMap["ip_address"] = data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
@@ -4654,6 +4774,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 																	}
 																	return types.StringNull()
 																}(),
+																Exclude: func() types.Bool {
+																	if v, ok := PoolsItemMap["exclude"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
 																StartIP: func() types.String {
 																	if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
 																		return types.StringValue(v)
@@ -4684,6 +4810,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes})
+						}(),
+						DHCPOption82Tag: func() types.String {
+							if v, ok := DHCPServerData["dhcp_option82_tag"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
 						}(),
 						FixedIPMap: UnmarshalStringMapForRead(ctx, DHCPServerData["fixed_ip_map"], func() types.Map {
 							if data.EthernetInterface != nil && data.EthernetInterface.DHCPServer != nil {
@@ -5053,6 +5185,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 										}
 										return types.StringNull()
 									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
 									IPAddress: func() types.String {
 										if v, ok := NodeStaticIPData["ip_address"].(string); ok && v != "" {
 											return types.StringValue(v)
@@ -5097,6 +5235,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 								return &NetworkInterfaceEthernetInterfaceStaticIpv6AddressNodeStaticIPModel{
 									DefaultGw: func() types.String {
 										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -5300,6 +5444,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 								return &NetworkInterfaceTunnelInterfaceStaticIPNodeStaticIPModel{
 									DefaultGw: func() types.String {
 										if v, ok := NodeStaticIPData["default_gw"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									DNSServer: func() types.String {
+										if v, ok := NodeStaticIPData["dns_server"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
