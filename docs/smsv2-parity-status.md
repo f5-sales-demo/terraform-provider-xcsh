@@ -292,6 +292,26 @@ healthy when their physical link is up.
 
 Read-only observations of the recovered three-CE lab show all six physical links
 up with the expected MAC and device identities. These observations establish the
-API response shape; the revised provider's artifact-bound live validation remains
-separate. The API's status publication metadata identifies the node; the reader
+API response shape. The API's status publication metadata identifies the node; the reader
 does not construct a VER instance name or infer physical health from tunnel status.
+
+A targeted live refresh with clean provider commit `2134873dd3d3` subsequently
+passed all three runtime readers and all three BGP readers: six healthy physical
+interfaces and twelve established sessions, each with its own imported workload
+route path. The binary SHA256 is
+`4a9df8a3dedb2101124dcf59d5383bafa1e630c16662126777f335ae4439703d`.
+The saved plan contains no managed-resource changes. This targeted refresh does
+not establish a full refresh-enabled no-change plan or release acceptance.
+
+## Logging contract investigation
+
+Two reproducible captures from the pinned Volterra 0.12.2 binary exercise the
+legacy top-level `log_receiver` and the network-aware `log_receiver_with_net`
+configuration. An isolated current-API experiment accepted both requests and
+returned identical logging configuration: `log_receiver_with_net.log_receiver`
+with `use_slo_sli`. All three probe objects were deleted and their absence verified.
+The sanitized enrichment evidence binds the captures and live receipt by digest.
+
+The new provider retains the network-aware interface without a legacy alias.
+Live log delivery remains unverified, so the four legacy logging paths remain
+unresolved. Configuration normalization alone does not close the capability gap.

@@ -165,7 +165,17 @@ def capture(binary: Path, platform: str, scenario: str = "discovery") -> dict[st
                 }
             },
         }
-        if scenario != "discovery":
+        if scenario in ("logging", "logging-network"):
+            resource = config["resource"]["volterra_securemesh_site_v2"]["fixture"]
+            resource.pop("logs_streaming_disabled")
+            receiver = [{"name": "parity-log-receiver", "namespace": "system"}]
+            if scenario == "logging":
+                resource["log_receiver"] = receiver
+            else:
+                resource["log_receiver_with_net"] = [
+                    {"log_receiver": receiver, "use_slo_sli": True}
+                ]
+        if scenario not in ("discovery", "logging", "logging-network"):
             interface = {
                 "name": "parity-interface",
                 "ethernet_interface": [{"device": "ens6", "mac": "02:00:00:00:00:06"}],
@@ -302,14 +312,21 @@ def capture(binary: Path, platform: str, scenario: str = "discovery") -> dict[st
 
 
 def main() -> None:
-    """Capture one independently sourced discovery fixture."""
+    """Capture one independently sourced request fixture."""
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--binary", type=Path, required=True)
     parser.add_argument("--platform", choices=PLATFORMS, required=True)
     parser.add_argument(
         "--scenario",
-        choices=("discovery", "static-dns", "dhcp-server", "dhcpv6-server"),
+        choices=(
+            "discovery",
+            "static-dns",
+            "dhcp-server",
+            "dhcpv6-server",
+            "logging",
+            "logging-network",
+        ),
         default="discovery",
     )
     parser.add_argument("--output", type=Path, required=True)
