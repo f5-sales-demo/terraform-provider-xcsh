@@ -5,6 +5,8 @@ package provider
 import (
 	"context"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
+	"github.com/hashicorp/terraform-plugin-framework/resource"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"testing"
 )
@@ -44,5 +46,31 @@ func TestSMSv2DeviceUpdateRetainsTopologyReplacementGuards(t *testing.T) {
 				}
 			}
 		})
+	}
+}
+
+func TestSMSv2ComputedObservationsAreNotAWSInputChanges(t *testing.T) {
+	before := awsSMSv2ContractFixture(t, []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli"}})
+	after := awsSMSv2ContractFixture(t, []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli"}})
+	before = smsv2ComputedInterfaceFixture(t, before, false)
+	after = smsv2ComputedInterfaceFixture(t, after, true)
+	if !sameSMSv2AWSInputs(context.Background(), before.AWS, after.AWS) {
+		t.Fatal("computed observations changed topology inputs")
+	}
+}
+
+func TestSMSv2IgnoredInterfaceFieldsRemainComputedOnly(t *testing.T) {
+	r := &SecuremeshSiteV2Resource{}
+	resp := resource.SchemaResponse{}
+	r.Schema(context.Background(), resource.SchemaRequest{}, &resp)
+	aws := resp.Schema.Blocks["aws"].(schema.SingleNestedBlock)
+	notManaged := aws.Blocks["not_managed"].(schema.SingleNestedBlock)
+	nodes := notManaged.Blocks["node_list"].(schema.ListNestedBlock)
+	interfaces := nodes.NestedObject.Blocks["interface_list"].(schema.ListNestedBlock)
+	for _, name := range []string{"is_primary", "is_management"} {
+		field := interfaces.NestedObject.Attributes[name].(schema.BoolAttribute)
+		if !field.Computed || field.Optional || field.Required {
+			t.Fatalf("%s is configurable; topology comparison must include it", name)
+		}
 	}
 }

@@ -60,5 +60,68 @@ func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2R
 	normalizedNotManaged := *plan.AWS.NotManaged
 	normalizedNotManaged.NodeList = normalizedNodes
 	normalizedAWS.NotManaged = &normalizedNotManaged
-	return reflect.DeepEqual(&normalizedAWS, state.AWS)
+	return sameSMSv2AWSInputs(ctx, &normalizedAWS, state.AWS)
+}
+
+// sameSMSv2AWSInputs excludes read-only interface observations from topology
+// comparisons. Framework marks computed attributes unknown during an update;
+// those output values do not represent a requested AWS configuration change.
+func sameSMSv2AWSInputs(ctx context.Context, a, b *SecuremeshSiteV2AWSModel) bool {
+	left, ok := smsv2AWSInputs(ctx, a)
+	if !ok {
+		return false
+	}
+	right, ok := smsv2AWSInputs(ctx, b)
+	return ok && reflect.DeepEqual(left, right)
+}
+
+func smsv2AWSInputs(ctx context.Context, value *SecuremeshSiteV2AWSModel) (*SecuremeshSiteV2AWSModel, bool) {
+	if value == nil {
+		return nil, true
+	}
+	result := *value
+	if value.NotManaged == nil {
+		return &result, true
+	}
+	notManaged := *value.NotManaged
+	result.NotManaged = &notManaged
+	list := notManaged.NodeList
+	if list.IsNull() {
+		return &result, true
+	}
+	if list.IsUnknown() {
+		return nil, false
+	}
+	var nodes []SecuremeshSiteV2AWSNotManagedNodeListModel
+	if list.ElementsAs(ctx, &nodes, false).HasError() {
+		return nil, false
+	}
+	for n := range nodes {
+		interfaces := nodes[n].InterfaceList
+		if interfaces.IsNull() {
+			continue
+		}
+		if interfaces.IsUnknown() {
+			return nil, false
+		}
+		var entries []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
+		if interfaces.ElementsAs(ctx, &entries, false).HasError() {
+			return nil, false
+		}
+		for i := range entries {
+			entries[i].IsPrimary = types.BoolNull()
+			entries[i].IsManagement = types.BoolNull()
+		}
+		normalized, d := types.ListValueFrom(ctx, interfaces.ElementType(ctx), entries)
+		if d.HasError() {
+			return nil, false
+		}
+		nodes[n].InterfaceList = normalized
+	}
+	normalized, d := types.ListValueFrom(ctx, list.ElementType(ctx), nodes)
+	if d.HasError() {
+		return nil, false
+	}
+	notManaged.NodeList = normalized
+	return &result, true
 }

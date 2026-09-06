@@ -16,6 +16,8 @@ func TestSMSv2DeviceEditPlansUpdateForSingleNodeNonHA(t *testing.T) {
 	ctx := context.Background()
 	before := awsSMSv2ContractFixture(t, []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli"}})
 	after := awsSMSv2ContractFixture(t, []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli", device: "ens6"}})
+	before = smsv2ComputedInterfaceFixture(t, before, false)
+	after = smsv2ComputedInterfaceFixture(t, after, true)
 	before.DisableHA = &SecuremeshSiteV2EmptyModel{}
 	after.DisableHA = &SecuremeshSiteV2EmptyModel{}
 	r := &SecuremeshSiteV2Resource{}
@@ -55,4 +57,38 @@ func TestSMSv2DeviceEditPlansUpdateForSingleNodeNonHA(t *testing.T) {
 	if len(resp.RequiresReplace) != 0 {
 		t.Fatalf("device-only edit would replace site: %v", resp.RequiresReplace)
 	}
+}
+
+func smsv2ComputedInterfaceFixture(t *testing.T, model SecuremeshSiteV2ResourceModel, unknown bool) SecuremeshSiteV2ResourceModel {
+	t.Helper()
+	ctx := context.Background()
+	var nodes []SecuremeshSiteV2AWSNotManagedNodeListModel
+	if d := model.AWS.NotManaged.NodeList.ElementsAs(ctx, &nodes, false); d.HasError() {
+		t.Fatal(d)
+	}
+	for n := range nodes {
+		var interfaces []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
+		if d := nodes[n].InterfaceList.ElementsAs(ctx, &interfaces, false); d.HasError() {
+			t.Fatal(d)
+		}
+		for i := range interfaces {
+			value := types.BoolValue(false)
+			if unknown {
+				value = types.BoolUnknown()
+			}
+			interfaces[i].IsPrimary = value
+			interfaces[i].IsManagement = value
+		}
+		value, d := types.ListValueFrom(ctx, nodes[n].InterfaceList.ElementType(ctx), interfaces)
+		if d.HasError() {
+			t.Fatal(d)
+		}
+		nodes[n].InterfaceList = value
+	}
+	value, d := types.ListValueFrom(ctx, model.AWS.NotManaged.NodeList.ElementType(ctx), nodes)
+	if d.HasError() {
+		t.Fatal(d)
+	}
+	model.AWS.NotManaged.NodeList = value
+	return model
 }

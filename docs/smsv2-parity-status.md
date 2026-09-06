@@ -60,7 +60,11 @@ site accepted a device-only PUT, returned the changed device, and was deleted.
 Changing its node count was separately rejected by the API. The generator now
 permits only device-only edits on explicitly non-HA, single-node sites to update
 in place; other AWS topology edits retain replacement behavior. The rejected
-replacement plan was not applied to the lab.
+replacement plan was not applied to the lab. Terraform also marks computed-only
+`is_primary` and `is_management` observations unknown during edits. Topology
+comparisons exclude those outputs without replacing their planned unknown values;
+requested input changes still determine replacement behavior. This follows
+HashiCorp's [plan modification process](https://developer.hashicorp.com/terraform/plugin/framework/resources/plan-modification).
 
 The interface-list status arrays were empty in live observations. The existing
 runtime `healthy` output still reflects global site provisioning and must not be
