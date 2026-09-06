@@ -467,7 +467,7 @@ func processV2ResponseOperation(spec *openapi.Spec, operation openapi.ResolvedRe
 }
 
 func generateSMSv2ParityMatrix(specDirectory string, attrs []openapi.TerraformAttribute) error {
-	legacy, err := parity.LoadLegacy("tools/legacy-smsv2-v0.11.49.json")
+	legacy, err := parity.LoadLegacy("tools/legacy-smsv2-v0.12.2.json")
 	if err != nil {
 		return err
 	}

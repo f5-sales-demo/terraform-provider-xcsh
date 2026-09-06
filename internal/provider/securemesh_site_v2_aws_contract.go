@@ -49,15 +49,17 @@ func validateSecuremeshSiteV2AWSContract(
 		)
 		return
 	}
-	if data.AWS.NotManaged == nil || data.AWS.NotManaged.NodeList.IsNull() {
+	if data.AWS.NotManaged == nil {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("aws").AtName("not_managed").AtName("node_list"),
-			"AWS SMSv2 Nodes Are Required",
-			"AWS CE configuration requires an ordered non-empty node_list.",
+			"AWS SMSv2 Node Management Mode Is Required",
+			"Select aws.not_managed to discover CE nodes or configure them explicitly.",
 		)
 		return
 	}
-	if data.AWS.NotManaged.NodeList.IsUnknown() {
+	// An omitted or empty node list selects registration-time discovery.
+	// Explicit declarations retain the per-node validation below.
+	if data.AWS.NotManaged.NodeList.IsNull() || data.AWS.NotManaged.NodeList.IsUnknown() {
 		return
 	}
 	var nodes []SecuremeshSiteV2AWSNotManagedNodeListModel
@@ -65,14 +67,7 @@ func validateSecuremeshSiteV2AWSContract(
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if len(nodes) == 0 {
-		resp.Diagnostics.AddAttributeError(
-			path.Root("aws").AtName("not_managed").AtName("node_list"),
-			"AWS SMSv2 Nodes Are Required",
-			"AWS CE configuration requires an ordered non-empty node_list.",
-		)
-		return
-	}
+
 	for nodeIndex, node := range nodes {
 		if node.InterfaceList.IsNull() {
 			resp.Diagnostics.AddAttributeError(

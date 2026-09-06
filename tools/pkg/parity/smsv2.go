@@ -5,6 +5,7 @@
 package parity
 
 import (
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -15,12 +16,13 @@ import (
 )
 
 type LegacyManifest struct {
-	Version      string        `json:"version"`
-	Resource     string        `json:"resource"`
-	SourceURL    string        `json:"source_url"`
-	SourceSHA256 string        `json:"source_sha256"`
-	PathCount    int           `json:"path_count"`
-	Paths        []LegacyField `json:"paths"`
+	Version               string        `json:"version"`
+	Resource              string        `json:"resource"`
+	SourceURL             string        `json:"source_url"`
+	SourceSHA256          string        `json:"source_sha256"`
+	InstalledSchemaSHA256 string        `json:"installed_schema_sha256"`
+	PathCount             int           `json:"path_count"`
+	Paths                 []LegacyField `json:"paths"`
 }
 
 type LegacyField struct {
@@ -74,26 +76,29 @@ type FieldSemantics struct {
 }
 
 type MatrixEntry struct {
-	LegacyPath     string          `json:"legacy_path,omitempty"`
-	CurrentPath    string          `json:"current_path,omitempty"`
-	Classification string          `json:"classification"`
-	Reason         string          `json:"reason"`
-	Legacy         *FieldSemantics `json:"legacy,omitempty"`
-	Current        *FieldSemantics `json:"current,omitempty"`
+	LegacyPath       string          `json:"legacy_path,omitempty"`
+	CurrentPath      string          `json:"current_path,omitempty"`
+	Classification   string          `json:"classification"`
+	Reason           string          `json:"reason"`
+	OwningRepository string          `json:"owning_repository,omitempty"`
+	RequiredTests    []string        `json:"required_tests,omitempty"`
+	Legacy           *FieldSemantics `json:"legacy,omitempty"`
+	Current          *FieldSemantics `json:"current,omitempty"`
 }
 
 type Matrix struct {
-	LegacyVersion    string         `json:"legacy_version"`
-	CurrentVersion   string         `json:"current_version"`
-	LegacySourceURL  string         `json:"legacy_source_url"`
-	LegacySourceSHA  string         `json:"legacy_source_sha256"`
-	LegacyPathCount  int            `json:"legacy_path_count"`
-	CurrentPathCount int            `json:"current_path_count"`
-	GeneratedPaths   int            `json:"generated_path_count,omitempty"`
-	ClassifiedLegacy int            `json:"classified_legacy_paths"`
-	Unclassified     []string       `json:"unclassified_legacy_paths"`
-	Classification   map[string]int `json:"classification_counts"`
-	Entries          []MatrixEntry  `json:"entries"`
+	LegacyVersion            string         `json:"legacy_version"`
+	CurrentVersion           string         `json:"current_version"`
+	LegacySourceURL          string         `json:"legacy_source_url"`
+	LegacySourceSHA          string         `json:"legacy_source_sha256"`
+	LegacyInstalledSchemaSHA string         `json:"legacy_installed_schema_sha256"`
+	LegacyPathCount          int            `json:"legacy_path_count"`
+	CurrentPathCount         int            `json:"current_path_count"`
+	GeneratedPaths           int            `json:"generated_path_count,omitempty"`
+	ClassifiedLegacy         int            `json:"classified_legacy_paths"`
+	Unclassified             []string       `json:"unclassified_legacy_paths"`
+	Classification           map[string]int `json:"classification_counts"`
+	Entries                  []MatrixEntry  `json:"entries"`
 }
 
 func LoadLegacy(path string) (*LegacyManifest, error) {
@@ -101,10 +106,20 @@ func LoadLegacy(path string) (*LegacyManifest, error) {
 	if err := load(path, &value); err != nil {
 		return nil, err
 	}
-	if value.PathCount != len(value.Paths) || value.Version != "0.11.49" || value.SourceSHA256 == "" {
+	if value.PathCount != len(value.Paths) || value.Version != "0.12.2" || value.SourceSHA256 != "sha256:521cab3e85928669b461fc2ccb541c324c6d0518607d9f54e1c70df446202aea" ||
+		!validSHA256(value.InstalledSchemaSHA256) || value.Resource != "volterra_securemesh_site_v2" ||
+		value.SourceURL != "https://github.com/volterraedge/terraform-provider-volterra/blob/22f029dbf14412c99502fe1daba829f7c3261017/volterra/resource_auto_volterra_securemesh_site_v2.go" {
 		return nil, fmt.Errorf("invalid legacy SMSv2 manifest metadata")
 	}
 	return &value, nil
+}
+
+func validSHA256(value string) bool {
+	if !strings.HasPrefix(value, "sha256:") || len(value) != 71 {
+		return false
+	}
+	_, err := hex.DecodeString(strings.TrimPrefix(value, "sha256:"))
+	return err == nil
 }
 
 func LoadCurrent(path string) (*CurrentManifest, error) {
@@ -160,15 +175,16 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 	}
 
 	matrix := &Matrix{
-		LegacyVersion:    legacy.Version,
-		CurrentVersion:   current.Version,
-		LegacySourceURL:  legacy.SourceURL,
-		LegacySourceSHA:  legacy.SourceSHA256,
-		LegacyPathCount:  legacy.PathCount,
-		CurrentPathCount: current.PathCount,
-		Classification:   map[string]int{},
-		Unclassified:     make([]string, 0),
-		Entries:          make([]MatrixEntry, 0, len(legacy.Paths)+len(current.Paths)),
+		LegacyVersion:            legacy.Version,
+		CurrentVersion:           current.Version,
+		LegacySourceURL:          legacy.SourceURL,
+		LegacySourceSHA:          legacy.SourceSHA256,
+		LegacyInstalledSchemaSHA: legacy.InstalledSchemaSHA256,
+		LegacyPathCount:          legacy.PathCount,
+		CurrentPathCount:         current.PathCount,
+		Classification:           map[string]int{},
+		Unclassified:             make([]string, 0),
+		Entries:                  make([]MatrixEntry, 0, len(legacy.Paths)+len(current.Paths)),
 	}
 	if generated != nil {
 		for path := range generated {
@@ -181,7 +197,13 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 	for _, field := range legacy.Paths {
 		entry := classifyLegacyField(field, currentByPath, conflicts, generated)
 		if entry.Classification == "" {
+			entry.Classification = "missing"
+			entry.Reason = "legacy capability has no independently verified current mapping or platform-removal evidence"
+			entry.OwningRepository = "f5-sales-demo/api-specs-enriched"
+			entry.RequiredTests = []string{"legacy request mapping", "current request and response round trip", "import, refresh and drift", "platform capability evidence"}
 			matrix.Unclassified = append(matrix.Unclassified, field.Path)
+			matrix.Classification[entry.Classification]++
+			matrix.Entries = append(matrix.Entries, entry)
 			continue
 		}
 		if entry.CurrentPath != "" {
@@ -189,14 +211,18 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 		}
 		matrix.Classification[entry.Classification]++
 		matrix.Entries = append(matrix.Entries, entry)
-		matrix.ClassifiedLegacy++
+		if entry.Classification == "generator_gap" {
+			matrix.Unclassified = append(matrix.Unclassified, field.Path)
+		} else {
+			matrix.ClassifiedLegacy++
+		}
 	}
 	for _, field := range current.Paths {
 		if field.Path == "metadata" || field.Path == "spec" || consumedCurrent[field.Path] {
 			continue
 		}
 		classification := "current_only"
-		reason := "capability added after legacy v0.11.49"
+		reason := "capability added after legacy v0.12.2"
 		if generated != nil {
 			if _, present := generated[field.Path]; !present {
 				classification = "source_only_not_generated"
@@ -226,11 +252,6 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 
 func classifyLegacyField(field LegacyField, current map[string]CurrentField, conflicts map[string][]string, generated map[string]openapi.TerraformAttribute) MatrixEntry {
 	entry := MatrixEntry{LegacyPath: field.Path, Legacy: legacySemantics(field)}
-	if field.Deprecated || hasPathPrefix(field.Path, "log_receiver") || hasPathPrefix(field.Path, "private_adn") || hasPathPrefix(field.Path, "rseries") {
-		entry.Classification = "deprecated_exclusion"
-		entry.Reason = "legacy field is deprecated and intentionally not restored"
-		return entry
-	}
 
 	target, reason, classification := mappedCurrentPath(field.Path)
 	if target == "" {
@@ -242,6 +263,8 @@ func classifyLegacyField(field LegacyField, current map[string]CurrentField, con
 		_, generatedFieldPresent := generated[target]
 		if generated != nil && !generatedFieldPresent {
 			entry.Classification = "generator_gap"
+			entry.OwningRepository = "f5-sales-demo/terraform-provider-xcsh"
+			entry.RequiredTests = []string{"generated schema", "request serialization", "response handling", "resource lifecycle"}
 			entry.Reason = "legacy capability exists in the current API but is absent from the generated Terraform schema"
 		} else if classification != "" {
 			entry.Classification = classification
@@ -260,21 +283,7 @@ func classifyLegacyField(field LegacyField, current map[string]CurrentField, con
 		entry.Reason = reason
 		return entry
 	}
-	if strings.HasPrefix(field.Path, "aws.managed") {
-		entry.Classification = "modernized_semantics"
-		entry.Reason = "provider-managed AWS lifecycle is represented by xcsh_aws_vpc_site"
-		return entry
-	}
-	if strings.HasPrefix(field.Path, "azure.managed") {
-		entry.Classification = "modernized_semantics"
-		entry.Reason = "provider-managed Azure lifecycle is represented by xcsh_azure_vnet_site"
-		return entry
-	}
-	if strings.HasPrefix(field.Path, "gcp.managed") {
-		entry.Classification = "modernized_semantics"
-		entry.Reason = "provider-managed GCP lifecycle is represented by xcsh_gcp_vpc_site"
-		return entry
-	}
+
 	return entry
 }
 
@@ -301,9 +310,7 @@ func mappedCurrentPath(path string) (string, string, string) {
 			return apiPath(current), "address-family-specific field is represented by the current IP-address field", "modernized_semantics"
 		}
 	}
-	if path == "segment_vrf[].segment_config.nameserver_v6" || path == "segment_vrf[].segment_config.secondary_nameserver_v6" {
-		return "", "controlled current-platform probe accepted but stripped the field; the release evidence records the removal", "current_platform_removal"
-	}
+
 	return "", "", ""
 }
 
@@ -439,8 +446,4 @@ func apiPath(terraform string) string {
 
 func terraformPath(api string) string {
 	return strings.TrimPrefix(strings.TrimPrefix(api, "metadata."), "spec.")
-}
-
-func hasPathPrefix(path, prefix string) bool {
-	return path == prefix || strings.HasPrefix(path, prefix+".") || strings.HasPrefix(path, prefix+"[]")
 }

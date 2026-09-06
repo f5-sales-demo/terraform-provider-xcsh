@@ -28,12 +28,10 @@ func TestValidateSecuremeshSiteV2AWSContract(t *testing.T) {
 			},
 		},
 		{
-			name: "requires nodes",
+			name: "requires node management selector",
 			data: SecuremeshSiteV2ResourceModel{
 				Namespace: types.StringValue("system"),
-				AWS: &SecuremeshSiteV2AWSModel{
-					NotManaged: &SecuremeshSiteV2AWSNotManagedModel{NodeList: types.ListNull(types.StringType)},
-				},
+				AWS:       &SecuremeshSiteV2AWSModel{},
 			},
 		},
 	}
@@ -202,4 +200,20 @@ func gotSummary(diagnostics diag.Diagnostics) string {
 		summaries = append(summaries, diagnostic.Summary())
 	}
 	return strings.Join(summaries, "; ")
+}
+
+func TestValidateSecuremeshSiteV2AWSDiscovery(t *testing.T) {
+	for _, nodes := range []types.List{
+		types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes}),
+		types.ListValueMust(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes}, nil),
+	} {
+		data := SecuremeshSiteV2ResourceModel{Namespace: types.StringValue("system"), AWS: &SecuremeshSiteV2AWSModel{
+			NotManaged: &SecuremeshSiteV2AWSNotManagedModel{NodeList: nodes},
+		}}
+		var response resource.ValidateConfigResponse
+		validateSecuremeshSiteV2AWSContract(context.Background(), data, &response)
+		if response.Diagnostics.HasError() {
+			t.Fatalf("discovery configuration rejected: %v", response.Diagnostics)
+		}
+	}
 }

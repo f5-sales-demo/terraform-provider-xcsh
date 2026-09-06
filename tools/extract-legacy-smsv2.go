@@ -2,7 +2,7 @@
 
 //go:build ignore
 
-// Command extract-legacy-smsv2 converts the generated v0.11.49 SDK resource
+// Command extract-legacy-smsv2 converts the generated v0.12.2 SDK resource
 // schema into a compact, reviewable path manifest. The upstream Go source is
 // an input rather than a vendored dependency; the recorded SHA-256 makes any
 // source substitution fail closed.
@@ -20,17 +20,22 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/parity"
 )
 
-const legacySourceURL = "https://github.com/volterraedge/terraform-provider-volterra/blob/v0.11.49/volterra/resource_auto_volterra_securemesh_site_v2.go"
+const legacySourceSHA256 = "521cab3e85928669b461fc2ccb541c324c6d0518607d9f54e1c70df446202aea"
+
+const legacySourceURL = "https://github.com/volterraedge/terraform-provider-volterra/blob/22f029dbf14412c99502fe1daba829f7c3261017/volterra/resource_auto_volterra_securemesh_site_v2.go"
 
 type legacyManifest struct {
-	Version      string        `json:"version"`
-	Resource     string        `json:"resource"`
-	SourceURL    string        `json:"source_url"`
-	SourceSHA256 string        `json:"source_sha256"`
-	PathCount    int           `json:"path_count"`
-	Paths        []legacyField `json:"paths"`
+	Version               string        `json:"version"`
+	Resource              string        `json:"resource"`
+	SourceURL             string        `json:"source_url"`
+	SourceSHA256          string        `json:"source_sha256"`
+	InstalledSchemaSHA256 string        `json:"installed_schema_sha256"`
+	PathCount             int           `json:"path_count"`
+	Paths                 []legacyField `json:"paths"`
 }
 
 type legacyField struct {
@@ -48,12 +53,16 @@ type legacyField struct {
 }
 
 func main() {
-	if len(os.Args) != 3 {
-		fatalf("usage: go run tools/extract-legacy-smsv2.go UPSTREAM_GO OUTPUT_JSON")
+	if len(os.Args) != 4 {
+		fatalf("usage: go run tools/extract-legacy-smsv2.go UPSTREAM_GO INSTALLED_SCHEMA_JSON OUTPUT_JSON")
 	}
 	source, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		fatalf("read source: %v", err)
+	}
+	digest := sha256.Sum256(source)
+	if hex.EncodeToString(digest[:]) != legacySourceSHA256 {
+		fatalf("legacy source does not match pinned Volterra 0.12.2 revision")
 	}
 	parsed, err := parser.ParseFile(token.NewFileSet(), os.Args[1], source, 0)
 	if err != nil {
@@ -68,21 +77,49 @@ func main() {
 		fatalf("parse legacy schema: %v", err)
 	}
 	sort.Slice(paths, func(i, j int) bool { return paths[i].Path < paths[j].Path })
-	digest := sha256.Sum256(source)
+	installed, err := os.ReadFile(os.Args[2])
+	if err != nil {
+		fatalf("read installed schema: %v", err)
+	}
+	installedPaths, err := parity.InstalledPaths(installed, "registry.terraform.io/volterraedge/volterra", "volterra_securemesh_site_v2")
+	if err != nil {
+		fatalf("extract installed schema: %v", err)
+	}
+	remaining := map[string]bool{}
+	for _, path := range installedPaths {
+		remaining[path] = true
+	}
+	// The SDK injects the resource ID; it is not an upstream configurable field.
+	if !remaining["id"] {
+		fatalf("installed SDK schema is missing resource ID")
+	}
+	delete(remaining, "id")
+	for _, field := range paths {
+		if !remaining[field.Path] {
+			fatalf("source path absent from installed schema: %s", field.Path)
+		}
+		delete(remaining, field.Path)
+	}
+	if len(remaining) != 0 {
+		fatalf("installed schema has %d paths absent from source", len(remaining))
+	}
+	installedDigest := sha256.Sum256(installed)
+
 	document := legacyManifest{
-		Version:      "0.11.49",
-		Resource:     "volterra_securemesh_site_v2",
-		SourceURL:    legacySourceURL,
-		SourceSHA256: "sha256:" + hex.EncodeToString(digest[:]),
-		PathCount:    len(paths),
-		Paths:        paths,
+		Version:               "0.12.2",
+		Resource:              "volterra_securemesh_site_v2",
+		SourceURL:             legacySourceURL,
+		SourceSHA256:          "sha256:" + hex.EncodeToString(digest[:]),
+		InstalledSchemaSHA256: "sha256:" + hex.EncodeToString(installedDigest[:]),
+		PathCount:             len(paths),
+		Paths:                 paths,
 	}
 	encoded, err := json.MarshalIndent(document, "", "  ")
 	if err != nil {
 		fatalf("encode manifest: %v", err)
 	}
 	encoded = append(encoded, '\n')
-	if err := os.WriteFile(os.Args[2], encoded, 0o644); err != nil {
+	if err := os.WriteFile(os.Args[3], encoded, 0o644); err != nil {
 		fatalf("write manifest: %v", err)
 	}
 }

@@ -27,21 +27,16 @@ func main() {
 	if err != nil {
 		fail(err)
 	}
-	matrix, err := parity.BuildSMSv2Matrix(legacy, current)
-	if err != nil {
-		if matrix != nil {
-			for _, path := range matrix.Unclassified {
-				fmt.Fprintf(os.Stderr, "unclassified: %s\n", path)
-			}
-		}
-		fail(err)
-	}
+	matrix, parityError := parity.BuildSMSv2Matrix(legacy, current)
 	data, err := json.MarshalIndent(matrix, "", "  ")
 	if err != nil {
 		fail(err)
 	}
 	if err := os.WriteFile(os.Args[3], append(data, '\n'), 0o644); err != nil {
 		fail(err)
+	}
+	if parityError != nil {
+		fail(parityError)
 	}
 }
 

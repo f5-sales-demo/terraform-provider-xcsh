@@ -331,6 +331,11 @@ func routePrefixesForNode(prefixes map[string]map[string]struct{}, configuredNod
 	return matches[0], nil
 }
 
+func sameSMSv2PeerAddress(left, right string) bool {
+	a, b := net.ParseIP(strings.TrimSpace(left)), net.ParseIP(strings.TrimSpace(right))
+	return a != nil && b != nil && a.Equal(b)
+}
+
 func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []smsv2ConfiguredInterface, peers []observedBGPPeer, bgpRoutes, sloRoutes, sliRoutes client.SMSv2Observation) (map[string]smsv2PeerStatusModel, bool, string) {
 	if len(expected) == 0 {
 		return nil, false, "expected_peers must not be empty"
@@ -380,7 +385,7 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 			// API v6 defines BGP observation identity as node plus peer address.
 			// interface_name is retained as observed status, but it is not the
 			// SMSv2 network-interface object name and must not be used as identity.
-			if smsv2NodeMatches(iface.Node, peer.Node) && peer.PeerAddress == want.PeerAddress.ValueString() {
+			if smsv2NodeMatches(iface.Node, peer.Node) && sameSMSv2PeerAddress(peer.PeerAddress, want.PeerAddress.ValueString()) {
 				matches = append(matches, peer)
 			}
 		}
@@ -459,7 +464,7 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	seenMAC := map[string]string{}
+	seenSessions := map[string]string{}
 	for key, peer := range expected {
 		if peer.Node.IsUnknown() || peer.Role.IsUnknown() || peer.MAC.IsUnknown() ||
 			peer.PeerAddress.IsUnknown() || peer.ExpectedRoutes.IsUnknown() {
@@ -484,12 +489,22 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 			resp.Diagnostics.AddError("Invalid BGP Peer Identity", fmt.Sprintf("peer %q: %v", key, err))
 			return
 		}
-		identity := node + "\x00" + mac
-		if old, exists := seenMAC[identity]; exists {
-			resp.Diagnostics.AddError("Duplicate BGP Peer MAC", fmt.Sprintf("peers %q and %q use MAC %s within node %q", old, key, mac, node))
+		address := net.ParseIP(strings.TrimSpace(peer.PeerAddress.ValueString()))
+		if address == nil {
+			resp.Diagnostics.AddError("Invalid BGP Peer Identity", fmt.Sprintf("peer %q has an invalid remote IP address", key))
 			return
 		}
-		seenMAC[identity] = key
+		// The endpoint is scoped to this site. MAC identifies the transport
+		// interface, which can carry multiple sessions. Until the API exposes
+		// a routing-context discriminator, duplicate node/address observations
+		// are ambiguous and must fail closed, even across different MACs.
+		identity := node + "\x00" + address.String()
+		if old, exists := seenSessions[identity]; exists {
+			resp.Diagnostics.AddError("Duplicate BGP Session", fmt.Sprintf("peers %q and %q identify the same session within this site", old, key))
+			return
+		}
+		seenSessions[identity] = key
+		peer.PeerAddress = types.StringValue(address.String())
 		peer.Node = types.StringValue(node)
 		peer.Role = types.StringValue(role)
 		peer.MAC = types.StringValue(mac)

@@ -231,3 +231,98 @@ func TestSiteBGPStatusPollingBoundsAndCancellation(t *testing.T) {
 		}
 	})
 }
+
+func TestSiteBGPStatusSessionIdentity(t *testing.T) {
+	withSMSv2Capabilities(t, map[string]string{"runtime_status": "available", "tgw_connect": "available"})
+	for _, tc := range []struct {
+		name, address, mac string
+		duplicate          bool
+	}{
+		{"two sessions on one interface", "169.254.10.2", "02:aa:bb:cc:dd:01", false},
+		{"duplicate session", "169.254.10.1", "02:aa:bb:cc:dd:01", true},
+		{"duplicate session with different MAC", "169.254.10.1", "02:aa:bb:cc:dd:02", true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			ctx := context.Background()
+			expected := bgpExpectedPeers(t)
+			values := map[string]smsv2ExpectedPeerModel{}
+			if diags := expected.ElementsAs(ctx, &values, false); diags.HasError() {
+				t.Fatal(diags)
+			}
+			second := values["outside"]
+			second.PeerAddress = types.StringValue(tc.address)
+			second.MAC = types.StringValue(tc.mac)
+			values["second"] = second
+			expected, diags := types.MapValueFrom(ctx, expected.ElementType(ctx), values)
+			if diags.HasError() {
+				t.Fatal(diags)
+			}
+			requests := 0
+			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				requests++
+				var payload interface{}
+				switch r.URL.Path {
+				case "/api/config/namespaces/system/securemesh_site_v2s/lab-site":
+					payload = runtimeConfiguration()
+				case "/api/operate/namespaces/system/sites/lab-site/ver/bgp_peers":
+					payload = map[string]interface{}{"ver": []interface{}{map[string]interface{}{
+						"name": "master-0.example.internal", "peer": []interface{}{
+							map[string]interface{}{"peer_address": "169.254.10.1", "protocol_status": "Established"},
+							map[string]interface{}{"peer_address": "169.254.10.2", "protocol_status": "Established"},
+						},
+					}}}
+				case "/api/operate/namespaces/system/sites/lab-site/ver/bgp_routes":
+					payload = bgpRoutesFixture()
+				case "/api/operate/namespaces/system/sites/lab-site/ver/simplified_routes":
+					payload = simplifiedRoutesFixture()
+				default:
+					t.Errorf("unexpected path %s", r.URL.Path)
+					http.NotFound(w, r)
+					return
+				}
+				if err := json.NewEncoder(w).Encode(payload); err != nil {
+					t.Error(err)
+				}
+			}))
+			defer server.Close()
+			source := &SiteBGPStatusDataSource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
+			schemaResponse := &datasource.SchemaResponse{}
+			source.Schema(ctx, datasource.SchemaRequest{}, schemaResponse)
+			response := datasource.ReadResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
+			source.Read(ctx, bgpReadRequest(t, schemaResponse, expected, 1, 1), &response)
+			if tc.duplicate {
+				if !response.Diagnostics.HasError() || !strings.Contains(fmt.Sprint(response.Diagnostics), "Duplicate BGP Session") || requests != 0 {
+					t.Fatalf("duplicate must fail before HTTP: requests=%d diagnostics=%v", requests, response.Diagnostics)
+				}
+				return
+			}
+			if response.Diagnostics.HasError() {
+				t.Fatal(response.Diagnostics)
+			}
+			var result SiteBGPStatusDataSourceModel
+			if diags := response.State.Get(ctx, &result); diags.HasError() {
+				t.Fatal(diags)
+			}
+			if !result.Converged.ValueBool() || len(result.Peers.Elements()) != 2 {
+				t.Fatalf("expected two converged sessions: %#v", result)
+			}
+		})
+	}
+}
+
+func TestSMSv2PeerAddressIdentity(t *testing.T) {
+	for _, tc := range []struct {
+		left, right string
+		equal       bool
+	}{
+		{"2001:0db8:0:0:0:0:0:1", "2001:db8::1", true},
+		{"192.0.2.1", "::ffff:192.0.2.1", true},
+		{"192.0.2.1", "192.0.2.2", false},
+		{"", "", false},
+		{"invalid", "invalid", false},
+	} {
+		if got := sameSMSv2PeerAddress(tc.left, tc.right); got != tc.equal {
+			t.Errorf("address identity (%q, %q) = %t", tc.left, tc.right, got)
+		}
+	}
+}
