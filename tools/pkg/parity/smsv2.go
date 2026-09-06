@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -470,6 +471,13 @@ func terraformPath(api string) string {
 	return strings.TrimPrefix(strings.TrimPrefix(api, "metadata."), "spec.")
 }
 
+var platformRemovalRoot = regexp.MustCompile(`^spec\.([a-z][a-z0-9_]*)$`)
+
+func explicitPlatformRejection(root, message string) bool {
+	platform := platformRemovalRoot.FindStringSubmatch(root)
+	return len(platform) == 2 && strings.EqualFold(strings.TrimSpace(message), platform[1]+" provider is not supported for SecureMeshSite")
+}
+
 // verifiedRemoval requires scoped evidence; a deprecated annotation or a bare
 // exclusion list cannot establish platform removal.
 func verifiedRemoval(path string, current *CurrentManifest) *RemovalEvidence {
@@ -478,7 +486,7 @@ func verifiedRemoval(path string, current *CurrentManifest) *RemovalEvidence {
 			continue
 		}
 		proof, ok := current.PlatformRemovalEvidence[root]
-		if !ok || proof.ProofKind != "explicit_api_rejection" || proof.ServerMessage == "" || proof.ObservedDate == "" || !validSHA256(proof.LegacyFixtureSHA256) || !validSHA256(proof.ProbeReceiptSHA256) {
+		if !ok || proof.ProofKind != "explicit_api_rejection" || !explicitPlatformRejection(root, proof.ServerMessage) || proof.ObservedDate == "" || !validSHA256(proof.LegacyFixtureSHA256) || !validSHA256(proof.ProbeReceiptSHA256) {
 			continue
 		}
 		if proof.HTTPStatus != 400 && proof.HTTPStatus != 410 && proof.HTTPStatus != 422 {

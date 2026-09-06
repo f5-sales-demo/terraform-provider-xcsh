@@ -173,3 +173,22 @@ func TestVerifiedPlatformRemovalIsScopedAndRetainsEvidence(t *testing.T) {
 		t.Fatal("unsupported removal must remain unresolved")
 	}
 }
+
+func TestPlatformRemovalRejectsUnrelatedAPIRejections(t *testing.T) {
+	for _, message := range []string{
+		"A subscription to addon f5xc-ipv6-standard is required",
+		"Invalid interface configuration",
+		"Aws provider is not supported for SecureMeshSite",
+	} {
+		t.Run(message, func(t *testing.T) {
+			current := &CurrentManifest{CurrentPlatformRemovals: []string{"spec.rseries"}, PlatformRemovalEvidence: map[string]RemovalEvidence{"spec.rseries": {
+				ProofKind: "explicit_api_rejection", HTTPStatus: 400, ServerMessage: message, ObservedDate: "2026-09-06", LegacyFixtureSHA256: "sha256:" + strings.Repeat("a", 64), ProbeReceiptSHA256: "sha256:" + strings.Repeat("b", 64),
+			}}}
+			legacy := &LegacyManifest{Paths: []LegacyField{{Path: "rseries"}}}
+			matrix, err := BuildSMSv2Matrix(legacy, current)
+			if err == nil || len(matrix.Unclassified) != 1 || matrix.Classification["current_platform_removal"] != 0 {
+				t.Fatalf("unrelated rejection incorrectly waived parity: %+v err=%v", matrix, err)
+			}
+		})
+	}
+}

@@ -203,6 +203,34 @@ def capture(binary: Path, platform: str, scenario: str = "discovery") -> dict[st
                         ],
                     }
                 ]
+            elif scenario == "dhcpv6-server":
+                interface.pop("no_ipv6_address")
+                interface["dhcp_client"] = True
+                interface["ipv6_auto_config"] = [
+                    {
+                        "router": [
+                            {
+                                "stateful": [
+                                    {
+                                        "dhcp_networks": [
+                                            {
+                                                "network_prefix": "2001:db8:1::/64",
+                                                "pool_settings": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+                                                "pools": [
+                                                    {
+                                                        "start_ip": "2001:db8:1::20",
+                                                        "end_ip": "2001:db8:1::30",
+                                                        "exclude": True,
+                                                    }
+                                                ],
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             else:
                 message = f"unknown scenario: {scenario}"
                 raise ValueError(message)
@@ -281,7 +309,7 @@ def main() -> None:
     parser.add_argument("--platform", choices=PLATFORMS, required=True)
     parser.add_argument(
         "--scenario",
-        choices=("discovery", "static-dns", "dhcp-server"),
+        choices=("discovery", "static-dns", "dhcp-server", "dhcpv6-server"),
         default="discovery",
     )
     parser.add_argument("--output", type=Path, required=True)
