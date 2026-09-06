@@ -87,7 +87,9 @@ expects twelve sessions. Its status output replaces `peer_count` with
 `connect_peer_count` and `bgp_session_count`. AWS documents dual-session redundancy
 and requires eBGP multihop TTL 2 in its
 [Connect contract](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
-XC's realized multihop behavior has not been established.
+The first recovered session reports an external-neighbor hop limit of 255.
+It establishes, but that observation does not prove the documented TTL 2 contract;
+packet-level evidence and a supported configuration path remain outstanding.
 
 ## Live findings and release boundary
 
@@ -101,15 +103,30 @@ returned successfully with no substantive output. Its forwarding table correlate
 the SLO MAC with physical `ens5`; the configured SLI MAC was absent. AWS still
 reported both matching ENIs attached. The same instance's console boot output
 independently correlated those MACs with `ens5` and `ens6`.
-This is a testable device-discovery hypothesis,
-not an established cause. No device name was guessed or applied to the lab.
+A reviewed saved Terraform plan then changed only the first CE SLI device from
+`eth1` to the MAC-verified `ens6`, in place, using the locally built provider
+candidate. Site UID was preserved, API read-back matched, and the SLI MAC appeared
+as a physical user-visible forwarding interface. BGP observations remained empty.
+This confirms an interface-selection defect without establishing the complete
+BGP failure cause. The regenerated physical object has a new name; the existing
+SLI connector initially referenced the removed old object. A second reviewed
+saved plan updated only that binding and its recorded runtime observation. The
+first SLI BGP session then established, independently confirmed by node neighbor
+output and XC telemetry. A third reviewed plan added only the second AWS endpoint
+on that tunnel. Both sessions established; the first remained up while the second
+was added. Both reported zero accepted prefixes. The other tunnels, routes and
+traffic remain unverified. Separate AWS boot-console reads correlated all three
+sites' ENI MACs with guest devices `ens5` and `ens6`; only the first SLI has been
+changed so far.
 See F5's [Site CLI reference](https://docs.cloud.f5.com/docs-v2/multi-cloud-network-connect/reference/ea-sitecli-ref).
 
 The reference deployment's live status remains unverified; its checkout is pinned
 to `15897bb91e06ef5ed5b6057c1ee73159f59a0af7`.
 
-The existing MCN sites were inspected read-only. The isolated JWT test objects
-were created and deleted; no AWS deployment was changed. Existing v7.4.1 remains
+The first existing MCN site received the single SLI device update described above;
+its remote Terraform state was refreshed by apply. The other two sites were
+inspected read-only. The isolated JWT test objects were created and deleted; no
+AWS resources were changed or replaced. Existing v7.4.1 remains
 unchanged, and no PR or release has been published. The full generation command remains blocked: the pinned v6.1.1 manifest has
 584 unresolved paths, while the corrected local enrichment manifest has 579.
 The governed publication hold is not yet installed; substantive merges remain pending because the current release
