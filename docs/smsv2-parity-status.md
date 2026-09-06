@@ -114,8 +114,13 @@ saved plan updated only that binding and its recorded runtime observation. The
 first SLI BGP session then established, independently confirmed by node neighbor
 output and XC telemetry. A third reviewed plan added only the second AWS endpoint
 on that tunnel. Both sessions established; the first remained up while the second
-was added. Both reported zero accepted prefixes. The other tunnels, routes and
-traffic remain unverified. Separate AWS boot-console reads correlated all three
+was added. Both initially reported zero accepted prefixes. AWS lacked Connect route-table
+associations and propagation. Separate reviewed plans enabled those settings for
+the SLI attachment. Both sessions then accepted the workload prefix, AWS reported
+both sessions up, and the local provider confirmed both same-MAC sessions and
+workload route agreement. HTTP to the VIP still timed out: the virtual site
+selected zero CEs and the expected VIP route was absent. MCN placement is being
+repaired with explicit site labels. The other tunnels and traffic remain unverified. Separate AWS boot-console reads correlated all three
 sites' ENI MACs with guest devices `ens5` and `ens6`; only the first SLI has been
 changed so far.
 See F5's [Site CLI reference](https://docs.cloud.f5.com/docs-v2/multi-cloud-network-connect/reference/ea-sitecli-ref).
@@ -129,7 +134,10 @@ inspected read-only. The isolated JWT test objects were created and deleted; no
 AWS resources were changed or replaced. Existing v7.4.1 remains
 unchanged, and no PR or release has been published. The full generation command remains blocked: the pinned v6.1.1 manifest has
 584 unresolved paths, while the corrected local enrichment manifest has 579.
-The governed publication hold is not yet installed; substantive merges remain pending because the current release
-workflows publish automatically. Complete parity, live traffic/redundancy/upgrades,
+An operational publication hold is installed and verified in GitHub: provider
+`on-merge.yml`, `release-manual.yml`, `_tag-release.yml` and enrichment
+`sync-and-enrich.yml` are disabled, with no active runs at installation.
+PR checks remain enabled. The final digest-bound governed promotion gate remains
+outstanding; the hold must stay in place until its acceptance conditions are met. Complete parity, live traffic/redundancy/upgrades,
 the second rebuild, refreshed no-change plan, final artifact receipts and direct
 AGY review remain outstanding.
